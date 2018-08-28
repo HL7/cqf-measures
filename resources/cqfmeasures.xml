@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+    <id value="cqfmeasures"/>
+    <url value="http://hl7.org/fhir/us/cqframework/cqfmeasures/ImplementationGuide/cqfmeasures"/>
+    <version value="1.0.0"/>
+    <name value="CQFMeasures"/>
+    <title value="CQF Measures"/>
+    <status value="draft"/>
+    <experimental value="true"/>
+    <publisher value="HL7 International"/>
+    <date value="2018-08-28"/>
+    <description value="Measure content in support of the Clinical Reasoning Track at the Baltimore 2018 FHIR Connectathon"/>
+    <package>
+        <name value="MeasureContent"/>
+        <resource>
+            <name value="Library - Example"/>
+            <description value="Example Library"/>
+            <sourceReference>
+                <reference value="Library/library-exm-logic"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - Example"/>
+            <description value="Example Measure"/>
+            <sourceReference>
+                <reference value="Measure/measure-exm"/>
+            </sourceReference>
+        </resource>
+    </package>
+    <binary value="cql/exm-logic.cql"/>
+    <binary value="elm/exm-logic.xml"/>
+    <page>
+        <source value="index.html"/>
+        <title value="CQF Measure Content"/>
+        <kind value="page"/>
+        <format value="html"/>
+    </page>
+</ImplementationGuide>

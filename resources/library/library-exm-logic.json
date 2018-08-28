@@ -1,0 +1,25 @@
+{
+  "resourceType": "Library",
+  "id": "library-exm-logic",
+  "version": "1.0.0",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "code": "logic-library"
+      }
+    ]
+  },
+  "dataRequirement": [
+    {
+      "type": "Encounter",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSetString": "Inpatient"
+        }
+      ]
+    }
+  ]
+}

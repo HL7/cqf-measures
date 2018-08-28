@@ -1,0 +1,86 @@
+{
+  "tool": "jekyll",
+  "broken-links": "warning",
+  "npm-name": "us-cqfmeasures",
+  "jurisdiction": "US",
+  "no-inactive-codes": "false",
+  "paths": {
+    "resources": [
+      "resources"
+    ],
+    "pages": ["pages"],
+    "temp": "temp",
+    "output": "output",
+    "qa": "qa",
+    "specification": "http://hl7.org/fhir/STU3",
+    "txCache": "txCache"
+  },
+  "version": "3.0.1",
+  "license": "CC0-1.0",
+  "logging": ["init", "progress", "context", "html", "tx"],
+  "dependencyList": [
+    {
+      "name": "qicore",
+      "location": "http://hl7.org/fhir/us/qicore",
+      "version": "3.1.0"
+    }
+  ],
+  "defaults": {
+    "Any": {
+      "template-format": "instance-template-format.html",
+      "template-base": "instance-template-base.html"
+    },
+    "Claim": {
+      "template-format": "instance-template-example.html"
+    },
+    "Condition": {
+      "template-format": "instance-template-example.html"
+    },
+    "Coverage": {
+      "template-format": "instance-template-example.html"
+    },
+    "DiagnosticReport": {
+      "template-format": "instance-template-example.html"
+    },
+    "Encounter": {
+      "template-format": "instance-template-example.html"
+    },
+    "MedicationDispense": {
+      "template-format": "instance-template-example.html"
+    },
+    "MedicationRequest": {
+      "template-format": "instance-template-example.html"
+    },
+    "Observation": {
+      "template-format": "instance-template-example.html"
+    },
+    "Organization": {
+      "template-format": "instance-template-example.html"
+    },
+    "Patient": {
+      "template-format": "instance-template-example.html"
+    },
+    "Procedure": {
+      "template-format": "instance-template-example.html"
+    },
+    "StructureDefinition": {
+      "template-base": "instance-template-sd.html",
+      "template-mappings":"instance-template-sd-mappings.html",
+      "template-defns":"instance-template-sd-definitions.html"
+    }
+  },
+  "sct-edition": "http://snomed.info/sct/731000124108",
+  "extraTemplates": [
+    "mappings"
+  ],
+  "canonicalBase": "http://hl7.org/fhir/us/cqf-measures",
+  "source": "cqfmeasures.xml",
+  "resources": {
+    "Library/library-exm-logic": {
+      "base": "Library-library-exm-logic.html"
+    },
+    "Measure/measure-exm": {
+      "base": "Measure-measure-exm.html"
+    },
+  }
+}
