@@ -1,0 +1,318 @@
+{
+  "resourceType": "StructureMap",
+  "id": "Encounter-Performed-to-Encounter",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nmap &quot;http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter&quot; = Encounter-Performed-to-Encounter\n\nuses &quot;http://hl7.org/fhir/StructureDefinition/QDM/encounter_performed&quot; as source //source QDM? //to-do IG\nuses &quot;http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter&quot; as target //target QI-Core? don't think this is right \n\ngroup Encounter-Performed-to-Encounter //doesn't have to be the same label?\n  input &quot;source&quot; : TLeft as source\n  input &quot;target&quot; : TRight as target\n\n// rules go here\n&quot;relevantPeriod-to-period&quot; : for source.&quot;relevantPeriod&quot; as a make target.period = a \n&quot;admissionSource-to-hospitalization.admitSource&quot; : for source.admissionSource as a make target.hospitalization.admitSource = a\n&quot;diagnosis-to-diagnosis&quot; : for source.diagnosis as a make target.diagnosis = a\n&quot;dischargeDisposition-to-hospitalization.dischargeDisposition&quot; : for source.dischargeDisposition as a make target.hospitilization.dischargeDisposition = a\n&quot;lengthOfStay-to-length&quot; : for source.lengthOfStay as a make target.length = a\n&quot;negationRationale-to-extension&quot; : for source.negationRationale as a make target.extension = a //ONLY to an encounter that was not cancelled\n//Principal Diagnosis - not sure about this one\n&quot;principalDiagnosis-to-diagnosis.role&quot; : source.principalDiagnosis as a make target.diagnosis.role = a //IF target.diagnosis.rank = 1\n&quot;principalDiagnosisRank-to-diagnosis.rank&quot; : source as a make target.diagnosis.rank = 1\n&quot;authorDateTime-to-FHIR.provenance.recorded&quot; : for source.authorDateTime as a make target.FHIR.provenance.recorded = a //not sure about this either. additional logic, plus FHIR object/parent?\n&quot;code-to-class&quot; : for source.code as a make target.class = a\n&quot;facilityLocations-to-location&quot; : for source.facilityLocations as a make target.location = a\n&quot;facilityLocationsCode-to-type&quot; : for source.facilityLocationsCode as a make target.type = a\n&quot;facilityLocationsLocationPeriod-to-period&quot; : for source.facilityLocationsLocationPeriod as a make target.period = a\n&quot;id-to-id&quot; : for source.id as a make target.id = a\n\n\nendgroup</div>" //not sure about this also
+  },
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter",
+  "name": "Encounter-Performed-to-Encounter",
+  "title": "QDM Encounter, Performed to QICore Encounter",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/encounter_performed",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "Encounter-Performed-to-Encounter",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+        {
+          "name": "relevantPeriod-to-period",
+          "source": [
+            {
+              "context": "source",
+              "element": "relevantPeriod",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "period",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "admissionSource-to-hospitalization.admitSource",
+          "source": [
+            {
+              "context": "source",
+              "element": "admissionSource",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "hospitalization.admitSource",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "diagnosis-to-diagnosis",
+          "source": [
+            {
+              "context": "source",
+              "element": "diagnosis",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "diagnosis",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "dischargeDisposition-to-hospitalization.dischargeDisposition",
+          "source": [
+            {
+              "context": "source",
+              "element": "dischargeDisposition",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "hospitilization.dischargeDisposition",
+              "transform": "copy"
+            }
+          ]
+        },		
+        {
+          "name": "lengthOfStay-to-length",
+          "source": [
+            {
+              "context": "source",
+              "element": "lengthOfStay",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "length",
+              "transform": "copy"
+            }
+          ]
+        }, 
+        {
+          "name": "negationRationale-to-extension",
+          "source": [
+            {
+              "context": "source",
+              "element": "negationRationale",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "extension",
+              "transform": "copy" 
+            }
+          ]
+        },	
+        {
+          "name": "principalDiagnosis-to-diagnosis.role",
+          "source": [
+            {
+              "context": "source",
+              "element": "principalDiagnosis",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "diagnosis.role",
+              "transform": "copy" 
+            }
+          ]
+        },
+		{
+          "name": "principalDiagnosisRank-to-diagnosis.rank",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "diagnosis.rank",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueInteger": 1
+                }
+              ]
+            }
+          ]
+        },	
+        {
+          "name": "authorDateTime-to-FHIR.provenance.recorded",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "FHIR.provenance.recorded",
+              "transform": "copy"  
+            }
+          ]
+        },	
+        {
+          "name": "code-to-class",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "class",
+              "transform": "copy"  
+            }
+          ]
+        },
+        {
+          "name": "facilityLocations-to-location",
+          "source": [
+            {
+              "context": "source",
+              "element": "facilityLocations",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "location",
+              "transform": "copy"  
+            }
+          ]
+        },	
+        {
+          "name": "facilityLocationsCode-to-type",
+          "source": [
+            {
+              "context": "source",
+              "element": "facilityLocationsCode",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "type",
+              "transform": "copy"  
+            }
+          ]
+        },		
+        {
+          "name": "facilityLocationsLocationPeriod-to-period",
+          "source": [
+            {
+              "context": "source",
+              "element": "facilityLocationsLocationPeriod",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "period",
+              "transform": "copy"  
+            }
+          ]
+        },	
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"  
+            }
+          ]
+        },
+		{
+          "name": "status",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "status",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "finished"
+                }
+              ]
+            }
+          ]
+        }		
+     ]
+    }
+  ]
+}
