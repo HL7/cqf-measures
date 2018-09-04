@@ -1,27 +1,27 @@
 {
   "resourceType": "StructureMap",
-  "id": "encounter-order-to-referralrequest",
+  "id": "adverseevent-to-adverseevent",
   "text": {
     "status": "generated",
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
   },
-  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/encounter-order-to-referralrequest",
-  "name": "encounter-order-to-referralrequest",
-  "title": "QDM Encounter, Order to QICore Referral Request",
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/adverseevent-to-adverseevent",
+  "name": "adverseevent-to-adverseevent",
+  "title": "QDM Adverse Event to QICore Adverse Event",
   "status": "draft",
   "structure": [
     {
-      "url": "http://hl7.org/fhir/StructureDefinition/QDM/encounter_order",  
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/adverse_event",  
       "mode": "source"
     },
     {
-      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-referralrequest", 
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-adverseevent", 
       "mode": "target"
     }
   ],
   "group": [
     {
-      "name": "encounter-order-to-referralrequest",
+      "name": "adverseevent-to-adverseevent",
       "typeMode": "none",
       "input": [
         {
@@ -35,11 +35,11 @@
       ],
       "rule": [
         {
-          "name": "facilityLocation-to-context",
+          "name": "relevantPeriod-to-date",
           "source": [
             {
               "context": "source",
-              "element": "facilityLocation",
+              "element": "relevantPeriod",
               "variable": "a"
             }
           ],
@@ -47,67 +47,13 @@
             {
               "context": "target",
               "contextType": "variable",
-              "element": "context",
+              "element": "date",
               "transform": "copy"
             }
           ]
         },
         {
-          "name": "negationRationale-to-ProcedureRequest.extension",
-          "source": [
-            {
-              "context": "source",
-              "element": "negationRationale",
-              "variable": "a"
-            }
-          ],
-          "target": [
-            {
-              "context": "target",
-              "contextType": "variable",
-              "element": "ProcedureRequest.extension",
-              "transform": "copy"
-            }
-          ]
-        },
-        {
-          "name": "reason-to-reasonCode",
-          "source": [
-            {
-              "context": "source",
-              "element": "reason",
-              "variable": "a"
-            }
-          ],
-          "target": [
-            {
-              "context": "target",
-              "contextType": "variable",
-              "element": "reasonCode",
-              "transform": "copy"
-            }
-          ]
-        },
-        {
-          "name": "authorDateTime-to-AuthoredOn",
-          "source": [
-            {
-              "context": "source",
-              "element": "authorDateTime",
-              "variable": "a"
-            }
-          ],
-          "target": [
-            {
-              "context": "target",
-              "contextType": "variable",
-              "element": "AuthoredOn",
-              "transform": "copy"
-            }
-          ]
-        },		
-        {
-          "name": "code-to-type",
+          "name": "code-to-suspectEntity.Instance",
           "source": [
             {
               "context": "source",
@@ -119,11 +65,83 @@
             {
               "context": "target",
               "contextType": "variable",
+              "element": "suspectEntity.Instance",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "type-to-reaction",
+          "source": [
+            {
+              "context": "source",
               "element": "type",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "reaction",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "severity-to-seriousness",
+          "source": [
+            {
+              "context": "source",
+              "element": "severity",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "seriousness",
+              "transform": "copy"
+            }
+          ]
+        },		
+        {
+          "name": "facilityLocations-to-location",
+          "source": [
+            {
+              "context": "source",
+              "element": "facilityLocations",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "location",
               "transform": "copy"
             }
           ]
         }, 
+        {
+          "name": "recorder-to-recorder",
+          "source": [
+            {
+              "context": "source",
+              "element": "recorder",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "recorder",
+              "transform": "copy" 
+            }
+          ]
+        },
         {
           "name": "id-to-id",
           "source": [
@@ -141,47 +159,7 @@
               "transform": "copy" 
             }
           ]
-        },	
-        {
-          "name": "source-to-requester",
-          "source": [
-            {
-              "context": "source",
-              "element": "source",
-              "variable": "a"
-            }
-          ],
-          "target": [
-            {
-              "context": "target",
-              "contextType": "variable",
-              "element": "requester",
-              "transform": "copy" 
-            }
-          ]
-        },
-		{
-          "name": "encounterRecommended-to-intent",
-          "source": [
-            {
-              "context": "source",
-              "variable": "a"
-            }
-          ],
-          "target": [
-            {
-              "context": "target",
-              "contextType": "variable",
-              "element": "intent",
-              "transform": "evaluate",
-              "parameter": [
-                {
-                  "valueString": "order"
-                }
-              ]
-            }
-          ]
-        }	
+        }		
      ]
     }
   ]

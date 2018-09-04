@@ -1,27 +1,27 @@
 {
   "resourceType": "StructureMap",
-  "id": "encounter-order-to-referralrequest",
+  "id": "familyhistory-to-familymemberhistory",
   "text": {
     "status": "generated",
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
   },
-  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/encounter-order-to-referralrequest",
-  "name": "encounter-order-to-referralrequest",
-  "title": "QDM Encounter, Order to QICore Referral Request",
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/familyhistory-to-familymemberhistory",
+  "name": "familyhistory-to-familymemberhistory",
+  "title": "QDM Family History to QICore Family Member History",
   "status": "draft",
   "structure": [
     {
-      "url": "http://hl7.org/fhir/StructureDefinition/QDM/encounter_order",  
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/family_history",  
       "mode": "source"
     },
     {
-      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-referralrequest", 
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-familymemberhistory", 
       "mode": "target"
     }
   ],
   "group": [
     {
-      "name": "encounter-order-to-referralrequest",
+      "name": "familyhistory-to-familymemberhistory",
       "typeMode": "none",
       "input": [
         {
@@ -35,11 +35,11 @@
       ],
       "rule": [
         {
-          "name": "facilityLocation-to-context",
+          "name": "familyHistory-to-status",
           "source": [
             {
               "context": "source",
-              "element": "facilityLocation",
+              "element": "familyHistory",
               "variable": "a"
             }
           ],
@@ -47,49 +47,13 @@
             {
               "context": "target",
               "contextType": "variable",
-              "element": "context",
+              "element": "status",
               "transform": "copy"
             }
           ]
         },
         {
-          "name": "negationRationale-to-ProcedureRequest.extension",
-          "source": [
-            {
-              "context": "source",
-              "element": "negationRationale",
-              "variable": "a"
-            }
-          ],
-          "target": [
-            {
-              "context": "target",
-              "contextType": "variable",
-              "element": "ProcedureRequest.extension",
-              "transform": "copy"
-            }
-          ]
-        },
-        {
-          "name": "reason-to-reasonCode",
-          "source": [
-            {
-              "context": "source",
-              "element": "reason",
-              "variable": "a"
-            }
-          ],
-          "target": [
-            {
-              "context": "target",
-              "contextType": "variable",
-              "element": "reasonCode",
-              "transform": "copy"
-            }
-          ]
-        },
-        {
-          "name": "authorDateTime-to-AuthoredOn",
+          "name": "authorDateTime-to-date",
           "source": [
             {
               "context": "source",
@@ -101,13 +65,31 @@
             {
               "context": "target",
               "contextType": "variable",
-              "element": "AuthoredOn",
+              "element": "date",
               "transform": "copy"
             }
           ]
-        },		
+        },
         {
-          "name": "code-to-type",
+          "name": "relationships-to-relationship",
+          "source": [
+            {
+              "context": "source",
+              "element": "relationships",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "relationship",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "code-to-condition.code",
           "source": [
             {
               "context": "source",
@@ -119,11 +101,11 @@
             {
               "context": "target",
               "contextType": "variable",
-              "element": "type",
+              "element": "condition.code",
               "transform": "copy"
             }
           ]
-        }, 
+        },		
         {
           "name": "id-to-id",
           "source": [
@@ -138,12 +120,12 @@
               "context": "target",
               "contextType": "variable",
               "element": "id",
-              "transform": "copy" 
+              "transform": "copy"
             }
           ]
-        },	
+        }, 
         {
-          "name": "source-to-requester",
+          "name": "source-to-patient",
           "source": [
             {
               "context": "source",
@@ -155,33 +137,11 @@
             {
               "context": "target",
               "contextType": "variable",
-              "element": "requester",
+              "element": "patient",
               "transform": "copy" 
             }
           ]
-        },
-		{
-          "name": "encounterRecommended-to-intent",
-          "source": [
-            {
-              "context": "source",
-              "variable": "a"
-            }
-          ],
-          "target": [
-            {
-              "context": "target",
-              "contextType": "variable",
-              "element": "intent",
-              "transform": "evaluate",
-              "parameter": [
-                {
-                  "valueString": "order"
-                }
-              ]
-            }
-          ]
-        }	
+        }
      ]
     }
   ]

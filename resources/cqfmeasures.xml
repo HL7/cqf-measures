@@ -50,7 +50,23 @@
                 <reference value="StructureMap/encounter-order-to-referralrequest"/>
             </sourceReference>
         </resource>			
-    </package>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap familyhistory-to-familymemberhistory"/>
+            <description value="StructureMap familyhistory-to-familymemberhistory"/>
+            <sourceReference>
+                <reference value="StructureMap/familyhistory-to-familymemberhistory"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap adverseevent-to-adverseevent"/>
+            <description value="StructureMap adverseevent-to-adverseevent"/>
+            <sourceReference>
+                <reference value="StructureMap/adverseevent-to-adverseevent"/>
+            </sourceReference>
+        </resource>
+	</package>
     <binary value="cql/exm-logic.cql"/>
     <binary value="elm/exm-logic.xml"/>
     <page>
