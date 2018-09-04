@@ -33,7 +33,23 @@
             <sourceReference>
                 <reference value="StructureMap/encounter-performed-to-encounter"/>
             </sourceReference>
-        </resource>		
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap encounter-recommended-to-referralrequest"/>
+            <description value="StructureMap encounter-recommended-to-referralrequest"/>
+            <sourceReference>
+                <reference value="StructureMap/encounter-recommended-to-referralrequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap encounter-order-to-referralrequest"/>
+            <description value="StructureMap encounter-order-to-referralrequest"/>
+            <sourceReference>
+                <reference value="StructureMap/encounter-order-to-referralrequest"/>
+            </sourceReference>
+        </resource>			
     </package>
     <binary value="cql/exm-logic.cql"/>
     <binary value="elm/exm-logic.xml"/>
