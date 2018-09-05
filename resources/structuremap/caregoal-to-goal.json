@@ -1,0 +1,166 @@
+{
+  "resourceType": "StructureMap",
+  "id": "caregoal-to-goal",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/caregoal-to-goal",
+  "name": "caregoal-to-goal",
+  "title": "QDM Care Goal to QICore Goal",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/care_goal",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-goal", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "caregoal-to-goal",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+        {
+          "name": "careGoal-to-status",
+          "source": [
+            {
+              "context": "source",
+              "element": "careGoal",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "status",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "code-to-description",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "description",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "relevantPeriod-to-start",
+          "source": [
+            {
+              "context": "source",
+              "element": "relevantPeriod",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "start",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "relatedTo-to-addresses",
+          "source": [
+            {
+              "context": "source",
+              "element": "relatedTo",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "addresses",
+              "transform": "copy"
+            }
+          ]
+        },		
+        {
+          "name": "targetOutcome-to-target.detail",
+          "source": [
+            {
+              "context": "source",
+              "element": "targetOutcome",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "target.detail",
+              "transform": "copy"
+            }
+          ]
+        }, 
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy" 
+            }
+          ]
+        },
+        {
+          "name": "source-to-expressedBy",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "expressedBy",
+              "transform": "copy" 
+            }
+          ]
+        }		
+     ]
+    }
+  ]
+}
