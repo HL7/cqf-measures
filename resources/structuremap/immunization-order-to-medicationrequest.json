@@ -1,0 +1,245 @@
+{
+   "resourceType": "StructureMap",
+  "id": "immunization-order-to-medicationrequest",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/immunization-order-to-medicationrequest",
+  "name": "immunization-order-to-medicationrequest",
+  "title": "QDM Immunization, Order to QICore Medicatio nRequest",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/immunization_ordered",
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest",
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "immunization-order-to-medicationrequest",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+		{
+          "name": "immunizationOrder-to-intent",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "intent",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "order"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "activeDateTime-to-dispenseRequest.validityPeriod",
+          "source": [
+            {
+              "context": "source",
+              "element": "activeDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dispenseRequest.validityPeriod",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "dosage-to-dosageInstruction",
+          "source": [
+            {
+              "context": "source",
+              "element": "dosage",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosageInstruction",
+              "transform": "copy"
+            }
+          ]
+        },
+
+        {
+          "name": "negationRationale-to-medicationStatement.reasonNotTaken",
+          "source": [
+            {
+              "context": "source",
+              "element": "negationRationale",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "MedicationStatement.reasonNotTaken",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "reason-to-reasonCode",
+          "source": [
+            {
+              "context": "source",
+              "element": "reason",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "reasonCode",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "route-to-dosageInstruction.route",
+          "source": [
+            {
+              "context": "source",
+              "element": "route",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosageInstruction.route",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "authorDateTime-to-authoredOn",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "authoredOn",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "supply-to-dispenseRequest.quantity",
+          "source": [
+            {
+              "context": "source",
+              "element": "supply",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dispenseRequest.quantity",
+              "transform": "copy"
+            }
+          ]
+        },		
+         {
+          "name": "code-to-medication",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "medication",
+              "transform": "copy"
+            }
+          ]
+        }, 
+
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        }, 
+        {
+          "name": "source-to-requester",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "requester",
+              "transform": "copy" 
+            }
+          ]
+        }
+       
+     ]
+    }
+  ]
+}
