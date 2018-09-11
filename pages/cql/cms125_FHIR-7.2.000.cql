@@ -2,7 +2,9 @@ library BreastCancerScreening version '7.2.000'
 
 using FHIR version '3.0.0'
 
-include Common version '1.0' called Common
+include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
+include Adult_Outpatient_Encounters_FHIR version '1.1.000' called AdultOutpatientEncounters
+include Hospice_FHIR version '1.0.000' called Hospice
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
 valueset "ONC Administrative Sex": 'urn:oid:2.16.840.1.113762.1.4.1'
@@ -81,7 +83,7 @@ define "Right Mastectomy":
 										and UnilateralMastectomyDiagnosis.clinicalStatus = 'active'
 				)
 		) RightMastectomy
-				where Common."Normalize Onset"(RightMastectomy.onset) starts before day of end of "Measurement Period"
+				where Global."Normalize Onset"(RightMastectomy.onset) starts before day of end of "Measurement Period"
 
 define "Left Mastectomy":
 		(
@@ -92,11 +94,11 @@ define "Left Mastectomy":
 										and UnilateralMastectomyDiagnosis.clinicalStatus = 'active'
 				)
 		) LeftMastectomy
-				where Common."Normalize Onset"(LeftMastectomy.onset) starts before day of end of "Measurement Period"
+				where Global."Normalize Onset"(LeftMastectomy.onset) starts before day of end of "Measurement Period"
 
 define "History Bilateral Mastectomy":
 		[Condition: "History of bilateral mastectomy"] BilateralMastectomyHistory
-				where Common."Normalize Onset"(BilateralMastectomyHistory.onset) starts before day of end of "Measurement Period"
+				where Global."Normalize Onset"(BilateralMastectomyHistory.onset) starts before day of end of "Measurement Period"
 						and BilateralMastectomyHistory.clinicalStatus = 'active'
 
 define "Bilateral Mastectomy Procedure":
@@ -112,7 +114,7 @@ define "Numerator":
 		)
 
 define "Denominator Exclusions":
-		Common."Has Hospice"("Measurement Period")
+		Hospice."Has Hospice"("Measurement Period")
 				or ( Count("Unilateral Mastectomy Procedure") = 2 )
 				or ( exists "Right Mastectomy" and exists "Left Mastectomy" )
 				or exists "History Bilateral Mastectomy"
@@ -120,5 +122,5 @@ define "Denominator Exclusions":
 
 define "Initial Population":
 		Patient.gender = 'female'
-				and Common."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period") in Interval[51, 74)
-				and exists Common."Qualifying Encounters"("Measurement Period")
+				and Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period") in Interval[51, 74)
+				and exists AdultOutpatientEncounters."Qualifying Encounters"("Measurement Period")
