@@ -1,0 +1,188 @@
+{
+  "resourceType": "StructureMap",
+  "id": "medication-active-to-medicationstatement",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/medication-active-to-medicationstatement",
+  "name": "medication-active-to-medicationstatement",
+  "title": "QDM Medication, Active to QICore Medication Statement",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/medication_active",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationstatement", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "medication-active-to-medicationstatement",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+  {
+          "name": "medicationActive-to-status",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "status",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "active"
+                }
+              ]
+            }
+          ]
+        },   
+        {
+          "name": "dosage-to-dosage.dose",
+          "source": [
+            {
+              "context": "source",
+              "element": "dosage",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosage.dose",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "frequency-to-dosage.timing",
+          "source": [
+            {
+              "context": "source",
+              "element": "frequency",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosage.timing",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "route-to-dosage.route",
+          "source": [
+            {
+              "context": "source",
+              "element": "route",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosage.route",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "relevantPeriod-to-effective",
+          "source": [
+            {
+              "context": "source",
+              "element": "relevantPeriod",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "effective",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "code-to-medication",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "medication",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "source-to-informationSource",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "informationSource",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

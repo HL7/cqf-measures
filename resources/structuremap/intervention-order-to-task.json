@@ -1,0 +1,170 @@
+{
+  "resourceType": "StructureMap",
+  "id": "intervention-order-to-task",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/intervention-order-to-task",
+  "name": "intervention-order-to-task",
+  "title": "QDM Intervention, Order to QICore Task",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/intervention_order",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-task", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "intervention-order-to-task",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+  {
+          "name": "interventionOrder-to-intent",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "intent",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "order"
+                }
+              ]
+            }
+          ]
+        },   
+        {
+          "name": "negationRationale-to-statusReason",
+          "source": [
+            {
+              "context": "source",
+              "element": "negationRationale",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "statusReason",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "reason-to-reason",
+          "source": [
+            {
+              "context": "source",
+              "element": "reason",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "reason",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "authorDateTime-to-AuthoredOn",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "AuthoredOn",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "code-to-code",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "code",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "source-to-requester",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "requester",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "resourceType": "StructureMap",
+  "id": "encounter-order-to-referralrequest",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/encounter-order-to-referralrequest",
+  "name": "encounter-order-to-referralrequest",
+  "title": "QDM Encounter, Order to QICore Referral Request",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/encounter_order",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-referralrequest", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "encounter-order-to-referralrequest",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+        {
+          "name": "facilityLocation-to-context",
+          "source": [
+            {
+              "context": "source",
+              "element": "facilityLocation",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "context",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "negationRationale-to-ProcedureRequest.extension",
+          "source": [
+            {
+              "context": "source",
+              "element": "negationRationale",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "ProcedureRequest.extension",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "reason-to-reasonCode",
+          "source": [
+            {
+              "context": "source",
+              "element": "reason",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "reasonCode",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "authorDateTime-to-AuthoredOn",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "AuthoredOn",
+              "transform": "copy"
+            }
+          ]
+        },		
+        {
+          "name": "code-to-type",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "type",
+              "transform": "copy"
+            }
+          ]
+        }, 
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy" 
+            }
+          ]
+        },	
+        {
+          "name": "source-to-requester",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "requester",
+              "transform": "copy" 
+            }
+          ]
+        },
+		{
+          "name": "encounterRecommended-to-intent",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "intent",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "order"
+                }
+              ]
+            }
+          ]
+        }	
+     ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "resourceType": "StructureMap",
+  "id": "diagnosis-to-condition",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/diagnosis-to-condition",
+  "name": "diagnosis-to-condition",
+  "title": "QDM Diagnosis to QICore Condition",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/diagnosis",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "diagnosis-to-condition",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+		{
+          "name": "diagnosis-to-clinicalstatus",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "clinicalstatus",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "active"
+                }
+              ]
+            }
+          ]
+        },	  
+        {
+          "name": "prevalencePeriod-to-onset",
+          "source": [
+            {
+              "context": "source",
+              "element": "prevalencePeriod",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "onset",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "anatomicalLocationSite-to-bodySite",
+          "source": [
+            {
+              "context": "source",
+              "element": "anatomicalLocationSite",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "bodySite",
+              "transform": "copy"
+            }
+          ]
+        },		
+        {
+          "name": "severity-to-severity",
+          "source": [
+            {
+              "context": "source",
+              "element": "severity",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "severity",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "code-to-code",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "code",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "source-to-asserter",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "asserter",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

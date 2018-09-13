@@ -1,0 +1,242 @@
+{
+  "resourceType": "StructureMap",
+  "id": "substance-recommended-to-medicationrequest",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/substance-recommended-to-medicationrequest",
+  "name": "substance-recommended-to-medicationrequest",
+  "title": "QDM Substance, Recommended to QICore Medication Request",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/substance_recommended",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "substance-recommended-to-medicationrequest",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+  {
+          "name": "substanceRecommended-to-intent",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "intent",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "plan"
+                }
+              ]
+            }
+          ]
+        },
+		{
+          "name": "dosage-to-dosageInstruction.dose",
+          "source": [
+            {
+              "context": "source",
+              "element": "dosage",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosageInstruction.dose",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "frequency-to-dosageInstruction.timing",
+          "source": [
+            {
+              "context": "source",
+              "element": "frequency",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosageInstruction.timing",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "code-to-medication",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "medication",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "reason-to-reasonCode",
+          "source": [
+            {
+              "context": "source",
+              "element": "reason",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "reasonCode",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "negationRationale-to-MedicationStatement.reasonNotTaken",
+          "source": [
+            {
+              "context": "source",
+              "element": "negationRationale",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "MedicationStatement.reasonNotTaken",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "refills-to-dispenseRequest.numberOfRepeatsAllowed",
+          "source": [
+            {
+              "context": "source",
+              "element": "refills",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dispenseRequest.numberOfRepeatsAllowed",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "authorDateTime-to-authoredOn",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "authoredOn",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "source-to-requester",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "requester",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "recorder-to-recorder",
+          "source": [
+            {
+              "context": "source",
+              "element": "recorder",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "recorder",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

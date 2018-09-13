@@ -1,0 +1,170 @@
+{
+  "resourceType": "StructureMap",
+  "id": "communication-providertoprovider-to-communication",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/communication-providertoprovider-to-communication",
+  "name": "communication-providertoprovider-to-communication",
+  "title": "QDM Communication, Provider to Provider to QICore Communication",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/communication_provider_to_patient",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "communication-providertoprovider-to-communication",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+		{
+          "name": "communicationProviderToProvider-to-status",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "status",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "performed"
+                }
+              ]
+            }
+          ]
+        },	  
+        {
+          "name": "code-to-reasonCode",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "reasonCode",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "negationRationale-to-notDoneReason",
+          "source": [
+            {
+              "context": "source",
+              "element": "negationRationale",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "notDoneReason",
+              "transform": "copy"
+            }
+          ]
+        },		
+        {
+          "name": "authorDateTime-to-sent",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "sent",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "relatedTo-to-basedOn",
+          "source": [
+            {
+              "context": "source",
+              "element": "relatedTo",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "basedOn",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "source-to-sender",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "sender",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

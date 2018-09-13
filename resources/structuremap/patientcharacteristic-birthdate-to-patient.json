@@ -1,0 +1,94 @@
+{
+  "resourceType": "StructureMap",
+  "id": "patientcharacteristic-birthdate-to-patient",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/patientcharacteristic-birthdate-to-patient",
+  "name": "patientcharacteristic-birthdate-to-patient",
+  "title": "QDM Patient Characteristic: Birthdate to QICore Patient",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/patientcharacteristic_birthdate",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "patientcharacteristic-birthdate-to-patient",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+        {
+          "name": "birthDateTime-to-birthDate",
+          "source": [
+            {
+              "context": "source",
+              "element": "birthDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "birthDate",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "birthDateTime-to-extension.birthTime",
+          "source": [
+            {
+              "context": "source",
+              "element": "birthDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "extension.birthTime",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

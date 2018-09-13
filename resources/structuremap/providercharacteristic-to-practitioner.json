@@ -1,0 +1,76 @@
+{
+  "resourceType": "StructureMap",
+  "id": "providercharacteristic-to-practitioner",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/providercharacteristic-to-practitioner",
+  "name": "providercharacteristic-to-practitioner",
+  "title": "QDM Provider Characteristic to QICore Practitioner",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/providercharacteristic",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "providercharacteristic-to-practitioner",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+        {
+          "name": "code-to-qualification.code",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "qualification.code",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "id-to-identifier.id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "identifier.id",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

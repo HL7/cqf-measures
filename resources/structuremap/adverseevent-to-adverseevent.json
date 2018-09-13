@@ -1,0 +1,171 @@
+{
+  "resourceType": "StructureMap",
+  "id": "adverseevent-to-adverseevent",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/adverseevent-to-adverseevent",
+  "name": "adverseevent-to-adverseevent",
+  "title": "QDM Adverse Event to QICore Adverse Event",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/adverse_event",
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-adverseevent",
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "adverseevent-to-adverseevent",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+        {
+          "name": "relevantPeriod-to-date",
+          "source": [
+            {
+              "context": "source",
+              "element": "relevantPeriod",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "date",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "start of a"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "code-to-suspectEntity.Instance",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "suspectEntity.instance",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "type-to-reaction",
+          "source": [
+            {
+              "context": "source",
+              "element": "type",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "reaction",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "severity-to-seriousness",
+          "source": [
+            {
+              "context": "source",
+              "element": "severity",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "seriousness",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "facilityLocations-to-location",
+          "source": [
+            {
+              "context": "source",
+              "element": "facilityLocations",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "location",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "recorder-to-recorder",
+          "source": [
+            {
+              "context": "source",
+              "element": "recorder",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "recorder",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
