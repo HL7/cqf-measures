@@ -101,6 +101,29 @@ define "Denominator Exclusions":
 		or exists "Malignant Neoplasm"
 		or exists "Total Colectomy Performed"
 
+define "Qualifying Encounters":
+    [Encounter: "Office Visit"] visit
+	  union [Encounter."Annual Wellness Visit"]
+	  union [Encounter."Preventive Care Services - Established Office Visit, 18 and Up"]
+	  union [Encounter."Preventive Care Services-Initial Office Visit, 18 and Up"]
+	  union [Encounter."Home Healthcare Services"] ) ValidEncounter
+	    where ValidEncounter.relevantPeriod during "Measurement Period"
+		  // and visit.status = 'finished'
+
+define "Hospice.Has Hospice":
+	exists (Encounter."Encounter Inpatient"] DischargeHospice
+		where ( DischargeHospice.hospitalization.dischargeDisposition as Code ~ "Discharge to home for hospice care (procedure)"
+				or DischargeHospice.hospitalization.dischargeDisposition as Code ~ "Discharge to healthcare facility for hospice care (procedure)"
+		)
+			and DischargeHospice.period ends during "Measurement Period"
+)
+	or exists ( task."Hospice care ambulatory"] HospiceOrder
+			where HospiceOrder.AuthoredOn during "Measurement Period"
+	)
+	or exists ( task."Hospice care ambulatory"] HospicePerformed
+			where HospicePerformed.period overlaps "Measurement Period"
+	)
+
 // see http://www.hl7.org/fhir/us/qicore/IndividualCharacteristic.html for Patient Characteristic mappings
 define "Initial Population":
 	exists [Patient.birthDate] BirthDate
