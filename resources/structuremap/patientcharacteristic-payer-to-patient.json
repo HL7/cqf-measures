@@ -1,0 +1,59 @@
+{
+  "resourceType": "StructureMap",
+  "id": "patientcharacteristic-payer-to-patient",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/patientcharacteristic-payer-to-patient",
+  "name": "patientcharacteristic-payer-to-patient",
+  "title": "QDM Patient Characteristic: Payer to QICore Patient",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/patientcharacteristic_payer",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "patientcharacteristic-payer-to-patient",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "resourceType": "StructureMap",
+  "id": "diagnosticstudy-performed-imagingstudies-to-diagnosticreport",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/diagnosticstudy-performed-imagingstudies-to-diagnosticreport",
+  "name": "diagnosticstudy-performed-imagingstudies-to-diagnosticreport",
+  "title": "QDM Diagnostic Study, Performed (Imaging Studies) to QICore Diagnostic Report",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/diagnostic_study_performed_imagingstudies",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "diagnosticstudy-performed-imagingstudies-to-diagnosticreport",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+  {
+          "name": "diagnosticStudyPerformed-to-DiagnosticReport",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "DiagnosticReport",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "final"
+                }
+              ]
+            }
+          ]
+        },   
+        {
+          "name": "facilityLocation-to-extension.diagnosticReport-locationPerformed",
+          "source": [
+            {
+              "context": "source",
+              "element": "facilityLocation",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "extension.diagnosticReport-locationPerformed",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "method-to-ImagingStudy.modalityList.code",
+          "source": [
+            {
+              "context": "source",
+              "element": "method",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "ImagingStudy.modalityList.code",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "result-to-result",
+          "source": [
+            {
+              "context": "source",
+              "element": "result",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "result",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "resultDateTime-to-issued",
+          "source": [
+            {
+              "context": "source",
+              "element": "resultDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "issued",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "relevantPeriod-to-effective",
+          "source": [
+            {
+              "context": "source",
+              "element": "relevantPeriod",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "effective",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "status-to-status",
+          "source": [
+            {
+              "context": "source",
+              "element": "status",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "status",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "code-to-code",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "code",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "components-to-Observation.component",
+          "source": [
+            {
+              "context": "source",
+              "element": "components",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "Observation.component",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "componentCode-to-Observation.component.code",
+          "source": [
+            {
+              "context": "source",
+              "element": "componentCode",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "Observation.component.code",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "componentResult-to-Observation.component.value",
+          "source": [
+            {
+              "context": "source",
+              "element": "componentResult",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "Observation.component.value",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "source-to-performer",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "performer",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

@@ -26,7 +26,7 @@
                 <reference value="Measure/measure-exm"/>
             </sourceReference>
         </resource>
-		<resource>
+        <resource>
             <name value="Library - CMS122"/>
             <description value="Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)"/>
             <sourceReference>
@@ -41,7 +41,7 @@
                 <reference value="Measure/measure-cms122"/>
             </sourceReference>
         </resource>
-		<resource>
+		    <resource>
             <name value="Library - CMS130"/>
             <description value="Colorectal Cancer Screening"/>
             <sourceReference>
@@ -56,7 +56,7 @@
                 <reference value="Measure/measure-cms130"/>
             </sourceReference>
         </resource>
-		<resource>
+		    <resource>
             <name value="Library - CMS125"/>
             <description value="Breast Cancer Screening"/>
             <sourceReference>
@@ -78,10 +78,486 @@
             <sourceReference>
                 <reference value="StructureMap/encounter-performed-to-encounter"/>
             </sourceReference>
-        </resource>		
-    </package>
-    <binary value="cql/exm-logic.cql"/>
-    <binary value="elm/exm-logic.xml"/>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap encounter-recommended-to-referralrequest"/>
+            <description value="StructureMap encounter-recommended-to-referralrequest"/>
+            <sourceReference>
+                <reference value="StructureMap/encounter-recommended-to-referralrequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap encounter-order-to-referralrequest"/>
+            <description value="StructureMap encounter-order-to-referralrequest"/>
+            <sourceReference>
+                <reference value="StructureMap/encounter-order-to-referralrequest"/>
+            </sourceReference>
+        </resource>			
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap familyhistory-to-familymemberhistory"/>
+            <description value="StructureMap familyhistory-to-familymemberhistory"/>
+            <sourceReference>
+                <reference value="StructureMap/familyhistory-to-familymemberhistory"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap adverseevent-to-adverseevent"/>
+            <description value="StructureMap adverseevent-to-adverseevent"/>
+            <sourceReference>
+                <reference value="StructureMap/adverseevent-to-adverseevent"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap caregoal-to-goal"/>
+            <description value="StructureMap caregoal-to-goal"/>
+            <sourceReference>
+                <reference value="StructureMap/caregoal-to-goal"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap allergyintolerance-to-allergyintolerance"/>
+            <description value="StructureMap allergyintolerance-to-allergyintolerance"/>
+            <sourceReference>
+                <reference value="StructureMap/allergyintolerance-to-allergyintolerance"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap assessment-order-to-procedurerequest"/>
+            <description value="StructureMap assessment-order-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/assessment-order-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap assessment-recommended-to-procedurerequest"/>
+            <description value="StructureMap assessment-recommended-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/assessment-recommended-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap assessment-performed-to-observation"/>
+            <description value="StructureMap assessment-performed-to-observation"/>
+            <sourceReference>
+                <reference value="StructureMap/assessment-performed-to-observation"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap patientcareexperience-to-observation"/>
+            <description value="StructureMap patientcareexperience-to-observation"/>
+            <sourceReference>
+                <reference value="StructureMap/patientcareexperience-to-observation"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap providercareexperience-to-observation"/>
+            <description value="StructureMap providercareexperience-to-observation"/>
+            <sourceReference>
+                <reference value="StructureMap/providercareexperience-to-observation"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap laboratorytest-recommended-to-procedurerequest"/>
+            <description value="StructureMap laboratorytest-recommended-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/laboratorytest-recommended-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap laboratorytest-performed-to-observation"/>
+            <description value="StructureMap laboratorytest-performed-to-observation"/>
+            <sourceReference>
+                <reference value="StructureMap/laboratorytest-performed-to-observation"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap laboratorytest-order-to-procedurerequest"/>
+            <description value="StructureMap laboratorytest-order-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/laboratorytest-order-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap communication-patienttoprovider-to-communication"/>
+            <description value="StructureMap communication-patienttoprovider-to-communication"/>
+            <sourceReference>
+                <reference value="StructureMap/communication-patienttoprovider-to-communication"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap communication-providertopatient-to-communication"/>
+            <description value="StructureMap communication-providertopatient-to-communication"/>
+            <sourceReference>
+                <reference value="StructureMap/communication-providertopatient-to-communication"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap communication-providertoprovider-to-communication"/>
+            <description value="StructureMap communication-providertoprovider-to-communication"/>
+            <sourceReference>
+                <reference value="StructureMap/communication-providertoprovider-to-communication"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap diagnosis-to-condition"/>
+            <description value="StructureMap diagnosis-to-condition"/>
+            <sourceReference>
+                <reference value="StructureMap/diagnosis-to-condition"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap immunization-administered-to-immunization"/>
+            <description value="StructureMap immunization-administered-to-immunization"/>
+            <sourceReference>
+                <reference value="StructureMap/immunization-administered-to-immunization"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap immunization-order-to-medicationrequest"/>
+            <description value="StructureMap immunization-order-to-medicationrequest"/>
+            <sourceReference>
+                <reference value="StructureMap/immunization-order-to-medicationrequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap symptom-to-observation"/>
+            <description value="StructureMap symptom-to-observation"/>
+            <sourceReference>
+                <reference value="StructureMap/symptom-to-observation"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap medication-active-to-medicationstatement"/>
+            <description value="StructureMap medication-active-to-medicationstatement"/>
+            <sourceReference>
+                <reference value="StructureMap/medication-active-to-medicationstatement"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap medication-administered-to-medicationadministration"/>
+            <description value="StructureMap medication-administered-to-medicationadministration"/>
+            <sourceReference>
+                <reference value="StructureMap/medication-administered-to-medicationadministration"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap medication-dispensed-to-medicationdispense"/>
+            <description value="StructureMap medication-dispensed-to-medicationdispense"/>
+            <sourceReference>
+                <reference value="StructureMap/medication-dispensed-to-medicationdispense"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap medication-discharge-to-medicationrequest"/>
+            <description value="StructureMap medication-discharge-to-medicationrequest"/>
+            <sourceReference>
+                <reference value="StructureMap/medication-discharge-to-medicationrequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap medication-order-to-medicationrequest"/>
+            <description value="StructureMap medication-order-to-medicationrequest"/>
+            <sourceReference>
+                <reference value="StructureMap/medication-order-to-medicationrequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap procedure-order-to-procedurerequest"/>
+            <description value="StructureMap procedure-order-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/procedure-order-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap procedure-recommended-to-procedurerequest"/>
+            <description value="StructureMap procedure-recommended-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/procedure-recommended-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap procedure-performed-to-procedure"/>
+            <description value="StructureMap procedure-performed-to-procedure"/>
+            <sourceReference>
+                <reference value="StructureMap/procedure-performed-to-procedure"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap participation-to-coverage"/>
+            <description value="StructureMap participation-to-coverage"/>
+            <sourceReference>
+                <reference value="StructureMap/participation-to-coverage"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap physicalexam-order-to-procedurerequest"/>
+            <description value="StructureMap physicalexam-order-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/physicalexam-order-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap physicalexam-recommended-to-procedurerequest"/>
+            <description value="StructureMap physicalexam-recommended-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/physicalexam-recommended-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap physicalexam-performed-to-observation"/>
+            <description value="StructureMap physicalexam-performed-to-observation"/>
+            <sourceReference>
+                <reference value="StructureMap/physicalexam-performed-to-observation"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap substance-administered-to-medicationadministration"/>
+            <description value="StructureMap substance-administered-to-medicationadministration"/>
+            <sourceReference>
+                <reference value="StructureMap/substance-administered-to-medicationadministration"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap substance-order-to-medicationrequest"/>
+            <description value="StructureMap substance-order-to-medicationrequest"/>
+            <sourceReference>
+                <reference value="StructureMap/substance-order-to-medicationrequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap substance-recommended-to-medicationrequest"/>
+            <description value="StructureMap substance-recommended-to-medicationrequest"/>
+            <sourceReference>
+                <reference value="StructureMap/substance-recommended-to-medicationrequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap diagnosticstudy-order-to-procedurerequest"/>
+            <description value="StructureMap diagnosticstudy-order-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/diagnosticstudy-order-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap diagnosticstudy-recommended-to-procedurerequest"/>
+            <description value="StructureMap diagnosticstudy-recommended-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/diagnosticstudy-recommended-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap diagnosticstudy-performed-imagingstudies-to-diagnosticreport"/>
+            <description value="StructureMap diagnosticstudy-performed-imagingstudies-to-diagnosticreport"/>
+            <sourceReference>
+                <reference value="StructureMap/diagnosticstudy-performed-imagingstudies-to-diagnosticreport"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap diagnosticstudy-performed-nonimagingstudies-to-observation"/>
+            <description value="StructureMap diagnosticstudy-performed-nonimagingstudies-to-observation"/>
+            <sourceReference>
+                <reference value="StructureMap/diagnosticstudy-performed-nonimagingstudies-to-observation"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap intervention-order-to-procedurerequest"/>
+            <description value="StructureMap intervention-order-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/intervention-order-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap intervention-recommended-to-procedurerequest"/>
+            <description value="StructureMap intervention-recommended-to-procedurerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/intervention-recommended-to-procedurerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap intervention-performed-to-procedure"/>
+            <description value="StructureMap intervention-performed-to-procedure"/>
+            <sourceReference>
+                <reference value="StructureMap/intervention-performed-to-procedure"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap intervention-order-to-task"/>
+            <description value="StructureMap intervention-order-to-task"/>
+            <sourceReference>
+                <reference value="StructureMap/intervention-order-to-task"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap intervention-recommended-to-task"/>
+            <description value="StructureMap intervention-recommended-to-task"/>
+            <sourceReference>
+                <reference value="StructureMap/intervention-recommended-to-task"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap intervention-performed-to-task"/>
+            <description value="StructureMap intervention-performed-to-task"/>
+            <sourceReference>
+                <reference value="StructureMap/intervention-performed-to-task"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap device-applied-to-deviceusestatement"/>
+            <description value="StructureMap device-applied-to-deviceusestatement"/>
+            <sourceReference>
+                <reference value="StructureMap/device-applied-to-deviceusestatement"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap device-order-to-devicerequest"/>
+            <description value="StructureMap device-order-to-devicerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/device-order-to-devicerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap device-recommended-to-devicerequest"/>
+            <description value="StructureMap device-recommended-to-devicerequest"/>
+            <sourceReference>
+                <reference value="StructureMap/device-recommended-to-devicerequest"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap patientcharacteristic-generic-to-patient"/>
+            <description value="StructureMap patientcharacteristic-generic-to-patient"/>
+            <sourceReference>
+                <reference value="StructureMap/patientcharacteristic-generic-to-patient"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap patientcharacteristic-birthdate-to-patient"/>
+            <description value="StructureMap patientcharacteristic-birthdate-to-patient"/>
+            <sourceReference>
+                <reference value="StructureMap/patientcharacteristic-birthdate-to-patient"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap patientcharacteristic-clinicaltrialparticipant-to-patient"/>
+            <description value="StructureMap patientcharacteristic-clinicaltrialparticipant-to-patient"/>
+            <sourceReference>
+                <reference value="StructureMap/patientcharacteristic-clinicaltrialparticipant-to-patient"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap patientcharacteristic-ethnicity-to-patient"/>
+            <description value="StructureMap patientcharacteristic-ethnicity-to-patient"/>
+            <sourceReference>
+                <reference value="StructureMap/patientcharacteristic-ethnicity-to-patient"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap patientcharacteristic-expired-to-patient"/>
+            <description value="StructureMap patientcharacteristic-expired-to-patient"/>
+            <sourceReference>
+                <reference value="StructureMap/patientcharacteristic-expired-to-patient"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap patientcharacteristic-payer-to-patient"/>
+            <description value="StructureMap patientcharacteristic-payer-to-patient"/>
+            <sourceReference>
+                <reference value="StructureMap/patientcharacteristic-payer-to-patient"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap patientcharacteristic-race-to-patient"/>
+            <description value="StructureMap patientcharacteristic-race-to-patient"/>
+            <sourceReference>
+                <reference value="StructureMap/patientcharacteristic-race-to-patient"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap patientcharacteristic-sex-to-patient"/>
+            <description value="StructureMap patientcharacteristic-sex-to-patient"/>
+            <sourceReference>
+                <reference value="StructureMap/patientcharacteristic-sex-to-patient"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="StructureMap providercharacteristic-to-practitioner"/>
+            <description value="StructureMap providercharacteristic-to-practitioner"/>
+            <sourceReference>
+                <reference value="StructureMap/providercharacteristic-to-practitioner"/>
+            </sourceReference>
+        </resource>
+	</package>
+    <binary value="cql/exm-logic-1.0.0.cql"/>
+    <binary value="elm/exm-logic-1.0.0.xml"/>
+    <binary value="cql/cms122_FHIR-7.2.000.cql"/>
+    <binary value="elm/cms122_FHIR-7.2.000.xml"/>
+    <binary value="cql/cms130_FHIR-7.2.000.cql"/>
+    <binary value="elm/cms130_FHIR-7.2.000.xml"/>
+    <binary value="cql/cms125_FHIR-7.2.000.cql"/>
+    <binary value="elm/cms125_FHIR-7.2.000.xml"/>
+    <binary value="cql/Adult_Outpatient_Encounters_FHIR-1.1.000.cql"/>
+    <binary value="elm/Adult_Outpatient_Encounters_FHIR-1.1.000.xml"/>
+    <binary value="cql/Hospice_FHIR-1.0.000.cql"/>
+    <binary value="elm/Hospice_FHIR-1.0.000.xml"/>
+    <binary value="cql/MATGlobalCommonFunctions_FHIR-2.0.000.cql"/>
+    <binary value="elm/MATGlobalCommonFunctions_FHIR-2.0.000.xml"/>
     <page>
         <source value="index.html"/>
         <title value="CQF Measure Content"/>

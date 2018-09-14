@@ -99,7 +99,180 @@
     },
     "StructureMap/encounter-performed-to-encounter": {
       "base": "StructureMap-encounter-performed-to-encounter.html"
-    }
-	
+    },
+    "StructureMap/encounter-recommended-to-referralrequest": {
+      "base": "StructureMap-encounter-recommended-to-referralrequest.html"
+    },
+    "StructureMap/encounter-order-to-referralrequest": {
+      "base": "StructureMap-encounter-order-to-referralrequest.html"
+    },
+    "StructureMap/familyhistory-to-familymemberhistory": {
+      "base": "StructureMap-familyhistory-to-familymemberhistory.html"
+    },
+    "StructureMap/adverseevent-to-adverseevent": {
+      "base": "StructureMap-adverseevent-to-adverseevent.html"
+    },
+    "StructureMap/caregoal-to-goal": {
+      "base": "StructureMap-caregoal-to-goal"
+    },
+    "StructureMap/allergyintolerance-to-allergyintolerance": {
+      "base": "StructureMap-allergyintolerance-to-allergyintolerance"
+    },
+    "StructureMap/assessment-order-to-procedurerequest": {
+      "base": "StructureMap-assessment-order-to-procedurerequest"
+    },
+    "StructureMap/assessment-recommended-to-procedurerequest": {
+      "base": "StructureMap-assessment-recommended-to-procedurerequest"
+    },
+    "StructureMap/assessment-performed-to-observation": {
+      "base": "StructureMap-assessment-performed-to-observation"
+    },
+    "StructureMap/patientcareexperience-to-observation": {
+      "base": "StructureMap-patientcareexperience-to-observation"
+    },
+    "StructureMap/providercareexperience-to-observation": {
+      "base": "StructureMap-providercareexperience-to-observation"
+    },
+    "StructureMap/laboratorytest-recommended-to-procedurerequest": {
+      "base": "StructureMap-laboratorytest-recommended-to-procedurerequest"
+    },
+    "StructureMap/laboratorytest-performed-to-observation": {
+      "base": "StructureMap-laboratorytest-performed-to-observation"
+    },
+    "StructureMap/laboratorytest-order-to-procedurerequest": {
+      "base": "StructureMap-laboratorytest-order-to-procedurerequest"
+    },
+    "StructureMap/communication-patienttoprovider-to-communication": {
+      "base": "StructureMap-communication-patienttoprovider-to-communication"
+    },
+    "StructureMap/communication-providertopatient-to-communication": {
+      "base": "StructureMap-communication-providertopatient-to-communication"
+    },
+    "StructureMap/communication-providertoprovider-to-communication": {
+      "base": "StructureMap-communication-providertoprovider-to-communication"
+    },
+    "StructureMap/diagnosis-to-condition": {
+      "base": "StructureMap-diagnosis-to-condition"
+    },
+    "StructureMap/immunization-administered-to-immunization": {
+      "base": "StructureMap-immunization-administered-to-immunization"
+    },
+    "StructureMap/immunization-order-to-medicationrequest": {
+      "base": "StructureMap-immunization-order-to-medicationrequest"
+    },
+    "StructureMap/symptom-to-observation": {
+      "base": "StructureMap-symptom-to-observation"
+    },
+    "StructureMap/medication-active-to-medicationstatement": {
+      "base": "StructureMap-medication-active-to-medicationstatement"
+    },
+    "StructureMap/medication-administered-to-medicationadministration": {
+      "base": "StructureMap-medication-administered-to-medicationadministration"
+    },
+    "StructureMap/medication-dispensed-to-medicationdispense": {
+      "base": "StructureMap-medication-dispensed-to-medicationdispense"
+    },
+    "StructureMap/medication-discharge-to-medicationrequest": {
+      "base": "StructureMap-medication-discharge-to-medicationrequest"
+    },
+    "StructureMap/medication-order-to-medicationrequest": {
+      "base": "StructureMap-medication-order-to-medicationrequest"
+    },
+    "StructureMap/procedure-order-to-procedurerequest": {
+      "base": "StructureMap-procedure-order-to-procedurerequest"
+    },
+    "StructureMap/procedure-recommended-to-procedurerequest": {
+      "base": "StructureMap-procedure-recommended-to-procedurerequest"
+    },
+    "StructureMap/procedure-performed-to-procedure": {
+      "base": "StructureMap-procedure-performed-to-procedure"
+    },
+    "StructureMap/participation-to-coverage": {
+      "base": "StructureMap-participation-to-coverage"
+    },
+    "StructureMap/physicalexam-order-to-procedurerequest": {
+      "base": "StructureMap-physicalexam-order-to-procedurerequest"
+    },
+    "StructureMap/physicalexam-recommended-to-procedurerequest": {
+      "base": "StructureMap-physicalexam-recommended-to-procedurerequest"
+    },
+    "StructureMap/physicalexam-performed-to-observation": {
+      "base": "StructureMap-physicalexam-performed-to-observation"
+    },
+    "StructureMap/substance-administered-to-medicationadministration": {
+      "base": "StructureMap-substance-administered-to-medicationadministration"
+    },
+    "StructureMap/substance-order-to-medicationrequest": {
+      "base": "StructureMap-substance-order-to-medicationrequest"
+    },
+    "StructureMap/substance-recommended-to-medicationrequest": {
+      "base": "StructureMap-substance-recommended-to-medicationrequest"
+    },
+    "StructureMap/diagnosticstudy-order-to-procedurerequest": {
+      "base": "StructureMap-diagnosticstudy-order-to-procedurerequest"
+    },
+    "StructureMap/diagnosticstudy-recommended-to-procedurerequest": {
+      "base": "StructureMap-diagnosticstudy-recommended-to-procedurerequest"
+    },
+    "StructureMap/diagnosticstudy-performed-imagingstudies-to-diagnosticreport": {
+      "base": "StructureMap-diagnosticstudy-performed-imagingstudies-to-diagnosticreport"
+    },
+    "StructureMap/diagnosticstudy-performed-nonimagingstudies-to-observation": {
+      "base": "StructureMap-diagnosticstudy-performed-nonimagingstudies-to-observation"
+    },
+    "StructureMap/intervention-order-to-procedurerequest": {
+      "base": "StructureMap-intervention-order-to-procedurerequest"
+    },
+    "StructureMap/intervention-recommended-to-procedurerequest": {
+      "base": "StructureMap-intervention-recommended-to-procedurerequest"
+    },
+    "StructureMap/intervention-performed-to-procedure": {
+      "base": "StructureMap-intervention-performed-to-procedure"
+    },
+    "StructureMap/intervention-order-to-task": {
+      "base": "StructureMap-intervention-order-to-task"
+    },
+    "StructureMap/intervention-recommended-to-task": {
+      "base": "StructureMap-intervention-recommended-to-task"
+    },
+    "StructureMap/intervention-performed-to-task": {
+      "base": "StructureMap-intervention-performed-to-task"
+    },
+    "StructureMap/device-applied-to-deviceusestatement": {
+      "base": "StructureMap-device-applied-to-deviceusestatement"
+    },
+    "StructureMap/device-order-to-devicerequest": {
+      "base": "StructureMap-device-order-to-devicerequest"
+    },
+    "StructureMap/device-recommended-to-devicerequest": {
+      "base": "StructureMap-device-recommended-to-devicerequest"
+    },
+    "StructureMap/patientcharacteristic-generic-to-patient": {
+      "base": "StructureMap-patientcharacteristic-generic-to-patient"
+    },
+    "StructureMap/patientcharacteristic-birthdate-to-patient": {
+      "base": "StructureMap-patientcharacteristic-birthdate-to-patient"
+    },
+    "StructureMap/patientcharacteristic-clinicaltrialparticipant-to-patient": {
+      "base": "StructureMap-patientcharacteristic-clinicaltrialparticipant-to-patient"
+    },
+    "StructureMap/patientcharacteristic-ethnicity-to-patient": {
+      "base": "StructureMap-patientcharacteristic-ethnicity-to-patient"
+    },
+    "StructureMap/patientcharacteristic-expired-to-patient": {
+      "base": "StructureMap-patientcharacteristic-expired-to-patient"
+    },
+    "StructureMap/patientcharacteristic-payer-to-patient": {
+      "base": "StructureMap-patientcharacteristic-payer-to-patient"
+    },
+    "StructureMap/patientcharacteristic-race-to-patient": {
+      "base": "StructureMap-patientcharacteristic-race-to-patient"
+    },
+    "StructureMap/patientcharacteristic-sex-to-patient": {
+      "base": "StructureMap-patientcharacteristic-sex-to-patient"
+    },
+    "StructureMap/providercharacteristic-to-practitioner": {
+      "base": "StructureMap-providercharacteristic-to-practitioner"
+    }	
   }
 }

@@ -1,0 +1,148 @@
+{
+  "resourceType": "StructureMap",
+  "id": "familyhistory-to-familymemberhistory",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureMap/familyhistory-to-familymemberhistory",
+  "name": "familyhistory-to-familymemberhistory",
+  "title": "QDM Family History to QICore Family Member History",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/family_history",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-familymemberhistory", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "familyhistory-to-familymemberhistory",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+        {
+          "name": "familyHistory-to-status",
+          "source": [
+            {
+              "context": "source",
+              "element": "familyHistory",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "status",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "authorDateTime-to-date",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "date",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "relationships-to-relationship",
+          "source": [
+            {
+              "context": "source",
+              "element": "relationships",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "relationship",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "code-to-condition.code",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "condition.code",
+              "transform": "copy"
+            }
+          ]
+        },		
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        }, 
+        {
+          "name": "source-to-patient",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "patient",
+              "transform": "copy" 
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}
