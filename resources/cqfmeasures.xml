@@ -63,7 +63,7 @@
                 <reference value="Library/library-cms125"/>
             </sourceReference>
         </resource>
-        <resource>
+		<resource>
             <example value="true"/>
             <name value="Measure - CMS125"/>
             <description value="Breast Cancer Screening"/>
@@ -71,6 +71,21 @@
                 <reference value="Measure/measure-cms125"/>
             </sourceReference>
         </resource>
+		<resource>
+            <name value="Library - CMS124"/>
+            <description value="Cervical Cancer Screening"/>
+            <sourceReference>
+                <reference value="Library/library-cms124"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - CMS124"/>
+            <description value="Cervical Cancer Screening"/>
+            <sourceReference>
+                <reference value="Measure/measure-cms124"/>
+            </sourceReference>
+        </resource>		
         <resource>
             <example value="true"/>
             <name value="StructureMap encounter-performed-to-encounter"/>
@@ -552,6 +567,8 @@
     <binary value="elm/cms130_FHIR-7.2.000.xml"/>
     <binary value="cql/cms125_FHIR-7.2.000.cql"/>
     <binary value="elm/cms125_FHIR-7.2.000.xml"/>
+	<binary value="cql/cms124_FHIR-7.2.000.cql"/>
+    <binary value="elm/cms124_FHIR-7.2.000.xml"/>
     <binary value="cql/Adult_Outpatient_Encounters_FHIR-1.1.000.cql"/>
     <binary value="elm/Adult_Outpatient_Encounters_FHIR-1.1.000.xml"/>
     <binary value="cql/Hospice_FHIR-1.0.000.cql"/>
