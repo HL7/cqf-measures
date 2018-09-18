@@ -46,20 +46,9 @@ define "SDE Ethnicity":
 // define "SDE Payer":
 //     ["Patient Characteristic Payer": "Payer"]
 
-define "Race Categories":
-		flatten (
-        (
-            Patient.extension Extensions
-                where Extensions.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
-        ) RaceExtensions
-            where RaceExtensions.extension.url = 'ombCategory'
-        return RaceExtensions.extension
-    )
 
 define "SDE Race":
-		"Race Categories" RaceExt
-				where FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding) in "Race"
-		return FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding).display
+		[Patient: extension.ombCategory in "Race"]
 
 define "SDE Sex":
 		[Patient: gender in "ONC Administrative Sex"] P
