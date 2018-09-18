@@ -43,25 +43,14 @@ define "SDE Ethnicity":
 				where FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding) in "Ethnicity"
 		return FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding).display
 
-		// DT: Not addressed in QI Core / FHIR
+// DT: Not addressed in QI Core / FHIR
 // CRS: Use the "Payer" ValueSet to investigate what codes are expected and investigate whether an approach can be used with Coverage resource
 define "SDE Payer":
 	["Patient Characteristic Payer": "Payer"]
 
-define "Race Categories":
-		flatten (
-        (
-            Patient.extension Extensions
-                where Extensions.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
-        ) RaceExtensions
-            where RaceExtensions.extension.url = 'ombCategory'
-        return RaceExtensions.extension
-    )
 
 define "SDE Race":
-		"Race Categories" RaceExt
-				where FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding) in "Race"
-		return FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding).display
+		[Patient: extension.ombCategory in "Race"]
 		
 define "SDE Sex":
 		[Patient: gender in "ONC Administrative Sex"] P
@@ -77,11 +66,11 @@ define "Denominator":
 define "Pap Test with Results":
 	[Observation: "Pap Test"] PapTest
 		where PapTest.value is not null
+			and PapTest.status in { 'final', 'amended', 'corrected' }
 
-// DT need to investigate more
 define "Pap Test Within 3 Years":
 	"Pap Test with Results" PapTest
-		where PapTest.relevantPeriod 3 years or less before end of "Measurement Period"
+		where PapTest.effective 3 years or less before end of "Measurement Period"
 
 define "Qualifying Encounters":
 	( [Encounter: "Office Visit"]
@@ -89,21 +78,24 @@ define "Qualifying Encounters":
 		union [Encounter: "Preventive Care Services-Initial Office Visit, 18 and Up"]
 		union [Encounter: "Home Healthcare Services"] ) ValidEncounter
 		where ValidEncounter.period during "Measurement Period"
+			and ValidEncounter.status = 'finished'
 
 define "PapTest Within 5 Years":
 	( "Pap Test with Results" PapTestOver30YearsOld
 			with ["Patient Characteristic Birthdate"] BirthDate
-				such that Global."CalendarAgeInYearsAt"(BirthDate.birthDatetime, start of PapTestOver30YearsOld.relevantPeriod)>= 30
-					and PapTestOver30YearsOld.relevantPeriod 5 years or less before end of "Measurement Period"
+				// DT: TODO use the birthTime extension instead
+				such that Global."CalendarAgeInYearsAt"(Patient.birthDate, start of PapTestOver30YearsOld.effective)>= 30
+					and PapTestOver30YearsOld.effective 5 years or less before end of "Measurement Period"
 	)
 
 define "Pap Test With HPV Within 5 Years":
 	"PapTest Within 5 Years" PapTestOver30YearsOld
 		with [Observation: "HPV Test"] HPVTest
 			such that HPVTest.value is not null
-				and ( HPVTest.effective starts 1 day or less before or on day of start of PapTestOver30YearsOld.relevantPeriod
-						or HPVTest.effective starts less than 1 day after or on day of start of PapTestOver30YearsOld.relevantPeriod
+				and ( HPVTest.effective starts 1 day or less before or on day of start of PapTestOver30YearsOld.effective
+						or HPVTest.effective starts less than 1 day after or on day of start of PapTestOver30YearsOld.effective
 				)
+				and HPVTest.status in { 'final', 'amended', 'corrected' }
 
 define "Denominator Exclusions":
 	Hospice."Has Hospice"
@@ -113,15 +105,16 @@ define "Denominator Exclusions":
 define "Absence of Cervix":
 	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
 		where NoCervixBirth.onset starts before end "Measurement Period"
+			and NoCervixBirth.clinicalStatus = 'active'
 
 define "Surgical Absence of Cervix":
 	[Procedure: "Hysterectomy with No Residual Cervix"] NoCervixHysterectomy
 		where NoCervixHysterectomy.performed ends before end "Measurement Period"
+			and NoCervixHistory.status = 'completed'
 
-// DT there is an age discrenepcy from 21 to 23 on the CervicalCencerScreening.cql and the CMS124v7.html page
 define "Initial Population":
 	Patient.gender = 'female
-		and Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period") in Interval[23, 64)
+		and Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period") in Interval[23, 64]
 			and exists AdultOutpatientEncounters."Qualifying Encounters"("Measurement Period") 
 		
 	
