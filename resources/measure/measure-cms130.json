@@ -26,7 +26,7 @@
   "date": "2018-08-28",
   "publisher": "National Committee for Quality Assurance",
   "description": "Percentage of adults 50-75 years of age who had appropriate screening for colorectal cancer",
-  "purpose": "Measure of children with a group A streptococcus test in the 7-day period from 3 days prior through 3 days after the diagnosis of pharyngitis",
+  "purpose": "Patients 50-75 years of age with a visit during the measurement period",
   "approvalDate": "2016-01-01",
   "lastReviewDate": "2016-09-01",
   "effectivePeriod": {
@@ -113,7 +113,7 @@
     {
       "coding": [
         {
-          "code": "outcome"
+          "code": "process"
         }
       ]
     }
@@ -183,19 +183,30 @@
           ]
         }
       ],
-
-      "supplementalData": [
-        {
-          "identifier": {
-            "value": "supplemental-data-birthSex"
-          },
-           "criteria": "CMS130.\"Supplemental Data - Sex\""
-        },
-        {
-          "identifier": {
-            "value": "supplemental-data-deceased"
-          },
-           "criteria": "CMS130.\"Supplemental Data - Deceased\""
-        }
-      ]   
+"supplementalData": [
+    {
+      "identifier": {
+        "value": "supplemental-data-race"
+      },
+      "criteria": "CMS130.\"SDE Race\""
+    },
+    {
+      "identifier": {
+        "value": "supplemental-data-payer"
+      },
+      "criteria": "CMS130.\"SDE Payer\""
+    },
+    {
+      "identifier": {
+        "value": "supplemental-data-ethnicity"
+      },
+      "criteria": "CMS130.\"SDE Ethnicity\""
+    },
+    {
+      "identifier": {
+        "value": "supplemental-data-birthSex"
+      },
+      "criteria": "CMS130.\"SDE Sex\""
+    }
+  ]
 }

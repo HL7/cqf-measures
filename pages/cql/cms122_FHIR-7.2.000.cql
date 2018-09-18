@@ -35,8 +35,20 @@ define "SDE Ethnicity":
 define "SDE Payer":
 	["Patient Characteristic Payer": "Payer"]
 
+define "Race Categories":
+		flatten (
+        (
+            Patient.extension Extensions
+                where Extensions.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
+        ) RaceExtensions
+            where RaceExtensions.extension.url = 'ombCategory'
+        return RaceExtensions.extension
+    )
+
 define "SDE Race":
-	[Patient: extension.ombCategory in "Race"] 
+		"Race Categories" RaceExt
+				where FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding) in "Race"
+		return FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding).display 
 
 define "SDE Sex":
 	[Patient] P where P.gender in {'male', 'female'} 
@@ -80,7 +92,7 @@ Hospice."Has Hospice"
 
 Define Initial Population
 exists ( ["Patient Characteristic Birthdate"] Birthdate
-		where Global."CalendarAgeInYearsAt"(Birthdate.birthDatetime, start of "Measurement Period")in Interval[18, 75 )
+		where Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period")in Interval[18, 75]
 )
 	and exists ( AdultOutpatientEncounters."Qualifying Encounters" )
 	and exists ( ["Diagnosis": "Diabetes"] Diabetes
