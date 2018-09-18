@@ -127,5 +127,5 @@ define "Hospice.Has Hospice":
 // see http://www.hl7.org/fhir/us/qicore/IndividualCharacteristic.html for Patient Characteristic mappings
 define "Initial Population":
 	exists [Patient.birthDate] BirthDate
-		where Global."CalendarAgeInYearsAt"(BirthDate.birthDatetime, start of "Measurement Period") in Interval[50, 75)
+		where Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period") in Interval[50, 75]
 			and exists AdultOutpatientEncounters."Qualifying Encounters"
