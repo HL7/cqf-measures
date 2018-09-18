@@ -111,5 +111,5 @@ define "Denominator Exclusions":
 
 define "Initial Population":
 		Patient.gender = 'female'
-				and Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period") in Interval[51, 74)
+				and Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period") in Interval[51, 74]
 				and exists AdultOutpatientEncounters."Qualifying Encounters"("Measurement Period")
