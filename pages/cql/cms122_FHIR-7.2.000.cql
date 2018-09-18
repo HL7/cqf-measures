@@ -80,7 +80,7 @@ Hospice."Has Hospice"
 
 Define Initial Population
 exists ( ["Patient Characteristic Birthdate"] Birthdate
-		where Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period")in Interval[18, 75 )
+		where Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period")in Interval[18, 75]
 )
 	and exists ( AdultOutpatientEncounters."Qualifying Encounters" )
 	and exists ( ["Diagnosis": "Diabetes"] Diabetes
