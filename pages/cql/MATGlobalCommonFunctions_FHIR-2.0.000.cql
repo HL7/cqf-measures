@@ -56,14 +56,14 @@ define function "ED Visit"(TheEncounter FHIR.Encounter):
     singleton from (
         [Encounter: "Emergency Department Visit"] EDVisit
             where EDVisit.status = 'finished'
-                and EDVisit.period ends 1 hour or less on or before start of TheEncounter.period
+                and EDVisit.period ends 1 hour or less on or before start of FHIRHelpers.ToInterval(TheEncounter.period)
     )
 
 define function "Hospitalization"(TheEncounter FHIR.Encounter):
 	( "ED Visit"(TheEncounter) ) X
     return
         if X is null then TheEncounter.period
-        else Interval[start of X.period, end of TheEncounter.period]
+        else Interval[start of FHIRHelpers.ToInterval(X.period), end of FHIRHelpers.ToInterval(TheEncounter.period)]
 
 define function "Hospitalization Locations"(TheEncounter FHIR.Encounter):
 	( "ED Visit"(TheEncounter) ) EDEncounter
@@ -78,35 +78,36 @@ define function "Hospital Admission Time"(TheEncounter FHIR.Encounter):
 	start of "Hospitalization"(TheEncounter)
 
 define function "Hospital Discharge Time"(TheEncounter FHIR.Encounter):
-	end of TheEncounter.period
+	end of FHIRHelpers.ToInterval(TheEncounter.period)
 
 define function "Hospital Arrival Time"(TheEncounter FHIR.Encounter):
-	start of First(
+	start of FHIRHelpers.ToInterval(First(
 	    ( "Hospitalization Locations"(TheEncounter) ) HospitalLocation
-			sort by start of period
-	).period
+			sort by start of FHIRHelpers.ToInterval(period)
+	).period)
 
-define function "Hospital Departure Time"(TheEncounter FHIR.Encounter):
-	end of Last(
+// TODO - fix these (must fetch Location resources and compare id to reference)
+/*define function "Hospital Departure Time"(TheEncounter FHIR.Encounter):
+	end of FHIRHelpers.ToInterval(Last(
 	    ( "Hospitalization Locations"(TheEncounter) ) HospitalLocation
-			sort by start of period
-	).period
+			sort by start of FHIRHelpers.ToInterval(period)
+	).period)
 
 define function "Emergency Department Arrival Time"(TheEncounter FHIR.Encounter):
-	start of (
+	start of FHIRHelpers.ToInterval((
 	    singleton from (
 	        ( "Hospitalization Locations"(TheEncounter) ) HospitalLocation
 				where HospitalLocation.type ~ "ER"
 		)
-	).period
+	).period)
 
 define function "First Inpatient Intensive Care Unit"(TheEncounter FHIR.Encounter):
 	First(
 	    ( TheEncounter.location ) HospitalLocation
 			where HospitalLocation.type ~ "ICU"
 				and HospitalLocation.period during TheEncounter.period
-			sort by start of period
-	)
+			sort by start of FHIRHelpers.ToInterval(period)
+	)*/
 
 /*
 *
@@ -115,6 +116,10 @@ define function "First Inpatient Intensive Care Unit"(TheEncounter FHIR.Encounte
 */
 
 define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
-    if onset is FHIR.dateTime then Interval[onset.value, onset.value]
+  if onset is FHIR.dateTime then Interval[onset.value, onset.value]
 	else if onset is FHIR.Period then FHIRHelpers.ToInterval(onset as FHIR.Period)
 	else null
+
+define function "Get Choice Interval - dateTime or Period"(performed Choice<FHIR.dateTime,FHIR.Period>):
+	if performed is FHIR.dateTime then Interval[performed.value, performed.value]
+	else FHIRHelpers.ToInterval(performed as FHIR.Period)

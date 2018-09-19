@@ -2,6 +2,7 @@ library Hospice_FHIR version '1.0.000'
 
 using FHIR version '3.0.0'
 
+include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
 codesystem "SNOMEDCT:2017-09": 'urn:oid:2.16.840.1.113883.6.96' version 'urn:hl7:version:2017-09'
@@ -19,8 +20,8 @@ define function "Has Hospice"(MeasurementPeriod Interval<DateTime>):
 	    [Encounter: "Encounter Inpatient"] DischargeHospice
 			where DischargeHospice.status = 'final'
 			    and (
-			        DischargeHospice.hospitalization.dischargeDisposition as Code ~ "Discharge to home for hospice care (procedure)"
-					    or DischargeHospice.hospitalization.dischargeDisposition as Code ~ "Discharge to healthcare facility for hospice care (procedure)"
+			        FHIRHelpers.ToConcept(DischargeHospice.hospitalization.dischargeDisposition).codes[0] ~ "Discharge to home for hospice care (procedure)"
+					    or FHIRHelpers.ToConcept(DischargeHospice.hospitalization.dischargeDisposition).codes[0] ~ "Discharge to healthcare facility for hospice care (procedure)"
 			    )
 				and DischargeHospice.period ends during day of MeasurementPeriod
 	)
@@ -32,5 +33,5 @@ define function "Has Hospice"(MeasurementPeriod Interval<DateTime>):
     or exists (
         [Procedure: "Hospice care ambulatory"] HospicePerformed
             where HospicePerformed.status = 'completed'
-                and HospicePerformed.performed overlaps MeasurementPeriod
+                and Global."Get Choice Interval - dateTime or Period"(HospicePerformed.performed) overlaps MeasurementPeriod
     )

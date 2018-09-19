@@ -46,7 +46,11 @@ define "SDE Ethnicity":
 // DT: Not addressed in QI Core / FHIR
 // CRS: Use the "Payer" ValueSet to investigate what codes are expected and investigate whether an approach can be used with Coverage resource
 define "SDE Payer":
-	["Patient Characteristic Payer": "Payer"]
+    [Coverage: type in "Payer"] Payer
+      return {
+        code: Payer.type,
+        period: Payer.period
+      }
 
 
 define "Race Categories":
@@ -63,7 +67,7 @@ define "SDE Race":
 		"Race Categories" RaceExt
 				where FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding) in "Race"
 		return FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding).display
-		
+
 define "SDE Sex":
 		[Patient: gender in "ONC Administrative Sex"] P
 			return P.gender
@@ -94,23 +98,22 @@ define "Qualifying Encounters":
 
 define "PapTest Within 5 Years":
 	( "Pap Test with Results" PapTestOver30YearsOld
-			with ["Patient Characteristic Birthdate"] BirthDate
-				// DT: TODO use the birthTime extension instead
-				such that Global."CalendarAgeInYearsAt"(Patient.birthDate, start of PapTestOver30YearsOld.effective)>= 30
-					and PapTestOver30YearsOld.effective 5 years or less before end of "Measurement Period"
+			where Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective))>= 30
+				and PapTestOver30YearsOld.effective 5 years or less before end of "Measurement Period"
 	)
 
 define "Pap Test With HPV Within 5 Years":
 	"PapTest Within 5 Years" PapTestOver30YearsOld
 		with [Observation: "HPV Test"] HPVTest
 			such that HPVTest.value is not null
-				and ( HPVTest.effective starts 1 day or less before or on day of start of PapTestOver30YearsOld.effective
-						or HPVTest.effective starts less than 1 day after or on day of start of PapTestOver30YearsOld.effective
+				and (
+					HPVTest.effective starts 1 day or less before or on day of start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective)
+						or HPVTest.effective starts less than 1 day after or on day of start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective)
 				)
 				and HPVTest.status in { 'final', 'amended', 'corrected' }
 
 define "Denominator Exclusions":
-	Hospice."Has Hospice"
+	Hospice."Has Hospice"("Measurement Period")
 		or exists "Surgical Absence of Cervix"
 		or exists "Absence of Cervix"
 
@@ -122,11 +125,9 @@ define "Absence of Cervix":
 define "Surgical Absence of Cervix":
 	[Procedure: "Hysterectomy with No Residual Cervix"] NoCervixHysterectomy
 		where NoCervixHysterectomy.performed ends before end "Measurement Period"
-			and NoCervixHistory.status = 'completed'
+			and NoCervixHysterectomy.status = 'completed'
 
 define "Initial Population":
-	Patient.gender = 'female
-		and Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period") in Interval[23, 64]
-			and exists AdultOutpatientEncounters."Qualifying Encounters"("Measurement Period") 
-		
-	
+	Patient.gender = 'female'
+		and Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[23, 64]
+		and exists AdultOutpatientEncounters."Qualifying Encounters"("Measurement Period")
