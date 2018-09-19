@@ -1,4 +1,4 @@
-library ColorectalCancerScreening version '7.2.000'
+library DiabetesHemoglobinA1cHbA1cPoorControl9 version '7.4.000'
 
 // changed to use STU3 FHIR model
 using FHIR version '3.0.0'
