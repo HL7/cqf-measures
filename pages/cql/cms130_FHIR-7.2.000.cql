@@ -3,9 +3,9 @@ library ColorectalCancerScreening version '7.2.000'
 // changed to use STU3 FHIR model
 using FHIR version '3.0.0'
 
-include Adult_Outpatient_Encounters version '1.1.000' called AdultOutpatientEncounters
-include MATGlobalCommonFunctions version '2.0.000' called Global
-include Hospice version '1.0.000' called Hospice
+include Adult_Outpatient_Encounters_FHIR version '1.1.000' called AdultOutpatientEncounters
+include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
+include Hospice_FHIR version '1.0.000' called Hospice
 // added FHIRHelpers conversion Library
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
@@ -25,13 +25,28 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-// see http://www.hl7.org/fhir/us/qicore/IndividualCharacteristic.html for Patient Characteristic mappings
+define "Ethnicity Categories":
+		flatten (
+        (
+            Patient.extension Extensions
+                where Extensions.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
+        ) EthnicityExtensions
+            where EthnicityExtensions.extension.url = 'ombCategory'
+        return EthnicityExtensions.extension
+		)
+
 define "SDE Ethnicity":
-	[Patient: extension.ombCategory in "Ethnicity"] 
+		"Ethnicity Categories" EthnicityExt
+				where FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding) in "Ethnicity"
+		return FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding).display
 
 // DT: Not addressed in QI Core / FHIR
 define "SDE Payer":
-	["Patient Characteristic Payer": "Payer"]
+    [Coverage: type in "Payer"] Payer
+      return {
+        code: Payer.type,
+        period: Payer.period
+      }
 
 define "Race Categories":
 		flatten (
@@ -49,7 +64,7 @@ define "SDE Race":
 		return FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding).display
 
 define "SDE Sex":
-	[Patient] P where P.gender in {'male', 'female'} 
+	[Patient] P where P.gender in {'male', 'female'}
 	  return P.gender
 
 define "Denominator":
@@ -109,35 +124,11 @@ define "Numerator":
 		or exists "CT Colonography Performed"
 
 define "Denominator Exclusions":
-	Hospice."Has Hospice"
+	Hospice."Has Hospice"("Measurement Period")
 		or exists "Malignant Neoplasm"
 		or exists "Total Colectomy Performed"
 
-define "Qualifying Encounters":
-    [Encounter: "Office Visit"] visit
-	  union [Encounter."Annual Wellness Visit"]
-	  union [Encounter."Preventive Care Services - Established Office Visit, 18 and Up"]
-	  union [Encounter."Preventive Care Services-Initial Office Visit, 18 and Up"]
-	  union [Encounter."Home Healthcare Services"] ) ValidEncounter
-	    where ValidEncounter.relevantPeriod during "Measurement Period"
-		  // and visit.status = 'finished'
-
-define "Hospice.Has Hospice":
-	exists (Encounter."Encounter Inpatient"] DischargeHospice
-		where ( DischargeHospice.hospitalization.dischargeDisposition as Code ~ "Discharge to home for hospice care (procedure)"
-				or DischargeHospice.hospitalization.dischargeDisposition as Code ~ "Discharge to healthcare facility for hospice care (procedure)"
-		)
-			and DischargeHospice.period ends during "Measurement Period"
-)
-	or exists ( task."Hospice care ambulatory"] HospiceOrder
-			where HospiceOrder.AuthoredOn during "Measurement Period"
-	)
-	or exists ( task."Hospice care ambulatory"] HospicePerformed
-			where HospicePerformed.period overlaps "Measurement Period"
-	)
-
 // see http://www.hl7.org/fhir/us/qicore/IndividualCharacteristic.html for Patient Characteristic mappings
 define "Initial Population":
-	exists [Patient.birthDate] BirthDate
-		where Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period") in Interval[50, 75]
-			and exists AdultOutpatientEncounters."Qualifying Encounters"
+	Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[50, 75]
+			and exists AdultOutpatientEncounters."Qualifying Encounters"("Measurement Period")

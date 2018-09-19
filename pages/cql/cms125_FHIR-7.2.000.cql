@@ -43,8 +43,12 @@ define "SDE Ethnicity":
 
 // DT: Not addressed in QI Core / FHIR
 // CRS: Use the "Payer" ValueSet to investigate what codes are expected and investigate whether an approach can be used with Coverage resource
-// define "SDE Payer":
-//     ["Patient Characteristic Payer": "Payer"]
+define "SDE Payer":
+    [Coverage: type in "Payer"] Payer
+      return {
+        code: Payer.type,
+        period: Payer.period
+      }
 
 
 define "Race Categories":
@@ -71,7 +75,6 @@ define "Denominator":
 
 define "Unilateral Mastectomy Procedure":
 		[Procedure: "Unilateral Mastectomy"] UnilateralMastectomyProcedure
-				// this should still work if performed is a DateTime with Interval promotion (if it is activated)
 				where UnilateralMastectomyProcedure.performed ends before day of end of "Measurement Period"
 						and UnilateralMastectomyProcedure.status = 'completed'
 
@@ -123,5 +126,5 @@ define "Denominator Exclusions":
 
 define "Initial Population":
 		Patient.gender = 'female'
-				and Global."CalendarAgeInYearsAt"(Patient.birthDate, start of "Measurement Period") in Interval[51, 74]
+				and Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[51, 74]
 				and exists AdultOutpatientEncounters."Qualifying Encounters"("Measurement Period")

@@ -19,18 +19,63 @@
             </sourceReference>
         </resource>
         <resource>
+            <name value="Library - CMS122"/>
+            <description value="Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)"/>
+            <sourceReference>
+                <reference value="Library/library-cms122"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - CMS124"/>
+            <description value="Cervical Cancer Screening"/>
+            <sourceReference>
+                <reference value="Library/library-cms124"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - CMS125"/>
+            <description value="Breast Cancer Screening"/>
+            <sourceReference>
+                <reference value="Library/library-cms125"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - CMS130"/>
+            <description value="Colorectal Cancer Screening"/>
+            <sourceReference>
+                <reference value="Library/library-cms130"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - Adult Outpatient Encounters FHIR"/>
+            <sourceReference>
+                <reference value="Library/AdultOutpatientEncountersFHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - FHIRHelpers"/>
+            <sourceReference>
+                <reference value="Library/FHIRHelpers"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - Hospice FHIR"/>
+            <sourceReference>
+                <reference value="Library/HospiceFHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - MAT Global Common Functions FHIR"/>
+            <sourceReference>
+                <reference value="Library/MATGlobalCommonFunctionsFHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
             <example value="true"/>
             <name value="Measure - Example"/>
             <description value="Example Measure"/>
             <sourceReference>
                 <reference value="Measure/measure-exm"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <name value="Library - CMS122"/>
-            <description value="Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)"/>
-            <sourceReference>
-                <reference value="Library/library-cms122"/>
             </sourceReference>
         </resource>
         <resource>
@@ -41,11 +86,20 @@
                 <reference value="Measure/measure-cms122"/>
             </sourceReference>
         </resource>
-		    <resource>
-            <name value="Library - CMS130"/>
-            <description value="Colorectal Cancer Screening"/>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - CMS124"/>
+            <description value="Cervical Cancer Screening"/>
             <sourceReference>
-                <reference value="Library/library-cms130"/>
+                <reference value="Measure/measure-cms124"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - CMS125"/>
+            <description value="Breast Cancer Screening"/>
+            <sourceReference>
+                <reference value="Measure/measure-cms125"/>
             </sourceReference>
         </resource>
         <resource>
@@ -56,36 +110,6 @@
                 <reference value="Measure/measure-cms130"/>
             </sourceReference>
         </resource>
-		    <resource>
-            <name value="Library - CMS125"/>
-            <description value="Breast Cancer Screening"/>
-            <sourceReference>
-                <reference value="Library/library-cms125"/>
-            </sourceReference>
-        </resource>
-		<resource>
-            <example value="true"/>
-            <name value="Measure - CMS125"/>
-            <description value="Breast Cancer Screening"/>
-            <sourceReference>
-                <reference value="Measure/measure-cms125"/>
-            </sourceReference>
-        </resource>
-		<resource>
-            <name value="Library - CMS124"/>
-            <description value="Cervical Cancer Screening"/>
-            <sourceReference>
-                <reference value="Library/library-cms124"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - CMS124"/>
-            <description value="Cervical Cancer Screening"/>
-            <sourceReference>
-                <reference value="Measure/measure-cms124"/>
-            </sourceReference>
-        </resource>		
         <resource>
             <example value="true"/>
             <name value="StructureMap encounter-performed-to-encounter"/>
