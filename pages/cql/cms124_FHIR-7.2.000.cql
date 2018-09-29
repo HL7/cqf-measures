@@ -82,7 +82,7 @@ define "Denominator":
 define "Pap Test with Results":
 	[Observation: "Pap Test"] PapTest
 		where PapTest.value is not null
-			and PapTest.status in { 'final', 'amended', 'corrected' }
+			and PapTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
 
 define "Pap Test Within 3 Years":
 	"Pap Test with Results" PapTest
