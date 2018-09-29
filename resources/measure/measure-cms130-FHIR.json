@@ -1,10 +1,6 @@
 {
   "resourceType": "Measure",
   "id": "measure-cms130-FHIR",
-  "text": {
-    "status": "additional",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
-  },
   "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Measure/measure-cms130-FHIR",
   "identifier": [
     {
@@ -139,7 +135,7 @@
               }
             ]
           },
-          "criteria": "CMS130.\"Initial Population\""
+          "criteria": "Initial Population"
         },
         {
           "identifier": {
@@ -152,7 +148,7 @@
               }
             ]
           },
-          "criteria": "CMS130.\"Numerator\""
+          "criteria": "Numerator"
         },
         {
           "identifier": {
@@ -165,7 +161,7 @@
               }
             ]
           },
-          "criteria": "CMS130.\"Denominator\""
+          "criteria": "Denominator"
         },
         {
           "identifier": {
@@ -178,7 +174,7 @@
               }
             ]
           },
-          "criteria": "CMS130.\"Numerator Exclusion\""
+          "criteria": "Denominator Exclusion"
             }
           ]
         }
@@ -188,25 +184,25 @@
       "identifier": {
         "value": "supplemental-data-race"
       },
-      "criteria": "CMS130.\"SDE Race\""
+      "criteria": "SDE Race"
     },
     {
       "identifier": {
         "value": "supplemental-data-payer"
       },
-      "criteria": "CMS130.\"SDE Payer\""
+      "criteria": "SDE Payer"
     },
     {
       "identifier": {
         "value": "supplemental-data-ethnicity"
       },
-      "criteria": "CMS130.\"SDE Ethnicity\""
+      "criteria": "SDE Ethnicity"
     },
     {
       "identifier": {
         "value": "supplemental-data-birthSex"
       },
-      "criteria": "CMS130.\"SDE Sex\""
+      "criteria": "SDE Sex"
     }
   ]
 }
