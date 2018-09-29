@@ -21,4 +21,4 @@ define function "Qualifying Encounters"(MeasurementPeriod Interval<DateTime>):
 		union [Encounter: "Home Healthcare Services"]
     ) ValidEncounter
 		where ValidEncounter.period during day of MeasurementPeriod
-		and ValidEncounter.status  = 'final' 
+		and ValidEncounter.status  = 'finished' 
