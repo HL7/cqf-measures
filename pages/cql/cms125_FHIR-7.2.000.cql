@@ -115,7 +115,7 @@ define "Numerator":
 								and Mammogram.status in { 'final', 'amended', 'corrected', 'appended' }
 		)
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 		Hospice."Has Hospice"("Measurement Period")
 				or ( Count("Unilateral Mastectomy Procedure") = 2 )
 				or ( exists "Right Mastectomy" and exists "Left Mastectomy" )

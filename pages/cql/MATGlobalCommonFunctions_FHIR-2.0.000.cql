@@ -1,4 +1,4 @@
-library MATGlobalCommonFunctions_FHIR version '2.0.000'
+library MATGlobalCommonFunctionsFHIR version '2.0.000'
 
 using FHIR version '3.0.0'
 

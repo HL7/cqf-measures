@@ -1,4 +1,4 @@
-library Hospice_FHIR version '1.0.000'
+library HospiceFHIR version '1.0.000'
 
 using FHIR version '3.0.0'
 

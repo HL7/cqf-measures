@@ -102,7 +102,7 @@ define "Pap Test With HPV Within 5 Years":
 				)
 				and HPVTest.status in { 'final', 'amended', 'corrected' }
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	Hospice."Has Hospice"("Measurement Period")
 		or exists "Surgical Absence of Cervix"
 		or exists "Absence of Cervix"

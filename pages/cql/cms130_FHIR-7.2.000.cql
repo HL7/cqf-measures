@@ -1,6 +1,5 @@
 library ColorectalCancerScreening version '7.2.000'
 
-// changed to use STU3 FHIR model
 using FHIR version '3.0.0'
 
 include AdultOutpatientEncountersFHIR version '1.1.000' called AdultOutpatientEncounters
@@ -66,7 +65,7 @@ define "SDE Sex":
 	  return P.gender
 
 define "Denominator":
-	"Initial Population"
+	true
 
 define "Flexible Sigmoidoscopy Performed":
 	[Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
@@ -81,25 +80,25 @@ define "CT Colonography Performed":
 define "Total Colectomy Performed":
 	[Procedure: "Total Colectomy"] Colectomy
 		where Colectomy.status = 'completed'
-			and Colectomy.performed starts on or before end of "Measurement Period"
+			and Global."Get Choice Interval - dateTime or Period"(Colectomy.performed) starts on or before end of "Measurement Period"
 
 define "Malignant Neoplasm":
 	[Condition: "Malignant Neoplasm of Colon"] ColorectalCancer
 		where ColorectalCancer.clinicalStatus = 'active'
-			and ColorectalCancer.onset starts on or before end of "Measurement Period"
+			and Global."Normalize Onset"(ColorectalCancer.onset) starts on or before end of "Measurement Period"
 
 define "Fecal Occult Blood Test Performed":
 	[Observation: "Fecal Occult Blood Test (FOBT)"] FecalOccultResult
-		where FecalOccultResult.status in {'final', 'amended', 'corrected', ’preliminary’}
+		where FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}
 			and FecalOccultResult.value is not null
-			and FecalOccultResult.performed during day of "Measurement Period"
+			and FecalOccultResult.effective during day of "Measurement Period"
 			// and FecalOccultResult.FHIR.provenance.recorded during "Measurement Period"
 
 define "Fecal Immunochemical Test DNA":
 	[Observation: "FIT DNA"] FitDNA
 		where FitDNA.status in {'final', 'amended', 'corrected'}
 			and FitDNA.value is not null
-			and FitDNA.effective occurs 3 years or less on or before day of end of "Measurement Period
+			and FitDNA.effective occurs 3 years or less on or before day of end of "Measurement Period"
 			// and FitDNA.FHIR.provenance.recorded occurs 3 years or less on or before end of "Measurement Period"
 
 define "Colonoscopy Performed":
@@ -114,7 +113,7 @@ define "Numerator":
 		or exists "Fecal Immunochemical Test DNA"
 		or exists "CT Colonography Performed"
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	Hospice."Has Hospice"("Measurement Period")
 		or exists "Malignant Neoplasm"
 		or exists "Total Colectomy Performed"

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
     <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <identifier id="Hospice_FHIR" version="1.0.000"/>
+    <identifier id="HospiceFHIR" version="1.0.000"/>
     <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
     <usings>
         <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
         <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
     </usings>
     <includes>
-        <def localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR" version="2.0.000"/>
+        <def localIdentifier="Global" path="MATGlobalCommonFunctionsFHIR" version="2.0.000"/>
         <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
     </includes>
     <codeSystems>
-        <def name="SNOMEDCT:2017-09" id="urn:oid:2.16.840.1.113883.6.96" version="urn:hl7:version:2017-09" accessLevel="Public"/>
+        <def name="SNOMEDCT:2017-09" id="http://snomed.info/sct" version="urn:hl7:version:2017-09" accessLevel="Public"/>
     </codeSystems>
     <valueSets>
         <def name="Encounter Inpatient" id="urn:oid:2.16.840.1.113883.3.666.5.307" accessLevel="Public"/>

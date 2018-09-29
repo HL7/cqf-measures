@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
     <annotation startLine="37" startChar="49" endLine="37" endChar="51" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation startLine="62" startChar="44" endLine="62" endChar="46" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation startLine="121" startChar="2" endLine="121" endChar="56" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+    <annotation startLine="60" startChar="44" endLine="60" endChar="46" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+    <annotation startLine="111" startChar="2" endLine="111" endChar="56" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
     <identifier id="CervicalCancerScreening" version="7.2.000"/>
     <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
     <usings>
@@ -14,9 +10,9 @@
         <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
     </usings>
     <includes>
-        <def localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR" version="2.0.000"/>
-        <def localIdentifier="AdultOutpatientEncounters" path="Adult_Outpatient_Encounters_FHIR" version="1.1.000"/>
-        <def localIdentifier="Hospice" path="Hospice_FHIR" version="1.0.000"/>
+        <def localIdentifier="Global" path="MATGlobalCommonFunctionsFHIR" version="2.0.000"/>
+        <def localIdentifier="AdultOutpatientEncounters" path="AdultOutpatientEncountersFHIR" version="1.1.000"/>
+        <def localIdentifier="Hospice" path="HospiceFHIR" version="1.0.000"/>
         <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
     </includes>
     <parameters>
@@ -27,7 +23,7 @@
         </def>
     </parameters>
     <codeSystems>
-        <def name="SNOMEDCT:2017-09" id="urn:oid:2.16.840.1.113883.6.96" version="urn:hl7:version:2017-09" accessLevel="Public"/>
+        <def name="SNOMEDCT:2017-09" id="http://snomed.info/sct" version="urn:hl7:version:2017-09" accessLevel="Public"/>
     </codeSystems>
     <valueSets>
         <def name="ONC Administrative Sex" id="urn:oid:2.16.840.1.113762.1.4.1" accessLevel="Public"/>
@@ -447,46 +443,6 @@
         <def name="Denominator" context="Patient" accessLevel="Public">
             <expression name="Initial Population" xsi:type="ExpressionRef"/>
         </def>
-        <def name="Qualifying Encounters" context="Patient" accessLevel="Public">
-            <expression xsi:type="Query">
-                <source alias="ValidEncounter">
-                    <expression xsi:type="Union">
-                        <operand xsi:type="Union">
-                            <operand xsi:type="Union">
-                                <operand dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
-                                    <codes name="Office Visit" xsi:type="ValueSetRef"/>
-                                </operand>
-                                <operand dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
-                                    <codes name="Preventive Care Services - Established Office Visit, 18 and Up" xsi:type="ValueSetRef"/>
-                                </operand>
-                            </operand>
-                            <operand dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
-                                <codes name="Preventive Care Services-Initial Office Visit, 18 and Up" xsi:type="ValueSetRef"/>
-                            </operand>
-                        </operand>
-                        <operand dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
-                            <codes name="Home Healthcare Services" xsi:type="ValueSetRef"/>
-                        </operand>
-                    </expression>
-                </source>
-                <where xsi:type="And">
-                    <operand xsi:type="In">
-                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                            <operand path="period" scope="ValidEncounter" xsi:type="Property"/>
-                        </operand>
-                        <operand xsi:type="ToList">
-                            <operand name="Measurement Period" xsi:type="ParameterRef"/>
-                        </operand>
-                    </operand>
-                    <operand xsi:type="Equal">
-                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                            <operand path="status" scope="ValidEncounter" xsi:type="Property"/>
-                        </operand>
-                        <operand valueType="t:String" value="finished" xsi:type="Literal"/>
-                    </operand>
-                </where>
-            </expression>
-        </def>
         <def name="Surgical Absence of Cervix" context="Patient" accessLevel="Public">
             <expression xsi:type="Query">
                 <source alias="NoCervixHysterectomy">
@@ -545,7 +501,7 @@
                 </where>
             </expression>
         </def>
-        <def name="Denominator Exclusions" context="Patient" accessLevel="Public">
+        <def name="Denominator Exclusion" context="Patient" accessLevel="Public">
             <expression xsi:type="Or">
                 <operand xsi:type="Or">
                     <operand name="Has Hospice" libraryName="Hospice" xsi:type="FunctionRef">

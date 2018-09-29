@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
-    <annotation startLine="34" startChar="49" endLine="34" endChar="51" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation startLine="57" startChar="44" endLine="57" endChar="46" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+    <annotation startLine="32" startChar="49" endLine="32" endChar="51" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+    <annotation startLine="54" startChar="44" endLine="54" endChar="46" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
     <identifier id="ColorectalCancerScreening" version="7.2.000"/>
     <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
     <usings>
@@ -9,9 +9,9 @@
         <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
     </usings>
     <includes>
-        <def localIdentifier="AdultOutpatientEncounters" path="Adult_Outpatient_Encounters_FHIR" version="1.1.000"/>
-        <def localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR" version="2.0.000"/>
-        <def localIdentifier="Hospice" path="Hospice_FHIR" version="1.0.000"/>
+        <def localIdentifier="AdultOutpatientEncounters" path="AdultOutpatientEncountersFHIR" version="1.1.000"/>
+        <def localIdentifier="Global" path="MATGlobalCommonFunctionsFHIR" version="2.0.000"/>
+        <def localIdentifier="Hospice" path="HospiceFHIR" version="1.0.000"/>
         <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
     </includes>
     <parameters>
@@ -218,33 +218,8 @@
                 </return>
             </expression>
         </def>
-        <def name="Initial Population" context="Patient" accessLevel="Public">
-            <expression xsi:type="And">
-                <operand xsi:type="In">
-                    <operand name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
-                        <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                            <operand path="birthDate" xsi:type="Property">
-                                <source name="Patient" xsi:type="ExpressionRef"/>
-                            </operand>
-                        </operand>
-                        <operand xsi:type="Start">
-                            <operand name="Measurement Period" xsi:type="ParameterRef"/>
-                        </operand>
-                    </operand>
-                    <operand lowClosed="true" highClosed="true" xsi:type="Interval">
-                        <low valueType="t:Integer" value="50" xsi:type="Literal"/>
-                        <high valueType="t:Integer" value="75" xsi:type="Literal"/>
-                    </operand>
-                </operand>
-                <operand xsi:type="Exists">
-                    <operand name="Qualifying Encounters" libraryName="AdultOutpatientEncounters" xsi:type="FunctionRef">
-                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
-                    </operand>
-                </operand>
-            </expression>
-        </def>
         <def name="Denominator" context="Patient" accessLevel="Public">
-            <expression name="Initial Population" xsi:type="ExpressionRef"/>
+            <expression valueType="t:Boolean" value="true" xsi:type="Literal"/>
         </def>
         <def name="Flexible Sigmoidoscopy Performed" context="Patient" accessLevel="Public">
             <expression xsi:type="Query">
@@ -336,10 +311,8 @@
                     </operand>
                     <operand xsi:type="SameOrBefore">
                         <operand xsi:type="Start">
-                            <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                                <operand asType="fhir:Period" xsi:type="As">
-                                    <operand path="performed" scope="Colectomy" xsi:type="Property"/>
-                                </operand>
+                            <operand name="Get Choice Interval - dateTime or Period" libraryName="Global" xsi:type="FunctionRef">
+                                <operand path="performed" scope="Colectomy" xsi:type="Property"/>
                             </operand>
                         </operand>
                         <operand xsi:type="End">
@@ -365,10 +338,8 @@
                     </operand>
                     <operand xsi:type="SameOrBefore">
                         <operand xsi:type="Start">
-                            <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                                <operand asType="fhir:Period" xsi:type="As">
-                                    <operand path="onset" scope="ColorectalCancer" xsi:type="Property"/>
-                                </operand>
+                            <operand name="Normalize Onset" libraryName="Global" xsi:type="FunctionRef">
+                                <operand path="onset" scope="ColorectalCancer" xsi:type="Property"/>
                             </operand>
                         </operand>
                         <operand xsi:type="End">
@@ -386,20 +357,31 @@
                     </expression>
                 </source>
                 <where xsi:type="And">
-                    <operand xsi:type="In">
-                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                            <operand path="status" scope="FecalOccultResult" xsi:type="Property"/>
+                    <operand xsi:type="And">
+                        <operand xsi:type="In">
+                            <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                <operand path="status" scope="FecalOccultResult" xsi:type="Property"/>
+                            </operand>
+                            <operand xsi:type="List">
+                                <element valueType="t:String" value="final" xsi:type="Literal"/>
+                                <element valueType="t:String" value="amended" xsi:type="Literal"/>
+                                <element valueType="t:String" value="corrected" xsi:type="Literal"/>
+                                <element valueType="t:String" value="preliminary" xsi:type="Literal"/>
+                            </operand>
                         </operand>
-                        <operand xsi:type="List">
-                            <element valueType="t:String" value="final" xsi:type="Literal"/>
-                            <element valueType="t:String" value="amended" xsi:type="Literal"/>
-                            <element valueType="t:String" value="corrected" xsi:type="Literal"/>
+                        <operand xsi:type="Not">
+                            <operand xsi:type="IsNull">
+                                <operand path="value" scope="FecalOccultResult" xsi:type="Property"/>
+                            </operand>
                         </operand>
                     </operand>
-                    <operand xsi:type="Not">
-                        <operand xsi:type="IsNull">
-                            <operand path="value" scope="FecalOccultResult" xsi:type="Property"/>
+                    <operand precision="Day" xsi:type="In">
+                        <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                            <operand asType="fhir:dateTime" xsi:type="As">
+                                <operand path="effective" scope="FecalOccultResult" xsi:type="Property"/>
+                            </operand>
                         </operand>
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
                     </operand>
                 </where>
             </expression>
@@ -412,19 +394,39 @@
                     </expression>
                 </source>
                 <where xsi:type="And">
-                    <operand xsi:type="In">
-                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                            <operand path="status" scope="FitDNA" xsi:type="Property"/>
+                    <operand xsi:type="And">
+                        <operand xsi:type="In">
+                            <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                <operand path="status" scope="FitDNA" xsi:type="Property"/>
+                            </operand>
+                            <operand xsi:type="List">
+                                <element valueType="t:String" value="final" xsi:type="Literal"/>
+                                <element valueType="t:String" value="amended" xsi:type="Literal"/>
+                                <element valueType="t:String" value="corrected" xsi:type="Literal"/>
+                            </operand>
                         </operand>
-                        <operand xsi:type="List">
-                            <element valueType="t:String" value="final" xsi:type="Literal"/>
-                            <element valueType="t:String" value="amended" xsi:type="Literal"/>
-                            <element valueType="t:String" value="corrected" xsi:type="Literal"/>
+                        <operand xsi:type="Not">
+                            <operand xsi:type="IsNull">
+                                <operand path="value" scope="FitDNA" xsi:type="Property"/>
+                            </operand>
                         </operand>
                     </operand>
-                    <operand xsi:type="Not">
-                        <operand xsi:type="IsNull">
-                            <operand path="value" scope="FitDNA" xsi:type="Property"/>
+                    <operand precision="Day" xsi:type="In">
+                        <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                            <operand asType="fhir:dateTime" xsi:type="As">
+                                <operand path="effective" scope="FitDNA" xsi:type="Property"/>
+                            </operand>
+                        </operand>
+                        <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                            <low xsi:type="Subtract">
+                                <operand xsi:type="End">
+                                    <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                                </operand>
+                                <operand value="3" unit="years" xsi:type="Quantity"/>
+                            </low>
+                            <high xsi:type="End">
+                                <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                            </high>
                         </operand>
                     </operand>
                 </where>
@@ -442,7 +444,7 @@
                         <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
                             <operand path="status" scope="Colonoscopy" xsi:type="Property"/>
                         </operand>
-                        <operand valueType="t:String" value="active" xsi:type="Literal"/>
+                        <operand valueType="t:String" value="completed" xsi:type="Literal"/>
                     </operand>
                     <operand xsi:type="In">
                         <operand xsi:type="End">
@@ -492,7 +494,7 @@
                 </operand>
             </expression>
         </def>
-        <def name="Denominator Exclusions" context="Patient" accessLevel="Public">
+        <def name="Denominator Exclusion" context="Patient" accessLevel="Public">
             <expression xsi:type="Or">
                 <operand xsi:type="Or">
                     <operand name="Has Hospice" libraryName="Hospice" xsi:type="FunctionRef">
@@ -504,6 +506,31 @@
                 </operand>
                 <operand xsi:type="Exists">
                     <operand name="Total Colectomy Performed" xsi:type="ExpressionRef"/>
+                </operand>
+            </expression>
+        </def>
+        <def name="Initial Population" context="Patient" accessLevel="Public">
+            <expression xsi:type="And">
+                <operand xsi:type="In">
+                    <operand name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
+                        <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                            <operand path="birthDate" xsi:type="Property">
+                                <source name="Patient" xsi:type="ExpressionRef"/>
+                            </operand>
+                        </operand>
+                        <operand xsi:type="Start">
+                            <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                    </operand>
+                    <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                        <low valueType="t:Integer" value="50" xsi:type="Literal"/>
+                        <high valueType="t:Integer" value="75" xsi:type="Literal"/>
+                    </operand>
+                </operand>
+                <operand xsi:type="Exists">
+                    <operand name="Qualifying Encounters" libraryName="AdultOutpatientEncounters" xsi:type="FunctionRef">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                    </operand>
                 </operand>
             </expression>
         </def>
