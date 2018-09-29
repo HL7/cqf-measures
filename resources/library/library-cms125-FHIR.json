@@ -1,6 +1,6 @@
 {
   "resourceType": "Library",
-  "id": "library-cms125",
+  "id": "library-cms125-FHIR",
   "version": "6.0.0",
   "status": "active",
   "experimental": true,
@@ -15,25 +15,25 @@
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/MATGlobalCommonFunctionsFHIR"
+        "reference": "Library/library-mat-global-common-functions-FHIR"
       }
     },
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/AdultOutpatientEncountersFHIR"
+        "reference": "Library/library-adult-outpatient-encounters-FHIR"
       }
     },
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/HospiceFHIR"
+        "reference": "Library/library-hospice-FHIR"
       }
     },
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/FHIRHelpers"
+        "reference": "Library/library-fhir-helpers"
       }
     }
   ],
