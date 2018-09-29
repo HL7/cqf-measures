@@ -229,10 +229,10 @@
                     </operand>
                     <operand xsi:type="In">
                         <operand name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
-                            <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                                <operand path="birthDate" xsi:type="Property">
+                            <operand path="value" xsi:type="Property">
+                                <source path="birthDate" xsi:type="Property">
                                     <source name="Patient" xsi:type="ExpressionRef"/>
-                                </operand>
+                                </source>
                             </operand>
                             <operand xsi:type="Start">
                                 <operand name="Measurement Period" xsi:type="ParameterRef"/>
