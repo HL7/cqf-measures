@@ -110,7 +110,7 @@ define "Pap Test With HPV Within 5 Years":
 					HPVTest.effective starts 1 day or less before or on day of start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective)
 						or HPVTest.effective starts less than 1 day after or on day of start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective)
 				)
-				and HPVTest.status in { 'final', 'amended', 'corrected' }
+				and HPVTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
 
 define "Denominator Exclusions":
 	Hospice."Has Hospice"("Measurement Period")
