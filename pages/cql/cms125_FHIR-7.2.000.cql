@@ -2,9 +2,9 @@ library BreastCancerScreening version '7.2.000'
 
 using FHIR version '3.0.0'
 
-include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
-include Adult_Outpatient_Encounters_FHIR version '1.1.000' called AdultOutpatientEncounters
-include Hospice_FHIR version '1.0.000' called Hospice
+include MATGlobalCommonFunctionsFHIR version '2.0.000' called Global
+include AdultOutpatientEncountersFHIR version '1.1.000' called AdultOutpatientEncounters
+include HospiceFHIR version '1.0.000' called Hospice
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
 valueset "ONC Administrative Sex": 'urn:oid:2.16.840.1.113762.1.4.1'
@@ -41,8 +41,6 @@ define "SDE Ethnicity":
 				where FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding) in "Ethnicity"
 		return FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding).display
 
-// DT: Not addressed in QI Core / FHIR
-// CRS: Use the "Payer" ValueSet to investigate what codes are expected and investigate whether an approach can be used with Coverage resource
 define "SDE Payer":
     [Coverage: type in "Payer"] Payer
       return {
@@ -117,7 +115,7 @@ define "Numerator":
 								and Mammogram.status in { 'final', 'amended', 'corrected', 'appended' }
 		)
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 		Hospice."Has Hospice"("Measurement Period")
 				or ( Count("Unilateral Mastectomy Procedure") = 2 )
 				or ( exists "Right Mastectomy" and exists "Left Mastectomy" )

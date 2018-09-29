@@ -2,8 +2,7 @@
 <library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
     <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
     <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <identifier id="MATGlobalCommonFunctions_FHIR" version="2.0.000"/>
+    <identifier id="MATGlobalCommonFunctionsFHIR" version="2.0.000"/>
     <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
     <usings>
         <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
@@ -13,8 +12,8 @@
         <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
     </includes>
     <codeSystems>
-        <def name="LOINC:2.46" id="urn:oid:2.16.840.1.113883.6.1" version="urn:hl7:version:2.46" accessLevel="Public"/>
-        <def name="SNOMEDCT:2016-03" id="urn:oid:2.16.840.1.113883.6.96" version="urn:hl7:version:2016-03" accessLevel="Public"/>
+        <def name="LOINC:2.46" id="http://loinc.org" version="urn:hl7:version:2.46" accessLevel="Public"/>
+        <def name="SNOMEDCT:2016-03" id="http://snomed.info/sct" version="urn:hl7:version:2016-03" accessLevel="Public"/>
         <def name="RoleCode" id="http://hl7.org/fhir/v3/RoleCode" accessLevel="Public"/>
     </codeSystems>
     <valueSets>
@@ -39,21 +38,6 @@
         <def name="Patient" context="Patient">
             <expression xsi:type="SingletonFrom">
                 <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
-            </expression>
-        </def>
-        <def name="Encounter" context="Patient" accessLevel="Public">
-            <expression xsi:type="Query">
-                <source alias="E">
-                    <expression dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
-                        <codes name="Emergency Department Visit" xsi:type="ValueSetRef"/>
-                    </expression>
-                </source>
-                <where xsi:type="Equal">
-                    <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                        <operand path="status" scope="E" xsi:type="Property"/>
-                    </operand>
-                    <operand valueType="t:String" value="finished" xsi:type="Literal"/>
-                </where>
             </expression>
         </def>
         <def name="LengthInDays" context="Patient" accessLevel="Public" xsi:type="FunctionDef">

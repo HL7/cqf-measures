@@ -1,12 +1,10 @@
 library ColorectalCancerScreening version '7.2.000'
 
-// changed to use STU3 FHIR model
 using FHIR version '3.0.0'
 
-include Adult_Outpatient_Encounters_FHIR version '1.1.000' called AdultOutpatientEncounters
-include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
-include Hospice_FHIR version '1.0.000' called Hospice
-// added FHIRHelpers conversion Library
+include AdultOutpatientEncountersFHIR version '1.1.000' called AdultOutpatientEncounters
+include MATGlobalCommonFunctionsFHIR version '2.0.000' called Global
+include HospiceFHIR version '1.0.000' called Hospice
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
 valueset "ONC Administrative Sex": 'urn:oid:2.16.840.1.113762.1.4.1'
@@ -40,7 +38,6 @@ define "SDE Ethnicity":
 				where FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding) in "Ethnicity"
 		return FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding).display
 
-// DT: Not addressed in QI Core / FHIR
 define "SDE Payer":
     [Coverage: type in "Payer"] Payer
       return {
@@ -68,52 +65,45 @@ define "SDE Sex":
 	  return P.gender
 
 define "Denominator":
-	"Initial Population"
+	true
 
-// added FlexibleSigmoidoscopy.status = 'completed'
 define "Flexible Sigmoidoscopy Performed":
 	[Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
 		where FlexibleSigmoidoscopy.status = 'completed'
 			and FlexibleSigmoidoscopy.performed ends 5 years or less on or before end of "Measurement Period"
 
-// added Colonography.status = 'completed'
 define "CT Colonography Performed":
 	[Procedure: "CT Colonography"] Colonography
 		where Colonography.status = 'completed'
 			and Colonography.performed ends 5 years or less on or before end of "Measurement Period"
 
-// added Colectomy.status = 'completed'
 define "Total Colectomy Performed":
 	[Procedure: "Total Colectomy"] Colectomy
 		where Colectomy.status = 'completed'
-			and Colectomy.performed starts on or before end of "Measurement Period"
+			and Global."Get Choice Interval - dateTime or Period"(Colectomy.performed) starts on or before end of "Measurement Period"
 
-// added ColorectalCancer.clinicalStatus = 'active'
 define "Malignant Neoplasm":
 	[Condition: "Malignant Neoplasm of Colon"] ColorectalCancer
 		where ColorectalCancer.clinicalStatus = 'active'
-			and ColorectalCancer.onset starts on or before end of "Measurement Period"
+			and Global."Normalize Onset"(ColorectalCancer.onset) starts on or before end of "Measurement Period"
 
-// added FecalOccultResult.status in {'final', 'amended', 'corrected'}
-// commented out the provenance.recorded statement - let's ignore provenance for now...
 define "Fecal Occult Blood Test Performed":
 	[Observation: "Fecal Occult Blood Test (FOBT)"] FecalOccultResult
-		where FecalOccultResult.status in {'final', 'amended', 'corrected'}
+		where FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}
 			and FecalOccultResult.value is not null
+			and FecalOccultResult.effective during day of "Measurement Period"
 			// and FecalOccultResult.FHIR.provenance.recorded during "Measurement Period"
 
-// added FitDNA.status in {'final', 'amended', 'corrected'}
-// commented out the provenance.recorded statement - let's ignore provenance for now...
 define "Fecal Immunochemical Test DNA":
 	[Observation: "FIT DNA"] FitDNA
 		where FitDNA.status in {'final', 'amended', 'corrected'}
 			and FitDNA.value is not null
+			and FitDNA.effective occurs 3 years or less on or before day of end of "Measurement Period"
 			// and FitDNA.FHIR.provenance.recorded occurs 3 years or less on or before end of "Measurement Period"
 
-// added Colonoscopy.status = 'active'
 define "Colonoscopy Performed":
 	[Procedure: "Colonoscopy"] Colonoscopy
-		where Colonoscopy.status = 'active'
+		where Colonoscopy.status = 'completed'
 		 	and Colonoscopy.performed ends 10 years or less on or before end of "Measurement Period"
 
 define "Numerator":
@@ -123,12 +113,11 @@ define "Numerator":
 		or exists "Fecal Immunochemical Test DNA"
 		or exists "CT Colonography Performed"
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	Hospice."Has Hospice"("Measurement Period")
 		or exists "Malignant Neoplasm"
 		or exists "Total Colectomy Performed"
 
-// see http://www.hl7.org/fhir/us/qicore/IndividualCharacteristic.html for Patient Characteristic mappings
 define "Initial Population":
 	Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[50, 75]
 			and exists AdultOutpatientEncounters."Qualifying Encounters"("Measurement Period")

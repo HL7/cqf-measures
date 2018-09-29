@@ -1,4 +1,4 @@
-library Adult_Outpatient_Encounters_FHIR version '1.1.000'
+library AdultOutpatientEncountersFHIR version '1.1.000'
 
 using FHIR version '3.0.0'
 

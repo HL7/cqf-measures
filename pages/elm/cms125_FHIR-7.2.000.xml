@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
     <annotation startLine="35" startChar="49" endLine="35" endChar="51" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation startLine="60" startChar="44" endLine="60" endChar="46" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation startLine="86" startChar="45" endLine="86" endChar="52" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-    <annotation startLine="97" startChar="45" endLine="97" endChar="52" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+    <annotation startLine="58" startChar="44" endLine="58" endChar="46" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+    <annotation startLine="84" startChar="45" endLine="84" endChar="52" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+    <annotation startLine="95" startChar="45" endLine="95" endChar="52" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
     <identifier id="BreastCancerScreening" version="7.2.000"/>
     <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
     <usings>
@@ -11,9 +11,9 @@
         <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
     </usings>
     <includes>
-        <def localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR" version="2.0.000"/>
-        <def localIdentifier="AdultOutpatientEncounters" path="Adult_Outpatient_Encounters_FHIR" version="1.1.000"/>
-        <def localIdentifier="Hospice" path="Hospice_FHIR" version="1.0.000"/>
+        <def localIdentifier="Global" path="MATGlobalCommonFunctionsFHIR" version="2.0.000"/>
+        <def localIdentifier="AdultOutpatientEncounters" path="AdultOutpatientEncountersFHIR" version="1.1.000"/>
+        <def localIdentifier="Hospice" path="HospiceFHIR" version="1.0.000"/>
         <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
     </includes>
     <parameters>
@@ -491,7 +491,7 @@
                 </operand>
             </expression>
         </def>
-        <def name="Denominator Exclusions" context="Patient" accessLevel="Public">
+        <def name="Denominator Exclusion" context="Patient" accessLevel="Public">
             <expression xsi:type="Or">
                 <operand xsi:type="Or">
                     <operand xsi:type="Or">

@@ -2,12 +2,12 @@ library CervicalCancerScreening version '7.2.000'
 
 using FHIR version '3.0.0'
 
-include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
-include Adult_Outpatient_Encounters_FHIR version '1.1.000' called AdultOutpatientEncounters
-include Hospice_FHIR version '1.0.000' called Hospice
+include MATGlobalCommonFunctionsFHIR version '2.0.000' called Global
+include AdultOutpatientEncountersFHIR version '1.1.000' called AdultOutpatientEncounters
+include HospiceFHIR version '1.0.000' called Hospice
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
-codesystem "SNOMEDCT:2017-09": 'urn:oid:2.16.840.1.113883.6.96' version 'urn:hl7:version:2017-09'
+codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct' version 'urn:hl7:version:2017-09'
 
 valueset "ONC Administrative Sex": 'urn:oid:2.16.840.1.113762.1.4.1'
 valueset "Race": 'urn:oid:2.16.840.1.114222.4.11.836'
@@ -43,8 +43,6 @@ define "SDE Ethnicity":
 				where FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding) in "Ethnicity"
 		return FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding).display
 
-// DT: Not addressed in QI Core / FHIR
-// CRS: Use the "Payer" ValueSet to investigate what codes are expected and investigate whether an approach can be used with Coverage resource
 define "SDE Payer":
     [Coverage: type in "Payer"] Payer
       return {
@@ -88,14 +86,6 @@ define "Pap Test Within 3 Years":
 	"Pap Test with Results" PapTest
 		where PapTest.effective 3 years or less before end of "Measurement Period"
 
-define "Qualifying Encounters":
-	( [Encounter: "Office Visit"]
-		union [Encounter: "Preventive Care Services - Established Office Visit, 18 and Up"]
-		union [Encounter: "Preventive Care Services-Initial Office Visit, 18 and Up"]
-		union [Encounter: "Home Healthcare Services"] ) ValidEncounter
-		where ValidEncounter.period during "Measurement Period"
-			and ValidEncounter.status = 'finished'
-
 define "PapTest Within 5 Years":
 	( "Pap Test with Results" PapTestOver30YearsOld
 			where Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective))>= 30
@@ -112,7 +102,7 @@ define "Pap Test With HPV Within 5 Years":
 				)
 				and HPVTest.status in { 'final', 'amended', 'corrected' }
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	Hospice."Has Hospice"("Measurement Period")
 		or exists "Surgical Absence of Cervix"
 		or exists "Absence of Cervix"

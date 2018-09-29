@@ -19,55 +19,87 @@
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - CMS122"/>
-            <description value="Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)"/>
-            <sourceReference>
-                <reference value="Library/library-cms122"/>
-            </sourceReference>
-        </resource>
-        <resource>
             <name value="Library - CMS124"/>
             <description value="Cervical Cancer Screening"/>
             <sourceReference>
-                <reference value="Library/library-cms124"/>
+                <reference value="Library/library-cms124-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
             <name value="Library - CMS125"/>
             <description value="Breast Cancer Screening"/>
             <sourceReference>
-                <reference value="Library/library-cms125"/>
+                <reference value="Library/library-cms125-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
             <name value="Library - CMS130"/>
             <description value="Colorectal Cancer Screening"/>
             <sourceReference>
-                <reference value="Library/library-cms130"/>
+                <reference value="Library/library-cms130-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
             <name value="Library - Adult Outpatient Encounters FHIR"/>
             <sourceReference>
-                <reference value="Library/AdultOutpatientEncountersFHIR"/>
+                <reference value="Library/library-adult-outpatient-encounters-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
             <name value="Library - FHIRHelpers"/>
             <sourceReference>
-                <reference value="Library/FHIRHelpers"/>
+                <reference value="Library/library-fhir-helpers"/>
             </sourceReference>
         </resource>
         <resource>
             <name value="Library - Hospice FHIR"/>
             <sourceReference>
-                <reference value="Library/HospiceFHIR"/>
+                <reference value="Library/library-hospice-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
             <name value="Library - MAT Global Common Functions FHIR"/>
             <sourceReference>
-                <reference value="Library/MATGlobalCommonFunctionsFHIR"/>
+                <reference value="Library/library-mat-global-common-functions-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - CMS124"/>
+            <description value="Cervical Cancer Screening"/>
+            <sourceReference>
+                <reference value="Library/library-cms124-QDM"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - CMS125"/>
+            <description value="Breast Cancer Screening"/>
+            <sourceReference>
+                <reference value="Library/library-cms125-QDM"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - CMS130"/>
+            <description value="Colorectal Cancer Screening"/>
+            <sourceReference>
+                <reference value="Library/library-cms130-QDM"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - Adult Outpatient Encounters QDM"/>
+            <sourceReference>
+                <reference value="Library/library-adult-outpatient-encounters-QDM"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - Hospice QDM"/>
+            <sourceReference>
+                <reference value="Library/library-hospice-QDM"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - MAT Global Common Functions QDM"/>
+            <sourceReference>
+                <reference value="Library/library-mat-global-common-functions-QDM"/>
             </sourceReference>
         </resource>
         <resource>
@@ -80,18 +112,10 @@
         </resource>
         <resource>
             <example value="true"/>
-            <name value="Measure - CMS122"/>
-            <description value="Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)"/>
-            <sourceReference>
-                <reference value="Measure/measure-cms122"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
             <name value="Measure - CMS124"/>
             <description value="Cervical Cancer Screening"/>
             <sourceReference>
-                <reference value="Measure/measure-cms124"/>
+                <reference value="Measure/measure-cms124-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
@@ -99,7 +123,7 @@
             <name value="Measure - CMS125"/>
             <description value="Breast Cancer Screening"/>
             <sourceReference>
-                <reference value="Measure/measure-cms125"/>
+                <reference value="Measure/measure-cms125-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
@@ -107,7 +131,31 @@
             <name value="Measure - CMS130"/>
             <description value="Colorectal Cancer Screening"/>
             <sourceReference>
-                <reference value="Measure/measure-cms130"/>
+                <reference value="Measure/measure-cms130-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - CMS124"/>
+            <description value="Cervical Cancer Screening"/>
+            <sourceReference>
+                <reference value="Measure/measure-cms124-QDM"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - CMS125"/>
+            <description value="Breast Cancer Screening"/>
+            <sourceReference>
+                <reference value="Measure/measure-cms125-QDM"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - CMS130"/>
+            <description value="Colorectal Cancer Screening"/>
+            <sourceReference>
+                <reference value="Measure/measure-cms130-QDM"/>
             </sourceReference>
         </resource>
         <resource>
@@ -585,20 +633,30 @@
 	</package>
     <binary value="cql/exm-logic-1.0.0.cql"/>
     <binary value="elm/exm-logic-1.0.0.xml"/>
-    <binary value="cql/cms122_FHIR-7.2.000.cql"/>
-    <binary value="elm/cms122_FHIR-7.2.000.xml"/>
     <binary value="cql/cms130_FHIR-7.2.000.cql"/>
     <binary value="elm/cms130_FHIR-7.2.000.xml"/>
     <binary value="cql/cms125_FHIR-7.2.000.cql"/>
     <binary value="elm/cms125_FHIR-7.2.000.xml"/>
 	<binary value="cql/cms124_FHIR-7.2.000.cql"/>
     <binary value="elm/cms124_FHIR-7.2.000.xml"/>
+    <binary value="cql/cms130_QDM-7.2.000.cql"/>
+    <binary value="elm/cms130_QDM-7.2.000.xml"/>
+    <binary value="cql/cms125_QDM-7.2.000.cql"/>
+    <binary value="elm/cms125_QDM-7.2.000.xml"/>
+    <binary value="cql/cms124_QDM-7.2.000.cql"/>
+    <binary value="elm/cms124_QDM-7.2.000.xml"/>
     <binary value="cql/Adult_Outpatient_Encounters_FHIR-1.1.000.cql"/>
     <binary value="elm/Adult_Outpatient_Encounters_FHIR-1.1.000.xml"/>
     <binary value="cql/Hospice_FHIR-1.0.000.cql"/>
     <binary value="elm/Hospice_FHIR-1.0.000.xml"/>
     <binary value="cql/MATGlobalCommonFunctions_FHIR-2.0.000.cql"/>
     <binary value="elm/MATGlobalCommonFunctions_FHIR-2.0.000.xml"/>
+    <binary value="cql/Adult_Outpatient_Encounters_QDM-1.1.000.cql"/>
+    <binary value="elm/Adult_Outpatient_Encounters_QDM-1.1.000.xml"/>
+    <binary value="cql/Hospice_QDM-1.0.000.cql"/>
+    <binary value="elm/Hospice_QDM-1.0.000.xml"/>
+    <binary value="cql/MATGlobalCommonFunctions_QDM-2.0.000.cql"/>
+    <binary value="elm/MATGlobalCommonFunctions_QDM-2.0.000.xml"/>
     <page>
         <source value="index.html"/>
         <title value="CQF Measure Content"/>
