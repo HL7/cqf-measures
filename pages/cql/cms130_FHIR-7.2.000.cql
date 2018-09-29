@@ -96,7 +96,6 @@ define "Fecal Occult Blood Test Performed":
 
 define "Fecal Immunochemical Test DNA":
 	[Observation: "FIT DNA"] FitDNA
-		where FitDNA.status in {'final', 'amended', 'corrected'}
 			and FitDNA.value is not null
 			and FitDNA.effective occurs 3 years or less on or before day of end of "Measurement Period"
 			// and FitDNA.FHIR.provenance.recorded occurs 3 years or less on or before end of "Measurement Period"

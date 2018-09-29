@@ -80,7 +80,7 @@ define "Denominator":
 define "Pap Test with Results":
 	[Observation: "Pap Test"] PapTest
 		where PapTest.value is not null
-			and PapTest.status in { 'final', 'amended', 'corrected' }
+			and PapTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
 
 define "Pap Test Within 3 Years":
 	"Pap Test with Results" PapTest
@@ -100,7 +100,7 @@ define "Pap Test With HPV Within 5 Years":
 					HPVTest.effective starts 1 day or less before or on day of start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective)
 						or HPVTest.effective starts less than 1 day after or on day of start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective)
 				)
-				and HPVTest.status in { 'final', 'amended', 'corrected' }
+				and HPVTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
 
 define "Denominator Exclusion":
 	Hospice."Has Hospice"("Measurement Period")

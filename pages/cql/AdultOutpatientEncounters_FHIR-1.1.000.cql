@@ -14,10 +14,11 @@ context Patient
 
 define function "Qualifying Encounters"(MeasurementPeriod Interval<DateTime>):
 	(
-	    ( [Encounter: "Office Visit"] E where E.status = 'final' )
-		union ( [Encounter: "Annual Wellness Visit"] E where E.status = 'final' )
-		union ( [Encounter: "Preventive Care Services - Established Office Visit, 18 and Up"] E where E.status = 'final' )
-		union ( [Encounter: "Preventive Care Services-Initial Office Visit, 18 and Up"] E where E.status = 'final' )
-		union ( [Encounter: "Home Healthcare Services"] E where E.status = 'final' )
+	    [Encounter: "Office Visit"]
+		union [Encounter: "Annual Wellness Visit"] 
+		union [Encounter: "Preventive Care Services - Established Office Visit, 18 and Up"] 
+		union [Encounter: "Preventive Care Services-Initial Office Visit, 18 and Up"] 
+		union [Encounter: "Home Healthcare Services"]
     ) ValidEncounter
 		where ValidEncounter.period during day of MeasurementPeriod
+		and ValidEncounter.status  = 'finished' 
