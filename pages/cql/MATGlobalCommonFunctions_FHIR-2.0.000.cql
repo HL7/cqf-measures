@@ -4,8 +4,8 @@ using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
-codesystem "LOINC:2.46": 'urn:oid:2.16.840.1.113883.6.1' version 'urn:hl7:version:2.46'
-codesystem "SNOMEDCT:2016-03": 'urn:oid:2.16.840.1.113883.6.96' version 'urn:hl7:version:2016-03'
+codesystem "LOINC:2.46": 'http://loinc.org' version 'urn:hl7:version:2.46'
+codesystem "SNOMEDCT:2016-03": 'http://snomed.info/sct' version 'urn:hl7:version:2016-03'
 codesystem "RoleCode": 'http://hl7.org/fhir/v3/RoleCode'
 
 valueset "Encounter Inpatient": 'urn:oid:2.16.840.1.113883.3.666.5.307'
@@ -17,10 +17,6 @@ code "ER": 'ER' from "RoleCode" display 'Emergency room'
 code "ICU": 'ICU' from "RoleCode" display 'Intensive care unit'
 
 context Patient
-
-define "Encounter":
-	[Encounter: "Emergency Department Visit"] E
-	    where E.status = 'finished'
 
 define function "Inpatient Encounter"(MeasurementPeriod Interval<DateTime>):
 	[Encounter: "Encounter Inpatient"] EncounterInpatient
@@ -108,6 +104,9 @@ define function "First Inpatient Intensive Care Unit"(TheEncounter FHIR.Encounte
 				and HospitalLocation.period during TheEncounter.period
 			sort by start of FHIRHelpers.ToInterval(period)
 	)*/
+
+
+
 
 /*
 *

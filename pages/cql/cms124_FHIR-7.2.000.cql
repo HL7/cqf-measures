@@ -7,7 +7,7 @@ include AdultOutpatientEncountersFHIR version '1.1.000' called AdultOutpatientEn
 include HospiceFHIR version '1.0.000' called Hospice
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
-codesystem "SNOMEDCT:2017-09": 'urn:oid:2.16.840.1.113883.6.96' version 'urn:hl7:version:2017-09'
+codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct' version 'urn:hl7:version:2017-09'
 
 valueset "ONC Administrative Sex": 'urn:oid:2.16.840.1.113762.1.4.1'
 valueset "Race": 'urn:oid:2.16.840.1.114222.4.11.836'
