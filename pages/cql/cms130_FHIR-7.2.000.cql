@@ -71,7 +71,7 @@ define "Denominator":
 	"Initial Population"
 
 // added FlexibleSigmoidoscopy.status = 'completed'
-define "Flexible Sigmoidoscopy Performed":
+define "Flexible Sigmoidoscopy Performed": 
 	[Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
 		where FlexibleSigmoidoscopy.status = 'completed'
 			and FlexibleSigmoidoscopy.performed ends 5 years or less on or before end of "Measurement Period"
@@ -98,22 +98,24 @@ define "Malignant Neoplasm":
 // commented out the provenance.recorded statement - let's ignore provenance for now...
 define "Fecal Occult Blood Test Performed":
 	[Observation: "Fecal Occult Blood Test (FOBT)"] FecalOccultResult
-		where FecalOccultResult.status in {'final', 'amended', 'corrected'}
+		where FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}
 			and FecalOccultResult.value is not null
+			and FecalOccultResult.effective during the "Measurement Period"
 			// and FecalOccultResult.FHIR.provenance.recorded during "Measurement Period"
 
 // added FitDNA.status in {'final', 'amended', 'corrected'}
 // commented out the provenance.recorded statement - let's ignore provenance for now...
 define "Fecal Immunochemical Test DNA":
 	[Observation: "FIT DNA"] FitDNA
-		where FitDNA.status in {'final', 'amended', 'corrected'}
+		where FitDNA.status in {'final', 'amended', 'corrected', 'preliminary'}
 			and FitDNA.value is not null
+			and FitDNA.effective during the "Measurement Period"
 			// and FitDNA.FHIR.provenance.recorded occurs 3 years or less on or before end of "Measurement Period"
 
 // added Colonoscopy.status = 'active'
 define "Colonoscopy Performed":
 	[Procedure: "Colonoscopy"] Colonoscopy
-		where Colonoscopy.status = 'active'
+		where Colonoscopy.status = 'completed'
 		 	and Colonoscopy.performed ends 10 years or less on or before end of "Measurement Period"
 
 define "Numerator":
