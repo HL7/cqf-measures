@@ -35,13 +35,17 @@ define "Intervention Comfort Measures":
 
 define "All Stroke Encounter":
 	"Non Elective Inpatient Encounter" NonElectiveEncounter
-    where PrincipalDiagnosis(NonElectiveEncounter) in "Hemorrhagic Stroke"
-      or PrincipalDiagnosis(NonElectiveEncounter) in "Ischemic Stroke"
+    where PrincipalDiagnosis(NonElectiveEncounter).code in "Hemorrhagic Stroke"
+      or PrincipalDiagnosis(NonElectiveEncounter).code in "Ischemic Stroke"
 
 // TODO: Add QI-Core invariant to require there must be a billing and rank must be unique and required within diagnosis list
-define function "PrincipalDiagnosisCode"(Encounter Encounter):
-  (singleton from (Encounter.diagnosis D where D.role = 'billing' and D.rank = 1)).condition.resolve().code
+define function "PrincipalDiagnosis"(Encounter Encounter):
+  (singleton from (Encounter.diagnosis D where D.role = 'billing' and D.rank = 1)) PD
+    return singleton from ([Condition: id in GetId(PD.condition.reference)])
 
+define function GetId(uri String):
+  Last(Split(uri, '/'))
+  
 // TODO: Continue review
 define "Ischemic Stroke Encounter":
 	"Encounter with Principal Diagnosis and Age" EncounterWithAge
