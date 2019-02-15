@@ -51,7 +51,7 @@ Here is an example of using population types to select data on diabetes patients
 
 Figure 5: Calcuation Flow for Proportion Measures
 
-Calculation Flow Diagram-Proportion
+![Calculation Flow Diagram-Proportion](assets/images/CalculationFlowDiagrams-Proportion.jpg)
 
 * Initial population (IPOP): Identify those cases that meet the IPOP criteria.
 * Denominator (DENOM): Identify that subset of the IPOP that meet the DENOM criteria.
@@ -122,7 +122,7 @@ The population types for a Continuous Variable measure are "Initial Population",
 
 Figure 6: Population criteria for Continuous Variable measures illustration
 
-Continuous Variable Venn Diagram
+![Continuous Variable Venn Diagram](assets/images/CVVenn.jpg)
 
 Table 3: Population Criteria Definitions for Continuous Variable Measures
 
@@ -140,7 +140,7 @@ Here is an example of using the population types to select data on emergency dep
 
 Figure 7: Calcuation Flow for Continuous Variable Measure Score
 
-Calculation Flow Diagram-ContinuousVariable
+![Calculation Flow Diagram-ContinuousVariable](assets/images/CalculationFlowDiagrams-ContinuousVariable.jpg)
 
 * Initial population (IPOP): Identify those cases that meet the IPOP criteria.
 * Measure population (MSRPOPL): Identify that subset of the IPOP that meet the MSRPOPL criteria.
@@ -180,15 +180,15 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 
 Figure 8: Population criteria for Ratio measures illustration
 
-Ratio Venn Diagram
+![Ratio Venn Diagram](assets/images/RatioVenn.jpg)
 
 Figure 9: Population criteria for Ratio measures illustration
 
-Ratio 2 Venn Diagram
+![Ratio 2 Venn Diagram](assets/images/Ratio2Venn.png)
 
 Figure 10: Population criteria for Ratio measures illustration
 
-Ratio 3 Venn Diagram
+![Ratio 3 Venn Diagram](assets/images/Ratio3Venn.png)
 
 Table 4: Population Criteria Definitions for Ratio Measures
 
@@ -210,7 +210,7 @@ Here is an example of using the population types to select data on patients with
 
 Figure 11: Calcuation Flow for Ratio Measure Score
 
-Calculation Flow Diagram-Ratio
+![Calculation Flow Diagram-Ratio](assets/images/CalculationFlowDiagrams-Ratio.jpg)
 
 * Initial population (IPOP): Identify those cases that meet the IPOP criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
 * Denominator (DENOM): Identify that subset of the IPOP that meet the DENOM criteria.
@@ -288,7 +288,7 @@ In a cohort measure, a population is identified from the population of all items
 
 Figure 12: Population criteria for Cohort measures illustration
 
-Cohort Venn Diagram
+![Cohort Venn Diagram](assets/images/CohortVenn.jpg)
 
 Table 5: Population Criteria Definitions for Cohort Measures
 
