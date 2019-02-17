@@ -28,9 +28,8 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Intervention Comfort Measures":
-	(["ProcedureRequest": "Comfort Measures"] 
-    P where P.intent = 'order'
-  )
+	(["ProcedureRequest": "Comfort Measures"] P 
+		where P.intent = 'order')
 		union ["Procedure": "Comfort Measures"]
 
 define "All Stroke Encounter":
@@ -46,10 +45,9 @@ define function "PrincipalDiagnosis"(Encounter Encounter):
 define function GetId(uri String):
   Last(Split(uri, '/'))
   
-// TODO: Continue review
 define "Ischemic Stroke Encounter":
 	"Encounter with Principal Diagnosis and Age" EncounterWithAge
-		where EncounterWithAge.diagnosis.resolve() in "Ischemic Stroke"
+		where PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
 
 define "Ischemic Stroke Encounters with Discharge Status":
 	( ( "Ischemic Stroke Encounter" IschemicStrokeEncounter

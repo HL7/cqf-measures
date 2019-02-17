@@ -3,80 +3,146 @@ library CMS105 version '7'
 using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0'
-include TJC_Overall version '1.4.000' called TJC
 
-// TODO: Use the VSAC canonical URL for these valuesets
-valueset "ONC Administrative Sex": 'urn:oid:2.16.840.1.113762.1.4.1'
-valueset "Race": 'urn:oid:2.16.840.1.114222.4.11.836'
-valueset "Ethnicity": 'urn:oid:2.16.840.1.114222.4.11.837'
-valueset "Payer": 'urn:oid:2.16.840.1.114222.4.11.3591'
-valueset "LDL-c": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.215'
-valueset "Medical Reason": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.473'
-valueset "Patient Refusal": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.93'
-valueset "Statin Allergen": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.423'
-valueset "Statin Grouper": 'urn:oid:2.16.840.1.113762.1.4.1110.19'
+// TODO: Use FHIR terminology URLs here
+codesystem "LOINC:2.46": '2.16.840.1.113883.6.1' version 'urn:hl7:version:2.46'
+codesystem "SNOMEDCT:2016-03": '2.16.840.1.113883.6.96' version 'urn:hl7:version:2016-03'
 
-code "Medication-dischargeMedication": '8654-6' from "LOINC:2.46" display 'Hospital Discharge medications'
+// TODO: Use NLM VSAC Canonical URLs
+valueset "Encounter Inpatient": '2.16.840.1.113883.3.666.5.307'
+valueset "Non-Elective Inpatient Encounter": '2.16.840.1.113883.3.117.1.7.1.424'
+valueset "Ischemic Stroke": '2.16.840.1.113883.3.117.1.7.1.247'
+valueset "Hemorrhagic Stroke": '2.16.840.1.113883.3.117.1.7.1.212'
+valueset "Comfort Measures": '1.3.6.1.4.1.33895.1.3.0.45'
+valueset "Emergency Department Visit": '2.16.840.1.113883.3.117.1.7.1.292'
+valueset "Left Against Medical Advice": '2.16.840.1.113883.3.117.1.7.1.308'
+valueset "Discharged to Health Care Facility for Hospice Care": '2.16.840.1.113883.3.117.1.7.1.207'
+valueset "Patient Expired": '2.16.840.1.113883.3.117.1.7.1.309'
+valueset "Discharge To Acute Care Facility": '2.16.840.1.113883.3.117.1.7.1.87'
+valueset "Discharged to Home for Hospice Care": '2.16.840.1.113883.3.117.1.7.1.209'
+valueset "ONC Administrative Sex": '2.16.840.1.113762.1.4.1'
+valueset "Race": '2.16.840.1.114222.4.11.836'
+valueset "Ethnicity": '2.16.840.1.114222.4.11.837'
+valueset "Payer": '2.16.840.1.114222.4.11.3591'
+valueset "LDL-c": '2.16.840.1.113883.3.117.1.7.1.215'
+valueset "Medical Reason": '2.16.840.1.113883.3.117.1.7.1.473'
+valueset "Patient Refusal": '2.16.840.1.113883.3.117.1.7.1.93'
+valueset "Statin Allergen": '2.16.840.1.113883.3.117.1.7.1.423'
+valueset "Statin Grouper": '2.16.840.1.113762.1.4.1110.19'
+
+// TODO: Use NLM VSAC Canonical URLs
+code "Birthdate": '21112-8' from "LOINC:2.46" display 'Birth date'
+code "Dead": '419099009' from "SNOMEDCT:2016-03" display 'Dead'
+//code "Medication-dischargeMedication": '8654-6' from "LOINC:2.46" display 'Hospital Discharge medications'
+
+parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
+define "Initial Population":
+	"Encounter with Principal Diagnosis and Age"
+
+define "Encounter with Principal Diagnosis and Age":
+	"All Stroke Encounter" AllStrokeEncounter
+		with ["Patient"] BirthDate
+			such that AgeInYearsAt(AllStrokeEncounter.period.start) >= 18
+
+define "All Stroke Encounter":
+	"Non Elective Inpatient Encounter" NonElectiveEncounter
+		where "PrincipalDiagnosis"(NonElectiveEncounter).code in "Hemorrhagic Stroke"
+		or "PrincipalDiagnosis"(NonElectiveEncounter).code in "Ischemic Stroke"
+
+define "Non Elective Inpatient Encounter":
+	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
+		where "LengthInDays"(NonElectiveEncounter.period)<= 120
+			and NonElectiveEncounter.period ends during "Measurement Period"
+
+define function "PrincipalDiagnosis"(Encounter Encounter):
+	(singleton from (Encounter.diagnosis D where D.role = 'billing' and D.rank = 1)) PD
+		return singleton from ([Condition: id in "GetId"(PD.condition.reference)])
+
+define function "LengthInDays"(Value Interval<DateTime>):
+	difference in days between start of Value and end of Value
+
+define function "GetId"(uri String):
+	Last(Split(uri, '/'))
+	
+define "Denominator":
+	"Initial Population"
 
 define "Statin Allergy":
 	["AllergyIntolerance": "Statin Allergen"]
 
-define "Statin at Discharge":
-	["MedicationRequest": "Statin Grouper"] M
-    where M.intent in { 'order', 'instance-order' }
-      and M.category = 'community' // represents on the discharge medication list
-
-// TODO: Log a tracker in QI-Core to add "request-doNotPerform" to the MedicationRequest profile
-// TODO: Add a request-doNotPerform-reason extension and use it in MedicationRequest
-// TODO: Update this to use those extensions (or the first-class elements in QUICK)
-define "Statin Not Given at Discharge":
-	["MedicationStatement": "Statin Grouper"] NoStatinDischarge
-		where NoStatinDischarge.reasonCode in "Medical Reason"
-			or NoStatinDischarge.reasonCode in "Patient Refusal"
-
-define "Denominator":
-	"Initial Population"
-
-define "Initial Population":
-	TJC."Encounter with Principal Diagnosis and Age"
 
 define "Numerator":
-	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
+	"Ischemic Stroke Encounter" IschemicStrokeEncounter
 		with "Statin at Discharge" DischargeStatin
-			such that DischargeStatin.authoredOn during IschemicStrokeEncounter.period //Not sure is authoredOn is correct http://hl7.org/fhir/us/qicore/Medication.html#Medication.2C_Discharge
+			such that DischargeStatin.authoredOn during IschemicStrokeEncounter.period
 
+define "Ischemic Stroke Encounter":
+	"Encounter with Principal Diagnosis and Age" EncounterWithAge
+		where PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
+
+define "Statin at Discharge":
+	["MedicationRequest"] Statin
+		where (Statin.medication as CodeableConcept) in "Statin Grouper"
+			and Statin.intent = 'order'
+
+define "Statin Not Given at Discharge":
+	["MedicationRequest"] NoStatin
+		where (NoStatin.medication as CodeableConcept) in "Statin Grouper"
+			and (singleton from NoStatin.reasonCode in "Medical Reason"
+				or singleton from NoStatin.reasonCode in "Patient Refusal")
+
+//Folling function copied from MATGlobalCommonFunctions 2.0 in cqf-measures github repo
+define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
+	if onset is FHIR.dateTime then Interval[onset.value, onset.value]
+	else if onset is FHIR.Period then FHIRHelpers.ToInterval(onset as FHIR.Period)
+	else null
+	
 define "Encounter with Max LDL less than 70 mg per dL":
-	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
+	"Ischemic Stroke Encounter" IschemicStrokeEncounter
 		where Max(["Observation": "LDL-c"] Ldl
-				where Ldl.isseud during Interval[Global."ToDate"(start of IschemicStrokeEncounter.relevantPeriod - 30 days), end of IschemicStrokeEncounter.relevantPeriod]
-				return Ldl.valueQuantity.value
-		)< 70 //'mg/dL' //need to make sure valueQuantity.unit is correct
+				where Ldl.issued during Interval[IschemicStrokeEncounter.period.start - 30 days,IschemicStrokeEncounter.period.end]
+				return (Ldl.value as Quantity)
+		) < 70
 
-define "Denominator Exclusions":
-	TJC."Ischemic Stroke Encounters with Discharge Status"
-		union TJC."Comfort Measures during Hospitalization"
-
-define "Denominator Exceptions":
-	( TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
-			with "Statin Not Given at Discharge" NoDischargeStatin
-				such that NoDischargeStatin.authoredOn during IschemicStrokeEncounter.period
+define "Denominator Exception":
+	("Ischemic Stroke Encounter" IschemicStrokeEncounter
+		with "Statin Not Given at Discharge" NoDischargeStatin
+			such that NoDischargeStatin.authoredOn during IschemicStrokeEncounter.period
 	)
-		union ( TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
-				with "Statin Allergy" StatinAllergy
-					such that StatinAllergy.onsetDateTime on or before end of IschemicStrokeEncounter.period
-		)
-		union "Encounter with Max LDL less than 70 mg per dL"
+	union 
+	("Ischemic Stroke Encounter" IschemicStrokeEncounter
+		with "Statin Allergy" StatinAllergy
+			such that "Normalize Onset"(StatinAllergy.onset) on or before end of FHIRHelpers.ToInterval(IschemicStrokeEncounter.period))
 
-//define "SDE Ethnicity":
-//	["Patient Characteristic Ethnicity": "Ethnicity"]
+define "Denominator Exclusion":
+	"Ischemic Stroke Encounters with Discharge Status"
+	union 
+	"Comfort Measures during Hospitalization"
 
-//define "SDE Payer":
-//	["Patient Characteristic Payer": "Payer"]
+define "Ischemic Stroke Encounters with Discharge Status":
+	("Ischemic Stroke Encounter" IschemicStrokeEncounter
+		where IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharge To Acute Care Facility"
+			or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Left Against Medical Advice"
+			or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Patient Expired"
+			or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Home for Hospice Care"
+			or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Health Care Facility for Hospice Care"
+	)
 
-//define "SDE Race":
-//	["Patient Characteristic Race": "Race"]
+define "Comfort Measures during Hospitalization":
+	"Ischemic Stroke Encounter" IschemicStrokeEncounter
+		with "Intervention Comfort Measures" ComfortMeasure
+			such that ComfortMeasure.authoredOn during "Hospitalization"(IschemicStrokeEncounter)
 
-//define "SDE Sex":
-//	["Patient Characteristic Sex": "ONC Administrative Sex"]
+define "Intervention Comfort Measures":
+	(["ProcedureRequest": "Comfort Measures"] P 
+		where P.intent = 'order')
+		union ["Procedure": "Comfort Measures"]
+
+define function "Hospitalization"(Encounter "Encounter"):
+	( singleton from ( ["Encounter": "Emergency Department Visit"] EDVisit
+			where FHIRHelpers.ToInterval(EDVisit.period) ends 1 hour or less on or before start of FHIRHelpers.ToInterval(Encounter.period)
+	)) X
+		return if X is null then Encounter.period else Interval[start of FHIRHelpers.ToInterval(X.period), end of FHIRHelpers.ToInterval(Encounter.period)]
