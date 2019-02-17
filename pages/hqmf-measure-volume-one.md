@@ -22,13 +22,15 @@ Except where noted, material from the above specifications is not reproduced her
 
 Three volumes comprise this HL7 Version 3 Implementation Guide: Clinical Quality Language (CQL)- based Health Quality Measure Format (HQMF), Release 1 STU3 (US Realm), Standard for Trial Use:
 
+![Relationship between QDM, CQL, eCQM, and IG](assets/images/RelationshipVolumes.png)
+
 Figure 1: Relationship between QDM, CQL, eCQM, and the volumes of this IG.
 
-Volume 1	:	Provides narrative introduction, background material, and conformance requirements for representing CQL-based eCQMs in HQMF.
+Volume 1: Provides narrative introduction, background material, and conformance requirements for representing CQL-based eCQMs in HQMF.
 
-Volume 2	:	Describes how to incorporate version 5.4 of the Quality Data Model into a CQL-based eCQM in accordance with accepted formatting and usage conventions.
+Volume 2: Describes how to incorporate version 5.4 of the Quality Data Model into a CQL-based eCQM in accordance with accepted formatting and usage conventions.
 
-Volume 3	:	Contains the HQMF templates for QDM data elements,  necessary for constructing QDM+CQL-based HQMF measures.
+Volume 3: Contains the HQMF templates for QDM data elements,  necessary for constructing QDM+CQL-based HQMF measures.
 
 ### 1.3 Structure of this Volume
 
@@ -58,7 +60,7 @@ This IG is STU3 of the CQL-based HQMF Standard for Trial Use (STU). Section 1.8 
 
 ### 1.6 Scope
 
-This IG is a conformance profile, as described in the “Refinement and Localization” [9] section of the HL7 Version 3 Interoperability Standards. The base standard for this IG is the HL7 Health Quality Measures Format. This IG (Volumes 1, 2, and 3) does not describe every aspect of HQMF Release 1 Normative. Rather, it defines constraints on the base HQMF used in a CQL-based HQMF document in the US Realm. Additional optional HQMF elements, not included here, can be included and the result will be compliant with the specifications in this guide.
+This IG is a conformance profile, as described in the “Refinement and Localization” [^9] section of the HL7 Version 3 Interoperability Standards. The base standard for this IG is the HL7 Health Quality Measures Format. This IG (Volumes 1, 2, and 3) does not describe every aspect of HQMF Release 1 Normative. Rather, it defines constraints on the base HQMF used in a CQL-based HQMF document in the US Realm. Additional optional HQMF elements, not included here, can be included and the result will be compliant with the specifications in this guide.
 
 ### 1.7 Conventions
 
@@ -78,13 +80,19 @@ This Implementation Guide (IG) defines an approach to using CQL with Health Qual
 
 This Implementation Guide is the successor of the QDM-based HQMF IG R1.4 (Figure 2a) and the CQL- Based HQMF IG R1 STU1 (Figure 2b).
 
-(a) QDM based HQMF IG [^5] (b) CQL based HQMF IG (this IG)
+![QDM Based HQMF IG](assets/images/QDMBasedIG.png)
+
+(a) QDM based HQMF IG [^5]
+
+![CQL Based HQMF IG](assets/images/CQLBasedIG.png)
+
+(b) CQL based HQMF IG (this IG)
 
 Figure 2: Relationship between QDM based and CQL based HQMF IG’s.
 
 #### 1.8.1 Clinical Quality Language R1.3
 
-Clinical Quality Language R1.3 (CQL) is an HL7 standard for trial use (STU) [3]. It is part of the effort to harmonize standards between electronic clinical quality measures (eCQMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
+Clinical Quality Language R1.3 (CQL) is an HL7 standard for trial use (STU) [^3]. It is part of the effort to harmonize standards between electronic clinical quality measures (eCQMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
 
 #### 1.8.2 QDM based HQMF IG R1.4
 
@@ -439,17 +447,24 @@ Snippet 10: HQMF data criteria for Diagnosis: Acute Pharyngitis (from EXM146v4 e
 
 Note: while the QDM datatypes templates in volume 3 contain specifications of QDM attributes, they are included for the purpose of formal semantic representations of the QDM datatypes. The dataCriteriaSection entry (and by extension the HQMF) shall not contain any references to the attributes within the measure’s HQMF.
 
+    Conformance Requirement 6 (Data Criteria Inclusion):
+    dataCriteriaSection entry’s SHALL only contain information related to data types
+    dataCriteriaSection entry’s SHALL NOT contain information related to data type attributes
+
 ## 5 Population Criteria
 
 The populationCriteriaSection (lines 9 - 19 of Snippet 1) includes definitions of criteria used to specify populations. The criteria specifying these populations are described using CQL and those CQL expressions are given context in the HQMF. In this section, we describe how to use CQL and HQMF to define population criteria.
 
 CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are used instead of the RIM-based data criteria constraints and population expressions defined in §4.14.3 and §2.3.2 of the HQMF R1 STU 2 specification [^4] respectively.
 
-Once included in the HQMF file, expressions defined in the CQL can be used to further refine the data criteria and to define population criteria.  Figure 3 illustrates the general concept.  Figure 3 illustrates   the
+    Conformance Requirement 7 (Population Criteria Restrictions):
+    Population criteria SHALL NOT include allTrue, allFalse, atLeastOneTrue, atLeastOneFalse, onlyOneTrue or onlyOneFalse elements.
+
+Once included in the HQMF file, expressions defined in the CQL can be used to further refine the data criteria and to define population criteria.  Figure 3 illustrates the general concept.  Figure 3 illustrates the relationship between the HQMF and CQL documents: The HQMF QualityMeasureDocument references a CQL expression script (#1), the population criteria sections reference a particular expression from the referenced CQL file (#2), the referenced expression in-turn may include or call another expression (#3) in the same (or a different) CQL expression script. Snippet 11 and Snippet 12 demonstrate the use of HQMF and CQL in the definition of the "Initial Population". Note that the root identifier of the criteria reference (line 424) matches the internal identifier assigned to the CQL expression document (line 22 of Snippet 3). Also, note the use of the EXM146v4 namespace and escaped quotation marks (“&quot;”) in line 425.
+
+![HQMF with linked expression document](assets/images/HQMFWithLinkedExpression.jpg)
 
 Figure 3: HQMF with linked expression document
-
-relationship between the HQMF and CQL documents: The HQMF QualityMeasureDocument references a CQL expression script (#1), the population criteria sections reference a particular expression from the referenced CQL file (#2), the referenced expression in-turn may include or call another expression (#3) in the same (or a different) CQL expression script. Snippet 11 and Snippet 12 demonstrate the use of HQMF and CQL in the definition of the "Initial Population". Note that the root identifier of the criteria reference (line 424) matches the internal identifier assigned to the CQL expression document (line 22 of Snippet 3). Also, note the use of the EXM146v4 namespace and escaped quotation marks (“&quot;”) in line 425.
 
 Snippet 12 shows several examples of a CQL expression calling another, e.g. the "Initial Population" expression references another CQL expression: "Pharyngitis Encounters With Antibiotics". In this example the referenced expressions are all contained within the same CQL file (EXM146v4 CQL.cql)
 
@@ -498,9 +513,28 @@ Snippet 12: CQL definition of the "Initial Population" criteria (from EXM146v4 C
 
 and some are included above. The "In Demographic" expression uses the built-in CQL function Age- InYearsAt(). The definition of "Pharyngitis Encounters With Antibiotics" includes the function "Includes Or Starts During", defined in another CQL library (Common as described in examples/EXM146v4/Common-2.0.0 CQL.cql), further explanation of nested libraries is given in the “Nested Libraries” section of Volume 2 of this IG.
 
+    Conformance Requirement 8 (Referential Integrity):
+    All HQMF populationCriteriaSection component’s
+
+    SHALL reference exactly one CQL expression.
+    SHALL reference the same CQL library.
+
 ### 5.1 Criteria Names
 
 To encourage consistency among measures, the following guidelines for specifying population criteria within a measure are proposed. The measure population criteria names and calculation methods used here are based on the Health Quality Measures Format (HQMF) HL7 standard [^4].
+
+    Conformance Requirement 9 (Criteria Names):
+    The name of an expression specifying a population criteria within a measure SHOULD always be the name of the criteria type†† :
+    * "Initial Population"
+    * "Denominator"
+    * "Denominator Exclusion"
+    * "Denominator Exception"
+    * "Numerator"
+    * "Numerator Exclusion"
+    * "Measure Population"
+    * "Measure Population Exclusion"
+    * "Measure Observation"
+    * "Stratification"
 
 For each type of measure, the set of applicable criteria are defined by the Health Quality Measure Format (HQMF) specification. In addition, the formula for calculating the measure score is implied by the type of the measure. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
 
@@ -527,6 +561,11 @@ R=Required. O=Optional. NP=Not Permitted.
 
 denominatorCriteria, i.e. the criteria for inclusion in the numerator of a measure implicitly include the criteria for inclusion in the denominator.
 CQL expressions referenced by HQMF population criteria are executed within the context of these implicit dependencies.
+
+    Conformance Requirement 10 (HQMF Population Semantics):
+    CQL expressions referenced by an HQMF population component SHALL
+    be executed within the context of the implicit HQMF population component dependencies.
+    CQL expressions MAY include explicit dependencies that duplicate the implicit HQMF population dependencies.
 
 For example, Snippet 13 defines the "Initial Population" and "Denominator" for a measure.
 
@@ -565,6 +604,12 @@ Table 3: Patient-based and Episode-of-Care Measure Examples
 In Table 3, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is an episode-of-care measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
 For measures conforming to this implementation guide, the HQMF ITMCNT measure attribute is not used to identify the items to count. Instead, CQL expressions should be written to return an appropriate value for each population depending on the measure type. Note that the CQL context indicates whether a given expression is executed in the context of a single patient or a population of patients. Therefore the Patient context is used for both patient and episode-of-care measures and it is the responsibility of the referenced expression to return an appropriate value.
 
+    Conformance Requirement 11 (Proportion Measures):
+    Population criteria SHALL each reference a single CQL expression.
+    The CQL expression SHALL use the Patient context and be executed within the context of a single patient record at a time.
+    The CQL expression for patient-based measures SHALL return a Boolean to indicate whether a patient matches the population criteria (true) or not (false).
+    The CQL expression for episode-of-care measures SHALL return a List of events that match the population criteria.
+
 #### 5.3.1 Proportion measure scoring
 
 Additional information on how proportion measures are scored (and the semantics behind the criteria names) can be found in the HQMF specification [^4].
@@ -574,6 +619,10 @@ Additional information on how proportion measures are scored (and the semantics 
 An HQMF document representing a ratio measure will include one or more population criteria sections as described in Table 2.
 
 In addition, it may also include one measure observation section with one or more measureObservation- Definition elements. The semantics of these components are unchanged from the HQMF specification; the only difference is that each measure population component and each measure observation definition references a single criterion encoded as a CQL expression.
+
+    Conformance Requirement 12 (Ratio Measures):
+    Population criteria components SHALL each reference a single CQL expression as defined by 
+    measureObservationDefinition elements SHALL reference CQL expressions as defined by ., with the exception that instead of a measurePopulationCriteria, the component element SHALL reference a numeratorCriteria or denominatorCriteria by id (i.e. using root and extension attributes).
 
 For patient-based ratio measures, all population criteria must return true or false (or null). For non-patient- based ratio measures, each population criteria must return the same type, such as an Encounter, or Procedure.
 
@@ -632,7 +681,7 @@ define "Measure Population":
 define function "Related ED Visit"(Encounter "Encounter, Performed" ):
     Last(["Encounter, Performed": "Emergency Department Visit"] ED
     where ED.relevantPeriod ends 1 hour or less before start of Encounter.relevantPeriod
-    sort by start of	ED.relevantPeriod )
+    sort by start of ED.relevantPeriod )
 
 define function "Measure Observation" (Encounter "Encounter, Performed" ):
     duration in minutes of "Related ED Visit"(Encounter).locationPeriod
@@ -642,13 +691,25 @@ Snippet 15: Sample CQL (from TestCMS55v5 CQL.cql) for a continuous-variable meas
 
 In the example shown in Snippet 14 and Snippet 15: the measure reports the AGGREGATE (line 494 in the HQMF) of the result of executing the "Measure Observation" function (line 496 in the HQMF, line 66 in the CQL) on each of the events in the measure population, as determined by the "Measure Population" expression (line 501 in the HQMF, line 34 in the CQL).
 
+    Conformance Requirement 13 (Continuous Variable Measures):
+    initialPopulationCriteria, measurePopulationCriteria and measurePopulationExclusionCriteria SHALL each reference a single CQL expression as defined by .
+    methodCode SHALL be populated to indicate the aggregation method for the measure
+    CQL expressions referenced from measureObservationDefinition elements SHALL use
+    Patient context and be executed within the context of a single patient.
+    The component of the measureObservationDefinition
+    SHALL contain a criteriaReference that refers to the measurePopulationCriteria (root and extension attributes) which is within the populationCriteriaSection that is the target population group fro the measureObservationDefinition.
+    CQL functions referenced from the value of the measureObservationDefinition SHALL:
+    be in the same CQL file as the CQL expression in the measurePopulationCriteria referenced from the component of the measureObservationDefinition since the value element does not allow specification of the document ID
+    accept a single argument whose type matches the elements of the list returned by the CQL expression referenced from the component of the measureObservationDefinition
+    return either an Integer, a Decimal, or a Quantity
+
 For continuous variable measures, the measure observation is defined as a function that takes a single parameter of the type of elements returned by the population criteria. The Initial Population, Measure Population, and Measure Population Exclusion criteria expressions must all return a list of elements of the same type.
 
 Note that the component reference in the measure observation definition is present to resolve which measure population should be used in the case of multiple populations, but the actual input to the measure observation definition needs to account for population membership (i.e. account for exclusions). In the case of a continuous variable measure with multiple populations, the id of the criterion in HQMF is used to ensure that the measure observation definition refers to a unique criterion.
 
 #### 5.5.1 Continuous variable measure scoring
 
-Additional information on how continuous variable measures are scored (and the semantics behind the criteria names) can be found in the HQMF specification [4].
+Additional information on how continuous variable measures are scored (and the semantics behind the criteria names) can be found in the HQMF specification [^4].
 
 ### 5.6 Cohort Definitions
 
@@ -660,11 +721,22 @@ When a measure has multiple population groups (multiple populationCriteriaSectio
 
 For multiple population ratio measures that specify 2 initial populations, the populations would be named with an additional " X" to distinguish the initial populations, e.g. "Initial Population 1 1", "Initial Population 1 2", "Initial Population 2 1", "Initial Population 2 2".
 
+    Conformance Requirement 14 (Multiple Population Indexing):
+    When specifying multiple populations and/or multiple population groups the following naming scheme
+    SHOULD be used
+
+    (Criteria Name) (population group number)( population number)
+
 Note when a measure has a single population group but multiple populations (such as a ratio measure), the “ ” is dropped. For example, "Initial Population 1", "Initial Population 2" refers to the populations NOT population groups.
 
 Note also that when a measure has multiple population groups, the expectation is that the measure would have multiple scores, one for each population group. The formulas for calculation of the groups do not change; they are the same as for single group measures, just calculated using the criteria for each group.
 
 ### 5.8 Stratification
+
+    Conformance Requirement 15 (Stratification Criteria):
+    Stratifier criteria SHALL NOT include HQMF logical operators.
+    Each stratifier criteria child precondition SHALL include one criteriaReference element referencing a single CQL expression.
+    The CQL expression SHALL return a Boolean.
 
 Stratification is represented using a stratifierCriteria component. The semantics of this component is unchanged from the HQMF specification; the only difference is that each child criteriaReference references a CQL expression that returns a boolean to determine whether a given patient meets the criteria for that stratification. Snippet 16 shows an example stratifier that stratifies results for two sub-populations. Snippet 17 shows the CQL representation of the stratifier.
 
@@ -691,6 +763,12 @@ Snippet 16: Example Stratifier from TestCMS55v5 eCQM.xml
 Snippet 17: Example Stratifier from TestCMS55v5 CQL.cql
 
 ### 5.9 Supplemental Data Elements
+
+    Conformance Requirement 16 (Supplemental Data Elements):
+    Each supplemental data element referrenced in the CQL SHOULD :
+
+    return a single value when evaluated in the context of a member of the population
+    have a name begining with "SDE"
 
 Part of the definition of a quality measure involves the ability to specify additional information to be returned for each member of a population. Within QDM and HQMF, these supplemental data elements are specified as QDM Data Elements for patient characteristics (such as Race, Ethnicity, Payer, and Administrative Sex) and marking them with an SDE code within the underlying HQMF XML. Snippet 18 demonstrates an example supplemental data definition using the cql-ext:supplementalDataElement.
 
@@ -720,6 +798,10 @@ By convention, the name of each supplemental data element expression would start
 
 ### 5.10 Risk Adjustment
 
+    Conformance Requirement 17 (Risk Adjustment Criteria):
+    Risk Adjustment Variables SHALL be included using cql-ext:supplementalDataElement  elements as defined in hhs-cql-hqmfn1-ext-v1.xsd
+    Risk Adjustment Variables SHALL reference a single CQL expression.
+
 Some measure may define variables used to adjust scores based on a measure of “risk” observed in the population. Such variables are referred to as risk adjustment variables. Risk adjustment variables are included in the populationCriteriaSection (lines 9 - 19 of Snippet 1) and defined using CQL; such inclusions must adhere to Conformance Requirement 17.
 
 ```xml
@@ -747,10 +829,13 @@ Snippet 21: Sample Risk Adjustment Variable from TestRiskAdj CQL.cql
 
 An example of risk adjustment can be found in the included directory examples/TestRiskAdj v5 1/; the relevant sections of the HQMF (Snippet 20) and CQL (Snippet 21) have been included.
 
-
 ## 6 Composite Measure Development
 
 Composite measures make use of multiple component measures to produce a combined score. In the most general case, a composite measure is akin to a continuous variable measure, where the measure observation for each population member is some combination of his or her component measure scores. However, the calculation logic involved is detailed, and a higher-level representation of the most common composite measure calculation approaches enables a much simpler representation to work with and understand. Note that composite measures must be constructed from existing component measures. Composites do not introduce any new measure logic beyond the composite score calculation. If a composite needs to introduce new logic, a new component measure must be developed that can then be included in the composite.
+
+    Conformance Requirement 18 (Composite Measures):
+    Composite Measures SHALL include a subjectOf/measureAttribute element for measure type (code = MSRTYPE) with a value of COMPOSITE from the appropriate code system as specified by HQMF
+    Composite Measures SHALL include a subjectOf/measureAttribute element for for the composite measure scoring method (code = CMPMSRMTH) with a value from the appropriate code system as specified by HQMF.
 
 The example illustrates the use of these measure attributes to indicate a composite measure:
 
@@ -785,6 +870,12 @@ To illustrate the different composite scoring methods, an example Annual Wellnes
 
 ### 6.1 All-or-nothing Scoring
 
+    Conformance Requirement 19 (All-or-nothing Scoring):
+    All-or-nothing scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH mesaure attribute with a code of ALLORNONESCR as defined by the base HQMF specification.
+    Calculation logic for all-or-nothing composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
+    Calculation logic for all-or-nothing composite measures SHOULD be wrrtiten in the same way as the calculation formulats defined in this section.
+    Narrative descriptions of population criteria for all-or-nothing composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
+
 All-or-nothing scoring includes an individual in the numerator of the composite measure if they are in the numerators of all of the component measures in which they are in the denominator.
 
 Figure 5. All-or-none method
@@ -792,40 +883,11 @@ Figure 5. All-or-none method
 Interpretation: For each Eligible Clinician (EC), the percentage of patients who received all preventive services for which they were eligible within the specified time interval. Gives EC numerator credit only if a patient meets the criteria for all of the components of the measure for which the patient is eligible.
 Example: X% of an EC’s patients received all preventive services for which they were eligible.
 
-Individual measure
-Patient
-
-
-
-
-A
-B
-C
-D
-E
-
-Screening for breast cancer
-
-N/A
-
-
-
-
-Screening for colorectal cancer
-
-
-
-
-
-
-Pneumococcal vaccination
-
-
-
-
-
-
-
+Individual measure | A | B | C | D | E
+|----|----|----|----|----|----|
+Screening for breast cancer |  | N/A | | | |
+Screening for colorectal cancer |  |  |  | |  |
+Pneumococcal vaccination |  | |  |  | |
 
 An example of an “All-or-nothing” scored composite measure has been in included in examples/TestComposite/. This directory contains the composite measure, Composite eCQM.xml, and the component measures in directories Test122v5 Artifacts/ and Test131v5 Artifacts/. From Composite eCQM.xml, note the component measures are referenced in using relatedDocument elements.  Within the metadata of the measure, a subjectOf element contains the details of the "Composite Measure Scoring" as shown in Snippet 22.
 
@@ -884,6 +946,12 @@ Snippet 24: Formal criteria for a patient-based All-or-nothing composite measure
 
 ### 6.2 Opportunity Scoring
 
+    Conformance Requirement 20 (Opportunity Scoring):
+    Opportunity scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH mesaure attribute with a code of OPPORSCR as defined by the base HQMF specification.
+    Calculation logic for opportunity composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
+    Calculation logic for opportunity composite measures SHOULD be wrrtiten in the same way as the calculation formulats defined in this section.
+    Narrative descriptions of population criteria for opportunity composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
+
 Opportunity scoring considers the appearance of a patient in a denominator of a component measure as an opportunity to provide a service, and the appearance of that patient in the numerator of each component as the fulfillment of that opportunity. This means that each component measure is considered a “case” in the composite population. The denominator is then the set of cases in which patients appeared in the denominator for the component measures, and so on for each population criteria. This allows the composite to then be calculated as a standard proportion measure where the basis for the population criteria is membership in the population for each component.
 
 Figure 4. Opportunity scoring method
@@ -891,39 +959,11 @@ Figure 4. Opportunity scoring method
 Interpretation: For each Eligible Clinician (EC), the percentage of opportunities to provide preventive services that were completed.
 Example: X% of preventive service opportunities for the EC were completed.
 
-Individual measure
-Patient
-
-
-
-
-A
-B
-C
-D
-E
-
-Screening for breast cancer
-
-N/A
-
-
-
-
-Screening for colorectal cancer
-
-
-
-
-
-
-Pneumococcal vaccination
-
-
-
-
-
-
+| Individual measure | A | B | C | D | E |
+|----|----|----|----|----|----|
+|Screening for breast cancer |  | N/A | | | |
+| Screening for colorectal cancer |  |  |  | |  |
+| Pneumococcal vaccination |  |  | | 
 
 Formally, this is done by describing a “case” for each component measure as illustrated in the following general case logic:
 
@@ -974,8 +1014,15 @@ Snippet 25: Formal criteria for a service-based opportunity composite measure
 
 The populations in an opportunity composite are then lists of “services” the patient was eligible for (in the initial population and denominator) and received (in the numerator). The approach for populations not depicted here (denominator exclusion, denominator exception, and numerator exclusion) is analogous.
 
-Note that this approach is using component measures where the improvement notation for the component is that an increase in the score represents an improvement. If the improvement notation is decreasing for a component, it’s population criteria would be reversed (i.e. the appearance of a patient in the numerator would represent an opportunity, and appearance in the denominator would represent fulfillment). 
-6.3 Patient-level Linear Combination Scoring
+Note that this approach is using component measures where the improvement notation for the component is that an increase in the score represents an improvement. If the improvement notation is decreasing for a component, it’s population criteria would be reversed (i.e. the appearance of a patient in the numerator would represent an opportunity, and appearance in the denominator would represent fulfillment).
+
+### 6.3 Patient-level Linear Combination Scoring
+
+    Conformance Requirement 21 (Patient-level Linear Combination Scoring):
+    Patient-level linear combination scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH mesaure attribute with a code of LINEARSCR as defined by the base HQMF specification.
+    Calculation logic for patient-level linear combination composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
+    Calculation logic for patient-level linear combination composite measures SHOULD be wrrtiten in the same way as the calculation formulats defined in this section.
+    Narrative descriptions of population criteria for patient-level linear combination composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
 
 Patient-level linear combination scoring is modeled as a continuous variable measure that gives numerator credit for the proportion of patients in the numerators of composite measures.
 
@@ -983,37 +1030,11 @@ Figure 6. Patient-level linear combination method
 Interpretation: For each Eligible Clinician (EC), the percentage of completed preventive services, which gives EC partial numerator credit for meeting the criteria for some but not all components of the measure.
 Example: On average, each patient was provided X% of services for which the patient was eligible.
 
-Individual measure
-Patient
-
-
-
-
-A
-B
-C
-D
-E
-
-Screening for breast cancer
-
-N/A
-
-
-
-
-Screening for colorectal cancer
-
-
-
-
-
-
-Pneumococcal vaccination
-
-
-
-
+| Individual measure | A | B | C | D | E |
+|----|----|----|----|----|----|
+| Screening for breast cancer |  | N/A | | | |
+| Screening for colorectal cancer |  |  |  |  |  |
+| Pneumococcal vaccination |  |  |  |  |
 
 Computationally, this method is a continuous variable measure where the measure observation for an individual is the number of numerators of component measures in which that member appears, over the number of denominators of component measures in which that member appears.
 
@@ -1098,37 +1119,11 @@ Interpretation: For each Eligible Clinician (EC), percentage of patients who rec
 
 Example: On average, each preventive service was provided to X% of patients.
 
-Individual measure
-Patient
-
-
-
-
-A
-B
-C
-D
-E
-
-Screening for breast cancer
-
-N/A
-
-
-
-
-Screening for colorectal cancer
-
-
-
-
-
-
-Pneumococcal vaccination
-
-
-
-
+| Individual measure | A | B | C | D | E |
+|----|----|----|----|----|----|
+| Screening for breast cancer |  | N/A |  | | |
+Screening for colorectal cancer |  |  |  |  |  |
+Pneumococcal vaccination |  |  |  |  | |
 
 Computationally, this method is simply the weighted average of the component measure scores. In the simplest case where the weights are all 1, this method is simply the average score of the component measures.
 
@@ -1166,6 +1161,24 @@ Snippet 29: Weighted composite measure relatedDocuments
 
 ### 6.5 Measure Types
 
+    Conformance Requirement 22 (Composite Measure Types):
+
+    For composite measures using Opportunity scoring
+    The measure scoring method SHALL be Proportion or Ratio
+    All component measures SHALL use Proportion or Ratio scoring
+    For composite measures using All-or-nothing scoring
+    The measure scoring method SHALL be Proportion or Ratio
+    All component measures SHALL use Proportion or Ratio scoring
+    For composite measures using Patient-level linear scoring
+    The measure scoring method SHALL be Continuous Variable
+    All component measures SHALL use Proportion, Ratio, or Continuous Variable Scoring
+
+    a composite eCQM SHALL have at least two componentQualityMeasureDocument elements
+    the typeCode attribute of the relatedDocument element SHALL be XCRPT
+    the id element of the componentQualityMeasureDocument element SHALL be present and
+    SHALL have a root attribute that specifies the id of the component eCQM
+    SHOULD have an identifierName attribute that specifies the title of the component eCQM
+
 For composite measures, the composite score calculation method effectively determines the measure type. The component measures in a composite can also be proportion, ratio, or continuous variable measures. However, all the component measures of a composite must be of the same type.
 
 The following table summarizes the allowable measure types for each of the composite scoring methods:
@@ -1180,21 +1193,52 @@ Note that these requirements are about ensuring that the population criteria exp
 
 ### 6.6 Measure Basis
 
+    Conformance Requirement 23 (Composite Measure Basis):
+
+    All component measures used within a composite measure SHALL use the same measure basis
+
 As with single measures, composite measures may be patient-based, or use some other element as the measure basis such as encounters or procedures. However, each component measure of a composite must use the same basis. For example, a composite measure may not include both patient-based and episode-of-care measures as component measures.
 
 ### 6.7 Stratification
+
+    Conformance Requirement 24 (Composite Measure Stratification):
+
+    Stratifiers of components in a composite measure SHALL NOT be used to stratify the composite measure 
 
 Because composite measure scoring for individual-based composites effectively ignores component scores, stratifiers defined on component measures are not applicable to the composite measure score. As such, stratifiers are supported in composite measures, just as they are with non-composites, but stratifiers of the component measures are ignored.
 
 ### 6.8 Multiple Populations
 
+    Conformance Requirement 25 (Composite Measure Populations):
+
+    Composite measure SHALL contain only one population group
+    Component measures included in composite measure SHALL contain only one population group
+
 To simplify expression and implementation of composite measures, all component measures used within a composite must have a single population group. In addition, the composite measure itself can only contain a single population group. Note that for ratio measures with two initial populations, the initial population would have to be constructed using the appropriate initial population from the component measures.
 
 ### 6.9 Supplemental Data Elements and Risk Adjustment Variables
 
+    Conformance Requirement 26 (Composite Measure Supplement Data Elements and Risk Adjustment):
+
+    Composite measures SHALL include supplemental data elements and risk adjustment variables from all component measures, as well as those defined in the composite directly.
+    Supplemental data elements and risk adjustment variables that appear in the multiple components or a component and the composite by name SHALL be of the same type
+
 For individual-based composite scoring methods, additional data elements are collected from all component measures, but could also be defined at the composite level. The name of the supplemental data element or risk adjustment element is used to determine uniqueness across components and the composite. If a supplemental data element or risk adjustment element appears in more than one component, it must be of the same type.
 
 ### 6.10 Component Quality Measures
+
+    Conformance Requirement 27 (Component Quality Measures):
+    Component quality measures SHALL be referenced using a relatedDocument element containing a componentQualityMeasureDocument element where:
+    a composite eCQM SHALL have at least two componentQualityMeasureDocument elements
+    the typeCode attribute of the relatedDocument element SHALL be XCRPT
+    the id element of the componentQualityMeasureDocument element SHALL be present and
+    SHALL have a root attribute that specifies the id of the component eCQM
+    SHOULD have an identifierName attribute that specifies the title of the component eCQM
+    the setId element of the componentQualityMeasureDocument SHOULD be present and
+    if present, it SHALL have a root attribute that is the setId of the component eCQM
+    the versionNumber element of the componentQualityMeasureDocument SHOULD be present and
+    SHALL be present if the setId element is present and
+    if present, it SHALL have a value attribute that is the versionNumber of the component eCQM
 
 Regardless of the scoring method, a composite eCQM will include any number of component measures to be included in the composite calculations. Each component results in the appearance of a relatedDocument element containing a componentQualityMeasureDocument element that references at least the id, but also the title, setId, and version of the component eCQM, as illustrated in the following example:
 
