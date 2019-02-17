@@ -465,4 +465,4 @@ The results of eCQMs represented in HQMF are reported using the Quality Reportin
 
 [^10]: VSAC SVS API v2. Value Set Authority Center, May 2015. <https://www.nlm.nih.gov/vsac/support/usingvsac/vsacsvsapiv2.html>
 
-[^11] Versioning Numbering Concepts - The Apache Portable Runtime Project. APR Developers,    2016. <https://apr.apache.org/versioning.html>
+[^11]: Versioning Numbering Concepts - The Apache Portable Runtime Project. APR Developers,    2016. <https://apr.apache.org/versioning.html>
