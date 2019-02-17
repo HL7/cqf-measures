@@ -84,8 +84,7 @@ define "Total Colectomy Performed":
 
 define "Malignant Neoplasm":
 	[Condition: "Malignant Neoplasm of Colon"] ColorectalCancer
-		where ColorectalCancer.clinicalStatus = 'active'
-			and Global."Normalize Onset"(ColorectalCancer.onset) starts on or before end of "Measurement Period"
+		where Global."Normalize Onset"(ColorectalCancer.onset) starts on or before end of "Measurement Period"
 
 define "Fecal Occult Blood Test Performed":
 	[Observation: "Fecal Occult Blood Test (FOBT)"] FecalOccultResult
