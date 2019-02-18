@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Measure xmlns="http://hl7.org/fhir">
+  <!-- This example illustrates the basic structure of a FHIR-based eCQM -->
+  <!-- The id of the measure is a server-owned id for the resource. It is not expected to be globally unique,
+  it is only unique as required by the server on which the resource is housed. -->
+  <id value="measure-exm"/>
+  <meta>
+    <!-- The versionId of the measure is the server-maintained version identifier for this resource (as opposed to the business
+    version, which is specified using the version of the measure). It is not expected to be globally unique, only unique within the resource id. 
+    (Though it may be globally unique if the server implements version using a globally unique identifier such as a guid.) -->
+    <versionId value="1"/>
+    <!-- The date on which the measure resource was last updated -->
+    <lastUpdated value="2019-02-17T17:05:00.0-06:00"/>
+    <!-- The url of the profile to which this measure resource conforms. -->
+    <profile value="http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/measure-cqfm"/>
+  </meta>
+  <!-- The text of the measure is the human-readable rendering of the resource. This content is generated from the contents of the
+  resource and the referenced library or libraries. -->
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: measure-exm</p><p><b>status</b>: active</p><p><b>experimental</b>: true</p><p><b>library</b>: <a href="Library-library-exm-logic.html">Generated Summary: id: library-exm-logic; version: 1.0.0; status: active; experimental; <span title="Codes: ">logic-library</span>; </a></p><p><b style="color: maroon">Exception generating Narrative: type org.hl7.fhir.r4.model.DataRequirement not handled yet</b></p></div>
+  </text>
+  <!-- Extensions in FHIR support data as part of the measure that is not supported by the base Measure resource definition -->
+  <!-- This example illustrates an artifactComment extension, used to provide additional comments at any point in the measure -->
+  <extension url="http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-artifactComment">
+    <extension url="type">
+      <valueCode value="documentation"/>
+    </extension>
+    <extension url="text">
+      <valueString value="This illustrates an example comment"/>
+    </extension>
+  </extension>
+  <!-- Population Basis, specifies the type of the elements in the population lists. For a patient-based proportion measure,
+  for example, the criteria are all yes/no questions, resulting in a "boolean" value. -->
+  <extension url="http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+    <valueCode value="boolean"/>
+  </extension>
+  <!-- Allocation, provides additional guidance about the allocation for a measure -->
+  <extension url="http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-allocation">
+    <valueMarkdown value="Additional guidance for allocation"/>
+  </extension>
+  <!-- Canonical URL for the measure. This is a globally unique, version-independent identifier for the eCQM. -->
+  <url value="http://example.org/fhir/measures/measure-exm"/>
+  <!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
+  set of eCQMs such as HEDIS or CMS eCQM identifiers. A measure may have any number of business identifiers. -->
+  <identifier>
+    <system value="http://example.org/fhir/measures"/>
+    <value value="EXM"/>
+  </identifier>
+  <!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
+  <version value="1.0.0"/>
+  <!-- The name of the measure. This is a machine-friendly identifier for the measure -->
+  <name value="MeasureEXM"/>
+  <!-- The title of the measure. This is a user-friendly identifier for the measure -->
+  <title value="EXM Measure"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <!-- The publication date of the measure -->
+  <date value="2019-02-17"/>
+  <!-- The publisher of the measure -->
+  <publisher value="Example Measure Publisher"/>
+  <!-- The description of the measure -->
+  <description value="An example FHIR-based measure"/>
+  <purpose value=""/>
+  <usage value=""/>
+  <approvalDate value="2019-02-17"/>
+  <lastReviewDate value="2019-02-17"/>
+  <effectivePeriod>
+    <start value="2018-01-01"/>
+    <end value="2018-12-31"/>
+  </effectivePeriod>
+  <useContext>
+    <code value="program"/>
+    <valueCodeableConcept>
+      <text value="eligible-provider"/>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding> 
+      <system value="urn:iso:std:iso:3166"/> 
+      <code value="US"/> 
+    </coding> 
+  </jurisdiction>
+  <topic> 
+    <coding> 
+      <system value="http://loinc.org"/> 
+      <code value="57024-2"/> 
+    </coding>
+    <text value="Health Quality Measure Document"/> 
+  </topic> 
+  <contributor> 
+    <type value="author"/> 
+    <name value="Example Measure Content Developer"/> 
+  </contributor> 
+  <contact> 
+    <telecom> 
+      <system value="url"/> 
+      <value value="http://www.example.org/"/> 
+    </telecom> 
+  </contact> 
+  <copyright value="Example Copyright Statement"/> 
+  <relatedArtifact> 
+    <extension url="http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
+      <valueBoolean value="true"/>
+    </extension>
+    <type value="documentation"/> 
+    <citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. &quot;Antibiotic treatment
+      of children with sore throat.&quot; JAMA 294(18):2315-2322. "/> 
+  </relatedArtifact> 
+  <relatedArtifact> 
+    <extension url="http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
+      <valueBoolean value="true"/>
+    </extension>
+    <type value="documentation"/> 
+    <citation value="Infectious Diseases Society of America. 2012. &quot;Clinical Practice Guideline for the
+       Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update.&quot; "/> 
+  </relatedArtifact> 
+  <relatedArtifact> 
+    <extension url="http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
+      <valueBoolean value="true"/>
+    </extension>
+    <type value="documentation"/> 
+    <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistan
+      t Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot;
+       Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
+  </relatedArtifact>   
+  <library>
+    <reference value="Library/library-exm-logic"/>
+  </library>
+  <disclaimer value="Example disclaimer"/>
+  <scoring>
+    <coding>
+      <code value="proportion"/>
+    </coding>
+  </scoring>
+  <type> 
+    <coding> 
+      <code value="process"/> 
+    </coding> 
+  </type>
+  <riskAdjustment value="Risk adjustment for this measure is performed by..."/>
+  <rateAggregation value="Rate aggregation for this measure is performed by..."/>
+  <rationale value="Rationale for this measure is..."/>
+  <clinicalRecommendationStatement value="The clinical recommendation statement for this measure is..."/>
+  <improvementNotation value="Improvement is notated as an increase in the measure score"/>
+  <definition value="A term used in the measure that bears clearly defining to communicate the measure intent">
+    <extension url="http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-definitionTerm">
+      <valueString value="Term"/>
+    </extension>
+  </definition>
+  <guidance value="Additional guidance provided to help communicate the intent of the measure"/>
+  <group>
+    <identifier>
+      <value value="EXM-group-1"/>
+    </identifier>
+    <population>
+      <identifier>
+        <value value="initial-population"/>
+      </identifier>
+      <code>
+        <coding>
+          <code value="initial-population"/>
+        </coding>
+      </code>
+      <criteria value="Initial Population"/>
+    </population>
+    <population>
+      <identifier>
+        <value value="numerator 1"/>
+      </identifier>
+      <code>
+        <coding>
+          <code value="numerator"/>
+        </coding>
+      </code>
+      <criteria value="Numerator 1"/>
+    </population>
+    <population>
+      <identifier>
+        <value value="denominator 1"/>
+      </identifier>
+      <code>
+        <coding>
+          <code value="denominator"/>
+        </coding>
+      </code>
+      <criteria value="Denominator 1"/>
+    </population>
+    <population>
+      <identifier>
+        <value value="numerator 2"/>
+      </identifier>
+      <code>
+        <coding>
+          <code value="numerator"/>
+        </coding>
+      </code>
+      <criteria value="Numerator 2"/>
+    </population>
+    <population>
+      <identifier>
+        <value value="denominator 2"/>
+      </identifier>
+      <code>
+        <coding>
+          <code value="denominator"/>
+        </coding>
+      </code>
+      <criteria value="Denominator 2"/>
+    </population>
+    <stratifier>
+      <identifier>
+        <value value="stratifier 1"/>
+      </identifier>
+      <criteria value="Stratifier 1"/>
+    </stratifier>
+    <stratifier>
+      <identifier>
+        <value value="stratifier 2"/>
+      </identifier>
+      <criteria value="Stratifier 2"/>
+    </stratifier>
+    <stratifier>
+      <identifier>
+        <value value="stratifier 3"/>
+      </identifier>
+      <criteria value="Stratifier 3"/>
+    </stratifier>
+    <stratifier>
+      <identifier>
+        <value value="stratifier 4"/>
+      </identifier>
+      <criteria value="Stratifier 4"/>
+    </stratifier>
+  </group>
+</Measure>
