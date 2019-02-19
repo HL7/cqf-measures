@@ -1,6 +1,8 @@
 # Examples
 
-* CMS22v7 - Blood Pressure Screening
+These examples align with examples used in the Data Exchange for Quality Measures IG
+
+* CMS22v7 - Blood Pressure Screening (Note there is some question on this measure, the parent measure is currently being re-evaluated)
 * CMS124v7 - Cervical Cancer Screening
 * CMS125v7 - Breast Cancer Screening
 * CMS130v7 - Colorectal Cancer Screening
