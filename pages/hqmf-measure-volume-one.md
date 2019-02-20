@@ -736,7 +736,8 @@ Note also that when a measure has multiple population groups, the expectation is
     Conformance Requirement 15 (Stratification Criteria):
     Stratifier criteria SHALL NOT include HQMF logical operators.
     Each stratifier criteria child precondition SHALL include one criteriaReference element referencing a single CQL expression.
-    The CQL expression SHALL return a Boolean.
+    For patient-based measures, the CQL expression SHALL return a Boolean.
+    For event-based measures (e.g. episode-of-care), the CQL expression SHALL return a list of events of the same type as the population criteria.
 
 Stratification is represented using a stratifierCriteria component. The semantics of this component is unchanged from the HQMF specification; the only difference is that each child criteriaReference references a CQL expression that returns a boolean to determine whether a given patient meets the criteria for that stratification. Snippet 16 shows an example stratifier that stratifies results for two sub-populations. Snippet 17 shows the CQL representation of the stratifier.
 
@@ -871,9 +872,9 @@ To illustrate the different composite scoring methods, an example Annual Wellnes
 ### 6.1 All-or-nothing Scoring
 
     Conformance Requirement 19 (All-or-nothing Scoring):
-    All-or-nothing scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH mesaure attribute with a code of ALLORNONESCR as defined by the base HQMF specification.
+    All-or-nothing scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH measure attribute with a code of ALLORNONESCR as defined by the base HQMF specification.
     Calculation logic for all-or-nothing composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
-    Calculation logic for all-or-nothing composite measures SHOULD be wrrtiten in the same way as the calculation formulats defined in this section.
+    Calculation logic for all-or-nothing composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
     Narrative descriptions of population criteria for all-or-nothing composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
 
 All-or-nothing scoring includes an individual in the numerator of the composite measure if they are in the numerators of all of the component measures in which they are in the denominator.
@@ -912,32 +913,39 @@ Formally, this means the population criteria for the composite measure are expre
 
 ```cql
 define "Initial Population":
-ComponentMeasure1."Initial Population"
+  ComponentMeasure1."Initial Population"
     or ComponentMeasure2."Initial Population"
     or ComponentMeasure3"."Initial Population"
 
 define "Denominator":
-ComponentMeasure1."Denominator"
+  ComponentMeasure1."Denominator"
     or ComponentMeasure2."Denominator"
     or ComponentMeasure3."Denominator"
 
 define "Denominator Exclusion":
-ComponentMeasure1."Denominator Exclusion"
+  ComponentMeasure1."Denominator Exclusion"
     or ComponentMeasure2."Denominator Exclusion"
     or ComponentMeasure3."Denominator Exclusion"
 
 define "Denominator Exception":
-ComponentMeasure1."Denominator Exception"
+  ComponentMeasure1."Denominator Exception"
     or ComponentMeasure2."Denominator Exception"
     or ComponentMeasure3."Denominator Exception"
 
+define "ComponentMeasure1 Numerator Membership": // Repeat for each component
+  ComponentMeasure1."Initial Population"
+    and ComponentMeasure1."Denominator"
+    and not ComponentMeasure1."Denominator Exclusion"
+    and ComponentMeasure1."Numerator"
+    and not ComponentMeasure1."Numerator Exclusion"
+
 define "Numerator":
-ComponentMeasure1."Numerator"
-    and ComponentMeasure2."Numerator"
-    and ComponentMeasure3."Numerator"
+  "ComponentMeasure1 Numerator Membership"
+    and "ComponentMeasure2 Numerator Membership"
+    and "ComponentMeasure3 Numerator Membership"
 
 define "Numerator Exclusion":
-ComponentMeasure1."Numerator Exclusion"
+  ComponentMeasure1."Numerator Exclusion"
     or ComponentMeasure2."Numerator Exclusion"
     or ComponentMeasure3."Numerator Exclusion"
 ```
@@ -947,9 +955,9 @@ Snippet 24: Formal criteria for a patient-based All-or-nothing composite measure
 ### 6.2 Opportunity Scoring
 
     Conformance Requirement 20 (Opportunity Scoring):
-    Opportunity scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH mesaure attribute with a code of OPPORSCR as defined by the base HQMF specification.
+    Opportunity scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH measure attribute with a code of OPPORSCR as defined by the base HQMF specification.
     Calculation logic for opportunity composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
-    Calculation logic for opportunity composite measures SHOULD be wrrtiten in the same way as the calculation formulats defined in this section.
+    Calculation logic for opportunity composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
     Narrative descriptions of population criteria for opportunity composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
 
 Opportunity scoring considers the appearance of a patient in a denominator of a component measure as an opportunity to provide a service, and the appearance of that patient in the numerator of each component as the fulfillment of that opportunity. This means that each component measure is considered a “case” in the composite population. The denominator is then the set of cases in which patients appeared in the denominator for the component measures, and so on for each population criteria. This allows the composite to then be calculated as a standard proportion measure where the basis for the population criteria is membership in the population for each component.
@@ -971,42 +979,42 @@ Formally, this is done by describing a “case” for each component measure as 
 define "Initial Population":
     ("Patient Record" P
         where ComponentMeasure1."Initial Population"
-            return { case: 'Service 1' }
+            return { service: 'Service 1' }
     )
         union ("Patient Record" P
             where ComponentMeasure2."Initial Population"
-                return { case: 'Service 2' }
+                return { service: 'Service 2' }
         )
         union ("Patient Record" P
             where ComponentMeasure3."Initial Population"
-                return { case: 'Service 3' }
+                return { service: 'Service 3' }
 
 define "Denominator":
     ("Patient Record" P
         where ComponentMeasure1."Denominator"
-            return { case: 'Service 1' }
+            return { service: 'Service 1' }
     )
         union ("Patient Record" P
             where ComponentMeasure2."Denominator"
-                return { case: 'Service 2' }
+                return { service: 'Service 2' }
         )
         union ("Patient Record" P
             where ComponentMeasure3."Denominator"
-                return { case: 'Service 3' }
+                return { service: 'Service 3' }
         )
 
 define "Numerator":
     ("Patient Record" P
         where ComponentMeasure1."Numerator"
-            return { case: 'Service 1' }
+            return { service: 'Service 1' }
     )
         union ("Patient Record" P
             where ComponentMeasure2."Numerator"
-                return { case: 'Service 2' }
+                return { service: 'Service 2' }
         )
         union ("Patient Record" P
             where ComponentMeasure3."Numerator"
-            return { case: 'Service 3' }
+            return { service: 'Service 3' }
         )
 ```
 
@@ -1014,14 +1022,14 @@ Snippet 25: Formal criteria for a service-based opportunity composite measure
 
 The populations in an opportunity composite are then lists of “services” the patient was eligible for (in the initial population and denominator) and received (in the numerator). The approach for populations not depicted here (denominator exclusion, denominator exception, and numerator exclusion) is analogous.
 
-Note that this approach is using component measures where the improvement notation for the component is that an increase in the score represents an improvement. If the improvement notation is decreasing for a component, it’s population criteria would be reversed (i.e. the appearance of a patient in the numerator would represent an opportunity, and appearance in the denominator would represent fulfillment).
+Note that this approach is using component measures where the improvement notation for the component is that an increase in the score represents an improvement. If the improvement notation is decreasing for a component, its population criteria would be negated (i.e. the absence of a patient in the component numerator would represent fulfillment).
 
 ### 6.3 Patient-level Linear Combination Scoring
 
     Conformance Requirement 21 (Patient-level Linear Combination Scoring):
-    Patient-level linear combination scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH mesaure attribute with a code of LINEARSCR as defined by the base HQMF specification.
+    Patient-level linear combination scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH measure attribute with a code of LINEARSCR as defined by the base HQMF specification.
     Calculation logic for patient-level linear combination composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
-    Calculation logic for patient-level linear combination composite measures SHOULD be wrrtiten in the same way as the calculation formulats defined in this section.
+    Calculation logic for patient-level linear combination composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
     Narrative descriptions of population criteria for patient-level linear combination composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
 
 Patient-level linear combination scoring is modeled as a continuous variable measure that gives numerator credit for the proportion of patients in the numerators of composite measures.
@@ -1036,7 +1044,7 @@ Example: On average, each patient was provided X% of services for which the pati
 | Screening for colorectal cancer |  |  |  |  |  |
 | Pneumococcal vaccination |  |  |  |  |
 
-Computationally, this method is a continuous variable measure where the measure observation for an individual is the number of numerators of component measures in which that member appears, over the number of denominators of component measures in which that member appears.
+Computationally, this method is a continuous variable measure using average, where the measure observation for an individual is the number of numerators of component measures in which that member appears, over the number of denominators of component measures in which that member appears. To express this in a continuous variable measure, use the average aggregate method in HQMF.
 
 Formally, this is done by considering the membership test for each component measure as a 0 (if the patient is not in the population) or a 1 (if the patient is in the population) and adding the values for each component:
 
@@ -1045,23 +1053,27 @@ define "Is In Component 1 Denominator":
     ComponentMeasure1."Initial Population"
         and ComponentMeasure1."Denominator"
         and not ComponentMeasure1."Denominator Exclusion"
+        and not (ComponentMeasure1."Denominator Exception"
+          and not ComponentMeasure1."Numerator")
 
 define "Is In Component 1 Numerator":
-    "Is In Component 1 Denominator"
-        and ComponentMeasure1."Numerator"
+    ComponentMeasure1."Initial Population"
+        and ComponentMeasure1."Denominator"
+        and not ComponentMeasure1."Denomniator Exclusion"
         and not ComponentMeasure1."Numerator Exclusion"
-        and not ComponentMeasure1."Denominator Exception"
 
 define "Is In Component 2 Denominator":
     ComponentMeasure2."Initial Population"
         and ComponentMeasure2."Denominator"
-        and not ComponentMeasure1."Denominator Exclusion"
+        and not ComponentMeasure2."Denominator Exclusion"
+        and not (ComponentMeasure2."Denominator Exception"
+          and not ComponentMeasure2."Numerator")
 
 define "Is In Component 2 Numerator":
-    "Is In Component 2 Denominator"
-        and ComponentMeasure2."Numerator"
+    ComponentMeasure2."Initial Population"
+        and ComponentMeasure2."Denominator"
+        and not ComponentMeasure2."Denominator Exclusion"
         and not ComponentMeasure2."Numerator Exclusion"
-        and not ComponentMeasure2."Denominator Exception"
 ```
 
 Snippet 26: Formal criteria for a service-based opportunity composite measure
