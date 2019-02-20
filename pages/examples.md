@@ -1,3 +1,7 @@
+---
+layout: default
+title: Examples
+---
 # Examples
 
 These examples align with examples used in the Data Exchange for Quality Measures IG

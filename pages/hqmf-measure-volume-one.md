@@ -166,7 +166,7 @@ In HQMF, an eCQM is formatted in XML as a QualityMeasureDocument containing meta
 
 ```xml
 <QualityMeasureDocument>
-    <!-- metadata for the measure -- snipped for brevity -->
+    <!-- metadata for the measure - snipped for brevity -->
     <component>
         <dataCriteriaSection>
             <entry>...</entry>
