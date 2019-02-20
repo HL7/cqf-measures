@@ -8,6 +8,8 @@ include FHIRHelpers version '3.0.0'
 codesystem "LOINC:2.46": '2.16.840.1.113883.6.1' version 'urn:hl7:version:2.46'
 codesystem "SNOMEDCT:2016-03": '2.16.840.1.113883.6.96' version 'urn:hl7:version:2016-03'
 
+codesystem "Diagnosis Role": 'http://hl7.org/fhir/diagnosis-role'
+
 // TODO: Use NLM VSAC Canonical URLs
 valueset "Encounter Inpatient": '2.16.840.1.113883.3.666.5.307'
 valueset "Non-Elective Inpatient Encounter": '2.16.840.1.113883.3.117.1.7.1.424'
@@ -35,6 +37,8 @@ code "Birthdate": '21112-8' from "LOINC:2.46" display 'Birth date'
 code "Dead": '419099009' from "SNOMEDCT:2016-03" display 'Dead'
 //code "Medication-dischargeMedication": '8654-6' from "LOINC:2.46" display 'Hospital Discharge medications'
 
+code "Billing": 'billing' from "Diagnosis Role" display 'Billing'
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -58,7 +62,7 @@ define "Non Elective Inpatient Encounter":
 			and NonElectiveEncounter.period ends during "Measurement Period"
 
 define function "PrincipalDiagnosis"(Encounter Encounter):
-	(singleton from (Encounter.diagnosis D where D.role = 'billing' and D.rank = 1)) PD
+	(singleton from (Encounter.diagnosis D where D.role ~ "Billing" and D.rank = 1)) PD
 		return singleton from ([Condition: id in "GetId"(PD.condition.reference)])
 
 define function "LengthInDays"(Value Interval<DateTime>):
