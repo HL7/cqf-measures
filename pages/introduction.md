@@ -48,35 +48,32 @@ Chapter 6 contains a discussion of composite measures and HQMF examples of compo
 
 ### 1.4 Audience
 
-The audience for this IG includes software developers of the Measure Authoring Tool (MAT); measure developers who will specify clinical quality measures in HQMF; software developers and implementers who will implement the quality measures specified in HQMF in their institutions or in their vendor products; and local, regional, and national quality reporting agencies who wish to receive and process quality report documents that are based on measures specified in HQMF.
+The audience for this IG includes software developers of measure authoring tools such as the Measure Authoring Tool (MAT); measure developers who will specify clinical quality measures using FHIR and CQL; software developers and implementers who will implement the quality measures specified in FHIR and CQL in their institutions or in their vendor products; institutions and organizations who with to use FHIR and CQL to express and implement quality measures within their health systems; and local, regional, and national quality reporting agencies who wish to receive and process quality reporting documents that are based on measures specified in FHIR and CQL.
 
 ### 1.5 Approach
 
-The approach taken here is consistent with balloted IGs for Clinical Document Architecture (CDA). These publications view the ultimate implementation specification as a series of layered constraints. HQMF itself is a set of constraints on the Health Level Seven (HL7) Reference Information Model (RIM). IGs such as this add constraints to HQMF through conformance statements that further define and restrict the sequence and cardinality of HQMF objects and the vocabulary sets for coded elements.
+The approach taken here is consistent with balloted IGs for Fast Healthcare Interoperability Resources (FHIR). These publications view the ultimate implementation specification as a set of formal artifacts, including profiles, extensions, and terminologies. The base FHIR specification provides for the representation of quality measures using the Measure resource, as well as guidance on quality reporting within the Clinical Reasoning module. IGs such as this add constraints to the base resources and guidance through profiles and conformance requirements that further define and restrict the sequence and cardinality of elements in the FHIR resources and the vocabulary sets for coded elements.
 
-This IG is STU3 of the CQL-based HQMF Standard for Trial Use (STU). Section 1.8 describes the development of this STU.
+This IG is STU1 of the FHIR Quality Measure IG. Section 1.8 describes the development of this STU.
 
 ### 1.6 Scope
 
-This IG is a conformance profile, as described in the “Refinement and Localization” [^9] section of the HL7 Version 3 Interoperability Standards. The base standard for this IG is the HL7 Health Quality Measures Format. This IG (Volumes 1, 2, and 3) does not describe every aspect of HQMF Release 1 Normative. Rather, it defines constraints on the base HQMF used in a CQL-based HQMF document in the US Realm. Additional optional HQMF elements, not included here, can be included and the result will be compliant with the specifications in this guide.
+This IG is a conformance profile, as described in the “Conformance” [^9] section of the HL7 FHIR specification. The base resource for this IG is the HL7 FHIR Measure and Library resources and associated guidance within the Clinical Reasoning module. This IG does not describe every aspect of Quality Reporting in FHIR. Rather, it defines profiles and constraints on the base Measure and Library resources used in a FHIR Quality Measure. Additional optional Measure and Library elements, not included here, can be included and the result will be compliant with the specifications in this guide.
 
 ### 1.7 Conventions
 
-The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY and NEED NOT in this document are to be interpreted as described in the HL7 Version 3 Publishing Facilitator’s Guide.
+The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this document are to be interpreted as defined in RFC 2119. Unlike RFC 2119, however, this specification allows that different applications may not be able to interoperate because of how they use optional features. In particular
 
-* SHALL: an absolute requirement for the particular element. Where a SHALL constraint is applied to an XML element, that element must be present in an instance but may have an exceptional value (i.e., may have a nullFlavor), unless explicitly precluded. Where a SHALL constraint is applied to an XML attribute, that attribute must be present and must contain a conformant value.
-
-* SHALL NOT: an absolute prohibition against inclusion
-
-* SHOULD/SHOULD NOT: best practice or recommendation. There may be valid reasons to ignore an item, but the full implications must be understood and carefully weighed before choosing a different course
-
-* MAY/NEED NOT: truly optional; can be included or omitted as the author decides with no implications
+* SHALL: an absolute requirement for all implementations
+* SHALL NOT: an absolute prohibition against inclusion for all implementations
+* SHOULD/SHOULD NOT: a best practice or recommendation to be considered by implementers within the context of their particular implementation; there may be valid reasons to ignore an item, but the full implications must be understood and carefully weighed before choosing a different course
+* MAY/NEED NOT: truly optional; can be included or omitted as the implementer decides with no implications
 
 ### 1.8 Background
 
-This Implementation Guide (IG) defines an approach to using CQL with Health Quality Measures Format Release 1 Normative (HQMF) [^4] for defining eCQMs.   This IG is split into three volumes, volume    1 (this volume) contains the instruction on how to use HQMF with CQL, volume 2 describes how to use QDM with CQL, and volume 3 contains all the necessary QDM based HQMF templates for defining a QDM based eCQM.
+This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for definition quality measures. The guidance here is drawn from Health Quality Measures Format Release 1 Normative (HQMF) [^4], as well as the CQL-Based HQMF IG.
 
-This Implementation Guide is the successor of the QDM-based HQMF IG R1.4 (Figure 2a) and the CQL- Based HQMF IG R1 STU1 (Figure 2b).
+This Implementation Guide is the successor of the CQL-based HQMF IG STU4 (Figure 2a).
 
 ![QDM Based HQMF IG](assets/images/QDMBasedIG.png)
 
@@ -88,9 +85,9 @@ This Implementation Guide is the successor of the QDM-based HQMF IG R1.4 (Figure
 
 Figure 2: Relationship between QDM based and CQL based HQMF IG’s.
 
-#### 1.8.1 Clinical Quality Language R1.3
+#### 1.8.1 Clinical Quality Language R1.4
 
-Clinical Quality Language R1.3 (CQL) is an HL7 standard for trial use (STU) [^3]. It is part of the effort to harmonize standards between electronic clinical quality measures (eCQMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
+Clinical Quality Language R1.4 (CQL) is an HL7 standard for trial use (STU) [^3]. It is part of the effort to harmonize standards between electronic clinical quality measures (eCQMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
 
 #### 1.8.2 QDM based HQMF IG R1.4
 
@@ -165,7 +162,7 @@ In 2012, the Health IT Standards Committee (HITSC) Clinical Quality Technology W
 
 [^2]: Quality Data Model, Version 5.4. Centers of Medicare & Medicaid Services; Office of the National Coordinator for Health Information Technology, 2017. <https://ecqi.healthit.gov/qdm>
 
-[^3]: Clinical Quality Language (CQL), STU R1.3. HL7, July 2018. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400>
+[^3]: Clinical Quality Language (CQL), STU R1.4. HL7, July 2018. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400>
 
 [^4]: HL7, Representation of the Health Quality Measures Format (HQMF) Release 1. HL7, June 2017. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97>
 
@@ -175,8 +172,8 @@ In 2012, the Health IT Standards Committee (HITSC) Clinical Quality Technology W
 
 [^7]: Measure Authoring Tool. CMS. <https://www.emeasuretool.cms.gov/>
 
-[^8]: Measures Management System Blueprint v13.0. CMS, May 2017. <https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html>
+[^8]: Measures Management System Blueprint v14.0. CMS, September 2018. <https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html>
 
-[^9]: Refinement, Constraint and Localization, Release 2. HL7, September 2015. <http://www.hl7.org/v3ballotarchive_temp_52E32C7C-1C23-BA17-0CA99EC07A928F9D/v3ballot/html/infrastructure/conformance/conformance.html>
+[^9]: Conformance, Fast Healthcare Interoperability Resources, Conformance module, STU3, April 2017. <http://hl7.org/fhir/STU3/conformance-module.html>
 
 [^10]: Value Set Authority Center. U.S. National Library of Medicine. <https://vsac.nlm.nih.gov/>
