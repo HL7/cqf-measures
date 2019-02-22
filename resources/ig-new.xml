@@ -3,10 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="cqfmeasures"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="/home/jp/repos/cqf-measures/resources"/>
+    <valueString value="C:\Users\Bryn\Documents\Src\HL7\Specifications\CQF-Measures\resources"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-pages">
-    <valueString value="/home/jp/repos/cqf-measures/pages"/>
+    <valueString value="C:\Users\Bryn\Documents\Src\HL7\Specifications\CQF-Measures\pages"/>
   </extension>
   <url value="http://hl7.org/fhir/us/cqframework/cqfmeasures/ImplementationGuide/cqfmeasures"/>
   <version value="1.0.0"/>
@@ -731,6 +731,34 @@
       <name value="StructureMap providercharacteristic-to-practitioner"/>
       <description value="StructureMap providercharacteristic-to-practitioner"/>
       <exampleBoolean value="true"/>
+      <groupingId value="p1"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-allocation"/>
+      </reference>
+      <name value="StructureDefinition - Measure allocation extension"/>
+      <groupingId value="p1"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-definitionTerm"/>
+      </reference>
+      <name value="StructureDefinition - Measure definitionTerm extension"/>
+      <groupingId value="p1"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-isPrimaryCitation"/>
+      </reference>
+      <name value="StructureDefinition - Measure isPrimaryCitation extension"/>
+      <groupingId value="p1"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-populationBasis"/>
+      </reference>
+      <name value="StructureDefinition - Measure populationBasis extension"/>
       <groupingId value="p1"/>
     </resource>
     <page>

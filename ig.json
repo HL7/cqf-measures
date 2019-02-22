@@ -78,7 +78,11 @@
   ],
   "spreadsheets": [
     "profile-library-cqfm-spreadsheet.xml",
-    "profile-measure-cqfm-spreadsheet.xml"
+    "profile-measure-cqfm-spreadsheet.xml",
+    "profile-proportion-measure-cqfm-spreadsheet.xml",
+    "profile-ratio-measure-cqfm-spreadsheet.xml",
+    "profile-continuous-variable-measure-cqfm-spreadsheet.xml",
+    "profile-cohort-measure-cqfm-spreadsheet.xml"
   ],
   "canonicalBase": "http://hl7.org/fhir/us/cqframework/cqfmeasures",
   "source": "cqfmeasures.xml",
@@ -122,6 +126,15 @@
     "Library/library-mat-global-common-functions-QDM": {
       "base": "Library-library-mat-global-common-functions-QDM.html"
     },
+    "Library/library-common-FHIR": {
+      "base": "Library-library-common-FHIR.html"
+    },
+    "Library/library-exm146-FHIR": {
+      "base": "Library-library-exm146-FHIR.html"
+    },
+    "Library/library-exm-logic": {
+      "base": "Library-library-exm-logic.html"
+    },
     "Measure/measure-cms124-FHIR": {
       "base": "Measure-measure-cms124-FHIR.html"
     },
@@ -139,6 +152,12 @@
     },
     "Measure/measure-cms130-QDM": {
       "base": "Measure-measure-cms130-QDM.html"
+    },
+    "Measure/measure-exm": {
+      "base": "Measure-measure-exm.html"
+    },
+    "Measure/measure-exm146-FHIR": {
+      "base": "Measure-measure-exm146-FHIR.html"
     },
     "StructureMap/encounter-performed-to-encounter": {
       "base": "StructureMap-encounter-performed-to-encounter.html"
@@ -324,6 +343,22 @@
     "StructureDefinition/measure-cqmf": {
       "defns": "StructureDefinition-measure-cqfm-definitions.html",
       "base": "StructureDefinition-measure-cqfm.html"
+    },
+    "StructureDefinition/proportion-measure-cqmf": {
+      "defns": "StructureDefinition-proportion-measure-cqfm-definitions.html",
+      "base": "StructureDefinition-proportion-measure-cqfm.html"
+    },
+    "StructureDefinition/ratio-measure-cqmf": {
+      "defns": "StructureDefinition-ratio-measure-cqfm-definitions.html",
+      "base": "StructureDefinition-ratio-measure-cqfm.html"
+    },
+    "StructureDefinition/continuous-variable-measure-cqmf": {
+      "defns": "StructureDefinition-continuous-variable-measure-cqfm-definitions.html",
+      "base": "StructureDefinition-continuous-variable-measure-cqfm.html"
+    },
+    "StructureDefinition/cohort-measure-cqmf": {
+      "defns": "StructureDefinition-cohort-measure-cqfm-definitions.html",
+      "base": "StructureDefinition-cohort-measure-cqfm.html"
     },
     "StructureDefinition/cqfm-allocation": {
       "base": "StructureDefinition-cqfm-allocation.html"

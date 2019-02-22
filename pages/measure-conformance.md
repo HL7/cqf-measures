@@ -4,55 +4,57 @@ title: Measure Conformance
 ---
 ## 2 HQMF Basics
 
-In HQMF, an eCQM is formatted in XML as a QualityMeasureDocument containing metadata (the rest of this section) and terminology (Section 3), a data criteria section (Section 4), and a population criteria section (Section 5). The population criteria section typically contains initial population criteria, denominator criteria, and numerator criteria sub-components, among others. Snippet 1 shows the structure of HQMF.
+In FHIR, an eCQM is represented as a Measure resource containing metadata (the rest of this section) and terminology (Section 3), a population criteria section (Section 5), and at least one Library resource containing a data criteria section (Section 4) as well as the logic used to define the population criteria. The population criteria section typically contains initial population criteria, denominator criteria, and numerator criteria sub-components, among others. Snippet 1 shows the structure of a FHIR Measure.
 
 ```xml
-<QualityMeasureDocument>
-    <!-- metadata for the measure - snipped for brevity -->
-    <component>
-        <dataCriteriaSection>
-            <entry>...</entry>
-        </dataCriteriaSection>
-    </component>
-    <component>
-        <populationCriteriaSection>
-            <component>
-                <initialPopulationCriteria>...</initialPopulationCriteria>
-            </component>
-            <component>
-                <denominatorCriteria>...</denominatorCriteria>
-            </component>
-            <component>
-                <numeratorCriteria>...</numeratorCriteria>
-            </component>
-        </populationCriteriaSection>
-    </component>
-</QualityMeasureDocument>
+<Measure>
+  <!-- metadata for the measure - snipped for brevity -->
+  <library>
+    <reference value="Library/library-exm-logic"/>
+  </library>
+  <group>
+    <population>
+      <code><coding><code value="initial-population"/></coding></code>
+      <criteria value="Initial Population"/>
+    </population>
+    <population>
+      <code><coding><code value="denominator"/></coding></code>
+      <criteria value="Denominator"/>
+    </population>
+    <population>
+      <code><coding><code value="numerator"/></coding></code>
+      <criteria value="Numerator"/>
+    </population>
+  </group>
+</Measure>
 ```
 
-Snippet 1: HQMF document structure - abridged for clarity (from sample eCQM.xml)
+Snippet 1: FHIR Measure structure - abridged for clarity (from sample [Measure-measure-exm.xml](Measure-measure-exm.html))
 
 ### 2.1 Metadata
 
+// TODO: Review and update?
 The header of an eCQM document identifies and classifies the document and provides important metadata about the measure. The Blueprint includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base HQMF standard by including the Blueprint header requirements. Details are as shown in Volume 3 of this IG package.
 
 The rest of this section describes some of the more important components to the header, such as “Related Documents” (Section 2.2), “Control Variables” (Section 2.3), and “Data Criteria” (Section 4).
 
 ### 2.2 Related Documents
 
-The Clinical Quality Language R1.3 [^3] can be used in conjunction with HQMF to construct CQL-based HQMF measures. CQL is a domain specific language used in the Clinical Quality and Clinical Decision Support domains. Measures written in CQL leverage the expressibility and computability of CQL to define the populationCriteria used in the HQMF.
+Clinical Quality Language R1.4 [^3] can be used in conjunction with the FHIR Measure resource to construct CQL-based quality measures. CQL is a domain specific language used in the Clinical Quality and Clinical Decision Support domains. Measures written in CQL leverage the expressivity and computability of CQL to define the population criteria used in the eCQM.
 
 Any included CQL library must contain a library declaration line as its first line as in Snippet 2.
 
 ```cql
-library EXM146 version '4.0.0'
+library EXM146_FHIR version '4.0.0'
 ```
 
-Snippet 2: Library declaration line from (EXM146v4 CQL.cql)
+Snippet 2: Library declaration line from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
 
-When using multiple CQL libraries to define a measure, refer to the “Nested Libraries” section of Volume 2 of this guide.
+When using multiple CQL libraries to define a measure, refer to the “Nested Libraries” section of the Using CQL topic of this guide.
 
-Inclusion of CQL into an HQMF document is accomplished through the use of relatedDocument elements. relatedDocument elements such as Snippet 3 are incorporated into the HQMF in the metadata section (line: 2 of Snippet 1). CQL expression documents are included by reference using the HQMF expressionDocument element as described in S4.4 of HQMF [^4] – note that S4.4.1.5 of HQMF prohibits embedding of expression documents. Snippet 3 shows an example of this.
+Inclusion of CQL into a FHIR eCQM is accomplished through the use of a Library resource as shown in Snippet 3. These libraries are then incorporated into the FHIR eCQM using the `library` element of the Measure (line: 3 of Snippet 1). CQL library content is included as the `content` element of the Library resource.
+
+// TODO: Restrict to base64 encoded content or allow by reference?
 
 Lines 21–32 in Snippet 3 identify a CQL expression document (EXM146v4 CQL.cql) and assign an internal root identifier to it (22688A59-B73C-4276-9E83-778214E1CA3C). This identifier is later used when referencing CQL expressions from HQMF population criteria. In addition, a global, version-independent identifier for the library is specified using the setId element. The root attribute of this element defines a globally unique namespace for the library, and the extension attribute specifies a stable, version-independent identifier for the library. If this identifier is not the same as the name of the library, then the identifierName attribute can be used to provide a human readable identifier. If the library has a version specified, the versionNumber element is used as well.
 
@@ -100,7 +102,7 @@ Lines 21–32 in Snippet 3 identify a CQL expression document (EXM146v4 CQL.cql)
 </relatedDocument>
 ```
 
-Snippet 3: Referencing a CQL file in HQMF (from EXM146v4 eCQM.xml)
+Snippet 3: Example CQL Library (from EXM146v4 eCQM.xml)
 
 Inclusion of CQL libraries within the HQMF framework must conform to Conformance Requirement 1.
 

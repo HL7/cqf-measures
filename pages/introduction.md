@@ -25,14 +25,15 @@ This implementation guide is structured as follows:
 
 1. Introduction - This section, providing narrative introduction and background material
 2. Overview - Provides an overview of quality measurement
-3. Measure Components - Provides detailed documentation on how measures are represented
-4. Measure Conformance - Provides detailed guidance and conformance requirements for measures
-5. Composite Measures - Discusses composite measure calculation and representation approaches
-6. Using CQL - Provides guidance and conformance requirements for the use of CQL within measures
+3. Measure Conformance - Provides detailed guidance and conformance requirements for measures
+4. Composite Measures - Discusses composite measure calculation and representation approaches
+5. Using CQL - Provides guidance and conformance requirements for the use of CQL within measures
 
 In addition, there are appendices for examples, references, acknowledgements, and a glossary.
 
 ### 1.3 Structure of this Volume
+
+// TODO: UPDATE THIS SECTION
 
 This implementation guide is divided into 6 chapters. Chapters 2 - 6 describe how to construct a CQL based HQMF document and follow the structure of an HQMF document (metadata, data criteria, population criteria, stratification criteria).
 

@@ -3,11 +3,11 @@
   "id" : "cqfmeasures",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource",
-    "valueString" : "/home/jp/repos/cqf-measures/resources"
+    "valueString" : "C:\\Users\\Bryn\\Documents\\Src\\HL7\\Specifications\\CQF-Measures\\resources"
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/igpublisher-folder-pages",
-    "valueString" : "/home/jp/repos/cqf-measures/pages"
+    "valueString" : "C:\\Users\\Bryn\\Documents\\Src\\HL7\\Specifications\\CQF-Measures\\pages"
   }],
   "url" : "http://hl7.org/fhir/us/cqframework/cqfmeasures/ImplementationGuide/cqfmeasures",
   "version" : "1.0.0",
@@ -734,6 +734,34 @@
       "name" : "StructureMap providercharacteristic-to-practitioner",
       "description" : "StructureMap providercharacteristic-to-practitioner",
       "exampleBoolean" : true,
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "StructureDefinition/cqfm-allocation"
+      },
+      "name" : "StructureDefinition - Measure allocation extension",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "StructureDefinition/cqfm-definitionTerm"
+      },
+      "name" : "StructureDefinition - Measure definitionTerm extension",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "StructureDefinition/cqfm-isPrimaryCitation"
+      },
+      "name" : "StructureDefinition - Measure isPrimaryCitation extension",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "StructureDefinition/cqfm-populationBasis"
+      },
+      "name" : "StructureDefinition - Measure populationBasis extension",
       "groupingId" : "p1"
     }],
     "page" : {
