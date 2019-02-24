@@ -7,20 +7,20 @@ include AdultOutpatientEncountersFHIR version '1.1.000' called AdultOutpatientEn
 include HospiceFHIR version '1.0.000' called Hospice
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
-codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct' version 'urn:hl7:version:2017-09'
+codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108' version 'http://snomed.info/sct/731000124108/version/201709'
 
-valueset "ONC Administrative Sex": 'urn:oid:2.16.840.1.113762.1.4.1'
-valueset "Race": 'urn:oid:2.16.840.1.114222.4.11.836'
-valueset "Ethnicity": 'urn:oid:2.16.840.1.114222.4.11.837'
-valueset "Payer": 'urn:oid:2.16.840.1.114222.4.11.3591'
-valueset "Female": 'urn:oid:2.16.840.1.113883.3.560.100.2'
-valueset "Home Healthcare Services": 'urn:oid:2.16.840.1.113883.3.464.1003.101.12.1016'
-valueset "Hysterectomy with No Residual Cervix": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1014'
-valueset "Office Visit": 'urn:oid:2.16.840.1.113883.3.464.1003.101.12.1001'
-valueset "Pap Test": 'urn:oid:2.16.840.1.113883.3.464.1003.108.12.1017'
-valueset "Preventive Care Services - Established Office Visit, 18 and Up": 'urn:oid:2.16.840.1.113883.3.464.1003.101.12.1025'
-valueset "Preventive Care Services-Initial Office Visit, 18 and Up": 'urn:oid:2.16.840.1.113883.3.464.1003.101.12.1023'
-valueset "HPV Test": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1059'
+valueset "ONC Administrative Sex": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
+valueset "Race": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
+valueset "Ethnicity": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837'
+valueset "Payer": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591'
+valueset "Female": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.560.100.2'
+valueset "Home Healthcare Services": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016'
+valueset "Hysterectomy with No Residual Cervix": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1014'
+valueset "Office Visit": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'
+valueset "Pap Test": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1017'
+valueset "Preventive Care Services - Established Office Visit, 18 and Up": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025'
+valueset "Preventive Care Services-Initial Office Visit, 18 and Up": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023'
+valueset "HPV Test": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1059'
 
 code "Congenital absence of cervix (disorder)": '37687000' from "SNOMEDCT:2017-09" display 'Congenital absence of cervix (disorder)'
 

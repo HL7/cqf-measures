@@ -1,13 +1,14 @@
-library VTEICU version '2.4.000'
+library VTEICU_FHIR version '2.4.000'
 
 using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
-codesystem "LOINC:2.46": 'urn:oid:2.16.840.1.113883.6.1' version 'urn:hl7:version:2.46'
-codesystem "SNOMEDCT:2016-03": 'urn:oid:2.16.840.1.113883.6.96' version 'urn:hl7:version:2016-03'
+// TODO: Determine how to reference a particular version of LOINC
+codesystem "LOINC:2.46": 'http://loinc.org' version 'urn:hl7:version:2.46'
+codesystem "SNOMEDCT:2016-03": 'http://snomed.info/sct/731000124108' version 'http://snomed.info/sct/731000124108/version/201603'
 
-valueset "Intensive Care Unit": 'urn:oid:2.16.840.1.113762.1.4.1110.23'
+valueset "Intensive Care Unit": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.23'
 
 code "Birthdate": '21112-8' from "LOINC:2.46" display 'Birth date'
 code "Dead": '419099009' from "SNOMEDCT:2016-03" display 'Dead'

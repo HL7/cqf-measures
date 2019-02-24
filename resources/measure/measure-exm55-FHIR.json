@@ -1,0 +1,165 @@
+{
+  "resourceType": "Measure",
+  "id": "measure-exm55-FHIR",
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Measure/measure-exm55-FHIR",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
+      "value": "55"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "EXM55",
+  "title": "Median ED Visit Duration",
+  "status": "active",
+  "experimental": true,
+  "date": "2019-02-21",
+  "effectivePeriod": {
+    "start": "2018-01-01",
+    "end": "2018-12-31"
+  },
+  "useContext": [
+    {
+      "code": {
+        "code": "program"
+      },
+      "valueCodeableConcept": {
+        "text": "eligible-hospital"
+      }
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "topic": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/c80-doc-typecodes",
+          "code": "57024-2"
+        }
+      ]
+    }
+  ],
+  "library": [
+    {
+      "reference": "Library/library-exm55-FHIR|5.0.0"
+    }
+  ],
+  "scoring": {
+    "coding": [
+      {
+        "code": "continuous-variable"
+      }
+    ]
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "code": "process"
+        }
+      ]
+    }
+  ],
+  "improvementNotation": "Lower score indicates better quality",
+  "group": [
+    {
+      "identifier": {
+        "value": "EXM55-group-1"
+      },
+      "population": [
+        {
+          "identifier": {
+            "value": "initial-population-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "initial-population"
+              }
+            ]
+          },
+          "criteria": "\"EXM55_FHIR\".\"Initial Population\""
+        },
+        {
+          "identifier": {
+            "value": "measure-population-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "measure-population"
+              }
+            ]
+          },
+          "criteria": "\"EXM55_FHIR\".\"Measure Population\""
+        },
+        {
+          "identifier": {
+            "value": "measure-population-exclusion-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "measure-population-exclusion"
+              }
+            ]
+          },
+          "criteria": "\"EXM55_FHIR\".\"Measure Population Exclusion\""
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
+              "valueString": "measure-population-identifier"
+            },
+            {
+              "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+              "valueCode": "median"
+            }
+          ],
+          "identifier": {
+            "value": "measure-observation-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "measure-observation"
+              }
+            ]
+          },
+          "criteria": "\"EXM55_FHIR\".\"Measure Observation\""
+        }
+      ],
+      "stratifier": [
+        {
+          "identifier": {
+            "value": "stratifier-1-identifier"
+          },
+          "criteria": "\"EXM55_FHIR\".\"Stratification 1\""
+        },
+        {
+          "identifier": {
+            "value": "stratifier-2-identifier"
+          },
+          "criteria": "\"EXM55_FHIR\".\"Stratification 2\""
+        },
+        {
+          "identifier": {
+            "value": "stratifier-3-identifier"
+          },
+          "criteria": "\"EXM55_FHIR\".\"Stratification 3\""
+        }
+      ]
+    }
+  ]
+}

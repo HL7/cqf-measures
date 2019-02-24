@@ -4,12 +4,13 @@ using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
+// TODO: Determine how to reference a particular version of LOINC
 codesystem "LOINC:2.46": 'http://loinc.org' version 'urn:hl7:version:2.46'
-codesystem "SNOMEDCT:2016-03": 'http://snomed.info/sct' version 'urn:hl7:version:2016-03'
+codesystem "SNOMEDCT:2016-03": 'http://snomed.info/sct/731000124108' version 'http://snomed.info/sct/731000124108/version/201603'
 codesystem "RoleCode": 'http://hl7.org/fhir/v3/RoleCode'
 
-valueset "Encounter Inpatient": 'urn:oid:2.16.840.1.113883.3.666.5.307'
-valueset "Emergency Department Visit": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.292'
+valueset "Encounter Inpatient": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307'
+valueset "Emergency Department Visit": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292'
 
 code "Birthdate": '21112-8' from "LOINC:2.46" display 'Birth date'
 code "Dead": '419099009' from "SNOMEDCT:2016-03" display 'Dead'

@@ -1,0 +1,84 @@
+{
+  "resourceType": "Library",
+  "id": "library-terminiology-FHIR",
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Library/library-terminology-FHIR",
+  "version": "4.0.0",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "code": "logic-library"
+      }
+    ]
+  },
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": {
+        "reference": "Library/FHIRHelpers"
+      }
+    }
+  ],
+  "dataRequirement": [
+    {
+      "type": "CodeableConcept",
+      "codeFilter": [
+        {
+          "valueCoding": {
+            "system": "http://snomed.info/sct/731000124108/",
+            "version": "http://snomed.info/sct/731000124108/version/201709",
+            "code": "129325002",
+            "display": "Introduction - action (qualifier value)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "CodeableConcept",
+      "codeFilter": [
+        {
+          "valueCoding": {
+            "system": "http://snomed.info/sct/731000124108/",
+            "version": "http://snomed.info/sct/731000124108/version/201709",
+            "code": "442023007",
+            "display": "Venous foot pump, device (physical object)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "Encounter",
+      "codeFilter": [
+        {
+          "path": "type",
+          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
+        }
+      ]
+    },
+    {
+      "type": "Procedure",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueCoding": {
+            "system": "http://snomed.info/sct/731000124108/",
+            "version": "http://snomed.info/sct/731000124108/version/201709",
+            "code": "71861002",
+            "display": "Implantation (procedure)"
+          }
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeS...VzaW9uCg=="
+    },
+    {
+      "contentType": "application/elm+xml",
+      "data": "PD94bWwgdm...JyYXJ5Pg=="
+    }
+  ]
+}

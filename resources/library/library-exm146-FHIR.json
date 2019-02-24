@@ -1,6 +1,14 @@
 {
   "resourceType": "Library",
-  "id": "library-cms146-FHIR",
+  "id": "library-exm146-FHIR",
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Library/library-exm146-FHIR",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
+      "value": "146"
+    }
+  ],
   "version": "4.0.0",
   "status": "active",
   "experimental": true,
@@ -31,7 +39,7 @@
       "codeFilter": [
         {
           "path": "type",
-          "valueSetString": "urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061"
+          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
         }
       ]
     },
@@ -40,7 +48,7 @@
       "codeFilter": [
         {
           "path": "medication",
-          "valueSetString": "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"
+          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
         }
       ]
     },
@@ -49,7 +57,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSetString": "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011"
+          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
         }
       ]
     },
@@ -58,7 +66,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSetString": "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012"
+          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
         }
       ]
     },
@@ -67,7 +75,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSetString": "urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012"
+          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
         }
       ]
     }

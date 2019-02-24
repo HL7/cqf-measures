@@ -1,0 +1,70 @@
+{
+  "resourceType": "Library",
+  "id": "library-exm55-FHIR",
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Library/library-exm55-FHIR",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
+      "value": "55"
+    }
+  ],
+  "version": "5.0.0",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "code": "logic-library"
+      }
+    ]
+  },
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": {
+        "reference": "Library/FHIRHelpers"
+      }
+    }
+  ],
+  "dataRequirement": [
+    {
+      "type": "CodeableConcept",
+      "codeFilter": [
+        {
+          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299"
+        }
+      ]
+    },
+    {
+      "type": "CodeableConcept",
+      "codeFilter": [
+        {
+          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.126"
+        }
+      ]
+    },
+    {
+      "type": "Encounter"
+    },
+    {
+      "type": "Encounter",
+      "codeFilter": [
+        {
+          "path": "type",
+          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "contentType": "application/elm+xml",
+      "data": "PD94bWwgdm...JyYXJ5Pg=="
+    },
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeS...VzaW9uCg=="
+    }
+  ]
+}
