@@ -64,6 +64,10 @@ Snippet 3 illustrates a Library resource containing a CQL library with a stable,
 
     Conformance Requirement 1 (Referencing CQL Documents):
     CQF Measures SHALL consist of a FHIR Measure resource conforming to at least the CQFMMeasure profile
+    Proportion Measures SHALL conform to the CQFMProportionMeasure profile
+    Ratio Measures SHALL conform to the CQFMRatioMeasure profile
+    Continuous Variable Measures SHALL conform to the CQFMContinuousVariableMeasure profile
+    Cohort Measures SHALL conform to the CQFMCohortMeasure profile
     CQF Libraries SHALL consist of a FHIR Library resource conforming to at least the CQFMLibrary profile
     CQFMMeasures utilizing CQL libraries SHALL include exactly 1 CQFMLibrary per CQL library refenced in the Measure.
     CQL Libraries implicitly referenced through nesting of libraries MAY be included.
