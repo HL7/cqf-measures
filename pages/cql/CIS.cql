@@ -11,6 +11,7 @@ Description
 Percentage of children 2 years of age who had four diphtheria, tetanus and acellular pertussis (DTaP); three polio (IPV), one measles, mumps and rubella (MMR); three H influenza type B (HiB); three hepatitis B (Hep B); one chicken pox (VZV); four pneumococcal conjugate (PCV); one hepatitis A (Hep A); two or three rotavirus (RV); and two influenza (flu) vaccines by their second birthday
 */
 
+// BTR -> Syntax is incorrect here, suggest pulling this from the actual FHIR library, it looks like it was copied from the Human Readable...
 codesystem "CPT": "2.16.840.1.113883.6.12 version 2018"
 codesystem "CVX": "2.16.840.1.113883.12.292 version 2017-11"
 codesystem "SNOMEDCT": "2.16.840.1.113883.6.96 version 2017-09"
@@ -173,11 +174,14 @@ context Patient
 Initial Population
 */
 
+// BTR -> In FHIR, you can just say:
 define "Initial Population":
-	exists ( ["Patient.birthDate.value"] BirthDate
-			where Global."CalendarAgeInYearsAt"(Patient.birthDate.value, start of "Measurement Period")>= 1
-				and Global."CalendarAgeInYearsAt"(Patient.birthDate.value, end of "Measurement Period")= 2
-	)
+  Global.CalendarAgeInYearsAt(Patient.birthDate, start of "Measurement Period") >= 1
+    and Global.CalendarAgeInYearsAt(Patient.birthDate, end of "Measurement Period") = 2
+//	exists ( ["Patient.birthDate.value"] BirthDate
+//			where Global."CalendarAgeInYearsAt"(Patient.birthDate.value, start of "Measurement Period")>= 1
+//				and Global."CalendarAgeInYearsAt"(Patient.birthDate.value, end of "Measurement Period")= 2
+//	)
 		and exists ( "Qualifying Encounter" )
 //		and (not "Is In Hospice")
   
@@ -228,6 +232,7 @@ define "Numerator"
 		)
 
 /* Why is this commented out??
+// BTR -> Because it should just be referenced in the Hospice library, no need to repeat it here
 define "Is In Hospice":
 	exists(
 		[Encounter: "Hospice Value Set"] Enc
@@ -273,11 +278,13 @@ define "DTaP Immunizations or Procedures"
 				where DTaP.status.value = 'completed' )
 	
 /* Do we still need this?
+BTR -> FHIR specifically says Procedure should NOT be used to record vaccine administration since the more specific Immunization procedure exists.
+Note that it's a SHOULD, not a SHALL, so it's possible systems may still do this, but I'd suggest going with just Immunization until there is a demonstrated need
 		union [Procedure: "DTaP Vaccine Administered"] DtapAdministration
             where Proc.status.value = 'completed'
 				return {immunization.date: start of performed.date }
 		 ) DTaPVaccination
-/*
+*/
 		with ["Patient.birthDate.value"] BirthDate
 			such that ( Global."CalendarAgeInDaysAt"(Patient.birthDate.value, DTaPVaccination.date)>= 42 )
 				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate.value, DTaPVaccination.date)<= 730 )
