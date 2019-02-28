@@ -259,6 +259,8 @@ define "SCIP VTE Selected Surgery":
 		union ["Procedure": "Knee Replacement Surgery"]
 		union ["Procedure": "Urological Surgery"]
 		//TJC - is it better to apply "procedure.status in {'completed'} here than being in the calling defintion?
+    //BTR -> Yes, because the "status = 'completed'" is really part of the "Procedure, Performed", so it makes sense
+    // to include here because that's what the QDM version of the expression would have returned
 
 //QA
 define "Intervention Comfort Measures":
@@ -284,6 +286,8 @@ define "Intervention Comfort Measures on Day of or Day After Procedure":
 		where  AnesthesiaProcedure.status in {'completed'}
 				and FHIRHelpers.ToInterval(AnesthesiaProcedure.performed[performedPeriod] ends 1 day after day of start of FHIRHelpers.ToInterval(QualifyingEncounter.period)
 				and ComfortMeasure.authoredOn 1 day or less on or after day of end of FHIRHelpers.ToInterval(AnesthesiaProcedure.performed[period] //TJC - how to apply Procedure.performed[x]
+          // BTR -> Just leave off the [period], the FHIRHelpers.ToInterval() expects a FHIR period and so the translator will automatically choose that type
+          // This is another case where we will want to profile the Procedure to only use Periods for performed though.
 		return QualifyingEncounter
 
 //QA
@@ -291,6 +295,7 @@ define "VTE Prophylaxis by Medication Administered or Device Applied":
 	( ["MedicationAdministered": "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
 			where VTEMedication.status in {'completed'}
 						and VTEMedication.dosage.route as CodeableConcept in {'Subcutaneous route'} // TJC - Is "as CodeableConcept" is necessary here?
+            // BTR -> It shouldn't be, leave it off and we'll add it back in if we need to when we start to verify the measure with the CQL-to-ELM translator
 	)
 		union ["MedicationAdministered": "Low Molecular Weight Heparin for VTE Prophylaxis"]
 		union ["MedicationAdministered": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
