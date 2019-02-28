@@ -60,6 +60,10 @@ define "Non Elective Inpatient Encounter":
 	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
 		where "LengthInDays"(NonElectiveEncounter.period)<= 120
 			and NonElectiveEncounter.period ends during "Measurement Period"
+      
+define function "EncounterDiagnosis"(Encounter Encounter):
+  Encounter.diagnosis D
+    return singleton from ([Condition: id in "GetId"(D.condition.reference)])
 
 define function "PrincipalDiagnosis"(Encounter Encounter):
 	(singleton from (Encounter.diagnosis D where D.role ~ "Billing" and D.rank = 1)) PD

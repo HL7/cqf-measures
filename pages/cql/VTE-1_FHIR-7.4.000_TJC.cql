@@ -4,50 +4,50 @@ using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
-include VTEICU version '2.4.000' called VTEICU
+include VTEICU_FHIR version '2.4.000' called VTEICU
 
-codesystem "LOINC:2.63": 'urn:oid:2.16.840.1.113883.6.1' version 'urn:hl7:version:2.63'
+codesystem "LOINC:2.63": 'http://loinc.org' version 'urn:hl7:version:2.63'
 
-valueset "ONC Administrative Sex": 'urn:oid:2.16.840.1.113762.1.4.1'
-valueset "Race": 'urn:oid:2.16.840.1.114222.4.11.836'
-valueset "Ethnicity": 'urn:oid:2.16.840.1.114222.4.11.837'
-valueset "Payer": 'urn:oid:2.16.840.1.114222.4.11.3591'
-valueset "Atrial Fibrillation/Flutter": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.202'
-valueset "Comfort Measures": 'urn:oid:1.3.6.1.4.1.33895.1.3.0.45'
-valueset "Direct Thrombin Inhibitor": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.205'
-valueset "Emergency Department Visit": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.292'
-valueset "General or Neuraxial Anesthesia": 'urn:oid:2.16.840.1.113883.3.666.5.1743'
-valueset "General Surgery": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.255'
-valueset "Glycoprotein IIb/IIIa Inhibitors": 'urn:oid:2.16.840.1.113762.1.4.1045.41'
-valueset "Graduated compression stockings (GCS)": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.256'
-valueset "Gynecological Surgery": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.257'
-valueset "Hemorrhagic Stroke": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.212'
-valueset "Hip Fracture Surgery": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.258'
-valueset "Hip Replacement Surgery": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.259'
-valueset "Injectable Factor Xa Inhibitor for VTE Prophylaxis": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.211'
-valueset "INR": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.213'
-valueset "Intermittent pneumatic compression devices (IPC)": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.214'
-valueset "Intracranial Neurosurgery": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.260'
-valueset "Intravenous route": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.222'
-valueset "Ischemic Stroke": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.247'
-valueset "Knee Replacement Surgery": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.261'
-valueset "Low Dose Unfractionated Heparin for VTE Prophylaxis": 'urn:oid:2.16.840.1.113762.1.4.1045.39'
-valueset "Low Molecular Weight Heparin for VTE Prophylaxis": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.219'
-valueset "Low Risk": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.400'
-valueset "Medical Reason": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.473'
-valueset "Mental Health Diagnoses": 'urn:oid:2.16.840.1.113883.3.464.1003.105.12.1004'
-valueset "Obstetrics": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.263'
-valueset "Obstetrics VTE": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.264'
-valueset "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.134'
-valueset "Patient Refusal": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.93'
-valueset "Principal": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.14'
-valueset "Subcutaneous route": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.223'
-valueset "Unfractionated Heparin": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.218'
-valueset "Urological Surgery": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.272'
-valueset "Venous foot pumps (VFP)": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.230'
-valueset "Venous Thromboembolism": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.279'
-valueset "Warfarin": 'urn:oid:2.16.840.1.113883.3.117.1.7.1.232'
-valueset "Intensive Care Unit": 'urn:oid:2.16.840.1.113762.1.4.1110.23'
+valueset "ONC Administrative Sex": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
+valueset "Race": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
+valueset "Ethnicity": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837'
+valueset "Payer": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591'
+valueset "Atrial Fibrillation/Flutter": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.202'
+valueset "Comfort Measures": 'https://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45'
+valueset "Direct Thrombin Inhibitor": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.205'
+valueset "Emergency Department Visit": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292'
+valueset "General or Neuraxial Anesthesia": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1743'
+valueset "General Surgery": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.255'
+valueset "Glycoprotein IIb/IIIa Inhibitors": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.41'
+valueset "Graduated compression stockings (GCS)": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.256'
+valueset "Gynecological Surgery": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.257'
+valueset "Hemorrhagic Stroke": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.212'
+valueset "Hip Fracture Surgery": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.258'
+valueset "Hip Replacement Surgery": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.259'
+valueset "Injectable Factor Xa Inhibitor for VTE Prophylaxis": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.211'
+valueset "INR": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.213'
+valueset "Intermittent pneumatic compression devices (IPC)": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.214'
+valueset "Intracranial Neurosurgery": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.260'
+valueset "Intravenous route": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.222'
+valueset "Ischemic Stroke": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.247'
+valueset "Knee Replacement Surgery": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.261'
+valueset "Low Dose Unfractionated Heparin for VTE Prophylaxis": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.39'
+valueset "Low Molecular Weight Heparin for VTE Prophylaxis": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.219'
+valueset "Low Risk": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.400'
+valueset "Medical Reason": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.473'
+valueset "Mental Health Diagnoses": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.105.12.1004'
+valueset "Obstetrics": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.263'
+valueset "Obstetrics VTE": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.264'
+valueset "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.134'
+valueset "Patient Refusal": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.93'
+valueset "Principal": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.14'
+valueset "Subcutaneous route": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.223'
+valueset "Unfractionated Heparin": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.218'
+valueset "Urological Surgery": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.272'
+valueset "Venous foot pumps (VFP)": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.230'
+valueset "Venous Thromboembolism": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.279'
+valueset "Warfarin": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.232'
+valueset "Intensive Care Unit": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.23'
 
 code "Risk for venous thromboembolism": '72136-5' from "LOINC:2.63" display 'Risk for venous thromboembolism'
 
@@ -72,7 +72,7 @@ define "Denominator":
 
 define "ED Visit":
 	["Encounter": type in "Emergency Department Visit"] EDVisit
-    where EDVisit.status in { 'in-progress', 'finished' } //TJC - SHould be only in "finished"
+    where EDVisit.status in { 'finished' }
 
 define "Initial Population":
 	"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions"
@@ -124,6 +124,24 @@ Option 3 -
 	...
 */
 
+// TODO: Add doNotPerform to QICore, suggest support in base Resource
+// TODO: Tracker for Device, Not Ordered, ability to represent focalDevice
+define "Venous Foot Pumps Applied":
+  (["DeviceUseStatement": device.code in "Venous foot pumps(VFP)"]
+    union ["DeviceUseStatement": device.code in "Intermittent pneumatic compression devices (IPC)"]
+    union ["DeviceUseStatement": device.code in "Graduated compression stockings (GCS)"]
+  ) D
+    where D.extension['http://example.org/fhir/extensions/notDone'].value is true
+    //where D.notDone is true // Needs a QI-Core extension to support
+  union (
+    ["DeviceRequest": code in "Venous foot pumps(VFP)"]
+      union ["DeviceRequest": device.code in "Intermittent pneumatic compression devices (IPC)"]
+      union ["DeviceRequest": device.code in "Graduated compression stockings (GCS)"]
+  ) D
+    where D.intent = 'order'
+      and D.extension['http://example.org/fhir/extensions/doNotPerform'].value is true
+    //where D.doNotPerform is true // Needs a QI-Core extension to support
+
 //QA
 define "No VTE Prophylaxis Device Due to Medical Reason During ED Visit":
 	from
@@ -132,7 +150,7 @@ define "No VTE Prophylaxis Device Due to Medical Reason During ED Visit":
 		"No VTE Prophylaxis Device Applied or Ordered" NoVTEDevice
 		where FHIRHelpers.ToInterval(EDVisit.period) ends 1 hour or less on or before start of FHIRHelpers.ToInterval(QualifyingEncounter.period)
 			and (singleton from NoVTEDevice.reasonCode in "Medical Reason")
-			and NoVTEDevice.FHIR.provenance.recorded during FHIRHelpers.ToInterval(EDVisit.period) //TJC - should be "FHIR.provenance.recorded"?
+			and Coalesce(NoVTEDevice.authoredOn, NoVTEDevice.recordedOn) during FHIRHelpers.ToInterval(EDVisit.period)
 
 //QA
 define "No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After Admission":
@@ -140,7 +158,7 @@ define "No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After A
 		"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
 		"No VTE Prophylaxis Device Applied or Ordered" NoVTEDevice
 		where (singleton from NoVTEDevice.reasonCode in "Medical Reason")
-			and NoVTEDevice.FHIR.provenance.recorded during VTEICU."CalendarDayOfOrDayAfter"(start of FHIRHelpers.ToInterval(QualifyingEncounter.period))
+			and NoVTEDevice.FHIR.provenance.recorded during VTEICU."CalendarDayOfOrDayAfter"(start of FHIRHelpers.ToInterval(QualifyingEncounter.period)) // Update to use authoredOn/recordedOn
 		return QualifyingEncounter
 
 //QA
@@ -153,8 +171,9 @@ define "No VTE Prophylaxis Medication Administered or Ordered":
 			and MedicationAdm.notGiven is true
 	)
 	union
-	(	["MedicationRequest"] NoMedicationOrder //TJC - ?? [MedicationRequest: medication in "xxxx"]
-	// TJC - ?? NoMedicationOrder.MedicationCodeableConcept vs.expression below
+	(	["MedicationRequest": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxes"] NoMedicationOrder // Update to use medication in...
+  // TODO: Tracker for QI-core to add doNotPerform extension for MedicationRequest and suggest to the base Resource
+	// Use the same pattern for "doNotPerform" above for device
 		where ( NoMedicationOrder.medication as CodeableConcept in "Low Dose Unfractionated Heparin for VTE Prophylaxis"
 				or NoMedicationOrder.medication as CodeableConcept in "Low Molecular Weight Heparin for VTE Prophylaxis"
 				or NoMedicationOrder.medication as CodeableConcept in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"
@@ -162,7 +181,8 @@ define "No VTE Prophylaxis Medication Administered or Ordered":
 			and NoMedicationOrder.intent in {'order'}
 			and NoMedicationOrder.notGiven is true
 	) NoMedicationRequest
-	return "MedicationAdministration" {identifier: NoMedicationRequest.identifier, FHIR.provenance.recorded:NoMedicationRequest.authoredOn}
+  // TODO: Profile of MedicationRequest to ensure effective is a Period
+	return "MedicationOrder" { id: NoMedicationRequest.id, notGiven: true, authoredOn: Coalesce(NoMedicationRequest.authoredOn, start of NoMedicationRequest.effective) }
 
 //QA
 define "No VTE Prophylaxis Medication Due to Medical Reason During ED Visit":
@@ -197,12 +217,14 @@ define "No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After P
 //QA
 define "Admission Without VTE or Obstetrical Conditions":
 		Global."InpatientEncounter" InpatientEncounter
-		where not exists (InpatientEncounter.diagnosis in "Obstetrics"  //TJC - Is it a correct conversion for EncounterDiagnoses?
-											or InpatientEncounter.diagnosis in "Venous Thromboembolism"
-											or InpatientEncounter.diagnosis in "Obstetrics VTE"
+		where not exists (EncounterDiagnosis(InpatientEncounter).code in "Obstetrics"
+											or EncounterDiagnosis(InpatientEncounter).code in "Venous Thromboembolism"
+											or EncounterDiagnosis(InpatientEncounter).code in "Obstetrics VTE"
 											)
+
+
 		intersect (Global."InpatientEncounter" InpatientEncounter
-				without ( ["Condition": "Obstetrics"] //TJC - ?? [condition: code in "Obstetrics"]
+				without ( ["Condition": code in "Obstetrics"] // Update for all
 									union ["Condition": "Venous Thromboembolism"]
 									union ["Condition": "Obstetrics VTE"])	Diagnosis
 				such that Diagnosis.clinicalStatus = 'active'
