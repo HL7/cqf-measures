@@ -78,6 +78,7 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this doc
 ### 1.8 Background
 
 TODO: Update diagram to say QI-Core, not FHIR QUICK
+
 TODO: Add documentation about QUICK as an author-focused view of QI-Core
 
 QDM -> QUICK
