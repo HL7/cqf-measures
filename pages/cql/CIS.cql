@@ -11,147 +11,82 @@ Description
 Percentage of children 2 years of age who had four diphtheria, tetanus and acellular pertussis (DTaP); three polio (IPV), one measles, mumps and rubella (MMR); three H influenza type B (HiB); three hepatitis B (Hep B); one chicken pox (VZV); four pneumococcal conjugate (PCV); one hepatitis A (Hep A); two or three rotavirus (RV); and two influenza (flu) vaccines by their second birthday
 */
 
-// BTR -> Syntax is incorrect here, suggest pulling this from the actual FHIR library, it looks like it was copied from the Human Readable...
-codesystem "CPT": "2.16.840.1.113883.6.12 version 2018"
-codesystem "CVX": "2.16.840.1.113883.12.292 version 2017-11"
-codesystem "SNOMEDCT": "2.16.840.1.113883.6.96 version 2017-09"
-code "Anaphylaxis due to Haemophilus influenzae type b vaccine (disorder)": "SNOMEDCT version 2017-09 Code (433621000124101)"
-code "Anaphylaxis due to Hepatitis B vaccine (disorder)": "SNOMEDCT version 2017-09 Code (428321000124101)"
-code "Anaphylaxis due to rotavirus vaccine (disorder)": "SNOMEDCT version 2017-09 Code (428331000124103)"
-code "Discharge to healthcare facility for hospice care (procedure)": "SNOMEDCT version 2017-09 Code (428371000124100)"
-code "Discharge to home for hospice care (procedure)": "SNOMEDCT version 2017-09 Code (428361000124107)"
-code "Influenza virus vaccine adverse reaction (disorder)": "SNOMEDCT version 2017-09 Code (420113004)"
-code "Neomycin adverse reaction (disorder)": "SNOMEDCT version 2017-09 Code (292927007)"
-code "Pneumococcal vaccine adverse reaction (disorder)": "SNOMEDCT version 2017-09 Code (293116002)"
-code "Poliomyelitis vaccine adverse reaction (disorder)": "SNOMEDCT version 2017-09 Code (293117006)"
-code "Polymyxin B adverse reaction (disorder)": "SNOMEDCT version 2017-09 Code (292992006)"
-code "Rotavirus vaccine, human, attenuated (RV1), 2 dose schedule, live, for oral use": "CPT version 2018 Code (90681)"
-code "Rotavirus vaccine, pentavalent (RV5), 3 dose schedule, live, for oral use": "CPT version 2018 Code (90680)"
-code "rotavirus, live, monovalent vaccine": "CVX version 2017-11 Code (119)"
-code "Streptomycin adverse reaction (disorder)": "SNOMEDCT version 2017-09 Code (292925004)"
-valueset "Anaphylactic Reaction to Common Baker's Yeast": "2.16.840.1.113883.3.464.1003.199.12.1032"
-valueset "Anaphylactic Reaction to DTaP Vaccine": "2.16.840.1.113883.3.464.1003.199.12.1031"
-valueset "Anaphylactic Reaction to Hepatitis A Vaccine": "2.16.840.1.113883.3.464.1003.199.12.1026"
-valueset "Anti Hepatitis A IgG Antigen Test": "2.16.840.1.113883.3.464.1003.198.12.1033"
-valueset "Anti Hepatitis B Virus Surface Ab": "2.16.840.1.113883.3.464.1003.198.12.1073"
-valueset "Disorders of the Immune System": "2.16.840.1.113883.3.464.1003.120.12.1001"
-valueset "DTaP Vaccine Administered": "2.16.840.1.113883.3.464.1003.110.12.1022"
-valueset "DTaP Vaccine": "2.16.840.1.113883.3.464.1003.196.12.1214"
-valueset "Encephalopathy due to Childhood Vaccination": "2.16.840.1.113883.3.464.1003.114.12.1007"
-valueset "Encounter Inpatient": "2.16.840.1.113883.3.666.5.307"
-valueset "Ethnicity": "2.16.840.1.114222.4.11.837"
-valueset "Haemophilus Influenzae Type B (HiB) Vaccine Administered": "2.16.840.1.113883.3.464.1003.110.12.1043"
-valueset "Haemophilus Influenzae Type B (HiB) Vaccine": "2.16.840.1.113883.3.464.1003.196.12.1217"
-valueset "Hepatitis A Vaccine Administered": "2.16.840.1.113883.3.464.1003.110.12.1041"
-valueset "Hepatitis A Vaccine": "2.16.840.1.113883.3.464.1003.196.12.1215"
-valueset "Hepatitis A": "2.16.840.1.113883.3.464.1003.110.12.1024"
-valueset "Hepatitis B Vaccine Administered": "2.16.840.1.113883.3.464.1003.110.12.1042"
-valueset "Hepatitis B Vaccine": "2.16.840.1.113883.3.464.1003.196.12.1216"
-valueset "Hepatitis B": "2.16.840.1.113883.3.464.1003.110.12.1025"
-valueset "HIV": "2.16.840.1.113883.3.464.1003.120.12.1003"
-valueset "Home Healthcare Services": "2.16.840.1.113883.3.464.1003.101.12.1016"
-valueset "Hospice care ambulatory": "2.16.840.1.113762.1.4.1108.15"
-valueset "Inactivated Polio Vaccine (IPV) Administered": "2.16.840.1.113883.3.464.1003.110.12.1045"
-valueset "Inactivated Polio Vaccine (IPV)": "2.16.840.1.113883.3.464.1003.196.12.1219"
-valueset "Influenza Vaccine Administered": "2.16.840.1.113883.3.464.1003.110.12.1044"
-valueset "Influenza Vaccine": "2.16.840.1.113883.3.464.1003.196.12.1218"
-valueset "Intussusception": "2.16.840.1.113883.3.464.1003.199.12.1056"
-valueset "Malignant Neoplasm of Lymphatic and Hematopoietic Tissue": "2.16.840.1.113883.3.464.1003.108.12.1009"
-valueset "Measles Antibody Test (IgG Antibody presence)": "2.16.840.1.113883.3.464.1003.198.12.1060"
-valueset "Measles Antibody Test (IgG Antibody Titer)": "2.16.840.1.113883.3.464.1003.198.12.1059"
-valueset "Measles": "2.16.840.1.113883.3.464.1003.110.12.1053"
-valueset "Measles, Mumps and Rubella (MMR) Vaccine Administered": "2.16.840.1.113883.3.464.1003.110.12.1031"
-valueset "Measles, Mumps and Rubella (MMR) Vaccine": "2.16.840.1.113883.3.464.1003.196.12.1224"
-valueset "Mumps Antibody Test (IgG Antibody presence)": "2.16.840.1.113883.3.464.1003.198.12.1062"
-valueset "Mumps Antibody Test (IgG Antibody Titer)": "2.16.840.1.113883.3.464.1003.198.12.1061"
-valueset "Mumps": "2.16.840.1.113883.3.464.1003.110.12.1032"
-valueset "Office Visit": "2.16.840.1.113883.3.464.1003.101.12.1001"
-valueset "ONC Administrative Sex": "2.16.840.1.113762.1.4.1"
-valueset "Payer": "2.16.840.1.114222.4.11.3591"
-valueset "Pneumococcal Conjugate Vaccine Administered": "2.16.840.1.113883.3.464.1003.110.12.1046"
-valueset "Pneumococcal Conjugate Vaccine": "2.16.840.1.113883.3.464.1003.196.12.1221"
-valueset "Positive Finding": "2.16.840.1.113883.3.464.1003.121.12.1016"
-valueset "Preventive Care Services, Initial Office Visit, 0 to 17": "2.16.840.1.113883.3.464.1003.101.12.1022"
-valueset "Preventive Care, Established Office Visit, 0 to 17": "2.16.840.1.113883.3.464.1003.101.12.1024"
-valueset "Race": "2.16.840.1.114222.4.11.836"
-valueset "Rotavirus Vaccine (3 dose schedule)": "2.16.840.1.113883.3.464.1003.196.12.1223"
-valueset "Rubella Antibody Test (IgG Antibody presence)": "2.16.840.1.113883.3.464.1003.198.12.1064"
-valueset "Rubella Antibody Test (IgG Antibody Titer)": "2.16.840.1.113883.3.464.1003.198.12.1063"
-valueset "Rubella": "2.16.840.1.113883.3.464.1003.110.12.1037"
-valueset "Severe Combined Immunodeficiency": "2.16.840.1.113883.3.464.1003.120.12.1007"
-valueset "Varicella Zoster Antibody Test (IgG Antibody Presence)": "2.16.840.1.113883.3.464.1003.198.12.1067"
-valueset "Varicella Zoster Antibody Test (IgG Antibody Titer)": "2.16.840.1.113883.3.464.1003.198.12.1066"
-valueset "Varicella Zoster Vaccine (VZV) Administered": "2.16.840.1.113883.3.464.1003.110.12.1040"
-valueset "Varicella Zoster Vaccine (VZV)": "2.16.840.1.113883.3.464.1003.196.12.1170"
-valueset "Varicella Zoster": "2.16.840.1.113883.3.464.1003.110.12.1039"
-Data Criteria (QDM Data Elements)
-"Diagnosis: Anaphylactic Reaction to Common Baker's Yeast": "Anaphylactic Reaction to Common Baker's Yeast (2.16.840.1.113883.3.464.1003.199.12.1032)"
-"Diagnosis: Anaphylactic Reaction to DTaP Vaccine": "Anaphylactic Reaction to DTaP Vaccine (2.16.840.1.113883.3.464.1003.199.12.1031)"
-"Diagnosis: Anaphylactic Reaction to Hepatitis A Vaccine": "Anaphylactic Reaction to Hepatitis A Vaccine (2.16.840.1.113883.3.464.1003.199.12.1026)"
-"Diagnosis: Disorders of the Immune System": "Disorders of the Immune System (2.16.840.1.113883.3.464.1003.120.12.1001)"
-"Diagnosis: Encephalopathy due to Childhood Vaccination": "Encephalopathy due to Childhood Vaccination (2.16.840.1.113883.3.464.1003.114.12.1007)"
-"Diagnosis: Hepatitis A": "Hepatitis A (2.16.840.1.113883.3.464.1003.110.12.1024)"
-"Diagnosis: Hepatitis B": "Hepatitis B (2.16.840.1.113883.3.464.1003.110.12.1025)"
-"Diagnosis: HIV": "HIV (2.16.840.1.113883.3.464.1003.120.12.1003)"
-"Diagnosis: Intussusception": "Intussusception (2.16.840.1.113883.3.464.1003.199.12.1056)"
-"Diagnosis: Malignant Neoplasm of Lymphatic and Hematopoietic Tissue": "Malignant Neoplasm of Lymphatic and Hematopoietic Tissue (2.16.840.1.113883.3.464.1003.108.12.1009)"
-"Diagnosis: Measles": "Measles (2.16.840.1.113883.3.464.1003.110.12.1053)"
-"Diagnosis: Mumps": "Mumps (2.16.840.1.113883.3.464.1003.110.12.1032)"
-"Diagnosis: Rubella": "Rubella (2.16.840.1.113883.3.464.1003.110.12.1037)"
-"Diagnosis: Severe Combined Immunodeficiency": "Severe Combined Immunodeficiency (2.16.840.1.113883.3.464.1003.120.12.1007)"
-"Diagnosis: Varicella Zoster": "Varicella Zoster (2.16.840.1.113883.3.464.1003.110.12.1039)"
-"Encounter, Performed: Encounter Inpatient": "Encounter Inpatient (2.16.840.1.113883.3.666.5.307)"
-"Encounter, Performed: Home Healthcare Services": "Home Healthcare Services (2.16.840.1.113883.3.464.1003.101.12.1016)"
-"Encounter, Performed: Office Visit": "Office Visit (2.16.840.1.113883.3.464.1003.101.12.1001)"
-"Encounter, Performed: Preventive Care Services, Initial Office Visit, 0 to 17": "Preventive Care Services, Initial Office Visit, 0 to 17 (2.16.840.1.113883.3.464.1003.101.12.1022)"
-"Encounter, Performed: Preventive Care, Established Office Visit, 0 to 17": "Preventive Care, Established Office Visit, 0 to 17 (2.16.840.1.113883.3.464.1003.101.12.1024)"
-"Immunization, Administered: DTaP Vaccine": "DTaP Vaccine (2.16.840.1.113883.3.464.1003.196.12.1214)"
-"Immunization, Administered: Haemophilus Influenzae Type B (HiB) Vaccine": "Haemophilus Influenzae Type B (HiB) Vaccine (2.16.840.1.113883.3.464.1003.196.12.1217)"
-"Immunization, Administered: Hepatitis A Vaccine": "Hepatitis A Vaccine (2.16.840.1.113883.3.464.1003.196.12.1215)"
-"Immunization, Administered: Hepatitis B Vaccine": "Hepatitis B Vaccine (2.16.840.1.113883.3.464.1003.196.12.1216)"
-"Immunization, Administered: Inactivated Polio Vaccine (IPV)": "Inactivated Polio Vaccine (IPV) (2.16.840.1.113883.3.464.1003.196.12.1219)"
-"Immunization, Administered: Influenza Vaccine": "Influenza Vaccine (2.16.840.1.113883.3.464.1003.196.12.1218)"
-"Immunization, Administered: Measles, Mumps and Rubella (MMR) Vaccine": "Measles, Mumps and Rubella (MMR) Vaccine (2.16.840.1.113883.3.464.1003.196.12.1224)"
-"Immunization, Administered: Pneumococcal Conjugate Vaccine": "Pneumococcal Conjugate Vaccine (2.16.840.1.113883.3.464.1003.196.12.1221)"
-"Immunization, Administered: Rotavirus Vaccine (3 dose schedule)": "Rotavirus Vaccine (3 dose schedule) (2.16.840.1.113883.3.464.1003.196.12.1223)"
-"Immunization, Administered: Varicella Zoster Vaccine (VZV)": "Varicella Zoster Vaccine (VZV) (2.16.840.1.113883.3.464.1003.196.12.1170)"
-"Intervention, Order: Hospice care ambulatory": "Hospice care ambulatory (2.16.840.1.113762.1.4.1108.15)"
-"Intervention, Performed: Hospice care ambulatory": "Hospice care ambulatory (2.16.840.1.113762.1.4.1108.15)"
-"Laboratory Test, Performed: Anti Hepatitis A IgG Antigen Test": "Anti Hepatitis A IgG Antigen Test (2.16.840.1.113883.3.464.1003.198.12.1033)"
-"Laboratory Test, Performed: Anti Hepatitis B Virus Surface Ab": "Anti Hepatitis B Virus Surface Ab (2.16.840.1.113883.3.464.1003.198.12.1073)"
-"Laboratory Test, Performed: Measles Antibody Test (IgG Antibody presence)": "Measles Antibody Test (IgG Antibody presence) (2.16.840.1.113883.3.464.1003.198.12.1060)"
-"Laboratory Test, Performed: Measles Antibody Test (IgG Antibody Titer)": "Measles Antibody Test (IgG Antibody Titer) (2.16.840.1.113883.3.464.1003.198.12.1059)"
-"Laboratory Test, Performed: Mumps Antibody Test (IgG Antibody presence)": "Mumps Antibody Test (IgG Antibody presence) (2.16.840.1.113883.3.464.1003.198.12.1062)"
-"Laboratory Test, Performed: Mumps Antibody Test (IgG Antibody Titer)": "Mumps Antibody Test (IgG Antibody Titer) (2.16.840.1.113883.3.464.1003.198.12.1061)"
-"Laboratory Test, Performed: Rubella Antibody Test (IgG Antibody presence)": "Rubella Antibody Test (IgG Antibody presence) (2.16.840.1.113883.3.464.1003.198.12.1064)"
-"Laboratory Test, Performed: Rubella Antibody Test (IgG Antibody Titer)": "Rubella Antibody Test (IgG Antibody Titer) (2.16.840.1.113883.3.464.1003.198.12.1063)"
-"Laboratory Test, Performed: Varicella Zoster Antibody Test (IgG Antibody Presence)": "Varicella Zoster Antibody Test (IgG Antibody Presence) (2.16.840.1.113883.3.464.1003.198.12.1067)"
-"Laboratory Test, Performed: Varicella Zoster Antibody Test (IgG Antibody Titer)": "Varicella Zoster Antibody Test (IgG Antibody Titer) (2.16.840.1.113883.3.464.1003.198.12.1066)"
-"Patient Characteristic Ethnicity: Ethnicity": "Ethnicity (2.16.840.1.114222.4.11.837)"
-"Patient Characteristic Payer: Payer": "Payer (2.16.840.1.114222.4.11.3591)"
-"Patient Characteristic Race: Race": "Race (2.16.840.1.114222.4.11.836)"
-"Patient Characteristic Sex: ONC Administrative Sex": "ONC Administrative Sex (2.16.840.1.113762.1.4.1)"
-"Procedure, Performed: DTaP Vaccine Administered": "DTaP Vaccine Administered (2.16.840.1.113883.3.464.1003.110.12.1022)"
-"Procedure, Performed: Haemophilus Influenzae Type B (HiB) Vaccine Administered": "Haemophilus Influenzae Type B (HiB) Vaccine Administered (2.16.840.1.113883.3.464.1003.110.12.1043)"
-"Procedure, Performed: Hepatitis A Vaccine Administered": "Hepatitis A Vaccine Administered (2.16.840.1.113883.3.464.1003.110.12.1041)"
-"Procedure, Performed: Hepatitis B Vaccine Administered": "Hepatitis B Vaccine Administered (2.16.840.1.113883.3.464.1003.110.12.1042)"
-"Procedure, Performed: Inactivated Polio Vaccine (IPV) Administered": "Inactivated Polio Vaccine (IPV) Administered (2.16.840.1.113883.3.464.1003.110.12.1045)"
-"Procedure, Performed: Influenza Vaccine Administered": "Influenza Vaccine Administered (2.16.840.1.113883.3.464.1003.110.12.1044)"
-"Procedure, Performed: Measles, Mumps and Rubella (MMR) Vaccine Administered": "Measles, Mumps and Rubella (MMR) Vaccine Administered (2.16.840.1.113883.3.464.1003.110.12.1031)"
-"Procedure, Performed: Pneumococcal Conjugate Vaccine Administered": "Pneumococcal Conjugate Vaccine Administered (2.16.840.1.113883.3.464.1003.110.12.1046)"
-"Procedure, Performed: Varicella Zoster Vaccine (VZV) Administered": "Varicella Zoster Vaccine (VZV) Administered (2.16.840.1.113883.3.464.1003.110.12.1040)"
-"Diagnosis: Anaphylaxis due to Haemophilus influenzae type b vaccine (disorder)": "Anaphylaxis due to Haemophilus influenzae type b vaccine (disorder) (SNOMEDCT version 2017-09 Code 433621000124101)"
-"Diagnosis: Anaphylaxis due to Hepatitis B vaccine (disorder)": "Anaphylaxis due to Hepatitis B vaccine (disorder) (SNOMEDCT version 2017-09 Code 428321000124101)"
-"Diagnosis: Anaphylaxis due to rotavirus vaccine (disorder)": "Anaphylaxis due to rotavirus vaccine (disorder) (SNOMEDCT version 2017-09 Code 428331000124103)"
-"Diagnosis: Influenza virus vaccine adverse reaction (disorder)": "Influenza virus vaccine adverse reaction (disorder) (SNOMEDCT version 2017-09 Code 420113004)"
-"Diagnosis: Neomycin adverse reaction (disorder)": "Neomycin adverse reaction (disorder) (SNOMEDCT version 2017-09 Code 292927007)"
-"Diagnosis: Pneumococcal vaccine adverse reaction (disorder)": "Pneumococcal vaccine adverse reaction (disorder) (SNOMEDCT version 2017-09 Code 293116002)"
-"Diagnosis: Poliomyelitis vaccine adverse reaction (disorder)": "Poliomyelitis vaccine adverse reaction (disorder) (SNOMEDCT version 2017-09 Code 293117006)"
-"Diagnosis: Polymyxin B adverse reaction (disorder)": "Polymyxin B adverse reaction (disorder) (SNOMEDCT version 2017-09 Code 292992006)"
-"Diagnosis: Streptomycin adverse reaction (disorder)": "Streptomycin adverse reaction (disorder) (SNOMEDCT version 2017-09 Code 292925004)"
-"Immunization, Administered: rotavirus, live, monovalent vaccine": "rotavirus, live, monovalent vaccine (CVX version 2017-11 Code 119)"
-"Procedure, Performed: Rotavirus vaccine, human, attenuated (RV1), 2 dose schedule, live, for oral use": "Rotavirus vaccine, human, attenuated (RV1), 2 dose schedule, live, for oral use (CPT version 2018 Code 90681)"
-"Procedure, Performed: Rotavirus vaccine, pentavalent (RV5), 3 dose schedule, live, for oral use": "Rotavirus vaccine, pentavalent (RV5), 3 dose schedule, live, for oral use (CPT version 2018 Code 90680)"
+
+codesystem "CPT": 'http://www.ama-assn.org/'
+codesystem "CVX": 'http://www2a.cdc.gov/'
+codesystem "SNOMEDCT": 'http://snomed.org'
+
+code "Anaphylaxis due to Haemophilus influenzae type b vaccine (disorder)": '433621000124101' from "SNOMEDCT"
+code "Anaphylaxis due to Hepatitis B vaccine (disorder)": '433621000124101'from "SNOMEDCT"
+code "Anaphylaxis due to rotavirus vaccine (disorder)": '428331000124103' from "SNOMEDCT"
+code "Discharge to healthcare facility for hospice care (procedure)": '428371000124100' from "SNOMEDCT"
+code "Discharge to home for hospice care (procedure)": '428361000124107' from "SNOMEDCT"
+code "Influenza virus vaccine adverse reaction (disorder)": '420113004' from "SNOMEDCT"
+code "Neomycin adverse reaction (disorder)": '292927007' from "SNOMEDCT"
+code "Pneumococcal vaccine adverse reaction (disorder)": '293116002' from "SNOMEDCT"
+code "Poliomyelitis vaccine adverse reaction (disorder)": '293117006' from "SNOMEDCT"
+code "Polymyxin B adverse reaction (disorder)": '292992006' from "SNOMEDCT"
+code "Rotavirus vaccine, human, attenuated (RV1), 2 dose schedule, live, for oral use": '90681' from "SNOMEDCT"
+code "Rotavirus vaccine, pentavalent (RV5), 3 dose schedule, live, for oral use": '90680' from "CPT"
+code "rotavirus, live, monovalent vaccine": '119' from "CVX"
+code "Streptomycin adverse reaction (disorder)": '292925004' from "SNOMEDCT"
+
+// valueset "Alcohol Screening and Brief Counseling": 'urn:oid:1.1.1.1' // User Defined QDM Value Set
+valueset "Anaphylactic Reaction to Common Baker's Yeast": 'urn:oid:2.16.840.1.113883.3.464.1003.199.12.1032'
+valueset "Anaphylactic Reaction to DTaP Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.199.12.1031'
+valueset "Anaphylactic Reaction to Hepatitis A Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.199.12.1026'
+valueset "Anti Hepatitis A IgG Antigen Test": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1033'
+valueset "Anti Hepatitis B Virus Surface Ab": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1073'
+valueset "Disorders of the Immune System": 'urn:oid:2.16.840.1.113883.3.464.1003.120.12.1001"
+valueset "DTaP Vaccine Administered": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1022'
+valueset "DTaP Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1214'
+valueset "Encephalopathy due to Childhood Vaccination": 'urn:oid:2.16.840.1.113883.3.464.1003.114.12.1007'
+valueset "Encounter Inpatient": 'urn:oid:2.16.840.1.113883.3.666.5.307'
+valueset "Ethnicity": 'urn:oid:2.16.840.1.114222.4.11.837'
+valueset "Haemophilus Influenzae Type B (HiB) Vaccine Administered": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1043'
+valueset "Haemophilus Influenzae Type B (HiB) Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1217'
+valueset "Hepatitis A Vaccine Administered": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1041'
+valueset "Hepatitis A Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1215'
+valueset "Hepatitis A": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1024'
+valueset "Hepatitis B Vaccine Administered": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1042'
+valueset "Hepatitis B Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1216'
+valueset "Hepatitis B": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1025'
+valueset "HIV": 'urn:oid:2.16.840.1.113883.3.464.1003.120.12.1003'
+valueset "Home Healthcare Services": 'urn:oid:2.16.840.1.113883.3.464.1003.101.12.1016'
+valueset "Hospice care ambulatory": 'urn:oid:2.16.840.1.113762.1.4.1108.15'
+valueset "Inactivated Polio Vaccine (IPV) Administered": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1045'
+valueset "Inactivated Polio Vaccine (IPV)": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1219'
+valueset "Influenza Vaccine Administered": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1044'
+valueset "Influenza Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1218'
+valueset "Intussusception": 'urn:oid:2.16.840.1.113883.3.464.1003.199.12.1056'
+valueset "Malignant Neoplasm of Lymphatic and Hematopoietic Tissue": 'urn:oid:2.16.840.1.113883.3.464.1003.108.12.1009'
+valueset "Measles Antibody Test (IgG Antibody presence)": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1060'
+valueset "Measles Antibody Test (IgG Antibody Titer)": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1059'
+valueset "Measles": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1053'
+valueset "Measles, Mumps and Rubella (MMR) Vaccine Administered": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1031'
+valueset "Measles, Mumps and Rubella (MMR) Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1224'
+valueset "Mumps Antibody Test (IgG Antibody presence)": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1062'
+valueset "Mumps Antibody Test (IgG Antibody Titer)": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1061'
+valueset "Mumps": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1032'
+valueset "Office Visit": 'urn:oid:2.16.840.1.113883.3.464.1003.101.12.1001'
+valueset "ONC Administrative Sex": 'urn:oid:2.16.840.1.113762.1.4.1'
+valueset "Payer": 'urn:oid:2.16.840.1.114222.4.11.3591'
+valueset "Pneumococcal Conjugate Vaccine Administered": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1046'
+valueset "Pneumococcal Conjugate Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1221'
+valueset "Positive Finding": 'urn:oid:2.16.840.1.113883.3.464.1003.121.12.1016'
+valueset "Preventive Care Services, Initial Office Visit, 0 to 17": 'urn:oid:2.16.840.1.113883.3.464.1003.101.12.1022'
+valueset "Preventive Care, Established Office Visit, 0 to 17": 'urn:oid:2.16.840.1.113883.3.464.1003.101.12.1024'
+valueset "Race": 'urn:oid:2.16.840.1.114222.4.11.836'
+valueset "Rotavirus Vaccine (3 dose schedule)": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1223'
+valueset "Rubella Antibody Test (IgG Antibody presence)": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1064'
+valueset "Rubella Antibody Test (IgG Antibody Titer)": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1063'
+valueset "Rubella": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1037'
+valueset "Severe Combined Immunodeficiency": 'urn:oid:2.16.840.1.113883.3.464.1003.120.12.1007'
+valueset "Varicella Zoster Antibody Test (IgG Antibody Presence)": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1067'
+valueset "Varicella Zoster Antibody Test (IgG Antibody Titer)": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1066'
+valueset "Varicella Zoster Vaccine (VZV) Administered": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1040'
+valueset "Varicella Zoster Vaccine (VZV)": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1170'
+valueset "Varicella Zoster": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1039'
 
 /*
 This library has an explicit parameter which is the measurement year.
@@ -174,14 +109,9 @@ context Patient
 Initial Population
 */
 
-// BTR -> In FHIR, you can just say:
 define "Initial Population":
-  Global.CalendarAgeInYearsAt(Patient.birthDate, start of "Measurement Period") >= 1
-    and Global.CalendarAgeInYearsAt(Patient.birthDate, end of "Measurement Period") = 2
-//	exists ( ["Patient.birthDate.value"] BirthDate
-//			where Global."CalendarAgeInYearsAt"(Patient.birthDate.value, start of "Measurement Period")>= 1
-//				and Global."CalendarAgeInYearsAt"(Patient.birthDate.value, end of "Measurement Period")= 2
-//	)
+		Global."CalendarAgeInYearsAt"(Patient.birthDate,  "Measurement Period")>= 1
+				and Global."CalendarAgeInYearsAt"(', end of "Measurement Period")= 2
 		and exists ( "Qualifying Encounter" )
 //		and (not "Is In Hospice")
   
@@ -231,8 +161,7 @@ define "Numerator"
 				or exists ( "Influenza Numerator Inclusion Conditions" "Numerator Compliant Influenza Conditions" )
 		)
 
-/* Why is this commented out??
-// BTR -> Because it should just be referenced in the Hospice library, no need to repeat it here
+/* How do we enact the Hospice Library
 define "Is In Hospice":
 	exists(
 		[Encounter: "Hospice Value Set"] Enc
@@ -274,293 +203,201 @@ define "Is In Hospice":
   
 define "DTaP Immunizations or Procedures" 
 	
-	( ["Immunization:"DTaP Vaccine"] DTaP
+	( ["Immunization":"DTaP Vaccine"] DTaP
 				where DTaP.status.value = 'completed' )
 	
-/* Do we still need this?
-BTR -> FHIR specifically says Procedure should NOT be used to record vaccine administration since the more specific Immunization procedure exists.
-Note that it's a SHOULD, not a SHALL, so it's possible systems may still do this, but I'd suggest going with just Immunization until there is a demonstrated need
-		union [Procedure: "DTaP Vaccine Administered"] DtapAdministration
-            where Proc.status.value = 'completed'
-				return {immunization.date: start of performed.date }
-		 ) DTaPVaccination
-*/
-		with ["Patient.birthDate.value"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(Patient.birthDate.value, DTaPVaccination.date)>= 42 )
-				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate.value, DTaPVaccination.date)<= 730 )
-				
-//Start Here
+			and (( Global."CalendarAgeInDaysAt"(Patient.birthDate, DTaPVaccination.date)>= 42 )
+				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, DTaPVaccination.date)<= Patient.birthDate + 2 years ))
+
 
   
-o	 DTaP Numerator Inclusion Conditions 
+define "DTaP Numerator Inclusion Conditions"
 	
-	( ["Diagnosis": "Anaphylactic Reaction to DTaP Vaccine"]
-		union ["Diagnosis": "Encephalopathy due to Childhood Vaccination"] ) DTaPConditions
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, DTaPConditions.authorDatetime)<= 730 )
+	( ["Condition": "Anaphylactic Reaction to DTaP Vaccine"]
+		union ["Condition": "Encephalopathy due to Childhood Vaccination"] ) DTaPConditions
+			where DTaPConditions.verificationStatus.value = 'confirmed'
+				and( Global."CalendarAgeInDaysAt"(Patient.birthDate, DTaPConditions.onset)<= Patient.birthDate + 2 years )
+			
   
-o	 Four DTaP Vaccinations 
+define "Four DTaP Vaccinations" 
 	
 	from
 		"DTaP Immunizations or Procedures" DTaPVaccination1,
 		"DTaP Immunizations or Procedures" DTaPVaccination2,
 		"DTaP Immunizations or Procedures" DTaPVaccination3,
 		"DTaP Immunizations or Procedures" DTaPVaccination4
-		where DTaPVaccination2.authorDatetime 1 day or more after day of DTaPVaccination1.authorDatetime
-			and DTaPVaccination3.authorDatetime 1 day or more after day of DTaPVaccination2.authorDatetime
-			and DTaPVaccination4.authorDatetime 1 day or more after day of DTaPVaccination3.authorDatetime
+		where DTaPVaccination2.date 1 day or more after day of DTaPVaccination1.date
+			and DTaPVaccination3.date 1 day or more after day of DTaPVaccination2.date
+			and DTaPVaccination4.date 1 day or more after day of DTaPVaccination3.date
 		return DTaPVaccination1
+
   
-o	 Four Pneumococcal Conjugate Vaccinations 
+define "Four Pneumococcal Conjugate Vaccinations"
 	
 	from
 		"Pneumococcal Conjugate Immunizations or Procedures" PneumococcalVaccination1,
 		"Pneumococcal Conjugate Immunizations or Procedures" PneumococcalVaccination2,
 		"Pneumococcal Conjugate Immunizations or Procedures" PneumococcalVaccination3,
 		"Pneumococcal Conjugate Immunizations or Procedures" PneumococcalVaccination4
-		where PneumococcalVaccination2.authorDatetime 1 day or more after day of PneumococcalVaccination1.authorDatetime
-			and PneumococcalVaccination3.authorDatetime 1 day or more after day of PneumococcalVaccination2.authorDatetime
-			and PneumococcalVaccination4.authorDatetime 1 day or more after day of PneumococcalVaccination3.authorDatetime
+		where PneumococcalVaccination2.date 1 day or more after day of PneumococcalVaccination1.date
+			and PneumococcalVaccination3.date 1 day or more after day of PneumococcalVaccination2.date
+			and PneumococcalVaccination4.date 1 day or more after day of PneumococcalVaccination3.date
 		return PneumococcalVaccination1
   
-o	 Hepatitis A Numerator Inclusion Conditions 
+define "Hepatitis A Numerator Inclusion Conditions"
 	
-	( ( ["Laboratory Test, Performed": "Anti Hepatitis A IgG Antigen Test"] HepatitisAAntigenTest
-			where HepatitisAAntigenTest.result as Code in "Positive Finding"
+	( ( ["Observation": "Anti Hepatitis A IgG Antigen Test"] HepatitisAAntigenTest
+			where HepatitisAAntigenTest.status.value in ('final' , 'amended') 
+				and HepatitisAAntigenTest.value as Code in "Positive Finding"
+//Bryn - can you do "as Code in "Positive Finding""?
 	)
-		union ( ["Diagnosis": "Anaphylactic Reaction to Hepatitis A Vaccine"] HepatitisAReaction
-				return "Laboratory Test, Performed" { authorDatetime: start of HepatitisAReaction.prevalencePeriod }
+		union ( ["Condition": "Anaphylactic Reaction to Hepatitis A Vaccine"] HepatitisAReaction
+				return "Observation" { effective: HepatitisAReaction.onset }
 		)
-		union ( ["Diagnosis": "Hepatitis A"] HepatitisADiagnosis
-				return "Laboratory Test, Performed" { authorDatetime: start of HepatitisADiagnosis.prevalencePeriod }
+		union ( ["Condition": "Hepatitis A"] HepatitisADiagnosis
+				return "Observation" { effective: HepatitisADiagnosis.onset }
 		) ) HepatitisAConditions
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, HepatitisAConditions.authorDatetime)<= 730 )
+			where ( Global."CalendarAgeInDaysAt"(Patient.birthDate, HepatitisAConditions.effective)<= Patient.birthDate + 2 years )
   
-o	 Hepatitis B Immunizations or Procedures 
+define "Hepatitis B Immunizations or Procedures" 
 	
-	( ["Immunization, Administered": "Hepatitis B Vaccine"]
-		union ( ["Procedure, Performed": "Hepatitis B Vaccine Administered"] HepatitisBAdministration
-				return "Immunization, Administered" { authorDatetime: start of HepatitisBAdministration.relevantPeriod }
-		) ) HepatitisBVaccination
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, HepatitisBVaccination.authorDatetime)<= 730
+	( ["Immunization": "Hepatitis B Vaccine"] HepatitisBVaccination
+		where HepatitisBVaccination.status.value = 'completed' )
+			where Global."CalendarAgeInDaysAt"(Patient.birthDate, HepatitisBVaccination.date)<= Patient.birthDate + 2 years
   
-o	 Hepatitis B Numerator Inclusion Conditions 
+define "Hepatitis B Numerator Inclusion Conditions"
 	
-	( ( ["Laboratory Test, Performed": "Anti Hepatitis B Virus Surface Ab"] HepatitisBAntigenTest
+	( ( ["Observation": "Anti Hepatitis B Virus Surface Ab"] HepatitisBAntigenTest
 			where HepatitisBAntigenTest.result as Code in "Positive Finding"
+			and HepatitisBAntigenTest.status.value in ('final', 'amended')
 	)
-		union ( ["Diagnosis": "Anaphylaxis due to Hepatitis B vaccine (disorder)"] HepatitisBReaction
-				return "Laboratory Test, Performed" { authorDatetime: start of HepatitisBReaction.prevalencePeriod }
+		union ( ["Condition": "Anaphylaxis due to Hepatitis B vaccine (disorder)"] HepatitisBReaction
+				return "Observation" { effective:  HepatitisBReaction.onset }
 		)
-		union ( ["Diagnosis": "Anaphylactic Reaction to Common Baker's Yeast"] YeastReaction
-				return "Laboratory Test, Performed" { authorDatetime: start of YeastReaction.prevalencePeriod }
+		union ( ["Condition": "Anaphylactic Reaction to Common Baker's Yeast"] YeastReaction
+				return "Observation" { effective:  YeastReaction.onset }
 		)
-		union ( ["Diagnosis": "Hepatitis B"] HepatitisBDiagnosis
-				return "Laboratory Test, Performed" { authorDatetime: start of HepatitisBDiagnosis.prevalencePeriod }
+		union ( ["Condition": "Hepatitis B"] HepatitisBDiagnosis
+				return "Observation" { effective:  HepatitisBDiagnosis.onset }
 		) ) HepBConditions
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, HepBConditions.authorDatetime)<= 730 )
+			where ( Global."CalendarAgeInDaysAt"(Patient.birthDate, HepBConditions.effective)<= Patient.birthDate + 2 years )
   
-o	 Hib Immunizations or Procedures 
+define "Hib Immunizations or Procedures"
 	
-	( ["Immunization, Administered": "Haemophilus Influenzae Type B (HiB) Vaccine"]
-		union ( ["Procedure, Performed": "Haemophilus Influenzae Type B (HiB) Vaccine Administered"] HibAdministration
-				return "Immunization, Administered" { authorDatetime: start of HibAdministration.relevantPeriod }
-		) ) HibVaccination
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, HibVaccination.authorDatetime)>= 42 )
-				and ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, HibVaccination.authorDatetime)<= 730 )
+	( ["Immunization": "Haemophilus Influenzae Type B (HiB) Vaccine"] HibVaccination
+			where HibVaccination.status.value = 'completed' )
+			and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, HibVaccination.date)>= 42 )
+				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, HibVaccination.date)<= Patient.birthDate + 2 years )
+
   
-o	 Hib Numerator Inclusion Conditions 
+define "Hib Numerator Inclusion Conditions"
 	
-	["Diagnosis": "Anaphylaxis due to Haemophilus influenzae type b vaccine (disorder)"] HibReaction
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, start of HibReaction.prevalencePeriod)<= 730
+	["Condition": "Anaphylaxis due to Haemophilus influenzae type b vaccine (disorder)"] HibReaction
+where Global."CalendarAgeInDaysAt"(Patient.birthDate,  HibReaction.onset)<= Patient.birthDate + 2 years
   
-o	 Hospice.Has Hospice 
+
+define "Influenza Immunizations or Procedures" 
 	
-	exists ( ["Encounter, Performed": "Encounter Inpatient"] DischargeHospice
-			where ( DischargeHospice.dischargeDisposition as Code ~ "Discharge to home for hospice care (procedure)"
-					or DischargeHospice.dischargeDisposition as Code ~ "Discharge to healthcare facility for hospice care (procedure)"
-			)
-				and DischargeHospice.relevantPeriod ends during "Measurement Period"
+	( ["Immunization": "Influenza Vaccine"] InfluenzaVaccination
+			where InfluenzaVaccination.status.value = 'completed' )
+				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, InfluenzaVaccination.date)>= 180 )
+				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, InfluenzaVaccination.date)<= Patient.birthDate + 2 years )
+  
+define "Influenza Numerator Inclusion Conditions"
+	
+	( ["Condition": "Influenza virus vaccine adverse reaction (disorder)"]
+		union ["Condition": "Malignant Neoplasm of Lymphatic and Hematopoietic Tissue"]
+		union ["Condition": "Neomycin adverse reaction (disorder)"]
+		union ["Condition": "HIV"]
+		union ["Condition": "Disorders of the Immune System"] ) InfluenzaConditions
+where Global."CalendarAgeInDaysAt"(Patient.birthDate, InfluenzaConditions.onset)<= Patient.birthDate + 2 years
+  
+  
+define "Measles Indicators" 
+	
+	( ( ["Observation": "Measles Antibody Test (IgG Antibody Titer)"] MeaslesTiter
+			where MeaslesTiter.status.value in ('final' , 'amended')
+			and MeaslesTiter.result >= 1.10
 	)
-		or exists ( ["Intervention, Order": "Hospice care ambulatory"] HospiceOrder
-				where HospiceOrder.authorDatetime during "Measurement Period"
+		union ( ["Observation": "Measles Antibody Test (IgG Antibody presence)"] MeaslesIgGPresence
+				where MeaslesIgGPresence.status.value in ('final' , 'amended')
+				and MeaslesIgGPresence.result as Code in "Positive Finding"
 		)
-		or exists ( ["Intervention, Performed": "Hospice care ambulatory"] HospicePerformed
-				where HospicePerformed.relevantPeriod overlaps "Measurement Period"
-		)
-  
-o	 Influenza Immunizations or Procedures 
-	
-	( ["Immunization, Administered": "Influenza Vaccine"]
-		union ( ["Procedure, Performed": "Influenza Vaccine Administered"] InfluenzaAdministration
-				return "Immunization, Administered" { authorDatetime: start of InfluenzaAdministration.relevantPeriod }
-		) ) InfluenzaVaccination
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, InfluenzaVaccination.authorDatetime)>= 180 )
-				and ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, InfluenzaVaccination.authorDatetime)<= 730 )
-  
-o	 Influenza Numerator Inclusion Conditions 
-	
-	( ["Diagnosis": "Influenza virus vaccine adverse reaction (disorder)"]
-		union ["Diagnosis": "Malignant Neoplasm of Lymphatic and Hematopoietic Tissue"]
-		union ["Diagnosis": "Neomycin adverse reaction (disorder)"]
-		union ["Diagnosis": "HIV"]
-		union ["Diagnosis": "Disorders of the Immune System"] ) InfluenzaConditions
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, start of InfluenzaConditions.prevalencePeriod)<= 730
-  
-o	 Initial Population 
-	
-	exists ( ["Patient Characteristic Birthdate"] BirthDate
-			where Global."CalendarAgeInYearsAt"(BirthDate.birthDatetime, start of "Measurement Period")>= 1
-				and Global."CalendarAgeInYearsAt"(BirthDate.birthDatetime, end of "Measurement Period")= 2
-	)
-		and exists ( "Qualifying Encounter" )
-  
-o	 Measles Indicators 
-	
-	( ( ["Laboratory Test, Performed": "Measles Antibody Test (IgG Antibody Titer)"] MeaslesTiter
-			where MeaslesTiter.result >= 1.10
-	)
-		union ( ["Laboratory Test, Performed": "Measles Antibody Test (IgG Antibody presence)"] MeaslesIgGPresence
-				where MeaslesIgGPresence.result as Code in "Positive Finding"
-		)
-		union ( ["Diagnosis": "Measles"] MeaslesDiagnosis
-				return "Laboratory Test, Performed" { authorDatetime: start of MeaslesDiagnosis.prevalencePeriod }
+		union ( ["Condition": "Measles"] MeaslesDiagnosis
+				return "Observation" { effective:  MeaslesDiagnosis.onset }
 		) ) Measles
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, Measles.authorDatetime)<= 730
+where Global."CalendarAgeInDaysAt"(Patient.birthDate, Measles.effective)<= Patient.birthDate + 2 years
   
-o	 MMR Numerator Inclusion Conditions 
+define "MMR Numerator Inclusion Conditions" 
 	
-	( ["Diagnosis": "Disorders of the Immune System"]
-		union ["Diagnosis": "HIV"]
-		union ["Diagnosis": "Malignant Neoplasm of Lymphatic and Hematopoietic Tissue"]
-		union ["Diagnosis": "Neomycin adverse reaction (disorder)"] ) MMRConditions
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, start of MMRConditions.prevalencePeriod)<= 730
+	( ["Condition": "Disorders of the Immune System"]
+		union ["Condition": "HIV"]
+		union ["Condition": "Malignant Neoplasm of Lymphatic and Hematopoietic Tissue"]
+		union ["Condition": "Neomycin adverse reaction (disorder)"] ) MMRConditions
+where Global."CalendarAgeInDaysAt"(Patient.birthDate,  MMRConditions.onset)<= Patient.birthDate + 2 years
   
-o	 Mumps Indicators 
+define "Mumps Indicators" 
 	
-	( ( ["Laboratory Test, Performed": "Mumps Antibody Test (IgG Antibody Titer)"] MumpsTiter
-			where MumpsTiter.result >= 1.10
+	( ( ["Observation": "Mumps Antibody Test (IgG Antibody Titer)"] MumpsTiter
+			where MumpsTiter.status.value in ('final' , 'amended')
+			and MumpsTiter.result >= 1.10
 	)
-		union ( ["Laboratory Test, Performed": "Mumps Antibody Test (IgG Antibody presence)"] MumpsIgGPresence
-				where MumpsIgGPresence.result as Code in "Positive Finding"
+		union ( ["Observation": "Mumps Antibody Test (IgG Antibody presence)"] MumpsIgGPresence
+				where MumpsIgGPresence.status.value in ('final' , 'amended')
+				and MumpsIgGPresence.result as Code in "Positive Finding"
 		)
-		union ( ["Diagnosis": "Mumps"] MumpsDiagnosis
-				return "Laboratory Test, Performed" { authorDatetime: start of MumpsDiagnosis.prevalencePeriod }
+		union ( ["Condition": "Mumps"] MumpsDiagnosis
+				return "Observation" { effective:  MumpsDiagnosis.onset }
 		) ) Mumps
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, Mumps.authorDatetime)<= 730
+where Global."CalendarAgeInDaysAt"(Patient.birthDate, Mumps.effective)<= Patient.birthDate + 2 years
   
-o	 Numerator 
+
+define "One Chicken Pox Vaccination"
 	
-	( exists ( "Four DTaP Vaccinations" )
-			or exists ( "DTaP Numerator Inclusion Conditions" )
-	)
-		and ( exists ( "Three Polio Vaccinations" )
-				or exists ( "Polio Numerator Inclusion Conditions" )
-		)
-		and ( exists ( "One MMR Vaccinations" )
-				or exists ( "MMR Numerator Inclusion Conditions" )
-				or ( exists ( "Measles Indicators" )
-						and exists ( "Mumps Indicators" )
-						and exists ( "Rubella Indicators" )
-				)
-		)
-		and ( exists ( "Three Hib Vaccinations" )
-				or exists ( "Hib Numerator Inclusion Conditions" )
-		)
-		and ( exists ( "Three Hepatitis B Vaccinations" )
-				or exists ( "Hepatitis B Numerator Inclusion Conditions" )
-		)
-		and ( exists ( "One Chicken Pox Vaccination" )
-				or exists ( "Varicella Zoster Numerator Inclusion Conditions" )
-		)
-		and ( exists ( "Four Pneumococcal Conjugate Vaccinations" )
-				or exists ( "Pneumococcal Conjugate Numerator Inclusion Conditions" )
-		)
-		and ( exists ( "One Hepatitis A Vaccinations" )
-				or exists ( "Hepatitis A Numerator Inclusion Conditions" )
-		)
-		and ( exists ( "Rotavirus 2 Dose Vaccinations" )
-				or exists ( "Rotavirus Numerator Inclusion Conditions" )
-				or exists ( "Rotavirus 2 or 3 Dose Vaccinations" )
-				or exists ( "Rotavirus 3 Dose Vaccinations" )
-		)
-		and ( exists ( "Two Influenza Vaccinations" )
-				or exists ( "Influenza Numerator Inclusion Conditions" "Numerator Compliant Influenza Conditions" )
-		)
+	( ["Immunization": "Varicella Zoster Vaccine (VZV)"] ChickenPoxVaccination
+				where ChickenPoxVaccination.status.value = 'completed' )
+				and Global."CalendarAgeInDaysAt"(Patient.birthDate, ChickenPoxVaccination.date)<= Patient.birthDate + 2 years
   
-o	 One Chicken Pox Vaccination 
+define "One Hepatitis A Vaccinations" 
 	
-	( ["Immunization, Administered": "Varicella Zoster Vaccine (VZV)"]
-		union ( ["Procedure, Performed": "Varicella Zoster Vaccine (VZV) Administered"] ChickenPoxAdministration
-				return "Immunization, Administered" { authorDatetime: start of ChickenPoxAdministration.relevantPeriod }
-		) ) ChickenPoxVaccination
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, ChickenPoxVaccination.authorDatetime)<= 730
+	( ["Immunization": "Hepatitis A Vaccine"] HepatitisAVaccination
+			where HepatitisAVaccination.status.value = 'completed' )
+			and Global."CalendarAgeInDaysAt"(Patient.birthDate, HepatitisAVaccination.date)<= Patient.birthDate + 2 years
   
-o	 One Hepatitis A Vaccinations 
+define "One MMR Vaccinations" 
 	
-	( ["Immunization, Administered": "Hepatitis A Vaccine"]
-		union ( ["Procedure, Performed": "Hepatitis A Vaccine Administered"] HepatitisAAdministration
-				return "Immunization, Administered" { authorDatetime: start of HepatitisAAdministration.relevantPeriod }
-		) ) HepatitisAVaccination
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, HepatitisAVaccination.authorDatetime)<= 730
+	( ["Immunization": "Measles, Mumps and Rubella (MMR) Vaccine"] MMRVaccination
+		where MMRVaccination.status.value = 'completed' )
+		and Global."CalendarAgeInDaysAt"(Patient.birthDate, MMRVaccination.date)<= Patient.birthDate + 2 years
   
-o	 One MMR Vaccinations 
+define "Pneumococcal Conjugate Immunizations or Procedures" 
 	
-	( ["Immunization, Administered": "Measles, Mumps and Rubella (MMR) Vaccine"]
-		union ( ["Procedure, Performed": "Measles, Mumps and Rubella (MMR) Vaccine Administered"] MMRAdministration
-				return "Immunization, Administered" { authorDatetime: start of MMRAdministration.relevantPeriod }
-		) ) MMRVaccination
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, MMRVaccination.authorDatetime)<= 730
+	( ["Immunization": "Pneumococcal Conjugate Vaccine"] PneumococcalVaccination
+			where PneumococcalVaccination.status.value = 'completed' )
+				and( Global."CalendarAgeInDaysAt"(Patient.birthDate, PneumococcalVaccination.date)>= 42 )
+				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, PneumococcalVaccination.date)<= Patient.birthDate + 2 years )
   
-o	 Pneumococcal Conjugate Immunizations or Procedures 
+define "Pneumococcal Conjugate Numerator Inclusion Conditions"
 	
-	( ["Immunization, Administered": "Pneumococcal Conjugate Vaccine"]
-		union ( ["Procedure, Performed": "Pneumococcal Conjugate Vaccine Administered"] PneumococcalAdministration
-				return "Immunization, Administered" { authorDatetime: start of PneumococcalAdministration.relevantPeriod }
-		) ) PneumococcalVaccination
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, PneumococcalVaccination.authorDatetime)>= 42 )
-				and ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, PneumococcalVaccination.authorDatetime)<= 730 )
+	["Condition": "Pneumococcal vaccine adverse reaction (disorder)"] PneumococcalReaction
+where Global."CalendarAgeInDaysAt"(Patient.birthDate, PneumococcalReaction.onset)<= Patient.birthDate + 2 years
   
-o	 Pneumococcal Conjugate Numerator Inclusion Conditions 
+define "Polio Immunizations or Procedures" 
 	
-	["Diagnosis": "Pneumococcal vaccine adverse reaction (disorder)"] PneumococcalReaction
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, start of PneumococcalReaction.prevalencePeriod)<= 730
+	( ["Immunization": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
+			where PolioVaccination.status.value = 'completed' )
+			and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, PolioVaccination.date)>= 42 )
+			and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, PolioVaccination.date)<= Patient.birthDate + 2 years )
   
-o	 Polio Immunizations or Procedures 
+define "Polio Numerator Inclusion Conditions"
 	
-	( ["Immunization, Administered": "Inactivated Polio Vaccine (IPV)"]
-		union ( ["Procedure, Performed": "Inactivated Polio Vaccine (IPV) Administered"] PolioAdministration
-				return "Immunization, Administered" { authorDatetime: start of PolioAdministration.relevantPeriod }
-		) ) PolioVaccination
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, PolioVaccination.authorDatetime)>= 42 )
-				and ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, PolioVaccination.authorDatetime)<= 730 )
+	( ["Condition": "Poliomyelitis vaccine adverse reaction (disorder)"]
+		union ["Condition": "Streptomycin adverse reaction (disorder)"]
+		union ["Condition": "Polymyxin B adverse reaction (disorder)"]
+		union ["Condition": "Neomycin adverse reaction (disorder)"] ) PolioConditions
+where Global."CalendarAgeInDaysAt"(Patient.birthDate, PolioConditions.onset)<= Patient.birthDate + 2 years
   
-o	 Polio Numerator Inclusion Conditions 
-	
-	( ["Diagnosis": "Poliomyelitis vaccine adverse reaction (disorder)"]
-		union ["Diagnosis": "Streptomycin adverse reaction (disorder)"]
-		union ["Diagnosis": "Polymyxin B adverse reaction (disorder)"]
-		union ["Diagnosis": "Neomycin adverse reaction (disorder)"] ) PolioConditions
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, start of PolioConditions.prevalencePeriod)<= 730
-  
-o	 Qualifying Encounter 
+define "Qualifying Encounter" 
 	
 	( ["Encounter, Performed": "Office Visit"]
 		union ["Encounter, Performed": "Home Healthcare Services"]
@@ -568,213 +405,163 @@ o	 Qualifying Encounter
 		union ["Encounter, Performed": "Preventive Care Services, Initial Office Visit, 0 to 17"] ) ValidEncounter
 		where ValidEncounter.relevantPeriod during "Measurement Period"
   
-o	 Rotavirus 2 Dose Immunizations or Procedures 
+define "Rotavirus 2 Dose Immunizations or Procedures" 
 	
-	( ["Immunization, Administered": "rotavirus, live, monovalent vaccine"]
-		union ( ["Procedure, Performed": "Rotavirus vaccine, human, attenuated (RV1), 2 dose schedule, live, for oral use"] Rotavirus2Administration
-				return "Immunization, Administered" { authorDatetime: start of Rotavirus2Administration.relevantPeriod }
-		) ) TwoDoseRotavirus
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, TwoDoseRotavirus.authorDatetime)>= 42 )
-				and ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, TwoDoseRotavirus.authorDatetime)<= 730 )
+	( ["Immunization": "rotavirus, live, monovalent vaccine"] TwoDoseRotavirus
+			where TwoDoseRotavirus.status.value = 'completed' )
+			  and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, TwoDoseRotavirus.date)>= 42 )
+				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, TwoDoseRotavirus.date)<= Patient.birthDate + 2 years )
   
-o	 Rotavirus 2 Dose Vaccination Followed by Two Rotavirus 3 Dose Vaccinations 
+define "Rotavirus 2 Dose Vaccination Followed by Two Rotavirus 3 Dose Vaccinations"
 	
 	from
 		"Rotavirus 2 Dose Immunizations or Procedures" Rotavirus233Vaccination1,
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus233Vaccination2,
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus233Vaccination3
-		where Rotavirus233Vaccination2.authorDatetime 1 day or more after day of Rotavirus233Vaccination1.authorDatetime
-			and Rotavirus233Vaccination3.authorDatetime 1 day or more after day of Rotavirus233Vaccination2.authorDatetime
+		where Rotavirus233Vaccination2.date 1 day or more after day of Rotavirus233Vaccination1.date
+			and Rotavirus233Vaccination3.date 1 day or more after day of Rotavirus233Vaccination2.date
 		return Rotavirus233Vaccination1
   
-o	 Rotavirus 2 Dose Vaccinations 
+define "Rotavirus 2 Dose Vaccinations" 
 	
 	from
 		"Rotavirus 2 Dose Immunizations or Procedures" Rotavirus2Vaccination1,
 		"Rotavirus 2 Dose Immunizations or Procedures" Rotavirus2Vaccination2
-		where Rotavirus2Vaccination2.authorDatetime 1 day or more after day of Rotavirus2Vaccination1.authorDatetime
+		where Rotavirus2Vaccination2.date 1 day or more after day of Rotavirus2Vaccination1.date
 		return Rotavirus2Vaccination1
   
-o	 Rotavirus 2 or 3 Dose Vaccinations 
+define "Rotavirus 2 or 3 Dose Vaccinations" 
 	
 	( "Rotavirus 2 Dose Vaccination Followed by Two Rotavirus 3 Dose Vaccinations"
 			union "Rotavirus 3 Dose Vaccination Followed by A Rotavirus 2 Dose Vaccination and A Rotavirus 3 Dose Vaccination"
 			union "Rotavirus 3 Dose Vaccinations Followed by One Rotavirus 2 Dose Vaccination"
 	)
   
-o	 Rotavirus 3 Dose Immunizations or Procedures 
+define "Rotavirus 3 Dose Immunizations or Procedures" 
 	
-	( ["Immunization, Administered": "Rotavirus Vaccine (3 dose schedule)"]
-		union ( ["Procedure, Performed": "Rotavirus vaccine, pentavalent (RV5), 3 dose schedule, live, for oral use"] Rotavirus3Administration
-				return "Immunization, Administered" { authorDatetime: start of Rotavirus3Administration.relevantPeriod }
-		) ) ThreeDoseRotavirus
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, ThreeDoseRotavirus.authorDatetime)>= 42 )
-				and ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, ThreeDoseRotavirus.authorDatetime)<= 730 )
+	( ["Immunization": "Rotavirus Vaccine (3 dose schedule)"] ThreeDoseRotavirus
+			where ThreeDoseRotavirus.status.value = 'completed' )
+				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, ThreeDoseRotavirus.date)>= 42 )
+				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, ThreeDoseRotavirus.date)<= Patient.birthDate + 2 years )
   
-o	 Rotavirus 3 Dose Vaccination Followed by A Rotavirus 2 Dose Vaccination and A Rotavirus 3 Dose Vaccination 
+define "Rotavirus 3 Dose Vaccination Followed by A Rotavirus 2 Dose Vaccination and A Rotavirus 3 Dose Vaccination" 
 	
 	from
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus323Vaccination1,
 		"Rotavirus 2 Dose Immunizations or Procedures" Rotavirus323Vaccination2,
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus323Vaccination3
-		where Rotavirus323Vaccination2.authorDatetime 1 day or more after day of Rotavirus323Vaccination1.authorDatetime
-			and Rotavirus323Vaccination3.authorDatetime 1 day or more after day of Rotavirus323Vaccination2.authorDatetime
+		where Rotavirus323Vaccination2.date 1 day or more after day of Rotavirus323Vaccination1.date
+			and Rotavirus323Vaccination3.date 1 day or more after day of Rotavirus323Vaccination2.date
 		return Rotavirus323Vaccination1
   
-o	 Rotavirus 3 Dose Vaccinations 
+define "Rotavirus 3 Dose Vaccinations"
 	
 	from
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus3Vaccination1,
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus3Vaccination2,
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus3Vaccination3
-		where Rotavirus3Vaccination2.authorDatetime 1 day or more after day of Rotavirus3Vaccination1.authorDatetime
-			and Rotavirus3Vaccination3.authorDatetime 1 day or more after day of Rotavirus3Vaccination2.authorDatetime
+		where Rotavirus3Vaccination2.date 1 day or more after day of Rotavirus3Vaccination1.date
+			and Rotavirus3Vaccination3.date 1 day or more after day of Rotavirus3Vaccination2.date
 		return Rotavirus3Vaccination1
   
-o	 Rotavirus 3 Dose Vaccinations Followed by One Rotavirus 2 Dose Vaccination 
+define "Rotavirus 3 Dose Vaccinations Followed by One Rotavirus 2 Dose Vaccination" 
 	
 	from
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus332Vaccination1,
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus332Vaccination2,
 		"Rotavirus 2 Dose Immunizations or Procedures" Rotavirus332Vaccination3
-		where Rotavirus332Vaccination2.authorDatetime 1 day or more after day of Rotavirus332Vaccination1.authorDatetime
-			and Rotavirus332Vaccination3.authorDatetime 1 day or more after day of Rotavirus332Vaccination2.authorDatetime
+		where Rotavirus332Vaccination2.date 1 day or more after day of Rotavirus332Vaccination1.date
+			and Rotavirus332Vaccination3.date 1 day or more after day of Rotavirus332Vaccination2.date
 		return Rotavirus332Vaccination1
   
-o	 Rotavirus Numerator Inclusion Conditions 
+define "Rotavirus Numerator Inclusion Conditions"
 	
-	( ( ["Diagnosis": "Anaphylaxis due to rotavirus vaccine (disorder)"]
-			union ["Diagnosis": "Severe Combined Immunodeficiency"]
-			union ["Diagnosis": "Intussusception"] ) RotavirusConditions
+	( ( ["Condition": "Anaphylaxis due to rotavirus vaccine (disorder)"]
+			union ["Condition": "Severe Combined Immunodeficiency"]
+			union ["Condition": "Intussusception"] ) RotavirusConditions
 			with ["Patient Characteristic Birthdate"] BirthDate
-				such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, start of RotavirusConditions.prevalencePeriod)<= 730
+				such that Global."CalendarAgeInDaysAt"(Patient.birthDate,  RotavirusConditions.onset)<= Patient.birthDate + 2 years
 	)
   
-o	 Rubella Indicators 
+define "Rubella Indicators" 
 	
-	( ( ["Laboratory Test, Performed": "Rubella Antibody Test (IgG Antibody Titer)"] RubellaTiter
-			where RubellaTiter.result >= 1.10
+	( ( ["Observation": "Rubella Antibody Test (IgG Antibody Titer)"] RubellaTiter
+			where RubellaTiter.status.value in ('final' , 'amended')
+			and RubellaTiter.result >= 1.10
 	)
-		union ( ["Laboratory Test, Performed": "Rubella Antibody Test (IgG Antibody presence)"] RubellaIgGPresence
-				where RubellaIgGPresence.result as Code in "Positive Finding"
+		union ( ["Observation": "Rubella Antibody Test (IgG Antibody presence)"] RubellaIgGPresence
+				where RubellaIgGPresence.status.value in ('final' , 'amended')
+				and RubellaIgGPresence.result as Code in "Positive Finding"
 		)
-		union ( ["Diagnosis": "Rubella"] RubellaDiagnosis
-				return "Laboratory Test, Performed" { authorDatetime: start of RubellaDiagnosis.prevalencePeriod }
+		union ( ["Condition": "Rubella"] RubellaDiagnosis
+				return "Observation" { effective:  RubellaDiagnosis.onset }
 		) ) Rubella
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, Rubella.authorDatetime)<= 730
+where Global."CalendarAgeInDaysAt"(Patient.birthDate, Rubella.effective)<= Patient.birthDate + 2 years
   
-o	 SDE Ethnicity 
-	
-	["Patient Characteristic Ethnicity": "Ethnicity"]
+
   
-o	 SDE Payer 
-	
-	["Patient Characteristic Payer": "Payer"]
-  
-o	 SDE Race 
-	
-	["Patient Characteristic Race": "Race"]
-  
-o	 SDE Sex 
-	
-	["Patient Characteristic Sex": "ONC Administrative Sex"] 
-  
-o	 Three Hepatitis B Vaccinations 
+define "Three Hepatitis B Vaccinations" 
 	
 	from
 		"Hepatitis B Immunizations or Procedures" HepatitisBVaccination1,
 		"Hepatitis B Immunizations or Procedures" HepatitisBVaccination2,
 		"Hepatitis B Immunizations or Procedures" HepatitisBVaccination3
-		where HepatitisBVaccination2.authorDatetime 1 day or more after day of HepatitisBVaccination1.authorDatetime
-			and HepatitisBVaccination3.authorDatetime 1 day or more after day of HepatitisBVaccination2.authorDatetime
+		where HepatitisBVaccination2.date 1 day or more after day of HepatitisBVaccination1.date
+			and HepatitisBVaccination3.date 1 day or more after day of HepatitisBVaccination2.date
 		return HepatitisBVaccination1
   
-o	 Three Hib Vaccinations 
+define "Three Hib Vaccinations"
 	
 	from
 		"Hib Immunizations or Procedures" HiBVaccination1,
 		"Hib Immunizations or Procedures" HiBVaccination2,
 		"Hib Immunizations or Procedures" HiBVaccination3
-		where HiBVaccination2.authorDatetime 1 day or more after day of HiBVaccination1.authorDatetime
-			and HiBVaccination3.authorDatetime 1 day or more after day of HiBVaccination2.authorDatetime
+		where HiBVaccination2.date 1 day or more after day of HiBVaccination1.date
+			and HiBVaccination3.date 1 day or more after day of HiBVaccination2.date
 		return HiBVaccination1
   
-o	 Three Polio Vaccinations 
+define "Three Polio Vaccinations" 
 	
 	from
 		"Polio Immunizations or Procedures" PolioVaccination1,
 		"Polio Immunizations or Procedures" PolioVaccination2,
 		"Polio Immunizations or Procedures" PolioVaccination3
-		where PolioVaccination2.authorDatetime 1 day or more after day of PolioVaccination1.authorDatetime
-			and PolioVaccination3.authorDatetime 1 day or more after day of PolioVaccination2.authorDatetime
+		where PolioVaccination2.date 1 day or more after day of PolioVaccination1.date
+			and PolioVaccination3.date 1 day or more after day of PolioVaccination2.date
 		return PolioVaccination1
   
-o	 Two Influenza Vaccinations 
+define "Two Influenza Vaccinations" 
 	
 	from
 		"Influenza Immunizations or Procedures" FluVaccination1,
 		"Influenza Immunizations or Procedures" FluVaccination2
-		where FluVaccination2.authorDatetime 1 day or more after day of FluVaccination1.authorDatetime
+		where FluVaccination2.date 1 day or more after day of FluVaccination1.date
 		return FluVaccination1
   
-o	 Varicella Zoster Numerator Inclusion Conditions 
+define "Varicella Zoster Numerator Inclusion Conditions"
 	
-	( ( ["Laboratory Test, Performed": "Varicella Zoster Antibody Test (IgG Antibody Titer)"] ChickenPoxTiter
-			where ChickenPoxTiter.result >= 1.10
+	( ( ["Observation": "Varicella Zoster Antibody Test (IgG Antibody Titer)"] ChickenPoxTiter 
+	    where ChickenPoxTiter.status.value in ('final' , 'amended')
+			and ChickenPoxTiter.result >= 1.10
 	)
-		union ( ["Laboratory Test, Performed": "Varicella Zoster Antibody Test (IgG Antibody Presence)"] ChickenPoxIgGPresence
-				where ChickenPoxIgGPresence.result as Code in "Positive Finding"
+		union ( ["Observation": "Varicella Zoster Antibody Test (IgG Antibody Presence)"] ChickenPoxIgGPresence
+				where ChickenPoxIgGPresence.status.value in ('final' , 'amended')
+				and ChickenPoxIgGPresence.result as Code in "Positive Finding"
 		)
-		union ( ["Diagnosis": "Disorders of the Immune System"] ImmuneDisorder
-				return "Laboratory Test, Performed" { authorDatetime: start of ImmuneDisorder.prevalencePeriod }
+		union ( ["Condition": "Disorders of the Immune System"] ImmuneDisorder
+				return "Observation" { effective:  ImmuneDisorder.onset }
 		)
-		union ( ["Diagnosis": "HIV"] HIV
-				return "Laboratory Test, Performed" { authorDatetime: start of HIV.prevalencePeriod }
+		union ( ["Condition": "HIV"] HIV
+				return "Observation" { effective:  HIV.onset }
 		)
-		union ( ["Diagnosis": "Malignant Neoplasm of Lymphatic and Hematopoietic Tissue"] LymphaticMalignantNeoplasm
-				return "Laboratory Test, Performed" { authorDatetime: start of LymphaticMalignantNeoplasm.prevalencePeriod }
+		union ( ["Condition": "Malignant Neoplasm of Lymphatic and Hematopoietic Tissue"] LymphaticMalignantNeoplasm
+				return "Observation" { effective:  LymphaticMalignantNeoplasm.onset }
 		)
-		union ( ["Diagnosis": "Neomycin adverse reaction (disorder)"] NeomycinReaction
-				return "Laboratory Test, Performed" { authorDatetime: start of NeomycinReaction.prevalencePeriod }
+		union ( ["Condition": "Neomycin adverse reaction (disorder)"] NeomycinReaction
+				return "Observation" { effective:  NeomycinReaction.onset }
 		)
-		union ( ["Diagnosis": "Varicella Zoster"] VaricellaZoster
-				return "Laboratory Test, Performed" { authorDatetime: start of VaricellaZoster.prevalencePeriod }
+		union ( ["Condition": "Varicella Zoster"] VaricellaZoster
+				return "Observation" { effective:  VaricellaZoster.onset }
 		) ) VaricellaZosterConditions
-		with ["Patient Characteristic Birthdate"] BirthDate
-			such that ( Global."CalendarAgeInDaysAt"(BirthDate.birthDatetime, VaricellaZosterConditions.authorDatetime)<= 730 )
-  
-Functions
-
-o	 Global.CalendarAgeInDaysAt(BirthDateTime DateTime, AsOf DateTime) 
-	
-	days between ToDate(BirthDateTime)and ToDate(AsOf)
-  
-o	 Global.CalendarAgeInYearsAt(BirthDateTime DateTime, AsOf DateTime) 
-	
-	years between ToDate(BirthDateTime)and ToDate(AsOf)
-  
-o	 Global.ToDate(Value DateTime) 
-	
-	DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezone from Value)
-  
-Terminology
-
- SDE Ethnicity 
-o	
-	["Patient Characteristic Ethnicity": "Ethnicity"]
-  
- SDE Payer 
-o	
-	["Patient Characteristic Payer": "Payer"]
-  
- SDE Race 
-o	
-	["Patient Characteristic Race": "Race"]
-  
- SDE Sex 
-o	
-	["Patient Characteristic Sex": "ONC Administrative Sex"] 
+			where ( Global."CalendarAgeInDaysAt"(Patient.birthDate, VaricellaZosterConditions.effective)<= Patient.birthDate + 2 years )
   
