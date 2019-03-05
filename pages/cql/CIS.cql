@@ -6,6 +6,9 @@ library CIS_FHIR version '1.0.1'
 //using FHIR version '3.0.1'
 using FHIR version '3.0.0'
 
+include FHIRHelpers version '3.0.0' called FHIRHelpers
+include MATGlobalCommonFunctions_FHIR version 2.0.0 called Global
+
 /*
 Description
 Percentage of children 2 years of age who had four diphtheria, tetanus and acellular pertussis (DTaP); three polio (IPV), one measles, mumps and rubella (MMR); three H influenza type B (HiB); three hepatitis B (Hep B); one chicken pox (VZV); four pneumococcal conjugate (PCV); one hepatitis A (Hep A); two or three rotavirus (RV); and two influenza (flu) vaccines by their second birthday
@@ -16,28 +19,13 @@ codesystem "CPT": 'http://www.ama-assn.org/'
 codesystem "CVX": 'http://www2a.cdc.gov/'
 codesystem "SNOMEDCT": 'http://snomed.org'
 
-code "Anaphylaxis due to Haemophilus influenzae type b vaccine (disorder)": '433621000124101' from "SNOMEDCT"
-code "Anaphylaxis due to Hepatitis B vaccine (disorder)": '433621000124101'from "SNOMEDCT"
-code "Anaphylaxis due to rotavirus vaccine (disorder)": '428331000124103' from "SNOMEDCT"
-code "Discharge to healthcare facility for hospice care (procedure)": '428371000124100' from "SNOMEDCT"
-code "Discharge to home for hospice care (procedure)": '428361000124107' from "SNOMEDCT"
-code "Influenza virus vaccine adverse reaction (disorder)": '420113004' from "SNOMEDCT"
-code "Neomycin adverse reaction (disorder)": '292927007' from "SNOMEDCT"
-code "Pneumococcal vaccine adverse reaction (disorder)": '293116002' from "SNOMEDCT"
-code "Poliomyelitis vaccine adverse reaction (disorder)": '293117006' from "SNOMEDCT"
-code "Polymyxin B adverse reaction (disorder)": '292992006' from "SNOMEDCT"
-code "Rotavirus vaccine, human, attenuated (RV1), 2 dose schedule, live, for oral use": '90681' from "SNOMEDCT"
-code "Rotavirus vaccine, pentavalent (RV5), 3 dose schedule, live, for oral use": '90680' from "CPT"
-code "rotavirus, live, monovalent vaccine": '119' from "CVX"
-code "Streptomycin adverse reaction (disorder)": '292925004' from "SNOMEDCT"
-
 // valueset "Alcohol Screening and Brief Counseling": 'urn:oid:1.1.1.1' // User Defined QDM Value Set
 valueset "Anaphylactic Reaction to Common Baker's Yeast": 'urn:oid:2.16.840.1.113883.3.464.1003.199.12.1032'
 valueset "Anaphylactic Reaction to DTaP Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.199.12.1031'
 valueset "Anaphylactic Reaction to Hepatitis A Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.199.12.1026'
 valueset "Anti Hepatitis A IgG Antigen Test": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1033'
 valueset "Anti Hepatitis B Virus Surface Ab": 'urn:oid:2.16.840.1.113883.3.464.1003.198.12.1073'
-valueset "Disorders of the Immune System": 'urn:oid:2.16.840.1.113883.3.464.1003.120.12.1001"
+valueset "Disorders of the Immune System": 'urn:oid:2.16.840.1.113883.3.464.1003.120.12.1001'
 valueset "DTaP Vaccine Administered": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1022'
 valueset "DTaP Vaccine": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1214'
 valueset "Encephalopathy due to Childhood Vaccination": 'urn:oid:2.16.840.1.113883.3.464.1003.114.12.1007'
@@ -88,9 +76,25 @@ valueset "Varicella Zoster Vaccine (VZV) Administered": 'urn:oid:2.16.840.1.1138
 valueset "Varicella Zoster Vaccine (VZV)": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1170'
 valueset "Varicella Zoster": 'urn:oid:2.16.840.1.113883.3.464.1003.110.12.1039'
 
+// BTR -> Codes must come after value sets
+code "Anaphylaxis due to Haemophilus influenzae type b vaccine (disorder)": '433621000124101' from "SNOMEDCT"
+code "Anaphylaxis due to Hepatitis B vaccine (disorder)": '433621000124101'from "SNOMEDCT"
+code "Anaphylaxis due to rotavirus vaccine (disorder)": '428331000124103' from "SNOMEDCT"
+code "Discharge to healthcare facility for hospice care (procedure)": '428371000124100' from "SNOMEDCT"
+code "Discharge to home for hospice care (procedure)": '428361000124107' from "SNOMEDCT"
+code "Influenza virus vaccine adverse reaction (disorder)": '420113004' from "SNOMEDCT"
+code "Neomycin adverse reaction (disorder)": '292927007' from "SNOMEDCT"
+code "Pneumococcal vaccine adverse reaction (disorder)": '293116002' from "SNOMEDCT"
+code "Poliomyelitis vaccine adverse reaction (disorder)": '293117006' from "SNOMEDCT"
+code "Polymyxin B adverse reaction (disorder)": '292992006' from "SNOMEDCT"
+code "Rotavirus vaccine, human, attenuated (RV1), 2 dose schedule, live, for oral use": '90681' from "SNOMEDCT"
+code "Rotavirus vaccine, pentavalent (RV5), 3 dose schedule, live, for oral use": '90680' from "CPT"
+code "rotavirus, live, monovalent vaccine": '119' from "CVX"
+code "Streptomycin adverse reaction (disorder)": '292925004' from "SNOMEDCT"
+
 /*
 This library has an explicit parameter which is the measurement year.
-While the actual parameter's type accepts all intervals, this library
+While the actual parameter type accepts all intervals, this library
 expects it will only be given arguments corresponding exactly to one whole
 calendar year, and it will not behave properly otherwise; 2017 for example:
 Interval[DateTime(2017,1,1,0,0,0,0), DateTime(2018,1,1,0,0,0,0))
@@ -111,7 +115,7 @@ Initial Population
 
 define "Initial Population":
 		Global."CalendarAgeInYearsAt"(Patient.birthDate,  "Measurement Period")>= 1
-				and Global."CalendarAgeInYearsAt"(', end of "Measurement Period")= 2
+				and Global."CalendarAgeInYearsAt"(Patient.birthDate, end of "Measurement Period")= 2
 		and exists ( "Qualifying Encounter" )
 //		and (not "Is In Hospice")
   
@@ -122,7 +126,7 @@ define "Denominator":
 
   
 
-define "Numerator"
+define "Numerator":
 	
 	( exists ( "Four DTaP Vaccinations" )
 			or exists ( "DTaP Numerator Inclusion Conditions" )
@@ -162,6 +166,8 @@ define "Numerator"
 		)
 
 /* How do we enact the Hospice Library
+// BTR -> Add an include for Hospice_FHIR, we've already translated that to FHIR, then you can just reference it
+// 
 define "Is In Hospice":
 	exists(
 		[Encounter: "Hospice Value Set"] Enc
@@ -201,7 +207,7 @@ define "Is In Hospice":
 
 
   
-define "DTaP Immunizations or Procedures" 
+define "DTaP Immunizations or Procedures": 
 	
 	( ["Immunization":"DTaP Vaccine"] DTaP
 				where DTaP.status.value = 'completed' )
@@ -211,7 +217,7 @@ define "DTaP Immunizations or Procedures"
 
 
   
-define "DTaP Numerator Inclusion Conditions"
+define "DTaP Numerator Inclusion Conditions":
 	
 	( ["Condition": "Anaphylactic Reaction to DTaP Vaccine"]
 		union ["Condition": "Encephalopathy due to Childhood Vaccination"] ) DTaPConditions
@@ -219,7 +225,7 @@ define "DTaP Numerator Inclusion Conditions"
 				and( Global."CalendarAgeInDaysAt"(Patient.birthDate, DTaPConditions.onset)<= Patient.birthDate + 2 years )
 			
   
-define "Four DTaP Vaccinations" 
+define "Four DTaP Vaccinations": 
 	
 	from
 		"DTaP Immunizations or Procedures" DTaPVaccination1,
@@ -232,7 +238,7 @@ define "Four DTaP Vaccinations"
 		return DTaPVaccination1
 
   
-define "Four Pneumococcal Conjugate Vaccinations"
+define "Four Pneumococcal Conjugate Vaccinations":
 	
 	from
 		"Pneumococcal Conjugate Immunizations or Procedures" PneumococcalVaccination1,
@@ -244,12 +250,13 @@ define "Four Pneumococcal Conjugate Vaccinations"
 			and PneumococcalVaccination4.date 1 day or more after day of PneumococcalVaccination3.date
 		return PneumococcalVaccination1
   
-define "Hepatitis A Numerator Inclusion Conditions"
+define "Hepatitis A Numerator Inclusion Conditions":
 	
 	( ( ["Observation": "Anti Hepatitis A IgG Antigen Test"] HepatitisAAntigenTest
 			where HepatitisAAntigenTest.status.value in ('final' , 'amended') 
 				and HepatitisAAntigenTest.value as Code in "Positive Finding"
 //Bryn - can you do "as Code in "Positive Finding""?
+// BTR -> You can, but you don't need to since the membership test is treating value as a Code, the translator will just cast it
 	)
 		union ( ["Condition": "Anaphylactic Reaction to Hepatitis A Vaccine"] HepatitisAReaction
 				return "Observation" { effective: HepatitisAReaction.onset }
@@ -259,13 +266,13 @@ define "Hepatitis A Numerator Inclusion Conditions"
 		) ) HepatitisAConditions
 			where ( Global."CalendarAgeInDaysAt"(Patient.birthDate, HepatitisAConditions.effective)<= Patient.birthDate + 2 years )
   
-define "Hepatitis B Immunizations or Procedures" 
+define "Hepatitis B Immunizations or Procedures": 
 	
 	( ["Immunization": "Hepatitis B Vaccine"] HepatitisBVaccination
 		where HepatitisBVaccination.status.value = 'completed' )
 			where Global."CalendarAgeInDaysAt"(Patient.birthDate, HepatitisBVaccination.date)<= Patient.birthDate + 2 years
   
-define "Hepatitis B Numerator Inclusion Conditions"
+define "Hepatitis B Numerator Inclusion Conditions":
 	
 	( ( ["Observation": "Anti Hepatitis B Virus Surface Ab"] HepatitisBAntigenTest
 			where HepatitisBAntigenTest.result as Code in "Positive Finding"
@@ -282,7 +289,7 @@ define "Hepatitis B Numerator Inclusion Conditions"
 		) ) HepBConditions
 			where ( Global."CalendarAgeInDaysAt"(Patient.birthDate, HepBConditions.effective)<= Patient.birthDate + 2 years )
   
-define "Hib Immunizations or Procedures"
+define "Hib Immunizations or Procedures":
 	
 	( ["Immunization": "Haemophilus Influenzae Type B (HiB) Vaccine"] HibVaccination
 			where HibVaccination.status.value = 'completed' )
@@ -290,20 +297,20 @@ define "Hib Immunizations or Procedures"
 				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, HibVaccination.date)<= Patient.birthDate + 2 years )
 
   
-define "Hib Numerator Inclusion Conditions"
+define "Hib Numerator Inclusion Conditions":
 	
 	["Condition": "Anaphylaxis due to Haemophilus influenzae type b vaccine (disorder)"] HibReaction
 where Global."CalendarAgeInDaysAt"(Patient.birthDate,  HibReaction.onset)<= Patient.birthDate + 2 years
   
 
-define "Influenza Immunizations or Procedures" 
+define "Influenza Immunizations or Procedures": 
 	
 	( ["Immunization": "Influenza Vaccine"] InfluenzaVaccination
 			where InfluenzaVaccination.status.value = 'completed' )
 				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, InfluenzaVaccination.date)>= 180 )
 				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, InfluenzaVaccination.date)<= Patient.birthDate + 2 years )
   
-define "Influenza Numerator Inclusion Conditions"
+define "Influenza Numerator Inclusion Conditions":
 	
 	( ["Condition": "Influenza virus vaccine adverse reaction (disorder)"]
 		union ["Condition": "Malignant Neoplasm of Lymphatic and Hematopoietic Tissue"]
@@ -313,7 +320,7 @@ define "Influenza Numerator Inclusion Conditions"
 where Global."CalendarAgeInDaysAt"(Patient.birthDate, InfluenzaConditions.onset)<= Patient.birthDate + 2 years
   
   
-define "Measles Indicators" 
+define "Measles Indicators": 
 	
 	( ( ["Observation": "Measles Antibody Test (IgG Antibody Titer)"] MeaslesTiter
 			where MeaslesTiter.status.value in ('final' , 'amended')
@@ -328,7 +335,7 @@ define "Measles Indicators"
 		) ) Measles
 where Global."CalendarAgeInDaysAt"(Patient.birthDate, Measles.effective)<= Patient.birthDate + 2 years
   
-define "MMR Numerator Inclusion Conditions" 
+define "MMR Numerator Inclusion Conditions": 
 	
 	( ["Condition": "Disorders of the Immune System"]
 		union ["Condition": "HIV"]
@@ -336,7 +343,7 @@ define "MMR Numerator Inclusion Conditions"
 		union ["Condition": "Neomycin adverse reaction (disorder)"] ) MMRConditions
 where Global."CalendarAgeInDaysAt"(Patient.birthDate,  MMRConditions.onset)<= Patient.birthDate + 2 years
   
-define "Mumps Indicators" 
+define "Mumps Indicators": 
 	
 	( ( ["Observation": "Mumps Antibody Test (IgG Antibody Titer)"] MumpsTiter
 			where MumpsTiter.status.value in ('final' , 'amended')
@@ -352,44 +359,44 @@ define "Mumps Indicators"
 where Global."CalendarAgeInDaysAt"(Patient.birthDate, Mumps.effective)<= Patient.birthDate + 2 years
   
 
-define "One Chicken Pox Vaccination"
+define "One Chicken Pox Vaccination":
 	
 	( ["Immunization": "Varicella Zoster Vaccine (VZV)"] ChickenPoxVaccination
 				where ChickenPoxVaccination.status.value = 'completed' )
 				and Global."CalendarAgeInDaysAt"(Patient.birthDate, ChickenPoxVaccination.date)<= Patient.birthDate + 2 years
   
-define "One Hepatitis A Vaccinations" 
+define "One Hepatitis A Vaccinations": 
 	
 	( ["Immunization": "Hepatitis A Vaccine"] HepatitisAVaccination
 			where HepatitisAVaccination.status.value = 'completed' )
 			and Global."CalendarAgeInDaysAt"(Patient.birthDate, HepatitisAVaccination.date)<= Patient.birthDate + 2 years
   
-define "One MMR Vaccinations" 
+define "One MMR Vaccinations": 
 	
 	( ["Immunization": "Measles, Mumps and Rubella (MMR) Vaccine"] MMRVaccination
 		where MMRVaccination.status.value = 'completed' )
 		and Global."CalendarAgeInDaysAt"(Patient.birthDate, MMRVaccination.date)<= Patient.birthDate + 2 years
   
-define "Pneumococcal Conjugate Immunizations or Procedures" 
+define "Pneumococcal Conjugate Immunizations or Procedures":
 	
 	( ["Immunization": "Pneumococcal Conjugate Vaccine"] PneumococcalVaccination
 			where PneumococcalVaccination.status.value = 'completed' )
 				and( Global."CalendarAgeInDaysAt"(Patient.birthDate, PneumococcalVaccination.date)>= 42 )
 				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, PneumococcalVaccination.date)<= Patient.birthDate + 2 years )
   
-define "Pneumococcal Conjugate Numerator Inclusion Conditions"
+define "Pneumococcal Conjugate Numerator Inclusion Conditions":
 	
 	["Condition": "Pneumococcal vaccine adverse reaction (disorder)"] PneumococcalReaction
 where Global."CalendarAgeInDaysAt"(Patient.birthDate, PneumococcalReaction.onset)<= Patient.birthDate + 2 years
   
-define "Polio Immunizations or Procedures" 
+define "Polio Immunizations or Procedures":
 	
 	( ["Immunization": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
 			where PolioVaccination.status.value = 'completed' )
 			and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, PolioVaccination.date)>= 42 )
 			and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, PolioVaccination.date)<= Patient.birthDate + 2 years )
   
-define "Polio Numerator Inclusion Conditions"
+define "Polio Numerator Inclusion Conditions":
 	
 	( ["Condition": "Poliomyelitis vaccine adverse reaction (disorder)"]
 		union ["Condition": "Streptomycin adverse reaction (disorder)"]
@@ -397,7 +404,7 @@ define "Polio Numerator Inclusion Conditions"
 		union ["Condition": "Neomycin adverse reaction (disorder)"] ) PolioConditions
 where Global."CalendarAgeInDaysAt"(Patient.birthDate, PolioConditions.onset)<= Patient.birthDate + 2 years
   
-define "Qualifying Encounter" 
+define "Qualifying Encounter":
 	
 	( ["Encounter, Performed": "Office Visit"]
 		union ["Encounter, Performed": "Home Healthcare Services"]
@@ -405,14 +412,14 @@ define "Qualifying Encounter"
 		union ["Encounter, Performed": "Preventive Care Services, Initial Office Visit, 0 to 17"] ) ValidEncounter
 		where ValidEncounter.relevantPeriod during "Measurement Period"
   
-define "Rotavirus 2 Dose Immunizations or Procedures" 
+define "Rotavirus 2 Dose Immunizations or Procedures":
 	
 	( ["Immunization": "rotavirus, live, monovalent vaccine"] TwoDoseRotavirus
 			where TwoDoseRotavirus.status.value = 'completed' )
 			  and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, TwoDoseRotavirus.date)>= 42 )
 				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, TwoDoseRotavirus.date)<= Patient.birthDate + 2 years )
   
-define "Rotavirus 2 Dose Vaccination Followed by Two Rotavirus 3 Dose Vaccinations"
+define "Rotavirus 2 Dose Vaccination Followed by Two Rotavirus 3 Dose Vaccinations":
 	
 	from
 		"Rotavirus 2 Dose Immunizations or Procedures" Rotavirus233Vaccination1,
@@ -422,7 +429,7 @@ define "Rotavirus 2 Dose Vaccination Followed by Two Rotavirus 3 Dose Vaccinatio
 			and Rotavirus233Vaccination3.date 1 day or more after day of Rotavirus233Vaccination2.date
 		return Rotavirus233Vaccination1
   
-define "Rotavirus 2 Dose Vaccinations" 
+define "Rotavirus 2 Dose Vaccinations":
 	
 	from
 		"Rotavirus 2 Dose Immunizations or Procedures" Rotavirus2Vaccination1,
@@ -430,21 +437,21 @@ define "Rotavirus 2 Dose Vaccinations"
 		where Rotavirus2Vaccination2.date 1 day or more after day of Rotavirus2Vaccination1.date
 		return Rotavirus2Vaccination1
   
-define "Rotavirus 2 or 3 Dose Vaccinations" 
+define "Rotavirus 2 or 3 Dose Vaccinations":
 	
 	( "Rotavirus 2 Dose Vaccination Followed by Two Rotavirus 3 Dose Vaccinations"
 			union "Rotavirus 3 Dose Vaccination Followed by A Rotavirus 2 Dose Vaccination and A Rotavirus 3 Dose Vaccination"
 			union "Rotavirus 3 Dose Vaccinations Followed by One Rotavirus 2 Dose Vaccination"
 	)
   
-define "Rotavirus 3 Dose Immunizations or Procedures" 
+define "Rotavirus 3 Dose Immunizations or Procedures":
 	
 	( ["Immunization": "Rotavirus Vaccine (3 dose schedule)"] ThreeDoseRotavirus
 			where ThreeDoseRotavirus.status.value = 'completed' )
 				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, ThreeDoseRotavirus.date)>= 42 )
 				and ( Global."CalendarAgeInDaysAt"(Patient.birthDate, ThreeDoseRotavirus.date)<= Patient.birthDate + 2 years )
   
-define "Rotavirus 3 Dose Vaccination Followed by A Rotavirus 2 Dose Vaccination and A Rotavirus 3 Dose Vaccination" 
+define "Rotavirus 3 Dose Vaccination Followed by A Rotavirus 2 Dose Vaccination and A Rotavirus 3 Dose Vaccination":
 	
 	from
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus323Vaccination1,
@@ -454,7 +461,7 @@ define "Rotavirus 3 Dose Vaccination Followed by A Rotavirus 2 Dose Vaccination 
 			and Rotavirus323Vaccination3.date 1 day or more after day of Rotavirus323Vaccination2.date
 		return Rotavirus323Vaccination1
   
-define "Rotavirus 3 Dose Vaccinations"
+define "Rotavirus 3 Dose Vaccinations":
 	
 	from
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus3Vaccination1,
@@ -464,7 +471,7 @@ define "Rotavirus 3 Dose Vaccinations"
 			and Rotavirus3Vaccination3.date 1 day or more after day of Rotavirus3Vaccination2.date
 		return Rotavirus3Vaccination1
   
-define "Rotavirus 3 Dose Vaccinations Followed by One Rotavirus 2 Dose Vaccination" 
+define "Rotavirus 3 Dose Vaccinations Followed by One Rotavirus 2 Dose Vaccination":
 	
 	from
 		"Rotavirus 3 Dose Immunizations or Procedures" Rotavirus332Vaccination1,
@@ -474,7 +481,7 @@ define "Rotavirus 3 Dose Vaccinations Followed by One Rotavirus 2 Dose Vaccinati
 			and Rotavirus332Vaccination3.date 1 day or more after day of Rotavirus332Vaccination2.date
 		return Rotavirus332Vaccination1
   
-define "Rotavirus Numerator Inclusion Conditions"
+define "Rotavirus Numerator Inclusion Conditions":
 	
 	( ( ["Condition": "Anaphylaxis due to rotavirus vaccine (disorder)"]
 			union ["Condition": "Severe Combined Immunodeficiency"]
@@ -483,7 +490,7 @@ define "Rotavirus Numerator Inclusion Conditions"
 				such that Global."CalendarAgeInDaysAt"(Patient.birthDate,  RotavirusConditions.onset)<= Patient.birthDate + 2 years
 	)
   
-define "Rubella Indicators" 
+define "Rubella Indicators":
 	
 	( ( ["Observation": "Rubella Antibody Test (IgG Antibody Titer)"] RubellaTiter
 			where RubellaTiter.status.value in ('final' , 'amended')
@@ -500,7 +507,7 @@ where Global."CalendarAgeInDaysAt"(Patient.birthDate, Rubella.effective)<= Patie
   
 
   
-define "Three Hepatitis B Vaccinations" 
+define "Three Hepatitis B Vaccinations":
 	
 	from
 		"Hepatitis B Immunizations or Procedures" HepatitisBVaccination1,
@@ -510,7 +517,7 @@ define "Three Hepatitis B Vaccinations"
 			and HepatitisBVaccination3.date 1 day or more after day of HepatitisBVaccination2.date
 		return HepatitisBVaccination1
   
-define "Three Hib Vaccinations"
+define "Three Hib Vaccinations":
 	
 	from
 		"Hib Immunizations or Procedures" HiBVaccination1,
@@ -520,7 +527,7 @@ define "Three Hib Vaccinations"
 			and HiBVaccination3.date 1 day or more after day of HiBVaccination2.date
 		return HiBVaccination1
   
-define "Three Polio Vaccinations" 
+define "Three Polio Vaccinations":
 	
 	from
 		"Polio Immunizations or Procedures" PolioVaccination1,
@@ -530,7 +537,7 @@ define "Three Polio Vaccinations"
 			and PolioVaccination3.date 1 day or more after day of PolioVaccination2.date
 		return PolioVaccination1
   
-define "Two Influenza Vaccinations" 
+define "Two Influenza Vaccinations": 
 	
 	from
 		"Influenza Immunizations or Procedures" FluVaccination1,
@@ -538,7 +545,7 @@ define "Two Influenza Vaccinations"
 		where FluVaccination2.date 1 day or more after day of FluVaccination1.date
 		return FluVaccination1
   
-define "Varicella Zoster Numerator Inclusion Conditions"
+define "Varicella Zoster Numerator Inclusion Conditions":
 	
 	( ( ["Observation": "Varicella Zoster Antibody Test (IgG Antibody Titer)"] ChickenPoxTiter 
 	    where ChickenPoxTiter.status.value in ('final' , 'amended')
