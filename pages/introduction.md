@@ -77,6 +77,14 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this doc
 
 ### 1.8 Background
 
+TODO: Update diagram to say QI-Core, not FHIR QUICK
+TODO: Add documentation about QUICK as an author-focused view of QI-Core
+
+QDM -> QUICK
+HQMF/QRDA QDM-Based Templates -> QI-Core
+
+Relationship between QI-Core and QRDA
+
 This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the FHIR Clinical Reasoning Module [^4], as well as the CQL-Based HQMF IG.
 
 This Implementation Guide is the successor of the CQL-based HQMF IG STU4 (Figure 2a).
