@@ -23,13 +23,17 @@ layout: default
 
 <img src="assets/images/quality-measurement-standards-landscape.png" alt="Quality Measurement Standards Landscape"/>
 
-<p>The left side of the diagram depicts the activities and standards associated with measure specification, while the right side depits measure reporting. Measure specification involves the development, testing, validation, distribution, and data representation and capture of quality measures. Measure reporting involves the data collection and aggregation, calculation and analytics, and ultimately reporting of quality measures.</p>
+<p>The left side of the quality measurement standards landscape diagram depicts the activities and standards associated with measure specification, while the right side depicts measure reporting.</p>
+  
+<p><b>Measure specification</b> involves the development, testing, validation, distribution, and data representation and capture of quality measures.</p>
 
-<p>Producers in the diagram depicts the various stakeholders involved in the creation of healthcare data, including providers and provider systems; patients, care teams, care givers, and patient engagement systems; and other related clinical systems such as laboratory, clinic, and hospital information systems that are primary producers of patient healthcare information.</p>
+<p><b>Measure reporting</b> involves the data collection and aggregation, calculation and analytics, and ultimately reporting of quality measures.</p>
 
-<p>Consumers in the diagram depicts the various stakeholders involved in the consumption and use of healthcare data, including data routers and aggregators, payers, health information exchanges and health integrated networks, as well as public health and other healthcare-related agencies.</p>
+<p><b>Producers</b> in the diagram represent the various stakeholders involved in the creation of healthcare data. Producers can include providers and provider systems; patients, care teams, caregivers, and patient engagement systems; and other related clinical systems such as laboratory, clinic, and hospital information systems that are primary producers of patient healthcare information.</p>
 
-<p>Specifiers in the diagram depicts the various stakeholders involved in the specification of quality measures for use in healthcare quality measurement and reporting. This includes quality agencies, public health and other healthcare-related agencies, industry consortiums concerned with improving care quality, and clinical specialty societies. Specifiers may also be institutions and clinics using the quality measurement standards to specify quality measures for use in their own environments and quality improvement initiatives.</p>
+<p><b>Consumers</b> in the diagram represent the various stakeholders involved in the consumption and use of healthcare data. Consumers can include data routers and aggregators, payers, health information exchanges and health integrated networks, as well as public health and other healthcare-related agencies.</p>
+
+<p><b>Specifiers</b> in the diagram represents the various stakeholders involved in the specification of quality measures for use in healthcare quality measurement and reporting. Specifiers can include quality agencies, public health, and other healthcare-related agencies, industry consortiums concerned with improving care quality, and clinical specialty societies. Specifiers may also be institutions and clinics using the quality measurement standards to specify quality measures for use in their own environments and quality improvement initiatives.</p>
 
 <p>The shaded areas underlying the stakeholders depict the various standards involved:</p>
 
@@ -63,7 +67,7 @@ layout: default
 
 <p>Within the US Realm, the US Core profiles capture this base consensus, and although they enable a broad variety of interoperability use cases, they do not cover many of the data requirements for quality improvement use cases. The QI Core profiles derive from US Core and provide for this additional functionality.</p>
 
-<p>In addition, there are some cases where additional specifity or functionality is required that is specific to quality measurement, or to a particular use case within quality measurement. In these cases, additional profiles may be defined within the DEQM, or by quality improvement programs and initiatives or other stakeholders such as measure developers.</p>
+<p>In addition, there are some cases where additional specifity or functionality is required that is specific to quality measurement, or to a particular use case within quality measurement. In these cases, additional profiles may be defined within the DEQM, or by quality improvement programs and initiatives or other stakeholders such as measure developers. For example, the Medication Reconciliation Post Discharge measure example included in this implementation guide references the HEDIS Implementation Guide, which defines profiles for use with HEDIS measures.</p>
 
 <p>The following diagram depicts this data model standards landscape:</p>
 
@@ -77,7 +81,7 @@ layout: default
   <li><b>Avoid proliferation of profiles.</b> To the extent possible, make use of existing profiles further down the stack. Only define a new profile if absolutely necessary to express the requirements for a particular use case.</li>
   <li><b>Share profiles across measures.</b> There should _not_ be profiles specific to a particular measure. The resulting combinatorial explosion of profiles would be unsupportable. Instead, QI Core provides a layer for the expression of quality improvement requirements across measures and decision support artifacts.</li>
   <li><b>No terminology-narrowing-only profiles.</b> Profiles should _not_ be used to specify only terminology narrowing constraints. The FHIR Clinical Reasoning module and CQL enable the representation of data requirements for quality measures and decision support artifacts.</li>
-  <li><b>Promote data-related profiles.</b> When it becomes necessary to define a data-related profile in DEQM, steps should be taken to promote that profile to the broadest consensus group possible.</li>
+  <li><b>Promote data-related profiles.</b> When it becomes necessary to define a data-related profile at the measurement-specific level (in DEQM or HEDIS for example), steps should be taken to promote that profile to the broadest consensus group possible.</li>
 </ol>
 
 <h4>FHIR Versioning Support</h4>
