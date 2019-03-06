@@ -37,7 +37,7 @@ define "Ethnicity Categories":
             where EthnicityExtensions.extension.url = 'ombCategory'
         return EthnicityExtensions.extension
 		)
-
+    
 define "SDE Ethnicity":
 		"Ethnicity Categories" EthnicityExt
 				where FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding) in "Ethnicity"
