@@ -9,16 +9,71 @@ layout: default
 	<a href="index.html#home" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
 
-<h3>Quality Improvement Ecosystem</h3>
+<p>TODO: Index...</p>
+
+<h3>Summary</h3>
+
+<p>This implementation guide describes an approach to representing electronic Clinical Quality Measures (eCQMs) using the FHIR Clinical Reasoning Module and Clinical Quality Language (CQL) in the U.S. Realm. However, this Implementation Guide can be usable for multiple use cases across domains, and much of the content is likely to be usable outside the U.S. Realm.</p>
+  
+<p>The implementation guide is based upon the previous generation of eCQM representation standards, the HL7 V3-based Health Quality Measure Format (HQMF) and accompanying implementation guides. As an HL7 FHIR Implementation Guide, changes to this specification are managed by the sponsoring Clinical Quality Information Work Group and are incorporated as part of the standard balloting process.</p>
+
+<h3>Background</h3>
+
+<p>Clinical quality measures (CQMs) are tools that help measure and track the quality of health care services that eligible professionals (EPs), eligible hospitals, and critical access hospitals (CAHs) provide. Measuring and reporting CQMs helps to ensure that our health care system is delivering effective, safe, efficient, patient-centered, equitable, and timely care. CQMs measure many aspects of patient care, including:</p>
+
+<ul>
+  <li>Patient and Family Engagement</li>
+  <li>Patient Safety</li>
+  <li>Care Coordination</li>
+  <li>Population/Public Health</li>
+  <li>Efficient Use of Healthcare Resources</li>
+  <li>Clinical Process/Effectiveness</li>
+</ul>
+
+<h4>Who are all the players in the Quality space?</h4>
+
+<ul>
+  <li>Policy Directions on Quality<br/>
+    <ul><li>National Priorities Partnership, National Quality Strategy, Centers for Medicare & Medicaid Services (CMS), Office of the National Coordinator for Health Information Technology (ONC)</li></ul>
+  </li>
+  <li>Measure Requesters<br/>
+    <ul>
+      <li>External demands of quality measures for accountability (CMS, National Committee for Quality Assurance [NCQA], PCPI, The Joint Commission)</li>
+      <li>Internal demands for quality measures for improvement (quality improvement programs)</li>
+    </ul>
+  </li>
+  <li>Measure Developers (organizations that define clinical quality measures)<br/>
+    <ul>
+      <li>Measurement Development Partnership, NCQA, The Joint Commission, and others</li>
+    </ul>
+  </li>
+  <li>Standards Developers<br/>
+    <ul>
+      <li>HL7, Integrating the Healthcare Enterprise (IHE), International Health Terminology Standards Development Organisation (IHTSDO), and others</li>
+    </ul>
+  </li>
+  <li>Electronic Health Record (EHR)/Tool Developers<br/>
+    <ul>
+      <li>EHR vendors, quality reporting tool developers</li>
+    </ul>
+  </li>
+  <li>Measure Reporters and Users<br/>
+    <ul>
+      <li>Aggregators (organizations that collects measure data): Health Plans, Public Programs, and others</li>
+      <li>Providers: Healthcare organizations</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Quality Improvement Ecosystem</h4>
 
 <img src="assets/images/quality-improvement-ecosystem.png" alt="Quality Improvement Ecosystem"/>
 
 <p>Quality Improvement Ecosystem</p>
 
-
 <p>TODO: Quality Improvement Ecosystem Text</p>
 
-<h3>Quality Measurement Standards Landscape</h3>
+<h4>Quality Measurement Standards Landscape</h4>
 
 <p>This implementation guide is part of a larger FHIR-based quality improvement and quality measurement standards landscape, depicted in the following diagram:</p>
 
@@ -38,31 +93,31 @@ layout: default
 
 <p>The shaded areas underlying the stakeholders depict the various standards involved:</p>
 
-<h4>Fast Healthcare Interoperability Resources (FHIR)</h4>
+<h5>Fast Healthcare Interoperability Resources (FHIR)</h5>
 
 <p>Fast Healthcare Interoperability Resources, or FHIR, is an HL7 platform specification for healthcare that supports exchange of healthcare information between systems. FHIR is universally applicable, meaning that it can be used in a broad variety of implementation environments. The platform provides layers of implementation that support foundational protocols; base implementation functionality such as conformance and terminology; administrative functionality to represent patients, care teams, locations, and organizations; healthcare processes including clinical and diagnostic information, as well as medication, workflow, and financial; and finally, a clinical reasoning layer that provides support for the representation of knowledge and reasoning about healthcare.</p>
 
 <p>The quality measurement standards landscape makes use of all these layers of FHIR: the foundational and implementation layers to define interactions and profiles; the administrative and process layers to represent the data of interest for quality measurement; and the clinical reasoning layer to specify and support evaluation and reporting of quality measures.</p>
 
-<h4>Clinical Quality Language (CQL)</h4>
+<h5>Clinical Quality Language (CQL)</h5>
 
 <p>Clinical Quality Language, or CQL, is an HL7 cross-paradigm specification that defines a high-level, domain-specific language focused on clinical quality and trageted at measure and decision support artifact authors. In addition, the specification describes a machine-readable canonical representation called Expression Logical Model (ELM) targeted at implementations and designed to facilitate sharing and evaluation of clinical knowledge.</p>
 
 <p>This ability to render clinical knowledge in a high-level human-readable form as well as an intermediate-level, platform-independent machine-readable form makes CQL an ideal mechanism for specifying the criteria involved in quality measures.</p>
 
-<h4>FHIR Quality Measure Implementation Guide</h4>
+<h5>FHIR Quality Measure Implementation Guide</h5>
 
 <p>The FHIR Quality Measure Implementation Guide defines conformance profiles and guidance focused on the specification of quality measures using the FHIR Measure and Library resources. The IG does not standardize the content of any particular measure, rather it defines the standard approach to the representation of that content so that quality measure specifiers can define and share standardized FHIR-based electronic Clinical Quality Measures (eCQMs).<p>
   
-<h4>Quality Improvement Core Implementation Guide (QI Core IG)</h4>
+<h5>Quality Improvement Core Implementation Guide (QI Core IG)</h5>
 
 <p>The Quality Improvement Core Implementation Guide, or QI-Core IG, defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. Importantly, the scope of QI Core includes both quality measurement and decision support to ensure that knowledge expressed can be shared across both domains. QI Core is derived from US Core, meaning that where possible, QI Core profiles are based on US Core to ensure alignment with and support for quality improvement data within healthcare systems in the US Realm.</p>
 
-<h4>Data Exchange for Quality Measures (DEQM)</h4>
+<h5>Data Exchange for Quality Measures (DEQM)</h5>
 
 <p>The Data Exchange for Quality Measures Implementation Guide, or DEQM, defines conformance profiles and guidance focused on the exchange of the data of interest for quality measures, as well as quality measure reporting. The DEQM expects to use quality measures specified in accordance with the Quality Measure IG and QI Core.</p>
 
-<h3>Data Model Standards Landscape</h3>
+<h4>Data Model Standards Landscape</h4>
 
 <p>The quality improvement ecosystem covers practically every aspect of the healthcare delivery system, and has the need to represent information involved across that spectrum. FHIR provides a foundation for the representation of all this information, but in a universally applicable way. As such, more specifity is needed to capture the intended meaning of healthcare information in particular use cases. As FHIR is more and more broadly adopted, consensus among participating stakeholders on the use of particular profiles and patterns enables semantic interoperability in more and more use cases.</p>
 
@@ -85,7 +140,7 @@ layout: default
   <li><b>Promote data-related profiles.</b> When it becomes necessary to define a data-related profile at the measurement-specific level (in DEQM or HEDIS for example), steps should be taken to promote that profile to the broadest consensus group possible.</li>
 </ol>
 
-<h4>FHIR Versioning Support</h4>
+<h5>FHIR Version Support</h5>
 
 <p>There are three broadly used and fully published versions of the FHIR specification:</p>
 
@@ -127,16 +182,25 @@ layout: default
   <li><b>Patient List</b> - Used to report the results of a quality measure for the applicable population, including the complete set of data-of-interest, to a quality reporting receiver</li>
 </ol>
 
-<h3>Contents</h3>
-<p><a href="introduction.html">Introduction</a></p>
-<!-- TODO: Move this section to the Clinical Reasoning Module -->
-<!--<p><a href="overview.html">Overview</a></p>-->
-<!-- TODO: Move this section to the Clinical Reasoning Module -->
-<!--<p><a href="measure-components.html">Measure Components</a></p>-->
-<p><a href="measure-conformance.html">Measure Conformance</a></p>
-<!-- TODO: This section is not complete, consider it a stretch goal for the May ballot -->
-<!--<p><a href="composite-measures.html">Composite Measures</a></p>-->
-<p><a href="using-cql.html">Using CQL</a></p>
-<p><a href="examples.html">Examples</a></p>
-<p><a href="glossary.html">Glossary</a></p>
-<p><a href="acknowledgements.html">Acknowledgements</a></p>
+<h3>How to read this Guide</h3>
+<p>This Guide is divided into several pages which are listed at the top of each page in the menu bar:</p>
+
+<ul>
+  <li><b><a href="index.html">Home</a></b>: The home page provides the summary and background information for the FHIR Quality Measure Implementation Guide</li>
+  <li><b><a href="introduction.html">Introduction</a></b>: The introduction provides a more detailed overview of quality measurement and the background for this guide</li>
+  <!-- TODO: Move this section to the Clinical Reasoning Module -->
+  <!--<li><a href="overview.html">Overview</a></li>-->
+  <!-- TODO: Move this section to the Clinical Reasoning Module -->
+  <!--<li><a href="measure-components.html">Measure Components</a></li>-->
+  <li><b><a href="measure-conformance.html">eCQMs</a></b>: This page describes measure representation and conformance requirements for eCQMs</li>
+  <!-- TODO: This section is not complete, consider it a stretch goal for the May ballot -->
+  <!--<li><a href="composite-measures.html">Composite Measures</a></li>-->
+  <li><b><a href="using-cql.html">Using CQL</a></b>: This page covers using Clinical Quality Language to author eCQMs</li>
+  <li><b><a href="examples.html">Examples</a></b>: This page provides examples used in the other pages, as well as by the Data Exchange for Quality Measures IG</li>
+  <li><b><a href="profiles.html">Profiles/Extensions</a></b>: This page lists the set of profiles and extensions defined for use by eCQMs</li>
+  <li><b><a href="terminology.html">Terminology</a></b>: This page lists value sets and code systems defined in this IG</li>
+  <li><b><a href="glossary.html">Glossary</a></b>: This page defines terms related to quality measurement.</li>
+  <li><b><a href="downloads.html">Downloads</a></b>: This page provides links to downloadable artifacts for implementations.</li>
+  <li><b><a href="acknowledgements.html">Acknowledgements</a></b></li>
+</ul>
+
