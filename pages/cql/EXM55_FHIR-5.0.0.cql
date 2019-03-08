@@ -38,7 +38,7 @@ define "Measure Population Exclusion" :
         and ED.hospitalization.admitSource in "Hospital Settings" 
 
 define function "PrincipalDiagnosis"(Encounter Encounter):
-	(singleton from (Encounter.diagnosis D where D.role ~ "Billing" and D.rank = 1)) PD
+	(singleton from (Encounter.diagnosis D where D.role ~ ToConcept("Billing") and D.rank = 1)) PD
 		return singleton from ([Condition: id in "GetId"(PD.condition.reference)])
 
 define function "LengthInDays"(Value Interval<DateTime>):
@@ -60,11 +60,11 @@ define "Stratification 3" :
     where PrincipalDiagnosis(Encounter) is null 
 
 //Measure Observation
-define function "Related ED Visit" (Encounter "Encounter, Performed" ) : 
+define function "Related ED Visit" (Encounter "Encounter" ) : 
   Last(["Encounter" : "Emergency Department Visit"] ED 
     where ED.status = 'finished'
       and ED.period ends 1 hour or less before start of Encounter.period
     sort by start of period ) 
 
-define function "Measure Observation" (Encounter "Encounter, Performed" ) : 
+define function "Measure Observation" (Encounter "Encounter" ) : 
   duration in minutes of "Related ED Visit"(Encounter).period

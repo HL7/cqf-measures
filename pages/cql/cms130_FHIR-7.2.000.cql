@@ -2,10 +2,11 @@ library ColorectalCancerScreening version '7.2.000'
 
 using FHIR version '3.0.0'
 
-include AdultOutpatientEncountersFHIR version '1.1.000' called AdultOutpatientEncounters
-include MATGlobalCommonFunctionsFHIR version '2.0.000' called Global
-include HospiceFHIR version '1.0.000' called Hospice
+include AdultOutpatientEncounters_FHIR version '1.1.000' called AdultOutpatientEncounters
+include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
+include Hospice_FHIR version '1.0.000' called Hospice
 include FHIRHelpers version '3.0.0' called FHIRHelpers
+include SupplementalDataElements_FHIR version '1.0.0' called SDE
 
 valueset "ONC Administrative Sex": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
 valueset "Race": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
@@ -23,46 +24,17 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Ethnicity Categories":
-		flatten (
-        (
-            Patient.extension Extensions
-                where Extensions.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
-        ) EthnicityExtensions
-            where EthnicityExtensions.extension.url = 'ombCategory'
-        return EthnicityExtensions.extension
-		)
-
 define "SDE Ethnicity":
-		"Ethnicity Categories" EthnicityExt
-				where FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding) in "Ethnicity"
-		return FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding).display
+  SDE."SDE Ethnicity"
 
 define "SDE Payer":
-    [Coverage: type in "Payer"] Payer
-      return {
-        code: Payer.type,
-        period: Payer.period
-      }
-
-define "Race Categories":
-		flatten (
-        (
-            Patient.extension Extensions
-                where Extensions.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
-        ) RaceExtensions
-            where RaceExtensions.extension.url = 'ombCategory'
-        return RaceExtensions.extension
-    )
+  SDE."SDE Payer"
 
 define "SDE Race":
-		"Race Categories" RaceExt
-				where FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding) in "Race"
-		return FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding).display
+  SDE."SDE Race"
 
 define "SDE Sex":
-	[Patient] P where P.gender in {'male', 'female'}
-	  return P.gender
+  SDE."SDE Sex"
 
 define "Denominator":
 	true
@@ -95,7 +67,7 @@ define "Fecal Occult Blood Test Performed":
 
 define "Fecal Immunochemical Test DNA":
 	[Observation: "FIT DNA"] FitDNA
-			and FitDNA.value is not null
+		where FitDNA.value is not null
 			and FitDNA.effective occurs 3 years or less on or before day of end of "Measurement Period"
 			// and FitDNA.FHIR.provenance.recorded occurs 3 years or less on or before end of "Measurement Period"
 

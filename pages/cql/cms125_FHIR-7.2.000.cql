@@ -2,10 +2,11 @@ library BreastCancerScreening version '7.2.000'
 
 using FHIR version '3.0.0'
 
-include MATGlobalCommonFunctionsFHIR version '2.0.000' called Global
-include AdultOutpatientEncountersFHIR version '1.1.000' called AdultOutpatientEncounters
-include HospiceFHIR version '1.0.000' called Hospice
+include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
+include AdultOutpatientEncounters_FHIR version '1.1.000' called AdultOutpatientEncounters
+include Hospice_FHIR version '1.0.000' called Hospice
 include FHIRHelpers version '3.0.0' called FHIRHelpers
+include SupplementalDataElements_FHIR version '1.0.0' called SDE
 
 valueset "ONC Administrative Sex": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
 valueset "Race": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
@@ -26,47 +27,17 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Ethnicity Categories":
-		flatten (
-        (
-            Patient.extension Extensions
-                where Extensions.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
-        ) EthnicityExtensions
-            where EthnicityExtensions.extension.url = 'ombCategory'
-        return EthnicityExtensions.extension
-		)
-
 define "SDE Ethnicity":
-		"Ethnicity Categories" EthnicityExt
-				where FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding) in "Ethnicity"
-		return FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding).display
+  SDE."SDE Ethnicity"
 
 define "SDE Payer":
-    [Coverage: type in "Payer"] Payer
-      return {
-        code: Payer.type,
-        period: Payer.period
-      }
-
-
-define "Race Categories":
-		flatten (
-        (
-            Patient.extension Extensions
-                where Extensions.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
-        ) RaceExtensions
-            where RaceExtensions.extension.url = 'ombCategory'
-        return RaceExtensions.extension
-    )
+  SDE."SDE Payer"
 
 define "SDE Race":
-		"Race Categories" RaceExt
-				where FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding) in "Race"
-		return FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding).display
+  SDE."SDE Race"
 
 define "SDE Sex":
-		[Patient: gender in "ONC Administrative Sex"] P
-			return P.gender
+  SDE."SDE Sex"
 
 define "Denominator":
 		"Initial Population"

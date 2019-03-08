@@ -4,26 +4,29 @@ using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
-// TODO: Determine how to reference a particular version of LOINC
-codesystem "LOINC:2.46": 'http://loinc.org' version 'urn:hl7:version:2.46'
-codesystem "SNOMEDCT:2016-03": 'http://snomed.info/sct/731000124108' version 'http://snomed.info/sct/731000124108/version/201603'
+codesystem "LOINC": 'http://loinc.org'
+codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
 codesystem "RoleCode": 'http://hl7.org/fhir/v3/RoleCode'
+codesystem "Diagnosis Role": 'http://hl7.org/fhir/diagnosis-role'
 
 valueset "Encounter Inpatient": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307'
 valueset "Emergency Department Visit": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292'
 
-code "Birthdate": '21112-8' from "LOINC:2.46" display 'Birth date'
-code "Dead": '419099009' from "SNOMEDCT:2016-03" display 'Dead'
+code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
+code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
 code "ER": 'ER' from "RoleCode" display 'Emergency room'
 code "ICU": 'ICU' from "RoleCode" display 'Intensive care unit'
+code "Billing": 'billing' from "Diagnosis Role" display 'Billing'
+
+parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define function "Inpatient Encounter"(MeasurementPeriod Interval<DateTime>):
+define "Inpatient Encounter":
 	[Encounter: "Encounter Inpatient"] EncounterInpatient
 		where EncounterInpatient.status = 'finished'
 		    and "LengthInDays"(EncounterInpatient.period) <= 120
-			and EncounterInpatient.period ends during MeasurementPeriod
+			and EncounterInpatient.period ends during "Measurement Period"
 
 define function "ToDate"(Value DateTime):
 	DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezone from Value)
@@ -123,3 +126,21 @@ define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Per
 define function "Get Choice Interval - dateTime or Period"(performed Choice<FHIR.dateTime,FHIR.Period>):
 	if performed is FHIR.dateTime then Interval[performed.value, performed.value]
 	else FHIRHelpers.ToInterval(performed as FHIR.Period)
+
+define function "GetId"(uri String):
+	Last(Split(uri, '/'))
+
+define function "EncounterDiagnosis"(Encounter Encounter):
+  Encounter.diagnosis D
+    return singleton from ([Condition: id in "GetId"(D.condition.reference)])
+
+// Returns the condition that is specified as the principal diagnosis for the encounter
+define function "PrincipalDiagnosis"(Encounter Encounter):
+	(singleton from (Encounter.diagnosis D where D.role ~ ToConcept("Billing") and D.rank = 1)) PD
+		return singleton from ([Condition: id in "GetId"(PD.condition.reference)])
+
+// Returns the location for the given location reference
+define function GetLocation(reference Reference):
+  singleton from (
+    [Location: id in GetId(reference.reference)]
+  )

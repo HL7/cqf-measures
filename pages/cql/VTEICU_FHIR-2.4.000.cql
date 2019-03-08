@@ -3,6 +3,7 @@ library VTEICU_FHIR version '2.4.000'
 using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0' called FHIRHelpers
+include MATGlobalCommonFunctions_FHIR version '2.0.000' called Common
 
 // TODO: Determine how to reference a particular version of LOINC
 codesystem "LOINC:2.46": 'http://loinc.org' version 'urn:hl7:version:2.46'
@@ -28,7 +29,8 @@ define function "Start of First ICU"(Encounter "Encounter"):
 
 define function "First Intensive Care Unit"(Encounter "Encounter"):
 	First(Encounter.location L
-			where L.type in "Intensive Care Unit"
+			where Common.GetLocation(L.location).type in "Intensive Care Unit"
 				and L.period during Encounter.period
 			sort by start of period
 	)
+

@@ -2,10 +2,11 @@ library CervicalCancerScreening version '7.2.000'
 
 using FHIR version '3.0.0'
 
-include MATGlobalCommonFunctionsFHIR version '2.0.000' called Global
-include AdultOutpatientEncountersFHIR version '1.1.000' called AdultOutpatientEncounters
-include HospiceFHIR version '1.0.000' called Hospice
+include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
+include AdultOutpatientEncounters_FHIR version '1.1.000' called AdultOutpatientEncounters
+include Hospice_FHIR version '1.0.000' called Hospice
 include FHIRHelpers version '3.0.0' called FHIRHelpers
+include SupplementalDataElements_FHIR version '1.0.0' called SDE
 
 codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108' version 'http://snomed.info/sct/731000124108/version/201709'
 
@@ -28,47 +29,17 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Ethnicity Categories":
-		flatten (
-        (
-            Patient.extension Extensions
-                where Extensions.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
-        ) EthnicityExtensions
-            where EthnicityExtensions.extension.url = 'ombCategory'
-        return EthnicityExtensions.extension
-		)
-    
 define "SDE Ethnicity":
-		"Ethnicity Categories" EthnicityExt
-				where FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding) in "Ethnicity"
-		return FHIRHelpers.ToCode(EthnicityExt.value as FHIR.Coding).display
+  SDE."SDE Ethnicity"
 
 define "SDE Payer":
-    [Coverage: type in "Payer"] Payer
-      return {
-        code: Payer.type,
-        period: Payer.period
-      }
-
-
-define "Race Categories":
-		flatten (
-        (
-            Patient.extension Extensions
-                where Extensions.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
-        ) RaceExtensions
-            where RaceExtensions.extension.url = 'ombCategory'
-        return RaceExtensions.extension
-    )
+  SDE."SDE Payer"
 
 define "SDE Race":
-		"Race Categories" RaceExt
-				where FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding) in "Race"
-		return FHIRHelpers.ToCode(RaceExt.value as FHIR.Coding).display
+  SDE."SDE Race"
 
 define "SDE Sex":
-		[Patient: gender in "ONC Administrative Sex"] P
-			return P.gender
+  SDE."SDE Sex"
 
 define "Numerator":
 	exists "Pap Test Within 3 Years"
@@ -109,7 +80,7 @@ define "Denominator Exclusion":
 
 define "Absence of Cervix":
 	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
-		where NoCervixBirth.onset starts before end "Measurement Period"
+		where NoCervixBirth.onset as FHIR.dateTime before end "Measurement Period"
 			and NoCervixBirth.clinicalStatus = 'active'
 
 define "Surgical Absence of Cervix":

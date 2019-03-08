@@ -7,7 +7,7 @@ include FHIRHelpers version '3.0.0' called FHIRHelpers
 // NOTE: Versioning is used in this example to illustrate completely how versioning is applied
 // References to specific versions of code systems and value sets should be used only when necessary
 
-codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108' 
+codesystem "SNOMED-CT:2017-09": 'http://snomed.info/sct/731000124108' 
   version 'http://snomed.info/sct/731000124108/version/201709'
 
 valueset "Encounter Inpatient SNOMEDCT Value Set":
@@ -23,7 +23,7 @@ define "Inpatient Encounter":
     where E.status = 'finished'
     
 define "Venous Foot Pumps Applied":
-  ["DeviceUseStatement": device.code in "Venous foot pump, device (physical object)"] D
+  ["DeviceUseStatement": code in "Venous foot pump, device (physical object)"] D
     where D.status = 'completed'
-      and D.bodySite ~ "Right foot"
+      and D.bodySite ~ ToConcept("Right foot")
 
