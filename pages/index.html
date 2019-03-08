@@ -19,20 +19,21 @@ layout: default
 
 <h3>Background</h3>
 
-<p>Clinical quality measures (CQMs) are tools that help measure and track the quality of health care services that eligible clinicians (ECs), eligible hospitals (EHs), and critical access hospitals (CAHs) provide. Measuring and reporting CQMs helps to ensure that our health care system is delivering effective, safe, efficient, patient-centered, equitable, and timely care. CQMs measure many aspects of patient care, including:</p>
+<p>Clinical quality measures (CQMs) are tools that help measure and track the quality of health care services that eligible clinicians (ECs), eligible hospitals (EHs), and critical access hospitals (CAHs) provide. Measuring and reporting CQMs helps to ensure that our health care system is delivering effective, safe, efficient, patient-centered, equitable, and timely care. CQMs measure many aspects of patient care, including:[^1]</p>
 
 <ul>
   <li>Patient and Family Engagement</li>
   <li>Patient Safety</li>
   <li>Care Coordination</li>
-  <li>Population/Public Health</li>
+  <li>Public Health</li>
+  <li>Population Health Management</li>
   <li>Efficient Use of Healthcare Resources</li>
   <li>Clinical Process/Effectiveness</li>
 </ul>
 
 <p>Before Electronic Health Record (EHR) systems, chart-abstracted CQMs were predominant. Modern EHR systems enable electronic CQMs, or eCQMs.</p>
 
-<h4>Who are all the players in the Quality space?</h4>
+<h4>Who are all the players in the Quality space?[^2]</h4>
 
 <ul>
   <li>Policy Directors on Quality<br/>
@@ -65,6 +66,11 @@ layout: default
       <li>Providers: Healthcare organizations</li>
     </ul>
   </li>
+  <li>Public Health
+    <ul>
+      <li>Pan American Health Organization (PAHO), World Health Organization (WHO), National Institutes of Health (NIH), American Medical Association (AMA)
+    </ul>
+  </li>
 </ul>
 
 <h4>Quality Improvement Ecosystem</h4>
@@ -73,7 +79,7 @@ layout: default
 
 <p>Quality Improvement Ecosystem</p>
 
-<p>The Quality Improvement Ecosystem begins with information, preferably evidence-based from research public health surveillance, and data mining and other analyses performed by third parties such as payers. Such information indicates existing status and knowledge about a given clinical topic. Stakeholders such as professional societies, public health and governmental bodies and healthcare insurers have various methods for publishing such information to assure awareness among consumers, healthcare practitioners and healthcare organizations about what is known and suggested methods for managing the clinical topic. Ideally, suggested management efforts are captured and documented in guidelines based on collaboration among clinical subject matter experts, terminologists, informaticists, clinicians and consumers. Subsequent steps translate these clinical guidelines into clinical decision support (CDS) artifacts to incorporate valuable clinical recommendations and actions directly within clinical workflow. To adequately impact clinical care for clinicians and patients requires local implementation activities. Ideally, the clinical guidelines and CDS include methods for evaluating what successful implementation means, i.e., whether the clinical care ultimately provided included processes that addressed the intent of the guideline and if it achieved the desired outcomes.  To close the loop and enable continuous improvement the results of such measurement analytics must be reported for aggregate review. Reporting also serves the purpose of evaluating clinical performance and outcomes for healthcare organizations, for public health and for payers. For additional information about idealized processes for moving evidence and information from guidelines to CDS and measurement, refer to an effort by the Centers for Disease Control and Prevention (CDC) called Adapting Clinical Guidelines for the Digital Age.[^2]</p>
+<p>The Quality Improvement Ecosystem begins with information, preferably evidence-based from research public health surveillance, and data mining and other analyses performed by third parties such as payers. Such information indicates existing status and knowledge about a given clinical topic. Stakeholders such as professional societies, public health and governmental bodies and healthcare insurers have various methods for publishing such information to assure awareness among consumers, healthcare practitioners and healthcare organizations about what is known and suggested methods for managing the clinical topic. Ideally, suggested management efforts are captured and documented in guidelines based on collaboration among clinical subject matter experts, terminologists, informaticists, clinicians and consumers. Subsequent steps translate these clinical guidelines into clinical decision support (CDS) artifacts to incorporate valuable clinical recommendations and actions directly within clinical workflow. To adequately impact clinical care for clinicians and patients requires local implementation activities. Ideally, the clinical guidelines and CDS include methods for evaluating what successful implementation means, i.e., whether the clinical care ultimately provided included processes that addressed the intent of the guideline and if it achieved the desired outcomes.  To close the loop and enable continuous improvement the results of such measurement analytics must be reported for aggregate review. Reporting also serves the purpose of evaluating clinical performance and outcomes for healthcare organizations, for public health and for payers. For additional information about idealized processes for moving evidence and information from guidelines to CDS and measurement, refer to an effort by the Centers for Disease Control and Prevention (CDC) called Adapting Clinical Guidelines for the Digital Age.[^4]</p>
 
 <h4>Quality Measurement Standards Landscape</h4>
 
@@ -93,7 +99,7 @@ layout: default
 
 <p><b>Specifiers</b> in the diagram represents the various stakeholders involved in the specification of quality measures for use in healthcare quality measurement and reporting. Specifiers can include quality agencies, public health, and other healthcare-related agencies, industry consortiums concerned with improving care quality, and clinical professional societies. Specifiers may also be institutions and clinics using the quality measurement standards to specify quality measures for use in their own environments and quality improvement initiatives.</p>
 
-<p>The shaded areas underlying the stakeholders depict the various standards[^3] involved:</p>
+<p>The shaded areas underlying the stakeholders depict the various standards[^5] involved:</p>
 
 <h5>Fast Healthcare Interoperability Resources (FHIR)</h5>
 
@@ -111,9 +117,9 @@ layout: default
 
 <p>The FHIR Quality Measure Implementation Guide defines conformance profiles and guidance focused on the specification of quality measures using the FHIR Measure and Library resources. The IG does not standardize the content of any particular measure, rather it defines the standard approach to the representation of that content so that quality measure specifiers can define and share standardized FHIR-based electronic Clinical Quality Measures (eCQMs).<p>
   
-<h5>Quality Improvement Core Implementation Guide (QI Core IG)</h5>
+<h5>Quality Improvement Core Implementation Guide (QI Core)</h5>
 
-<p>The Quality Improvement Core Implementation Guide, or QI-Core IG, defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. Importantly, the scope of QI Core includes both quality measurement and decision support to ensure that knowledge expressed can be shared across both domains. QI Core is derived from US Core, meaning that where possible, QI Core profiles are based on US Core to ensure alignment with and support for quality improvement data within healthcare systems in the US Realm.</p>
+<p>The Quality Improvement Core Implementation Guide, or QI-Core, defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. Importantly, the scope of QI Core includes both quality measurement and decision support to ensure that knowledge expressed can be shared across both domains. QI Core is derived from US Core, meaning that where possible, QI Core profiles are based on US Core to ensure alignment with and support for quality improvement data within healthcare systems in the US Realm.</p>
 
 <h5>Data Exchange for Quality Measures (DEQM)</h5>
 
@@ -154,36 +160,6 @@ layout: default
 
 <p>The implementation guides in this landscape are currently focused on FHIR STU3, with the plan to produce R4 versions once the US Core and QI Core profiles have been updated to R4.</p>
 
-<h3>Quality Reporting Scenarios</h3>
-
-<p>This implementation guide describes two groups of quality reporting scenarios. Exchange scenarios, focused on exchanging subsets of the data-of-interest for a particular measure or set of measures throughout the reporting period, and Reporting scenarios, focused on communicating the results of a quality measure at the end of a reporting period as part of a quality improvement initiative.</p>
-
-<img src="assets/images/quality-reporting-scenarios.png" alt="Quality Reporting Scenarios"/>
-
-<h4>Exchange Scenarios</h4>
-
-<p>Exchange scenarios are used to exchange subsets of the data-of-interest for a measure or set of measures throughout the measurement period. These scenarios enable providers and quality stakeholders such as payers, accountable care organizations, and other secondary use partners to keep better track of how patients are performing with respect to a particular quality measure during the measurement cycle.</p>
-
-<p>The three exchange scenarios are:</p>
-
-<ol>
-  <li><b>Submit Data</b> - Used by a producing system to submit a subset of the data-of-interest for a measure to a consuming system</li>
-  <li><b>Collect Data</b> - Used by a consuming system to collect a subset of the data-of-interest for a measure from a producing system</li>
-  <li><b>Subscription</b> - Used to allow the producing system to notify the consuming system when new or updated data-of-interest for a measure is available</li>
-</ol>
-
-<h4>Reporting Scenarios</h4>
-
-<p>Reporting scenarios are used to report the results of quality measures on patients or populations at the end of a reporting period. Measure reports are provided to attest the standard of care given to patients in a population as measured by specific quality measures. The measures are typically identified as part of a quality improvement program or initiative by a payer or other quality improvement stakeholder.</p>
-
-<p>The three reporting scenarios are:</p>
-
-<ol>
-  <li><b>Individual</b> - Used to report the results of a quality measure for a particular patient along with the complete set of data-of-interest to a quality reporting receiver</li>
-  <li><b>Summary</b> - Used to report the results of a quality measure for the applicable population to a quality reporting receiver</li>
-  <li><b>Patient List</b> - Used to report the results of a quality measure for the applicable population, including the complete set of data-of-interest, to a quality reporting receiver</li>
-</ol>
-
 <h3>How to read this Guide</h3>
 <p>This Guide is divided into several pages which are listed at the top of each page in the menu bar:</p>
 
@@ -206,6 +182,8 @@ layout: default
   <li><b><a href="acknowledgements.html">Acknowledgements</a></b></li>
 </ul>
 
-[^1]: Health IT Enabled Quality Improvement - A Vision to Achieve Better Health and Health Care <https://www.healthit.gov/sites/default/files/HITEnabledQualityImprovement-111214.pdf>
-[^2]: Adapting Clinical Guidelines for the Digital Age <https://www.cdc.gov/ddphss/clinical-guidelines/index.html>
-[^3]: Clinical Quality Framework <https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework>
+[^1]: https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html
+[^2]: https://www.hl7.org/documentcenter/public_temp_6C1C8F48-1C23-BA17-0C77FDFC69A7B6F1/calendarofevents/himss/2017/Health%20IT%20Enabled%20Quality%20Measurement%20and%20Improvement_The%20HL7%20Clinical%20Quality%20Work%20Group.pdf
+[^3]: Health IT Enabled Quality Improvement - A Vision to Achieve Better Health and Health Care <https://www.healthit.gov/sites/default/files/HITEnabledQualityImprovement-111214.pdf>
+[^4]: Adapting Clinical Guidelines for the Digital Age <https://www.cdc.gov/ddphss/clinical-guidelines/index.html>
+[^5]: Clinical Quality Framework <https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework>

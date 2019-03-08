@@ -1,0 +1,344 @@
+{
+   "library" : {
+      "identifier" : {
+         "id" : "Common_FHIR",
+         "version" : "2.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "1",
+            "locator" : "10:1-10:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "3.0.0"
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "2",
+            "locator" : "12:1-12:54",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "3.0.0"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "locator" : "14:1-14:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "locator" : "14:1-14:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
+            "localId" : "19",
+            "locator" : "16:1-19:51",
+            "name" : "Includes Or Starts During",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "19",
+                  "s" : [ {
+                     "value" : [ "define function \r\n   ","\"Includes Or Starts During\"","(","Condition"," " ]
+                  }, {
+                     "r" : "3",
+                     "s" : [ {
+                        "value" : [ "Condition" ]
+                     } ]
+                  }, {
+                     "value" : [ ", ","Encounter"," " ]
+                  }, {
+                     "r" : "4",
+                     "s" : [ {
+                        "value" : [ "Encounter" ]
+                     } ]
+                  }, {
+                     "value" : [ "):\r\n      " ]
+                  }, {
+                     "r" : "18",
+                     "s" : [ {
+                        "r" : "18",
+                        "s" : [ {
+                           "r" : "12",
+                           "s" : [ {
+                              "r" : "9",
+                              "s" : [ {
+                                 "value" : [ "Interval[" ]
+                              }, {
+                                 "r" : "6",
+                                 "s" : [ {
+                                    "r" : "5",
+                                    "s" : [ {
+                                       "value" : [ "Condition" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "6",
+                                    "s" : [ {
+                                       "value" : [ "onset" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ", " ]
+                              }, {
+                                 "r" : "8",
+                                 "s" : [ {
+                                    "r" : "7",
+                                    "s" : [ {
+                                       "value" : [ "Condition" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "8",
+                                    "s" : [ {
+                                       "value" : [ "abatement" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ "]" ]
+                              } ]
+                           }, {
+                              "r" : "12",
+                              "value" : [ " ","includes"," " ]
+                           }, {
+                              "r" : "11",
+                              "s" : [ {
+                                 "r" : "10",
+                                 "s" : [ {
+                                    "value" : [ "Encounter" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "11",
+                                 "s" : [ {
+                                    "value" : [ "period" ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\r\n         or " ]
+                        }, {
+                           "r" : "17",
+                           "s" : [ {
+                              "r" : "14",
+                              "s" : [ {
+                                 "r" : "13",
+                                 "s" : [ {
+                                    "value" : [ "Condition" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "14",
+                                 "s" : [ {
+                                    "value" : [ "onset" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "r" : "17",
+                              "value" : [ " ","during"," " ]
+                           }, {
+                              "r" : "16",
+                              "s" : [ {
+                                 "r" : "15",
+                                 "s" : [ {
+                                    "value" : [ "Encounter" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "16",
+                                 "s" : [ {
+                                    "value" : [ "period" ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "18",
+               "locator" : "18:7-19:51",
+               "type" : "Or",
+               "operand" : [ {
+                  "localId" : "12",
+                  "locator" : "18:7-18:78",
+                  "type" : "Contains",
+                  "operand" : [ {
+                     "localId" : "9",
+                     "locator" : "18:7-18:52",
+                     "lowClosed" : true,
+                     "highClosed" : true,
+                     "type" : "Interval",
+                     "low" : {
+                        "localId" : "6",
+                        "locator" : "18:16-18:30",
+                        "path" : "onset",
+                        "type" : "Property",
+                        "source" : {
+                           "localId" : "5",
+                           "locator" : "18:16-18:24",
+                           "name" : "Condition",
+                           "type" : "OperandRef"
+                        }
+                     },
+                     "high" : {
+                        "asType" : "{http://hl7.org/fhir}dateTime",
+                        "type" : "As",
+                        "operand" : {
+                           "type" : "As",
+                           "operand" : {
+                              "localId" : "8",
+                              "locator" : "18:33-18:51",
+                              "path" : "abatement",
+                              "type" : "Property",
+                              "source" : {
+                                 "localId" : "7",
+                                 "locator" : "18:33-18:41",
+                                 "name" : "Condition",
+                                 "type" : "OperandRef"
+                              }
+                           },
+                           "asTypeSpecifier" : {
+                              "type" : "ChoiceTypeSpecifier",
+                              "choice" : [ {
+                                 "name" : "{http://hl7.org/fhir}dateTime",
+                                 "type" : "NamedTypeSpecifier"
+                              }, {
+                                 "name" : "{http://hl7.org/fhir}Age",
+                                 "type" : "NamedTypeSpecifier"
+                              }, {
+                                 "name" : "{http://hl7.org/fhir}boolean",
+                                 "type" : "NamedTypeSpecifier"
+                              }, {
+                                 "name" : "{http://hl7.org/fhir}Period",
+                                 "type" : "NamedTypeSpecifier"
+                              }, {
+                                 "name" : "{http://hl7.org/fhir}Range",
+                                 "type" : "NamedTypeSpecifier"
+                              }, {
+                                 "name" : "{http://hl7.org/fhir}string",
+                                 "type" : "NamedTypeSpecifier"
+                              } ]
+                           }
+                        }
+                     }
+                  }, {
+                     "type" : "As",
+                     "operand" : {
+                        "localId" : "11",
+                        "locator" : "18:63-18:78",
+                        "path" : "period",
+                        "type" : "Property",
+                        "source" : {
+                           "localId" : "10",
+                           "locator" : "18:63-18:71",
+                           "name" : "Encounter",
+                           "type" : "OperandRef"
+                        }
+                     },
+                     "asTypeSpecifier" : {
+                        "type" : "ChoiceTypeSpecifier",
+                        "choice" : [ {
+                           "name" : "{http://hl7.org/fhir}dateTime",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "name" : "{http://hl7.org/fhir}Age",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "name" : "{http://hl7.org/fhir}Period",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "name" : "{http://hl7.org/fhir}Range",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "name" : "{http://hl7.org/fhir}string",
+                           "type" : "NamedTypeSpecifier"
+                        } ]
+                     }
+                  } ]
+               }, {
+                  "localId" : "17",
+                  "locator" : "19:13-19:51",
+                  "type" : "IncludedIn",
+                  "operand" : [ {
+                     "name" : "ToInterval",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "operand" : [ {
+                        "asType" : "{http://hl7.org/fhir}Period",
+                        "type" : "As",
+                        "operand" : {
+                           "localId" : "14",
+                           "locator" : "19:13-19:27",
+                           "path" : "onset",
+                           "type" : "Property",
+                           "source" : {
+                              "localId" : "13",
+                              "locator" : "19:13-19:21",
+                              "name" : "Condition",
+                              "type" : "OperandRef"
+                           }
+                        }
+                     } ]
+                  }, {
+                     "name" : "ToInterval",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "operand" : [ {
+                        "localId" : "16",
+                        "locator" : "19:36-19:51",
+                        "path" : "period",
+                        "type" : "Property",
+                        "source" : {
+                           "localId" : "15",
+                           "locator" : "19:36-19:44",
+                           "name" : "Encounter",
+                           "type" : "OperandRef"
+                        }
+                     } ]
+                  } ]
+               } ]
+            },
+            "operand" : [ {
+               "name" : "Condition",
+               "operandTypeSpecifier" : {
+                  "localId" : "3",
+                  "locator" : "17:42-17:50",
+                  "name" : "{http://hl7.org/fhir}Condition",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }, {
+               "name" : "Encounter",
+               "operandTypeSpecifier" : {
+                  "localId" : "4",
+                  "locator" : "17:63-17:71",
+                  "name" : "{http://hl7.org/fhir}Encounter",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         } ]
+      }
+   }
+}
+

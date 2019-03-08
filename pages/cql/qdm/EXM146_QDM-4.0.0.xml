@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="EXM146_QDM" version="4.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="10:1-10:25" localIdentifier="QDM" uri="urn:healthit-gov:qdm:v5_0_1_draft" version="5.0.2"/>
+   </usings>
+   <includes>
+      <def localId="2" locator="12:1-12:48" localIdentifier="Common" path="Common_QDM" version="2.0.0"/>
+   </includes>
+   <parameters>
+      <def localId="10" locator="20:1-20:49" name="Measurement Period" accessLevel="Public">
+         <parameterTypeSpecifier localId="9" locator="20:32-20:49" xsi:type="IntervalTypeSpecifier">
+            <pointType localId="8" locator="20:41-20:48" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <valueSets>
+      <def localId="3" locator="14:1-14:80" name="Acute Pharyngitis" id="urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011" accessLevel="Public"/>
+      <def localId="4" locator="15:1-15:80" name="Acute Tonsillitis" id="urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012" accessLevel="Public"/>
+      <def localId="5" locator="16:1-16:82" name="Ambulatory/ED Visit" id="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061" accessLevel="Public"/>
+      <def localId="6" locator="17:1-17:85" name="Antibiotic Medications" id="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001" accessLevel="Public"/>
+      <def localId="7" locator="18:1-18:89" name="Group A Streptococcus Test" id="urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012" accessLevel="Public"/>
+   </valueSets>
+   <statements>
+      <def locator="22:1-22:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="22:1-22:15" xmlns:ns0="urn:healthit-gov:qdm:v5_0_1_draft" dataType="ns0:Patient" templateId="Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="22" locator="26:1-28:58" name="In Demographic" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="22">
+               <a:s>define &quot;In Demographic&quot;:&#xd;
+   </a:s>
+               <a:s r="21">
+                  <a:s r="15">
+                     <a:s r="13">
+                        <a:s>AgeInYearsAt(</a:s>
+                        <a:s r="12">
+                           <a:s>start of </a:s>
+                           <a:s r="11">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                     <a:s r="14"> >= 2</a:s>
+                  </a:s>
+                  <a:s>&#xd;
+      and </a:s>
+                  <a:s r="20">
+                     <a:s r="18">
+                        <a:s>AgeInYearsAt(</a:s>
+                        <a:s r="17">
+                           <a:s>start of </a:s>
+                           <a:s r="16">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                     <a:s r="19"> &lt; 18</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="21" locator="27:4-28:58" xsi:type="And">
+            <operand localId="15" locator="27:4-27:51" xsi:type="GreaterOrEqual">
+               <operand localId="13" locator="27:4-27:46" precision="Year" xsi:type="CalculateAgeAt">
+                  <operand path="birthDatetime" xsi:type="Property">
+                     <source name="Patient" xsi:type="ExpressionRef"/>
+                  </operand>
+                  <operand localId="12" locator="27:17-27:45" xsi:type="Start">
+                     <operand localId="11" locator="27:26-27:45" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand localId="14" locator="27:51" valueType="t:Integer" value="2" xsi:type="Literal"/>
+            </operand>
+            <operand localId="20" locator="28:11-28:58" xsi:type="Less">
+               <operand localId="18" locator="28:11-28:53" precision="Year" xsi:type="CalculateAgeAt">
+                  <operand path="birthDatetime" xsi:type="Property">
+                     <source name="Patient" xsi:type="ExpressionRef"/>
+                  </operand>
+                  <operand localId="17" locator="28:24-28:52" xsi:type="Start">
+                     <operand localId="16" locator="28:33-28:52" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand localId="19" locator="28:57-28:58" valueType="t:Integer" value="18" xsi:type="Literal"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="24" locator="30:1-31:50" name="Antibiotics" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="24">
+               <a:s>define &quot;Antibiotics&quot;:&#xd;
+   </a:s>
+               <a:s r="23">
+                  <a:s>[&quot;Medication, Order&quot;: </a:s>
+                  <a:s>
+                     <a:s>&quot;Antibiotic Medications&quot;</a:s>
+                  </a:s>
+                  <a:s>]</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="23" locator="31:4-31:50" xmlns:ns1="urn:healthit-gov:qdm:v5_0_1_draft" dataType="ns1:PositiveMedicationOrder" templateId="PositiveMedicationOrder" codeProperty="code" xsi:type="Retrieve">
+            <codes name="Antibiotic Medications" xsi:type="ValueSetRef"/>
+         </expression>
+      </def>
+      <def localId="28" locator="33:1-34:78" name="Pharyngitis" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="28">
+               <a:s>define &quot;Pharyngitis&quot;:&#xd;
+   </a:s>
+               <a:s r="27">
+                  <a:s r="25">
+                     <a:s>[&quot;Diagnosis&quot;: </a:s>
+                     <a:s>
+                        <a:s>&quot;Acute Pharyngitis&quot;</a:s>
+                     </a:s>
+                     <a:s>]</a:s>
+                  </a:s>
+                  <a:s> union </a:s>
+                  <a:s r="26">
+                     <a:s>[&quot;Diagnosis&quot;: </a:s>
+                     <a:s>
+                        <a:s>&quot;Acute Tonsillitis&quot;</a:s>
+                     </a:s>
+                     <a:s>]</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="27" locator="34:4-34:78" xsi:type="Union">
+            <operand localId="25" locator="34:4-34:37" xmlns:ns2="urn:healthit-gov:qdm:v5_0_1_draft" dataType="ns2:Diagnosis" codeProperty="code" xsi:type="Retrieve">
+               <codes name="Acute Pharyngitis" xsi:type="ValueSetRef"/>
+            </operand>
+            <operand localId="26" locator="34:45-34:78" xmlns:ns3="urn:healthit-gov:qdm:v5_0_1_draft" dataType="ns3:Diagnosis" codeProperty="code" xsi:type="Retrieve">
+               <codes name="Acute Tonsillitis" xsi:type="ValueSetRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="38" locator="36:1-39:29" name="Measurement Period Encounters" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="38">
+               <a:s>define &quot;Measurement Period Encounters&quot;:&#xd;
+   </a:s>
+               <a:s r="37">
+                  <a:s>
+                     <a:s r="30">
+                        <a:s r="29">
+                           <a:s r="29">
+                              <a:s>[&quot;Encounter, Performed&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Ambulatory/ED Visit&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Encounter</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+      </a:s>
+                  <a:s r="36">
+                     <a:s>where </a:s>
+                     <a:s r="36">
+                        <a:s r="34">
+                           <a:s r="32">
+                              <a:s r="31">
+                                 <a:s>Encounter</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="32">
+                                 <a:s>relevantPeriod</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="34"> during </a:s>
+                           <a:s r="33">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+         and </a:s>
+                        <a:s r="35">
+                           <a:s>&quot;In Demographic&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="37" locator="37:4-39:29" xsi:type="Query">
+            <source localId="30" locator="37:4-37:60" alias="Encounter">
+               <expression localId="29" locator="37:4-37:50" xmlns:ns4="urn:healthit-gov:qdm:v5_0_1_draft" dataType="ns4:PositiveEncounterPerformed" templateId="PositiveEncounterPerformed" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Ambulatory/ED Visit" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="36" locator="38:7-39:29" xsi:type="And">
+               <operand localId="34" locator="38:13-38:64" xsi:type="IncludedIn">
+                  <operand localId="32" locator="38:13-38:36" path="relevantPeriod" scope="Encounter" xsi:type="Property"/>
+                  <operand localId="33" locator="38:45-38:64" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+               <operand localId="35" locator="39:14-39:29" name="In Demographic" xsi:type="ExpressionRef"/>
+            </where>
+         </expression>
+      </def>
+      <def localId="59" locator="41:1-46:64" name="Pharyngitis Encounters With Antibiotics" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="59">
+               <a:s>define &quot;Pharyngitis Encounters With Antibiotics&quot;:&#xd;
+   </a:s>
+               <a:s r="58">
+                  <a:s>
+                     <a:s r="40">
+                        <a:s r="39">
+                           <a:s>
+                              <a:s>&quot;Measurement Period Encounters&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Encounters</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+      </a:s>
+                  <a:s r="47">
+                     <a:s>with </a:s>
+                     <a:s r="42">
+                        <a:s r="41">
+                           <a:s>
+                              <a:s>&quot;Pharyngitis&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Pharyngitis</a:s>
+                     </a:s>
+                     <a:s> such that &#xd;
+         </a:s>
+                     <a:s r="46">
+                        <a:s r="43">
+                           <a:s>Common</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="46">
+                           <a:s>&quot;Includes Or Starts During&quot;(</a:s>
+                           <a:s r="44">
+                              <a:s>Pharyngitis</a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s r="45">
+                              <a:s>Encounters</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+      </a:s>
+                  <a:s r="57">
+                     <a:s>with </a:s>
+                     <a:s r="49">
+                        <a:s r="48">
+                           <a:s>
+                              <a:s>&quot;Antibiotics&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Antibiotics</a:s>
+                     </a:s>
+                     <a:s> such that </a:s>
+                     <a:s r="56">
+                        <a:s r="51">
+                           <a:s r="50">
+                              <a:s>Antibiotics</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="51">
+                              <a:s>authorDatetime</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> &#xd;
+         </a:s>
+                        <a:s r="56">
+                           <a:s r="55">
+                              <a:s>3 days</a:s>
+                           </a:s>
+                           <a:s> or less after</a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="54">
+                           <a:s>start of </a:s>
+                           <a:s r="53">
+                              <a:s r="52">
+                                 <a:s>Encounters</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="53">
+                                 <a:s>relevantPeriod</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="58" locator="42:4-46:64" xsi:type="Query">
+            <source localId="40" locator="42:4-42:45" alias="Encounters">
+               <expression localId="39" locator="42:4-42:34" name="Measurement Period Encounters" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship localId="47" locator="43:7-44:68" alias="Pharyngitis" xsi:type="With">
+               <expression localId="41" locator="43:12-43:24" name="Pharyngitis" xsi:type="ExpressionRef"/>
+               <suchThat localId="46" locator="44:10-44:68" name="Includes Or Starts During" libraryName="Common" xsi:type="FunctionRef">
+                  <operand localId="44" locator="44:45-44:55" name="Pharyngitis" xsi:type="AliasRef"/>
+                  <operand localId="45" locator="44:58-44:67" name="Encounters" xsi:type="AliasRef"/>
+               </suchThat>
+            </relationship>
+            <relationship localId="57" locator="45:7-46:64" alias="Antibiotics" xsi:type="With">
+               <expression localId="48" locator="45:12-45:24" name="Antibiotics" xsi:type="ExpressionRef"/>
+               <suchThat localId="56" locator="45:48-46:64" xsi:type="In">
+                  <operand localId="51" locator="45:48-45:73" path="authorDatetime" scope="Antibiotics" xsi:type="Property"/>
+                  <operand locator="46:10-46:23" lowClosed="false" highClosed="true" xsi:type="Interval">
+                     <low localId="54" locator="46:31-46:64" xsi:type="Start">
+                        <operand localId="53" locator="46:40-46:64" path="relevantPeriod" scope="Encounters" xsi:type="Property"/>
+                     </low>
+                     <high locator="46:31-46:64" xsi:type="Add">
+                        <operand localId="54" locator="46:31-46:64" xsi:type="Start">
+                           <operand localId="53" locator="46:40-46:64" path="relevantPeriod" scope="Encounters" xsi:type="Property"/>
+                        </operand>
+                        <operand localId="55" locator="46:10-46:15" value="3" unit="days" xsi:type="Quantity"/>
+                     </high>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def localId="61" locator="48:1-49:44" name="Initial Population" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="61">
+               <a:s>define &quot;Initial Population&quot;:&#xd;
+   </a:s>
+               <a:s r="60">
+                  <a:s>&quot;Pharyngitis Encounters With Antibiotics&quot;</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="60" locator="49:4-49:44" name="Pharyngitis Encounters With Antibiotics" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="75" locator="61:1-64:96" name="Pharyngitis With Prior Antibiotics" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="75">
+               <a:s>define &quot;Pharyngitis With Prior Antibiotics&quot;:&#xd;
+   </a:s>
+               <a:s r="74">
+                  <a:s>
+                     <a:s r="63">
+                        <a:s r="62">
+                           <a:s>
+                              <a:s>&quot;Pharyngitis&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Pharyngitis</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+      </a:s>
+                  <a:s r="73">
+                     <a:s>with </a:s>
+                     <a:s r="65">
+                        <a:s r="64">
+                           <a:s>
+                              <a:s>&quot;Antibiotics&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Antibiotics</a:s>
+                     </a:s>
+                     <a:s> such that &#xd;
+         </a:s>
+                     <a:s r="72">
+                        <a:s r="67">
+                           <a:s r="66">
+                              <a:s>Antibiotics</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="67">
+                              <a:s>authorDatetime</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="72">
+                           <a:s r="71">
+                              <a:s>30 days</a:s>
+                           </a:s>
+                           <a:s> or less before</a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="70">
+                           <a:s>start of </a:s>
+                           <a:s r="69">
+                              <a:s r="68">
+                                 <a:s>Pharyngitis</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="69">
+                                 <a:s>prevalencePeriod</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="74" locator="62:4-64:96" xsi:type="Query">
+            <source localId="63" locator="62:4-62:28" alias="Pharyngitis">
+               <expression localId="62" locator="62:4-62:16" name="Pharyngitis" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship localId="73" locator="63:7-64:96" alias="Antibiotics" xsi:type="With">
+               <expression localId="64" locator="63:12-63:24" name="Antibiotics" xsi:type="ExpressionRef"/>
+               <suchThat localId="72" locator="64:10-64:96" xsi:type="In">
+                  <operand localId="67" locator="64:10-64:35" path="authorDatetime" scope="Antibiotics" xsi:type="Property"/>
+                  <operand locator="64:37-64:51" lowClosed="true" highClosed="false" xsi:type="Interval">
+                     <low locator="64:60-64:96" xsi:type="Subtract">
+                        <operand localId="70" locator="64:60-64:96" xsi:type="Start">
+                           <operand localId="69" locator="64:69-64:96" path="prevalencePeriod" scope="Pharyngitis" xsi:type="Property"/>
+                        </operand>
+                        <operand localId="71" locator="64:37-64:43" value="30" unit="days" xsi:type="Quantity"/>
+                     </low>
+                     <high localId="70" locator="64:60-64:96" xsi:type="Start">
+                        <operand localId="69" locator="64:69-64:96" path="prevalencePeriod" scope="Pharyngitis" xsi:type="Property"/>
+                     </high>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def localId="86" locator="66:1-69:68" name="Excluded Encounters" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="86">
+               <a:s>define &quot;Excluded Encounters&quot;:&#xd;
+   </a:s>
+               <a:s r="85">
+                  <a:s>
+                     <a:s r="77">
+                        <a:s r="76">
+                           <a:s>
+                              <a:s>&quot;Pharyngitis Encounters With Antibiotics&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Encounters</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+      </a:s>
+                  <a:s r="84">
+                     <a:s>with </a:s>
+                     <a:s r="79">
+                        <a:s r="78">
+                           <a:s>
+                              <a:s>&quot;Pharyngitis With Prior Antibiotics&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Pharyngitis</a:s>
+                     </a:s>
+                     <a:s> such that &#xd;
+         </a:s>
+                     <a:s r="83">
+                        <a:s r="80">
+                           <a:s>Common</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="83">
+                           <a:s>&quot;Includes Or Starts During&quot;(</a:s>
+                           <a:s r="81">
+                              <a:s>Pharyngitis</a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s r="82">
+                              <a:s>Encounters</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="85" locator="67:4-69:68" xsi:type="Query">
+            <source localId="77" locator="67:4-67:55" alias="Encounters">
+               <expression localId="76" locator="67:4-67:44" name="Pharyngitis Encounters With Antibiotics" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship localId="84" locator="68:7-69:68" alias="Pharyngitis" xsi:type="With">
+               <expression localId="78" locator="68:12-68:47" name="Pharyngitis With Prior Antibiotics" xsi:type="ExpressionRef"/>
+               <suchThat localId="83" locator="69:10-69:68" name="Includes Or Starts During" libraryName="Common" xsi:type="FunctionRef">
+                  <operand localId="81" locator="69:45-69:55" name="Pharyngitis" xsi:type="AliasRef"/>
+                  <operand localId="82" locator="69:58-69:67" name="Encounters" xsi:type="AliasRef"/>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def localId="88" locator="71:1-72:23" name="Denominator Exclusions" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="88">
+               <a:s>define &quot;Denominator Exclusions&quot;:&#xd;
+  </a:s>
+               <a:s r="87">
+                  <a:s>&quot;Excluded Encounters&quot;</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="87" locator="72:3-72:23" name="Excluded Encounters" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="113" locator="84:1-89:111" name="Strep Test Encounters" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="113">
+               <a:s>define &quot;Strep Test Encounters&quot;:&#xd;
+   </a:s>
+               <a:s r="112">
+                  <a:s>
+                     <a:s r="90">
+                        <a:s r="89">
+                           <a:s>
+                              <a:s>&quot;Pharyngitis Encounters With Antibiotics&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Encounters</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+      </a:s>
+                  <a:s r="111">
+                     <a:s>with </a:s>
+                     <a:s r="92">
+                        <a:s r="91">
+                           <a:s r="91">
+                              <a:s>[&quot;Laboratory Test, Performed&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Group A Streptococcus Test&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Tests</a:s>
+                     </a:s>
+                     <a:s>&#xd;
+         such that </a:s>
+                     <a:s r="110">
+                        <a:s r="95">
+                           <a:s r="94">
+                              <a:s r="93">
+                                 <a:s>Tests</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="94">
+                                 <a:s>result</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> is not null</a:s>
+                        </a:s>
+                        <a:s>&#xd;
+            and </a:s>
+                        <a:s r="109">
+                           <a:s r="97">
+                              <a:s r="96">
+                                 <a:s>Tests</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="97">
+                                 <a:s>relevantPeriod</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="109"> starts during &#xd;
+               </a:s>
+                           <a:s r="108">
+                              <a:s>Interval[</a:s>
+                              <a:s r="102">
+                                 <a:s r="100">
+                                    <a:s>start of </a:s>
+                                    <a:s r="99">
+                                       <a:s r="98">
+                                          <a:s>Encounters</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="99">
+                                          <a:s>relevantPeriod</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> - </a:s>
+                                 <a:s r="101">
+                                    <a:s>3 days</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="107">
+                                 <a:s r="105">
+                                    <a:s>end of </a:s>
+                                    <a:s r="104">
+                                       <a:s r="103">
+                                          <a:s>Encounters</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="104">
+                                          <a:s>relevantPeriod</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> + </a:s>
+                                 <a:s r="106">
+                                    <a:s>3 days</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="112" locator="85:4-89:111" xsi:type="Query">
+            <source localId="90" locator="85:4-85:55" alias="Encounters">
+               <expression localId="89" locator="85:4-85:44" name="Pharyngitis Encounters With Antibiotics" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship localId="111" locator="86:7-89:111" alias="Tests" xsi:type="With">
+               <expression localId="91" locator="86:12-86:71" xmlns:ns5="urn:healthit-gov:qdm:v5_0_1_draft" dataType="ns5:PositiveLaboratoryTestPerformed" templateId="PositiveLaboratoryTestPerformed" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Group A Streptococcus Test" xsi:type="ValueSetRef"/>
+               </expression>
+               <suchThat localId="110" locator="87:20-89:111" xsi:type="And">
+                  <operand localId="95" locator="87:20-87:43" xsi:type="Not">
+                     <operand locator="87:20-87:43" xsi:type="IsNull">
+                        <operand localId="94" locator="87:20-87:31" path="result" scope="Tests" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand localId="109" locator="88:17-89:111" xsi:type="In">
+                     <operand locator="88:38-88:43" xsi:type="Start">
+                        <operand localId="97" locator="88:17-88:36" path="relevantPeriod" scope="Tests" xsi:type="Property"/>
+                     </operand>
+                     <operand localId="108" locator="89:16-89:111" lowClosed="true" highClosed="true" xsi:type="Interval">
+                        <low localId="102" locator="89:25-89:67" xsi:type="Subtract">
+                           <operand localId="100" locator="89:25-89:58" xsi:type="Start">
+                              <operand localId="99" locator="89:34-89:58" path="relevantPeriod" scope="Encounters" xsi:type="Property"/>
+                           </operand>
+                           <operand localId="101" locator="89:62-89:67" value="3" unit="days" xsi:type="Quantity"/>
+                        </low>
+                        <high localId="107" locator="89:70-89:110" xsi:type="Add">
+                           <operand localId="105" locator="89:70-89:101" xsi:type="End">
+                              <operand localId="104" locator="89:77-89:101" path="relevantPeriod" scope="Encounters" xsi:type="Property"/>
+                           </operand>
+                           <operand localId="106" locator="89:105-89:110" value="3" unit="days" xsi:type="Quantity"/>
+                        </high>
+                     </operand>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def localId="115" locator="91:1-92:26" name="Numerator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="115">
+               <a:s>define &quot;Numerator&quot;:&#xd;
+   </a:s>
+               <a:s r="114">
+                  <a:s>&quot;Strep Test Encounters&quot;</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="114" locator="92:4-92:26" name="Strep Test Encounters" xsi:type="ExpressionRef"/>
+      </def>
+   </statements>
+</library>
+
+

@@ -1,0 +1,3241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="OpioidConversion" version="1.21.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="3:1-3:23" localIdentifier="QDM" uri="urn:healthit-gov:qdm:v5_3" version="5.3"/>
+   </usings>
+   <includes>
+      <def localId="2" locator="5:1-5:61" localIdentifier="OpioidDataLibrary" path="OpioidData" version="0.9.000"/>
+   </includes>
+   <parameters>
+      <def localId="11" locator="13:1-13:49" name="Measurement Period" accessLevel="Public">
+         <parameterTypeSpecifier localId="10" locator="13:32-13:49" xsi:type="IntervalTypeSpecifier">
+            <pointType localId="9" locator="13:41-13:48" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <codeSystems>
+      <def localId="3" locator="7:1-7:51" name="LOINC" id="urn:oid:2.16.840.1.113883.6.1" accessLevel="Public"/>
+      <def localId="4" locator="8:1-8:55" name="SNOMEDCT" id="urn:oid:2.16.840.1.113883.6.96" accessLevel="Public"/>
+   </codeSystems>
+   <codes>
+      <def localId="6" locator="10:1-10:60" name="Birthdate" id="21112-8" display="Birthdate" accessLevel="Public">
+         <codeSystem localId="5" locator="10:34-10:40" name="LOINC"/>
+      </def>
+      <def localId="8" locator="11:1-11:55" name="Dead" id="419099009" display="Dead" accessLevel="Public">
+         <codeSystem localId="7" locator="11:31-11:40" name="SNOMEDCT"/>
+      </def>
+   </codes>
+   <statements>
+      <def locator="15:1-15:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="15:1-15:15" dataType="qdm53:Patient" templateId="Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="82" locator="52:1-60:4" name="ToUnifiedCodeForUnitsOfMeasure" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="82">
+               <a:s>define function &quot;ToUnifiedCodeForUnitsOfMeasure&quot;(unit </a:s>
+               <a:s r="62">
+                  <a:s>String</a:s>
+               </a:s>
+               <a:s>):&#xd;
+	/*This function converts the dose units to the correct unified code for units of measure (UCUM)*/&#xd;
+	</a:s>
+               <a:s r="81">
+                  <a:s r="81">
+                     <a:s>case </a:s>
+                     <a:s r="63">
+                        <a:s>unit</a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="66">
+                        <a:s>when </a:s>
+                        <a:s r="64">
+                           <a:s>'MG'</a:s>
+                        </a:s>
+                        <a:s> then </a:s>
+                        <a:s r="65">
+                           <a:s>'mg'</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="69">
+                        <a:s>when </a:s>
+                        <a:s r="67">
+                           <a:s>'MG/ACTUAT'</a:s>
+                        </a:s>
+                        <a:s> then </a:s>
+                        <a:s r="68">
+                           <a:s>'mg/{actuat}'</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="72">
+                        <a:s>when </a:s>
+                        <a:s r="70">
+                           <a:s>'MG/HR'</a:s>
+                        </a:s>
+                        <a:s> then </a:s>
+                        <a:s r="71">
+                           <a:s>'mg/h'</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="75">
+                        <a:s>when </a:s>
+                        <a:s r="73">
+                           <a:s>'MG/ML'</a:s>
+                        </a:s>
+                        <a:s> then </a:s>
+                        <a:s r="74">
+                           <a:s>'mg/mL'</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> &#xd;
+		else </a:s>
+                     <a:s r="80">
+                        <a:s r="78">
+                           <a:s r="76">
+                              <a:s>'unknown{'</a:s>
+                           </a:s>
+                           <a:s> + </a:s>
+                           <a:s r="77">
+                              <a:s>unit</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> + </a:s>
+                        <a:s r="79">
+                           <a:s>'}'</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> &#xd;
+	end</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="81" locator="54:2-60:4" xsi:type="Case">
+            <comparand localId="63" locator="54:7-54:10" name="unit" xsi:type="OperandRef"/>
+            <caseItem localId="66" locator="55:3-55:21">
+               <when localId="64" locator="55:8-55:11" valueType="t:String" value="MG" xsi:type="Literal"/>
+               <then localId="65" locator="55:18-55:21" valueType="t:String" value="mg" xsi:type="Literal"/>
+            </caseItem>
+            <caseItem localId="69" locator="56:3-56:37">
+               <when localId="67" locator="56:8-56:18" valueType="t:String" value="MG/ACTUAT" xsi:type="Literal"/>
+               <then localId="68" locator="56:25-56:37" valueType="t:String" value="mg/{actuat}" xsi:type="Literal"/>
+            </caseItem>
+            <caseItem localId="72" locator="57:3-57:26">
+               <when localId="70" locator="57:8-57:14" valueType="t:String" value="MG/HR" xsi:type="Literal"/>
+               <then localId="71" locator="57:21-57:26" valueType="t:String" value="mg/h" xsi:type="Literal"/>
+            </caseItem>
+            <caseItem localId="75" locator="58:3-58:27">
+               <when localId="73" locator="58:8-58:14" valueType="t:String" value="MG/ML" xsi:type="Literal"/>
+               <then localId="74" locator="58:21-58:27" valueType="t:String" value="mg/mL" xsi:type="Literal"/>
+            </caseItem>
+            <else localId="80" locator="59:8-59:30" xsi:type="Concatenate">
+               <operand localId="78" locator="59:8-59:24" xsi:type="Concatenate">
+                  <operand localId="76" locator="59:8-59:17" valueType="t:String" value="unknown{" xsi:type="Literal"/>
+                  <operand localId="77" locator="59:21-59:24" name="unit" xsi:type="OperandRef"/>
+               </operand>
+               <operand localId="79" locator="59:28-59:30" valueType="t:String" value="}" xsi:type="Literal"/>
+            </else>
+         </expression>
+         <operand name="unit">
+            <operandTypeSpecifier localId="62" locator="52:55-52:60" name="t:String" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="110" locator="46:1-50:15" name="EnsureMicrogramQuantity" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="110">
+               <a:s>define function &quot;EnsureMicrogramQuantity&quot;(strength </a:s>
+               <a:s r="85">
+                  <a:s>Quantity</a:s>
+               </a:s>
+               <a:s>):&#xd;
+	/*Converts micrograms to milligrams*/&#xd;
+	</a:s>
+               <a:s r="109">
+                  <a:s r="109">
+                     <a:s>if </a:s>
+                     <a:s r="96">
+                        <a:s r="89">
+                           <a:s r="87">
+                              <a:s r="86">
+                                 <a:s>strength</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="87">
+                                 <a:s>value</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="88"> &lt; 0.1</a:s>
+                        </a:s>
+                        <a:s>&#xd;
+		and </a:s>
+                        <a:s r="95">
+                           <a:s>( </a:s>
+                           <a:s r="95">
+                              <a:s r="93">
+                                 <a:s>PositionOf(</a:s>
+                                 <a:s r="90">
+                                    <a:s>'mg'</a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s r="92">
+                                    <a:s r="91">
+                                       <a:s>strength</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="92">
+                                       <a:s>unit</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                              <a:s r="94">= 0</a:s>
+                           </a:s>
+                           <a:s> )</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> then </a:s>
+                     <a:s r="107">
+                        <a:s>Quantity { </a:s>
+                        <a:s>
+                           <a:s>value: </a:s>
+                           <a:s r="100">
+                              <a:s r="98">
+                                 <a:s r="97">
+                                    <a:s>strength</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="98">
+                                    <a:s>value</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s r="99"> * 1000</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>, </a:s>
+                        <a:s>
+                           <a:s>unit: </a:s>
+                           <a:s r="106">
+                              <a:s r="101">
+                                 <a:s>'mcg'</a:s>
+                              </a:s>
+                              <a:s> + </a:s>
+                              <a:s r="105">
+                                 <a:s>Substring(</a:s>
+                                 <a:s r="103">
+                                    <a:s r="102">
+                                       <a:s>strength</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="103">
+                                       <a:s>unit</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s r="104">, 2)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>}</a:s>
+                     </a:s>
+                     <a:s> &#xd;
+		else </a:s>
+                     <a:s r="108">
+                        <a:s>strength</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="109" locator="48:2-50:15" xsi:type="If">
+            <condition asType="t:Boolean" xsi:type="As">
+               <operand localId="96" locator="48:5-49:44" xsi:type="And">
+                  <operand localId="89" locator="48:5-48:24" xsi:type="Less">
+                     <operand localId="87" locator="48:5-48:18" path="value" xsi:type="Property">
+                        <source localId="86" locator="48:5-48:12" name="strength" xsi:type="OperandRef"/>
+                     </operand>
+                     <operand localId="88" locator="48:22-48:24" valueType="t:Decimal" value="0.1" xsi:type="Literal"/>
+                  </operand>
+                  <operand localId="95" locator="49:7-49:44" xsi:type="Equal">
+                     <operand localId="93" locator="49:9-49:39" xsi:type="PositionOf">
+                        <pattern localId="90" locator="49:20-49:23" valueType="t:String" value="mg" xsi:type="Literal"/>
+                        <string localId="92" locator="49:26-49:38" path="unit" xsi:type="Property">
+                           <source localId="91" locator="49:26-49:33" name="strength" xsi:type="OperandRef"/>
+                        </string>
+                     </operand>
+                     <operand localId="94" locator="49:42" valueType="t:Integer" value="0" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+            </condition>
+            <then localId="107" locator="49:51-49:133" classType="t:Quantity" xsi:type="Instance">
+               <element name="value">
+                  <value localId="100" locator="49:69-49:89" xsi:type="Multiply">
+                     <operand localId="98" locator="49:69-49:82" path="value" xsi:type="Property">
+                        <source localId="97" locator="49:69-49:76" name="strength" xsi:type="OperandRef"/>
+                     </operand>
+                     <operand xsi:type="ToDecimal">
+                        <operand localId="99" locator="49:86-49:89" valueType="t:Integer" value="1000" xsi:type="Literal"/>
+                     </operand>
+                  </value>
+               </element>
+               <element name="unit">
+                  <value localId="106" locator="49:98-49:132" xsi:type="Concatenate">
+                     <operand localId="101" locator="49:98-49:102" valueType="t:String" value="mcg" xsi:type="Literal"/>
+                     <operand localId="105" locator="49:106-49:132" xsi:type="Substring">
+                        <stringToSub localId="103" locator="49:116-49:128" path="unit" xsi:type="Property">
+                           <source localId="102" locator="49:116-49:123" name="strength" xsi:type="OperandRef"/>
+                        </stringToSub>
+                        <startIndex localId="104" locator="49:131" valueType="t:Integer" value="2" xsi:type="Literal"/>
+                     </operand>
+                  </value>
+               </element>
+            </then>
+            <else localId="108" locator="50:8-50:15" name="strength" xsi:type="OperandRef"/>
+         </expression>
+         <operand name="strength">
+            <operandTypeSpecifier localId="85" locator="46:52-46:59" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="115" locator="176:1-187:3" name="GetIngredients" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="115">
+               <a:s>define function &quot;GetIngredients&quot;(rxNormCode </a:s>
+               <a:s r="24">
+                  <a:s>Code</a:s>
+               </a:s>
+               <a:s>):&#xd;
+	/*Uses the RxNorm code of the opioid prescription to identify the ingredient and dose form codes and the strength of the drug from the opioid drug library*/&#xd;
+	</a:s>
+               <a:s r="114">
+                  <a:s r="114">
+                     <a:s>
+                        <a:s r="26">
+                           <a:s r="25">
+                              <a:s>
+                                 <a:s>OpioidDataLibrary.&quot;DrugIngredients&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> DrugIngredientElement</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="32">
+                        <a:s>where </a:s>
+                        <a:s r="32">
+                           <a:s r="28">
+                              <a:s r="27">
+                                 <a:s>DrugIngredientElement</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="28">
+                                 <a:s>drugCode</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> = </a:s>
+                           <a:s r="31">
+                              <a:s>ToInteger(</a:s>
+                              <a:s r="30">
+                                 <a:s r="29">
+                                    <a:s>rxNormCode</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="30">
+                                    <a:s>code</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="113">
+                        <a:s>return </a:s>
+                        <a:s r="112">
+                           <a:s>{&#xd;
+			</a:s>
+                           <a:s>
+                              <a:s>rxNormCode: </a:s>
+                              <a:s r="39">
+                                 <a:s>Code { </a:s>
+                                 <a:s>
+                                    <a:s>code: </a:s>
+                                    <a:s r="35">
+                                       <a:s>ToString(</a:s>
+                                       <a:s r="34">
+                                          <a:s r="33">
+                                             <a:s>DrugIngredientElement</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="34">
+                                             <a:s>drugCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s>
+                                    <a:s>system: </a:s>
+                                    <a:s r="36">
+                                       <a:s>'2.16.840.1.113883.6.88'</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s>
+                                    <a:s>display: </a:s>
+                                    <a:s r="38">
+                                       <a:s r="37">
+                                          <a:s>DrugIngredientElement</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="38">
+                                          <a:s>drugName</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> }</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>,&#xd;
+			</a:s>
+                           <a:s>
+                              <a:s>doseFormCode: </a:s>
+                              <a:s r="46">
+                                 <a:s>Code { </a:s>
+                                 <a:s>
+                                    <a:s>code: </a:s>
+                                    <a:s r="42">
+                                       <a:s>ToString(</a:s>
+                                       <a:s r="41">
+                                          <a:s r="40">
+                                             <a:s>DrugIngredientElement</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="41">
+                                             <a:s>doseFormCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s>
+                                    <a:s>system: </a:s>
+                                    <a:s r="43">
+                                       <a:s>'2.16.840.1.113883.6.88'</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s>
+                                    <a:s>display: </a:s>
+                                    <a:s r="45">
+                                       <a:s r="44">
+                                          <a:s>DrugIngredientElement</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="45">
+                                          <a:s>doseFormName</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> }</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>,&#xd;
+			</a:s>
+                           <a:s>
+                              <a:s>doseFormName: </a:s>
+                              <a:s r="48">
+                                 <a:s r="47">
+                                    <a:s>DrugIngredientElement</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="48">
+                                    <a:s>doseFormName</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>,&#xd;
+			</a:s>
+                           <a:s>
+                              <a:s>ingredientCode: </a:s>
+                              <a:s r="55">
+                                 <a:s>Code { </a:s>
+                                 <a:s>
+                                    <a:s>code: </a:s>
+                                    <a:s r="51">
+                                       <a:s>ToString(</a:s>
+                                       <a:s r="50">
+                                          <a:s r="49">
+                                             <a:s>DrugIngredientElement</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="50">
+                                             <a:s>ingredientCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s>
+                                    <a:s>system: </a:s>
+                                    <a:s r="52">
+                                       <a:s>'2.16.840.1.113883.6.88'</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s>
+                                    <a:s>display: </a:s>
+                                    <a:s r="54">
+                                       <a:s r="53">
+                                          <a:s>DrugIngredientElement</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="54">
+                                          <a:s>ingredientName</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> }</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>,&#xd;
+			</a:s>
+                           <a:s>
+                              <a:s>ingredientName: </a:s>
+                              <a:s r="57">
+                                 <a:s r="56">
+                                    <a:s>DrugIngredientElement</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="57">
+                                    <a:s>ingredientName</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>,&#xd;
+			</a:s>
+                           <a:s>
+                              <a:s>strength: </a:s>
+                              <a:s r="111">
+                                 <a:s>&quot;EnsureMicrogramQuantity&quot;(</a:s>
+                                 <a:s r="84">
+                                    <a:s>Quantity { </a:s>
+                                    <a:s>
+                                       <a:s>value: </a:s>
+                                       <a:s r="59">
+                                          <a:s r="58">
+                                             <a:s>DrugIngredientElement</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="59">
+                                             <a:s>strengthValue</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s>
+                                       <a:s>unit: </a:s>
+                                       <a:s r="83">
+                                          <a:s>&quot;ToUnifiedCodeForUnitsOfMeasure&quot;(</a:s>
+                                          <a:s r="61">
+                                             <a:s r="60">
+                                                <a:s>DrugIngredientElement</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="61">
+                                                <a:s>strengthUnit</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>)</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>}</a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+		}</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="114" locator="178:2-187:3" xsi:type="Query">
+            <source localId="26" locator="178:2-178:58" alias="DrugIngredientElement">
+               <expression localId="25" locator="178:2-178:36" name="DrugIngredients" libraryName="OpioidDataLibrary" xsi:type="ExpressionRef"/>
+            </source>
+            <where localId="32" locator="179:3-179:67" xsi:type="Equal">
+               <operand localId="28" locator="179:9-179:38" path="drugCode" scope="DrugIngredientElement" xsi:type="Property"/>
+               <operand localId="31" locator="179:42-179:67" xsi:type="ToInteger">
+                  <operand localId="30" locator="179:52-179:66" path="code" xsi:type="Property">
+                     <source localId="29" locator="179:52-179:61" name="rxNormCode" xsi:type="OperandRef"/>
+                  </operand>
+               </operand>
+            </where>
+            <return localId="113" locator="180:3-187:3">
+               <expression localId="112" locator="180:10-187:3" xsi:type="Tuple">
+                  <element name="rxNormCode">
+                     <value localId="39" locator="181:16-181:145" classType="t:Code" xsi:type="Instance">
+                        <element name="code">
+                           <value localId="35" locator="181:29-181:68" xsi:type="ToString">
+                              <operand localId="34" locator="181:38-181:67" path="drugCode" scope="DrugIngredientElement" xsi:type="Property"/>
+                           </value>
+                        </element>
+                        <element name="system">
+                           <value localId="36" locator="181:79-181:102" valueType="t:String" value="2.16.840.1.113883.6.88" xsi:type="Literal"/>
+                        </element>
+                        <element name="display">
+                           <value localId="38" locator="181:114-181:143" path="drugName" scope="DrugIngredientElement" xsi:type="Property"/>
+                        </element>
+                     </value>
+                  </element>
+                  <element name="doseFormCode">
+                     <value localId="46" locator="182:18-182:155" classType="t:Code" xsi:type="Instance">
+                        <element name="code">
+                           <value localId="42" locator="182:31-182:74" xsi:type="ToString">
+                              <operand localId="41" locator="182:40-182:73" path="doseFormCode" scope="DrugIngredientElement" xsi:type="Property"/>
+                           </value>
+                        </element>
+                        <element name="system">
+                           <value localId="43" locator="182:85-182:108" valueType="t:String" value="2.16.840.1.113883.6.88" xsi:type="Literal"/>
+                        </element>
+                        <element name="display">
+                           <value localId="45" locator="182:120-182:153" path="doseFormName" scope="DrugIngredientElement" xsi:type="Property"/>
+                        </element>
+                     </value>
+                  </element>
+                  <element name="doseFormName">
+                     <value localId="48" locator="183:18-183:51" path="doseFormName" scope="DrugIngredientElement" xsi:type="Property"/>
+                  </element>
+                  <element name="ingredientCode">
+                     <value localId="55" locator="184:20-184:161" classType="t:Code" xsi:type="Instance">
+                        <element name="code">
+                           <value localId="51" locator="184:33-184:78" xsi:type="ToString">
+                              <operand localId="50" locator="184:42-184:77" path="ingredientCode" scope="DrugIngredientElement" xsi:type="Property"/>
+                           </value>
+                        </element>
+                        <element name="system">
+                           <value localId="52" locator="184:89-184:112" valueType="t:String" value="2.16.840.1.113883.6.88" xsi:type="Literal"/>
+                        </element>
+                        <element name="display">
+                           <value localId="54" locator="184:124-184:159" path="ingredientName" scope="DrugIngredientElement" xsi:type="Property"/>
+                        </element>
+                     </value>
+                  </element>
+                  <element name="ingredientName">
+                     <value localId="57" locator="185:20-185:55" path="ingredientName" scope="DrugIngredientElement" xsi:type="Property"/>
+                  </element>
+                  <element name="strength">
+                     <value localId="111" locator="186:14-186:170" name="EnsureMicrogramQuantity" xsi:type="FunctionRef">
+                        <operand localId="84" locator="186:40-186:169" classType="t:Quantity" xsi:type="Instance">
+                           <element name="value">
+                              <value localId="59" locator="186:58-186:92" path="strengthValue" scope="DrugIngredientElement" xsi:type="Property"/>
+                           </element>
+                           <element name="unit">
+                              <value localId="83" locator="186:101-186:168" name="ToUnifiedCodeForUnitsOfMeasure" xsi:type="FunctionRef">
+                                 <operand localId="61" locator="186:134-186:167" path="strengthUnit" scope="DrugIngredientElement" xsi:type="Property"/>
+                              </value>
+                           </element>
+                        </operand>
+                     </value>
+                  </element>
+               </expression>
+            </return>
+         </expression>
+         <operand name="rxNormCode">
+            <operandTypeSpecifier localId="24" locator="176:45-176:48" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="145" locator="155:1-157:37" name="IsTransdermalPatch" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="145">
+               <a:s>define function &quot;IsTransdermalPatch&quot;(doseFormCode </a:s>
+               <a:s r="139">
+                  <a:s>Code</a:s>
+               </a:s>
+               <a:s>):&#xd;
+	/*Returns true when dose form name is 'Transdermal System'*/&#xd;
+	</a:s>
+               <a:s r="144">
+                  <a:s r="144">
+                     <a:s r="142">
+                        <a:s>ToInteger(</a:s>
+                        <a:s r="141">
+                           <a:s r="140">
+                              <a:s>doseFormCode</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="141">
+                              <a:s>code</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                     <a:s r="143">= 316987</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="144" locator="157:2-157:37" xsi:type="Equal">
+            <operand localId="142" locator="157:2-157:29" xsi:type="ToInteger">
+               <operand localId="141" locator="157:12-157:28" path="code" xsi:type="Property">
+                  <source localId="140" locator="157:12-157:23" name="doseFormCode" xsi:type="OperandRef"/>
+               </operand>
+            </operand>
+            <operand localId="143" locator="157:32-157:37" valueType="t:Integer" value="316987" xsi:type="Literal"/>
+         </expression>
+         <operand name="doseFormCode">
+            <operandTypeSpecifier localId="139" locator="155:51-155:54" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="228" locator="133:1-153:4" name="GetMedicationDailyDose" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="228">
+               <a:s>define function &quot;GetMedicationDailyDose&quot;(ingredientCode </a:s>
+               <a:s r="133">
+                  <a:s>Code</a:s>
+               </a:s>
+               <a:s>, strength </a:s>
+               <a:s r="134">
+                  <a:s>Quantity</a:s>
+               </a:s>
+               <a:s>, doseFormCode </a:s>
+               <a:s r="135">
+                  <a:s>Code</a:s>
+               </a:s>
+               <a:s>, doseQuantity </a:s>
+               <a:s r="136">
+                  <a:s>Quantity</a:s>
+               </a:s>
+               <a:s>, dosesPerDay </a:s>
+               <a:s r="137">
+                  <a:s>Decimal</a:s>
+               </a:s>
+               <a:s>):&#xd;
+	/*Calculates the amount of opioid medication for a single day*/&#xd;
+	</a:s>
+               <a:s r="227">
+                  <a:s r="227">
+                     <a:s>case&#xd;
+	  /* if patch --> daily dose = dose value (e.g, number patches with doseQuantity unit = &quot;patch&quot;) * per-hour strength */&#xd;
+		</a:s>
+                     <a:s r="164">
+                        <a:s>when </a:s>
+                        <a:s r="146">
+                           <a:s>&quot;IsTransdermalPatch&quot;(</a:s>
+                           <a:s r="138">
+                              <a:s>doseFormCode</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                        <a:s>then&#xd;
+	      /* buprenorphine or fentanyl patch */ </a:s>
+                        <a:s r="163">
+                           <a:s>if </a:s>
+                           <a:s r="153">
+                              <a:s r="149">
+                                 <a:s>ToInteger(</a:s>
+                                 <a:s r="148">
+                                    <a:s r="147">
+                                       <a:s>ingredientCode</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="148">
+                                       <a:s>code</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                              <a:s>in </a:s>
+                              <a:s r="152">
+                                 <a:s r="150">{ 1819, 4337 }</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> then </a:s>
+                           <a:s r="161">
+                              <a:s>Quantity { </a:s>
+                              <a:s>
+                                 <a:s>value: </a:s>
+                                 <a:s r="158">
+                                    <a:s r="155">
+                                       <a:s r="154">
+                                          <a:s>doseQuantity</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="155">
+                                          <a:s>value</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> * </a:s>
+                                    <a:s r="157">
+                                       <a:s r="156">
+                                          <a:s>strength</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="157">
+                                          <a:s>value</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s>
+                                 <a:s>unit: </a:s>
+                                 <a:s r="160">
+                                    <a:s r="159">
+                                       <a:s>strength</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="160">
+                                       <a:s>unit</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> }</a:s>
+                           </a:s>
+                           <a:s r="162"> &#xd;
+			else null</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+	&#xd;
+	&#xd;
+	    /* if dose unit in actual mass units (mg or mcg -- when it's a single med) --> daily dose = numTimesPerDay * dose */&#xd;
+		</a:s>
+                     <a:s r="178">
+                        <a:s>when </a:s>
+                        <a:s r="170">
+                           <a:s r="166">
+                              <a:s r="165">
+                                 <a:s>doseQuantity</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="166">
+                                 <a:s>unit</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="169">
+                              <a:s>{ </a:s>
+                              <a:s r="167">
+                                 <a:s>'mg'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="168">
+                                 <a:s>'mcg'</a:s>
+                              </a:s>
+                              <a:s> }</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then </a:s>
+                        <a:s r="177">
+                           <a:s>Quantity { </a:s>
+                           <a:s>
+                              <a:s>value: </a:s>
+                              <a:s r="174">
+                                 <a:s r="171">
+                                    <a:s>dosesPerDay</a:s>
+                                 </a:s>
+                                 <a:s> * </a:s>
+                                 <a:s r="173">
+                                    <a:s r="172">
+                                       <a:s>doseQuantity</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="173">
+                                       <a:s>value</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s>
+                              <a:s>unit: </a:s>
+                              <a:s r="176">
+                                 <a:s r="175">
+                                    <a:s>doseQuantity</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="176">
+                                    <a:s>unit</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> }</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+	&#xd;
+	&#xd;
+	    /* if doseQuantity is in actual volume units (mL) --> daily dose = numTimesPerDay * dose * strength */&#xd;
+		</a:s>
+                     <a:s r="210">
+                        <a:s>when </a:s>
+                        <a:s r="193">
+                           <a:s r="182">
+                              <a:s r="180">
+                                 <a:s r="179">
+                                    <a:s>doseQuantity</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="180">
+                                    <a:s>unit</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> = </a:s>
+                              <a:s r="181">
+                                 <a:s>'mL'</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+			and </a:s>
+                           <a:s r="192">
+                              <a:s>( </a:s>
+                              <a:s r="192">
+                                 <a:s r="186">
+                                    <a:s>PositionOf(</a:s>
+                                    <a:s r="183">
+                                       <a:s>'/mL'</a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s r="185">
+                                       <a:s r="184">
+                                          <a:s>strength</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="185">
+                                          <a:s>unit</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                                 <a:s>= </a:s>
+                                 <a:s r="191">
+                                    <a:s r="189">
+                                       <a:s>Length(</a:s>
+                                       <a:s r="188">
+                                          <a:s r="187">
+                                             <a:s>strength</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="188">
+                                             <a:s>unit</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s r="190">- 3</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> )</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then </a:s>
+                        <a:s r="209">
+                           <a:s>Quantity { </a:s>
+                           <a:s>
+                              <a:s>value: </a:s>
+                              <a:s r="200">
+                                 <a:s r="197">
+                                    <a:s r="194">
+                                       <a:s>dosesPerDay</a:s>
+                                    </a:s>
+                                    <a:s> * </a:s>
+                                    <a:s r="196">
+                                       <a:s r="195">
+                                          <a:s>doseQuantity</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="196">
+                                          <a:s>value</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> * </a:s>
+                                 <a:s r="199">
+                                    <a:s r="198">
+                                       <a:s>strength</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="199">
+                                       <a:s>value</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s>
+                              <a:s>unit: </a:s>
+                              <a:s r="208">
+                                 <a:s>Substring(</a:s>
+                                 <a:s r="202">
+                                    <a:s r="201">
+                                       <a:s>strength</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="202">
+                                       <a:s>unit</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s r="203">, 0, </a:s>
+                                 <a:s r="207">
+                                    <a:s>PositionOf(</a:s>
+                                    <a:s r="204">
+                                       <a:s>'/'</a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s r="206">
+                                       <a:s r="205">
+                                          <a:s>strength</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="206">
+                                          <a:s>unit</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>}</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+	&#xd;
+	&#xd;
+	/*if doseQuantity is not in actual units (e.g., 1 tab, 1 spray -- when it's a combo med with a unit of tablet, or it's mg/actuat) -->  daily dose = numTimesPerDay * dose value * strength value */ &#xd;
+		else </a:s>
+                     <a:s r="226">
+                        <a:s>Quantity { </a:s>
+                        <a:s>
+                           <a:s>value: </a:s>
+                           <a:s r="217">
+                              <a:s r="214">
+                                 <a:s r="211">
+                                    <a:s>dosesPerDay</a:s>
+                                 </a:s>
+                                 <a:s> * </a:s>
+                                 <a:s r="213">
+                                    <a:s r="212">
+                                       <a:s>doseQuantity</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="213">
+                                       <a:s>value</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> * </a:s>
+                              <a:s r="216">
+                                 <a:s r="215">
+                                    <a:s>strength</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="216">
+                                    <a:s>value</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>, </a:s>
+                        <a:s>
+                           <a:s>unit: </a:s>
+                           <a:s r="225">
+                              <a:s>Substring(</a:s>
+                              <a:s r="219">
+                                 <a:s r="218">
+                                    <a:s>strength</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="219">
+                                    <a:s>unit</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s r="220">, 0, </a:s>
+                              <a:s r="224">
+                                 <a:s>PositionOf(</a:s>
+                                 <a:s r="221">
+                                    <a:s>'/'</a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s r="223">
+                                    <a:s r="222">
+                                       <a:s>strength</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="223">
+                                       <a:s>unit</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>}</a:s>
+                     </a:s>
+                     <a:s> &#xd;
+	end</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="227" locator="135:2-153:4" xsi:type="Case">
+            <caseItem localId="164" locator="137:3-139:12">
+               <when localId="146" locator="137:8-137:41" name="IsTransdermalPatch" xsi:type="FunctionRef">
+                  <operand localId="138" locator="137:29-137:40" name="doseFormCode" xsi:type="OperandRef"/>
+               </when>
+               <then localId="163" locator="138:46-139:12" xsi:type="If">
+                  <condition asType="t:Boolean" xsi:type="As">
+                     <operand localId="153" locator="138:49-138:95" xsi:type="In">
+                        <operand localId="149" locator="138:49-138:78" xsi:type="ToInteger">
+                           <operand localId="148" locator="138:59-138:77" path="code" xsi:type="Property">
+                              <source localId="147" locator="138:59-138:72" name="ingredientCode" xsi:type="OperandRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="152" locator="138:82-138:95" xsi:type="List">
+                           <element localId="150" locator="138:84-138:87" valueType="t:Integer" value="1819" xsi:type="Literal"/>
+                           <element localId="151" locator="138:90-138:93" valueType="t:Integer" value="4337" xsi:type="Literal"/>
+                        </operand>
+                     </operand>
+                  </condition>
+                  <then localId="161" locator="138:102-138:177" classType="t:Quantity" xsi:type="Instance">
+                     <element name="value">
+                        <value localId="158" locator="138:120-138:154" xsi:type="Multiply">
+                           <operand localId="155" locator="138:120-138:137" path="value" xsi:type="Property">
+                              <source localId="154" locator="138:120-138:131" name="doseQuantity" xsi:type="OperandRef"/>
+                           </operand>
+                           <operand localId="157" locator="138:141-138:154" path="value" xsi:type="Property">
+                              <source localId="156" locator="138:141-138:148" name="strength" xsi:type="OperandRef"/>
+                           </operand>
+                        </value>
+                     </element>
+                     <element name="unit">
+                        <value localId="160" locator="138:163-138:175" path="unit" xsi:type="Property">
+                           <source localId="159" locator="138:163-138:170" name="strength" xsi:type="OperandRef"/>
+                        </value>
+                     </element>
+                  </then>
+                  <else asType="t:Quantity" xsi:type="As">
+                     <operand localId="162" locator="139:9-139:12" xsi:type="Null"/>
+                  </else>
+               </then>
+            </caseItem>
+            <caseItem localId="178" locator="143:3-143:126">
+               <when localId="170" locator="143:8-143:43" xsi:type="In">
+                  <operand localId="166" locator="143:8-143:24" path="unit" xsi:type="Property">
+                     <source localId="165" locator="143:8-143:19" name="doseQuantity" xsi:type="OperandRef"/>
+                  </operand>
+                  <operand localId="169" locator="143:29-143:43" xsi:type="List">
+                     <element localId="167" locator="143:31-143:34" valueType="t:String" value="mg" xsi:type="Literal"/>
+                     <element localId="168" locator="143:37-143:41" valueType="t:String" value="mcg" xsi:type="Literal"/>
+                  </operand>
+               </when>
+               <then localId="177" locator="143:50-143:126" classType="t:Quantity" xsi:type="Instance">
+                  <element name="value">
+                     <value localId="174" locator="143:68-143:99" xsi:type="Multiply">
+                        <operand localId="171" locator="143:68-143:78" name="dosesPerDay" xsi:type="OperandRef"/>
+                        <operand localId="173" locator="143:82-143:99" path="value" xsi:type="Property">
+                           <source localId="172" locator="143:82-143:93" name="doseQuantity" xsi:type="OperandRef"/>
+                        </operand>
+                     </value>
+                  </element>
+                  <element name="unit">
+                     <value localId="176" locator="143:108-143:124" path="unit" xsi:type="Property">
+                        <source localId="175" locator="143:108-143:119" name="doseQuantity" xsi:type="OperandRef"/>
+                     </value>
+                  </element>
+               </then>
+            </caseItem>
+            <caseItem localId="210" locator="147:3-148:210">
+               <when localId="193" locator="147:8-148:69" xsi:type="And">
+                  <operand localId="182" locator="147:8-147:31" xsi:type="Equal">
+                     <operand localId="180" locator="147:8-147:24" path="unit" xsi:type="Property">
+                        <source localId="179" locator="147:8-147:19" name="doseQuantity" xsi:type="OperandRef"/>
+                     </operand>
+                     <operand localId="181" locator="147:28-147:31" valueType="t:String" value="mL" xsi:type="Literal"/>
+                  </operand>
+                  <operand localId="192" locator="148:8-148:69" xsi:type="Equal">
+                     <operand localId="186" locator="148:10-148:41" xsi:type="PositionOf">
+                        <pattern localId="183" locator="148:21-148:25" valueType="t:String" value="/mL" xsi:type="Literal"/>
+                        <string localId="185" locator="148:28-148:40" path="unit" xsi:type="Property">
+                           <source localId="184" locator="148:28-148:35" name="strength" xsi:type="OperandRef"/>
+                        </string>
+                     </operand>
+                     <operand localId="191" locator="148:44-148:67" xsi:type="Subtract">
+                        <operand localId="189" locator="148:44-148:64" xsi:type="Length">
+                           <operand localId="188" locator="148:51-148:63" path="unit" xsi:type="Property">
+                              <source localId="187" locator="148:51-148:58" name="strength" xsi:type="OperandRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="190" locator="148:67" valueType="t:Integer" value="3" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+               </when>
+               <then localId="209" locator="148:76-148:210" classType="t:Quantity" xsi:type="Instance">
+                  <element name="value">
+                     <value localId="200" locator="148:94-148:142" xsi:type="Multiply">
+                        <operand localId="197" locator="148:94-148:125" xsi:type="Multiply">
+                           <operand localId="194" locator="148:94-148:104" name="dosesPerDay" xsi:type="OperandRef"/>
+                           <operand localId="196" locator="148:108-148:125" path="value" xsi:type="Property">
+                              <source localId="195" locator="148:108-148:119" name="doseQuantity" xsi:type="OperandRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="199" locator="148:129-148:142" path="value" xsi:type="Property">
+                           <source localId="198" locator="148:129-148:136" name="strength" xsi:type="OperandRef"/>
+                        </operand>
+                     </value>
+                  </element>
+                  <element name="unit">
+                     <value localId="208" locator="148:151-148:209" xsi:type="Substring">
+                        <stringToSub localId="202" locator="148:161-148:173" path="unit" xsi:type="Property">
+                           <source localId="201" locator="148:161-148:168" name="strength" xsi:type="OperandRef"/>
+                        </stringToSub>
+                        <startIndex localId="203" locator="148:176" valueType="t:Integer" value="0" xsi:type="Literal"/>
+                        <length localId="207" locator="148:179-148:208" xsi:type="PositionOf">
+                           <pattern localId="204" locator="148:190-148:192" valueType="t:String" value="/" xsi:type="Literal"/>
+                           <string localId="206" locator="148:195-148:207" path="unit" xsi:type="Property">
+                              <source localId="205" locator="148:195-148:202" name="strength" xsi:type="OperandRef"/>
+                           </string>
+                        </length>
+                     </value>
+                  </element>
+               </then>
+            </caseItem>
+            <else localId="226" locator="152:8-152:142" classType="t:Quantity" xsi:type="Instance">
+               <element name="value">
+                  <value localId="217" locator="152:26-152:74" xsi:type="Multiply">
+                     <operand localId="214" locator="152:26-152:57" xsi:type="Multiply">
+                        <operand localId="211" locator="152:26-152:36" name="dosesPerDay" xsi:type="OperandRef"/>
+                        <operand localId="213" locator="152:40-152:57" path="value" xsi:type="Property">
+                           <source localId="212" locator="152:40-152:51" name="doseQuantity" xsi:type="OperandRef"/>
+                        </operand>
+                     </operand>
+                     <operand localId="216" locator="152:61-152:74" path="value" xsi:type="Property">
+                        <source localId="215" locator="152:61-152:68" name="strength" xsi:type="OperandRef"/>
+                     </operand>
+                  </value>
+               </element>
+               <element name="unit">
+                  <value localId="225" locator="152:83-152:141" xsi:type="Substring">
+                     <stringToSub localId="219" locator="152:93-152:105" path="unit" xsi:type="Property">
+                        <source localId="218" locator="152:93-152:100" name="strength" xsi:type="OperandRef"/>
+                     </stringToSub>
+                     <startIndex localId="220" locator="152:108" valueType="t:Integer" value="0" xsi:type="Literal"/>
+                     <length localId="224" locator="152:111-152:140" xsi:type="PositionOf">
+                        <pattern localId="221" locator="152:122-152:124" valueType="t:String" value="/" xsi:type="Literal"/>
+                        <string localId="223" locator="152:127-152:139" path="unit" xsi:type="Property">
+                           <source localId="222" locator="152:127-152:134" name="strength" xsi:type="OperandRef"/>
+                        </string>
+                     </length>
+                  </value>
+               </element>
+            </else>
+         </expression>
+         <operand name="ingredientCode">
+            <operandTypeSpecifier localId="133" locator="133:57-133:60" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="strength">
+            <operandTypeSpecifier localId="134" locator="133:72-133:79" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="doseFormCode">
+            <operandTypeSpecifier localId="135" locator="133:95-133:98" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="doseQuantity">
+            <operandTypeSpecifier localId="136" locator="133:114-133:121" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="dosesPerDay">
+            <operandTypeSpecifier localId="137" locator="133:136-133:142" name="t:Decimal" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="452" locator="62:1-131:4" name="GetConversionFactor" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="452">
+               <a:s>define function &quot;GetConversionFactor&quot;(ingredientCode </a:s>
+               <a:s r="236">
+                  <a:s>Code</a:s>
+               </a:s>
+               <a:s>, dailyDose </a:s>
+               <a:s r="237">
+                  <a:s>Quantity</a:s>
+               </a:s>
+               <a:s>, doseFormCode </a:s>
+               <a:s r="238">
+                  <a:s>Code</a:s>
+               </a:s>
+               <a:s>):&#xd;
+	/*Determines the conversion factor for each drug based on the ingredient code*/&#xd;
+	</a:s>
+               <a:s r="451">
+                  <a:s r="451">
+                     <a:s>case </a:s>
+                     <a:s r="241">
+                        <a:s>ToInteger(</a:s>
+                        <a:s r="240">
+                           <a:s r="239">
+                              <a:s>ingredientCode</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="240">
+                              <a:s>code</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="244">
+                        <a:s r="242">when 161 then 0</a:s>
+                     </a:s>
+                     <a:s>  /*Acetaminophen*/&#xd;
+		</a:s>
+                     <a:s r="247">
+                        <a:s r="245">when 1191 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Aspirin*/&#xd;
+		</a:s>
+                     <a:s r="250">
+                        <a:s r="248">when 1223 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Atropine*/&#xd;
+		</a:s>
+                     <a:s r="253">
+                        <a:s r="251">when 1767 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Brompheniramine*/&#xd;
+		</a:s>
+                     <a:s r="264">
+                        <a:s r="254">when 1819 then </a:s>
+                        <a:s r="263">
+                           <a:s>( /*Buprenorphine*/ </a:s>
+                           <a:s r="263">
+                              <a:s>case&#xd;
+				</a:s>
+                              <a:s r="261">
+                                 <a:s>when </a:s>
+                                 <a:s r="259">
+                                    <a:s r="257">
+                                       <a:s>ToInteger(</a:s>
+                                       <a:s r="256">
+                                          <a:s r="255">
+                                             <a:s>doseFormCode</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="256">
+                                             <a:s>code</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s r="258">= 316987</a:s>
+                                 </a:s>
+                                 <a:s r="260"> then 12.6</a:s>
+                              </a:s>
+                              <a:s r="262"> /*Transdermal system*/ &#xd;
+				else 30 /*Tablet or Film (or Film in MCG)*/ &#xd;
+			end</a:s>
+                           </a:s>
+                           <a:s>&#xd;
+		)</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="267">
+                        <a:s r="265">when 1841 then 7</a:s>
+                     </a:s>
+                     <a:s> /*Butorphanol*/&#xd;
+		</a:s>
+                     <a:s r="270">
+                        <a:s r="268">when 1886 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Caffeine*/&#xd;
+		</a:s>
+                     <a:s r="273">
+                        <a:s r="271">when 2101 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Carisoprodol*/&#xd;
+		</a:s>
+                     <a:s r="276">
+                        <a:s r="274">when 2354 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Chlorcyclizine*/&#xd;
+		</a:s>
+                     <a:s r="279">
+                        <a:s r="277">when 2400 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Chlorpheniramine*/&#xd;
+		</a:s>
+                     <a:s r="282">
+                        <a:s r="280">when 2670 then 0.15</a:s>
+                     </a:s>
+                     <a:s> /*Codeine*/&#xd;
+		</a:s>
+                     <a:s r="285">
+                        <a:s r="283">when 3423 then 4</a:s>
+                     </a:s>
+                     <a:s> /*Hydromorphone*/&#xd;
+		</a:s>
+                     <a:s r="288">
+                        <a:s r="286">when 3498 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Diphenhydramine*/&#xd;
+		</a:s>
+                     <a:s r="322">
+                        <a:s r="289">when 4337 then </a:s>
+                        <a:s r="321">
+                           <a:s>( /*Fentanyl*/ </a:s>
+                           <a:s r="321">
+                              <a:s>case&#xd;
+				</a:s>
+                              <a:s r="299">
+                                 <a:s>when </a:s>
+                                 <a:s r="297">
+                                    <a:s r="292">
+                                       <a:s>ToInteger(</a:s>
+                                       <a:s r="291">
+                                          <a:s r="290">
+                                             <a:s>doseFormCode</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="291">
+                                             <a:s>code</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s>in </a:s>
+                                    <a:s r="296">
+                                       <a:s r="293">{ 970789, 317007, 316992 }</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s r="298"> then 0.13</a:s>
+                              </a:s>
+                              <a:s> /*Buccal Tablet, Sublingual Tablet, Oral Lozenge*/&#xd;
+				</a:s>
+                              <a:s r="306">
+                                 <a:s>when </a:s>
+                                 <a:s r="304">
+                                    <a:s r="302">
+                                       <a:s>ToInteger(</a:s>
+                                       <a:s r="301">
+                                          <a:s r="300">
+                                             <a:s>doseFormCode</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="301">
+                                             <a:s>code</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s r="303">= 346163</a:s>
+                                 </a:s>
+                                 <a:s r="305"> then 0.18</a:s>
+                              </a:s>
+                              <a:s> /*Buccal Film*/&#xd;
+				</a:s>
+                              <a:s r="315">
+                                 <a:s>when </a:s>
+                                 <a:s r="313">
+                                    <a:s r="309">
+                                       <a:s>ToInteger(</a:s>
+                                       <a:s r="308">
+                                          <a:s r="307">
+                                             <a:s>doseFormCode</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="308">
+                                             <a:s>code</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s>in </a:s>
+                                    <a:s r="312">
+                                       <a:s r="310">{ 126542, 346163 }</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s r="314"> then 0.16</a:s>
+                              </a:s>
+                              <a:s> /*Nasal Spray, Mucosal Spray*/&#xd;
+				</a:s>
+                              <a:s r="319">
+                                 <a:s>when </a:s>
+                                 <a:s r="317">
+                                    <a:s>&quot;IsTransdermalPatch&quot;(</a:s>
+                                    <a:s r="316">
+                                       <a:s>doseFormCode</a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                                 <a:s r="318">then 7.2</a:s>
+                              </a:s>
+                              <a:s r="320"> /*Transdermal system*/ &#xd;
+				else 1000 &#xd;
+			end</a:s>
+                           </a:s>
+                           <a:s>&#xd;
+		)</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="325">
+                        <a:s r="323">when 5032 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Guaifenesin*/&#xd;
+		</a:s>
+                     <a:s r="328">
+                        <a:s r="326">when 5489 then 1</a:s>
+                     </a:s>
+                     <a:s> /*Hydrocodone*/&#xd;
+		</a:s>
+                     <a:s r="331">
+                        <a:s r="329">when 5640 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Ibuprofen*/&#xd;
+		</a:s>
+                     <a:s r="334">
+                        <a:s r="332">when 6102 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Kaolin*/&#xd;
+		</a:s>
+                     <a:s r="337">
+                        <a:s r="335">when 6378 then 11</a:s>
+                     </a:s>
+                     <a:s> /*Levorphanol (NOTE: Given as Levorphanol tartrate in the CDC conversion table)*/&#xd;
+		</a:s>
+                     <a:s r="340">
+                        <a:s r="338">when 6754 then 0.1</a:s>
+                     </a:s>
+                     <a:s> /*Meperidine*/&#xd;
+		</a:s>
+                     <a:s r="371">
+                        <a:s r="341">when 6813 then </a:s>
+                        <a:s r="370">
+                           <a:s>( /*Methadone*/ </a:s>
+                           <a:s r="370">
+                              <a:s>case&#xd;
+				</a:s>
+                              <a:s r="348">
+                                 <a:s>when </a:s>
+                                 <a:s r="346">
+                                    <a:s r="343">
+                                       <a:s r="342">
+                                          <a:s>dailyDose</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="343">
+                                          <a:s>value</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s r="344"> between 1 and 20</a:s>
+                                 </a:s>
+                                 <a:s r="347"> then 4</a:s>
+                              </a:s>
+                              <a:s>&#xd;
+				</a:s>
+                              <a:s r="355">
+                                 <a:s>when </a:s>
+                                 <a:s r="353">
+                                    <a:s r="350">
+                                       <a:s r="349">
+                                          <a:s>dailyDose</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="350">
+                                          <a:s>value</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s r="351"> between 21 and 40</a:s>
+                                 </a:s>
+                                 <a:s r="354"> then 8</a:s>
+                              </a:s>
+                              <a:s>&#xd;
+				</a:s>
+                              <a:s r="362">
+                                 <a:s>when </a:s>
+                                 <a:s r="360">
+                                    <a:s r="357">
+                                       <a:s r="356">
+                                          <a:s>dailyDose</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="357">
+                                          <a:s>value</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s r="358"> between 41 and 60</a:s>
+                                 </a:s>
+                                 <a:s r="361"> then 10</a:s>
+                              </a:s>
+                              <a:s>&#xd;
+				</a:s>
+                              <a:s r="368">
+                                 <a:s>when </a:s>
+                                 <a:s r="366">
+                                    <a:s r="364">
+                                       <a:s r="363">
+                                          <a:s>dailyDose</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="364">
+                                          <a:s>value</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s r="365"> >= 61</a:s>
+                                 </a:s>
+                                 <a:s r="367"> then 12</a:s>
+                              </a:s>
+                              <a:s r="369"> &#xd;
+				else 1000 &#xd;
+			end</a:s>
+                           </a:s>
+                           <a:s>&#xd;
+		)</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="374">
+                        <a:s r="372">when 7052 then 1</a:s>
+                     </a:s>
+                     <a:s> /*Morphine*/&#xd;
+		</a:s>
+                     <a:s r="377">
+                        <a:s r="375">when 7238 then 1</a:s>
+                     </a:s>
+                     <a:s> /*Nalbuphine*/&#xd;
+		</a:s>
+                     <a:s r="380">
+                        <a:s r="378">when 7242 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Naloxone*/&#xd;
+		</a:s>
+                     <a:s r="383">
+                        <a:s r="381">when 7243 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Naltrexone*/&#xd;
+		</a:s>
+                     <a:s r="386">
+                        <a:s r="384">when 7676 then 1</a:s>
+                     </a:s>
+                     <a:s> /*Opium*/&#xd;
+		</a:s>
+                     <a:s r="389">
+                        <a:s r="387">when 7804 then 1.5</a:s>
+                     </a:s>
+                     <a:s> /*Oxycodone*/&#xd;
+		</a:s>
+                     <a:s r="392">
+                        <a:s r="390">when 7814 then 3</a:s>
+                     </a:s>
+                     <a:s> /*Oxymorphone*/&#xd;
+		</a:s>
+                     <a:s r="395">
+                        <a:s r="393">when 8001 then 0.37</a:s>
+                     </a:s>
+                     <a:s> /*Pentazocine*/&#xd;
+		</a:s>
+                     <a:s r="398">
+                        <a:s r="396">when 8163 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Phenylephrine*/&#xd;
+		</a:s>
+                     <a:s r="401">
+                        <a:s r="399">when 8175 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Phenylpropanolamine*/&#xd;
+		</a:s>
+                     <a:s r="404">
+                        <a:s r="402">when 8745 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Promethazine*/&#xd;
+		</a:s>
+                     <a:s r="407">
+                        <a:s r="405">when 8785 then 0.167</a:s>
+                     </a:s>
+                     <a:s> /*Propoxyphene*/&#xd;
+		</a:s>
+                     <a:s r="410">
+                        <a:s r="408">when 8896 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Pseudoephedrine*/&#xd;
+		</a:s>
+                     <a:s r="413">
+                        <a:s r="411">when 9009 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Pyrilamine*/&#xd;
+		</a:s>
+                     <a:s r="416">
+                        <a:s r="414">when 10689 then 0.1</a:s>
+                     </a:s>
+                     <a:s> /*Tramadol*/&#xd;
+		</a:s>
+                     <a:s r="419">
+                        <a:s r="417">when 10849 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Triprolidine*/&#xd;
+		</a:s>
+                     <a:s r="422">
+                        <a:s r="420">when 19759 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Bromodiphenhydramine*/&#xd;
+		</a:s>
+                     <a:s r="425">
+                        <a:s r="423">when 19860 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Butalbital*/&#xd;
+		</a:s>
+                     <a:s r="428">
+                        <a:s r="426">when 22696 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Dexbrompheniramine*/&#xd;
+		</a:s>
+                     <a:s r="431">
+                        <a:s r="429">when 22697 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Dexchlorpheniramine*/&#xd;
+		</a:s>
+                     <a:s r="434">
+                        <a:s r="432">when 23088 then 0.25</a:s>
+                     </a:s>
+                     <a:s> /*Dihydrocodeine*/&#xd;
+		</a:s>
+                     <a:s r="437">
+                        <a:s r="435">when 27084 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Homatropine */&#xd;
+		</a:s>
+                     <a:s r="440">
+                        <a:s r="438">when 35780 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Ropivacaine*/&#xd;
+		</a:s>
+                     <a:s r="443">
+                        <a:s r="441">when 237005 then 8</a:s>
+                     </a:s>
+                     <a:s> /*Levomethadyl (NOTE: given as Levomethadyl acetate in the CDC conversion table)*/&#xd;
+		</a:s>
+                     <a:s r="446">
+                        <a:s r="444">when 636827 then 0</a:s>
+                     </a:s>
+                     <a:s> /*Guaiacolsulfonate*/&#xd;
+		</a:s>
+                     <a:s r="449">
+                        <a:s r="447">when 787390 then 0.4</a:s>
+                     </a:s>
+                     <a:s r="450"> /*Tapentadol*/ &#xd;
+		else 0 &#xd;
+	end</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="451" locator="64:2-131:4" xsi:type="Case">
+            <comparand localId="241" locator="64:7-64:36" xsi:type="ToInteger">
+               <operand localId="240" locator="64:17-64:35" path="code" xsi:type="Property">
+                  <source localId="239" locator="64:17-64:30" name="ingredientCode" xsi:type="OperandRef"/>
+               </operand>
+            </comparand>
+            <caseItem localId="244" locator="65:3-65:17">
+               <when localId="242" locator="65:8-65:10" valueType="t:Integer" value="161" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="243" locator="65:17" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="247" locator="66:3-66:18">
+               <when localId="245" locator="66:8-66:11" valueType="t:Integer" value="1191" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="246" locator="66:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="250" locator="67:3-67:18">
+               <when localId="248" locator="67:8-67:11" valueType="t:Integer" value="1223" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="249" locator="67:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="253" locator="68:3-68:18">
+               <when localId="251" locator="68:8-68:11" valueType="t:Integer" value="1767" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="252" locator="68:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="264" locator="69:3-73:3">
+               <when localId="254" locator="69:8-69:11" valueType="t:Integer" value="1819" xsi:type="Literal"/>
+               <then localId="263" locator="69:18-73:3" xsi:type="Case">
+                  <caseItem localId="261" locator="70:5-70:55">
+                     <when localId="259" locator="70:10-70:45" xsi:type="Equal">
+                        <operand localId="257" locator="70:10-70:37" xsi:type="ToInteger">
+                           <operand localId="256" locator="70:20-70:36" path="code" xsi:type="Property">
+                              <source localId="255" locator="70:20-70:31" name="doseFormCode" xsi:type="OperandRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="258" locator="70:40-70:45" valueType="t:Integer" value="316987" xsi:type="Literal"/>
+                     </when>
+                     <then localId="260" locator="70:52-70:55" valueType="t:Decimal" value="12.6" xsi:type="Literal"/>
+                  </caseItem>
+                  <else xsi:type="ToDecimal">
+                     <operand localId="262" locator="71:10-71:11" valueType="t:Integer" value="30" xsi:type="Literal"/>
+                  </else>
+               </then>
+            </caseItem>
+            <caseItem localId="267" locator="74:3-74:18">
+               <when localId="265" locator="74:8-74:11" valueType="t:Integer" value="1841" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="266" locator="74:18" valueType="t:Integer" value="7" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="270" locator="75:3-75:18">
+               <when localId="268" locator="75:8-75:11" valueType="t:Integer" value="1886" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="269" locator="75:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="273" locator="76:3-76:18">
+               <when localId="271" locator="76:8-76:11" valueType="t:Integer" value="2101" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="272" locator="76:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="276" locator="77:3-77:18">
+               <when localId="274" locator="77:8-77:11" valueType="t:Integer" value="2354" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="275" locator="77:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="279" locator="78:3-78:18">
+               <when localId="277" locator="78:8-78:11" valueType="t:Integer" value="2400" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="278" locator="78:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="282" locator="79:3-79:21">
+               <when localId="280" locator="79:8-79:11" valueType="t:Integer" value="2670" xsi:type="Literal"/>
+               <then localId="281" locator="79:18-79:21" valueType="t:Decimal" value="0.15" xsi:type="Literal"/>
+            </caseItem>
+            <caseItem localId="285" locator="80:3-80:18">
+               <when localId="283" locator="80:8-80:11" valueType="t:Integer" value="3423" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="284" locator="80:18" valueType="t:Integer" value="4" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="288" locator="81:3-81:18">
+               <when localId="286" locator="81:8-81:11" valueType="t:Integer" value="3498" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="287" locator="81:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="322" locator="82:3-89:3">
+               <when localId="289" locator="82:8-82:11" valueType="t:Integer" value="4337" xsi:type="Literal"/>
+               <then localId="321" locator="82:18-89:3" xsi:type="Case">
+                  <caseItem localId="299" locator="83:5-83:76">
+                     <when localId="297" locator="83:10-83:66" xsi:type="In">
+                        <operand localId="292" locator="83:10-83:37" xsi:type="ToInteger">
+                           <operand localId="291" locator="83:20-83:36" path="code" xsi:type="Property">
+                              <source localId="290" locator="83:20-83:31" name="doseFormCode" xsi:type="OperandRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="296" locator="83:41-83:66" xsi:type="List">
+                           <element localId="293" locator="83:43-83:48" valueType="t:Integer" value="970789" xsi:type="Literal"/>
+                           <element localId="294" locator="83:51-83:56" valueType="t:Integer" value="317007" xsi:type="Literal"/>
+                           <element localId="295" locator="83:59-83:64" valueType="t:Integer" value="316992" xsi:type="Literal"/>
+                        </operand>
+                     </when>
+                     <then localId="298" locator="83:73-83:76" valueType="t:Decimal" value="0.13" xsi:type="Literal"/>
+                  </caseItem>
+                  <caseItem localId="306" locator="84:5-84:55">
+                     <when localId="304" locator="84:10-84:45" xsi:type="Equal">
+                        <operand localId="302" locator="84:10-84:37" xsi:type="ToInteger">
+                           <operand localId="301" locator="84:20-84:36" path="code" xsi:type="Property">
+                              <source localId="300" locator="84:20-84:31" name="doseFormCode" xsi:type="OperandRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="303" locator="84:40-84:45" valueType="t:Integer" value="346163" xsi:type="Literal"/>
+                     </when>
+                     <then localId="305" locator="84:52-84:55" valueType="t:Decimal" value="0.18" xsi:type="Literal"/>
+                  </caseItem>
+                  <caseItem localId="315" locator="85:5-85:68">
+                     <when localId="313" locator="85:10-85:58" xsi:type="In">
+                        <operand localId="309" locator="85:10-85:37" xsi:type="ToInteger">
+                           <operand localId="308" locator="85:20-85:36" path="code" xsi:type="Property">
+                              <source localId="307" locator="85:20-85:31" name="doseFormCode" xsi:type="OperandRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="312" locator="85:41-85:58" xsi:type="List">
+                           <element localId="310" locator="85:43-85:48" valueType="t:Integer" value="126542" xsi:type="Literal"/>
+                           <element localId="311" locator="85:51-85:56" valueType="t:Integer" value="346163" xsi:type="Literal"/>
+                        </operand>
+                     </when>
+                     <then localId="314" locator="85:65-85:68" valueType="t:Decimal" value="0.16" xsi:type="Literal"/>
+                  </caseItem>
+                  <caseItem localId="319" locator="86:5-86:51">
+                     <when localId="317" locator="86:10-86:43" name="IsTransdermalPatch" xsi:type="FunctionRef">
+                        <operand localId="316" locator="86:31-86:42" name="doseFormCode" xsi:type="OperandRef"/>
+                     </when>
+                     <then localId="318" locator="86:49-86:51" valueType="t:Decimal" value="7.2" xsi:type="Literal"/>
+                  </caseItem>
+                  <else xsi:type="ToDecimal">
+                     <operand localId="320" locator="87:10-87:13" valueType="t:Integer" value="1000" xsi:type="Literal"/>
+                  </else>
+               </then>
+            </caseItem>
+            <caseItem localId="325" locator="90:3-90:18">
+               <when localId="323" locator="90:8-90:11" valueType="t:Integer" value="5032" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="324" locator="90:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="328" locator="91:3-91:18">
+               <when localId="326" locator="91:8-91:11" valueType="t:Integer" value="5489" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="327" locator="91:18" valueType="t:Integer" value="1" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="331" locator="92:3-92:18">
+               <when localId="329" locator="92:8-92:11" valueType="t:Integer" value="5640" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="330" locator="92:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="334" locator="93:3-93:18">
+               <when localId="332" locator="93:8-93:11" valueType="t:Integer" value="6102" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="333" locator="93:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="337" locator="94:3-94:19">
+               <when localId="335" locator="94:8-94:11" valueType="t:Integer" value="6378" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="336" locator="94:18-94:19" valueType="t:Integer" value="11" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="340" locator="95:3-95:20">
+               <when localId="338" locator="95:8-95:11" valueType="t:Integer" value="6754" xsi:type="Literal"/>
+               <then localId="339" locator="95:18-95:20" valueType="t:Decimal" value="0.1" xsi:type="Literal"/>
+            </caseItem>
+            <caseItem localId="371" locator="96:3-103:3">
+               <when localId="341" locator="96:8-96:11" valueType="t:Integer" value="6813" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="370" locator="96:18-103:3" xsi:type="Case">
+                     <caseItem localId="348" locator="97:5-97:48">
+                        <when localId="346" locator="97:10-97:41" xsi:type="And">
+                           <operand xsi:type="GreaterOrEqual">
+                              <operand localId="343" locator="97:10-97:24" path="value" xsi:type="Property">
+                                 <source localId="342" locator="97:10-97:18" name="dailyDose" xsi:type="OperandRef"/>
+                              </operand>
+                              <operand xsi:type="ToDecimal">
+                                 <operand localId="344" locator="97:34" valueType="t:Integer" value="1" xsi:type="Literal"/>
+                              </operand>
+                           </operand>
+                           <operand xsi:type="LessOrEqual">
+                              <operand localId="343" locator="97:10-97:24" path="value" xsi:type="Property">
+                                 <source localId="342" locator="97:10-97:18" name="dailyDose" xsi:type="OperandRef"/>
+                              </operand>
+                              <operand xsi:type="ToDecimal">
+                                 <operand localId="345" locator="97:40-97:41" valueType="t:Integer" value="20" xsi:type="Literal"/>
+                              </operand>
+                           </operand>
+                        </when>
+                        <then localId="347" locator="97:48" valueType="t:Integer" value="4" xsi:type="Literal"/>
+                     </caseItem>
+                     <caseItem localId="355" locator="98:5-98:49">
+                        <when localId="353" locator="98:10-98:42" xsi:type="And">
+                           <operand xsi:type="GreaterOrEqual">
+                              <operand localId="350" locator="98:10-98:24" path="value" xsi:type="Property">
+                                 <source localId="349" locator="98:10-98:18" name="dailyDose" xsi:type="OperandRef"/>
+                              </operand>
+                              <operand xsi:type="ToDecimal">
+                                 <operand localId="351" locator="98:34-98:35" valueType="t:Integer" value="21" xsi:type="Literal"/>
+                              </operand>
+                           </operand>
+                           <operand xsi:type="LessOrEqual">
+                              <operand localId="350" locator="98:10-98:24" path="value" xsi:type="Property">
+                                 <source localId="349" locator="98:10-98:18" name="dailyDose" xsi:type="OperandRef"/>
+                              </operand>
+                              <operand xsi:type="ToDecimal">
+                                 <operand localId="352" locator="98:41-98:42" valueType="t:Integer" value="40" xsi:type="Literal"/>
+                              </operand>
+                           </operand>
+                        </when>
+                        <then localId="354" locator="98:49" valueType="t:Integer" value="8" xsi:type="Literal"/>
+                     </caseItem>
+                     <caseItem localId="362" locator="99:5-99:50">
+                        <when localId="360" locator="99:10-99:42" xsi:type="And">
+                           <operand xsi:type="GreaterOrEqual">
+                              <operand localId="357" locator="99:10-99:24" path="value" xsi:type="Property">
+                                 <source localId="356" locator="99:10-99:18" name="dailyDose" xsi:type="OperandRef"/>
+                              </operand>
+                              <operand xsi:type="ToDecimal">
+                                 <operand localId="358" locator="99:34-99:35" valueType="t:Integer" value="41" xsi:type="Literal"/>
+                              </operand>
+                           </operand>
+                           <operand xsi:type="LessOrEqual">
+                              <operand localId="357" locator="99:10-99:24" path="value" xsi:type="Property">
+                                 <source localId="356" locator="99:10-99:18" name="dailyDose" xsi:type="OperandRef"/>
+                              </operand>
+                              <operand xsi:type="ToDecimal">
+                                 <operand localId="359" locator="99:41-99:42" valueType="t:Integer" value="60" xsi:type="Literal"/>
+                              </operand>
+                           </operand>
+                        </when>
+                        <then localId="361" locator="99:49-99:50" valueType="t:Integer" value="10" xsi:type="Literal"/>
+                     </caseItem>
+                     <caseItem localId="368" locator="100:5-100:38">
+                        <when localId="366" locator="100:10-100:30" xsi:type="GreaterOrEqual">
+                           <operand localId="364" locator="100:10-100:24" path="value" xsi:type="Property">
+                              <source localId="363" locator="100:10-100:18" name="dailyDose" xsi:type="OperandRef"/>
+                           </operand>
+                           <operand xsi:type="ToDecimal">
+                              <operand localId="365" locator="100:29-100:30" valueType="t:Integer" value="61" xsi:type="Literal"/>
+                           </operand>
+                        </when>
+                        <then localId="367" locator="100:37-100:38" valueType="t:Integer" value="12" xsi:type="Literal"/>
+                     </caseItem>
+                     <else localId="369" locator="101:10-101:13" valueType="t:Integer" value="1000" xsi:type="Literal"/>
+                  </operand>
+               </then>
+            </caseItem>
+            <caseItem localId="374" locator="104:3-104:18">
+               <when localId="372" locator="104:8-104:11" valueType="t:Integer" value="7052" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="373" locator="104:18" valueType="t:Integer" value="1" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="377" locator="105:3-105:18">
+               <when localId="375" locator="105:8-105:11" valueType="t:Integer" value="7238" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="376" locator="105:18" valueType="t:Integer" value="1" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="380" locator="106:3-106:18">
+               <when localId="378" locator="106:8-106:11" valueType="t:Integer" value="7242" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="379" locator="106:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="383" locator="107:3-107:18">
+               <when localId="381" locator="107:8-107:11" valueType="t:Integer" value="7243" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="382" locator="107:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="386" locator="108:3-108:18">
+               <when localId="384" locator="108:8-108:11" valueType="t:Integer" value="7676" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="385" locator="108:18" valueType="t:Integer" value="1" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="389" locator="109:3-109:20">
+               <when localId="387" locator="109:8-109:11" valueType="t:Integer" value="7804" xsi:type="Literal"/>
+               <then localId="388" locator="109:18-109:20" valueType="t:Decimal" value="1.5" xsi:type="Literal"/>
+            </caseItem>
+            <caseItem localId="392" locator="110:3-110:18">
+               <when localId="390" locator="110:8-110:11" valueType="t:Integer" value="7814" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="391" locator="110:18" valueType="t:Integer" value="3" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="395" locator="111:3-111:21">
+               <when localId="393" locator="111:8-111:11" valueType="t:Integer" value="8001" xsi:type="Literal"/>
+               <then localId="394" locator="111:18-111:21" valueType="t:Decimal" value="0.37" xsi:type="Literal"/>
+            </caseItem>
+            <caseItem localId="398" locator="112:3-112:18">
+               <when localId="396" locator="112:8-112:11" valueType="t:Integer" value="8163" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="397" locator="112:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="401" locator="113:3-113:18">
+               <when localId="399" locator="113:8-113:11" valueType="t:Integer" value="8175" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="400" locator="113:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="404" locator="114:3-114:18">
+               <when localId="402" locator="114:8-114:11" valueType="t:Integer" value="8745" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="403" locator="114:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="407" locator="115:3-115:22">
+               <when localId="405" locator="115:8-115:11" valueType="t:Integer" value="8785" xsi:type="Literal"/>
+               <then localId="406" locator="115:18-115:22" valueType="t:Decimal" value="0.167" xsi:type="Literal"/>
+            </caseItem>
+            <caseItem localId="410" locator="116:3-116:18">
+               <when localId="408" locator="116:8-116:11" valueType="t:Integer" value="8896" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="409" locator="116:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="413" locator="117:3-117:18">
+               <when localId="411" locator="117:8-117:11" valueType="t:Integer" value="9009" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="412" locator="117:18" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="416" locator="118:3-118:21">
+               <when localId="414" locator="118:8-118:12" valueType="t:Integer" value="10689" xsi:type="Literal"/>
+               <then localId="415" locator="118:19-118:21" valueType="t:Decimal" value="0.1" xsi:type="Literal"/>
+            </caseItem>
+            <caseItem localId="419" locator="119:3-119:19">
+               <when localId="417" locator="119:8-119:12" valueType="t:Integer" value="10849" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="418" locator="119:19" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="422" locator="120:3-120:19">
+               <when localId="420" locator="120:8-120:12" valueType="t:Integer" value="19759" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="421" locator="120:19" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="425" locator="121:3-121:19">
+               <when localId="423" locator="121:8-121:12" valueType="t:Integer" value="19860" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="424" locator="121:19" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="428" locator="122:3-122:19">
+               <when localId="426" locator="122:8-122:12" valueType="t:Integer" value="22696" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="427" locator="122:19" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="431" locator="123:3-123:19">
+               <when localId="429" locator="123:8-123:12" valueType="t:Integer" value="22697" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="430" locator="123:19" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="434" locator="124:3-124:22">
+               <when localId="432" locator="124:8-124:12" valueType="t:Integer" value="23088" xsi:type="Literal"/>
+               <then localId="433" locator="124:19-124:22" valueType="t:Decimal" value="0.25" xsi:type="Literal"/>
+            </caseItem>
+            <caseItem localId="437" locator="125:3-125:19">
+               <when localId="435" locator="125:8-125:12" valueType="t:Integer" value="27084" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="436" locator="125:19" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="440" locator="126:3-126:19">
+               <when localId="438" locator="126:8-126:12" valueType="t:Integer" value="35780" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="439" locator="126:19" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="443" locator="127:3-127:20">
+               <when localId="441" locator="127:8-127:13" valueType="t:Integer" value="237005" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="442" locator="127:20" valueType="t:Integer" value="8" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="446" locator="128:3-128:20">
+               <when localId="444" locator="128:8-128:13" valueType="t:Integer" value="636827" xsi:type="Literal"/>
+               <then xsi:type="ToDecimal">
+                  <operand localId="445" locator="128:20" valueType="t:Integer" value="0" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="449" locator="129:3-129:22">
+               <when localId="447" locator="129:8-129:13" valueType="t:Integer" value="787390" xsi:type="Literal"/>
+               <then localId="448" locator="129:20-129:22" valueType="t:Decimal" value="0.4" xsi:type="Literal"/>
+            </caseItem>
+            <else xsi:type="ToDecimal">
+               <operand localId="450" locator="130:8" valueType="t:Integer" value="0" xsi:type="Literal"/>
+            </else>
+         </expression>
+         <operand name="ingredientCode">
+            <operandTypeSpecifier localId="236" locator="62:54-62:57" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="dailyDose">
+            <operandTypeSpecifier localId="237" locator="62:70-62:77" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="doseFormCode">
+            <operandTypeSpecifier localId="238" locator="62:93-62:96" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="559" locator="159:1-174:4" name="GetMedDailyDoseDescription" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="559">
+               <a:s>define function &quot;GetMedDailyDoseDescription&quot;(ingredientCode </a:s>
+               <a:s r="469">
+                  <a:s>Code</a:s>
+               </a:s>
+               <a:s>, ingredientName </a:s>
+               <a:s r="470">
+                  <a:s>String</a:s>
+               </a:s>
+               <a:s>, strength </a:s>
+               <a:s r="471">
+                  <a:s>Quantity</a:s>
+               </a:s>
+               <a:s>, doseFormCode </a:s>
+               <a:s r="472">
+                  <a:s>Code</a:s>
+               </a:s>
+               <a:s>, doseFormName </a:s>
+               <a:s r="473">
+                  <a:s>String</a:s>
+               </a:s>
+               <a:s>, doseQuantity </a:s>
+               <a:s r="474">
+                  <a:s>Quantity</a:s>
+               </a:s>
+               <a:s>, dosesPerDay </a:s>
+               <a:s r="475">
+                  <a:s>Decimal</a:s>
+               </a:s>
+               <a:s>, dailyDose </a:s>
+               <a:s r="476">
+                  <a:s>Quantity</a:s>
+               </a:s>
+               <a:s>):&#xd;
+	/*If a transdermal system (patch) form, assesses drug name and strength to determine the code to use in converting to MME*/&#xd;
+	</a:s>
+               <a:s r="558">
+                  <a:s r="558">
+                     <a:s>case&#xd;
+	    /* if patch */&#xd;
+		</a:s>
+                     <a:s r="505">
+                        <a:s>when </a:s>
+                        <a:s r="478">
+                           <a:s>&quot;IsTransdermalPatch&quot;(</a:s>
+                           <a:s r="477">
+                              <a:s>doseFormCode</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                        <a:s>then&#xd;
+	      /* buprenorphine or fentanyl patch */ </a:s>
+                        <a:s r="504">
+                           <a:s>if </a:s>
+                           <a:s r="485">
+                              <a:s r="481">
+                                 <a:s>ToInteger(</a:s>
+                                 <a:s r="480">
+                                    <a:s r="479">
+                                       <a:s>ingredientCode</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="480">
+                                       <a:s>code</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                              <a:s>in </a:s>
+                              <a:s r="484">
+                                 <a:s r="482">{ 1819, 4337 }</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> then </a:s>
+                           <a:s r="502">
+                              <a:s r="499">
+                                 <a:s r="497">
+                                    <a:s r="494">
+                                       <a:s r="492">
+                                          <a:s r="488">
+                                             <a:s r="486">
+                                                <a:s>ingredientName</a:s>
+                                             </a:s>
+                                             <a:s> + </a:s>
+                                             <a:s r="487">
+                                                <a:s>' patch: '</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> + </a:s>
+                                          <a:s r="491">
+                                             <a:s>ToString(</a:s>
+                                             <a:s r="490">
+                                                <a:s r="489">
+                                                   <a:s>doseQuantity</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="490">
+                                                   <a:s>value</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>)</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>+ </a:s>
+                                       <a:s r="493">
+                                          <a:s>' * '</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> + </a:s>
+                                    <a:s r="496">
+                                       <a:s>ToString(</a:s>
+                                       <a:s r="495">
+                                          <a:s>strength</a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>+ </a:s>
+                                 <a:s r="498">
+                                    <a:s>' = '</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> + </a:s>
+                              <a:s r="501">
+                                 <a:s>ToString(</a:s>
+                                 <a:s r="500">
+                                    <a:s>dailyDose</a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="503">&#xd;
+			else null</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+	&#xd;
+	&#xd;
+	    /* if dose unit in actual mass units (mg or mcg -- when it's a single med) */&#xd;
+		</a:s>
+                     <a:s r="532">
+                        <a:s>when </a:s>
+                        <a:s r="511">
+                           <a:s r="507">
+                              <a:s r="506">
+                                 <a:s>doseQuantity</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="507">
+                                 <a:s>unit</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="510">
+                              <a:s>{ </a:s>
+                              <a:s r="508">
+                                 <a:s>'mg'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="509">
+                                 <a:s>'mcg'</a:s>
+                              </a:s>
+                              <a:s> }</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then </a:s>
+                        <a:s r="531">
+                           <a:s r="528">
+                              <a:s r="526">
+                                 <a:s r="523">
+                                    <a:s r="521">
+                                       <a:s r="518">
+                                          <a:s r="516">
+                                             <a:s r="514">
+                                                <a:s r="512">
+                                                   <a:s>ingredientName</a:s>
+                                                </a:s>
+                                                <a:s> + </a:s>
+                                                <a:s r="513">
+                                                   <a:s>' '</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s> + </a:s>
+                                             <a:s r="515">
+                                                <a:s>doseFormName</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> + </a:s>
+                                          <a:s r="517">
+                                             <a:s>': '</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> + </a:s>
+                                       <a:s r="520">
+                                          <a:s>ToString(</a:s>
+                                          <a:s r="519">
+                                             <a:s>dosesPerDay</a:s>
+                                          </a:s>
+                                          <a:s>)</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>+ </a:s>
+                                    <a:s r="522">
+                                       <a:s>'/d * '</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> + </a:s>
+                                 <a:s r="525">
+                                    <a:s>ToString(</a:s>
+                                    <a:s r="524">
+                                       <a:s>doseQuantity</a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>+ </a:s>
+                              <a:s r="527">
+                                 <a:s>' = '</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> + </a:s>
+                           <a:s r="530">
+                              <a:s>ToString(</a:s>
+                              <a:s r="529">
+                                 <a:s>dailyDose</a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+	&#xd;
+	&#xd;
+	    /* if doseQuantity in actual volume units (mL) or not in actual units (e.g. 1 tab, 1 spray) */&#xd;
+		else </a:s>
+                     <a:s r="557">
+                        <a:s r="554">
+                           <a:s r="552">
+                              <a:s r="549">
+                                 <a:s r="547">
+                                    <a:s r="544">
+                                       <a:s r="542">
+                                          <a:s r="539">
+                                             <a:s r="537">
+                                                <a:s r="535">
+                                                   <a:s r="533">
+                                                      <a:s>ingredientName</a:s>
+                                                   </a:s>
+                                                   <a:s> + </a:s>
+                                                   <a:s r="534">
+                                                      <a:s>' '</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s> + </a:s>
+                                                <a:s r="536">
+                                                   <a:s>doseFormName</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s> + </a:s>
+                                             <a:s r="538">
+                                                <a:s>': '</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> + </a:s>
+                                          <a:s r="541">
+                                             <a:s>ToString(</a:s>
+                                             <a:s r="540">
+                                                <a:s>dosesPerDay</a:s>
+                                             </a:s>
+                                             <a:s>)</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>+ </a:s>
+                                       <a:s r="543">
+                                          <a:s>'/d * '</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> + </a:s>
+                                    <a:s r="546">
+                                       <a:s>ToString(</a:s>
+                                       <a:s r="545">
+                                          <a:s>doseQuantity</a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>+ </a:s>
+                                 <a:s r="548">
+                                    <a:s>' * '</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> + </a:s>
+                              <a:s r="551">
+                                 <a:s>ToString(</a:s>
+                                 <a:s r="550">
+                                    <a:s>strength</a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>+ </a:s>
+                           <a:s r="553">
+                              <a:s>' = '</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> + </a:s>
+                        <a:s r="556">
+                           <a:s>ToString(</a:s>
+                           <a:s r="555">
+                              <a:s>dailyDose</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+	end</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="558" locator="161:2-174:4" xsi:type="Case">
+            <caseItem localId="505" locator="163:3-165:12">
+               <when localId="478" locator="163:8-163:41" name="IsTransdermalPatch" xsi:type="FunctionRef">
+                  <operand localId="477" locator="163:29-163:40" name="doseFormCode" xsi:type="OperandRef"/>
+               </when>
+               <then localId="504" locator="164:46-165:12" xsi:type="If">
+                  <condition asType="t:Boolean" xsi:type="As">
+                     <operand localId="485" locator="164:49-164:95" xsi:type="In">
+                        <operand localId="481" locator="164:49-164:78" xsi:type="ToInteger">
+                           <operand localId="480" locator="164:59-164:77" path="code" xsi:type="Property">
+                              <source localId="479" locator="164:59-164:72" name="ingredientCode" xsi:type="OperandRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="484" locator="164:82-164:95" xsi:type="List">
+                           <element localId="482" locator="164:84-164:87" valueType="t:Integer" value="1819" xsi:type="Literal"/>
+                           <element localId="483" locator="164:90-164:93" valueType="t:Integer" value="4337" xsi:type="Literal"/>
+                        </operand>
+                     </operand>
+                  </condition>
+                  <then localId="502" locator="164:102-164:216" xsi:type="Concatenate">
+                     <operand localId="499" locator="164:102-164:194" xsi:type="Concatenate">
+                        <operand localId="497" locator="164:102-164:187" xsi:type="Concatenate">
+                           <operand localId="494" locator="164:102-164:166" xsi:type="Concatenate">
+                              <operand localId="492" locator="164:102-164:159" xsi:type="Concatenate">
+                                 <operand localId="488" locator="164:102-164:128" xsi:type="Concatenate">
+                                    <operand localId="486" locator="164:102-164:115" name="ingredientName" xsi:type="OperandRef"/>
+                                    <operand localId="487" locator="164:119-164:128" valueType="t:String" value=" patch: " xsi:type="Literal"/>
+                                 </operand>
+                                 <operand localId="491" locator="164:132-164:159" xsi:type="ToString">
+                                    <operand localId="490" locator="164:141-164:158" path="value" xsi:type="Property">
+                                       <source localId="489" locator="164:141-164:152" name="doseQuantity" xsi:type="OperandRef"/>
+                                    </operand>
+                                 </operand>
+                              </operand>
+                              <operand localId="493" locator="164:162-164:166" valueType="t:String" value=" * " xsi:type="Literal"/>
+                           </operand>
+                           <operand localId="496" locator="164:170-164:187" xsi:type="ToString">
+                              <operand localId="495" locator="164:179-164:186" name="strength" xsi:type="OperandRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="498" locator="164:190-164:194" valueType="t:String" value=" = " xsi:type="Literal"/>
+                     </operand>
+                     <operand localId="501" locator="164:198-164:216" xsi:type="ToString">
+                        <operand localId="500" locator="164:207-164:215" name="dailyDose" xsi:type="OperandRef"/>
+                     </operand>
+                  </then>
+                  <else asType="t:String" xsi:type="As">
+                     <operand localId="503" locator="165:9-165:12" xsi:type="Null"/>
+                  </else>
+               </then>
+            </caseItem>
+            <caseItem localId="532" locator="169:3-169:178">
+               <when localId="511" locator="169:8-169:43" xsi:type="In">
+                  <operand localId="507" locator="169:8-169:24" path="unit" xsi:type="Property">
+                     <source localId="506" locator="169:8-169:19" name="doseQuantity" xsi:type="OperandRef"/>
+                  </operand>
+                  <operand localId="510" locator="169:29-169:43" xsi:type="List">
+                     <element localId="508" locator="169:31-169:34" valueType="t:String" value="mg" xsi:type="Literal"/>
+                     <element localId="509" locator="169:37-169:41" valueType="t:String" value="mcg" xsi:type="Literal"/>
+                  </operand>
+               </when>
+               <then localId="531" locator="169:50-169:178" xsi:type="Concatenate">
+                  <operand localId="528" locator="169:50-169:156" xsi:type="Concatenate">
+                     <operand localId="526" locator="169:50-169:149" xsi:type="Concatenate">
+                        <operand localId="523" locator="169:50-169:124" xsi:type="Concatenate">
+                           <operand localId="521" locator="169:50-169:115" xsi:type="Concatenate">
+                              <operand localId="518" locator="169:50-169:91" xsi:type="Concatenate">
+                                 <operand localId="516" locator="169:50-169:84" xsi:type="Concatenate">
+                                    <operand localId="514" locator="169:50-169:69" xsi:type="Concatenate">
+                                       <operand localId="512" locator="169:50-169:63" name="ingredientName" xsi:type="OperandRef"/>
+                                       <operand localId="513" locator="169:67-169:69" valueType="t:String" value=" " xsi:type="Literal"/>
+                                    </operand>
+                                    <operand localId="515" locator="169:73-169:84" name="doseFormName" xsi:type="OperandRef"/>
+                                 </operand>
+                                 <operand localId="517" locator="169:88-169:91" valueType="t:String" value=": " xsi:type="Literal"/>
+                              </operand>
+                              <operand localId="520" locator="169:95-169:115" xsi:type="ToString">
+                                 <operand localId="519" locator="169:104-169:114" name="dosesPerDay" xsi:type="OperandRef"/>
+                              </operand>
+                           </operand>
+                           <operand localId="522" locator="169:118-169:124" valueType="t:String" value="/d * " xsi:type="Literal"/>
+                        </operand>
+                        <operand localId="525" locator="169:128-169:149" xsi:type="ToString">
+                           <operand localId="524" locator="169:137-169:148" name="doseQuantity" xsi:type="OperandRef"/>
+                        </operand>
+                     </operand>
+                     <operand localId="527" locator="169:152-169:156" valueType="t:String" value=" = " xsi:type="Literal"/>
+                  </operand>
+                  <operand localId="530" locator="169:160-169:178" xsi:type="ToString">
+                     <operand localId="529" locator="169:169-169:177" name="dailyDose" xsi:type="OperandRef"/>
+                  </operand>
+               </then>
+            </caseItem>
+            <else localId="557" locator="173:8-173:164" xsi:type="Concatenate">
+               <operand localId="554" locator="173:8-173:142" xsi:type="Concatenate">
+                  <operand localId="552" locator="173:8-173:135" xsi:type="Concatenate">
+                     <operand localId="549" locator="173:8-173:114" xsi:type="Concatenate">
+                        <operand localId="547" locator="173:8-173:107" xsi:type="Concatenate">
+                           <operand localId="544" locator="173:8-173:82" xsi:type="Concatenate">
+                              <operand localId="542" locator="173:8-173:73" xsi:type="Concatenate">
+                                 <operand localId="539" locator="173:8-173:49" xsi:type="Concatenate">
+                                    <operand localId="537" locator="173:8-173:42" xsi:type="Concatenate">
+                                       <operand localId="535" locator="173:8-173:27" xsi:type="Concatenate">
+                                          <operand localId="533" locator="173:8-173:21" name="ingredientName" xsi:type="OperandRef"/>
+                                          <operand localId="534" locator="173:25-173:27" valueType="t:String" value=" " xsi:type="Literal"/>
+                                       </operand>
+                                       <operand localId="536" locator="173:31-173:42" name="doseFormName" xsi:type="OperandRef"/>
+                                    </operand>
+                                    <operand localId="538" locator="173:46-173:49" valueType="t:String" value=": " xsi:type="Literal"/>
+                                 </operand>
+                                 <operand localId="541" locator="173:53-173:73" xsi:type="ToString">
+                                    <operand localId="540" locator="173:62-173:72" name="dosesPerDay" xsi:type="OperandRef"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="543" locator="173:76-173:82" valueType="t:String" value="/d * " xsi:type="Literal"/>
+                           </operand>
+                           <operand localId="546" locator="173:86-173:107" xsi:type="ToString">
+                              <operand localId="545" locator="173:95-173:106" name="doseQuantity" xsi:type="OperandRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="548" locator="173:110-173:114" valueType="t:String" value=" * " xsi:type="Literal"/>
+                     </operand>
+                     <operand localId="551" locator="173:118-173:135" xsi:type="ToString">
+                        <operand localId="550" locator="173:127-173:134" name="strength" xsi:type="OperandRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="553" locator="173:138-173:142" valueType="t:String" value=" = " xsi:type="Literal"/>
+               </operand>
+               <operand localId="556" locator="173:146-173:164" xsi:type="ToString">
+                  <operand localId="555" locator="173:155-173:163" name="dailyDose" xsi:type="OperandRef"/>
+               </operand>
+            </else>
+         </expression>
+         <operand name="ingredientCode">
+            <operandTypeSpecifier localId="469" locator="159:61-159:64" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="ingredientName">
+            <operandTypeSpecifier localId="470" locator="159:82-159:87" name="t:String" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="strength">
+            <operandTypeSpecifier localId="471" locator="159:99-159:106" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="doseFormCode">
+            <operandTypeSpecifier localId="472" locator="159:122-159:125" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="doseFormName">
+            <operandTypeSpecifier localId="473" locator="159:141-159:146" name="t:String" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="doseQuantity">
+            <operandTypeSpecifier localId="474" locator="159:162-159:169" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="dosesPerDay">
+            <operandTypeSpecifier localId="475" locator="159:184-159:190" name="t:Decimal" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="dailyDose">
+            <operandTypeSpecifier localId="476" locator="159:203-159:210" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="595" locator="17:1-44:2" name="CalculateMorphineMilligramEquivalents" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="595">
+               <a:s>define function &quot;CalculateMorphineMilligramEquivalents&quot;(medications </a:s>
+               <a:s r="19">
+                  <a:s>List&lt;</a:s>
+                  <a:s r="18">
+                     <a:s>Tuple {&#xd;
+	</a:s>
+                     <a:s r="13">
+                        <a:s>rxNormCode </a:s>
+                        <a:s r="12">
+                           <a:s>Code</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>,&#xd;
+	</a:s>
+                     <a:s r="15">
+                        <a:s>doseQuantity </a:s>
+                        <a:s r="14">
+                           <a:s>Quantity</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>,&#xd;
+	</a:s>
+                     <a:s r="17">
+                        <a:s>dosesPerDay </a:s>
+                        <a:s r="16">
+                           <a:s>Decimal</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+}</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s>):&#xd;
+	/*Converts the opioid drug strength to its MME*/&#xd;
+	</a:s>
+               <a:s r="594">
+                  <a:s r="594">
+                     <a:s>Flatten(</a:s>
+                     <a:s r="593">
+                        <a:s>
+                           <a:s r="21">
+                              <a:s r="20">
+                                 <a:s>
+                                    <a:s>medications</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> Med</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+			</a:s>
+                        <a:s>
+                           <a:s>let </a:s>
+                           <a:s r="117">
+                              <a:s>Ingredients: </a:s>
+                              <a:s r="116">
+                                 <a:s>&quot;GetIngredients&quot;(</a:s>
+                                 <a:s r="23">
+                                    <a:s r="22">
+                                       <a:s>Med</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="23">
+                                       <a:s>rxNormCode</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+			</a:s>
+                        <a:s r="592">
+                           <a:s>return </a:s>
+                           <a:s r="591">
+                              <a:s>
+                                 <a:s r="119">
+                                    <a:s r="118">
+                                       <a:s>
+                                          <a:s>Ingredients</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> Drug</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+				</a:s>
+                              <a:s>
+                                 <a:s>let </a:s>
+                                 <a:s r="123">
+                                    <a:s>adjustedDoseQuantity: </a:s>
+                                    <a:s r="122">
+                                       <a:s>&quot;EnsureMicrogramQuantity&quot;(</a:s>
+                                       <a:s r="121">
+                                          <a:s r="120">
+                                             <a:s>Med</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="121">
+                                             <a:s>doseQuantity</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>,&#xd;
+				</a:s>
+                                 <a:s r="230">
+                                    <a:s>dailyDose: </a:s>
+                                    <a:s r="229">
+                                       <a:s>&quot;GetMedicationDailyDose&quot;(</a:s>
+                                       <a:s r="125">
+                                          <a:s r="124">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="125">
+                                             <a:s>ingredientCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="127">
+                                          <a:s r="126">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="127">
+                                             <a:s>strength</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="129">
+                                          <a:s r="128">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="129">
+                                             <a:s>doseFormCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="130">
+                                          <a:s>adjustedDoseQuantity</a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="132">
+                                          <a:s r="131">
+                                             <a:s>Med</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="132">
+                                             <a:s>dosesPerDay</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>,&#xd;
+				</a:s>
+                                 <a:s r="454">
+                                    <a:s>factor: </a:s>
+                                    <a:s r="453">
+                                       <a:s>&quot;GetConversionFactor&quot;(</a:s>
+                                       <a:s r="232">
+                                          <a:s r="231">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="232">
+                                             <a:s>ingredientCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="233">
+                                          <a:s>dailyDose</a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="235">
+                                          <a:s r="234">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="235">
+                                             <a:s>doseFormCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>,&#xd;
+				</a:s>
+                                 <a:s r="561">
+                                    <a:s>dailyDoseDescription: </a:s>
+                                    <a:s r="560">
+                                       <a:s>&quot;GetMedDailyDoseDescription&quot;(</a:s>
+                                       <a:s r="456">
+                                          <a:s r="455">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="456">
+                                             <a:s>ingredientCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="458">
+                                          <a:s r="457">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="458">
+                                             <a:s>ingredientName</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="460">
+                                          <a:s r="459">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="460">
+                                             <a:s>strength</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="462">
+                                          <a:s r="461">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="462">
+                                             <a:s>doseFormCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="464">
+                                          <a:s r="463">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="464">
+                                             <a:s>doseFormName</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="465">
+                                          <a:s>adjustedDoseQuantity</a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="467">
+                                          <a:s r="466">
+                                             <a:s>Med</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="467">
+                                             <a:s>dosesPerDay</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="468">
+                                          <a:s>dailyDose</a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>,&#xd;
+				</a:s>
+                                 <a:s r="571">
+                                    <a:s>MME: </a:s>
+                                    <a:s r="570">
+                                       <a:s>Quantity { </a:s>
+                                       <a:s>
+                                          <a:s>value: </a:s>
+                                          <a:s r="565">
+                                             <a:s r="563">
+                                                <a:s r="562">
+                                                   <a:s>dailyDose</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="563">
+                                                   <a:s>value</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s> * </a:s>
+                                             <a:s r="564">
+                                                <a:s>factor</a:s>
+                                             </a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s>
+                                          <a:s>unit: </a:s>
+                                          <a:s r="569">
+                                             <a:s r="567">
+                                                <a:s r="566">
+                                                   <a:s>dailyDose</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="567">
+                                                   <a:s>unit</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s> + </a:s>
+                                             <a:s r="568">
+                                                <a:s>'/d'</a:s>
+                                             </a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> }</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+				</a:s>
+                              <a:s r="590">
+                                 <a:s>return </a:s>
+                                 <a:s r="589">
+                                    <a:s>{&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>rxNormCode: </a:s>
+                                       <a:s r="573">
+                                          <a:s r="572">
+                                             <a:s>Med</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="573">
+                                             <a:s>rxNormCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>doseFormCode: </a:s>
+                                       <a:s r="575">
+                                          <a:s r="574">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="575">
+                                             <a:s>doseFormCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>doseQuantity: </a:s>
+                                       <a:s r="576">
+                                          <a:s>adjustedDoseQuantity</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>dosesPerDay: </a:s>
+                                       <a:s r="578">
+                                          <a:s r="577">
+                                             <a:s>Med</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="578">
+                                             <a:s>dosesPerDay</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>ingredientCode: </a:s>
+                                       <a:s r="580">
+                                          <a:s r="579">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="580">
+                                             <a:s>ingredientCode</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>ingredientName: </a:s>
+                                       <a:s r="582">
+                                          <a:s r="581">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="582">
+                                             <a:s>ingredientName</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>strength: </a:s>
+                                       <a:s r="584">
+                                          <a:s r="583">
+                                             <a:s>Drug</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="584">
+                                             <a:s>strength</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>dailyDose: </a:s>
+                                       <a:s r="585">
+                                          <a:s>dailyDose</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>dailyDoseDescription: </a:s>
+                                       <a:s r="586">
+                                          <a:s>dailyDoseDescription</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>conversionFactor: </a:s>
+                                       <a:s r="587">
+                                          <a:s>factor</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,&#xd;
+					</a:s>
+                                    <a:s>
+                                       <a:s>MME: </a:s>
+                                       <a:s r="588">
+                                          <a:s>MME</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+				}</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+	)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="594" locator="23:2-44:2" xsi:type="Flatten">
+            <operand localId="593" locator="23:10-43:5" xsi:type="Query">
+               <source localId="21" locator="23:10-23:24" alias="Med">
+                  <expression localId="20" locator="23:10-23:20" name="medications" xsi:type="OperandRef"/>
+               </source>
+               <let localId="117" locator="24:8-24:52" identifier="Ingredients">
+                  <expression localId="116" locator="24:21-24:52" name="GetIngredients" xsi:type="FunctionRef">
+                     <operand localId="23" locator="24:38-24:51" path="rxNormCode" scope="Med" xsi:type="Property"/>
+                  </expression>
+               </let>
+               <return localId="592" locator="25:4-43:5">
+                  <expression localId="591" locator="25:11-43:5" xsi:type="Query">
+                     <source localId="119" locator="25:11-25:26" alias="Drug">
+                        <expression localId="118" locator="25:11-25:21" name="Ingredients" xsi:type="QueryLetRef"/>
+                     </source>
+                     <let localId="123" locator="26:9-26:73" identifier="adjustedDoseQuantity">
+                        <expression localId="122" locator="26:31-26:73" name="EnsureMicrogramQuantity" xsi:type="FunctionRef">
+                           <operand localId="121" locator="26:57-26:72" path="doseQuantity" scope="Med" xsi:type="Property"/>
+                        </expression>
+                     </let>
+                     <let localId="230" locator="27:5-27:133" identifier="dailyDose">
+                        <expression localId="229" locator="27:16-27:133" name="GetMedicationDailyDose" xsi:type="FunctionRef">
+                           <operand localId="125" locator="27:41-27:59" path="ingredientCode" scope="Drug" xsi:type="Property"/>
+                           <operand localId="127" locator="27:62-27:74" path="strength" scope="Drug" xsi:type="Property"/>
+                           <operand localId="129" locator="27:77-27:93" path="doseFormCode" scope="Drug" xsi:type="Property"/>
+                           <operand localId="130" locator="27:96-27:115" name="adjustedDoseQuantity" xsi:type="QueryLetRef"/>
+                           <operand localId="132" locator="27:118-27:132" path="dosesPerDay" scope="Med" xsi:type="Property"/>
+                        </expression>
+                     </let>
+                     <let localId="454" locator="28:5-28:84" identifier="factor">
+                        <expression localId="453" locator="28:13-28:84" name="GetConversionFactor" xsi:type="FunctionRef">
+                           <operand localId="232" locator="28:35-28:53" path="ingredientCode" scope="Drug" xsi:type="Property"/>
+                           <operand localId="233" locator="28:56-28:64" name="dailyDose" xsi:type="QueryLetRef"/>
+                           <operand localId="235" locator="28:67-28:83" path="doseFormCode" scope="Drug" xsi:type="Property"/>
+                        </expression>
+                     </let>
+                     <let localId="561" locator="29:5-29:199" identifier="dailyDoseDescription">
+                        <expression localId="560" locator="29:27-29:199" name="GetMedDailyDoseDescription" xsi:type="FunctionRef">
+                           <operand localId="456" locator="29:56-29:74" path="ingredientCode" scope="Drug" xsi:type="Property"/>
+                           <operand localId="458" locator="29:77-29:95" path="ingredientName" scope="Drug" xsi:type="Property"/>
+                           <operand localId="460" locator="29:98-29:110" path="strength" scope="Drug" xsi:type="Property"/>
+                           <operand localId="462" locator="29:113-29:129" path="doseFormCode" scope="Drug" xsi:type="Property"/>
+                           <operand localId="464" locator="29:132-29:148" path="doseFormName" scope="Drug" xsi:type="Property"/>
+                           <operand localId="465" locator="29:151-29:170" name="adjustedDoseQuantity" xsi:type="QueryLetRef"/>
+                           <operand localId="467" locator="29:173-29:187" path="dosesPerDay" scope="Med" xsi:type="Property"/>
+                           <operand localId="468" locator="29:190-29:198" name="dailyDose" xsi:type="QueryLetRef"/>
+                        </expression>
+                     </let>
+                     <let localId="571" locator="30:5-30:82" identifier="MME">
+                        <expression localId="570" locator="30:10-30:82" classType="t:Quantity" xsi:type="Instance">
+                           <element name="value">
+                              <value localId="565" locator="30:28-30:51" xsi:type="Multiply">
+                                 <operand localId="563" locator="30:28-30:42" path="value" xsi:type="Property">
+                                    <source localId="562" locator="30:28-30:36" name="dailyDose" xsi:type="QueryLetRef"/>
+                                 </operand>
+                                 <operand localId="564" locator="30:46-30:51" name="factor" xsi:type="QueryLetRef"/>
+                              </value>
+                           </element>
+                           <element name="unit">
+                              <value localId="569" locator="30:60-30:80" xsi:type="Concatenate">
+                                 <operand localId="567" locator="30:60-30:73" path="unit" xsi:type="Property">
+                                    <source localId="566" locator="30:60-30:68" name="dailyDose" xsi:type="QueryLetRef"/>
+                                 </operand>
+                                 <operand localId="568" locator="30:77-30:80" valueType="t:String" value="/d" xsi:type="Literal"/>
+                              </value>
+                           </element>
+                        </expression>
+                     </let>
+                     <return localId="590" locator="31:5-43:5">
+                        <expression localId="589" locator="31:12-43:5" xsi:type="Tuple">
+                           <element name="rxNormCode">
+                              <value localId="573" locator="32:18-32:31" path="rxNormCode" scope="Med" xsi:type="Property"/>
+                           </element>
+                           <element name="doseFormCode">
+                              <value localId="575" locator="33:20-33:36" path="doseFormCode" scope="Drug" xsi:type="Property"/>
+                           </element>
+                           <element name="doseQuantity">
+                              <value localId="576" locator="34:20-34:39" name="adjustedDoseQuantity" xsi:type="QueryLetRef"/>
+                           </element>
+                           <element name="dosesPerDay">
+                              <value localId="578" locator="35:19-35:33" path="dosesPerDay" scope="Med" xsi:type="Property"/>
+                           </element>
+                           <element name="ingredientCode">
+                              <value localId="580" locator="36:22-36:40" path="ingredientCode" scope="Drug" xsi:type="Property"/>
+                           </element>
+                           <element name="ingredientName">
+                              <value localId="582" locator="37:22-37:40" path="ingredientName" scope="Drug" xsi:type="Property"/>
+                           </element>
+                           <element name="strength">
+                              <value localId="584" locator="38:16-38:28" path="strength" scope="Drug" xsi:type="Property"/>
+                           </element>
+                           <element name="dailyDose">
+                              <value localId="585" locator="39:17-39:25" name="dailyDose" xsi:type="QueryLetRef"/>
+                           </element>
+                           <element name="dailyDoseDescription">
+                              <value localId="586" locator="40:28-40:47" name="dailyDoseDescription" xsi:type="QueryLetRef"/>
+                           </element>
+                           <element name="conversionFactor">
+                              <value localId="587" locator="41:24-41:29" name="factor" xsi:type="QueryLetRef"/>
+                           </element>
+                           <element name="MME">
+                              <value localId="588" locator="42:11-42:13" name="MME" xsi:type="QueryLetRef"/>
+                           </element>
+                        </expression>
+                     </return>
+                  </expression>
+               </return>
+            </operand>
+         </expression>
+         <operand name="medications">
+            <operandTypeSpecifier localId="19" locator="17:69-21:2" xsi:type="ListTypeSpecifier">
+               <elementType localId="18" locator="17:74-21:1" xsi:type="TupleTypeSpecifier">
+                  <element localId="13" locator="18:2-18:16" name="rxNormCode">
+                     <elementType localId="12" locator="18:13-18:16" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="15" locator="19:2-19:22" name="doseQuantity">
+                     <elementType localId="14" locator="19:15-19:22" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="17" locator="20:2-20:20" name="dosesPerDay">
+                     <elementType localId="16" locator="20:14-20:20" name="t:Decimal" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </elementType>
+            </operandTypeSpecifier>
+         </operand>
+      </def>
+   </statements>
+</library>
+
+

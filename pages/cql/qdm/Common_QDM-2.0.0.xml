@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="Common_QDM" version="2.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="10:1-10:25" localIdentifier="QDM" uri="urn:healthit-gov:qdm:v5_0_1_draft" version="5.0.2"/>
+   </usings>
+   <statements>
+      <def locator="12:1-12:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="12:1-12:15" xmlns:ns0="urn:healthit-gov:qdm:v5_0_1_draft" dataType="ns0:Patient" templateId="Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="15" locator="14:1-17:77" name="Includes Or Starts During" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="15">
+               <a:s>define function &#xd;
+   &quot;Includes Or Starts During&quot;(Diagnosis </a:s>
+               <a:s r="2">
+                  <a:s>&quot;Diagnosis&quot;</a:s>
+               </a:s>
+               <a:s>, Encounter </a:s>
+               <a:s r="3">
+                  <a:s>&quot;Encounter, Performed&quot;</a:s>
+               </a:s>
+               <a:s>):&#xd;
+      </a:s>
+               <a:s r="14">
+                  <a:s r="14">
+                     <a:s r="8">
+                        <a:s r="5">
+                           <a:s r="4">
+                              <a:s>Diagnosis</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="5">
+                              <a:s>prevalencePeriod</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="8"> includes </a:s>
+                        <a:s r="7">
+                           <a:s r="6">
+                              <a:s>Encounter</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="7">
+                              <a:s>relevantPeriod</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+         or </a:s>
+                     <a:s r="13">
+                        <a:s r="10">
+                           <a:s r="9">
+                              <a:s>Diagnosis</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="10">
+                              <a:s>prevalencePeriod</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="13"> starts during </a:s>
+                        <a:s r="12">
+                           <a:s r="11">
+                              <a:s>Encounter</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="12">
+                              <a:s>relevantPeriod</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="14" locator="16:7-17:77" xsi:type="Or">
+            <operand localId="8" locator="16:7-16:66" xsi:type="Includes">
+               <operand localId="5" locator="16:7-16:32" path="prevalencePeriod" xsi:type="Property">
+                  <source localId="4" locator="16:7-16:15" name="Diagnosis" xsi:type="OperandRef"/>
+               </operand>
+               <operand localId="7" locator="16:43-16:66" path="relevantPeriod" xsi:type="Property">
+                  <source localId="6" locator="16:43-16:51" name="Encounter" xsi:type="OperandRef"/>
+               </operand>
+            </operand>
+            <operand localId="13" locator="17:13-17:77" xsi:type="In">
+               <operand locator="17:40-17:45" xsi:type="Start">
+                  <operand localId="10" locator="17:13-17:38" path="prevalencePeriod" xsi:type="Property">
+                     <source localId="9" locator="17:13-17:21" name="Diagnosis" xsi:type="OperandRef"/>
+                  </operand>
+               </operand>
+               <operand localId="12" locator="17:54-17:77" path="relevantPeriod" xsi:type="Property">
+                  <source localId="11" locator="17:54-17:62" name="Encounter" xsi:type="OperandRef"/>
+               </operand>
+            </operand>
+         </expression>
+         <operand name="Diagnosis">
+            <operandTypeSpecifier localId="2" locator="15:42-15:52" xmlns:ns1="urn:healthit-gov:qdm:v5_0_1_draft" name="ns1:Diagnosis" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand name="Encounter">
+            <operandTypeSpecifier localId="3" locator="15:65-15:86" xmlns:ns2="urn:healthit-gov:qdm:v5_0_1_draft" name="ns2:PositiveEncounterPerformed" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+   </statements>
+</library>
+
+

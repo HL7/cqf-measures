@@ -1,0 +1,232 @@
+{
+   "library" : {
+      "identifier" : {
+         "id" : "Common_QDM",
+         "version" : "2.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "1",
+            "locator" : "10:1-10:25",
+            "localIdentifier" : "QDM",
+            "uri" : "urn:healthit-gov:qdm:v5_0_1_draft",
+            "version" : "5.0.2"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "locator" : "12:1-12:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "locator" : "12:1-12:15",
+                  "dataType" : "{urn:healthit-gov:qdm:v5_0_1_draft}Patient",
+                  "templateId" : "Patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
+            "localId" : "15",
+            "locator" : "14:1-17:77",
+            "name" : "Includes Or Starts During",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "15",
+                  "s" : [ {
+                     "value" : [ "define function \r\n   ","\"Includes Or Starts During\"","(","Diagnosis"," " ]
+                  }, {
+                     "r" : "2",
+                     "s" : [ {
+                        "value" : [ "\"Diagnosis\"" ]
+                     } ]
+                  }, {
+                     "value" : [ ", ","Encounter"," " ]
+                  }, {
+                     "r" : "3",
+                     "s" : [ {
+                        "value" : [ "\"Encounter, Performed\"" ]
+                     } ]
+                  }, {
+                     "value" : [ "):\r\n      " ]
+                  }, {
+                     "r" : "14",
+                     "s" : [ {
+                        "r" : "14",
+                        "s" : [ {
+                           "r" : "8",
+                           "s" : [ {
+                              "r" : "5",
+                              "s" : [ {
+                                 "r" : "4",
+                                 "s" : [ {
+                                    "value" : [ "Diagnosis" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "5",
+                                 "s" : [ {
+                                    "value" : [ "prevalencePeriod" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "r" : "8",
+                              "value" : [ " ","includes"," " ]
+                           }, {
+                              "r" : "7",
+                              "s" : [ {
+                                 "r" : "6",
+                                 "s" : [ {
+                                    "value" : [ "Encounter" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "7",
+                                 "s" : [ {
+                                    "value" : [ "relevantPeriod" ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\r\n         or " ]
+                        }, {
+                           "r" : "13",
+                           "s" : [ {
+                              "r" : "10",
+                              "s" : [ {
+                                 "r" : "9",
+                                 "s" : [ {
+                                    "value" : [ "Diagnosis" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "10",
+                                 "s" : [ {
+                                    "value" : [ "prevalencePeriod" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "r" : "13",
+                              "value" : [ " ","starts during"," " ]
+                           }, {
+                              "r" : "12",
+                              "s" : [ {
+                                 "r" : "11",
+                                 "s" : [ {
+                                    "value" : [ "Encounter" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "12",
+                                 "s" : [ {
+                                    "value" : [ "relevantPeriod" ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "14",
+               "locator" : "16:7-17:77",
+               "type" : "Or",
+               "operand" : [ {
+                  "localId" : "8",
+                  "locator" : "16:7-16:66",
+                  "type" : "Includes",
+                  "operand" : [ {
+                     "localId" : "5",
+                     "locator" : "16:7-16:32",
+                     "path" : "prevalencePeriod",
+                     "type" : "Property",
+                     "source" : {
+                        "localId" : "4",
+                        "locator" : "16:7-16:15",
+                        "name" : "Diagnosis",
+                        "type" : "OperandRef"
+                     }
+                  }, {
+                     "localId" : "7",
+                     "locator" : "16:43-16:66",
+                     "path" : "relevantPeriod",
+                     "type" : "Property",
+                     "source" : {
+                        "localId" : "6",
+                        "locator" : "16:43-16:51",
+                        "name" : "Encounter",
+                        "type" : "OperandRef"
+                     }
+                  } ]
+               }, {
+                  "localId" : "13",
+                  "locator" : "17:13-17:77",
+                  "type" : "In",
+                  "operand" : [ {
+                     "locator" : "17:40-17:45",
+                     "type" : "Start",
+                     "operand" : {
+                        "localId" : "10",
+                        "locator" : "17:13-17:38",
+                        "path" : "prevalencePeriod",
+                        "type" : "Property",
+                        "source" : {
+                           "localId" : "9",
+                           "locator" : "17:13-17:21",
+                           "name" : "Diagnosis",
+                           "type" : "OperandRef"
+                        }
+                     }
+                  }, {
+                     "localId" : "12",
+                     "locator" : "17:54-17:77",
+                     "path" : "relevantPeriod",
+                     "type" : "Property",
+                     "source" : {
+                        "localId" : "11",
+                        "locator" : "17:54-17:62",
+                        "name" : "Encounter",
+                        "type" : "OperandRef"
+                     }
+                  } ]
+               } ]
+            },
+            "operand" : [ {
+               "name" : "Diagnosis",
+               "operandTypeSpecifier" : {
+                  "localId" : "2",
+                  "locator" : "15:42-15:52",
+                  "name" : "{urn:healthit-gov:qdm:v5_0_1_draft}Diagnosis",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }, {
+               "name" : "Encounter",
+               "operandTypeSpecifier" : {
+                  "localId" : "3",
+                  "locator" : "15:65-15:86",
+                  "name" : "{urn:healthit-gov:qdm:v5_0_1_draft}PositiveEncounterPerformed",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         } ]
+      }
+   }
+}
+

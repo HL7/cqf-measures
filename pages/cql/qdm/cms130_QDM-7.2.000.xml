@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="ColorectalCancerScreening" version="7.2.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="3:1-3:23" localIdentifier="QDM" uri="urn:healthit-gov:qdm:v5_3" version="5.3"/>
+   </usings>
+   <includes>
+      <def localId="2" locator="5:1-5:88" localIdentifier="AdultOutpatientEncounters" path="AdultOutpatientEncounters_QDM" version="1.1.000"/>
+      <def localId="3" locator="6:1-6:68" localIdentifier="Global" path="MATGlobalCommonFunctions_QDM" version="2.0.000"/>
+      <def localId="4" locator="7:1-7:52" localIdentifier="Hospice" path="Hospice_QDM" version="1.0.000"/>
+   </includes>
+   <parameters>
+      <def localId="18" locator="21:1-21:49" name="Measurement Period" accessLevel="Public">
+         <parameterTypeSpecifier localId="17" locator="21:32-21:49" xsi:type="IntervalTypeSpecifier">
+            <pointType localId="16" locator="21:41-21:48" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <valueSets>
+      <def localId="5" locator="9:1-9:68" name="ONC Administrative Sex" id="urn:oid:2.16.840.1.113762.1.4.1" accessLevel="Public"/>
+      <def localId="6" locator="10:1-10:53" name="Race" id="urn:oid:2.16.840.1.114222.4.11.836" accessLevel="Public"/>
+      <def localId="7" locator="11:1-11:58" name="Ethnicity" id="urn:oid:2.16.840.1.114222.4.11.837" accessLevel="Public"/>
+      <def localId="8" locator="12:1-12:55" name="Payer" id="urn:oid:2.16.840.1.114222.4.11.3591" accessLevel="Public"/>
+      <def localId="9" locator="13:1-13:74" name="Colonoscopy" id="urn:oid:2.16.840.1.113883.3.464.1003.108.12.1020" accessLevel="Public"/>
+      <def localId="10" locator="14:1-14:93" name="Fecal Occult Blood Test (FOBT)" id="urn:oid:2.16.840.1.113883.3.464.1003.198.12.1011" accessLevel="Public"/>
+      <def localId="11" locator="15:1-15:85" name="Flexible Sigmoidoscopy" id="urn:oid:2.16.840.1.113883.3.464.1003.198.12.1010" accessLevel="Public"/>
+      <def localId="12" locator="16:1-16:90" name="Malignant Neoplasm of Colon" id="urn:oid:2.16.840.1.113883.3.464.1003.108.12.1001" accessLevel="Public"/>
+      <def localId="13" locator="17:1-17:78" name="Total Colectomy" id="urn:oid:2.16.840.1.113883.3.464.1003.198.12.1019" accessLevel="Public"/>
+      <def localId="14" locator="18:1-18:70" name="FIT DNA" id="urn:oid:2.16.840.1.113883.3.464.1003.108.12.1039" accessLevel="Public"/>
+      <def localId="15" locator="19:1-19:78" name="CT Colonography" id="urn:oid:2.16.840.1.113883.3.464.1003.108.12.1038" accessLevel="Public"/>
+   </valueSets>
+   <statements>
+      <def locator="23:1-23:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="23:1-23:15" dataType="qdm53:Patient" templateId="Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="20" locator="37:1-38:5" name="Denominator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="20">
+               <a:s r="19">define &quot;Denominator&quot;:&#xd;
+	true</a:s>
+            </a:s>
+         </annotation>
+         <expression localId="19" locator="38:2-38:5" valueType="t:Boolean" value="true" xsi:type="Literal"/>
+      </def>
+      <def localId="30" locator="40:1-42:106" name="Flexible Sigmoidoscopy Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="30">
+               <a:s>define &quot;Flexible Sigmoidoscopy Performed&quot;:&#xd;
+	</a:s>
+               <a:s r="29">
+                  <a:s>
+                     <a:s r="22">
+                        <a:s r="21">
+                           <a:s r="21">
+                              <a:s>[&quot;Procedure, Performed&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Flexible Sigmoidoscopy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> FlexibleSigmoidoscopy</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="28">
+                     <a:s>where </a:s>
+                     <a:s r="28">
+                        <a:s r="24">
+                           <a:s r="23">
+                              <a:s>FlexibleSigmoidoscopy</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="24">
+                              <a:s>relevantPeriod</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="28">
+                           <a:s>ends </a:s>
+                           <a:s r="27">
+                              <a:s>5 years</a:s>
+                           </a:s>
+                           <a:s> or less on or before</a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="26">
+                           <a:s>end of </a:s>
+                           <a:s r="25">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="29" locator="41:2-42:106" xsi:type="Query">
+            <source localId="22" locator="41:2-41:73" alias="FlexibleSigmoidoscopy">
+               <expression localId="21" locator="41:2-41:51" dataType="qdm53:PositiveProcedurePerformed" templateId="PositiveProcedurePerformed" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Flexible Sigmoidoscopy" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="28" locator="42:3-42:106" xsi:type="In">
+               <operand locator="42:46-42:49" xsi:type="End">
+                  <operand localId="24" locator="42:9-42:44" path="relevantPeriod" scope="FlexibleSigmoidoscopy" xsi:type="Property"/>
+               </operand>
+               <operand locator="42:51-42:65" lowClosed="true" highClosed="true" xsi:type="Interval">
+                  <low locator="42:80-42:106" xsi:type="Subtract">
+                     <operand localId="26" locator="42:80-42:106" xsi:type="End">
+                        <operand localId="25" locator="42:87-42:106" name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                     <operand localId="27" locator="42:51-42:57" value="5" unit="years" xsi:type="Quantity"/>
+                  </low>
+                  <high localId="26" locator="42:80-42:106" xsi:type="End">
+                     <operand localId="25" locator="42:87-42:106" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </high>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="40" locator="44:1-46:97" name="CT Colonography Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="40">
+               <a:s>define &quot;CT Colonography Performed&quot;:&#xd;
+	</a:s>
+               <a:s r="39">
+                  <a:s>
+                     <a:s r="32">
+                        <a:s r="31">
+                           <a:s r="31">
+                              <a:s>[&quot;Procedure, Performed&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;CT Colonography&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Colonography</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="38">
+                     <a:s>where </a:s>
+                     <a:s r="38">
+                        <a:s r="34">
+                           <a:s r="33">
+                              <a:s>Colonography</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="34">
+                              <a:s>relevantPeriod</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="38">
+                           <a:s>ends </a:s>
+                           <a:s r="37">
+                              <a:s>5 years</a:s>
+                           </a:s>
+                           <a:s> or less on or before</a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="36">
+                           <a:s>end of </a:s>
+                           <a:s r="35">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="39" locator="45:2-46:97" xsi:type="Query">
+            <source localId="32" locator="45:2-45:57" alias="Colonography">
+               <expression localId="31" locator="45:2-45:44" dataType="qdm53:PositiveProcedurePerformed" templateId="PositiveProcedurePerformed" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="CT Colonography" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="38" locator="46:3-46:97" xsi:type="In">
+               <operand locator="46:37-46:40" xsi:type="End">
+                  <operand localId="34" locator="46:9-46:35" path="relevantPeriod" scope="Colonography" xsi:type="Property"/>
+               </operand>
+               <operand locator="46:42-46:56" lowClosed="true" highClosed="true" xsi:type="Interval">
+                  <low locator="46:71-46:97" xsi:type="Subtract">
+                     <operand localId="36" locator="46:71-46:97" xsi:type="End">
+                        <operand localId="35" locator="46:78-46:97" name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                     <operand localId="37" locator="46:42-46:48" value="5" unit="years" xsi:type="Quantity"/>
+                  </low>
+                  <high localId="36" locator="46:71-46:97" xsi:type="End">
+                     <operand localId="35" locator="46:78-46:97" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </high>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="49" locator="52:1-54:87" name="Total Colectomy Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="49">
+               <a:s>define &quot;Total Colectomy Performed&quot;:&#xd;
+	</a:s>
+               <a:s r="48">
+                  <a:s>
+                     <a:s r="42">
+                        <a:s r="41">
+                           <a:s r="41">
+                              <a:s>[&quot;Procedure, Performed&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Total Colectomy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Colectomy</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="47">
+                     <a:s>where </a:s>
+                     <a:s r="47">
+                        <a:s r="44">
+                           <a:s r="43">
+                              <a:s>Colectomy</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="44">
+                              <a:s>relevantPeriod</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="47"> starts on or before day of </a:s>
+                        <a:s r="46">
+                           <a:s>end of </a:s>
+                           <a:s r="45">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="48" locator="53:2-54:87" xsi:type="Query">
+            <source localId="42" locator="53:2-53:54" alias="Colectomy">
+               <expression localId="41" locator="53:2-53:44" dataType="qdm53:PositiveProcedurePerformed" templateId="PositiveProcedurePerformed" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Total Colectomy" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="47" locator="54:3-54:87" precision="Day" xsi:type="SameOrBefore">
+               <operand locator="54:34-54:39" xsi:type="Start">
+                  <operand localId="44" locator="54:9-54:32" path="relevantPeriod" scope="Colectomy" xsi:type="Property"/>
+               </operand>
+               <operand localId="46" locator="54:61-54:87" xsi:type="End">
+                  <operand localId="45" locator="54:68-54:87" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="58" locator="60:1-62:96" name="Malignant Neoplasm" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="58">
+               <a:s>define &quot;Malignant Neoplasm&quot;:&#xd;
+	</a:s>
+               <a:s r="57">
+                  <a:s>
+                     <a:s r="51">
+                        <a:s r="50">
+                           <a:s r="50">
+                              <a:s>[&quot;Diagnosis&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Malignant Neoplasm of Colon&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> ColorectalCancer</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="56">
+                     <a:s>where </a:s>
+                     <a:s r="56">
+                        <a:s r="53">
+                           <a:s r="52">
+                              <a:s>ColorectalCancer</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="53">
+                              <a:s>prevalencePeriod</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="56"> starts on or before day of </a:s>
+                        <a:s r="55">
+                           <a:s>end of </a:s>
+                           <a:s r="54">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="57" locator="61:2-62:96" xsi:type="Query">
+            <source localId="51" locator="61:2-61:62" alias="ColorectalCancer">
+               <expression localId="50" locator="61:2-61:45" dataType="qdm53:Diagnosis" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Malignant Neoplasm of Colon" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="56" locator="62:3-62:96" precision="Day" xsi:type="SameOrBefore">
+               <operand locator="62:43-62:48" xsi:type="Start">
+                  <operand localId="53" locator="62:9-62:41" path="prevalencePeriod" scope="ColorectalCancer" xsi:type="Property"/>
+               </operand>
+               <operand localId="55" locator="62:70-62:96" xsi:type="End">
+                  <operand localId="54" locator="62:77-62:96" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="70" locator="69:1-72:74" name="Fecal Occult Blood Test Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="70">
+               <a:s>define &quot;Fecal Occult Blood Test Performed&quot;:&#xd;
+	</a:s>
+               <a:s r="69">
+                  <a:s>
+                     <a:s r="60">
+                        <a:s r="59">
+                           <a:s r="59">
+                              <a:s>[&quot;Laboratory Test, Performed&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Fecal Occult Blood Test (FOBT)&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> FecalOccultResult</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="68">
+                     <a:s>where </a:s>
+                     <a:s r="68">
+                        <a:s r="63">
+                           <a:s r="62">
+                              <a:s r="61">
+                                 <a:s>FecalOccultResult</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="62">
+                                 <a:s>result</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> is not null</a:s>
+                        </a:s>
+                        <a:s>&#xd;
+			and </a:s>
+                        <a:s r="67">
+                           <a:s r="65">
+                              <a:s r="64">
+                                 <a:s>FecalOccultResult</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="65">
+                                 <a:s>authorDatetime</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="67"> during day of </a:s>
+                           <a:s r="66">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="69" locator="70:2-72:74" xsi:type="Query">
+            <source localId="60" locator="70:2-70:83" alias="FecalOccultResult">
+               <expression localId="59" locator="70:2-70:65" dataType="qdm53:PositiveLaboratoryTestPerformed" templateId="PositiveLaboratoryTestPerformed" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Fecal Occult Blood Test (FOBT)" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="68" locator="71:3-72:74" xsi:type="And">
+               <operand localId="63" locator="71:9-71:44" xsi:type="Not">
+                  <operand locator="71:9-71:44" xsi:type="IsNull">
+                     <operand localId="62" locator="71:9-71:32" path="result" scope="FecalOccultResult" xsi:type="Property"/>
+                  </operand>
+               </operand>
+               <operand localId="67" locator="72:8-72:74" precision="Day" xsi:type="In">
+                  <operand localId="65" locator="72:8-72:39" path="authorDatetime" scope="FecalOccultResult" xsi:type="Property"/>
+                  <operand localId="66" locator="72:55-72:74" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="84" locator="74:1-77:92" name="Fecal Immunochemical Test DNA" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="84">
+               <a:s>define &quot;Fecal Immunochemical Test DNA&quot;:&#xd;
+	</a:s>
+               <a:s r="83">
+                  <a:s>
+                     <a:s r="72">
+                        <a:s r="71">
+                           <a:s r="71">
+                              <a:s>[&quot;Laboratory Test, Performed&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;FIT DNA&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> FitDNA</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="82">
+                     <a:s>where </a:s>
+                     <a:s r="82">
+                        <a:s r="75">
+                           <a:s r="74">
+                              <a:s r="73">
+                                 <a:s>FitDNA</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="74">
+                                 <a:s>result</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> is not null</a:s>
+                        </a:s>
+                        <a:s>&#xd;
+			and </a:s>
+                        <a:s r="81">
+                           <a:s r="77">
+                              <a:s r="76">
+                                 <a:s>FitDNA</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="77">
+                                 <a:s>authorDatetime</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> </a:s>
+                           <a:s r="81">
+                              <a:s>occurs </a:s>
+                              <a:s r="80">
+                                 <a:s>3 years</a:s>
+                              </a:s>
+                              <a:s> or less on or before</a:s>
+                           </a:s>
+                           <a:s> </a:s>
+                           <a:s r="79">
+                              <a:s>end of </a:s>
+                              <a:s r="78">
+                                 <a:s>&quot;Measurement Period&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="83" locator="75:2-77:92" xsi:type="Query">
+            <source localId="72" locator="75:2-75:49" alias="FitDNA">
+               <expression localId="71" locator="75:2-75:42" dataType="qdm53:PositiveLaboratoryTestPerformed" templateId="PositiveLaboratoryTestPerformed" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="FIT DNA" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="82" locator="76:3-77:92" xsi:type="And">
+               <operand localId="75" locator="76:9-76:33" xsi:type="Not">
+                  <operand locator="76:9-76:33" xsi:type="IsNull">
+                     <operand localId="74" locator="76:9-76:21" path="result" scope="FitDNA" xsi:type="Property"/>
+                  </operand>
+               </operand>
+               <operand localId="81" locator="77:8-77:92" xsi:type="In">
+                  <operand localId="77" locator="77:8-77:28" path="authorDatetime" scope="FitDNA" xsi:type="Property"/>
+                  <operand locator="77:37-77:51" lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low locator="77:66-77:92" xsi:type="Subtract">
+                        <operand localId="79" locator="77:66-77:92" xsi:type="End">
+                           <operand localId="78" locator="77:73-77:92" name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                        <operand localId="80" locator="77:37-77:43" value="3" unit="years" xsi:type="Quantity"/>
+                     </low>
+                     <high localId="79" locator="77:66-77:92" xsi:type="End">
+                        <operand localId="78" locator="77:73-77:92" name="Measurement Period" xsi:type="ParameterRef"/>
+                     </high>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="94" locator="79:1-81:97" name="Colonoscopy Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="94">
+               <a:s>define &quot;Colonoscopy Performed&quot;:&#xd;
+	</a:s>
+               <a:s r="93">
+                  <a:s>
+                     <a:s r="86">
+                        <a:s r="85">
+                           <a:s r="85">
+                              <a:s>[&quot;Procedure, Performed&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Colonoscopy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Colonoscopy</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="92">
+                     <a:s>where </a:s>
+                     <a:s r="92">
+                        <a:s r="88">
+                           <a:s r="87">
+                              <a:s>Colonoscopy</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="88">
+                              <a:s>relevantPeriod</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="92">
+                           <a:s>ends </a:s>
+                           <a:s r="91">
+                              <a:s>10 years</a:s>
+                           </a:s>
+                           <a:s> or less on or before</a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="90">
+                           <a:s>end of </a:s>
+                           <a:s r="89">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="93" locator="80:2-81:97" xsi:type="Query">
+            <source localId="86" locator="80:2-80:52" alias="Colonoscopy">
+               <expression localId="85" locator="80:2-80:40" dataType="qdm53:PositiveProcedurePerformed" templateId="PositiveProcedurePerformed" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Colonoscopy" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="92" locator="81:3-81:97" xsi:type="In">
+               <operand locator="81:36-81:39" xsi:type="End">
+                  <operand localId="88" locator="81:9-81:34" path="relevantPeriod" scope="Colonoscopy" xsi:type="Property"/>
+               </operand>
+               <operand locator="81:41-81:56" lowClosed="true" highClosed="true" xsi:type="Interval">
+                  <low locator="81:71-81:97" xsi:type="Subtract">
+                     <operand localId="90" locator="81:71-81:97" xsi:type="End">
+                        <operand localId="89" locator="81:78-81:97" name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                     <operand localId="91" locator="81:41-81:48" value="10" unit="years" xsi:type="Quantity"/>
+                  </low>
+                  <high localId="90" locator="81:71-81:97" xsi:type="End">
+                     <operand localId="89" locator="81:78-81:97" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </high>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="109" locator="83:1-88:39" name="Numerator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="109">
+               <a:s>define &quot;Numerator&quot;:&#xd;
+	</a:s>
+               <a:s r="108">
+                  <a:s r="105">
+                     <a:s r="102">
+                        <a:s r="99">
+                           <a:s r="96">
+                              <a:s>exists </a:s>
+                              <a:s r="95">
+                                 <a:s>&quot;Colonoscopy Performed&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+		or </a:s>
+                           <a:s r="98">
+                              <a:s>exists </a:s>
+                              <a:s r="97">
+                                 <a:s>&quot;Fecal Occult Blood Test Performed&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+		or </a:s>
+                        <a:s r="101">
+                           <a:s>exists </a:s>
+                           <a:s r="100">
+                              <a:s>&quot;Flexible Sigmoidoscopy Performed&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		or </a:s>
+                     <a:s r="104">
+                        <a:s>exists </a:s>
+                        <a:s r="103">
+                           <a:s>&quot;Fecal Immunochemical Test DNA&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		or </a:s>
+                  <a:s r="107">
+                     <a:s>exists </a:s>
+                     <a:s r="106">
+                        <a:s>&quot;CT Colonography Performed&quot;</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="108" locator="84:2-88:39" xsi:type="Or">
+            <operand localId="105" locator="84:2-87:43" xsi:type="Or">
+               <operand localId="102" locator="84:2-86:46" xsi:type="Or">
+                  <operand localId="99" locator="84:2-85:47" xsi:type="Or">
+                     <operand localId="96" locator="84:2-84:31" xsi:type="Exists">
+                        <operand localId="95" locator="84:9-84:31" name="Colonoscopy Performed" xsi:type="ExpressionRef"/>
+                     </operand>
+                     <operand localId="98" locator="85:6-85:47" xsi:type="Exists">
+                        <operand localId="97" locator="85:13-85:47" name="Fecal Occult Blood Test Performed" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="101" locator="86:6-86:46" xsi:type="Exists">
+                     <operand localId="100" locator="86:13-86:46" name="Flexible Sigmoidoscopy Performed" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand localId="104" locator="87:6-87:43" xsi:type="Exists">
+                  <operand localId="103" locator="87:13-87:43" name="Fecal Immunochemical Test DNA" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand localId="107" locator="88:6-88:39" xsi:type="Exists">
+               <operand localId="106" locator="88:13-88:39" name="CT Colonography Performed" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="118" locator="90:1-93:39" name="Denominator Exclusions" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="118">
+               <a:s>define &quot;Denominator Exclusions&quot;:&#xd;
+	</a:s>
+               <a:s r="117">
+                  <a:s r="114">
+                     <a:s r="111">
+                        <a:s r="110">
+                           <a:s>Hospice</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="111">
+                           <a:s>&quot;Has Hospice&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		or </a:s>
+                     <a:s r="113">
+                        <a:s>exists </a:s>
+                        <a:s r="112">
+                           <a:s>&quot;Malignant Neoplasm&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		or </a:s>
+                  <a:s r="116">
+                     <a:s>exists </a:s>
+                     <a:s r="115">
+                        <a:s>&quot;Total Colectomy Performed&quot;</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="117" locator="91:2-93:39" xsi:type="Or">
+            <operand localId="114" locator="91:2-92:32" xsi:type="Or">
+               <operand localId="111" locator="91:2-91:22" name="Has Hospice" libraryName="Hospice" xsi:type="ExpressionRef"/>
+               <operand localId="113" locator="92:6-92:32" xsi:type="Exists">
+                  <operand localId="112" locator="92:13-92:32" name="Malignant Neoplasm" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand localId="116" locator="93:6-93:39" xsi:type="Exists">
+               <operand localId="115" locator="93:13-93:39" name="Total Colectomy Performed" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="137" locator="95:1-98:63" name="Initial Population" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="137">
+               <a:s>define &quot;Initial Population&quot;:&#xd;
+	</a:s>
+               <a:s r="136">
+                  <a:s>exists </a:s>
+                  <a:s r="135">
+                     <a:s>
+                        <a:s r="120">
+                           <a:s r="119">
+                              <a:s r="119">
+                                 <a:s>[&quot;Patient Characteristic Birthdate&quot;]</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> BirthDate</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="134">
+                        <a:s>where </a:s>
+                        <a:s r="134">
+                           <a:s r="130">
+                              <a:s r="126">
+                                 <a:s r="121">
+                                    <a:s>Global</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="126">
+                                    <a:s>&quot;CalendarAgeInYearsAt&quot;(</a:s>
+                                    <a:s r="123">
+                                       <a:s r="122">
+                                          <a:s>BirthDate</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="123">
+                                          <a:s>birthDatetime</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s r="125">
+                                       <a:s>start of </a:s>
+                                       <a:s r="124">
+                                          <a:s>&quot;Measurement Period&quot;</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>in </a:s>
+                              <a:s r="129">
+                                 <a:s r="127">Interval[50, 75 )</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+			and </a:s>
+                           <a:s r="133">
+                              <a:s>exists </a:s>
+                              <a:s r="132">
+                                 <a:s r="131">
+                                    <a:s>AdultOutpatientEncounters</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="132">
+                                    <a:s>&quot;Qualifying Encounters&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="136" locator="96:2-98:63" xsi:type="Exists">
+            <operand localId="135" locator="96:9-98:63" xsi:type="Query">
+               <source localId="120" locator="96:9-96:54" alias="BirthDate">
+                  <expression localId="119" locator="96:9-96:44" dataType="qdm53:PatientCharacteristicBirthdate" xsi:type="Retrieve"/>
+               </source>
+               <where localId="134" locator="97:3-98:63" xsi:type="And">
+                  <operand localId="130" locator="97:9-97:113" xsi:type="In">
+                     <operand localId="126" locator="97:9-97:93" name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
+                        <operand localId="123" locator="97:39-97:61" path="birthDatetime" scope="BirthDate" xsi:type="Property"/>
+                        <operand localId="125" locator="97:64-97:92" xsi:type="Start">
+                           <operand localId="124" locator="97:73-97:92" name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                     </operand>
+                     <operand localId="129" locator="97:97-97:113" lowClosed="true" highClosed="false" xsi:type="Interval">
+                        <low localId="127" locator="97:106-97:107" valueType="t:Integer" value="50" xsi:type="Literal"/>
+                        <high localId="128" locator="97:110-97:111" valueType="t:Integer" value="75" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+                  <operand localId="133" locator="98:8-98:63" xsi:type="Exists">
+                     <operand localId="132" locator="98:15-98:63" name="Qualifying Encounters" libraryName="AdultOutpatientEncounters" xsi:type="ExpressionRef"/>
+                  </operand>
+               </where>
+            </operand>
+         </expression>
+      </def>
+   </statements>
+</library>
+
+
