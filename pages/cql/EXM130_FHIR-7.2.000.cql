@@ -1,5 +1,12 @@
 library ColorectalCancerScreening version '7.2.000'
 
+/*
+This example is a work in progress and should not be considered a final specification
+or recommendation for guidance. This example will help guide and direct the process
+of finding conventions and usage patterns that meet the needs of the various stakeholders
+in the measure development community.
+*/
+
 using FHIR version '3.0.0'
 
 include AdultOutpatientEncounters_FHIR version '1.1.000' called AdultOutpatientEncounters

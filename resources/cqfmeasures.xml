@@ -19,24 +19,38 @@
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - CMS124"/>
-            <description value="Cervical Cancer Screening"/>
+            <name value="Library - EXM55"/>
+            <description value="Continuous Variable Measure Example Library"/>
             <sourceReference>
-                <reference value="Library/library-cms124-FHIR"/>
+                <reference value="Library/library-exm55-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - CMS125"/>
-            <description value="Breast Cancer Screening"/>
+            <name value="Library - EXM124"/>
+            <description value="Cervical Cancer Screening Example Library"/>
             <sourceReference>
-                <reference value="Library/library-cms125-FHIR"/>
+                <reference value="Library/library-exm124-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - CMS130"/>
-            <description value="Colorectal Cancer Screening"/>
+            <name value="Library - EXM125"/>
+            <description value="Breast Cancer Screening Example Library"/>
             <sourceReference>
-                <reference value="Library/library-cms130-FHIR"/>
+                <reference value="Library/library-exm125-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - EXM130"/>
+            <description value="Colorectal Cancer Screening Example Library"/>
+            <sourceReference>
+                <reference value="Library/library-exm130-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - EXM146"/>
+            <description value="Proportion Measure Example Library"/>
+            <sourceReference>
+                <reference value="Library/library-exm146-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
@@ -52,6 +66,12 @@
             </sourceReference>
         </resource>
         <resource>
+            <name value="Library - FHIRHelpers - DSTU2"/>
+            <sourceReference>
+                <reference value="Library/library-fhir-helpers-FHIR2"/>
+            </sourceReference>
+        </resource>
+        <resource>
             <name value="Library - Hospice FHIR"/>
             <sourceReference>
                 <reference value="Library/library-hospice-FHIR"/>
@@ -64,40 +84,70 @@
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - CMS124"/>
+            <name value="Library - Risk Adjustment"/>
+            <sourceReference>
+                <reference value="Library/library-risk-adjustment-FHIR2"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - Supplemental Data Elements FHIR"/>
+            <sourceReference>
+                <reference value="Library/library-supplemental-data-elements-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - Supplemental Data Elements FHIR2"/>
+            <sourceReference>
+                <reference value="Library/library-supplemental-data-elements-FHIR2"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - VTE ICU FHIR"/>
+            <sourceReference>
+                <reference value="Library/library-vte-icu-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - Venous Thromboembolism Prophylaxis FHIR"/>
+            <sourceReference>
+                <reference value="Library/library-vte-1-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <name value="Library - CMS124 - QDM"/>
             <description value="Cervical Cancer Screening"/>
             <sourceReference>
                 <reference value="Library/library-cms124-QDM"/>
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - CMS125"/>
+            <name value="Library - CMS125 - QDM"/>
             <description value="Breast Cancer Screening"/>
             <sourceReference>
                 <reference value="Library/library-cms125-QDM"/>
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - CMS130"/>
+            <name value="Library - CMS130 - QDM"/>
             <description value="Colorectal Cancer Screening"/>
             <sourceReference>
                 <reference value="Library/library-cms130-QDM"/>
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - Adult Outpatient Encounters QDM"/>
+            <name value="Library - Adult Outpatient Encounters - QDM"/>
             <sourceReference>
                 <reference value="Library/library-adult-outpatient-encounters-QDM"/>
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - Hospice QDM"/>
+            <name value="Library - Hospice - QDM"/>
             <sourceReference>
                 <reference value="Library/library-hospice-QDM"/>
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - MAT Global Common Functions QDM"/>
+            <name value="Library - MAT Global Common Functions - QDM"/>
             <sourceReference>
                 <reference value="Library/library-mat-global-common-functions-QDM"/>
             </sourceReference>
@@ -112,32 +162,48 @@
         </resource>
         <resource>
             <example value="true"/>
-            <name value="Measure - CMS124"/>
-            <description value="Cervical Cancer Screening"/>
+            <name value="Measure - EXM55"/>
+            <description value="Example Continuous-variable Measure"/>
             <sourceReference>
-                <reference value="Measure/measure-cms124-FHIR"/>
+                <reference value="Measure/measure-exm55-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
             <example value="true"/>
-            <name value="Measure - CMS125"/>
+            <name value="Measure - EXM124"/>
+            <description value="Cervical Cancer Screening"/>
+            <sourceReference>
+                <reference value="Measure/measure-exm124-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - EXM125"/>
             <description value="Breast Cancer Screening"/>
             <sourceReference>
-                <reference value="Measure/measure-cms125-FHIR"/>
+                <reference value="Measure/measure-exm125-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
             <example value="true"/>
-            <name value="Measure - CMS130"/>
+            <name value="Measure - EXM130"/>
             <description value="Colorectal Cancer Screening"/>
             <sourceReference>
-                <reference value="Measure/measure-cms130-FHIR"/>
+                <reference value="Measure/measure-exm130-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - EXM146"/>
+            <description value="Example Proportion Measure"/>
+            <sourceReference>
+                <reference value="Measure/measure-exm146-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
             <example value="true"/>
             <name value="Measure - CMS124"/>
-            <description value="Cervical Cancer Screening"/>
+            <description value="Cervical Cancer Screening - QDM"/>
             <sourceReference>
                 <reference value="Measure/measure-cms124-QDM"/>
             </sourceReference>
@@ -145,7 +211,7 @@
         <resource>
             <example value="true"/>
             <name value="Measure - CMS125"/>
-            <description value="Breast Cancer Screening"/>
+            <description value="Breast Cancer Screening - QDM"/>
             <sourceReference>
                 <reference value="Measure/measure-cms125-QDM"/>
             </sourceReference>
@@ -153,7 +219,7 @@
         <resource>
             <example value="true"/>
             <name value="Measure - CMS130"/>
-            <description value="Colorectal Cancer Screening"/>
+            <description value="Colorectal Cancer Screening - QDM"/>
             <sourceReference>
                 <reference value="Measure/measure-cms130-QDM"/>
             </sourceReference>
@@ -655,32 +721,96 @@
             </sourceReference>
         </resource>
 	</package>
+    <binary value="cql/AdultOutpatientEncounters_FHIR-1.1.000.cql"/>
+    <binary value="elm/AdultOutpatientEncounters_FHIR-1.1.000.xml"/>
+    <binary value="elm/AdultOutpatientEncounters_FHIR-1.1.000.json"/>
+    <binary value="cql/Common_FHIR-2.0.0.cql"/>
+    <binary value="elm/Common_FHIR-2.0.0.xml"/>
+    <binary value="elm/Common_FHIR-2.0.0.json"/>
     <binary value="cql/exm-logic-1.0.0.cql"/>
     <binary value="elm/exm-logic-1.0.0.xml"/>
-    <binary value="cql/cms130_FHIR-7.2.000.cql"/>
-    <binary value="elm/cms130_FHIR-7.2.000.xml"/>
-    <binary value="cql/cms125_FHIR-7.2.000.cql"/>
-    <binary value="elm/cms125_FHIR-7.2.000.xml"/>
-	<binary value="cql/cms124_FHIR-7.2.000.cql"/>
-    <binary value="elm/cms124_FHIR-7.2.000.xml"/>
-    <binary value="cql/cms130_QDM-7.2.000.cql"/>
-    <binary value="elm/cms130_QDM-7.2.000.xml"/>
-    <binary value="cql/cms125_QDM-7.2.000.cql"/>
-    <binary value="elm/cms125_QDM-7.2.000.xml"/>
-    <binary value="cql/cms124_QDM-7.2.000.cql"/>
-    <binary value="elm/cms124_QDM-7.2.000.xml"/>
-    <binary value="cql/Adult_Outpatient_Encounters_FHIR-1.1.000.cql"/>
-    <binary value="elm/Adult_Outpatient_Encounters_FHIR-1.1.000.xml"/>
+    <binary value="elm/exm-logic-1.0.0.json"/>
+    <binary value="cql/EXM55_FHIR-5.0.0.cql"/>
+    <binary value="elm/EXM55_FHIR-5.0.0.xml"/>
+    <binary value="elm/EXM55_FHIR-5.0.0.json"/>
+    <binary value="cql/EXM124_FHIR-7.2.000.cql"/>
+    <binary value="elm/EXM124_FHIR-7.2.000.xml"/>
+    <binary value="elm/EXM124_FHIR-7.2.000.json"/>
+    <binary value="cql/EXM125_FHIR-7.2.000.cql"/>
+    <binary value="elm/EXM125_FHIR-7.2.000.xml"/>
+    <binary value="elm/EXM125_FHIR-7.2.000.json"/>
+    <binary value="cql/EXM130_FHIR-7.2.000.cql"/>
+    <binary value="elm/EXM130_FHIR-7.2.000.xml"/>
+    <binary value="elm/EXM130_FHIR-7.2.000.json"/>
+    <binary value="cql/EXM146_FHIR-4.0.0.cql"/>
+    <binary value="elm/EXM146_FHIR-4.0.0.xml"/>
+    <binary value="elm/EXM146_FHIR-4.0.0.json"/>
+    <binary value="cql/FHIRHelpers-1.0.2.cql"/>
+    <binary value="elm/FHIRHelpers-1.0.2.xml"/>
+    <binary value="elm/FHIRHelpers-1.0.2.json"/>
+    <binary value="cql/FHIRHelpers-3.0.0.cql"/>
+    <binary value="elm/FHIRHelpers-3.0.0.xml"/>
+    <binary value="elm/FHIRHelpers-3.0.0.json"/>
     <binary value="cql/Hospice_FHIR-1.0.000.cql"/>
     <binary value="elm/Hospice_FHIR-1.0.000.xml"/>
+    <binary value="elm/Hospice_FHIR-1.0.000.json"/>
     <binary value="cql/MATGlobalCommonFunctions_FHIR-2.0.000.cql"/>
     <binary value="elm/MATGlobalCommonFunctions_FHIR-2.0.000.xml"/>
-    <binary value="cql/Adult_Outpatient_Encounters_QDM-1.1.000.cql"/>
-    <binary value="elm/Adult_Outpatient_Encounters_QDM-1.1.000.xml"/>
-    <binary value="cql/Hospice_QDM-1.0.000.cql"/>
-    <binary value="elm/Hospice_QDM-1.0.000.xml"/>
-    <binary value="cql/MATGlobalCommonFunctions_QDM-2.0.000.cql"/>
-    <binary value="elm/MATGlobalCommonFunctions_QDM-2.0.000.xml"/>
+    <binary value="elm/MATGlobalCommonFunctions_FHIR-2.0.000.json"/>
+    <binary value="cql/RiskAdjustment_FHIR2.cql"/>
+    <binary value="elm/RiskAdjustment_FHIR2.xml"/>
+    <binary value="elm/RiskAdjustment_FHIR2.json"/>
+    <binary value="cql/SupplementalDataElements_FHIR-1.0.0.cql"/>
+    <binary value="elm/SupplementalDataElements_FHIR-1.0.0.xml"/>
+    <binary value="elm/SupplementalDataElements_FHIR-1.0.0.json"/>
+    <binary value="cql/SupplementalDataElements_FHIR2-1.0.0.cql"/>
+    <binary value="elm/SupplementalDataElements_FHIR2-1.0.0.xml"/>
+    <binary value="elm/SupplementalDataElements_FHIR2-1.0.0.json"/>
+    <binary value="cql/Terminology_FHIR.cql"/>
+    <binary value="elm/Terminology_FHIR.xml"/>
+    <binary value="elm/Terminology_FHIR.json"/>
+    <binary value="cql/VTE-1_FHIR-7.4.000.cql"/>
+    <binary value="elm/VTE-1_FHIR-7.4.000.xml"/>
+    <binary value="elm/VTE-1_FHIR-7.4.000.json"/>
+    <binary value="cql/VTEICU_FHIR-2.4.000.cql"/>
+    <binary value="elm/VTEICU_FHIR-2.4.000.xml"/>
+    <binary value="elm/VTEICU_FHIR-2.4.000.json"/>
+    <binary value="cql/qdm/AdultOutpatientEncounters_QDM-1.1.000.cql"/>
+    <binary value="elm/qdm/AdultOutpatientEncounters_QDM-1.1.000.xml"/>
+    <binary value="elm/qdm/AdultOutpatientEncounters_QDM-1.1.000.json"/>
+    <binary value="cql/qdm/cms124_QDM-7.2.000.cql"/>
+    <binary value="elm/qdm/cms124_QDM-7.2.000.xml"/>
+    <binary value="elm/qdm/cms124_QDM-7.2.000.json"/>
+    <binary value="cql/qdm/cms125_QDM-7.2.000.cql"/>
+    <binary value="elm/qdm/cms125_QDM-7.2.000.xml"/>
+    <binary value="elm/qdm/cms125_QDM-7.2.000.json"/>
+    <binary value="cql/qdm/cms130_QDM-7.2.000.cql"/>
+    <binary value="elm/qdm/cms130_QDM-7.2.000.xml"/>
+    <binary value="elm/qdm/cms130_QDM-7.2.000.json"/>
+    <binary value="cql/qdm/Common_QDM-2.0.0.cql"/>
+    <binary value="elm/qdm/Common_QDM-2.0.0.xml"/>
+    <binary value="elm/qdm/Common_QDM-2.0.0.json"/>
+    <binary value="cql/qdm/EXM55_QDM-5.0.0.cql"/>
+    <binary value="elm/qdm/EXM55_QDM-5.0.0.xml"/>
+    <binary value="elm/qdm/EXM55_QDM-5.0.0.json"/>
+    <binary value="cql/qdm/EXM146_QDM-4.0.0.cql"/>
+    <binary value="elm/qdm/EXM146_QDM-4.0.0.xml"/>
+    <binary value="elm/qdm/EXM146_QDM-4.0.0.json"/>
+    <binary value="cql/qdm/Hospice_QDM-1.0.000.cql"/>
+    <binary value="elm/qdm/Hospice_QDM-1.0.000.xml"/>
+    <binary value="elm/qdm/Hospice_QDM-1.0.000.json"/>
+    <binary value="cql/qdm/MATGlobalCommonFunctions_QDM-2.0.000.cql"/>
+    <binary value="elm/qdm/MATGlobalCommonFunctions_QDM-2.0.000.xml"/>
+    <binary value="elm/qdm/MATGlobalCommonFunctions_QDM-2.0.000.json"/>
+    <binary value="cql/qdm/Terminology_QDM.cql"/>
+    <binary value="elm/qdm/Terminology_QDM.xml"/>
+    <binary value="elm/qdm/Terminology_QDM.json"/>
+    <binary value="cql/qdm/VTE-1_QDM-7.4.000.cql"/>
+    <binary value="elm/qdm/VTE-1_QDM-7.4.000.xml"/>
+    <binary value="elm/qdm/VTE-1_QDM-7.4.000.json"/>
+    <binary value="cql/qdm/VTEICU_QDM-2.4.000.cql"/>
+    <binary value="elm/qdm/VTEICU_QDM-2.4.000.xml"/>
+    <binary value="elm/qdm/VTEICU_QDM-2.4.000.json"/>
     <page>
         <source value="index.html"/>
         <title value="CQF Measure Content"/>

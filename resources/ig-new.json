@@ -47,26 +47,42 @@
     },
     {
       "reference" : {
-        "reference" : "Library/library-cms124-FHIR"
+        "reference" : "Library/library-exm55-FHIR"
       },
-      "name" : "Library - CMS124",
-      "description" : "Cervical Cancer Screening",
+      "name" : "Library - EXM55",
+      "description" : "Continuous Variable Measure Example Library",
       "groupingId" : "p1"
     },
     {
       "reference" : {
-        "reference" : "Library/library-cms125-FHIR"
+        "reference" : "Library/library-exm124-FHIR"
       },
-      "name" : "Library - CMS125",
-      "description" : "Breast Cancer Screening",
+      "name" : "Library - EXM124",
+      "description" : "Cervical Cancer Screening Example Library",
       "groupingId" : "p1"
     },
     {
       "reference" : {
-        "reference" : "Library/library-cms130-FHIR"
+        "reference" : "Library/library-exm125-FHIR"
       },
-      "name" : "Library - CMS130",
-      "description" : "Colorectal Cancer Screening",
+      "name" : "Library - EXM125",
+      "description" : "Breast Cancer Screening Example Library",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Library/library-exm130-FHIR"
+      },
+      "name" : "Library - EXM130",
+      "description" : "Colorectal Cancer Screening Example Library",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Library/library-exm146-FHIR"
+      },
+      "name" : "Library - EXM146",
+      "description" : "Proportion Measure Example Library",
       "groupingId" : "p1"
     },
     {
@@ -85,6 +101,13 @@
     },
     {
       "reference" : {
+        "reference" : "Library/library-fhir-helpers-FHIR2"
+      },
+      "name" : "Library - FHIRHelpers - DSTU2",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
         "reference" : "Library/library-hospice-FHIR"
       },
       "name" : "Library - Hospice FHIR",
@@ -99,9 +122,44 @@
     },
     {
       "reference" : {
+        "reference" : "Library/library-risk-adjustment-FHIR2"
+      },
+      "name" : "Library - Risk Adjustment",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Library/library-supplemental-data-elements-FHIR"
+      },
+      "name" : "Library - Supplemental Data Elements FHIR",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Library/library-supplemental-data-elements-FHIR2"
+      },
+      "name" : "Library - Supplemental Data Elements FHIR2",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Library/library-vte-icu-FHIR"
+      },
+      "name" : "Library - VTE ICU FHIR",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Library/library-vte-1-FHIR"
+      },
+      "name" : "Library - Venous Thromboembolism Prophylaxis FHIR",
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
         "reference" : "Library/library-cms124-QDM"
       },
-      "name" : "Library - CMS124",
+      "name" : "Library - CMS124 - QDM",
       "description" : "Cervical Cancer Screening",
       "groupingId" : "p1"
     },
@@ -109,7 +167,7 @@
       "reference" : {
         "reference" : "Library/library-cms125-QDM"
       },
-      "name" : "Library - CMS125",
+      "name" : "Library - CMS125 - QDM",
       "description" : "Breast Cancer Screening",
       "groupingId" : "p1"
     },
@@ -117,7 +175,7 @@
       "reference" : {
         "reference" : "Library/library-cms130-QDM"
       },
-      "name" : "Library - CMS130",
+      "name" : "Library - CMS130 - QDM",
       "description" : "Colorectal Cancer Screening",
       "groupingId" : "p1"
     },
@@ -125,21 +183,21 @@
       "reference" : {
         "reference" : "Library/library-adult-outpatient-encounters-QDM"
       },
-      "name" : "Library - Adult Outpatient Encounters QDM",
+      "name" : "Library - Adult Outpatient Encounters - QDM",
       "groupingId" : "p1"
     },
     {
       "reference" : {
         "reference" : "Library/library-hospice-QDM"
       },
-      "name" : "Library - Hospice QDM",
+      "name" : "Library - Hospice - QDM",
       "groupingId" : "p1"
     },
     {
       "reference" : {
         "reference" : "Library/library-mat-global-common-functions-QDM"
       },
-      "name" : "Library - MAT Global Common Functions QDM",
+      "name" : "Library - MAT Global Common Functions - QDM",
       "groupingId" : "p1"
     },
     {
@@ -153,28 +211,46 @@
     },
     {
       "reference" : {
-        "reference" : "Measure/measure-cms124-FHIR"
+        "reference" : "Measure/measure-exm55-FHIR"
       },
-      "name" : "Measure - CMS124",
+      "name" : "Measure - EXM55",
+      "description" : "Example Continuous-variable Measure",
+      "exampleBoolean" : true,
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Measure/measure-exm124-FHIR"
+      },
+      "name" : "Measure - EXM124",
       "description" : "Cervical Cancer Screening",
       "exampleBoolean" : true,
       "groupingId" : "p1"
     },
     {
       "reference" : {
-        "reference" : "Measure/measure-cms125-FHIR"
+        "reference" : "Measure/measure-exm125-FHIR"
       },
-      "name" : "Measure - CMS125",
+      "name" : "Measure - EXM125",
       "description" : "Breast Cancer Screening",
       "exampleBoolean" : true,
       "groupingId" : "p1"
     },
     {
       "reference" : {
-        "reference" : "Measure/measure-cms130-FHIR"
+        "reference" : "Measure/measure-exm130-FHIR"
       },
-      "name" : "Measure - CMS130",
+      "name" : "Measure - EXM130",
       "description" : "Colorectal Cancer Screening",
+      "exampleBoolean" : true,
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Measure/measure-exm146-FHIR"
+      },
+      "name" : "Measure - EXM146",
+      "description" : "Example Proportion Measure",
       "exampleBoolean" : true,
       "groupingId" : "p1"
     },
@@ -183,7 +259,7 @@
         "reference" : "Measure/measure-cms124-QDM"
       },
       "name" : "Measure - CMS124",
-      "description" : "Cervical Cancer Screening",
+      "description" : "Cervical Cancer Screening - QDM",
       "exampleBoolean" : true,
       "groupingId" : "p1"
     },
@@ -192,7 +268,7 @@
         "reference" : "Measure/measure-cms125-QDM"
       },
       "name" : "Measure - CMS125",
-      "description" : "Breast Cancer Screening",
+      "description" : "Breast Cancer Screening - QDM",
       "exampleBoolean" : true,
       "groupingId" : "p1"
     },
@@ -201,7 +277,7 @@
         "reference" : "Measure/measure-cms130-QDM"
       },
       "name" : "Measure - CMS130",
-      "description" : "Colorectal Cancer Screening",
+      "description" : "Colorectal Cancer Screening - QDM",
       "exampleBoolean" : true,
       "groupingId" : "p1"
     },

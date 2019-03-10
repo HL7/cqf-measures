@@ -242,10 +242,10 @@ The HQMF XML representation of valueset declarations is discussed in Volume 1 Ch
 
 ### 2.5 Codes
 
-When direct referenced codes are represented within CQL, the logical identifier is not recommended to be a URN. Instead, the logical identifier is the code from the code system.
+When direct reference codes are represented within CQL, the logical identifier is not recommended to be a URN. Instead, the logical identifier is the code from the code system.
 
-    Conformance Requirement 8 (Direct Referenced Codes):
-    When direct referenced codes are represented within CQL, the logical identifier:
+    Conformance Requirement 8 (Direct Reference Codes):
+    When direct reference codes are represented within CQL, the logical identifier:
 
     SHALL NOT be a URN.
     SHALL be a code from the code system.
@@ -256,11 +256,11 @@ code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT"
 
 Snippet 7: code definition from Terminology CQL.cql.
 
-Note that for direct referenced code usage, the local identifier (in Snippet 7 the local identifier is "Venous foot pump, device (physical object)") should be the same as the description of the code within the terminology in order to avoid conflicting with any usage or license agreements with the referenced terminologies, but can be different to allow for potential naming conflicts, as well as simplification of longer names when appropriate.
+Note that for direct reference code usage, the local identifier (in Snippet 7 the local identifier is "Venous foot pump, device (physical object)") should be the same as the description of the code within the terminology in order to avoid conflicting with any usage or license agreements with the referenced terminologies, but can be different to allow for potential naming conflicts, as well as simplification of longer names when appropriate.
 
 #### 2.5.1 Representation in HQMF
 
-When direct referenced codes are used within CQL-Based HQMF measures, they will be represented in the HQMF HTML (Human-readable) as:
+When direct reference codes are used within CQL-Based HQMF measures, they will be represented in the HQMF HTML (Human-readable) as:
 
 ```html
 "Assessment, Performed: Assessment of breastfeeding"

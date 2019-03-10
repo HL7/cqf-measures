@@ -6,11 +6,11 @@ title: HQMF Volume 1
 
 ### 1.1 Purpose
 
-The Institute of Medicine (IOM) defines quality as: “The degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge.” [^1] For care quality to be evaluated, it must be standardized and communicated to the appropriate organizations. To that end, this Implementation Guide has been written to provide guidance for authoring electronic Clinical Quality Measures (eCQMs) utilizing the following standards:
+For care quality to be evaluated, it must be standardized and communicated to the appropriate organizations. To that end, this Implementation Guide has been written to provide guidance for authoring electronic Clinical Quality Measures (eCQMs) utilizing the following standards:
 
-* Quality Data Model (QDM) v5.4 [^2]
-* Clinical Quality Language (CQL) R1.3 [^3]
-* Health Quality Measures Format Release 1 Normative (HQMF R1 Normative) [^4]
+* Quality Data Model (QDM) v5.4 [^1]
+* Clinical Quality Language (CQL) R1.3 [^2]
+* Health Quality Measures Format Release 1 Normative (HQMF R1 Normative) [^3]
 
 Although the specification is based on the 1.3 version of CQL, backwards-compatible future versions of CQL can be used as well. In addition, if necessary, the 1.2 version of CQL can be used without loss of functionality for this Implementation Guide.
 
@@ -60,7 +60,7 @@ This IG is STU3 of the CQL-based HQMF Standard for Trial Use (STU). Section 1.8 
 
 ### 1.6 Scope
 
-This IG is a conformance profile, as described in the “Refinement and Localization” [^9] section of the HL7 Version 3 Interoperability Standards. The base standard for this IG is the HL7 Health Quality Measures Format. This IG (Volumes 1, 2, and 3) does not describe every aspect of HQMF Release 1 Normative. Rather, it defines constraints on the base HQMF used in a CQL-based HQMF document in the US Realm. Additional optional HQMF elements, not included here, can be included and the result will be compliant with the specifications in this guide.
+This IG is a conformance profile, as described in the “Refinement and Localization” [^8] section of the HL7 Version 3 Interoperability Standards. The base standard for this IG is the HL7 Health Quality Measures Format. This IG (Volumes 1, 2, and 3) does not describe every aspect of HQMF Release 1 Normative. Rather, it defines constraints on the base HQMF used in a CQL-based HQMF document in the US Realm. Additional optional HQMF elements, not included here, can be included and the result will be compliant with the specifications in this guide.
 
 ### 1.7 Conventions
 
@@ -76,13 +76,13 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY and NEED NOT in this docu
 
 ### 1.8 Background
 
-This Implementation Guide (IG) defines an approach to using CQL with Health Quality Measures Format Release 1 Normative (HQMF) [^4] for defining eCQMs.   This IG is split into three volumes, volume    1 (this volume) contains the instruction on how to use HQMF with CQL, volume 2 describes how to use QDM with CQL, and volume 3 contains all the necessary QDM based HQMF templates for defining a QDM based eCQM.
+This Implementation Guide (IG) defines an approach to using CQL with Health Quality Measures Format Release 1 Normative (HQMF) [^3] for defining eCQMs.   This IG is split into three volumes, volume    1 (this volume) contains the instruction on how to use HQMF with CQL, volume 2 describes how to use QDM with CQL, and volume 3 contains all the necessary QDM based HQMF templates for defining a QDM based eCQM.
 
 This Implementation Guide is the successor of the QDM-based HQMF IG R1.4 (Figure 2a) and the CQL- Based HQMF IG R1 STU1 (Figure 2b).
 
 ![QDM Based HQMF IG](assets/images/QDMBasedIG.png)
 
-(a) QDM based HQMF IG [^5]
+(a) QDM based HQMF IG [^4]
 
 ![CQL Based HQMF IG](assets/images/CQLBasedIG.png)
 
@@ -92,11 +92,11 @@ Figure 2: Relationship between QDM based and CQL based HQMF IG’s.
 
 #### 1.8.1 Clinical Quality Language R1.3
 
-Clinical Quality Language R1.3 (CQL) is an HL7 standard for trial use (STU) [^3]. It is part of the effort to harmonize standards between electronic clinical quality measures (eCQMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
+Clinical Quality Language R1.3 (CQL) is an HL7 standard for trial use (STU) [^2]. It is part of the effort to harmonize standards between electronic clinical quality measures (eCQMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
 
 #### 1.8.2 QDM based HQMF IG R1.4
 
-The QDM based HQMF IG R1.4 [^5] published October 2016 described how to construct an HQMF measure using QDM data elements and QDM logic (Figure 2a). That IG was built using QDM version 4.3.
+The QDM based HQMF IG R1.4 [^4] published October 2016 described how to construct an HQMF measure using QDM data elements and QDM logic (Figure 2a). That IG was built using QDM version 4.3.
 
 #### 1.8.3 CQL based HQMF IG R1 STU1
 
@@ -108,21 +108,21 @@ A separate HL7 initiative will produce an IG that covers the use of Fast Healthc
 
 #### 1.8.4 HQMF
 
-HQMF is a structured document markup standard* “…for representing a health quality measure as an electronic document. A quality measure is a quantitative tool to assess the performance of an individual or organization’s performance in relation to a specified process or outcome via the measurement of an action, process, or outcome of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.” [^4] [^a]
+HQMF is a structured document markup standard* “…for representing a health quality measure as an electronic document. A quality measure is a quantitative tool to assess the performance of an individual or organization’s performance in relation to a specified process or outcome via the measurement of an action, process, or outcome of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.” [^3] [^a]
 
 HQMF defines a header for classification and management of the quality measure as well as important metadata. HQMF also defines a document body that carries the content of the quality measure.
 
 Through standardization of a measure’s structure, metadata, definitions, and logic, the HQMF ensures measure consistency and unambiguous interpretation. A health quality measure encoded in the HQMF format is referred to as an electronic clinical quality measure (eCQM). Standardization of document structure (e.g., sections), metadata (e.g., author, verifier), and definitions (e.g., numerator, initial population) enable a wide range of measures currently existing in a variety of formats to achieve consistency. This formal representation of the clinical, financial, and administrative concepts and logic within an eCQM produce unambiguous interpretation and consistent reporting.
 
-During the past few years, National Quality Forum (NQF), through the Health Information Technology Expert Panel (HITEP), developed the Quality Data Model (QDM) for data representation in quality measures; and HL7 developed the HQMF Release 1 (R1) Draft Standard For Trial Use (DSTU). NQF, working with CMS, applied the QDM to HQMF R1, and implemented this solution in the Measure Authoring Tool (MAT) [^7]. The team did this by creating patterns for each QDM data type and QDM attribute, mapping them to the HL7 Reference Information Model (RIM), and using standard vocabularies. The QDM-based HQMF R1 was further refined (and the HQMF R1 DSTU was extended) in collaboration with measure developers through the eCQM Issues Group (eMIG), a consensus body of eCQM developers and stewards convened by CMS. The resulting QDM-based (extended) HQMF R1 was implemented in the MAT, and served as the basis for the creation of Meaningful Use 2014 eCQMs.
+During the past few years, National Quality Forum (NQF), through the Health Information Technology Expert Panel (HITEP), developed the Quality Data Model (QDM) for data representation in quality measures; and HL7 developed the HQMF Release 1 (R1) Draft Standard For Trial Use (DSTU). NQF, working with CMS, applied the QDM to HQMF R1, and implemented this solution in the Measure Authoring Tool (MAT) [^6]. The team did this by creating patterns for each QDM data type and QDM attribute, mapping them to the HL7 Reference Information Model (RIM), and using standard vocabularies. The QDM-based HQMF R1 was further refined (and the HQMF R1 DSTU was extended) in collaboration with measure developers through the eCQM Issues Group (eMIG), a consensus body of eCQM developers and stewards convened by CMS. The resulting QDM-based (extended) HQMF R1 was implemented in the MAT, and served as the basis for the creation of Promoting Interoperability Program (PIP) eCQMs.
 
-This approach was subsequently standardized in the QDM-based HQMF IG [^5] for the trial version of HQMF R1 STU2 along with the full list of templates for the QDM data types and QDM attributes in Volume 2 of the QDM- based HQMF IG, so that they could meet the needs of Meaningful Use eCQMs, and so that the QDM- based HQMF strategy would be governed by an open HL7 consensus process (as opposed to being driven by the MAT tooling implementation).
+This approach was subsequently standardized in the QDM-based HQMF IG [^4] for the trial version of HQMF R1 STU2 along with the full list of templates for the QDM data types and QDM attributes in Volume 2 of the QDM- based HQMF IG, so that they could meet the needs of Promoting Interoperability Program (PIP) eCQMs, and so that the QDM- based HQMF strategy would be governed by an open HL7 consensus process (as opposed to being driven by the MAT tooling implementation).
 
 #### 1.8.5 HQMF Release 1 Normative vs STU1 vs STU2
 
 HQMF R1 STU1 was balloted in the September 2009 ballot cycle as a DSTU; it was supported by volunteer efforts and through the NQF contract with the US Department of Health and Human Services (HHS) to promote the effective use of EHR systems. The DSTU period for HQMF R1 STU1 was two years.
 
-HQMF R1 STU2 was sponsored by the Center for Clinical Standards and Quality of CMS in partnership with HL7 and the Office of the National Coordinator (ONC). A driver for developing HQMF R1 STU2 was the need to make HQMF more amenable to automated machine processing. ONC’s Standards and Interoperability (S&I) Framework Query Health Technical Workgroup co-hosted project meetings. This IG is developed based on the normative release of HQMF R1 that was published in June of 2017 [^4].
+HQMF R1 STU2 was sponsored by the Center for Clinical Standards and Quality of CMS in partnership with HL7 and the Office of the National Coordinator (ONC). A driver for developing HQMF R1 STU2 was the need to make HQMF more amenable to automated machine processing. ONC’s Standards and Interoperability (S&I) Framework Query Health Technical Workgroup co-hosted project meetings. This IG is developed based on the normative release of HQMF R1 that was published in June of 2017 [^3].
 
 [^a]: HQMF is not an HL7 V3 Clinical Document Architecture (CDA) standard,but is similar to CDA in being a structured document markup standard.
 
@@ -132,21 +132,21 @@ This section describes other tools, standards, and resources related to electron
 
 #### 1.9.1 Quality Data Model
 
-Volume 1 of this IG is intended to be as model agnostic as possible. However, the examples used have incorporated QDM [^2]. Further discussion of incorporating QDM into CQL based HQMF measures is discussed in Volume 2 of this IG.
+Volume 1 of this IG is intended to be as model agnostic as possible. However, the examples used have incorporated QDM [^1]. Further discussion of incorporating QDM into CQL based HQMF measures is discussed in Volume 2 of this IG.
 
 #### 1.9.2 Relationship to Quality Reporting Document Architecture
 
-Volumes 2 and 3 discuss how to incorporate QDM into CQL based HQMF measures. A standard reporting mechanism for QDM based is the Quality Reporting Document Architecture [^6]. Further discussion of QRDA is available in Volume 2 of this IG.
+Volumes 2 and 3 discuss how to incorporate QDM into CQL based HQMF measures. A standard reporting mechanism for QDM based is the Quality Reporting Document Architecture [^5]. Further discussion of QRDA is available in Volume 2 of this IG.
 
 #### 1.9.3 Measure Authoring Tool
 
-The MAT is a web-based software-authoring tool that measure developers use to create eCQMs [^7]. The authoring tool allows measure developers to create eCQMs in a highly structured format using the QDM and healthcare industry standard vocabularies. The MAT was developed by NQF under a contract with HHS, and has been publicly available through NQF since September 2011. All Meaningful Use Stage 2 measures are authored in MAT to ensure consistency in creating header metadata, population criteria, data criteria, etc. Effective January 2013, CMS assumed ownership of the MAT and has contracted with Health Care Innovation Services, a joint venture between Telligen and Net-Integrated Consulting for the ongoing development, maintenance, and support.
+The MAT is a web-based software-authoring tool that measure developers use to create eCQMs [^6]. The authoring tool allows measure developers to create eCQMs in a highly structured format using the QDM and healthcare industry standard vocabularies. The MAT was developed by NQF under a contract with HHS, and has been publicly available through NQF since September 2011. All Promoting Interoperability Program (PIP) measures are authored in MAT to ensure consistency in creating header metadata, population criteria, data criteria, etc. Effective January 2013, CMS assumed ownership of the MAT and has contracted with Health Care Innovation Services, a joint venture between Telligen and Net-Integrated Consulting for the ongoing development, maintenance, and support.
 
 The QDM-based building-block approach to eCQMs, which is described in this IG, was implemented in the MAT. It will be updated in accordance with this guide.
 
 #### 1.9.4 NLM Value Set Authority Center
 
-The Value Set Authority Center (VSAC) [^10] is provided by the National Library of Medicine (NLM), in collaboration with the ONC and CMS. The VSAC currently serves as the authority and central repository for the official versions of value sets that support Meaningful Use eCQMs. Through the VSAC, NLM draws upon the UMLS Metathesaurus and its responsibility as the central coordinating body for clinical terminology standards within the HHS to assure the ongoing validity and accuracy of the value sets. NLM launched the VSAC Authoring Tool on October 31, 2013. Value sets for eCQMs can now be authored directly in VSAC. In addition, direct reference codes can be retrieved from the VSAC for use in eCQMs.
+The Value Set Authority Center (VSAC) [^9] is provided by the National Library of Medicine (NLM), in collaboration with the ONC and CMS. The VSAC currently serves as the authority and central repository for the official versions of value sets that support Promoting Interoperability Program (PIP) eCQMs. Through the VSAC, NLM draws upon the UMLS Metathesaurus and its responsibility as the central coordinating body for clinical terminology standards within the HHS to assure the ongoing validity and accuracy of the value sets. NLM launched the VSAC Authoring Tool on October 31, 2013. Value sets for eCQMs can now be authored directly in VSAC. In addition, direct reference codes can be retrieved from the VSAC for use in eCQMs.
 
 #### 1.9.5 CMS Measures Management System Blueprint
 
@@ -154,7 +154,7 @@ CMS has developed a standardized approach for the development and maintenance of
 
 To support the need of eCQM development, the “Measures Specifications” section was added to Version
 
-8.0 of the Blueprint (August 2011) to guide CMS- contracted measure developers on how to develop and document an eCQM for either a retooled measure or a de novo measure. The “Measure Specifications” section has since gone through several updates and has been evolved to become the “Measure Lifecycle” section with the latest being published on CMS’ website [^8].
+8.0 of the Blueprint (August 2011) to guide CMS- contracted measure developers on how to develop and document an eCQM for either a retooled measure or a de novo measure. The “Measure Specifications” section has since gone through several updates and has been evolved to become the “Measure Lifecycle” section with the latest being published on CMS’ website [^7].
 
 #### 1.9.6 HITSC Recommended Vocabularies
 
@@ -192,13 +192,13 @@ Snippet 1: HQMF document structure - abridged for clarity (from sample eCQM.xml)
 
 ### 2.1 Metadata
 
-The header of an eCQM document identifies and classifies the document and provides important metadata about the measure. The Blueprint includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base HQMF standard by including the Blueprint header requirements. Details are as shown in Volume 3 of this IG package.
+The header of an eCQM document identifies and classifies the document and provides important metadata about the measure. The Blueprint includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Promoting Interoperability Program (PIP) eCQMs and all subsequent annual updates. This IG further constrains the header in the base HQMF standard by including the Blueprint header requirements. Details are as shown in Volume 3 of this IG package.
 
 The rest of this section describes some of the more important components to the header, such as “Related Documents” (Section 2.2), “Control Variables” (Section 2.3), and “Data Criteria” (Section 4).
 
 ### 2.2 Related Documents
 
-The Clinical Quality Language R1.3 [^3] can be used in conjunction with HQMF to construct CQL-based HQMF measures. CQL is a domain specific language used in the Clinical Quality and Clinical Decision Support domains. Measures written in CQL leverage the expressibility and computability of CQL to define the populationCriteria used in the HQMF.
+The Clinical Quality Language R1.3 [^2] can be used in conjunction with HQMF to construct CQL-based HQMF measures. CQL is a domain specific language used in the Clinical Quality and Clinical Decision Support domains. Measures written in CQL leverage the expressibility and computability of CQL to define the populationCriteria used in the HQMF.
 
 Any included CQL library must contain a library declaration line as its first line as in Snippet 2.
 
@@ -210,7 +210,7 @@ Snippet 2: Library declaration line from (EXM146v4 CQL.cql)
 
 When using multiple CQL libraries to define a measure, refer to the “Nested Libraries” section of Volume 2 of this guide.
 
-Inclusion of CQL into an HQMF document is accomplished through the use of relatedDocument elements. relatedDocument elements such as Snippet 3 are incorporated into the HQMF in the metadata section (line: 2 of Snippet 1). CQL expression documents are included by reference using the HQMF expressionDocument element as described in S4.4 of HQMF [^4] – note that S4.4.1.5 of HQMF prohibits embedding of expression documents. Snippet 3 shows an example of this.
+Inclusion of CQL into an HQMF document is accomplished through the use of relatedDocument elements. relatedDocument elements such as Snippet 3 are incorporated into the HQMF in the metadata section (line: 2 of Snippet 1). CQL expression documents are included by reference using the HQMF expressionDocument element as described in S4.4 of HQMF [^3] – note that S4.4.1.5 of HQMF prohibits embedding of expression documents. Snippet 3 shows an example of this.
 
 Lines 21–32 in Snippet 3 identify a CQL expression document (EXM146v4 CQL.cql) and assign an internal root identifier to it (22688A59-B73C-4276-9E83-778214E1CA3C). This identifier is later used when referencing CQL expressions from HQMF population criteria. In addition, a global, version-independent identifier for the library is specified using the setId element. The root attribute of this element defines a globally unique namespace for the library, and the extension attribute specifies a stable, version-independent identifier for the library. If this identifier is not the same as the name of the library, then the identifierName attribute can be used to provide a human readable identifier. If the library has a version specified, the versionNumber element is used as well.
 
@@ -283,7 +283,7 @@ EXM146v4 ELM.json.
 
 ### 2.3 Control Variables
 
-HQMF introduces the concept of control variables as metadata that influences the computation of measures. Currently HQMF defines only one control variable: the measurement period, see §4.1.3.12 of HQMF [4]. Snippet 4 demonstrates how to indicate a controlVariable in the HQMF (line: 2 of Snippet 1).
+HQMF introduces the concept of control variables as metadata that influences the computation of measures. Currently HQMF defines only one control variable: the measurement period, see §4.1.3.12 of HQMF [^3]. Snippet 4 demonstrates how to indicate a controlVariable in the HQMF (line: 2 of Snippet 1).
 
 The values of HQMF control variables are accessible to CQL libraries as CQL parameters. The HQMF measurement period control variable is accessible to CQL libraries as the value of a parameter called "Measurement Period". Snippet 5 shows an example of a CQL library declaring this parameter.
 
@@ -320,7 +320,7 @@ Snippet 5: CQL declaration of the measurement period parameter (from EXM146v4 CQ
 
 This chapter describes how to use codes and valuesets from codesystems like LOINC, SNOMED-CT, and others within the CQL and HQMF files of a measure package.
 
-Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes a codesystem declaration must precede the code declaration (per CQL v1.2 specification). Examples of valueset and code declarations can be seen in the accompanying ”examples/TerminologyExample.cql”.
+Valuesets and direct reference codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct reference codes a codesystem declaration must precede the code declaration (per CQL v1.2 specification). Examples of valueset and code declarations can be seen in the accompanying "examples/TerminologyExample.cql".
 
 ```cql
 codesystem "SNOMED-CT": 'urn:oid:2.16.840.1.113883.6.96' version 'urn:hl7:version:201609'
@@ -332,7 +332,7 @@ Snippet 6: CQL declaration of codesystem, valueset, and code (from Terminology C
 
 Further discussion of codesystem, valueset, and code can be found in Volume 2 of this IG, sections 2.3, 2.4, and 2.5.
 
-All declared valuesets and codes can be found in the definition elements in the HQMF (line: 2 of Snippet 1). Examples of valueSet and cql-ext:code definitions can be found in the accompanying ”examples/TerminologyExample.xml”.
+All declared valuesets and codes can be found in the definition elements in the HQMF (line: 2 of Snippet 1). Examples of valueSet and cql-ext:code definitions can be found in the accompanying "examples/TerminologyExample.xml".
 
 ```xml
 <defintion typeCode="DRIV">
@@ -353,7 +353,7 @@ All declared valuesets and codes can be found in the definition elements in the 
     </definition>
 ```
 
-Snippet 7: Example HQMF terminology definitions (from Terminology eCQM.xml) Measures using valueset and/or direct referenced codes must conform to Conformance Requirement 4.
+Snippet 7: Example HQMF terminology definitions (from Terminology eCQM.xml) Measures using valueset and/or direct reference codes must conform to Conformance Requirement 4.
 
     Conformance Requirement 4 (Terminology Inclusion):
     All valuesets and codes referenced in the CQL SHALL be included in the HQMF using definition elements.
@@ -368,7 +368,7 @@ Note that because this conformance requirement references the extension schema d
 
 The data criteria section (lines 4–6 of Snippet 1) defines the patient data of interest in the measure as a set of entries. Each entry identifies specific types of data along with constraints that the data must meet. Snippet 8 shows an example of a data criteria entry indicating a ”Laboratory Test, Performed”.
 
-Volume 3 of this implementation guide contains templates for the entry elements in the data criteria section (as in Snippet 8) and the mappings from the HQMF templates to their respective QRDA templates. For an example of how to include direct referenced codes in the data criteria section please see line 110 of the accompanying examples/Terminology eCQM.xml.
+Volume 3 of this implementation guide contains templates for the entry elements in the data criteria section (as in Snippet 8) and the mappings from the HQMF templates to their respective QRDA templates. For an example of how to include direct reference codes in the data criteria section please see line 110 of the accompanying "examples/Terminology eCQM.xml".
 
 ```xml
 <entry typeCode="DRIV">
@@ -455,7 +455,7 @@ Note: while the QDM datatypes templates in volume 3 contain specifications of QD
 
 The populationCriteriaSection (lines 9 - 19 of Snippet 1) includes definitions of criteria used to specify populations. The criteria specifying these populations are described using CQL and those CQL expressions are given context in the HQMF. In this section, we describe how to use CQL and HQMF to define population criteria.
 
-CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are used instead of the RIM-based data criteria constraints and population expressions defined in §4.14.3 and §2.3.2 of the HQMF R1 STU 2 specification [^4] respectively.
+CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are used instead of the RIM-based data criteria constraints and population expressions defined in §4.14.3 and §2.3.2 of the HQMF R1 STU 2 specification [^3] respectively.
 
     Conformance Requirement 7 (Population Criteria Restrictions):
     Population criteria SHALL NOT include allTrue, allFalse, atLeastOneTrue, atLeastOneFalse, onlyOneTrue or onlyOneFalse elements.
@@ -511,7 +511,7 @@ define "Initial Population":
 
 Snippet 12: CQL definition of the "Initial Population" criteria (from EXM146v4 CQL.cql)
 
-and some are included above. The "In Demographic" expression uses the built-in CQL function Age- InYearsAt(). The definition of "Pharyngitis Encounters With Antibiotics" includes the function "Includes Or Starts During", defined in another CQL library (Common as described in examples/EXM146v4/Common-2.0.0 CQL.cql), further explanation of nested libraries is given in the “Nested Libraries” section of Volume 2 of this IG.
+and some are included above. The "In Demographic" expression uses the built-in CQL function Age- InYearsAt(). The definition of "Pharyngitis Encounters With Antibiotics" includes the function "Includes Or Starts During", defined in another CQL library (Common as described in "examples/EXM146v4/Common-2.0.0 CQL.cql"), further explanation of nested libraries is given in the “Nested Libraries” section of Volume 2 of this IG.
 
     Conformance Requirement 8 (Referential Integrity):
     All HQMF populationCriteriaSection component’s
@@ -521,7 +521,7 @@ and some are included above. The "In Demographic" expression uses the built-in C
 
 ### 5.1 Criteria Names
 
-To encourage consistency among measures, the following guidelines for specifying population criteria within a measure are proposed. The measure population criteria names and calculation methods used here are based on the Health Quality Measures Format (HQMF) HL7 standard [^4].
+To encourage consistency among measures, the following guidelines for specifying population criteria within a measure are proposed. The measure population criteria names and calculation methods used here are based on the Health Quality Measures Format (HQMF) HL7 standard [^3].
 
     Conformance Requirement 9 (Criteria Names):
     The name of an expression specifying a population criteria within a measure SHOULD always be the name of the criteria type†† :
@@ -612,7 +612,7 @@ For measures conforming to this implementation guide, the HQMF ITMCNT measure at
 
 #### 5.3.1 Proportion measure scoring
 
-Additional information on how proportion measures are scored (and the semantics behind the criteria names) can be found in the HQMF specification [^4].
+Additional information on how proportion measures are scored (and the semantics behind the criteria names) can be found in the HQMF specification [^3].
 
 ### 5.4 Ratio Measures
 
@@ -630,7 +630,7 @@ For ratio measures that include a Measure Observation, the measure observation i
 
 #### 5.4.1 Ratio measure scoring
 
-Additional information on how ratio measures are scored (and the semantics behind the criteria names) can be found in the HQMF specification [^4].
+Additional information on how ratio measures are scored (and the semantics behind the criteria names) can be found in the HQMF specification [^3].
 
 ### 5.5 Continuous Variable Measure
 
@@ -709,7 +709,7 @@ Note that the component reference in the measure observation definition is prese
 
 #### 5.5.1 Continuous variable measure scoring
 
-Additional information on how continuous variable measures are scored (and the semantics behind the criteria names) can be found in the HQMF specification [^4].
+Additional information on how continuous variable measures are scored (and the semantics behind the criteria names) can be found in the HQMF specification [^3].
 
 ### 5.6 Cohort Definitions
 
@@ -766,10 +766,10 @@ Snippet 17: Example Stratifier from TestCMS55v5 CQL.cql
 ### 5.9 Supplemental Data Elements
 
     Conformance Requirement 16 (Supplemental Data Elements):
-    Each supplemental data element referrenced in the CQL SHOULD :
+    Each supplemental data element referenced in the CQL SHOULD:
 
     return a single value when evaluated in the context of a member of the population
-    have a name begining with "SDE"
+    have a name beginning with "SDE"
 
 Part of the definition of a quality measure involves the ability to specify additional information to be returned for each member of a population. Within QDM and HQMF, these supplemental data elements are specified as QDM Data Elements for patient characteristics (such as Race, Ethnicity, Payer, and Administrative Sex) and marking them with an SDE code within the underlying HQMF XML. Snippet 18 demonstrates an example supplemental data definition using the cql-ext:supplementalDataElement.
 
@@ -828,7 +828,7 @@ define "Hepatic Failure":
 
 Snippet 21: Sample Risk Adjustment Variable from TestRiskAdj CQL.cql
 
-An example of risk adjustment can be found in the included directory examples/TestRiskAdj v5 1/; the relevant sections of the HQMF (Snippet 20) and CQL (Snippet 21) have been included.
+An example of risk adjustment can be found in the included directory "examples/TestRiskAdj v5 1/"; the relevant sections of the HQMF (Snippet 20) and CQL (Snippet 21) have been included.
 
 ## 6 Composite Measure Development
 
@@ -836,7 +836,7 @@ Composite measures make use of multiple component measures to produce a combined
 
     Conformance Requirement 18 (Composite Measures):
     Composite Measures SHALL include a subjectOf/measureAttribute element for measure type (code = MSRTYPE) with a value of COMPOSITE from the appropriate code system as specified by HQMF
-    Composite Measures SHALL include a subjectOf/measureAttribute element for for the composite measure scoring method (code = CMPMSRMTH) with a value from the appropriate code system as specified by HQMF.
+    Composite Measures SHALL include a subjectOf/measureAttribute element for the composite measure scoring method (code = CMPMSRMTH) with a value from the appropriate code system as specified by HQMF.
 
 The example illustrates the use of these measure attributes to indicate a composite measure:
 
@@ -872,7 +872,7 @@ To illustrate the different composite scoring methods, an example Annual Wellnes
 ### 6.1 All-or-nothing Scoring
 
     Conformance Requirement 19 (All-or-nothing Scoring):
-    All-or-nothing scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH measure attribute with a code of ALLORNONESCR as defined by the base HQMF specification.
+    All-or-nothing scoring SHALL be indicated using a subjectOf element to define with a CMPMSRMTH measure attribute with a code of ALLORNONESCR as defined by the base HQMF specification.
     Calculation logic for all-or-nothing composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
     Calculation logic for all-or-nothing composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
     Narrative descriptions of population criteria for all-or-nothing composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
@@ -890,7 +890,7 @@ Screening for breast cancer |  | N/A | | | |
 Screening for colorectal cancer |  |  |  | |  |
 Pneumococcal vaccination |  | |  |  | |
 
-An example of an “All-or-nothing” scored composite measure has been in included in examples/TestComposite/. This directory contains the composite measure, Composite eCQM.xml, and the component measures in directories Test122v5 Artifacts/ and Test131v5 Artifacts/. From Composite eCQM.xml, note the component measures are referenced in using relatedDocument elements.  Within the metadata of the measure, a subjectOf element contains the details of the "Composite Measure Scoring" as shown in Snippet 22.
+An example of an “All-or-nothing” scored composite measure has been in included in "examples/TestComposite/". This directory contains the composite measure, Composite eCQM.xml, and the component measures in directories Test122v5 Artifacts/ and Test131v5 Artifacts/. From Composite eCQM.xml, note the component measures are referenced in using relatedDocument elements.  Within the metadata of the measure, a subjectOf element contains the details of the "Composite Measure Scoring" as shown in Snippet 22.
 
 ```xml
 <subjectOf>
@@ -955,7 +955,7 @@ Snippet 24: Formal criteria for a patient-based All-or-nothing composite measure
 ### 6.2 Opportunity Scoring
 
     Conformance Requirement 20 (Opportunity Scoring):
-    Opportunity scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH measure attribute with a code of OPPORSCR as defined by the base HQMF specification.
+    Opportunity scoring SHALL be indicated using a subjectOf element to define with a CMPMSRMTH measure attribute with a code of OPPORSCR as defined by the base HQMF specification.
     Calculation logic for opportunity composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
     Calculation logic for opportunity composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
     Narrative descriptions of population criteria for opportunity composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
@@ -1027,7 +1027,7 @@ Note that this approach is using component measures where the improvement notati
 ### 6.3 Patient-level Linear Combination Scoring
 
     Conformance Requirement 21 (Patient-level Linear Combination Scoring):
-    Patient-level linear combination scoring SHALL be indicated using a subjectOf element to define a with a CMPMSRMTH measure attribute with a code of LINEARSCR as defined by the base HQMF specification.
+    Patient-level linear combination scoring SHALL be indicated using a subjectOf element to define with a CMPMSRMTH measure attribute with a code of LINEARSCR as defined by the base HQMF specification.
     Calculation logic for patient-level linear combination composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
     Calculation logic for patient-level linear combination composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
     Narrative descriptions of population criteria for patient-level linear combination composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
@@ -1274,22 +1274,20 @@ Snippet 30: Composite measure relatedDocuments
 
 ## References
 
-[^1]: Crossing   the   Quality   Chasm:   A   New   Health   System   for   the   21st   Century.   Institute    of Medicine, March 2001. <http://www.nationalacademies.org/hmd/Reports/2001/Crossing-the-Quality-Chasm-A-New-Health-System-for-the-21st-Century.aspx>
+[^1]: Quality Data Model, Version 5.4. Centers of Medicare & Medicaid Services; Office of the National Coordinator for Health Information Technology, 2017. <https://ecqi.healthit.gov/qdm>
 
-[^2]: Quality Data Model, Version 5.4. Centers of Medicare & Medicaid Services; Office of the National Coordinator for Health Information Technology, 2017. <https://ecqi.healthit.gov/qdm>
+[^2]: Clinical Quality Language (CQL), STU R1.3. HL7, July 2018. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400>
 
-[^3]: Clinical Quality Language (CQL), STU R1.3. HL7, July 2018. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400>
+[^3]: HL7, Representation of the Health Quality Measures Format (HQMF) Release 1. HL7, June 2017. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97>
 
-[^4]: HL7, Representation of the Health Quality Measures Format (HQMF) Release 1. HL7, June 2017. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97>
+[^4]: HL7 Version 3 Implementation Guide: Quality Data Model (QDM)-based Health Quality Measure Format (HQMF), R1.4 – US Realm, Volume 2 (Draft Standard for Trial Use). HL7, October 2016. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346>
 
-[^5]: HL7 Version 3 Implementation Guide: Quality Data Model (QDM)-based Health Quality Measure Format (HQMF), R1.4 – US Realm, Volume 2 (Draft Standard for Trial Use). HL7, October 2016. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346>
+[^5]: HL7 Implementation Guide for CDA Release 2: Quality Reporting Document Architecture – Category I STU Release 5 (US Realm). HL7, ballot cycle September 2017. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35>
 
-[^6]: HL7 Implementation Guide for CDA Release 2: Quality Reporting Document Architecture – Category I STU Release 5 (US Realm). HL7, ballot cycle September 2017. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35>
+[^6]: Measure Authoring Tool. CMS. <https://www.emeasuretool.cms.gov/>
 
-[^7]: Measure Authoring Tool. CMS. <https://www.emeasuretool.cms.gov/>
+[^7]: Measures Management System Blueprint v13.0. CMS, May 2017. <https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html>
 
-[^8]: Measures Management System Blueprint v13.0. CMS, May 2017. <https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html>
+[^8]: Refinement, Constraint and Localization, Release 2. HL7, September 2015. <http://www.hl7.org/v3ballotarchive_temp_52E32C7C-1C23-BA17-0CA99EC07A928F9D/v3ballot/html/infrastructure/conformance/conformance.html>
 
-[^9]: Refinement, Constraint and Localization, Release 2. HL7, September 2015. <http://www.hl7.org/v3ballotarchive_temp_52E32C7C-1C23-BA17-0CA99EC07A928F9D/v3ballot/html/infrastructure/conformance/conformance.html>
-
-[^10]: Value Set Authority Center. U.S. National Library of Medicine. <https://vsac.nlm.nih.gov/>
+[^9]: Value Set Authority Center. U.S. National Library of Medicine. <https://vsac.nlm.nih.gov/>

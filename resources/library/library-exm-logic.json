@@ -1,16 +1,51 @@
 {
   "resourceType": "Library",
   "id": "library-exm-logic",
-  "version": "1.0.0",
+  "meta": {
+    "profile": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/library-cqfm"
+  },
+  "url": "http://exapmle.org/libraries/library-exm-logic",
+  "identifier": [
+    {
+      "system": "http://example.org/identifiers",
+      "value": "EXM_Logic"
+    }
+  ],
+  "version": "0.0.0",
+  "name": "EXM_Logic",
+  "title": "EXM Logic",
   "status": "active",
   "experimental": true,
   "type": {
     "coding": [
       {
+        "system": "http://hl7.org/fhir/codesystem-library-type.html",
         "code": "logic-library"
       }
     ]
   },
+  "date": "2019-09-03",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "This library is used as an example in the FHIR Quality Measure Implementation Guide",
+  "approvalDate": "2019-08-03",
+  "lastReviewDate": "2019-08-03",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "parameter": [
+    {
+      "name": "Measurement Period",
+      "use": "in",
+      "type": "Period"
+    }
+  ],
   "dataRequirement": [
     {
       "type": "Encounter",
@@ -20,6 +55,16 @@
           "valueSetString": "Inpatient"
         }
       ]
+    }
+  ],
+  "content": [
+    {
+      "contentType": "application/elm+xml",
+      "data": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxsaWJyYXJ5IHhtbG5zPSJ1cm46aGw3LW9yZzplbG06cjEiIHhtbG5zOnQ9InVybjpobDctb3JnOmVsbS10eXBlczpyMSIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeG1sbnM6eHNkPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6Zmhpcj0iaHR0cDovL2hsNy5vcmcvZmhpciIgeG1sbnM6cWRtNDM9InVybjpoZWFsdGhpdC1nb3Y6cWRtOnY0XzMiIHhtbG5zOnFkbTUzPSJ1cm46aGVhbHRoaXQtZ292OnFkbTp2NV8zIiB4bWxuczphPSJ1cm46aGw3LW9yZzpjcWwtYW5ub3RhdGlvbnM6cjEiPg0KICAgPGlkZW50aWZpZXIgaWQ9IkVYTV9Mb2dpYyIgdmVyc2lvbj0iMC4wLjAiLz4NCiAgIDxzY2hlbWFJZGVudGlmaWVyIGlkPSJ1cm46aGw3LW9yZzplbG0iIHZlcnNpb249InIxIi8+DQogICA8dXNpbmdzPg0KICAgICAgPGRlZiBsb2NhbElkZW50aWZpZXI9IlN5c3RlbSIgdXJpPSJ1cm46aGw3LW9yZzplbG0tdHlwZXM6cjEiLz4NCiAgICAgIDxkZWYgbG9jYWxJZGVudGlmaWVyPSJGSElSIiB1cmk9Imh0dHA6Ly9obDcub3JnL2ZoaXIiIHZlcnNpb249IjMuMC4wIi8+DQogICA8L3VzaW5ncz4NCiAgIDxwYXJhbWV0ZXJzPg0KICAgICAgPGRlZiBuYW1lPSJNZWFzdXJlbWVudCBQZXJpb2QiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPg0KICAgICAgICAgPHBhcmFtZXRlclR5cGVTcGVjaWZpZXIgeHNpOnR5cGU9IkludGVydmFsVHlwZVNwZWNpZmllciI+DQogICAgICAgICAgICA8cG9pbnRUeXBlIG5hbWU9InQ6RGF0ZVRpbWUiIHhzaTp0eXBlPSJOYW1lZFR5cGVTcGVjaWZpZXIiLz4NCiAgICAgICAgIDwvcGFyYW1ldGVyVHlwZVNwZWNpZmllcj4NCiAgICAgIDwvZGVmPg0KICAgPC9wYXJhbWV0ZXJzPg0KICAgPHN0YXRlbWVudHM+DQogICAgICA8ZGVmIG5hbWU9IlBhdGllbnQiIGNvbnRleHQ9IlBhdGllbnQiPg0KICAgICAgICAgPGV4cHJlc3Npb24geHNpOnR5cGU9IlNpbmdsZXRvbkZyb20iPg0KICAgICAgICAgICAgPG9wZXJhbmQgZGF0YVR5cGU9ImZoaXI6UGF0aWVudCIgeHNpOnR5cGU9IlJldHJpZXZlIi8+DQogICAgICAgICA8L2V4cHJlc3Npb24+DQogICAgICA8L2RlZj4NCiAgIDwvc3RhdGVtZW50cz4NCjwvbGlicmFyeT4NCg=="
+    },
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeSBFWE1fTG9naWMgdmVyc2lvbiAnMC4wLjAndXNpbmcgRkhJUiB2ZXJzaW9uICczLjAuMCdwYXJhbWV0ZXIgIk1lYXN1cmVtZW50IFBlcmlvZCIgSW50ZXJ2YWw8RGF0ZVRpbWU+Y29udGV4dCBQYXRpZW50"
     }
   ]
 }
