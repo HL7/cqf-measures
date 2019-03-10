@@ -1,14 +1,53 @@
 {
   "resourceType": "Library",
   "id": "library-fhir-helpers",
-  "status": "draft",
+  "meta": {
+    "profile": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/library-cqfm"
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Library/library-fhir-helpers",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
+      "value": "FHIRHelpers"
+    }
+  ],
+  "version": "3.0.0",
+  "name": "FHIRHelpers",
+  "title": "FHIR Helpers",
+  "status": "active",
+  "experimental": "true",
   "type": {
     "coding": [
       {
+        "system": "http://hl7.org/fhir/codesystem-library-type.html",
         "code": "logic-library"
       }
     ]
   },
+  "date": "2019-09-03",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "This library is used as an example in the FHIR Quality Measure Implementation Guide",
+  "approvalDate": "2019-08-03",
+  "lastReviewDate": "2019-08-03",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": {
+        "reference": "Library/fhir-model-definition"
+      }
+    }
+  ],
   "content": [
     {
       "contentType": "application/elm+xml",

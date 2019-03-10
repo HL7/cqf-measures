@@ -1,10 +1,17 @@
 {
   "resourceType": "Measure",
   "id": "measure-exm125-FHIR",
-  "text": {
-    "status": "additional",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><td><b>Id: </b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\">Measure/measure-cms125</td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Identifier: </b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>system: </b><span>http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms</span></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>value: </b><span>122</span></td></tr></table><table class=\"grid dict\"><tr><td><b>Identifier: </b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>system: </b><span>http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf</span></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>value: </b><span>0002</span></td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Title: </b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\">Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)</td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Status: </b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Description: </b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\">Percentage of patients 18-75 years of age with diabetes who had hemoglobin A1c &gt; 9.0% during the measurement period</td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Purpose: </b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\">TO-DO:add purpose</td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Topic: </b></td></tr><tr><td style=\"padding-right: 25px;\"><span><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/c80-doc-typecodes</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>57024-2</span><br/></span></span></span></td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Library: </b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>reference: </b><span>Library/library-cms125</span></td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Scoring: </b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\">proportion</td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Type: </b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\">process</td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Group:</b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>cms125-group-1</span><br/></span></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>Population:</b><br/><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>type:</b><span>initial-population</span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>initial-population-identifier</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>criteria: </b><span>cms125.InitialPopulation</span></p></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>Population:</b><br/><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>type:</b><span>numerator</span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>numerator-identifier</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>criteria: </b><span>cms125.InNumerator</span></p></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>Population:</b><br/><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>type:</b><span>denominator</span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>denominator-identifier</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>criteria: </b><span>cms125.InDenominator</span></p></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>Population:</b><br/><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>type:</b><span>denominator-exclusion</span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>denominator-exclusions-identifier</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>criteria: </b><span>cms125.InDenominatorExclusions</span></p></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>Stratifier:</b><br/><p style=\"padding-left: 25px; margin-bottom: 5px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>stratifier-ages-up-to-9</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>criteria: </b><span>CMS146.AgesUpToNine</span></p></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>Stratifier:</b><br/><p style=\"padding-left: 25px; margin-bottom: 5px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>stratifier-ages-10-plus</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>criteria: </b><span>CMS146.AgesTenPlus</span></p></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><b>Stratifier:</b><br/><p style=\"padding-left: 25px; margin-bottom: 5px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>stratifier-ages-up-to-9</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>path: </b><span>Patient.gender</span></p></td></tr></table><p/><table class=\"grid dict\"><tr><td><b>Supplemental Data:</b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>supplemental-data-gender</span><br/></span></p><p style=\"margin-bottom: 5px;\"><b>path: </b><span>Patient.gender</span></p></td></tr></table><table class=\"grid dict\"><tr><td><b>Supplemental Data:</b></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>supplemental-data-deceased</span><br/></span></p><p style=\"margin-bottom: 5px;\"><b>path: </b><span>deceasedBoolean</span></p></td></tr></table></div>"
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/measure-cqfm"
+    ]
   },
+  "extension": [
+    {
+      "url" : "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode" : "boolean"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Measure/measure-exm125-FHIR",
   "identifier": [
     {
@@ -102,13 +109,14 @@
   ],
   "library": [
     {
-      "reference": "Library/library-cms125-FHIR"
+      "reference": "Library/library-exm125-FHIR"
     }
   ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.",
   "scoring": {
     "coding": [
       {
+        "system": "http://hl7.org/fhir/measure-scoring",
         "code": "proportion"
       }
     ]
@@ -117,6 +125,7 @@
     {
       "coding": [
         {
+          "system": "http://hl7.org/fhir/measure-type",
           "code": "process"
         }
       ]
@@ -129,7 +138,7 @@
   "group": [
     {
       "identifier": {
-        "value": "CMS125-group-1"
+        "value": "group-1"
       },
       "population": [
         {
@@ -139,6 +148,7 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "initial-population"
               }
             ]
@@ -152,6 +162,7 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "numerator"
               }
             ]
@@ -165,6 +176,7 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "denominator"
               }
             ]
@@ -178,6 +190,7 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "denominator-exclusion"
               }
             ]
@@ -190,26 +203,66 @@
   "supplementalData": [
     {
       "identifier": {
-        "value": "supplemental-data-race"
+        "value": "sde-ethnicity"
       },
-      "criteria": "SDE Race"
-    },
-    {
-      "identifier": {
-        "value": "supplemental-data-payer"
-      },
-      "criteria": "SDE Payer"
-    },
-    {
-      "identifier": {
-        "value": "supplemental-data-ethnicity"
-      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
       "criteria": "SDE Ethnicity"
     },
     {
       "identifier": {
-        "value": "supplemental-data-birthSex"
+        "value": "sde-payer"
       },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Payer"
+    },
+    {
+      "identifier": {
+        "value": "sde-race"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Race"
+    },
+    {
+      "identifier": {
+        "value": "sde-sex"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
       "criteria": "SDE Sex"
     }
   ]

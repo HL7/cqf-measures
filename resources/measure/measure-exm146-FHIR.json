@@ -1,6 +1,17 @@
 {
   "resourceType": "Measure",
   "id": "measure-exm146-FHIR",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/measure-cqfm"
+    ]
+  },
+  "extension": [
+    {
+      "url" : "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode" : "Encounter"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Measure/measure-exm146-FHIR",
   "identifier": [
     {
@@ -102,6 +113,7 @@ CPT(R) contained in the Measure specifications is copyright 2004-2013 American M
   "scoring": {
     "coding": [
       {
+        "system": "http://hl7.org/fhir/measure-scoring",
         "code": "proportion"
       }
     ]
@@ -110,6 +122,7 @@ CPT(R) contained in the Measure specifications is copyright 2004-2013 American M
     {
       "coding": [
         {
+          "system": "http://hl7.org/fhir/measure-type",
           "code": "process"
         }
       ]
@@ -122,7 +135,7 @@ CPT(R) contained in the Measure specifications is copyright 2004-2013 American M
   "group": [
     {
       "identifier": {
-        "value": "EXM146-group-1"
+        "value": "group-1"
       },
       "population": [
         {
@@ -132,11 +145,12 @@ CPT(R) contained in the Measure specifications is copyright 2004-2013 American M
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "initial-population"
               }
             ]
           },
-          "criteria": "\"EXM146_FHIR\".\"Initial Population\""
+          "criteria": "Initial Population"
         },
         {
           "identifier": {
@@ -145,11 +159,12 @@ CPT(R) contained in the Measure specifications is copyright 2004-2013 American M
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "numerator"
               }
             ]
           },
-          "criteria": "\"EXM146_FHIR\".\"Numerator\""
+          "criteria": "Numerator"
         },
         {
           "identifier": {
@@ -158,11 +173,12 @@ CPT(R) contained in the Measure specifications is copyright 2004-2013 American M
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "denominator"
               }
             ]
           },
-          "criteria": "\"EXM146_FHIR\".\"Denominator\""
+          "criteria": "Denominator"
         },
         {
           "identifier": {
@@ -171,13 +187,14 @@ CPT(R) contained in the Measure specifications is copyright 2004-2013 American M
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "denominator-exclusion"
               }
             ]
           },
-          "criteria": "\"EXM146_FHIR\".\"Denominator Exclusion\""
-            }
-          ]
+          "criteria": "Denominator Exclusion"
         }
       ]
+    }
+  ]
 }

@@ -4,10 +4,11 @@
   "meta": {
     "profile": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/library-cqfm"
   },
-  "url": "http://exapmle.org/libraries/library-exm-logic",
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Library/library-exm-logic",
   "identifier": [
     {
-      "system": "http://example.org/identifiers",
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
       "value": "EXM_Logic"
     }
   ],
@@ -37,6 +38,14 @@
           "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
         }
       ]
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": {
+        "reference": "Library/fhir-model-definition"
+      }
     }
   ],
   "parameter": [

@@ -1,7 +1,22 @@
 {
   "resourceType": "Library",
   "id": "library-vte-icu-FHIR",
-  "status": "draft",
+  "meta": {
+    "profile": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/library-cqfm"
+  },
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Library/library-vte-icu-FHIR",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
+      "value": "VTEICU_FHIR"
+    }
+  ],
+  "version": "2.4.000",
+  "name": "VTEICU_FHIR",
+  "title": "VTE ICU FHIR",
+  "status": "active",
+  "experimental": "true",
   "type": {
     "coding": [
       {
@@ -10,17 +25,38 @@
       }
     ]
   },
+  "date": "2019-09-03",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "This library is used as an example in the FHIR Quality Measure Implementation Guide",
+  "approvalDate": "2019-08-03",
+  "lastReviewDate": "2019-08-03",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
   "relatedArtifact": [
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/FHIRHelpers"
+        "reference": "Library/fhir-model-definition"
       }
     },
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/MATGlobalCommonFunctions_FHIR"
+        "reference": "Library/library-fhir-helpers"
+      }
+    },
+    {
+      "type": "depends-on",
+      "resource": {
+        "reference": "Library/library-mat-global-common-functions-FHIR"
       }
     }
   ],

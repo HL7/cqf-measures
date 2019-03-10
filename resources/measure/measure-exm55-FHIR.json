@@ -1,6 +1,17 @@
 {
   "resourceType": "Measure",
   "id": "measure-exm55-FHIR",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/measure-cqfm"
+    ]
+  },
+  "extension": [
+    {
+      "url" : "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode" : "Encounter"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Measure/measure-exm55-FHIR",
   "identifier": [
     {
@@ -15,6 +26,10 @@
   "status": "active",
   "experimental": true,
   "date": "2019-02-21",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "This example illustrates a continuous variable measure represented as a FHIR eCQM",
+  "approvalDate": "2019-03-08",
+  "lastReviewDate": "2019-03-08",
   "effectivePeriod": {
     "start": "2018-01-01",
     "end": "2018-12-31"
@@ -49,6 +64,16 @@
       ]
     }
   ],
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
   "library": [
     {
       "reference": "Library/library-exm55-FHIR|5.0.0"
@@ -57,6 +82,7 @@
   "scoring": {
     "coding": [
       {
+        "system": "http://hl7.org/fhir/measure-scoring",
         "code": "continuous-variable"
       }
     ]
@@ -65,6 +91,7 @@
     {
       "coding": [
         {
+          "system": "http://hl7.org/fhir/measure-type",
           "code": "process"
         }
       ]
@@ -74,7 +101,7 @@
   "group": [
     {
       "identifier": {
-        "value": "EXM55-group-1"
+        "value": "group-1"
       },
       "population": [
         {
@@ -84,11 +111,12 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "initial-population"
               }
             ]
           },
-          "criteria": "\"EXM55_FHIR\".\"Initial Population\""
+          "criteria": "Initial Population"
         },
         {
           "identifier": {
@@ -97,11 +125,12 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "measure-population"
               }
             ]
           },
-          "criteria": "\"EXM55_FHIR\".\"Measure Population\""
+          "criteria": "Measure Population"
         },
         {
           "identifier": {
@@ -110,11 +139,12 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "measure-population-exclusion"
               }
             ]
           },
-          "criteria": "\"EXM55_FHIR\".\"Measure Population Exclusion\""
+          "criteria": "Measure Population Exclusion"
         },
         {
           "extension": [
@@ -133,11 +163,12 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "measure-observation"
               }
             ]
           },
-          "criteria": "\"EXM55_FHIR\".\"Measure Observation\""
+          "criteria": "Measure Observation"
         }
       ],
       "stratifier": [
@@ -145,19 +176,19 @@
           "identifier": {
             "value": "stratifier-1-identifier"
           },
-          "criteria": "\"EXM55_FHIR\".\"Stratification 1\""
+          "criteria": "Stratification 1"
         },
         {
           "identifier": {
             "value": "stratifier-2-identifier"
           },
-          "criteria": "\"EXM55_FHIR\".\"Stratification 2\""
+          "criteria": "Stratification 2"
         },
         {
           "identifier": {
             "value": "stratifier-3-identifier"
           },
-          "criteria": "\"EXM55_FHIR\".\"Stratification 3\""
+          "criteria": "Stratification 3"
         }
       ]
     }

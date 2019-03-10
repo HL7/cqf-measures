@@ -6,12 +6,28 @@
     <name value="CQFMeasures"/>
     <status value="draft"/>
     <experimental value="true"/>
-    <publisher value="HL7 International"/>
     <date value="2018-08-28"/>
+    <publisher value="HL7 International"/>
     <description value="Measure content in support of the Clinical Reasoning Track at the Baltimore 2018 FHIR Connectathon"/>
     <package>
         <name value="MeasureContent"/>
         <resource>
+			<example value="true"/>
+            <name value="Library - Adult Outpatient Encounters FHIR"/>
+            <sourceReference>
+                <reference value="Library/library-adult-outpatient-encounters-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+			<example value="true"/>
+            <name value="Library - Common Example"/>
+            <description value="Example Common Library"/>
+            <sourceReference>
+                <reference value="Library/library-common-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+			<example value="true"/>
             <name value="Library - Example"/>
             <description value="Example Library"/>
             <sourceReference>
@@ -19,6 +35,7 @@
             </sourceReference>
         </resource>
         <resource>
+			<example value="true"/>
             <name value="Library - EXM55"/>
             <description value="Continuous Variable Measure Example Library"/>
             <sourceReference>
@@ -26,6 +43,7 @@
             </sourceReference>
         </resource>
         <resource>
+			<example value="true"/>
             <name value="Library - EXM124"/>
             <description value="Cervical Cancer Screening Example Library"/>
             <sourceReference>
@@ -33,6 +51,7 @@
             </sourceReference>
         </resource>
         <resource>
+			<example value="true"/>
             <name value="Library - EXM125"/>
             <description value="Breast Cancer Screening Example Library"/>
             <sourceReference>
@@ -40,6 +59,7 @@
             </sourceReference>
         </resource>
         <resource>
+			<example value="true"/>
             <name value="Library - EXM130"/>
             <description value="Colorectal Cancer Screening Example Library"/>
             <sourceReference>
@@ -47,6 +67,7 @@
             </sourceReference>
         </resource>
         <resource>
+			<example value="true"/>
             <name value="Library - EXM146"/>
             <description value="Proportion Measure Example Library"/>
             <sourceReference>
@@ -54,65 +75,90 @@
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - Adult Outpatient Encounters FHIR"/>
-            <sourceReference>
-                <reference value="Library/library-adult-outpatient-encounters-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <name value="Library - FHIRHelpers"/>
-            <sourceReference>
-                <reference value="Library/library-fhir-helpers"/>
-            </sourceReference>
-        </resource>
-        <resource>
+			<example value="true"/>
             <name value="Library - FHIRHelpers - DSTU2"/>
             <sourceReference>
                 <reference value="Library/library-fhir-helpers-FHIR2"/>
             </sourceReference>
         </resource>
         <resource>
+			<example value="true"/>
+            <name value="Library - FHIRHelpers"/>
+            <sourceReference>
+                <reference value="Library/library-fhir-helpers"/>
+            </sourceReference>
+        </resource>
+        <resource>
+			<example value="true"/>
+            <name value="Library - FHIR Model Definition - DSTU2"/>
+            <sourceReference>
+                <reference value="Library/library-fhir-model-definition-FHIR2"/>
+            </sourceReference>
+        </resource>
+        <resource>
+			<example value="true"/>
+            <name value="Library - FHIR Model Definition"/>
+            <sourceReference>
+                <reference value="Library/library-fhir-model-definition"/>
+            </sourceReference>
+        </resource>
+        <resource>
+			<example value="true"/>
             <name value="Library - Hospice FHIR"/>
             <sourceReference>
                 <reference value="Library/library-hospice-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
+			<example value="true"/>
             <name value="Library - MAT Global Common Functions FHIR"/>
             <sourceReference>
                 <reference value="Library/library-mat-global-common-functions-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - Risk Adjustment"/>
+			<example value="true"/>
+            <name value="Library - Risk Adjustment - DSTU2"/>
             <sourceReference>
                 <reference value="Library/library-risk-adjustment-FHIR2"/>
             </sourceReference>
         </resource>
         <resource>
+			<example value="true"/>
             <name value="Library - Supplemental Data Elements FHIR"/>
             <sourceReference>
                 <reference value="Library/library-supplemental-data-elements-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
-            <name value="Library - Supplemental Data Elements FHIR2"/>
+			<example value="true"/>
+            <name value="Library - Supplemental Data Elements DSTU2"/>
             <sourceReference>
                 <reference value="Library/library-supplemental-data-elements-FHIR2"/>
             </sourceReference>
         </resource>
         <resource>
+			<example value="true"/>
+            <name value="Library - Terminology Example"/>
+            <sourceReference>
+                <reference value="Library/library-terminology-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+			<example value="true"/>
             <name value="Library - VTE ICU FHIR"/>
             <sourceReference>
                 <reference value="Library/library-vte-icu-FHIR"/>
             </sourceReference>
         </resource>
         <resource>
+			<example value="true"/>
             <name value="Library - Venous Thromboembolism Prophylaxis FHIR"/>
             <sourceReference>
                 <reference value="Library/library-vte-1-FHIR"/>
             </sourceReference>
         </resource>
+        <!-- TODO: Bring in QDM examples if appropriate
         <resource>
             <name value="Library - CMS124 - QDM"/>
             <description value="Cervical Cancer Screening"/>
@@ -152,6 +198,7 @@
                 <reference value="Library/library-mat-global-common-functions-QDM"/>
             </sourceReference>
         </resource>
+        -->
         <resource>
             <example value="true"/>
             <name value="Measure - Example"/>
@@ -202,6 +249,31 @@
         </resource>
         <resource>
             <example value="true"/>
+            <name value="Measure - Risk Adjustment Example - DSTU2"/>
+            <description value="Example measure illustrating the use of risk adjustment"/>
+            <sourceReference>
+                <reference value="Measure/measure-risk-adjustment-FHIR2"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - Terminology Example"/>
+            <description value="Example measure illustrating the use of terminology"/>
+            <sourceReference>
+                <reference value="Measure/measure-terminology-FHIR"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Measure - Venous Thromboembolism Prophylaxis"/>
+            <description value="Example VTE-1 Measure"/>
+            <sourceReference>
+                <reference value="Measure/measure-vte-1-FHIR"/>
+            </sourceReference>
+        </resource>
+        <!-- TODO: Bring in QDM examples if appropriate
+        <resource>
+            <example value="true"/>
             <name value="Measure - CMS124"/>
             <description value="Cervical Cancer Screening - QDM"/>
             <sourceReference>
@@ -224,6 +296,7 @@
                 <reference value="Measure/measure-cms130-QDM"/>
             </sourceReference>
         </resource>
+        -->
         <resource>
             <example value="true"/>
             <name value="StructureMap encounter-performed-to-encounter"/>
@@ -697,24 +770,28 @@
             </sourceReference>
         </resource>
         <resource>
+			<example value="false"/>
             <name value="StructureDefinition - Measure allocation extension"/>
             <sourceReference>
                 <reference value="StructureDefinition/cqfm-allocation"/>
             </sourceReference>
         </resource>
         <resource>
+			<example value="false"/>
             <name value="StructureDefinition - Measure definitionTerm extension"/>
             <sourceReference>
                 <reference value="StructureDefinition/cqfm-definitionTerm"/>
             </sourceReference>
         </resource>
         <resource>
+			<example value="false"/>
             <name value="StructureDefinition - Measure isPrimaryCitation extension"/>
             <sourceReference>
                 <reference value="StructureDefinition/cqfm-isPrimaryCitation"/>
             </sourceReference>
         </resource>
         <resource>
+			<example value="false"/>
             <name value="StructureDefinition - Measure populationBasis extension"/>
             <sourceReference>
                 <reference value="StructureDefinition/cqfm-populationBasis"/>

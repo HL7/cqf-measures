@@ -4,11 +4,12 @@
   "meta": {
     "profile": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/library-cqfm"
   },
-  "url": "http://exapmle.org/libraries/library-common-FHIR",
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Library/library-common-FHIR",
   "identifier": [
     {
-      "system": "http://example.org/identifiers",
-      "value": "Common"
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
+      "value": "Common_FHIR"
     }
   ],
   "version": "2.0.0",
@@ -40,6 +41,12 @@
     }
   ],
   "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": {
+        "reference": "Library/fhir-model-definition"
+      }
+    },
     {
       "type": "depends-on",
       "resource": {

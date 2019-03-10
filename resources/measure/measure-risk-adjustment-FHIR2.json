@@ -1,0 +1,262 @@
+{
+  "resourceType": "Measure",
+  "id": "measure-risk-adjustment-FHIR2",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/measure-cqfm"
+    ]
+  },
+  "extension": [
+    {
+      "url" : "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode" : "Encounter"
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Measure/measure-risk-adjustment-FHIR2",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
+      "value": "RiskAdjustment_FHIR2"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "RiskAdjustment_FHIR2",
+  "title": "Risk Adjustment FHIR DSTU2",
+  "status": "active",
+  "experimental": true,
+  "date": "2019-02-21",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "This example illustrates the use of risk adjustment variables within a measure represented as a FHIR eCQM",
+  "approvalDate": "2019-03-08",
+  "lastReviewDate": "2019-03-08",
+  "effectivePeriod": {
+    "start": "2018-01-01",
+    "end": "2018-12-31"
+  },
+  "topic": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/c80-doc-typecodes",
+          "code": "57024-2"
+        }
+      ]
+    }
+  ],
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "library": [
+    {
+      "reference": "Library/library-risk-adjustment-FHIR2"
+    }
+  ],
+  "scoring": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/measure-scoring",
+        "code": "proportion"
+      }
+    ]
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/measure-type",
+          "code": "process"
+        }
+      ]
+    }
+  ],
+  "improvementNotation": "Lower score indicates better quality",
+  "group": [
+    {
+      "identifier": {
+        "value": "group-1"
+      },
+      "population": [
+        {
+          "identifier": {
+            "value": "initial-population-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/measure-population",
+                "code": "initial-population"
+              }
+            ]
+          },
+          "criteria": "Initial Population"
+        },
+        {
+          "identifier": {
+            "value": "numerator-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/measure-population",
+                "code": "numerator"
+              }
+            ]
+          },
+          "criteria": "Numerator"
+        },
+        {
+          "identifier": {
+            "value": "denominator-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/measure-population",
+                "code": "denominator"
+              }
+            ]
+          },
+          "criteria": "Denominator"
+        },
+      ]
+    }
+  ],
+  "supplementalData": [
+    {
+      "identifier": {
+        "value": "sde-ethnicity"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Ethnicity"
+    },
+    {
+      "identifier": {
+        "value": "sde-payer"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Payer"
+    },
+    {
+      "identifier": {
+        "value": "sde-race"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Race"
+    },
+    {
+      "identifier": {
+        "value": "sde-sex"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Sex"
+    },
+    {
+      "identifier": { 
+        "value": "hepatic-failure"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "risk-adjustment-factor"
+            }
+          ]
+        }
+      ],
+      "criteria": "Hepatic Failure"
+    },
+    {
+      "identifier": { 
+        "value": "cirrhosis-dx"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "risk-adjustment-factor"
+            }
+          ]
+        }
+      ],
+      "criteria": "Cirrhosis Dx"
+    },
+    {
+      "identifier": { 
+        "value": "bilirubin-test"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "risk-adjustment-factor"
+            }
+          ]
+        }
+      ],
+      "criteria": "Bilirubin Test"
+    },
+    {
+      "identifier": { 
+        "value": "serum-albumin-test"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "risk-adjustment-factor"
+            }
+          ]
+        }
+      ],
+      "criteria": "Serum Albumin Test"
+    }
+  ]
+}

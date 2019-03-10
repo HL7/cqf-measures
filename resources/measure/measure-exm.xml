@@ -43,7 +43,7 @@
   <!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
   set of eCQMs such as HEDIS or CMS eCQM identifiers. A measure may have any number of business identifiers. -->
   <identifier>
-    <system value="http://example.org/fhir/measures"/>
+    <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm"/>
     <value value="EXM"/>
   </identifier>
   <!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
@@ -129,11 +129,13 @@
   <disclaimer value="Example disclaimer"/>
   <scoring>
     <coding>
+      <system value="http://hl7.org/fhir/measure-scoring"/>
       <code value="proportion"/>
     </coding>
   </scoring>
   <type> 
     <coding> 
+      <system value="http://hl7.org/fhir/measure-type"/>
       <code value="process"/> 
     </coding> 
   </type>
@@ -150,7 +152,7 @@
   <guidance value="Additional guidance provided to help communicate the intent of the measure"/>
   <group>
     <identifier>
-      <value value="EXM-group-1"/>
+      <value value="group-1"/>
     </identifier>
     <population>
       <identifier>
@@ -158,6 +160,7 @@
       </identifier>
       <code>
         <coding>
+          <system value="http://hl7.org/fhir/measure-population"/>
           <code value="initial-population"/>
         </coding>
       </code>
@@ -169,6 +172,7 @@
       </identifier>
       <code>
         <coding>
+          <system value="http://hl7.org/fhir/measure-population"/>
           <code value="numerator"/>
         </coding>
       </code>
@@ -180,6 +184,7 @@
       </identifier>
       <code>
         <coding>
+          <system value="http://hl7.org/fhir/measure-population"/>
           <code value="denominator"/>
         </coding>
       </code>
@@ -191,6 +196,7 @@
       </identifier>
       <code>
         <coding>
+          <system value="http://hl7.org/fhir/measure-population"/>
           <code value="numerator"/>
         </coding>
       </code>
@@ -202,6 +208,7 @@
       </identifier>
       <code>
         <coding>
+          <system value="http://hl7.org/fhir/measure-population"/>
           <code value="denominator"/>
         </coding>
       </code>
@@ -232,4 +239,60 @@
       <criteria value="Stratifier 4"/>
     </stratifier>
   </group>
+  <supplementalData>
+    <identifier>
+      <value value="sde-ethnicity"/>
+    </identifier>
+    <usage>
+      <code>
+        <coding>
+          <system value="http://hl7.org/fhir/measure-data-usage"/>
+          <value value="supplemental-data"/>
+        </coding>
+      </code>
+    </usage>
+    <criteria value="SDE Ethnicity"/>
+  </supplementalData>
+  <supplementalData>
+    <identifier>
+      <value value="sde-race"/>
+    </identifier>
+    <usage>
+      <code>
+        <coding>
+          <system value="http://hl7.org/fhir/measure-data-usage"/>
+          <value value="supplemental-data"/>
+        </coding>
+      </code>
+    </usage>
+    <criteria value="SDE Race"/>
+  </supplementalData>
+  <supplementalData>
+    <identifier>
+      <value value="sde-payer"/>
+    </identifier>
+    <usage>
+      <code>
+        <coding>
+          <system value="http://hl7.org/fhir/measure-data-usage"/>
+          <value value="supplemental-data"/>
+        </coding>
+      </code>
+    </usage>
+    <criteria value="SDE Payer"/>
+  </supplementalData>
+  <supplementalData>
+    <identifier>
+      <value value="sde-sex"/>
+    </identifier>
+    <usage>
+      <code>
+        <coding>
+          <system value="http://hl7.org/fhir/measure-data-usage"/>
+          <value value="supplemental-data"/>
+        </coding>
+      </code>
+    </usage>
+    <criteria value="SDE Sex"/>
+  </supplementalData>
 </Measure>

@@ -1,6 +1,17 @@
 {
   "resourceType": "Measure",
   "id": "measure-exm124-FHIR",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/measure-cqfm"
+    ]
+  },
+  "extension": [
+    {
+      "url" : "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode" : "boolean"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Measure/measure-exm124-FHIR",
   "identifier": [
     {
@@ -35,7 +46,7 @@
         "code": "program"
       },
       "valueCodeableConcept": {
-        "text": "eligibile-provider"
+        "text": "eligible-provider"
       }
     }
   ],
@@ -99,13 +110,14 @@
   ],
   "library": [
     {
-      "reference": "Library/library-cms124-FHIR"
+      "reference": "Library/library-exm124-FHIR"
     }
   ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. <br> Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
     "coding": [
       {
+        "system": "http://hl7.org/fhir/measure-scoring",
         "code": "proportion"
       }
     ]
@@ -114,6 +126,7 @@
     {
       "coding": [
         {
+          "system": "http://hl7.org/fhir/measure-type",
           "code": "process"
         }
       ]
@@ -126,7 +139,7 @@
   "group": [
     {
       "identifier": {
-        "value": "CMS124-group-1"
+        "value": "group-1"
       },
       "population": [
         {
@@ -136,6 +149,7 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "initial-population"
               }
             ]
@@ -149,6 +163,7 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "numerator"
               }
             ]
@@ -162,6 +177,7 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "denominator"
               }
             ]
@@ -175,38 +191,79 @@
           "code": {
             "coding": [
               {
+                "system": "http://hl7.org/fhir/measure-population",
                 "code": "denominator-exclusion"
               }
             ]
           },
           "criteria": "Denominator Exclusion"
+        }
+      ]
+    }
+  ],
+  "supplementalData": [
+    {
+      "identifier": {
+        "value": "sde-ethnicity"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
             }
           ]
         }
       ],
-  "supplementalData": [
-    {
-      "identifier": {
-        "value": "supplemental-data-race"
-      },
-      "criteria": "SDE Race"
-    },
-    {
-      "identifier": {
-        "value": "supplemental-data-payer"
-      },
-      "criteria": "SDE Payer"
-    },
-    {
-      "identifier": {
-        "value": "supplemental-data-ethnicity"
-      },
       "criteria": "SDE Ethnicity"
     },
     {
       "identifier": {
-        "value": "supplemental-data-birthSex"
+        "value": "sde-payer"
       },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Payer"
+    },
+    {
+      "identifier": {
+        "value": "sde-race"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Race"
+    },
+    {
+      "identifier": {
+        "value": "sde-sex"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
       "criteria": "SDE Sex"
     }
   ]
