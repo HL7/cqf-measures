@@ -1,6 +1,6 @@
 {
   "resourceType": "Library",
-  "id": "library-terminiology-FHIR",
+  "id": "library-terminology-FHIR",
   "meta": {
     "profile": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/library-cqfm"
   },
@@ -20,7 +20,7 @@
   "type": {
     "coding": [
       {
-        "system": "http://hl7.org/fhir/codesystem-library-type.html",
+        "system": "http://hl7.org/fhir/library-type",
         "code": "logic-library"
       }
     ]
@@ -44,7 +44,7 @@
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/fhir-model-definition"
+        "reference": "Library/library-fhir-model-definition"
       }
     },
     {
@@ -59,12 +59,15 @@
       "type": "CodeableConcept",
       "codeFilter": [
         {
-          "valueCoding": {
-            "system": "http://snomed.info/sct/731000124108/",
-            "version": "http://snomed.info/sct/731000124108/version/201709",
-            "code": "129325002",
-            "display": "Introduction - action (qualifier value)"
-          }
+          "path": "direct-reference-code",
+          "valueCoding": [
+            {
+              "system": "http://snomed.info/sct/731000124108/",
+              "version": "http://snomed.info/sct/731000124108/version/201709",
+              "code": "129325002",
+              "display": "Introduction - action (qualifier value)"
+            }
+          ]
         }
       ]
     },
@@ -72,12 +75,15 @@
       "type": "CodeableConcept",
       "codeFilter": [
         {
-          "valueCoding": {
-            "system": "http://snomed.info/sct/731000124108/",
-            "version": "http://snomed.info/sct/731000124108/version/201709",
-            "code": "442023007",
-            "display": "Venous foot pump, device (physical object)"
-          }
+          "path": "direct-reference-code",
+          "valueCoding": [
+            {
+              "system": "http://snomed.info/sct/731000124108/",
+              "version": "http://snomed.info/sct/731000124108/version/201709",
+              "code": "442023007",
+              "display": "Venous foot pump, device (physical object)"
+            }
+          ]
         }
       ]
     },
@@ -95,12 +101,14 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueCoding": {
-            "system": "http://snomed.info/sct/731000124108/",
-            "version": "http://snomed.info/sct/731000124108/version/201709",
-            "code": "71861002",
-            "display": "Implantation (procedure)"
-          }
+          "valueCoding": [
+            {
+              "system": "http://snomed.info/sct/731000124108/",
+              "version": "http://snomed.info/sct/731000124108/version/201709",
+              "code": "71861002",
+              "display": "Implantation (procedure)"
+            }
+          ]
         }
       ]
     },

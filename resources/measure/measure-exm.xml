@@ -60,8 +60,8 @@
   <publisher value="Example Measure Publisher"/>
   <!-- The description of the measure -->
   <description value="An example FHIR-based measure"/>
-  <purpose value=""/>
-  <usage value=""/>
+  <purpose value="The purpose of this measure is to..."/>
+  <usage value="Users of this measure should be aware of..."/>
   <approvalDate value="2019-02-17"/>
   <lastReviewDate value="2019-02-17"/>
   <effectivePeriod>
@@ -69,7 +69,9 @@
     <end value="2018-12-31"/>
   </effectivePeriod>
   <useContext>
-    <code value="program"/>
+    <code>
+      <code value="program"/>
+    </code>
     <valueCodeableConcept>
       <text value="eligible-provider"/>
     </valueCodeableConcept>
@@ -111,17 +113,14 @@
       <valueBoolean value="true"/>
     </extension>
     <type value="documentation"/> 
-    <citation value="Infectious Diseases Society of America. 2012. &quot;Clinical Practice Guideline for the
-       Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update.&quot; "/> 
+    <citation value="Infectious Diseases Society of America. 2012. &quot;Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update.&quot;"/> 
   </relatedArtifact> 
   <relatedArtifact> 
     <extension url="http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
       <valueBoolean value="true"/>
     </extension>
     <type value="documentation"/> 
-    <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistan
-      t Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot;
-       Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
+    <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot; Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
   </relatedArtifact>   
   <library>
     <reference value="Library/library-exm-logic"/>
@@ -244,12 +243,10 @@
       <value value="sde-ethnicity"/>
     </identifier>
     <usage>
-      <code>
-        <coding>
-          <system value="http://hl7.org/fhir/measure-data-usage"/>
-          <value value="supplemental-data"/>
-        </coding>
-      </code>
+      <coding>
+        <system value="http://hl7.org/fhir/measure-data-usage"/>
+        <code value="supplemental-data"/>
+      </coding>
     </usage>
     <criteria value="SDE Ethnicity"/>
   </supplementalData>
@@ -258,12 +255,10 @@
       <value value="sde-race"/>
     </identifier>
     <usage>
-      <code>
-        <coding>
-          <system value="http://hl7.org/fhir/measure-data-usage"/>
-          <value value="supplemental-data"/>
-        </coding>
-      </code>
+      <coding>
+        <system value="http://hl7.org/fhir/measure-data-usage"/>
+        <code value="supplemental-data"/>
+      </coding>
     </usage>
     <criteria value="SDE Race"/>
   </supplementalData>
@@ -272,12 +267,10 @@
       <value value="sde-payer"/>
     </identifier>
     <usage>
-      <code>
-        <coding>
-          <system value="http://hl7.org/fhir/measure-data-usage"/>
-          <value value="supplemental-data"/>
-        </coding>
-      </code>
+      <coding>
+        <system value="http://hl7.org/fhir/measure-data-usage"/>
+        <code value="supplemental-data"/>
+      </coding>
     </usage>
     <criteria value="SDE Payer"/>
   </supplementalData>
@@ -286,12 +279,10 @@
       <value value="sde-sex"/>
     </identifier>
     <usage>
-      <code>
-        <coding>
-          <system value="http://hl7.org/fhir/measure-data-usage"/>
-          <value value="supplemental-data"/>
-        </coding>
-      </code>
+      <coding>
+        <system value="http://hl7.org/fhir/measure-data-usage"/>
+        <code value="supplemental-data"/>
+      </coding>
     </usage>
     <criteria value="SDE Sex"/>
   </supplementalData>

@@ -33,6 +33,8 @@
   "date": "2018-08-31",
   "publisher": "The Joint Commission",
   "description": "This measure assesses the number of patients who received VTE prophylaxis or have documentation why no VTE prophylaxis was given the day of or the day after hospital admission or surgery end date for surgeries that start the day of or the day after hospital admission",
+  "approvalDate":"2019-03-08",
+  "lastReviewDate":"2019-03-08",
   "effectivePeriod": {
     "start": "2018-01-01",
     "end": "2018-12-31"
@@ -61,8 +63,9 @@
     {
       "coding": [
         {
-          "system": "http://hl7.org/fhir/c80-doc-typecodes",
-          "code": "57024-2"
+          "system": "http://loinc.org",
+          "code": "57024-2",
+          "display": "Health Quality Measure Document"
         }
       ]
     }
@@ -132,6 +135,7 @@
   ],
   "rationale": "Hospitalized patients at high-risk for VTE may develop an asymptomatic deep vein thrombosis (DVT), and die from pulmonary embolism (PE) even before the diagnosis is suspected. The majority of fatal events occur as sudden or abrupt death, underscoring the importance of prevention as the most critical action step for reducing death from PE (Geerts, et al, 2008).\n\nThe estimated annual incidence of deep-vein thrombosis (DVT) and pulmonary embolism (PE), known collectively as venous thromboembolism (VTE), is approximately 900,000 (Geerts, et al, 2008). Approximately two-thirds of cases of DVT or PE are associated with recent hospitalization. This is consistent with the 2001 report by The Agency for Healthcare Research and Quality (AHRQ). AHRQ indicates that \"the appropriate application of effective preventive measures in hospitals has major potential for improving patient safety by reducing the incidence of venous thromboembolism\" (Shojania, 2001).\n\nDespite its proven effectiveness, rates of appropriate thromboprophylaxis remain low in both medical and surgical patients. A recent analysis from the ENDORSE survey, which evaluated prophylaxis rates in 17,084 major surgery patients, found that more than one third of patients at risk for VTE (38%) did not receive prophylaxis and that rates varied by surgery type (Cohen, et al., 2008).\n\nIn a review of evidence-based patient safety practices, the Agency for Healthcare Research and Quality defined thromboprophylaxis against VTE as the \"number one patient safety practice\" for hospitalized patients (Shojania, 2001). Updated \"safe practices\" published by the National Quality Forum (NQF) recommend routine evaluation of hospitalized patients for risk of VTE and use of appropriate prophylaxis (National Quality Forum. National Voluntary Consensus Standards for Prevention and Care of Venous Thromboembolism, 2006).\n\nAs noted by the ACCP, a vast number of randomized clinical trials provide irrefutable evidence that thromboprophylaxis reduces VTE events, and there are studies that have also shown that fatal PE is prevented by thromboprophylaxis (Geerts, et al. 2008).\n\nSome select surgeries have previously been monitored in the Surgical Care Improvement Project; since performance on these surgeries has achieved very high levels, they are not included in this measure.",
   "clinicalRecommendationStatement": "Failure to recognize and protect patients at risk for venous thromboembolism (VTE) increases the chances for acutely ill hospitalized patients at high risk for developing a deep vein thrombosis or dying from a pulmonary emboli. Screening all patients is the only evidence based practice in reducing incidence of disease.  All hospitalized patients should be evaluated for primary VTE prophylaxis, and given appropriate prophylaxis when indicated.",
+  "improvementNotation": "Higher score indicates better quality",
   "guidance": "When low dose unfractionated heparin is administered for VTE Prophylaxis, the intended administration route for low dose unfractionated heparin is subcutaneous.\n\nReasons for no pharmacological and no mechanical VTE prophylaxis must be explicitly documented by the MD/APN/PA or pharmacist and linked with VTE prophylaxis. Ambulation alone is not a sufficient reason for not administering VTE prophylaxis. In order for ambulation/patient ambulating to be considered as an acceptable reason, there needs to be explicit documentation, e.g., \"patient out of bed and ambulating in halls - no VTE prophylaxis needed.\"",
   "group": [
     {

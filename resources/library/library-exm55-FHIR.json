@@ -20,7 +20,7 @@
   "type": {
     "coding": [
       {
-        "system": "http://hl7.org/fhir/codesystem-library-type.html",
+        "system": "http://hl7.org/fhir/library-type",
         "code": "logic-library"
       }
     ]
@@ -44,7 +44,7 @@
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/fhir-model-definition"
+        "reference": "Library/library-fhir-model-definition"
       }
     },
     {
@@ -59,6 +59,7 @@
       "type": "CodeableConcept",
       "codeFilter": [
         {
+          "path": "direct-reference-code",
           "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299"
         }
       ]
@@ -67,6 +68,7 @@
       "type": "CodeableConcept",
       "codeFilter": [
         {
+          "path": "direct-reference-code",
           "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.126"
         }
       ]

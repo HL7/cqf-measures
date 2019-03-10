@@ -20,7 +20,7 @@
   "type": {
     "coding": [
       {
-        "system": "http://hl7.org/fhir/codesystem-library-type.html",
+        "system": "http://hl7.org/fhir/library-type",
         "code": "logic-library"
       }
     ]
@@ -44,7 +44,7 @@
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/fhir-model-definition"
+        "reference": "Library/library-fhir-model-definition"
       }
     },
     {
@@ -74,7 +74,7 @@
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/supplemental-data-elements-FHIR"
+        "reference": "Library/library-supplemental-data-elements-FHIR"
       }
     }
   ],
