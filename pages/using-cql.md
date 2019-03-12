@@ -109,9 +109,9 @@ Version information for code systems is not required to be included in eCQMs; te
 Conformance Requirement 5 describes how to specify a valueset within a CQL library.
 
     Conformance Requirement 5 (Value Set Specification):
-    Within CQL, the identifier of any value set reference SHALL be specified using a URN for the value set.
-    The URN SHALL be the canonical URL for the value set
-    The URN MAY include a version, consistent with versioned canonical URL references in FHIR
+    Within CQL, the identifier of any value set reference SHALL be specified using a URI for the value set.
+    The URI SHALL be the canonical URL for the value set
+    The URI MAY include a version, consistent with versioned canonical URL references in FHIR
 
 For example:
 
@@ -172,12 +172,12 @@ The representation of valueset declarations in a Library is discussed in the Mea
 
 ### 2.5 Codes
 
-When direct reference codes are represented within CQL, the logical identifier is not recommended to be a URN. Instead, the logical identifier is the code from the code system.
+When direct reference codes are represented within CQL, the logical identifier is not recommended to be a URI. Instead, the logical identifier is the code from the code system.
 
     Conformance Requirement 8 (Direct Referenced Codes):
     When direct reference codes are represented within CQL, the logical identifier:
 
-    SHALL NOT be a URN.
+    SHALL NOT be a URI.
     SHALL be a code from the code system.
 
 ```cql
@@ -238,8 +238,12 @@ Data types referenced in CQL libraries to be included in a Measure must conform 
 
 ### 2.8.1 Negation in FHIR
 
-TODO: Provide patterns for negation in general?
-TODO: Tracker to provide negation patterns for each type in QI-Core?
+Two commonly used patterns for negation in quality measurement are:
+
+* Absence of evidence for a particular event
+* Documentation of an event not occurring, together with a reason
+
+For the purposes of quality measurement, when looking for documentation that a particular event did not occur, it must be documented with a reason in order to meet the intent. If a reason is not part of the intent, then the absence of evidence pattern should be used, rather than documentation of an event not occurring.
 
 ### 2.9 Attribute Names
 
