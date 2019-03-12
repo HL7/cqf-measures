@@ -2,14 +2,20 @@
   "resourceType": "Measure",
   "id": "measure-exm124-FHIR",
   "meta": {
+    "versionId": "2",
+    "lastUpdated": "2019-03-12T02:35:51.919-06:00",
     "profile": [
       "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/measure-cqfm"
     ]
   },
+  "text": {
+    "status": "empty",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No narrative available - Error: Exception evaluating OGNL expression: \"uses.getValue().toCode()\" (template: \"measure\" - line 158, col 31)</div>"
+  },
   "extension": [
     {
-      "url" : "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
-      "valueCode" : "boolean"
+      "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode": "boolean"
     }
   ],
   "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Measure/measure-exm124-FHIR",
@@ -94,19 +100,16 @@
       "citation": "Howlader, N., Noone, A.M., Krapcho, M., Miller, D., Bishop, K., Altekruse, S.F., Kosary, C.L., Yu, M., Ruhl, J., Tatalovich, Z., Mariotto, A., Lewis, D.R., Chen, H.S., Feuer, E.J., and Cronin, K.A. 2016. \"SEER Cancer Statistics Review, 1975-2013.\" National Cancer Institute. (December 5, 2016) http://seer.cancer.gov/csr/1975_2013/"
     },
     {
-       "type": "citation",
+      "type": "citation",
       "citation": "National Business Group on Health. 2011. \"Pathways to Managing Cancer in the Workplace.\" (May 8, 2012). http://www.tcyh.org/employers/downloads/Pathways_Managing_Cancer_2011.pdf"
-
     },
     {
-       "type": "citation",
+      "type": "citation",
       "citation": "Feig S. 2011. Comparison of Costs and Benefits of Breast Cancer Screening with Mammography, Ultrasonagraphy, and MRI. Obstetrics and Gynecology Clinics of North America. 38(1):179-96."
-
     },
     {
-       "type": "citation",
+      "type": "citation",
       "citation": "U.S. Preventive Services Task Force (USPSTF). 2016. \"Screening for Breast Cancer: U.S. Preventive Services Task Force Recommendation Statement.\" Ann Intern Med. 164(4):279-296. doi:10.7326/M15-2886."
-
     }
   ],
   "library": [

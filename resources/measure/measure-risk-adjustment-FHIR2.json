@@ -2,14 +2,20 @@
   "resourceType": "Measure",
   "id": "measure-risk-adjustment-FHIR2",
   "meta": {
+    "versionId": "2",
+    "lastUpdated": "2019-03-12T02:36:04.851-06:00",
     "profile": [
       "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/measure-cqfm"
     ]
   },
+  "text": {
+    "status": "empty",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No narrative available - Error: Exception evaluating OGNL expression: \"uses.getValue().toCode()\" (template: \"measure\" - line 158, col 31)</div>"
+  },
   "extension": [
     {
-      "url" : "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
-      "valueCode" : "Encounter"
+      "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode": "Encounter"
     }
   ],
   "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Measure/measure-risk-adjustment-FHIR2",
@@ -126,7 +132,7 @@
             ]
           },
           "criteria": "Denominator"
-        },
+        }
       ]
     }
   ],
@@ -196,7 +202,7 @@
       "criteria": "SDE Sex"
     },
     {
-      "identifier": { 
+      "identifier": {
         "value": "hepatic-failure"
       },
       "usage": [
@@ -212,7 +218,7 @@
       "criteria": "Hepatic Failure"
     },
     {
-      "identifier": { 
+      "identifier": {
         "value": "cirrhosis-dx"
       },
       "usage": [
@@ -228,7 +234,7 @@
       "criteria": "Cirrhosis Dx"
     },
     {
-      "identifier": { 
+      "identifier": {
         "value": "bilirubin-test"
       },
       "usage": [
@@ -244,7 +250,7 @@
       "criteria": "Bilirubin Test"
     },
     {
-      "identifier": { 
+      "identifier": {
         "value": "serum-albumin-test"
       },
       "usage": [

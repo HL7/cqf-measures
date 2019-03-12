@@ -2,14 +2,20 @@
   "resourceType": "Measure",
   "id": "measure-vte-1-FHIR",
   "meta": {
+    "versionId": "2",
+    "lastUpdated": "2019-03-12T02:36:08.781-06:00",
     "profile": [
       "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/measure-cqfm"
     ]
   },
+  "text": {
+    "status": "empty",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No narrative available - Error: Exception evaluating OGNL expression: \"uses.getValue().toCode()\" (template: \"measure\" - line 158, col 31)</div>"
+  },
   "extension": [
     {
-      "url" : "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
-      "valueCode" : "Encounter"
+      "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode": "Encounter"
     }
   ],
   "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Measure/measure-vte-1-FHIR",
@@ -33,8 +39,8 @@
   "date": "2018-08-31",
   "publisher": "The Joint Commission",
   "description": "This measure assesses the number of patients who received VTE prophylaxis or have documentation why no VTE prophylaxis was given the day of or the day after hospital admission or surgery end date for surgeries that start the day of or the day after hospital admission",
-  "approvalDate":"2019-03-08",
-  "lastReviewDate":"2019-03-08",
+  "approvalDate": "2019-03-08",
+  "lastReviewDate": "2019-03-08",
   "effectivePeriod": {
     "start": "2018-01-01",
     "end": "2018-12-31"
@@ -208,7 +214,7 @@
   ],
   "supplementalData": [
     {
-      "identifier": { 
+      "identifier": {
         "value": "sde-ethnicity"
       },
       "usage": [
@@ -224,7 +230,7 @@
       "criteria": "SDE Ethnicity"
     },
     {
-      "identifier": { 
+      "identifier": {
         "value": "sde-payer"
       },
       "usage": [
@@ -240,7 +246,7 @@
       "criteria": "SDE Payer"
     },
     {
-      "identifier": { 
+      "identifier": {
         "value": "sde-race"
       },
       "usage": [
@@ -256,7 +262,7 @@
       "criteria": "SDE Race"
     },
     {
-      "identifier": { 
+      "identifier": {
         "value": "sde-sex"
       },
       "usage": [
