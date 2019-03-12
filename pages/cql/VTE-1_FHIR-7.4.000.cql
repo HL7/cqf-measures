@@ -20,6 +20,34 @@ ProcedureRequest
 Condition
 */
 
+/*
+Development Notes:
+
+    Need to define “doNotPerfom” QICore extension to support “NotDone is true” expression. Suggest to the base Resource for the following profiles – 
+
+        DeviceUseStatement
+        DeviceRequest
+        MedicationRequest
+
+    Need to define an “ordinality” extension for Procedure profile to support “Procedure.ordinality ~ "Principal" expression. 
+
+    Need to confirm the following profiles and ensure Period is a default type - 
+
+        MedicationAdministration.effective
+        Procedure.performed
+
+    Suggest defining “recordedOn“ to support the timings for “MedicationAdministration.notGiven” and “Procedure.notDone”. see the highlighted fields below.
+
+|Profile                   |Timing used for Done |Timing used for doNotPerform |TJC comments          |
+|---|---|---|---|
+|DeviceUseStatement        |whenUsed             |recordedOn                   |   |
+|DeviceRequest             |authoredOn           |authoredOn                   |   |
+|MedicationAdministration  |effective            |effective                    | Suggest adding recordedOn for notGiven timing |
+|MedicationRequest         |authoredOn           |authoredOn                   |   |
+|Procedure                 |performed            |performed                    | Suggest adding recordedOn for notDone timing |
+|ProcedureRequest          |authoredOn           |authoredOn                   |   |	
+*/
+
 using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0' called FHIRHelpers
@@ -419,41 +447,49 @@ define "No VTE Prophylaxis Due to Medical Reason":
 				intersect "No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After Procedure"
 		)
 
+//Done
 define "No VTE Prophylaxis Due to Patient Refusal During ED Visit":
 	from
 		"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
 		"ED Visit" EDVisit,
 		"No VTE Prophylaxis Medication or Device Due to Patient Refusal" PatientRefusal
 		where EDVisit.period ends 1 hour or less on or before start of QualifyingEncounter.period
-			and PatientRefusal.authoredOn during EDVisit.period
+			and Coalesce(PatientRefusal.effective, PatientRefusal.authoredOn, PatientRefusal.recordedOn) during EDVisit.period
 		return QualifyingEncounter
 
+//Done
 define "No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Admission":
 	from
 		"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
 		"No VTE Prophylaxis Medication or Device Due to Patient Refusal" PatientRefusal
-		where PatientRefusal.authoredOn during VTEICU."CalendarDayOfOrDayAfter"(start of QualifyingEncounter.period)
+		where Coalesce(start of PatientRefusal.effective, PatientRefusal.authoredOn, PatientRefusal.recordedOn)
+      during VTEICU."CalendarDayOfOrDayAfter"(start of QualifyingEncounter.period)
 		return QualifyingEncounter
 
+//Done
 define "No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Procedure":
 	from
 		"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
 		["Procedure": "General or Neuraxial Anesthesia"] AnesthesiaProcedure,
 		"No VTE Prophylaxis Medication or Device Due to Patient Refusal" PatientRefusal
 		where AnesthesiaProcedure.performed ends 1 day after day of start of QualifyingEncounter.period
-			and PatientRefusal.authoredOn during VTEICU."CalendarDayOfOrDayAfter"(end of AnesthesiaProcedure.performed)
+			and Coalesce(start of PatientRefusal.effective, PatientRefusal.authoredOn, PatientRefusal.recordedOn)
+        during VTEICU."CalendarDayOfOrDayAfter"(end of AnesthesiaProcedure.performed)
 		return QualifyingEncounter
 
+//Done
 define "No VTE Prophylaxis Medication or Device Due to Patient Refusal":
 	( "No VTE Prophylaxis Medication Administered or Ordered"
 		union "No VTE Prophylaxis Device Applied or Ordered" ) NoVTEProphylaxis
 		where GetExtension(NoVTEProphylaxis.extension, 'http://example.org/StructureDefinition/notDoneReason').value in "Patient Refusal"
 
+//Done
 define "No VTE Prophylaxis Due to Patient Refusal":
 	"No VTE Prophylaxis Due to Patient Refusal During ED Visit"
 		union "No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Admission"
 		union "No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Procedure"
 
+//Done
 define "Numerator":
 	"VTE Prophylaxis Received on Day of or Day After Admission or Procedure"
 		union ( "Medication Oral Factor Xa Inhibitor Administered on Day of or Day After Admission or Procedure"
