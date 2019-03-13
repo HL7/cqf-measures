@@ -80,7 +80,7 @@ Snippet 3 illustrates a Library resource containing a CQL library with a stable,
 {
   "resourceType": "Library",
   "id": "library-exm146-FHIR",
-  "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/Library/library-exm146-FHIR",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/library-exm146-FHIR",
   "identifier": [
     {
       "use": "official",
@@ -572,11 +572,11 @@ The criteria referenced from the measure-observation component refers to a CQL e
 {
   "extension": [
     {
-      "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
       "valueString": "measure-population-identifier"
     },
     {
-      "url": "http://hl7.org/fhir/us/cqframework/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
       "valueCode": "median"
     }
   ],
