@@ -245,6 +245,38 @@ Two commonly used patterns for negation in quality measurement are:
 
 For the purposes of quality measurement, when looking for documentation that a particular event did not occur, it must be documented with a reason in order to meet the intent. If a reason is not part of the intent, then the absence of evidence pattern should be used, rather than documentation of an event not occurring.
 
+To address the reason an action did not occur (negation rationale), the eCQM must define the event it expects to occur using appropriate terminology to identify the kind of event (using a value set or direct reference code), and then use additional criteria to indicate that the event did not occur, as well as identifying a reason.
+
+The following examples differentiate methods to indicate (a) presence of evidence of an action, (b) absence of evidence of an action, and (c) negation rationale for not performing an action. In each case, the "action" is an administration of medication included within a value set for "Antithrombotic Therapy".
+
+#### Presence
+
+Evidence that "Antithrombotic Therapy" (defined by a medication-specific value set) was administered:
+
+    define "Antithrombotic Administered":
+      ["MedicationAdministration": "Antithrombotic Therapy"]
+      
+#### Absence
+
+No evidence that "Antithrombotic Therapy" medication was administered:
+
+    define "No Antithrombotic Therapy":
+      not exists (
+        ["MedicationAdministration": "Antithrombotic Therapy"]
+      )
+      
+#### Negation Rationale
+
+Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as defined by a value set referenced by the eCQM (i.e., negation rationale):
+
+    define "Antithrombotic Not Administered":
+      ["MedicationAdministration": "Antithrombotic Therapy"] NotAdministered
+        where NotAdministered.negationRationale in "Medical Reason"
+      
+In this example for negation rationale, the logic retrieves a code for a member of the value set "Medical Reason" as the rationale for not administering the medication. However, underlying systems might not represent the negated action with a code from the "Antithrombotic Therapy" value set. When justifying the reason for not administering a class of medications, clinicians do not specify one of the medications in the class, they specify the entire class. Thus, the value set is used as a placeholder to indicate the medication class not administered. In this case, implementers need to map the interface terminology for medication class to the value set identifier to indicate whether the negated data element addresses the appropriate expected action. Implementations should consider negated actions reported in this way as satisfying the negation rationale criteria.
+
+Similarly, "Procedure, Not Performed": "Cardiac Surgery" should not require specification of which cardiac surgery in a value set was not performed, but only reference any member of the class of procedures defined by the value set. The same process works for any application of negation rationale.
+
 ### 2.9 Attribute Names
 
 All attributes referenced in the CQL follow Conformance Requirement 13.

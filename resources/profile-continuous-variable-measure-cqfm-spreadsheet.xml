@@ -28,7 +28,7 @@
   <WindowWidth>21570</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -758,7 +758,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -792,7 +791,7 @@
     ss:RefersTo="=measurereport-'\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="63" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="60" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s81" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="122.25"/>
@@ -958,7 +957,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Measure.group.population.code</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">initial-population</Data></Cell>
+    <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">group.population</Data></Cell>
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group.population</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
@@ -973,7 +972,7 @@
     <Cell ss:StyleID="s103"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">initialPopulation</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">group.population.code</Data></Cell>
@@ -992,24 +991,7 @@
     <Cell ss:StyleID="s103"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Measure.group.population.code</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">measure-poopulation</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">group.population</Data></Cell>
-    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group.population</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s100"/>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">measurePopulation</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">group.population.code</Data></Cell>
@@ -1028,24 +1010,7 @@
     <Cell ss:StyleID="s103"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Measure.group.population.code</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">measure-population-exclusion</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">group.population</Data></Cell>
-    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group.population</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s100"/>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">measurePopulationExclusion</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">group.population.code</Data></Cell>
@@ -1064,24 +1029,7 @@
     <Cell ss:StyleID="s103"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Measure.group.population.code</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">measure-observation</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">group.population</Data></Cell>
-    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group.population</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s100"/>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">measureObservation</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">group.population.code</Data></Cell>
@@ -1877,6 +1825,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1898,7 +1847,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
