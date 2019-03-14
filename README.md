@@ -1,16 +1,16 @@
 ﻿# CQF Measures
 
-This implementation guide provides measure content in support of the [Clinical Reasoning FHIR Connectathon track](http://wiki.hl7.org/index.php?title=201809_Clinical_Reasoning) for the Baltimore HL7 Work Group Meeting.
+This implementation guide describes an approach to representing electronic Clinical Quality Measures (eCQMs) using the FHIR Clinical Reasoning Module and Clinical Quality Language (CQL) in the U.S. Realm. However, this Implementation Guide can be usable for multiple use cases across domains, and much of the content is likely to be usable outside the U.S. Realm.
 
 Commits to this repository will automatically trigger a new build of the IG, which will then be published to the following location:
 
-[http://build.fhir.org/ig/cqframework/cqf-measures](http://build.fhir.org/ig/cqframework/cqf-measures)
+[http://build.fhir.org/ig/HL7/cqf-measures](http://build.fhir.org/ig/HL7/cqf-measures)
 
 Build log is available here:
-[http://ig-build.fhir.org.s3-website-us-east-1.amazonaws.com/logs/cqframework/cqf-measures](http://ig-build.fhir.org.s3-website-us-east-1.amazonaws.com/logs/cqframework/cqf-measures)
+[http://ig-build.fhir.org.s3-website-us-east-1.amazonaws.com/logs/HL7/cqf-measures](http://ig-build.fhir.org.s3-website-us-east-1.amazonaws.com/logs/HL7/cqf-measures)
 
 Full debugging information is available here:
-[http://build.fhir.org/ig/cqframework/cqf-measures/debug.tgz](http://build.fhir.org/ig/cqframework/cqf-measures/debug.tgz)
+[http://build.fhir.org/ig/HL7/cqf-measures/debug.tgz](http://build.fhir.org/ig/HL7/cqf-measures/debug.tgz)
 
 ## Local Build
 
