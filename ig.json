@@ -352,26 +352,27 @@
       "base": "StructureMap-providercharacteristic-to-practitioner.html"
     },
     "StructureDefinition/library-cqfm": {
+      "version": "1.0",
       "defns": "StructureDefinition-library-cqfm-definitions.html",
       "base": "StructureDefinition-library-cqfm.html"
     },
-    "StructureDefinition/measure-cqmf": {
+    "StructureDefinition/measure-cqfm": {
       "defns": "StructureDefinition-measure-cqfm-definitions.html",
       "base": "StructureDefinition-measure-cqfm.html"
     },
-    "StructureDefinition/proportion-measure-cqmf": {
+    "StructureDefinition/proportion-measure-cqfm": {
       "defns": "StructureDefinition-proportion-measure-cqfm-definitions.html",
       "base": "StructureDefinition-proportion-measure-cqfm.html"
     },
-    "StructureDefinition/ratio-measure-cqmf": {
+    "StructureDefinition/ratio-measure-cqfm": {
       "defns": "StructureDefinition-ratio-measure-cqfm-definitions.html",
       "base": "StructureDefinition-ratio-measure-cqfm.html"
     },
-    "StructureDefinition/continuous-variable-measure-cqmf": {
+    "StructureDefinition/continuous-variable-measure-cqfm": {
       "defns": "StructureDefinition-continuous-variable-measure-cqfm-definitions.html",
       "base": "StructureDefinition-continuous-variable-measure-cqfm.html"
     },
-    "StructureDefinition/cohort-measure-cqmf": {
+    "StructureDefinition/cohort-measure-cqfm": {
       "defns": "StructureDefinition-cohort-measure-cqfm-definitions.html",
       "base": "StructureDefinition-cohort-measure-cqfm.html"
     },
@@ -392,6 +393,30 @@
     },
     "StructureDefinition/cqfm-populationBasis": {
       "base": "StructureDefinition-cqfm-populationBasis.html"
+    },
+    "CodeSystem/improvement-notation": {
+      "source": "codesystem/codesystem-improvement-notation.json",
+      "base": "CodeSystem-improvement-notation.html"
+    },
+    "CodeSystem/artifact-comment-type": {
+      "source": "codesystem/codesystem-artifact-comment-type.json",
+      "base": "CodeSystem-artifact-comment-type.html"
+    },
+    "CodeSystem/aggregate-method": {
+      "source": "codesystem/codesystem-aggregate-method.json",
+      "base": "CodeSystem-aggregate-method.html"
+    },
+    "ValueSet/improvement-notation": {
+      "source": "valueset/valueset-improvement-notation.json",
+      "base": "ValueSet-improvement-notation.html"
+    },
+    "ValueSet/artifact-comment-type": {
+      "source": "valueset/valueset-artifact-comment-type.json",
+      "base": "ValueSet-artifact-comment-type.html"
+    },
+    "ValueSet/aggregate-method": {
+      "source": "valueset/valueset-aggregate-method.json",
+      "base": "ValueSet-aggregate-method.html"
     }
   }
 }

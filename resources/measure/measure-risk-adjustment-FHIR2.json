@@ -84,7 +84,7 @@
       ]
     }
   ],
-  "improvementNotation": "Lower score indicates better quality",
+  "improvementNotation": "decrease",
   "group": [
     {
       "identifier": {
@@ -98,8 +98,9 @@
           "code": {
             "coding": [
               {
-                "system": "http://hl7.org/fhir/measure-population",
-                "code": "initial-population"
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
               }
             ]
           },
@@ -112,8 +113,9 @@
           "code": {
             "coding": [
               {
-                "system": "http://hl7.org/fhir/measure-population",
-                "code": "numerator"
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
               }
             ]
           },
@@ -126,8 +128,9 @@
           "code": {
             "coding": [
               {
-                "system": "http://hl7.org/fhir/measure-population",
-                "code": "denominator"
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
               }
             ]
           },

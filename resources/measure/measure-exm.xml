@@ -142,7 +142,7 @@
   <rateAggregation value="Rate aggregation for this measure is performed by..."/>
   <rationale value="Rationale for this measure is..."/>
   <clinicalRecommendationStatement value="The clinical recommendation statement for this measure is..."/>
-  <improvementNotation value="Improvement is notated as an increase in the measure score"/>
+  <improvementNotation value="increase"/>
   <definition value="A term used in the measure that bears clearly defining to communicate the measure intent">
     <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-definitionTerm">
       <valueString value="Term"/>
@@ -155,15 +155,16 @@
     </identifier>
     <population>
       <identifier>
-        <value value="initial-population"/>
+        <value value="initial-population 1"/>
       </identifier>
       <code>
         <coding>
-          <system value="http://hl7.org/fhir/measure-population"/>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
           <code value="initial-population"/>
+          <display value="Initial Population"/>
         </coding>
       </code>
-      <criteria value="Initial Population"/>
+      <criteria value="Initial Population 1"/>
     </population>
     <population>
       <identifier>
@@ -171,8 +172,9 @@
       </identifier>
       <code>
         <coding>
-          <system value="http://hl7.org/fhir/measure-population"/>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
           <code value="numerator"/>
+          <display value="Numerator"/>
         </coding>
       </code>
       <criteria value="Numerator 1"/>
@@ -183,11 +185,54 @@
       </identifier>
       <code>
         <coding>
-          <system value="http://hl7.org/fhir/measure-population"/>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
           <code value="denominator"/>
+          <display value="Denominator"/>
         </coding>
       </code>
       <criteria value="Denominator 1"/>
+    </population>
+    <stratifier>
+      <identifier>
+        <value value="stratifier 1"/>
+      </identifier>
+      <criteria value="Stratifier 1"/>
+    </stratifier>
+    <stratifier>
+      <identifier>
+        <value value="stratifier 2"/>
+      </identifier>
+      <criteria value="Stratifier 2"/>
+    </stratifier>
+    <stratifier>
+      <identifier>
+        <value value="stratifier 3"/>
+      </identifier>
+      <criteria value="Stratifier 3"/>
+    </stratifier>
+    <stratifier>
+      <identifier>
+        <value value="stratifier 4"/>
+      </identifier>
+      <criteria value="Stratifier 4"/>
+    </stratifier>
+  </group>
+  <group>
+    <identifier>
+      <value value="group-2"/>
+    </identifier>
+    <population>
+      <identifier>
+        <value value="initial-population 2"/>
+      </identifier>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="initial-population"/>
+          <display value="Initial Population"/>
+        </coding>
+      </code>
+      <criteria value="Initial Population 2"/>
     </population>
     <population>
       <identifier>
@@ -195,8 +240,9 @@
       </identifier>
       <code>
         <coding>
-          <system value="http://hl7.org/fhir/measure-population"/>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
           <code value="numerator"/>
+          <display value="Numerator"/>
         </coding>
       </code>
       <criteria value="Numerator 2"/>
@@ -207,8 +253,9 @@
       </identifier>
       <code>
         <coding>
-          <system value="http://hl7.org/fhir/measure-population"/>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
           <code value="denominator"/>
+          <display value="Denominator"/>
         </coding>
       </code>
       <criteria value="Denominator 2"/>
