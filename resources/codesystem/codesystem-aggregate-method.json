@@ -1,0 +1,58 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "aggregate-method",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/aggregate-method",
+  "version": "1.0.0",
+  "name": "MeasureAggregateMethod",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-03-14T23:21:03-06:00",
+  "publisher": "Clinical Quality Information Workgroup",
+  "description": "Aggregation method for a measure (e.g. sum, average, median, minimum, maximum, count)",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/aggregate-method",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "sum",
+      "display": "Sum",
+      "definition": "Aggregate by adding all observations"
+    },
+    {
+      "code": "average",
+      "display": "Average",
+      "definition": "Aggregate by taking the average of all observations"
+    },
+    {
+      "code": "median",
+      "display": "Median",
+      "definition": "Aggregate by taking the median of all observations"
+    },
+    {
+      "code": "minimum",
+      "display": "Minimum",
+      "definition": "Aggregate by taking the minimum of all observations"
+    },
+    {
+      "code": "maximum",
+      "display": "Maximum",
+      "definition": "Aggregate by taking the maximum of all observations"
+    },
+    {
+      "code": "count",
+      "display": "Count",
+      "definition": "Aggregate by taking the count of all observations"
+    }
+  ]
+}

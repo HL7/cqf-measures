@@ -11,7 +11,7 @@ HQMF concepts of measurement period, Data and Population Criteria, stratifiers, 
 
 Figure 3: Typical HQMF document structure
 
-![Typical HQMF document structure](HQMF-structure.png)
+![Typical HQMF document structure](assets/images/HQMF-structure.png)
 
 An eMeasure document is wrapped by the <QualityMeasureDocument> element, and contains a header and a body (see QualityMeasureDocument). The header identifies and classifies the document and provides important metadata about the measure.
 

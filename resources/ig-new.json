@@ -3,11 +3,11 @@
   "id" : "cqfmeasures",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource",
-    "valueString" : "C:\\Users\\Bryn\\Documents\\Src\\HL7\\Specifications\\CQF-Measures\\resources"
+    "valueString" : "/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources"
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/igpublisher-folder-pages",
-    "valueString" : "C:\\Users\\Bryn\\Documents\\Src\\HL7\\Specifications\\CQF-Measures\\pages"
+    "valueString" : "/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/pages"
   }],
   "url" : "http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/cqfmeasures",
   "version" : "1.0.0",
@@ -845,6 +845,48 @@
         "reference" : "StructureDefinition/cqfm-populationBasis"
       },
       "name" : "StructureDefinition - Measure populationBasis extension",
+      "exampleBoolean" : false,
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "CodeSystem/aggregate-method"
+      },
+      "exampleBoolean" : false,
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "CodeSystem/artifact-comment-type"
+      },
+      "exampleBoolean" : false,
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "CodeSystem/improvement-notation"
+      },
+      "exampleBoolean" : false,
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "ValueSet/aggregate-method"
+      },
+      "exampleBoolean" : false,
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "ValueSet/artifact-comment-type"
+      },
+      "exampleBoolean" : false,
+      "groupingId" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "ValueSet/improvement-notation"
+      },
       "exampleBoolean" : false,
       "groupingId" : "p1"
     }],

@@ -134,7 +134,7 @@
   ],
   "rationale": "Colorectal cancer represents 8 percent of all new cancer cases and is the second leading cause of cancer deaths in the United States. In 2017, there were an estimated 135,430 new cases of colorectal cancer and an estimated 50,260 deaths attributed to it. According to the National Cancer Institute, about 4.3 percent of men and women will be diagnosed with colorectal cancer at some point during their lifetimes. For most adults, older age is the most important risk factor for colorectal cancer, although being male and black are also associated with higher incidence and mortality. Colorectal cancer is most frequently diagnosed among people 65 to 74 years old (Howlader et al. 2017). Screening can be effective for finding precancerous lesions (polyps) that could later become malignant, and for detecting early cancers that can be more easily and effectively treated. Precancerous polyps usually take about 10 to 15 years to develop into colorectal cancer, and most can be found and removed before turning into cancer. The five-year relative survival rate for people whose colorectal cancer is found in the early stage before it has spread is about 90 percent (American Cancer Society 2017).",
   "clinicalRecommendationStatement": "The U. S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force 2016). Screening tests: -Colonoscopy (every 10 years) -Flexible sigmoidoscopy (every 5 years) -Fecal occult blood test (annually) -FIT-DNA (every 3 years) -Computed tomographic colonography (every 5 years)",
-  "improvementNotation": "Higher score indicates better quality",
+  "improvementNotation": "increase",
   "guidance": "Patient self-report for procedures as well as diagnostic studies should be recorded in \"Procedure, Performed\" template or \"Diagnostic Study, Performed\" template in QRDA-1. Do not count DRE, FOBT tests performed in an office setting or performed on a sample collected via DRE.",
   "group": [
     {
@@ -149,8 +149,9 @@
           "code": {
             "coding": [
               {
-                "system": "http://hl7.org/fhir/measure-population",
-                "code": "initial-population"
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
               }
             ]
           },
@@ -163,8 +164,9 @@
           "code": {
             "coding": [
               {
-                "system": "http://hl7.org/fhir/measure-population",
-                "code": "numerator"
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
               }
             ]
           },
@@ -177,8 +179,9 @@
           "code": {
             "coding": [
               {
-                "system": "http://hl7.org/fhir/measure-population",
-                "code": "denominator"
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
               }
             ]
           },
@@ -191,8 +194,9 @@
           "code": {
             "coding": [
               {
-                "system": "http://hl7.org/fhir/measure-population",
-                "code": "denominator-exclusion"
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
               }
             ]
           },

@@ -116,7 +116,7 @@ Quality Reporting Document Architecture (QRDA)[^6] is an HL7 Standard that suppo
 
 [^10]: Value Set Authority Center. U.S. National Library of Medicine. <https://vsac.nlm.nih.gov/>
 
-[^11]: QI-Core Implementation Guide, STU 3.2. HL7, February 2019. <http://hl7.org/fhir/us/qicore/> 
+[^11]: QI-Core Implementation Guide, STU 3.2. HL7, February 2019. <http://build.fhir.org/ig/cqframework/qi-core/> 
 
 [^12]: eCQM definition – The Joint Commission: <https://www.jointcommission.org/about/jointcommissionfaqs.aspx?CategoryId=56#2404>
 
