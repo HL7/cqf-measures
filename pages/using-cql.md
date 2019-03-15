@@ -254,15 +254,19 @@ The following examples differentiate methods to indicate (a) presence of evidenc
 Evidence that "Antithrombotic Therapy" (defined by a medication-specific value set) was administered:
 
     define "Antithrombotic Administered":
-      ["MedicationAdministration": "Antithrombotic Therapy"]
-      
+      ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
+        where AntithromboticTherapy.status = 'completed'
+          and AntithromboticTherapy.category = "Inpatient Setting"
+
 #### Absence
 
 No evidence that "Antithrombotic Therapy" medication was administered:
 
     define "No Antithrombotic Therapy":
       not exists (
-        ["MedicationAdministration": "Antithrombotic Therapy"]
+        ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
+          where AntithromboticTherapy.status = 'completed'
+            and AntithromboticTherapy.category = "Inpatient Setting"
       )
       
 #### Negation Rationale
@@ -271,7 +275,8 @@ Evidence that "Antithrombotic Therapy" medication administration did not occur f
 
     define "Antithrombotic Not Administered":
       ["MedicationAdministration": "Antithrombotic Therapy"] NotAdministered
-        where NotAdministered.negationRationale in "Medical Reason"
+        where NotAdministered.notGiven is true
+          and NotAdministered.reasonNotGiven in "Medical Reason"
       
 In this example for negation rationale, the logic retrieves a code for a member of the value set "Medical Reason" as the rationale for not administering the medication. However, underlying systems might not represent the negated action with a code from the "Antithrombotic Therapy" value set. When justifying the reason for not administering a class of medications, clinicians do not specify one of the medications in the class, they specify the entire class. Thus, the value set is used as a placeholder to indicate the medication class not administered. In this case, implementers need to map the interface terminology for medication class to the value set identifier to indicate whether the negated data element addresses the appropriate expected action. Implementations should consider negated actions reported in this way as satisfying the negation rationale criteria.
 
