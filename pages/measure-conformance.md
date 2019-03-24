@@ -37,8 +37,7 @@ Snippet 1: FHIR Measure structure - abridged for clarity (from sample [Measure-m
 
 ### 2.1 Metadata
 
-// TODO: Review and update?
-The header of an eCQM document identifies and classifies the document and provides important metadata about the measure. The Blueprint includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base HQMF standard by including the Blueprint header requirements. Details are as shown in Volume 3 of this IG package.
+The header of an eCQM document identifies and classifies the document and provides important metadata about the measure. The Blueprint includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base Measure resource by including the Blueprint header requirements.
 
 The rest of this section describes some of the more important components to the header, such as “Related Documents” (Section 2.2), “Measurement Period” (Section 2.3), and “Data Criteria” (Section 4).
 
@@ -57,8 +56,6 @@ Snippet 2: Library declaration line from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR
 When using multiple CQL libraries to define a measure, refer to the “Nested Libraries” section of the Using CQL topic of this guide.
 
 Inclusion of CQL into a FHIR eCQM is accomplished through the use of a Library resource as shown in Snippet 3. These libraries are then incorporated into the FHIR eCQM using the `library` element of the Measure (line: 7 of Snippet 1). CQL library content is included as the `content` element of the Library resource.
-
-// TODO: Restrict to base64 encoded content or allow by reference?
 
 Snippet 3 illustrates a Library resource containing a CQL library with a stable, globally unique, version-independent identifier for the library, the `url`. If the library has a version specified, the versionNumber element is used as well.
 
