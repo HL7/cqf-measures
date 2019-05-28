@@ -405,7 +405,7 @@ define "Encounter With Principal Procedure of SCIP VTE Selected Surgery":
 			such that SelectedProcedure.performed during FHIRHelpers.ToInterval( QualifyingEncounter.period)
 
 //Done
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	"Encounter Less Than 2 Days"
 		union "Encounter With ICU Location Stay 1 Day or More"
 		union "Encounter With Principal Diagnosis of Mental Disorder or Stroke"
