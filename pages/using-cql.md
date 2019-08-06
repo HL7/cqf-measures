@@ -2,7 +2,7 @@
 layout: default
 title: Using CQL
 ---
-## 2 CQL Basics
+## 3 CQL Basics
 
 ### 2.1 Libraries
 

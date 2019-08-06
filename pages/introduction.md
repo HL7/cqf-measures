@@ -6,13 +6,13 @@ title: Introduction
 
 ### 1.1 Purpose
 
-The National Academy of Medicine (NAM) defines quality as: “The degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge.” [^1] For care quality to be evaluated, it must be standardized and communicated to the appropriate organizations. To that end, this Implementation Guide has been written to provide guidance for authoring electronic clinical quality measures (eCQMs), clinical quality measures specified in a standard electronic format and designed to use structured, encoded data present in the electronic health record.[^12] This implementation guide references the following standards for creating eCQMs:
+[The National Academy of Medicine (NAM)](http://www.nationalacademies.org/hmd/Reports/2001/Crossing-the-Quality-Chasm-A-New-Health-System-for-the-21st-Century.aspx) defines quality as: “The degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge.” For care quality to be evaluated, it must be standardized and communicated to the appropriate organizations. To that end, this Implementation Guide has been written to provide guidance for authoring electronic clinical quality measures ([eCQMs](https://www.jointcommission.org/about/jointcommissionfaqs.aspx?CategoryId=56#2404)), clinical quality measures specified in a standard electronic format and designed to use structured, encoded data present in the electronic health record. This implementation guide references the following standards for creating eCQMs:
 
-* Fast Healthcare Interoperability Resources (FHIR) STU3 [^2]
-* Clinical Quality Language (CQL) R1.4 [^3]
-* QI-Core Implementation Guide (QI-Core) R3.2 [^11]
+* [Fast Healthcare Interoperability Resources (FHIR) STU3](https://ecqi.healthit.gov/qdm)
+* [Clinical Quality Language (CQL) R1.4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400)
+* [QI-Core Implementation Guide (QI-Core) R3.2](http://build.fhir.org/ig/cqframework/qi-core/)
 
-To avoid variation in the use of FHIR Resources and metadata consistently across eCQMs and clinical decision support (CDS), a quality-related implementation guide based on a logical data model is essential. In the US Realm, eCQM developers should use FHIR Quality Improvement Core (QICore) and Quality Improvement Clinical Knowledge (QUICK) as the data model to maintain consistency.
+To avoid variation in the use of FHIR Resources and metadata consistently across eCQMs and clinical decision support (CDS), a quality-related implementation guide based on a logical data model is essential. In the US Realm, eCQM developers SHALL use [FHIR Quality Improvement Core (QICore)](http://build.fhir.org/ig/cqframework/qi-core) profiles as the data model to maintain consistency.
 
 Although the specification is based on the 1.4 version of CQL, backwards-compatible future versions of CQL can be used as well. In addition, if necessary, the 1.2 and 1.3 versions of CQL can be used without loss of functionality for this Implementation Guide.
 
@@ -27,9 +27,8 @@ As features and functionality are identified by this implementation guide that a
 This implementation guide is structured as follows:
 
 1. Introduction - This section, providing narrative introduction and background material
-2. Measure Conformance - Provides detailed guidance and conformance requirements for measures
-3. Composite Measures - Discusses composite measure calculation and representation approaches
-4. Using CQL - Provides guidance and conformance requirements for the use of CQL within measures
+2. eCQMs - Provides detailed guidance and conformance requirements for measures
+3. Using CQL - Provides guidance and conformance requirements for the use of CQL within measures
 
 In addition, there are appendices for examples, references, acknowledgements, and a glossary.
 
@@ -45,11 +44,11 @@ This IG is STU1 of the FHIR Quality Measure IG. Section 1.8 describes the develo
 
 ### 1.5 Scope
 
-This IG is a conformance profile, as described in the “Conformance” [^9] section of the HL7 FHIR specification. The base resource for this IG is the HL7 FHIR Measure and Library resources and associated guidance within the Clinical Reasoning module. This IG does not describe every aspect of quality reporting in FHIR. Rather, it defines profiles and constraints on the base Measure and Library resources used in a FHIR Quality Measure. Additional optional Measure and Library elements, not included here, can be included and the result will be compliant with the specifications in this guide. The FHIR Clinical Reasoning module provides resources and universally applicable guidance for reporting quality measurement results, and the Data Exchange for Quality Measures Implementation Guide [^13] provides additional guidance and use cases related to quality reporting.
+This IG is a conformance profile, as described in the [“Conformance” section of the HL7 FHIR specification](http://hl7.org/fhir/STU3/conformance-module.html). The base resource for this IG is the HL7 FHIR Measure and Library resources and associated guidance within the Clinical Reasoning module. This IG does not describe every aspect of quality reporting in FHIR. Rather, it defines profiles and constraints on the base Measure and Library resources used in a FHIR Quality Measure. Additional optional Measure and Library elements, not included here, can be included and the result will be compliant with the specifications in this guide. The FHIR Clinical Reasoning module provides resources and universally applicable guidance for reporting quality measurement results, and the [Data Exchange for Quality Measures Implementation Guide](http://build.fhir.org/ig/HL7/davinci-deqm/) provides additional guidance and use cases related to quality reporting.
 
 ### 1.6 Conventions
 
-The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this document are to be interpreted as defined in RFC 2119. Unlike RFC 2119, however, this specification allows that different applications may not be able to interoperate because of how they use optional features. In particular
+The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this document are to be interpreted as defined in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt). Unlike RFC 2119, however, this specification allows that different applications may not be able to interoperate because of how they use optional features. In particular
 
 * SHALL: an absolute requirement for all implementations
 * SHALL NOT: an absolute prohibition against inclusion for all implementations
@@ -58,7 +57,7 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this doc
 
 ### 1.7 Background
 
-This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the FHIR Clinical Reasoning Module [^4], as well as the CQL-Based HQMF IG.
+This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97), as well as the CQL-Based HQMF IG.
 
 This Implementation Guide is the successor of the CQL-based HQMF IG STU4 (Figure 2a).
 
@@ -70,7 +69,7 @@ Note that the QI Core implementation guide includes an author-focused view of QI
 
 #### 1.7.1 Clinical Quality Language R1.4
 
-Clinical Quality Language R1.4 (CQL) is an HL7 standard for trial use (STU) [^3]. It is part of the effort to harmonize standards between electronic clinical quality measures (eCQMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
+[Clinical Quality Language R1.4 (CQL)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) is an HL7 standard for trial use (STU). It is part of the effort to harmonize standards between electronic clinical quality measures (eCQMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
 
 #### 1.7.2 CQL based HQMF IG R1 STU3
 
@@ -82,7 +81,9 @@ This implementation guide, the FHIR Quality Measure IG, covers the use of FHIR, 
 
 #### 1.7.3 HQMF
 
-HQMF is a structured document markup standard* “…for representing a health quality measure as an electronic document. A quality measure is a quantitative tool to assess the performance of an individual or organization’s performance in relation to a specified process or outcome via the measurement of an action, process, or outcome of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.” [^4] [^a]
+HQMF is a structured document markup standard* “…for representing a health quality measure as an electronic document. A quality measure is a quantitative tool to assess the performance of an individual or organization’s performance in relation to a specified process or outcome via the measurement of an action, process, or outcome of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.” See [HL7, Representation of the Health Quality Measures Format (HQMF)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97) for more information.
+
+Note that HQMF is not an HL7 V3 Clinical Document Architecture (CDA) standard, but is similar to CDA in being a structured document markup standard.
 
 HQMF is now a normative HL7 V3 based standard that defines a header for classification and management of the quality measure as well as important metadata. HQMF also defines a document body that carries the content of the quality measure. It standardizes a measure’s structure, metadata, definitions, and logic, the HQMF ensures measure consistency and unambiguous interpretation.
 
@@ -90,36 +91,15 @@ The FHIR Clinical Reasoning module replaces HQMF by defining the Measure resourc
 
 #### 1.7.4 Quality Reporting Document Architecture (QRDA)
 
-Quality Reporting Document Architecture (QRDA)[^6] is an HL7 Standard that supports quality reporting at the patient level (referred to as a Category I QRDA document), and the summary level (referred to as a Category III QRDA) document. The aspects of QRDA related to reporting results are captured in the MeasureReport resource, while the aspects of QRDA representing patient information are captured by QI Core. The FHIR Clinical Reasoning module replaces QRDA by defining the MeasureReport structure, and the Data Exchange for Quality Measures implementation guide[^13] provides implementation guidance for measure reporting.
-
-[^a]: HQMF is not an HL7 V3 Clinical Document Architecture (CDA) standard, but is similar to CDA in being a structured document markup standard.
+[Quality Reporting Document Architecture (QRDA)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35) is an HL7 Standard that supports quality reporting at the patient level (referred to as a Category I QRDA document), and the summary level (referred to as a Category III QRDA) document. The aspects of QRDA related to reporting results are captured in the MeasureReport resource, while the aspects of QRDA representing patient information are captured by QI Core. The FHIR Clinical Reasoning module replaces QRDA by defining the MeasureReport structure, and the [Data Exchange for Quality Measures implementation guide](http://build.fhir.org/ig/HL7/davinci-deqm/) provides implementation guidance for measure reporting.
 
 ## References
 
-[^1]: Crossing   the   Quality   Chasm:   A   New   Health   System   for   the   21st   Century.   Institute    of Medicine, March 2001. <http://www.nationalacademies.org/hmd/Reports/2001/Crossing-the-Quality-Chasm-A-New-Health-System-for-the-21st-Century.aspx>
+1: HL7 Version 3 Implementation Guide: Quality Data Model (QDM)-based Health Quality Measure Format (HQMF), R1.4 – US Realm, Volume 2 (Draft Standard for Trial Use). HL7, October 2016. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346>
 
-[^2]: Quality Data Model, Version 5.4. Centers of Medicare & Medicaid Services; Office of the National Coordinator for Health Information Technology, 2017. <https://ecqi.healthit.gov/qdm>
+2: Measure Authoring Tool. CMS. <https://www.emeasuretool.cms.gov/>
 
-[^3]: Clinical Quality Language (CQL), STU R1.4. HL7, July 2018. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400>
+3: Measures Management System Blueprint v14.0. CMS, September 2018. <https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html>
 
-[^4]: HL7, Representation of the Health Quality Measures Format (HQMF) Release 1. HL7, June 2017. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97>
+4: Value Set Authority Center. U.S. National Library of Medicine. <https://vsac.nlm.nih.gov/>
 
-[^5]: HL7 Version 3 Implementation Guide: Quality Data Model (QDM)-based Health Quality Measure Format (HQMF), R1.4 – US Realm, Volume 2 (Draft Standard for Trial Use). HL7, October 2016. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346>
-
-[^6]: HL7 Implementation Guide for CDA Release 2: Quality Reporting Document Architecture – Category I STU Release 5 (US Realm). HL7, ballot cycle September 2017. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35>
-
-[^7]: Measure Authoring Tool. CMS. <https://www.emeasuretool.cms.gov/>
-
-[^8]: Measures Management System Blueprint v14.0. CMS, September 2018. <https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html>
-
-[^9]: Conformance, Fast Healthcare Interoperability Resources, Conformance module, STU3, April 2017. <http://hl7.org/fhir/STU3/conformance-module.html>
-
-[^10]: Value Set Authority Center. U.S. National Library of Medicine. <https://vsac.nlm.nih.gov/>
-
-[^11]: QI-Core Implementation Guide, STU 3.2. HL7, February 2019. <http://build.fhir.org/ig/cqframework/qi-core/> 
-
-[^12]: eCQM definition – The Joint Commission: <https://www.jointcommission.org/about/jointcommissionfaqs.aspx?CategoryId=56#2404>
-
-[^13]: Data Exchange for Quality Measures Implementation Guide, STU 2. HL7, February 2019. <http://build.fhir.org/ig/HL7/davinci-deqm/>
-
-[^14]: FHIR Clinical Reasoning Module, STU3. HL7, April 2017. <http://hl7.org/fhir/STU3/clinicalreasoning-module.html>
