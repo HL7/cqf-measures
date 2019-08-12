@@ -287,9 +287,9 @@ Similarly, "Procedure, Not Performed": "Cardiac Surgery" should not require spec
 All attributes referenced in the CQL follow Conformance Requirement 13.
 
     Conformance Requirement 13 (Attribute Names):
-    QDM attributes referenced in the CQL:
+    Data model attributes referenced in the CQL:
       SHALL NOT Use quoted identifiers
-      SHALL Use camelCase§
+      SHALL Use camelCase
 
 Examples of attributes conforming to Conformance Requirement 13 is given below. For a full list of valid of attributes, refer to an appropriate data model specification such as QI-Core.
 
