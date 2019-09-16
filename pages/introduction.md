@@ -6,7 +6,7 @@ title: Introduction
 
 ### 1.1 Purpose
 
-[The National Academy of Medicine (NAM)](http://www.nationalacademies.org/hmd/Reports/2001/Crossing-the-Quality-Chasm-A-New-Health-System-for-the-21st-Century.aspx) defines quality as: “The degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge.” For care quality to be evaluated, it must be standardized and communicated to the appropriate organizations. To that end, this Implementation Guide has been written to provide guidance for authoring electronic clinical quality measures ([eCQMs](https://www.jointcommission.org/about/jointcommissionfaqs.aspx?CategoryId=56#2404)), clinical quality measures specified in a standard electronic format and designed to use structured, encoded data present in the electronic health record. This implementation guide references the following standards for creating eCQMs:
+[The National Academy of Medicine (NAM)](http://www.nationalacademies.org/hmd/Reports/2001/Crossing-the-Quality-Chasm-A-New-Health-System-for-the-21st-Century.aspx) defines quality as: “The degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge.” For care quality to be evaluated, it must be standardized and communicated to the appropriate organizations. To that end, the FHIR Quality Measure Implementation Guide (this IG) has been written to provide guidance for authoring electronic clinical quality measures ([eCQMs](https://www.jointcommission.org/about/jointcommissionfaqs.aspx?CategoryId=56#2404)), clinical quality measures specified in a standard electronic format and designed to use structured, encoded data present in the electronic health record. This implementation guide references the following standards for creating eCQMs:
 
 * [Fast Healthcare Interoperability Resources (FHIR) STU3](https://ecqi.healthit.gov/qdm)
 * [Clinical Quality Language (CQL) R1.4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400)
@@ -16,7 +16,7 @@ To avoid variation in the use of FHIR Resources and metadata consistently across
 
 Although the specification is based on the 1.4 version of CQL, backwards-compatible future versions of CQL can be used as well. In addition, if necessary, the 1.2 and 1.3 versions of CQL can be used without loss of functionality for this Implementation Guide.
 
-Note that this implementation guide is based on FHIR STU3, as that is the first version with the Clinical Reasoning module, which provides the necessary support for representing and reporting quality measures. Future versions of this implementation guide will address the use of R4 and later versions of FHIR.
+Note that the FHIR Quality Measure Implementation Guide (this IG) is based on FHIR STU3, as that is the first version with the Clinical Reasoning module, which provides the necessary support for representing and reporting quality measures. Future versions of this implementation guide will address the use of R4 and later versions of FHIR.
 
 Except where noted, material from the base FHIR specification, and in particular the Clinical Reasoning module, is not repeated here.
 
@@ -24,7 +24,7 @@ As features and functionality are identified by this implementation guide that a
 
 ### 1.2 Structure of this Guide
 
-This implementation guide is structured as follows:
+The FHIR Quality Measure Implementation Guide (this IG) is structured as follows:
 
 1. Introduction - This section, providing narrative introduction and background material
 2. eCQMs - Provides detailed guidance and conformance requirements for measures
@@ -40,7 +40,7 @@ The audience for this IG includes software developers of measure authoring tools
 
 The approach taken here is consistent with balloted IGs for FHIR. These publications view the ultimate implementation specification as a set of formal artifacts, including profiles, extensions, and terminologies. The base FHIR specification provides for the representation of quality measures using the Measure resource, as well as guidance on quality reporting within the Clinical Reasoning module. IGs such as this add constraints to the base resources and guidance through profiles and conformance requirements that further define and restrict the sequence and cardinality of elements in the FHIR resources and the vocabulary sets for coded elements.
 
-This IG is STU1 of the FHIR Quality Measure IG. Section 1.8 describes the development of this STU.
+This IG is STU1 of the FHIR Quality Measure IG. 
 
 ### 1.5 Scope
 
@@ -57,7 +57,7 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this doc
 
 ### 1.7 Background
 
-This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97), as well as the CQL-Based HQMF IG.
+This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97), as well as the CQL-Based HQMF IG 8.
 
 This Implementation Guide is the successor of the CQL-based HQMF IG STU4 (Figure 2a).
 
@@ -81,7 +81,7 @@ This implementation guide, the FHIR Quality Measure IG, covers the use of FHIR, 
 
 #### 1.7.3 HQMF
 
-HQMF is a structured document markup standard* “…for representing a health quality measure as an electronic document. A quality measure is a quantitative tool to assess the performance of an individual or organization’s performance in relation to a specified process or outcome via the measurement of an action, process, or outcome of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.” See [HL7, Representation of the Health Quality Measures Format (HQMF)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97) for more information.
+HQMF is a structured document markup standard “…for representing a health quality measure as an electronic document. A quality measure is a quantitative tool to assess the performance of an individual or organization’s performance in relation to a specified process or outcome via the measurement of an action, process, or outcome of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.” See [HL7, Representation of the Health Quality Measures Format (HQMF)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97) for more information.
 
 Note that HQMF is not an HL7 V3 Clinical Document Architecture (CDA) standard, but is similar to CDA in being a structured document markup standard.
 
