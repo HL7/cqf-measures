@@ -3,10 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="us-cqfmeasures-0.1.0"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="/Users/zoe/zoedalley/cqf-measures/resources"/>
+    <valueString value="/Users/Adam/Src/HL7/cqf-measures/resources"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-pages">
-    <valueString value="/Users/zoe/zoedalley/cqf-measures/pages"/>
+    <valueString value="/Users/Adam/Src/HL7/cqf-measures/pages"/>
   </extension>
   <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/us-cqfmeasures-0.1.0"/>
   <version value="0.1.0"/>
@@ -372,16 +372,12 @@
       <value value="jurisdiction"/>
     </parameter>
     <parameter>
-      <code value="generate-json"/>
-      <value value="true"/>
+      <code value="generate"/>
+      <value value="xml"/>
     </parameter>
     <parameter>
-      <code value="generate-xml"/>
-      <value value="true"/>
-    </parameter>
-    <parameter>
-      <code value="generate-turtle"/>
-      <value value="true"/>
+      <code value="generate"/>
+      <value value="JSON"/>
     </parameter>
   </definition>
 </ImplementationGuide>
