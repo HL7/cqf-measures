@@ -166,7 +166,7 @@ valueset "Face-to-Face Interaction":
 
 #### 3.4.3 Representation in a Library
 
-The representation of valueset declarations in a Library is discussed in the Measure Conformance Chapter of this IG.
+The representation of valueset declarations in a Library is discussed in the [Measure Conformance Chapter](measure-conformance.html#20-ecqm) of this IG.
 
 ### 3.5 Codes
 
@@ -194,7 +194,7 @@ When direct reference codes are used within eCQMs, they will be represented in t
 using "Assessment of breastfeeding SNOMED-CT Code (709261005)"
 ```
 
-The representation of code declarations in a Library is discussed in Measure Conformance Chapter of this IG.
+The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html#20-ecqm) of this IG.
 
 ### 3.6 Concepts
 
@@ -232,6 +232,18 @@ A "data type" in CQL refers to any named type used within CQL expressions. They 
 1. Data type names referenced in CQL SHALL:<br/>
        a. Use quoted identifiers<br/>
        b. Use PascalCase plus appropriate spacing
+
+For example, using quoated identifiers:
+
+```cql
+"Encounter"
+```
+
+For example, using PascalCase plus appropiate spacing:
+
+```cql
+" "
+```
 
 ### 3.8.1 Negation in FHIR
 

@@ -4,7 +4,7 @@ title: Measure Conformance
 ---
 ## 2 eCQM Basics
 
-In FHIR, an eCQM is represented as a Measure resource containing metadata (Section 2.1) and terminology (Section 2.2), a population criteria section (Section 2.4), and at least one Library resource containing a data criteria section (Section 2.3) as well as the logic used to define the population criteria. The population criteria section typically contains initial population criteria, denominator criteria, and numerator criteria sub-components, among others. Snippet 1 shows the structure of a FHIR Measure.
+In FHIR, an eCQM is represented as a Measure resource containing metadata ([Section 2.1](measure-conformance.html#21-metadata)) and terminology ([Section 2.2](measure-conformance.html#22-terminology)), a population criteria section ([Section 2.4](measure-conformance.html#24-population-criteria)), and at least one Library resource containing a data criteria section ([Section 2.3](measure-conformance.html#23-data-criteria)) as well as the logic used to define the population criteria. The population criteria section typically contains initial population criteria, denominator criteria, and numerator criteria sub-components, among others. Snippet 1 shows the structure of a FHIR Measure.
 
 ```xml
 <Measure>
@@ -37,9 +37,9 @@ Snippet 1: FHIR Measure structure - abridged for clarity (from sample [Measure-m
 
 ### 2.1 Metadata
 
-The header of an eCQM document identifies and classifies the document and provides important metadata about the measure. The Blueprint includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base Measure resource by including the Blueprint header requirements.
+The header of an eCQM document identifies and classifies the document and provides important metadata about the measure. [The Blueprint](https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html) includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base Measure resource by including the Blueprint header requirements.
 
-The rest of this section describes some of the more important components to the header, such as “Related Documents” (Section 2.1.1), “Measurement Period” (Section 2.1.2), and “Data Criteria” (Section 2.3).
+The rest of this section describes some of the more important components to the header, such as “Related Documents” ([Section 2.1.1](measure-conformance.html#211-realted-documents)), “Measurement Period” ([Section 2.1.2](measure-conformance.html#212-measurement-period)), and “Data Criteria” ([Section 2.3](measure-conformance.html#23-data-criteria)).
 
 #### 2.1.1 Related Documents
 
@@ -193,7 +193,7 @@ value of `application/elm+json`
 6. Any translation-referenced ELM documents SHALL be semantically 
 equivalent to the corresponding parent CQL expression document.
 
-The content elements in Snippet 3 provide an example of how a CQFMLibrary resource would reference both the CQL and the ELM. More on ELM can be found in Section 3.1.1. For examples of ELM using the XML and JSON representations please see the included examples, EXM146v4_FHIR-4.0.0.xml and EXM146v4_FHIR-4.0.0.json.
+The content elements in Snippet 3 provide an example of how a CQFMLibrary resource would reference both the CQL and the ELM. More on ELM can be found in Section 3.1.1. For examples of ELM using the XML and JSON representations please see the included examples, [EXM146v4_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html) and [EXM146v4_FHIR-4.0.0.json](Measure-measure-exm146-FHIR.json.html).
 
 #### 2.1.2 Measurement Period
 
@@ -208,13 +208,14 @@ The value of the "Measurement Period" control variable is accessible to CQL libr
 </effectivePeriod>
 ```
 
-Snippet 4: Measure representation of the "Measurement Period" control variable from (measure-exm.xml)
+Snippet 4: Measure representation of the "Measurement Period" control variable from [(measure-exm.xml)](Measure-measure-exm.xml.html)
 
 ```cql
 parameter "Measurement Period" Interval<DateTime>
 ```
 
-Snippet 5: CQL declaration of the measurement period parameter (from EXM146_FHIR-4.0.0.cql)
+Snippet 5: CQL declaration of the measurement period parameter (from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql))
+
 
 **Conformance Requirement 3 (Measurement Period):**
 1. The value of the "Measurement Period" control variable SHALL be made available to CQL libraries as the value of the effectivePeriod element.
@@ -224,7 +225,7 @@ Snippet 5: CQL declaration of the measurement period parameter (from EXM146_FHIR
 
 This section describes how to use codes and valuesets from codesystems like LOINC, SNOMED-CT, and others within the CQL and FHIR-based eCQM files of a measure package.
 
-Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes, a codesystem declaration must precede the code declaration (per CQL v1.2 specification). Examples of valueset and code declarations can be seen in the accompanying [cql/Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
+Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [cql/Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
 ```cql
 codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108' 
@@ -269,7 +270,7 @@ All declared valuesets and codes can be found in the `dataRequirement` elements 
 ],
 ```
 
-Snippet 7: Example Library terminology definitions (from library-terminology-FHIR.json) Measures using valueset and/or direct referenced codes must conform to Conformance Requirement 4.
+Snippet 7: Example Library terminology definitions (from [library-terminology-FHIR.json](Library-library-terminology-FHIR.json.html)) Measures using valueset and/or direct referenced codes must conform to Conformance Requirement 4.
 
 **Conformance Requirement 4 (Terminology Inclusion):**
 1. All valuesets and codes referenced in the CQL SHALL be included in the Library using dataRequirement elements.
@@ -300,7 +301,7 @@ dataRequirement: [
 ]
 ```
 
-Snippet 8: Example data criteria (from library-terminology-FHIR.json)
+Snippet 8: Example data criteria (from [library-terminology-FHIR.json](Library-library-terminology-FHIR.json.html))
 
 **Conformance Requirement 5 (Data Criteria Inclusion):**
 1. dataRequirement entries SHALL be included in the Library for each retrieve appearing in the CQL library
@@ -337,7 +338,7 @@ To illustrate the mapping, Snippet 9 shows an ELM data reference and Snippet 10 
 </operand>
 ```
 
-Snippet 9: ELM data reference for Condition: Acute Pharyngitis (from EXM146_FHIR-4.0.0.xml)
+Snippet 9: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html))
 
 ```xml
 {
@@ -351,17 +352,17 @@ Snippet 9: ELM data reference for Condition: Acute Pharyngitis (from EXM146_FHIR
 }
 ```
 
-Snippet 10: Library dataRequirement for Diagnosis: Acute Pharyngitis (from library-exm146-FHIR.json)
+Snippet 10: Library dataRequirement for Condition: Acute Pharyngitis (from [library-exm146-FHIR.json](Library-library-exm146-FHIR.xml.html))
 
 ### 2.4 Population Criteria
 
 The Population Criteria (lines 10 - 23 of Snippet 1) includes definitions of criteria used to specify populations. The criteria specifying these populations are described using CQL and those CQL expressions are given context in the Measure. In this section, we describe how to use CQL and the Measure resource to define population criteria.
 
-CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are then referenced from the population.criteria elements of the Measure resource. Once included in the Measure, expressions defined in the CQL can be used to further refine the data criteria and to define population criteria.  Figure 3 illustrates the general concept.  Figure 3 illustrates the relationship between the Measure and CQL documents: The Measure resource references a CQL expression script (#1), the population criteria sections reference a particular expression from the referenced CQL file (#2), the referenced expression in-turn may include or call another expression (#3) in the same (or a different) CQL expression script. Snippet 11 and Snippet 12 demonstrate the use of Measure and CQL in the definition of the "Initial Population". Note that the root identifier of the criteria reference (line 424) matches the internal identifier assigned to the CQL expression document (line 22 of Snippet 3). Also, note the use of the EXM146v4 namespace and escaped quotation marks (“&quot;”) in line 425.
+CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are then referenced from the population.criteria elements of the Measure resource. Once included in the Measure, expressions defined in the CQL can be used to further refine the data criteria and to define population criteria.  Figure 5 illustrates the general concept.  Figure 5 illustrates the relationship between the Measure and CQL documents: The Measure resource references a CQL expression script (#1), the population criteria sections reference a particular expression from the referenced CQL file (#2), the referenced expression in-turn may include or call another expression (#3) in the same (or a different) CQL expression script. Snippet 11 and Snippet 12 demonstrate the use of Measure and CQL in the definition of the "Initial Population". Note that the root identifier of the criteria reference (line 424) matches the internal identifier assigned to the CQL expression document (line 22 of Snippet 3). Also, note the use of the EXM146v4 namespace and escaped quotation marks (“&quot;”) in line 425.
 
 ![Measure with linked expression document](assets/images/HQMFWithLinkedExpression.jpg)
 
-Figure 3: Measure with linked expression document
+Figure 5: Measure with linked expression document
 
 ```json
 "population": [
@@ -381,7 +382,7 @@ Figure 3: Measure with linked expression document
 ]
  ```
 
-Snippet 11: Defining a population via reference to a CQL expression (from measure-exm146-FHIR.json)
+Snippet 11: Defining a population via reference to a CQL expression (from [measure-exm146-FHIR.json](Measure-measure-exm146-FHIR.json.html))
 
 ```cql
 library EXM146_FHIR version '4.0.0'
@@ -391,7 +392,7 @@ using FHIR version '3.0.0'
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 include Common_FHIR version '2.0.0' called Common
 
-define "In Demographic":
+define "Age at start of Measurement Period":
    AgeInYearsAt(start of "Measurement Period") >= 2
       and AgeInYearsAt(start of "Measurement Period") < 18
 
@@ -412,7 +413,7 @@ define "Initial Population":
    "Pharyngitis Encounters With Antibiotics"
 ```
 
-Snippet 12: CQL definition of the "Initial Population" criteria (from EXM146_FHIR-4.0.0.cql)
+Snippet 12: CQL definition of the "Initial Population" criteria (from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql))
 
 Snippet 12 shows several examples of a CQL expression calling another, e.g. the "Initial Population" expression references another CQL expression: "Pharyngitis Encounters With Antibiotics". In this example the referenced expressions are all contained within the same CQL file (EXM146_FHIR-4.0.0.cql) and some are included above. The "In Demographic" expression uses the built-in CQL function Age- InYearsAt(). The definition of "Pharyngitis Encounters With Antibiotics" uses the function "Includes Or Starts During", defined in another CQL library (Common as described in Common_FHIR-2.0.0.cql), further explanation of nested libraries is given in the “Nested Libraries” section of the Using CQL topic of this IG.
 
@@ -438,6 +439,10 @@ The name of an expression specifying a population criteria within a measure SHOU
 * "Measure Observation"
 * "Stratification"
 
+†† When using multiple populations and/or multiple population groups, see Section 2.4.7
+
+Note that the measure observation criteria is the name of a function used in the Continuous Variable Measure. See the [Continuous Variable Measure](measure-conformance.html#245-continuous-variable-measure) section for more.
+
 For each type of measure, the set of applicable criteria are defined by the base Measure specification. In addition, the formula for calculating the measure score is implied by the type of the measure. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
 
 In addition to the measure type, measures generally fall into two categories, patient-based, and non-patient- based, such as episode-of-care-based.  In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures return true or false, while non-patient-based measures return the item to be counted such as an encounter or procedure.
@@ -446,10 +451,8 @@ In addition to the measure type, measures generally fall into two categories, pa
 
 The base Measure resource defines a set of measure population components that are used to construct measures. Measure populations have implicit relationships to each other as defined in the base specification. For example, for proportion measures, denominator criteria have an implicit dependency on initial population criteria, i.e. the criteria for inclusion in the denominator of a measure implicitly include the criteria for inclusion in the initial population.  Similarly, numerator criteria have an implicit dependency on denominator criteria, i.e. the criteria for inclusion in the numerator of a measure implicitly include the criteria for inclusion in the denominator. CQL expressions referenced by Measure population criteria are evaluated within the context of these implicit dependencies.
 
-† This is the name of a function. See the [Continuous Variable Measure](measure-conformance.html#245-continuous-variable-measure) section for more.
-†† When using multiple populations and/or multiple population groups, see Section 2.4.7
 
-Table 2: Measure populations† based on types of measure scoring.
+Table 2: Measure populations based on types of measure scoring.
 
 | | Initial Population | Denominator | Denominator Exclusion | Denominator Exception | Numerator | Numerator Exclusion | Measure Population | Measure Population Exclusion |
 |:--|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -573,7 +576,7 @@ The criteria referenced from the measure-observation component refers to a CQL e
 }
  ```
 
-Snippet 14: Sample measure observation section from measure-exm55-FHIR.json
+Snippet 14: Sample measure observation section from [measure-exm55-FHIR.json](Measure-measure-exm55-FHIR.json.html)
 
 ```cql
 define "Measure Population" : 
@@ -637,7 +640,7 @@ For multiple population ratio measures that specify 2 initial populations, the p
 SHOULD be used<br/>
 (Criteria Name) (population group number)( population number)
 
-Note when a measure has a single population group but multiple populations (such as a ratio measure), the quotations are dropped. For example, "Initial Population 1", "Initial Population 2" refers to the populations NOT population groups.
+Note when a measure has a single population group but multiple populations (such as a ratio measure), the underscore ("\_") is dropped. For example, "Initial Population 1", "Initial Population 2" refers to the populations NOT population groups.
 
 Note also that when a measure has multiple population groups, the expectation is that the measure would have multiple scores, one for each population group. The formulas for calculation of the groups do not change; they are the same as for single group measures, just calculated using the criteria for each group.
 
@@ -660,7 +663,7 @@ Stratification is represented using the stratifier element. The semantics of thi
 ]
  ```
 
-Snippet 16: Example Stratifier from measure-exm55-FHIR.json
+Snippet 16: Example Stratifier from [measure-exm55-FHIR.json](Measure-measure-exm55-FHIR.json.html)
 
 ```cql
 define "Stratification 1" : 
@@ -698,14 +701,14 @@ Part of the definition of a quality measure involves the ability to specify addi
 ]
  ```
 
-Snippet 18: Sample Supplemental Data Elements from measure-exm146-FHIR.json
+Snippet 18: Sample Supplemental Data Elements from [measure-exm146-FHIR.json](Measure-measure-exm146-FHIR.json.html)
 
 ```cql
 define "SDE Ethnicity":
   ["Patient Characteristic Ethnicity": "Ethnicity"]
  ```
 
-Snippet 19: Example Supplemental Data Element from EXM146_FHIR-4.0.0.cql
+Snippet 19: Example Supplemental Data Element from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
 
 With CQL, supplemental data elements are specified using the same mechanism as any other population criteria, by defining an expression that returns the appropriate data element, and then identifying that expression within the Measure resource. Examples of the Measure and CQL are given in Snippet 18 and Snippet 19, respectively.
 By convention, the name of each supplemental data element expression would start with "SDE". The supplemental data element expressions are normally expected to return a single value when evaluated in the context of a member of the population. For example, patient-based measures would return the value of a supplemental data element for a given patient.
@@ -737,7 +740,7 @@ Some measures may define variables used to adjust scores based on a measure of �
 ]
  ```
 
-Snippet 20: Sample Risk Adjustment Variable from EXMRiskAdjustment_FHIR.xml
+Snippet 20: Sample Risk Adjustment Variable from [EXMRiskAdjustment_FHIR.xml](Measure-measure-risk-adjustment-FHIR2.xml.html)
 
 ```cql
 define "Hepatic Failure":
