@@ -8,7 +8,7 @@ title: Introduction
 
 [The National Academy of Medicine (NAM)](http://www.nationalacademies.org/hmd/Reports/2001/Crossing-the-Quality-Chasm-A-New-Health-System-for-the-21st-Century.aspx) defines quality as: “The degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge.” For care quality to be evaluated, it must be standardized and communicated to the appropriate organizations. To that end, the FHIR Quality Measure Implementation Guide (this IG) has been written to provide guidance for authoring electronic clinical quality measures ([eCQMs](https://www.jointcommission.org/about/jointcommissionfaqs.aspx?CategoryId=56#2404)), clinical quality measures specified in a standard electronic format and designed to use structured, encoded data present in the electronic health record. This implementation guide references the following standards for creating eCQMs:
 
-* [Fast Healthcare Interoperability Resources (FHIR) STU3](https://ecqi.healthit.gov/qdm)
+* [Fast Healthcare Interoperability Resources (FHIR) STU3](https://www.hl7.org/fhir/stu3/)
 * [Clinical Quality Language (CQL) R1.4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400)
 * [QI-Core Implementation Guide (QI-Core) R3.2](http://build.fhir.org/ig/cqframework/qi-core/)
 
@@ -57,13 +57,13 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this doc
 
 ### 1.7 Background
 
-This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97), as well as the CQL-Based HQMF IG 8.
+This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97), as well as the CQL-Based HQMF IG STU4.
 
-This Implementation Guide is the successor of the CQL-based HQMF IG STU4 (Figure 2a).
+This Implementation Guide (Figure 4-b) is the successor of the CQL-based HQMF IG STU4 (Figure 4-a).
 
 ![Relationship between CQL-based and FHIR-based IG's](assets/images/RelationshipToCQLBasedHQMFIG.png)
 
-Figure 2: Relationship between QDM based and CQL based HQMF IG’s.
+Figure 4: Relationship between QDM based and CQL based HQMF IG’s Diagram.
 
 Note that the QI Core implementation guide includes an author-focused view of QI Core called QUICK. This view provides a conceptual model for the development of quality improvement artifacts such as decision support rules and quality measures. However, although the authoring view is available, implementation tooling and guidance is still being developed to fully support the use of QUICK. Until this tooling is available, this implementation guide uses the QI Core profiles directly.
 
@@ -73,7 +73,7 @@ Note that the QI Core implementation guide includes an author-focused view of QI
 
 #### 1.7.2 CQL based HQMF IG R1 STU3
 
-The first version of the CQL-based HQMF IG was released in September 2015 and was intended to be used in conjunction with the pre-existing QDM based HQMF R1 IG. Since 2015, the community and the standards evolved and the current version of QDM (v5.4) no longer contains expression logic, ceding this functionality to CQL. The CQL-based HQMF IG is the sole guide describing how to use QDM, CQL, and HQMF in combination (Figure 2a).
+The first version of the CQL-based HQMF IG was released in September 2015 and was intended to be used in conjunction with the pre-existing QDM based HQMF R1 IG. Since 2015, the community and the standards evolved and the current version of QDM (v5.4) no longer contains expression logic, ceding this functionality to CQL. The CQL-based HQMF IG is the sole guide describing how to use QDM, CQL, and HQMF in combination (Figure 4-a).
 
 A result of replacing QDM-based logic with CQL is that all QDM logic elements previously encoded in HQMF were replaced with CQL. This means that QDM data criteria specify only the data of interest (e.g. value sets, effective time, properties) for the eCQM, and the previous use of QDM expressions that captured interrelationships between data criteria (such as “starts after end of”) or identified subsets of data (such as min, max, last, and first) are now represented with CQL expressions. This IG documents the full approach in detail starting in Chapter 2.
 
