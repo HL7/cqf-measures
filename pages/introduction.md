@@ -40,7 +40,7 @@ The audience for this IG includes software developers of measure authoring tools
 
 The approach taken here is consistent with balloted IGs for FHIR. These publications view the ultimate implementation specification as a set of formal artifacts, including profiles, extensions, and terminologies. The base FHIR specification provides for the representation of quality measures using the Measure resource, as well as guidance on quality reporting within the Clinical Reasoning module. IGs such as this add constraints to the base resources and guidance through profiles and conformance requirements that further define and restrict the sequence and cardinality of elements in the FHIR resources and the vocabulary sets for coded elements.
 
-This IG is STU1 of the FHIR Quality Measure IG. 
+This IG is STU1 of the FHIR Quality Measure IG.
 
 ### 1.5 Scope
 
@@ -71,7 +71,7 @@ Note that the QI Core implementation guide includes an author-focused view of QI
 
 [Clinical Quality Language R1.4 (CQL)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) is an HL7 standard for trial use (STU). It is part of the effort to harmonize standards between electronic clinical quality measures (eCQMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
 
-#### 1.7.2 CQL based HQMF IG R1 STU3
+#### 1.7.2 CQL based HQMF IG R1 STU4
 
 The first version of the CQL-based HQMF IG was released in September 2015 and was intended to be used in conjunction with the pre-existing QDM based HQMF R1 IG. Since 2015, the community and the standards evolved and the current version of QDM (v5.4) no longer contains expression logic, ceding this functionality to CQL. The CQL-based HQMF IG is the sole guide describing how to use QDM, CQL, and HQMF in combination (Figure 4-a).
 
@@ -102,4 +102,3 @@ The FHIR Clinical Reasoning module replaces HQMF by defining the Measure resourc
 3: Measures Management System Blueprint v14.0. CMS, September 2018. <https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html>
 
 4: Value Set Authority Center. U.S. National Library of Medicine. <https://vsac.nlm.nih.gov/>
-
