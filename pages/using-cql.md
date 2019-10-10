@@ -61,6 +61,8 @@ The set of all CQL libraries used to define a Measure must adhere to Conformance
 
 **Conformance Requirement 18 (Nested Libraries):**
 1. CQL libraries SHALL be structured such that all CQL expressions referenced by the Measure population criteria are contained within a single library.
+2. CQL libraries SHALL use a `called` clause for all included libraries
+3. The `called`-alias for an included library SHOULD be consistent for usages across libraries
 
 Because of this conformance statement, the primary library for a measure can always be determined by looking at the library referenced by the initial population criteria for the measure.
 
