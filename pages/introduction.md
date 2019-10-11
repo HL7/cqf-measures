@@ -12,7 +12,7 @@ title: Introduction
 * [Clinical Quality Language (CQL) R1.4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400)
 * [QI-Core Implementation Guide (QI-Core) R3.2](http://build.fhir.org/ig/cqframework/qi-core/)
 
-To avoid variation in the use of FHIR Resources and metadata consistently across eCQMs and clinical decision support (CDS), a quality-related implementation guide based on a logical data model is essential. In the US Realm, eCQM developers SHALL use [FHIR Quality Improvement Core (QICore)](http://build.fhir.org/ig/cqframework/qi-core) profiles as the data model to maintain consistency.
+To avoid variation in the use of FHIR Resources and metadata consistently across eCQMs and clinical decision support (CDS), a quality-related implementation guide based on a logical data model is essential. In the US Realm, eCQMs SHALL use [FHIR Quality Improvement Core (QICore)](http://build.fhir.org/ig/cqframework/qi-core) profiles as the data model to maintain consistency.
 
 Although the specification is based on the 1.4 version of CQL, backwards-compatible future versions of CQL can be used as well. In addition, if necessary, the 1.2 and 1.3 versions of CQL can be used without loss of functionality for this Implementation Guide.
 
@@ -26,11 +26,17 @@ As features and functionality are identified by this implementation guide that a
 
 The FHIR Quality Measure Implementation Guide (this IG) is structured as follows:
 
-1. Introduction - This section, providing narrative introduction and background material
-2. eCQMs - Provides detailed guidance and conformance requirements for measures
+1. Home- Provides the summary and background information for the FHIR Quality Measure Implementation Guide
+2. Introduction - This section, providing narrative introduction and background material
+3. eCQMs - Provides detailed guidance and conformance requirements for measures
 3. Using CQL - Provides guidance and conformance requirements for the use of CQL within measures
+4. Examples - Provides examples used in the other pages, as well as by the Data Exchange for Quality Measures IG
+5. Profiles - Lists the set of profiles and extensions defined for use by eCQMs
+6. Terminology - Lists value Sets and code systems defined in this IG
+7. Glossary - Defines terms related to quality measurement
+8. Downloads - Provides links to downloadable artifacts for implementations
+9. Version History - Lists the previous version(s) of the FHIR Quality Measure Implementation Guide
 
-In addition, there are appendices for examples, references, acknowledgements, and a glossary.
 
 ### 1.3 Audience
 
