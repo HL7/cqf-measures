@@ -18,7 +18,7 @@ A measure score in which each individual value for the measure can fall anywhere
 
 The lower part of a fraction used to calculate a rate, proportion, or ratio. It can be the same as the initial population or a subset of the initial population to further constrain the population for the purpose of the measure. Continuous variable measures do not have a denominator, but instead define a measure population. [Source](https://ecqi.healthit.gov/glossary)
 
-Also may be grouped for inclusion in a specific performance measure based on specific criteria (e.g., patient's age, diagnosis, prior Myocardial Infarction (MI)). Different measures within a measure set may have different Denominators (e.g., measure #1 Denominator = Initial Population AND Smoker; measure #2 Denominator = Initial Population AND Atrial Fibrillation). A Denominator can have inclusion and exclusion criteria. 
+Also may be grouped for inclusion in a specific performance measure based on specific criteria (e.g., patient's age, diagnosis, prior Myocardial Infarction (MI)). Different measures within a measure set may have different Denominators (e.g., measure #1 Denominator = Initial Population AND Smoker; measure #2 Denominator = Initial Population AND Atrial Fibrillation). A Denominator can have inclusion and exclusion criteria.
 
 ### A.4 Denominator Exception
 
@@ -46,7 +46,7 @@ All events to be evaluated by a specific electronic clinical quality measure (eC
 
 ### A.10 Measure Population
 
-Continuous variable measures do not have a Denominator, but instead define a Measure Population. To be in the Measure Population, a patient must be in the larger Initial Population. Proportion and Ratio measures do not have a Measure Population, but instead define a Denominator.
+Continuous variable measures do not have a Denominator, but instead define a Measure Population. To be in the Measure Population, a patient must be in the Initial Population. Proportion and Ratio measures do not have a Measure Population, but instead define a Denominator.
 
 ### A.11 Measure Population Exclusion
 
