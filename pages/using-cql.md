@@ -119,20 +119,20 @@ Conformance Requirement 21 describes how to specify a valueset within a CQL libr
 For example:
 
 ```cql
-valueset "Acute Pharyngitis": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011'
+valueset "Acute Pharyngitis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011'
 ```
 
 Snippet 5: Valueset reference from EXM146_FHIR-4.0.0.cql
 
-The canonical URL for a value set is typically defined by the value set author, though it may be provided by the publisher as well. For example, value sets defined in the Value Set Authority Center and exposed via the VSAC FHIR interface have a base URL of `https://cts.nlm.nih.gov/fhir/`. This base is then used to construct the canonical URL for the value set (in the same way as any FHIR URL) using the resource type (`ValueSet` in this case) and the id (the value set OID in this case).
+The canonical URL for a value set is typically defined by the value set author, though it may be provided by the publisher as well. For example, value sets defined in the Value Set Authority Center and exposed via the VSAC FHIR interface have a base URL of `http://cts.nlm.nih.gov/fhir/`. This base is then used to construct the canonical URL for the value set (in the same way as any FHIR URL) using the resource type (`ValueSet` in this case) and the id (the value set OID in this case).
 
 The local identifier for the value set within CQL should be the same as the name of the value set in the [Value Set Authority Center (VSAC)](https://vsac.nlm.nih.gov/). However, because the name of the value set is not guaranteed to be unique, it is possible to reference multiple value sets with the same name, but different identifiers. When this happens in a CQL library, the local identifier should be the name of the value set with a qualifying suffix to preserve the value set name as a human-readable artifact, but still allow unique reference within the CQL library.
 
 For example:
 
 ```cql
-valueset "Acute Pharyngitis (1)": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011.1'
-valueset "Acute Pharyngitis (2)": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011.2'
+valueset "Acute Pharyngitis (1)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011.1'
+valueset "Acute Pharyngitis (2)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011.2'
 ```
 
 Version information for value sets is not required to be included in eCQMs; terminology versioning information may be specified externally. However, if versioning information is included, it must be done in accordance with the terminology usage specified by FHIR. Note that the VSAC supports different approaches to retrieving the expansion of a valueset through its [Sharing Value Sets (SVS) API](https://www.nlm.nih.gov/vsac/support/usingvsac/vsacsvsapiv2.html). For the purposes of this guidance, two approaches are described: 1) by version, and 2) by profile.
@@ -148,7 +148,7 @@ For example:
 
 ```cql
 valueset "Encounter Inpatient SNOMEDCT Value Set":
-   'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
+   'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
 ```
 
 Snippet 6: valueset definition from Terminology_FHIR.cql.
@@ -164,7 +164,7 @@ For example:
 
 ```cql
 valueset "Face-to-Face Interaction":
-  'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1004.101.12.1048|MU2%20Update@202016-04-01'
+  'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1004.101.12.1048|MU2%20Update@202016-04-01'
 ```
 
 #### 3.4.3 Representation in a Library
@@ -219,10 +219,10 @@ A “library-level identifier” is any named expression, function, parameter, c
 For example:
 
 ```cql
-define function
-  "Includes Or Starts During"(Diagnosis "Diagnosis", Encounter "Encounter, Performed"):
-    Diagnosis.prevalencePeriod includes Encounter.relevantPeriod
-      or Diagnosis.prevalencePeriod starts during Encounter.relevantPeriod
+define function 
+   "Includes Or Starts During"(Condition "Condition", Encounter "Encounter"):
+      Interval[Condition.onset, Condition.abatement] includes Encounter.period
+         or Condition.onset during Encounter.period
 ```
 
 Snippet 8: Function definition from Common_FHIR-2.0.0.cql
@@ -327,7 +327,7 @@ define "Encounters During Measurement Period":
     "Valid Encounters" QualifyingEncounter
         where QualifyingEncounter.period during "Measurement Period"
 
-define function "ED Stay Time"(Encounter "Encounter, Performed"):
+define function "ED Stay Time"(Encounter "Encounter"):
     duration in minutes of Encounter.period
 ```
 
