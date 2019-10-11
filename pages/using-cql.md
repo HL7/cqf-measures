@@ -6,11 +6,12 @@ title: Using CQL
 
 ### 3.1 Libraries
 
-A CQL artifact is referred to as a library. Any CQL library referenced by a Measure must contain a library declaration line as the first line of the library.
+A CQL artifact is referred to as a library.
 
 **Conformance Requirement 17 (Library Declaration):**
-  1. The library declaration line SHALL contain a version number.
-  2. The library version number SHALL follow the convention :  
+  1. Any CQL library referenced by a Measure must contain a library declaration line as the first line of the library.
+  2. The library declaration line SHALL contain a version number.
+  3. The library version number SHALL follow the convention :  
        < major >.< minor >.< patch >
 
 #### 3.1.1 Library Versioning
@@ -60,6 +61,8 @@ The set of all CQL libraries used to define a Measure must adhere to Conformance
 
 **Conformance Requirement 18 (Nested Libraries):**
 1. CQL libraries SHALL be structured such that all CQL expressions referenced by the Measure population criteria are contained within a single library.
+2. CQL libraries SHALL use a `called` clause for all included libraries
+3. The `called`-alias for an included library SHOULD be consistent for usages across libraries
 
 Because of this conformance statement, the primary library for a measure can always be determined by looking at the library referenced by the initial population criteria for the measure.
 
@@ -92,7 +95,7 @@ Conformance Requirement 20 describes how to specify a code system within a CQL l
 For example:
 
 ```cql
-codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108' 
+codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108'
   version 'http://snomed.info/sct/731000124108/version/201709'
 ```
 
@@ -141,11 +144,11 @@ Conformance Requirement 22 describes how to retrieve an expansion of a value set
 **Conformance Requirement 22 (Value Set Specification By Version):**
 1. When retrieving the expansion of a value set by version, append the version identifier to the canonical URL of the value set, separated by a pipe (`|`)
 
-For example: 
+For example:
 
 ```cql
 valueset "Encounter Inpatient SNOMEDCT Value Set":
-   'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929' 
+   'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
 ```
 
 Snippet 6: valueset definition from Terminology_FHIR.cql.
@@ -160,7 +163,7 @@ From the perspective FHIR-based eCQMs, the profile identifier is considered a ve
 For example:
 
 ```cql
-valueset "Face-to-Face Interaction": 
+valueset "Face-to-Face Interaction":
   'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1004.101.12.1048|MU2%20Update@202016-04-01'
 ```
 
@@ -191,7 +194,7 @@ When direct reference codes are used within eCQMs, they will be represented in t
 
 ```html
 "Assessment, Performed: Assessment of breastfeeding"
-using "Assessment of breastfeeding SNOMED-CT Code (709261005)"
+using "Venous foot pump, device (physical object) SNOMED-CT Code (442023007)"
 ```
 
 The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html#20-ecqm) of this IG.
@@ -217,9 +220,9 @@ For example:
 
 ```cql
 define function
-    "Includes Or Starts During"(Diagnosis "Diagnosis", Encounter "Encounter, Performed"):
-        Diagnosis.prevalencePeriod includes Encounter.relevantPeriod
-            or Diagnosis.prevalencePeriod starts during Encounter.relevantPeriod
+  "Includes Or Starts During"(Diagnosis "Diagnosis", Encounter "Encounter, Performed"):
+    Diagnosis.prevalencePeriod includes Encounter.relevantPeriod
+      or Diagnosis.prevalencePeriod starts during Encounter.relevantPeriod
 ```
 
 Snippet 8: Function definition from Common_FHIR-2.0.0.cql
@@ -233,17 +236,16 @@ A "data type" in CQL refers to any named type used within CQL expressions. They 
        a. Use quoted identifiers<br/>
        b. Use PascalCase plus appropriate spacing
 
-For example, using quoated identifiers:
+For example:
 
 ```cql
-"Encounter"
+define "Statin at Discharge":
+  ["MedicationRequest"] Statin
+    where (Statin.medication as CodeableConcept) in "Statin Grouper"
+      and Statin.intent = 'order'
 ```
 
-For example, using PascalCase plus appropiate spacing:
-
-```cql
-" "
-```
+Snippet 9: Expression definition from EXM105_FHIR-7.0.0.cql   
 
 ### 3.8.1 Negation in FHIR
 
@@ -277,7 +279,7 @@ No evidence that "Antithrombotic Therapy" medication was administered:
           where AntithromboticTherapy.status = 'completed'
             and AntithromboticTherapy.category = "Inpatient Setting"
       )
-      
+
 #### Negation Rationale
 
 Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as defined by a value set referenced by the eCQM (i.e., negation rationale):
@@ -286,7 +288,7 @@ Evidence that "Antithrombotic Therapy" medication administration did not occur f
       ["MedicationAdministration": "Antithrombotic Therapy"] NotAdministered
         where NotAdministered.notGiven is true
           and NotAdministered.reasonNotGiven in "Medical Reason"
-      
+
 In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale for not administering the medication. However, underlying systems might not represent the negated action with a code from the "Antithrombotic Therapy" value set. When justifying the reason for not administering a class of medications, clinicians do not generally specify one of the medications in the class, they most often indicate avoidance of the entire class. In these cases, the value set may be used as a placeholder to indicate the medication class was not administered. Implementations processing data reported in this way should take into account that the reported data may not be returned with a single code, but rather a value set identifier, and should consider data with the appropriate value set identifier as satisfying the criteria for value set membership.
 
 Similarly, "Procedure, Not Performed": "Cardiac Surgery" should not require specification of which cardiac surgery in a value set was not performed, but only reference any member of the class of procedures defined by the value set. The same process works for any application of negation rationale.
@@ -344,4 +346,3 @@ Tooling exists to support translation of CQL to ELM for distribution in XML or J
 | EnableResultTypes | This instructs the translator to include inferred result types in the output ELM. | This feature may be used with Measures. |
 | EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with Measures. |
 | DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With Measures, disabling this feature would prevent a useful capability. | This feature should not be used with Measures. |
-

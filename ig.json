@@ -36,6 +36,9 @@
     "Claim": {
       "template-format": "instance-template-example.html"
     },
+		"CodeSystem": {
+			"template-base": "instance-template-codesystem.html"
+		},
     "Condition": {
       "template-format": "instance-template-example.html"
     },
@@ -66,14 +69,21 @@
     "Procedure": {
       "template-format": "instance-template-example.html"
     },
-	"StructureMap": {
-      "template-format": "instance-template-example.html"
-	},
     "StructureDefinition": {
       "template-base": "instance-template-sd.html",
       "template-mappings":"instance-template-sd-mappings.html",
       "template-defns":"instance-template-sd-definitions.html"
-    }
+    },
+    "StructureMap": {
+        "content": false,
+        "profiles": false,
+        "script": false,
+        "template-base": "instance-template-base.html",
+		    "template-format": "instance-template-example.html"
+    },
+    "ValueSet": {
+			"template-base": "instance-template-valueset.html"
+		}
   },
   "sct-edition": "http://snomed.info/sct/731000124108",
   "extraTemplates": [
