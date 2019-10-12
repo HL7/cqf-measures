@@ -14,6 +14,8 @@ A measure score in which a population is identified from the population of all i
 
 A measure score in which each individual value for the measure can fall anywhere along a continuous scale and can be aggregated using a variety of methods such as the calculation of a mean or median (for example, mean number of minutes between presentation of chest pain to the time of administration of thrombolytics). [Source](https://ecqi.healthit.gov/glossary)
 
+Example continuous variable measure: [Median ED Visit Duration (EXM55)](Library-library-exm55-FHIR.html)
+
 ### A.3 Denominator
 
 The lower part of a fraction used to calculate a rate, proportion, or ratio. It can be the same as the initial population or a subset of the initial population to further constrain the population for the purpose of the measure. Continuous variable measures do not have a denominator, but instead define a measure population. [Source](https://ecqi.healthit.gov/glossary)
@@ -71,6 +73,8 @@ A measure that focuses on a sequence of actions or steps that should be followed
 
 A score derived by dividing the number of cases that meet a criterion for quality (the numerator) by the number of eligible cases within a given time frame (the denominator) where the numerator cases are a subset of the denominator cases (for example, percentage of eligible women with a mammogram performed in the last year). [Source](https://ecqi.healthit.gov/glossary)
 
+Example proportion measures: [Breast Cancer Screening (EXM125)](Library-library-exm125-FHIR.html),  [Cervical Cancer Screening (EXM124)](Library-library-exm124-FHIR.html), [Colorectal Cancer Screening (EXM130)](Library-library-exm130-FHIR.html) [Appropriate Testing for Children with Pharyngitis (EXM146)](Library-library-exm146-FHIR.html)
+
 ### A.17 Quality Measure Set
 
 A unique grouping of measures carefully selected to provide, when viewed together, a robust picture of the care provided in a given domain (e.g., cardiovascular care, pregnancy).
@@ -88,7 +92,7 @@ A ratio is a score that is derived by dividing a count of one type of data by a 
 
 ### A.21 Stratification
 
-Criteria used to classify populations into one or more characteristics, variables, or other categories. As subsets of the overall population, they are used in risk adjustment, analysis and interpretation. Examples of stratification include age, discharge status for an inpatient stay, facility location within a hospital (e.g., ICU, Emergency Department), surgical procedures, and specific conditions.
+Criteria used to classify populations into one or more characteristics, variables, or other categories. As subsets of the overall population, stratifications are used in risk adjustment, analysis and interpretation. Examples of stratification include age, discharge status for an inpatient stay, facility location within a hospital (e.g., ICU, Emergency Department), surgical procedures, and specific conditions.
 
 ### A.22 Supplemental Data Elements
 

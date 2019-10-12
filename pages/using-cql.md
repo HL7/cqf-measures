@@ -126,7 +126,7 @@ Snippet 5: Valueset reference from EXM146_FHIR-4.0.0.cql
 
 The canonical URL for a value set is typically defined by the value set author, though it may be provided by the publisher as well. For example, value sets defined in the Value Set Authority Center and exposed via the VSAC FHIR interface have a base URL of `https://cts.nlm.nih.gov/fhir/`. This base is then used to construct the canonical URL for the value set (in the same way as any FHIR URL) using the resource type (`ValueSet` in this case) and the id (the value set OID in this case).
 
-The local identifier for the value set within CQL should be the same as the name of the value set in the Value Set Authority Center (VSAC) [^9]. However, because the name of the value set is not guaranteed to be unique, it is possible to reference multiple value sets with the same name, but different identifiers. When this happens in a CQL library, the local identifier should be the name of the value set with a qualifying suffix to preserve the value set name as a human-readable artifact, but still allow unique reference within the CQL library.
+The local identifier for the value set within CQL should be the same as the name of the value set in the [Value Set Authority Center (VSAC)](https://vsac.nlm.nih.gov/). However, because the name of the value set is not guaranteed to be unique, it is possible to reference multiple value sets with the same name, but different identifiers. When this happens in a CQL library, the local identifier should be the name of the value set with a qualifying suffix to preserve the value set name as a human-readable artifact, but still allow unique reference within the CQL library.
 
 For example:
 
@@ -135,7 +135,7 @@ valueset "Acute Pharyngitis (1)": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.84
 valueset "Acute Pharyngitis (2)": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011.2'
 ```
 
-Version information for value sets is not required to be included in eCQMs; terminology versioning information may be specified externally. However, if versioning information is included, it must be done in accordance with the terminology usage specified by FHIR. Note that the VSAC supports different approaches to retrieving the expansion of a valueset through its Sharing Value Sets (SVS) API [^10]. For the purposes of this guidance, two approaches are described: 1) by version, and 2) by profile.
+Version information for value sets is not required to be included in eCQMs; terminology versioning information may be specified externally. However, if versioning information is included, it must be done in accordance with the terminology usage specified by FHIR. Note that the VSAC supports different approaches to retrieving the expansion of a valueset through its [Sharing Value Sets (SVS) API](https://www.nlm.nih.gov/vsac/support/usingvsac/vsacsvsapiv2.html). For the purposes of this guidance, two approaches are described: 1) by version, and 2) by profile.
 
 #### 3.4.1 By Version
 
@@ -315,7 +315,7 @@ result
 Aliases are used in CQL as local variable names to refer to sections of code. When defining a function, argument names are used to create scoped variables that refer to the function inputs. Both aliases and argument names conform to Conformance Requirement 29.
 
 **Conformance Requirement 29 (Aliases and Argument Names):**
-1. Aliases and argument names referenced in the CQL :<br/>
+1. Aliases and argument names referenced in the CQL:<br/>
       a. SHALL NOT Use quoted identifiers<br/>
       b. SHALL Use PascalCase<br/>
       c. SHOULD Use descriptive names (no abbreviations)
