@@ -11,7 +11,7 @@ codesystem "SNOMED-CT:2017-09": 'http://snomed.info/sct/731000124108'
   version 'http://snomed.info/sct/731000124108/version/201709'
 
 valueset "Encounter Inpatient SNOMEDCT Value Set":
-   'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929' 
+   'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929' 
 
 code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT:2017-09"
 code "Right foot": '7769000' from "SNOMED-CT:2017-09"

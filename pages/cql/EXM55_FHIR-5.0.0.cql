@@ -13,9 +13,9 @@ include FHIRHelpers version '3.0.0' called FHIRHelpers
 
 codesystem "Diagnosis Role": 'http://hl7.org/fhir/diagnosis-role'
 
-valueset "Emergency Department Visit" : 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292' 
-valueset "Psychiatric/Mental Health Patient" : 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299' 
-valueset "Hospital Settings" : 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.126' 
+valueset "Emergency Department Visit" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292' 
+valueset "Psychiatric/Mental Health Patient" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299' 
+valueset "Hospital Settings" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.126' 
 
 code "Billing": 'billing' from "Diagnosis Role" display 'Billing'
 
