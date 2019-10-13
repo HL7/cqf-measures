@@ -5,11 +5,11 @@ using FHIR version '1.0.2'
 include FHIRHelpers version '1.0.2' called FHIRHelpers
 include SupplementalDataElements_FHIR2 version '1.0.0' called SDE
 
-valueset "Serum Albumin": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.60'
-valueset "Cirrhosis or other liver disease": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.63'
-valueset "Encounter Inpatient": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307'
-valueset "CABG_Open and Endoscopic": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.39'
-valueset "Bilirubin": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2400'
+valueset "Serum Albumin": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.60'
+valueset "Cirrhosis or other liver disease": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.63'
+valueset "Encounter Inpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307'
+valueset "CABG_Open and Endoscopic": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.39'
+valueset "Bilirubin": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2400'
 
 parameter "Measurement Period" Interval<DateTime>
 
