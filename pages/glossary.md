@@ -92,7 +92,7 @@ A ratio is a score that is derived by dividing a count of one type of data by a 
 
 ### A.21 Stratification
 
-Criteria used to classify populations into one or more characteristics, variables, or other categories. As subsets of the overall population, they are used in risk adjustment, analysis and interpretation. Examples of stratification include age, discharge status for an inpatient stay, facility location within a hospital (e.g., ICU, Emergency Department), surgical procedures, and specific conditions.
+Criteria used to classify populations into one or more characteristics, variables, or other categories. As subsets of the overall population, stratifications are used in risk adjustment, analysis and interpretation. Examples of stratification include age, discharge status for an inpatient stay, facility location within a hospital (e.g., ICU, Emergency Department), surgical procedures, and specific conditions.
 
 ### A.22 Supplemental Data Elements
 
