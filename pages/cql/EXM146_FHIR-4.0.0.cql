@@ -24,9 +24,9 @@ context Patient
 
 // Region: Initial Population
 
-define "In Demographic":
+define "Is Between 2 and 17 Years of Age at Start of Measurement Period":
    AgeInYearsAt(start of "Measurement Period") >= 2
-      and AgeInYearsAt(start of "Measurement Period") < 18
+      and AgeInYearsAt(start of "Measurement Period") <= 17
 
 define "Antibiotics":
    [MedicationRequest: medication in "Antibiotic Medications"] Prescription
@@ -34,7 +34,7 @@ define "Antibiotics":
        and Prescription.intent = 'order'
 
 define "Pharyngitis":
-   ([Condition: code in "Acute Pharyngitis"] 
+   ([Condition: code in "Acute Pharyngitis"]
      union [Condition: code in "Acute Tonsillitis"]) Pharyngitis
      where Pharyngitis.clinicalStatus = 'active'
        and Pharyngitis.verificationStatus = 'confirmed'
@@ -43,13 +43,13 @@ define "Measurement Period Encounters":
    [Encounter: "Ambulatory/ED Visit"] Encounter
       where Encounter.period during "Measurement Period"
         and Encounter.status = 'finished'
-        and "In Demographic"
+        and "Is Between 2 and 17 Years of Age at Start of Measurement Period"
 
 define "Pharyngitis Encounters With Antibiotics":
    "Measurement Period Encounters" Encounters
-      with "Pharyngitis" Pharyngitis such that 
+      with "Pharyngitis" Pharyngitis such that
          Common."Includes Or Starts During"(Pharyngitis, Encounters)
-      with "Antibiotics" Antibiotics such that Antibiotics.authoredOn 
+      with "Antibiotics" Antibiotics such that Antibiotics.authoredOn
          3 days or less after FHIRHelpers.ToInterval(Encounters.period)
 
 define "Initial Population":
@@ -67,12 +67,12 @@ define "Initial Population":
 
 define "Pharyngitis With Prior Antibiotics":
    "Pharyngitis" Pharyngitis
-      with "Antibiotics" Antibiotics such that 
+      with "Antibiotics" Antibiotics such that
          Antibiotics.authoredOn 30 days or less before Pharyngitis.onset
 
 define "Excluded Encounters":
    "Pharyngitis Encounters With Antibiotics" Encounters
-      with "Pharyngitis With Prior Antibiotics" Pharyngitis such that 
+      with "Pharyngitis With Prior Antibiotics" Pharyngitis such that
          Common."Includes Or Starts During"(Pharyngitis, Encounters)
 
 define "Denominator Exclusions":
@@ -92,8 +92,8 @@ define "Strep Test Encounters":
    "Pharyngitis Encounters With Antibiotics" Encounters
       with [Observation: code in "Group A Streptococcus Test"] Tests
          such that Tests.value is not null
-            and Tests.effective starts during 
-               Interval[start of FHIRHelpers.ToInterval(Encounters.period) - 3 days, 
+            and Tests.effective starts during
+               Interval[start of FHIRHelpers.ToInterval(Encounters.period) - 3 days,
                  end of FHIRHelpers.ToInterval(Encounters.period) + 3 days]
 
 define "Numerator":
