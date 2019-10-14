@@ -248,7 +248,7 @@ Snippet 7: CQL declaration of codesystem, valueset, and code (from [Terminology_
 
 Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html#3-cql-basics) of this IG, sections [3.3](using-cql.html#23-code-systems), [3.4](using-cql.html#24-value-sets), and [3.5](using-cql.html#25-codes).
 
-All declared valuesets and codes can be found in the `dataRequirement` elements in the Measure.
+All declared valuesets and codes can be found in the [dataRequirement](StructureDefinition-library-cqfm-definitions.html#Library.dataRequirement) elements in the Library resource referenced by the Measure.
 
 ```json
 "dataRequirement": [
@@ -273,8 +273,8 @@ All declared valuesets and codes can be found in the `dataRequirement` elements 
         "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
       }
     ]
-  },
-],
+  }
+]
 ```
 
 Snippet 8: Example Library terminology definitions (from [library-terminology-FHIR.json](Library-library-terminology-FHIR.json.html))
@@ -296,17 +296,16 @@ Any direct reference codes or value sets not referenced by a retrieve will be in
 The data criteria section defines the patient data of interest in the library as a set of `dataRequirements`. Each entry identifies specific types of data along with constraints that the data must meet. Snippet 9 shows an example of a data criteria entry indicating an ”Encounter”.
 
 ```json
-dataRequirement: [
-{
-  "type": "Encounter",
-  "codeFilter": [
-    {
-      "path": "type",
-      "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
-    }
-  ]
-},
-…
+"dataRequirement": [
+  {
+    "type": "Encounter",
+    "codeFilter": [
+      {
+        "path": "type",
+        "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
+      }
+    ]
+  }
 ]
 ```
 
@@ -349,7 +348,7 @@ To illustrate the mapping, Snippet 10 shows an ELM data reference and Snippet 10
 
 Snippet 10: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html))
 
-```xml
+```json
 {
   "type": "Condition",
   "codeFilter": [
@@ -405,10 +404,10 @@ Figure 5: Relationship between FHIR Measure and CQL Expression Script
         }
       ]
     },
-    "criteria": "\"EXM146_FHIR\".Initial Population"
+    "criteria": "\"Initial Population\""
   }
 ]
- ```
+```
 
 Snippet 13: Defining a population via reference to a CQL expression (from [measure-exm146-FHIR.json](Measure-measure-exm146-FHIR.json.html))
 
@@ -621,7 +620,7 @@ The criteria referenced from the measure-observation component refers to a CQL e
       }
     ]
   },
-  "criteria": "\"EXM55_FHIR\".\"Measure Observation\""
+  "criteria": "\"Measure Observation\""
 }
  ```
 
@@ -654,14 +653,14 @@ In the example shown in Snippet 15 and Snippet 16: the measure reports the aggre
 
 ```json
 {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
-      "valueCode": "median"
-    }
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+  "valueCode": "median"
+}
  ```
  Snippet 17: Aggregate type from Snippet 15 (Sample measure observation section from [measure-exm55-FHIR.json](Measure-measure-exm55-FHIR.json.html))
 
 ```json
-"criteria": "\"EXM55_FHIR\".\"Measure Observation\""
+"criteria": "\"Measure Observation\""
 ```
 Snippet 18: "Measure Observation" function in Snippet 15 (Sample measure observation section from [measure-exm55-FHIR.json](Measure-measure-exm55-FHIR.json.html))
 
@@ -672,9 +671,9 @@ Snippet 19: "Measure Observation" function in Snippet 16 (Sample CQL (from CMS55
 
 ```json
 {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
-      "valueString": "measure-population-identifier"
-    },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
+  "valueString": "measure-population-identifier"
+}
 ```
 Snippet 20: Identifier referenced in Snippet 15 (Sample measure observation section from [measure-exm55-FHIR.json](Measure-measure-exm55-FHIR.json.html))
 
@@ -739,7 +738,7 @@ Stratification is represented using the stratifier element. The semantics of thi
     "identifier": {
       "value": "stratifier-1-identifier"
     },
-    "criteria": "\"EXM55_FHIR\".\"Stratification 1\""
+    "criteria": "\"Stratification 1\""
   }
 ]
  ```
@@ -776,7 +775,7 @@ Part of the definition of a quality measure involves the ability to specify addi
       ],
       "text": "Supplemental Data"
     },
-    "criteria": "\"EXM146_FHIR\".\"SDE Ethnicity\""
+    "criteria": "\"SDE Ethnicity\""
   }
 ]
  ```
@@ -815,7 +814,7 @@ Some measures may define variables used to adjust scores based on a measure of �
       ],
       "text": "Risk Adjustment Variable"
     },
-    "criteria": "\"EXMRiskAdjustment_FHIR\".\"Hepatic Failure\""
+    "criteria": "\"Hepatic Failure\""
   }
 ]
  ```
