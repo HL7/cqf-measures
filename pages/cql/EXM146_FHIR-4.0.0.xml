@@ -30,10 +30,10 @@
             <operand locator="23:1-23:15" dataType="fhir:Patient" xsi:type="Retrieve"/>
          </expression>
       </def>
-      <def localId="23" locator="27:1-29:58" name="In Demographic" context="Patient" accessLevel="Public">
+      <def localId="23" locator="27:1-29:58" name="Is Between 2 and 17 Years of Age at Start of Measurement Period" context="Patient" accessLevel="Public">
          <annotation xsi:type="a:Annotation">
             <a:s r="23">
-               <a:s>define &quot;In Demographic&quot;:&#xd;
+               <a:s>define &quot;Is Between 2 and 17 Years of Age at Start of Measurement Period&quot;:&#xd;
    </a:s>
                <a:s r="22">
                   <a:s r="16">
@@ -62,7 +62,7 @@
                         </a:s>
                         <a:s>)</a:s>
                      </a:s>
-                     <a:s r="20"> &lt; 18</a:s>
+                     <a:s r="20"> &le; 17</a:s>
                   </a:s>
                </a:s>
             </a:s>
@@ -81,7 +81,7 @@
                </operand>
                <operand localId="15" locator="28:51" valueType="t:Integer" value="2" xsi:type="Literal"/>
             </operand>
-            <operand localId="21" locator="29:11-29:58" xsi:type="Less">
+            <operand localId="21" locator="29:11-29:58" xsi:type="LessOrEqual">
                <operand localId="19" locator="29:11-29:53" precision="Year" xsi:type="CalculateAgeAt">
                   <operand xsi:type="ToDateTime">
                      <operand path="birthDate.value" xsi:type="Property">
@@ -92,7 +92,7 @@
                      <operand localId="17" locator="29:33-29:52" name="Measurement Period" xsi:type="ParameterRef"/>
                   </operand>
                </operand>
-               <operand localId="20" locator="29:57-29:58" valueType="t:Integer" value="18" xsi:type="Literal"/>
+               <operand localId="20" locator="29:57-29:58" valueType="t:Integer" value="17" xsi:type="Literal"/>
             </operand>
          </expression>
       </def>
@@ -344,7 +344,7 @@
                         <a:s>&#xd;
         and </a:s>
                         <a:s r="63">
-                           <a:s>&quot;In Demographic&quot;</a:s>
+                           <a:s>&quot;Is Between 2 and 17 Years of Age at Start of Measurement Period&quot;</a:s>
                         </a:s>
                      </a:s>
                   </a:s>
@@ -370,7 +370,7 @@
                      <operand localId="60" locator="45:32-45:41" valueType="t:String" value="finished" xsi:type="Literal"/>
                   </operand>
                </operand>
-               <operand localId="63" locator="46:13-46:28" name="In Demographic" xsi:type="ExpressionRef"/>
+               <operand localId="63" locator="46:13-46:28" name="Is Between 2 and 17 Years of Age at Start of Measurement Period" xsi:type="ExpressionRef"/>
             </where>
          </expression>
       </def>
@@ -877,5 +877,3 @@
       </def>
    </statements>
 </library>
-
-
