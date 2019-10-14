@@ -488,6 +488,7 @@ Table 1: Measure populations based on types of measure scoring.
 | Ratio | R‡‡ | R | O | NP | R | O | NP | NP |
 | Continuous Variable | R | NP | NP | NP | NP | NP | R | O |
 | Cohort | R | NP | NP | NP | NP | NP | NP | NP |
+{: .grid}
 
 R=Required. O=Optional. NP=Not Permitted.
 
