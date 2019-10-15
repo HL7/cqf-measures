@@ -6,7 +6,7 @@ title: Introduction
 
 ### 1.1 Purpose
 
-[The National Academy of Medicine (NAM)](http://www.nationalacademies.org/hmd/Reports/2001/Crossing-the-Quality-Chasm-A-New-Health-System-for-the-21st-Century.aspx) defines quality as: “The degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge.” For care quality to be evaluated, it must be standardized and communicated to the appropriate organizations. To that end, the FHIR Quality Measure Implementation Guide (this IG) has been written to provide guidance for authoring electronic clinical quality measures ([eCQMs](https://www.jointcommission.org/about/jointcommissionfaqs.aspx?CategoryId=56#2404)), clinical quality measures specified in a standard electronic format and designed to use structured, encoded data present in the electronic health record. This implementation guide references the following standards for creating eCQMs:
+[The Institute of Medicine (IOM)](http://www.nationalacademies.org/hmd/Reports/2001/Crossing-the-Quality-Chasm-A-New-Health-System-for-the-21st-Century.aspx) defines quality as: “The degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge.” For care quality to be evaluated, it must be standardized and communicated to the appropriate organizations. To that end, the FHIR Quality Measure Implementation Guide (this IG) has been written to provide guidance for authoring electronic clinical quality measures ([eCQMs](https://ecqi.healthit.gov/glossary/ecqms)), clinical quality measures specified in a standard electronic format and designed to use structured, encoded data present in the electronic health record. This implementation guide references the following standards for creating eCQMs:
 
 * [Fast Healthcare Interoperability Resources (FHIR) STU3](https://www.hl7.org/fhir/stu3/)
 * [Clinical Quality Language (CQL) R1.4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400)
@@ -40,7 +40,7 @@ The FHIR Quality Measure Implementation Guide (this IG) is structured as follows
 
 ### 1.3 Audience
 
-The audience for this IG includes software developers of measure authoring tools such as the US Centers for Medicare and Medicaid Services (CMS) Measure Authoring Tool (MAT); measure developers who will specify clinical quality measures using FHIR and CQL; software developers and implementers who will implement the quality measures specified in FHIR and CQL in their institutions or in their vendor products; institutions and organizations who wish to use FHIR and CQL to express and implement quality measures within their health systems; and local, regional, and national quality reporting agencies who wish to receive and process quality reporting documents that are based on measures specified in FHIR and CQL.
+The audience for this IG includes software developers of measure authoring tools such as the US Centers for Medicare and Medicaid Services (CMS) [Measure Authoring Tool (MAT)](<https://www.emeasuretool.cms.gov/>); measure developers who will specify clinical quality measures using FHIR and CQL; software developers and implementers who will implement the quality measures specified in FHIR and CQL in their institutions or in their vendor products; institutions and organizations who wish to use FHIR and CQL to express and implement quality measures within their health systems; and local, regional, and national quality reporting agencies who wish to receive and process quality reporting documents that are based on measures specified in FHIR and CQL.
 
 ### 1.4 Approach
 
@@ -63,9 +63,9 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this doc
 
 ### 1.7 Background
 
-This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97), as well as the CQL-Based HQMF IG STU4.
+This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97), as well as the [CQL-Based HQMF IG R1 STU4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=405).
 
-This Implementation Guide (Figure 4-b) is the successor of the CQL-based HQMF IG STU4 (Figure 4-a).
+This Implementation Guide (Figure 4-b) is the successor of the CQL-based HQMF IG R1 STU4 (Figure 4-a).
 
 ![Relationship between CQL-based and FHIR-based IG's](assets/images/RelationshipToCQLBasedHQMFIG.png)
 
@@ -97,14 +97,4 @@ The FHIR Clinical Reasoning module replaces HQMF by defining the Measure resourc
 
 #### 1.7.4 Quality Reporting Document Architecture (QRDA)
 
-[Quality Reporting Document Architecture (QRDA)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35) is an HL7 Standard that supports quality reporting at the patient level (referred to as a Category I QRDA document), and the summary level (referred to as a Category III QRDA) document. The aspects of QRDA related to reporting results are captured in the MeasureReport resource, while the aspects of QRDA representing patient information are captured by QI Core. The FHIR Clinical Reasoning module replaces QRDA by defining the MeasureReport structure, and the [Data Exchange for Quality Measures implementation guide](http://build.fhir.org/ig/HL7/davinci-deqm/) provides implementation guidance for measure reporting.
-
-## References
-
-1: HL7 Version 3 Implementation Guide: Quality Data Model (QDM)-based Health Quality Measure Format (HQMF), R1.4 – US Realm, Volume 2 (Draft Standard for Trial Use). HL7, October 2016. <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346>
-
-2: Measure Authoring Tool. CMS. <https://www.emeasuretool.cms.gov/>
-
-3: Measures Management System Blueprint v14.0. CMS, September 2018. <https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html>
-
-4: Value Set Authority Center. U.S. National Library of Medicine. <https://vsac.nlm.nih.gov/>
+[Quality Reporting Document Architecture (QRDA) Category I](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35) is an HL7 standard that supports quality reporting at the individual patient level (referred to as QRDA Category I) and [Quality Reporting Document Architecture (QRDA) Category III](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=286) is an HL7 standard that supports quality reporting at the summary level (referred to as QRDA Category III). The aspects of QRDA related to reporting results are captured in the MeasureReport resource, while the aspects of QRDA representing patient information are captured by QI-Core. The FHIR Clinical Reasoning module replaces QRDA by defining the MeasureReport structure, and the [Data Exchange for Quality Measures Implementation Guide](http://build.fhir.org/ig/HL7/davinci-deqm/) provides implementation guidance for measure reporting.
