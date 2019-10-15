@@ -369,19 +369,19 @@ The Population Criteria (Snippet 12) includes definitions of criteria used to sp
 
 ```xml
 <group>
-    <population>
-      <code><coding><code value="initial-population"/></coding></code>
-      <criteria value="Initial Population"/>
-    </population>
-    <population>
-      <code><coding><code value="denominator"/></coding></code>
-      <criteria value="Denominator"/>
-    </population>
-    <population>
-      <code><coding><code value="numerator"/></coding></code>
-      <criteria value="Numerator"/>
-    </population>
-  </group>
+  <population>
+    <code><coding><code value="initial-population"/></coding></code>
+    <criteria value="Initial Population"/>
+  </population>
+  <population>
+    <code><coding><code value="denominator"/></coding></code>
+    <criteria value="Denominator"/>
+  </population>
+  <population>
+    <code><coding><code value="numerator"/></coding></code>
+    <criteria value="Numerator"/>
+  </population>
+</group>
 ```
 
 Snippet 12: Population Criteria from Snippet 1 (FHIR Measure structure - abridged for clarity (from sample [Measure-measure-exm.xml](Measure-measure-exm.html)))
@@ -637,14 +637,14 @@ define "Inpatient Encounter" :
       and Encounter.period ends during "Measurement Period"
 
 //Measure Observation
-define function "Related ED Visit" (Encounter "Encounter, Performed" ) :
+define function "Related ED Visit" (encounter Encounter) :
   Last(["Encounter" : "Emergency Department Visit"] ED
     where ED.status = 'finished'
-      and ED.period ends 1 hour or less before start of Encounter.period
+      and ED.period ends 1 hour or less before start of encounter.period
     sort by start of period )
 
-define function "Measure Observation" (Encounter "Encounter, Performed" ) :
-  duration in minutes of "Related ED Visit"(Encounter).period
+define function "Measure Observation" (encounter Encounter) :
+  duration in minutes of "Related ED Visit"(encounter).period
 ```
 
 Snippet 16: Sample CQL (from CMS55_FHIR-5.0.0.cql) for a continuous-variable measure
@@ -666,7 +666,7 @@ In the example shown in Snippet 15 and Snippet 16: the measure reports the aggre
 Snippet 18: "Measure Observation" function in Snippet 15 (Sample measure observation section from [measure-exm55-FHIR.json](Measure-measure-exm55-FHIR.json.html))
 
 ```cql
-define function "Measure Observation" (Encounter "Encounter, Performed" ) :
+define function "Measure Observation" (encounter Encounter) :
 ```
 Snippet 19: "Measure Observation" function in Snippet 16 (Sample CQL (from CMS55_FHIR-5.0.0.cql) for a continuous-variable measure)
 
