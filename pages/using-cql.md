@@ -55,7 +55,7 @@ include line as in Snippet 2.
 includes Common_FHIR version '2.0.0' called Common
 ```
 
-Snippet 2: Nested library within EXM146_FHIR-4.0.0.cql
+Snippet 2: Nested library within [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
 
 The set of all CQL libraries used to define a Measure must adhere to Conformance Requirement 18.
 
@@ -81,7 +81,7 @@ For example:
 using FHIR version '3.0.0'
 ```
 
-Snippet 3: Data Model line from EXM146_FHIR-4.0.0.cql
+Snippet 3: Data Model line from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
 
 ### 3.3 Code Systems
 
@@ -99,7 +99,7 @@ codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108'
   version 'http://snomed.info/sct/731000124108/version/201709'
 ```
 
-Snippet 4: codesystem definition line from Terminology_FHIR.cql.
+Snippet 4: codesystem definition line from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
 The canonical URL for a code system is a globally unique, stable, version-independent identifier for the code system. The base FHIR specification defines canonical URLs for most common code systems [here](http://hl7.org/fhir/STU3/terminologies-systems.html).
 
@@ -122,7 +122,7 @@ For example:
 valueset "Acute Pharyngitis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011'
 ```
 
-Snippet 5: Valueset reference from EXM146_FHIR-4.0.0.cql
+Snippet 5: Valueset reference from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
 
 The canonical URL for a value set is typically defined by the value set author, though it may be provided by the publisher as well. For example, value sets defined in the Value Set Authority Center and exposed via the VSAC FHIR interface have a base URL of `http://cts.nlm.nih.gov/fhir/`. This base is then used to construct the canonical URL for the value set (in the same way as any FHIR URL) using the resource type (`ValueSet` in this case) and the id (the value set OID in this case).
 
@@ -151,7 +151,7 @@ valueset "Encounter Inpatient SNOMEDCT Value Set":
    'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
 ```
 
-Snippet 6: valueset definition from Terminology_FHIR.cql.
+Snippet 6: valueset definition from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
 #### 3.4.2 By Profile
 
@@ -184,7 +184,7 @@ When direct reference codes are represented within CQL, the logical identifier i
 code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT"
 ```
 
-Snippet 7: code definition from Terminology_FHIR.cql.
+Snippet 7: code definition from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
 Note that for direct reference code usage, the local identifier (in Snippet 7 the local identifier is "Venous foot pump, device (physical object)") should be the same as the description of the code within the terminology in order to avoid conflicting with any usage or license agreements with the referenced terminologies, but can be different to allow for potential naming conflicts, as well as simplification of longer names when appropriate.
 
@@ -219,13 +219,13 @@ A “library-level identifier” is any named expression, function, parameter, c
 For example:
 
 ```cql
-define function 
+define function
    "Includes Or Starts During"(Condition "Condition", Encounter "Encounter"):
       Interval[Condition.onset, Condition.abatement] includes Encounter.period
          or Condition.onset during Encounter.period
 ```
 
-Snippet 8: Function definition from Common_FHIR-2.0.0.cql
+Snippet 8: Function definition from [Common_FHIR-2.0.0.cql](cql/Common_FHIR-2.0.0.cql)
 
 ### 3.8 Data Type Names
 
@@ -239,13 +239,13 @@ A "data type" in CQL refers to any named type used within CQL expressions. They 
 For example:
 
 ```cql
-define "Statin at Discharge":
-  ["MedicationRequest"] Statin
-    where (Statin.medication as CodeableConcept) in "Statin Grouper"
-      and Statin.intent = 'order'
+define "Flexible Sigmoidoscopy Performed":
+  [Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
+    where FlexibleSigmoidoscopy.status = 'completed'
+      and FlexibleSigmoidoscopy.performed ends 5 years or less on or before end of "Measurement Period"
 ```
 
-Snippet 9: Expression definition from EXM105_FHIR-7.0.0.cql   
+Snippet 9: Expression definition from [EXM130_FHIR-7.2.000.cql](cql/EXM130_FHIR-7.2.000.cql)
 
 ### 3.8.1 Negation in FHIR
 
