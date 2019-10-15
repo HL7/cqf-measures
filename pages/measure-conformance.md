@@ -334,19 +334,43 @@ The canonical representation of ELM makes it straightforward to derive data requ
 
 Note that if the data model does not specify profile identifiers, the ELM retrieves will not have a templateId specified. In this case, the name of the type in the data model is used.
 
-To illustrate the mapping, Snippet 10 shows an ELM data reference and Snippet 10 shows the corresponding dataRequirement
+To illustrate the mapping, Snippet 10 shows an ELM data reference and corresponding dataRequirement in both XML and JSON
 
+XML:
 ```xml
 <def name="Acute Pharyngitis" id="2.16.840.1.113883.3.464.1003.102.12.1011" accessLevel="Public" />
 ```
-
 ```xml
 <operand dataType="fhir:Condition" xsi:type="Retrieve">
     <codes name="Acute Pharyngitis" xsi:type="ValueSetRef" />
 </operand>
 ```
 
-Snippet 10: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html))
+JSON:
+```json
+"def" : [
+  {
+    "name" : "Acute Pharyngitis",
+    "id" : "2.16.840.1.113883.3.464.1003.102.12.1011",
+    "accessLevel" : "Public"
+  }
+]
+```
+```json
+"operand" : [
+  {
+    "dataType" : "{http://hl7.org/fhir}Condition",
+    "codeProperty" : "code",
+    "type" : "Retrieve",
+    "codes" : {
+       "name" : "Acute Pharyngitis",
+       "type" : "ValueSetRef"
+    }
+  }
+]
+ ```
+
+Snippet 10: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html) and [EXM146_FHIR-4.0.0.json](Measure-measure-exm146-FHIR.json.html))
 
 ```json
 {
