@@ -37,7 +37,7 @@ Snippet 1: FHIR Measure structure - abridged for clarity (from sample [Measure-m
 
 ### 2.1 Metadata
 
-The header of an eCQM document identifies and classifies the document and provides important metadata about the measure. [The CMS Measures Management System Blueprint](https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html) includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base Measure resource by including the Blueprint header requirements.
+The header of an eCQM document identifies and classifies the document and provides important metadata about the measure. [The CMS Measures Management System Blueprint](https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html) includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the [base Measure resource]({{site.data.fhir.path}}measure.html) by including the Blueprint header requirements.
 
 The rest of this section describes some of the more important components to the header, such as “Related Documents” ([Section 2.1.1](measure-conformance.html#211-realted-documents)), “Measurement Period” ([Section 2.1.2](measure-conformance.html#212-measurement-period)), and “Data Criteria” ([Section 2.3](measure-conformance.html#23-data-criteria)).
 
@@ -279,15 +279,13 @@ All declared valuesets and codes can be found in the [dataRequirement](Structure
 
 Snippet 8: Example Library terminology definitions (from [library-terminology-FHIR.json](Library-library-terminology-FHIR.json.html))
 
-Measures using valueset and/or direct referenced codes must conform to Conformance Requirement 4.
-
-**Conformance Requirement 4 (Terminology Inclusion):**
+**Conformance Requirement 4 (Terminology Inclusion):** Measures using valueset and/or direct referenced codes must conform to requirements of Conformance Requirement 4.
 1. All valuesets and codes referenced in the CQL SHALL be included in the Library using dataRequirement elements.
 2. If a valueset or code is referenced outside the context of a retrieve, the dataRequirement SHALL have the type 'CodeableConcept'
 
 All retrieves are included in the `dataRequirement` section.
 
-Retreives include the information for their corresponding terminology (value set or direct reference code).
+Retrieves include the information for their corresponding terminology (value set or direct reference code).
 
 Any direct reference codes or value sets not referenced by a retrieve will be included in `dataRequirements` using an element of type "CodeableConcept".
 
@@ -392,19 +390,19 @@ The Population Criteria (Snippet 12) includes definitions of criteria used to sp
 
 ```xml
 <group>
-    <population>
-      <code><coding><code value="initial-population"/></coding></code>
-      <criteria value="Initial Population"/>
-    </population>
-    <population>
-      <code><coding><code value="denominator"/></coding></code>
-      <criteria value="Denominator"/>
-    </population>
-    <population>
-      <code><coding><code value="numerator"/></coding></code>
-      <criteria value="Numerator"/>
-    </population>
-  </group>
+  <population>
+    <code><coding><code value="initial-population"/></coding></code>
+    <criteria value="Initial Population"/>
+  </population>
+  <population>
+    <code><coding><code value="denominator"/></coding></code>
+    <criteria value="Denominator"/>
+  </population>
+  <population>
+    <code><coding><code value="numerator"/></coding></code>
+    <criteria value="Numerator"/>
+  </population>
+</group>
 ```
 
 Snippet 12: Population Criteria from Snippet 1 (FHIR Measure structure - abridged for clarity (from sample [Measure-measure-exm.xml](Measure-measure-exm.html)))
@@ -476,7 +474,7 @@ Snippet 14: CQL definition of the "Initial Population" criteria (from [EXM146_FH
 
 #### 2.4.1 Criteria Names
 
-To encourage consistency among measures, the following guidelines for specifying population criteria within a measure are proposed. The measure population criteria names and calculation methods used here are based on those defined by the base Measure specification in FHIR.
+To encourage consistency among measures, the following guidelines for specifying population criteria within a measure are proposed. The measure population criteria names and calculation methods used here are based on those defined by the [base Measure specification]({{site.data.fhir.path}}measure.html) in FHIR.
 
 **Conformance Requirement 8 (Criteria Names):**<br/>
 The name of an expression specifying a population criteria within a measure SHOULD always be the name of the criteria type†† :
@@ -495,13 +493,13 @@ The name of an expression specifying a population criteria within a measure SHOU
 
 Note that the measure observation criteria is the name of a function used in the Continuous Variable Measure. See the [Continuous Variable Measure](measure-conformance.html#245-continuous-variable-measure) section for more.
 
-For each type of measure, the set of applicable criteria are defined by the base Measure specification. In addition, the formula for calculating the measure score is implied by the type of the measure. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
+For each type of measure, the set of applicable criteria are defined by the [base Measure specification]({{site.data.fhir.path}}measure.html). In addition, the formula for calculating the measure score is implied by the type of the measure. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
 
 In addition to the measure type, measures generally fall into two categories, patient-based, and non-patient- based, such as episode-of-care-based.  In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
 
 #### 2.4.2 Measure Population Semantics
 
-The base FHIR Measure resource defines a set of measure population components that are used to construct measures. Measure populations have implicit relationships to each other as defined in the base specification. For example, for proportion measures, denominator criteria have an implicit dependency on initial population criteria, i.e. the criteria for inclusion in the denominator of a measure implicitly include the criteria for inclusion in the initial population.  Similarly, numerator criteria have an implicit dependency on denominator criteria, i.e. the criteria for inclusion in the numerator of a measure implicitly include the criteria for inclusion in the denominator. CQL expressions referenced by Measure population criteria are evaluated within the context of these implicit dependencies.
+The base FHIR Measure resource defines a set of measure population components that are used to construct measures. Measure populations have implicit relationships to each other as defined in the [base specification]({{site.data.fhir.path}}measure.html). For example, for proportion measures, denominator criteria have an implicit dependency on initial population criteria, i.e. the criteria for inclusion in the denominator of a measure implicitly include the criteria for inclusion in the initial population.  Similarly, numerator criteria have an implicit dependency on denominator criteria, i.e. the criteria for inclusion in the numerator of a measure implicitly include the criteria for inclusion in the denominator. CQL expressions referenced by Measure population criteria are evaluated within the context of these implicit dependencies.
 
 
 Table 1: Measure populations based on types of measure scoring.
@@ -547,7 +545,7 @@ define "Denominator": true
 
 A Measure document representing a proportion measure will include one or more population criteria sections as described in Table 2.
 
-The semantics of these components are unchanged from the base Measure specification; the only difference is that each component references a single criterion encoded as a CQL expression.
+The semantics of these components are unchanged from the [base Measure specification]({{site.data.fhir.path}}measure.html); the only difference is that each component references a single criterion encoded as a CQL expression.
 
 The referenced CQL expressions return either an indication that a patient meets the population criteria (patient-based measures) or the events that a particular patient contributes to the population (episode-of- care-based measures). For example, consider two measures:
 
@@ -588,13 +586,13 @@ For measures conforming to this implementation guide, the populationBasis extens
 
 ##### 2.4.3.1 Proportion measure scoring
 
-Additional information on how proportion measures are scored (and the semantics behind the criteria names) can be found in the base Measure specification.
+Additional information on how proportion measures are scored (and the semantics behind the criteria names) can be found in the [base Measure specification]({{site.data.fhir.path}}measure.html).
 
 #### 2.4.4 Ratio Measures
 
 A Measure document representing a ratio measure will include one or more population criteria sections as described in Table 1.
 
-In addition, it may also include one or more measure-observation elements. The semantics of these components are unchanged from the base Measure specification; the only difference is that each measure population component and each measure observation definition references a single criterion encoded as a CQL expression.
+In addition, it may also include one or more measure-observation elements. The semantics of these components are unchanged from the [base Measure specification]({{site.data.fhir.path}}measure.html); the only difference is that each measure population component and each measure observation definition references a single criterion encoded as a CQL expression.
 
 **Conformance Requirement 11 (Ratio Measures):**
 1. Population criteria SHALL each reference a single CQL expression as defined by Conformance Requirement 11.
@@ -606,13 +604,13 @@ For ratio measures that include a Measure Observation, the measure observation i
 
 ##### 2.4.4.1 Ratio measure scoring
 
-Additional information on how ratio measures are scored (and the semantics behind the criteria names) can be found in the base Measure specification.
+Additional information on how ratio measures are scored (and the semantics behind the criteria names) can be found in the [base Measure specification]({{site.data.fhir.path}}measure.html).
 
 #### 2.4.5 Continuous Variable Measure
 
 A Measure document representing a continuous variable measure will include one or more population criteria sections as described in Table 1.
 
-In addition, it will also include at least one measure-observation criteria. The semantics of these components are unchanged from the base Measure specification. For measure-observation criteria, two extensions are used to ensure implementability:
+In addition, it will also include at least one measure-observation criteria. The semantics of these components are unchanged from the [base Measure specification]({{site.data.fhir.path}}measure.html). For measure-observation criteria, two extensions are used to ensure implementability:
 
 1. aggregateMethod: This extension defines the method used to aggregate the measure observations defined by the criteria
 2. criteriaReference: This extension is used to indicate which population should be used as the source for the measure observations. This extension is used in cases where there may be multiple initial populations in a single group (such as a Ratio measure).
@@ -661,17 +659,17 @@ define "Inpatient Encounter" :
       and Encounter.period ends during "Measurement Period"
 
 //Measure Observation
-define function "Related ED Visit" (Encounter "Encounter, Performed" ) :
+define function "Related ED Visit" (encounter Encounter) :
   Last(["Encounter" : "Emergency Department Visit"] ED
     where ED.status = 'finished'
-      and ED.period ends 1 hour or less before start of Encounter.period
+      and ED.period ends 1 hour or less before start of encounter.period
     sort by start of period )
 
-define function "Measure Observation" (Encounter "Encounter, Performed" ) :
-  duration in minutes of "Related ED Visit"(Encounter).period
+define function "Measure Observation" (encounter Encounter) :
+  duration in minutes of "Related ED Visit"(encounter).period
 ```
 
-Snippet 16: Sample CQL (from CMS55_FHIR-5.0.0.cql) for a continuous-variable measure
+Snippet 16: Sample CQL (from [CMS55_FHIR-5.0.0.cql](cql/EXM55_FHIR-5.0.0.cql)) for a continuous-variable measure
 
 In the example shown in Snippet 15 and Snippet 16: the measure reports the aggregate type (Snippet 17) of the result of executing the "Measure Observation" function (Snippet 18, Snippet 19) on each of the events in the measure population, as determined by the “Measure Population” expression (Snippet 20, and Snippet 21).
 
@@ -690,9 +688,9 @@ In the example shown in Snippet 15 and Snippet 16: the measure reports the aggre
 Snippet 18: "Measure Observation" function in Snippet 15 (Sample measure observation section from [measure-exm55-FHIR.json](Measure-measure-exm55-FHIR.json.html))
 
 ```cql
-define function "Measure Observation" (Encounter "Encounter, Performed" ) :
+define function "Measure Observation" (encounter Encounter) :
 ```
-Snippet 19: "Measure Observation" function in Snippet 16 (Sample CQL (from CMS55_FHIR-5.0.0.cql) for a continuous-variable measure)
+Snippet 19: "Measure Observation" function in Snippet 16 (Sample CQL (from [CMS55_FHIR-5.0.0.cql](cql/EXM55_FHIR-5.0.0.cql)) for a continuous-variable measure)
 
 ```json
 {
@@ -705,7 +703,7 @@ Snippet 20: Identifier referenced in Snippet 15 (Sample measure observation sect
 ```cql
 define "Measure Population" :
 ```
-Snippet 21: Definition from Snippet 16 (Sample CQL (from CMS55_FHIR-5.0.0.cql) for a continuous-variable measure)
+Snippet 21: Definition from Snippet 16 (Sample CQL (from [CMS55_FHIR-5.0.0.cql](cql/EXM55_FHIR-5.0.0.cql)) for a continuous-variable measure)
 
 **Conformance Requirement 12 (Continuous Variable Measures):**
 1. Population criteria SHALL each reference a single CQL expression as defined by Conformance Requirement 11.
@@ -728,7 +726,7 @@ Note that the criteria reference in the measure observation definition is presen
 
 ##### 2.4.5.1 Continuous variable measure scoring
 
-Additional information on how continuous variable measures are scored (and the semantics behind the criteria names) can be found in the base Measure specification.
+Additional information on how continuous variable measures are scored (and the semantics behind the criteria names) can be found in the [base Measure specification]({{site.data.fhir.path}}measure.html).
 
 #### 2.4.6 Cohort Definitions
 
@@ -755,7 +753,7 @@ Note also that when a measure has multiple population groups, the expectation is
 1. For patient-based measures, the CQL stratification expression SHALL return a Boolean.
 2. For event-based measures (e.g. episode-of-care), the CQLstratification  expression SHALL return a list of events of the same type as the population criteria.
 
-Stratification is represented using the stratifier element. The semantics of this element are unchanged from the base Measure specification; the only difference is that each population criteria references a CQL expression that returns a Boolean, (or event for event-based measures) to determine whether a given patient meets the criteria for that stratification. Snippet 22 shows an example stratifier that stratifies results for two sub-populations. Snippet 23 shows the CQL representation of the stratifier.
+Stratification is represented using the stratifier element. The semantics of this element are unchanged from the [base Measure specification]({{site.data.fhir.path}}measure.html); the only difference is that each population criteria references a CQL expression that returns a Boolean, (or event for event-based measures) to determine whether a given patient meets the criteria for that stratification. Snippet 22 shows an example stratifier that stratifies results for two sub-populations. Snippet 23 shows the CQL representation of the stratifier.
 
 ```json
 "stratifier": [
@@ -776,7 +774,7 @@ define "Stratification 1" :
     where not (PrincipalDiagnosis(Encounter).code in "Psychiatric/Mental Health Patient")
  ```
 
-Snippet 23: Example Stratifier from EXM55_FHIR-5.0.0.cql
+Snippet 23: Example Stratifier from [CMS55_FHIR-5.0.0.cql](cql/EXM55_FHIR-5.0.0.cql)
 
 #### 2.4.9 Supplemental Data Elements
 
@@ -853,6 +851,6 @@ define "Hepatic Failure":
     and exists ("Serum Albumin Test")
 ```
 
-Snippet 27: Sample Risk Adjustment Variable from EXMRiskAdjustment_FHIR.cql
+Snippet 27: Sample Risk Adjustment Variable from [EXMRiskAdjustment_FHIR2.cql](cql/RiskAdjustment_FHIR2.cql)                                                
 
 An example of risk adjustment can be found in the included examples/EXMRiskAdjustment; the relevant sections of the FHIR Measure (Snippet 26) and CQL (Snippet 27) have been included.
