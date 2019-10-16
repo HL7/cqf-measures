@@ -200,7 +200,7 @@ value of `application/elm+json`
 6. Any translation-referenced ELM documents SHALL be semantically
 equivalent to the corresponding parent CQL expression document.
 
-The content elements in Snippet 4 provide an example of how a CQFMLibrary resource would reference both the CQL and the ELM. More on ELM can be found in Section 3.1.1. For examples of ELM using the XML and JSON representations please see the included examples, [EXM146v4_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html) and [EXM146v4_FHIR-4.0.0.json](Measure-measure-exm146-FHIR.json.html).
+The content elements in Snippet 4 provide an example of how a CQFMLibrary resource would contain both the CQL and the ELM as base-64-encoded strings. More on ELM can be found in Section 3.1.1. For examples of ELM using the XML and JSON representations please see the included examples, [EXM146v4_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html) and [EXM146v4_FHIR-4.0.0.json](Measure-measure-exm146-FHIR.json.html).
 
 #### 2.1.2 Measurement Period
 
