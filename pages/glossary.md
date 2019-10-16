@@ -19,13 +19,7 @@ A measure score in which a population is identified from the population of all i
 
 A measure score in which each individual value for the measure can fall anywhere along a continuous scale and can be aggregated using a variety of methods such as the calculation of a mean or median (for example, mean number of minutes between presentation of chest pain to the time of administration of thrombolytics). [Source](https://ecqi.healthit.gov/glossary)
 
-<<<<<<< Updated upstream
-Example continuous variable measure: [Median ED Visit Duration (EXM55)](Library-library-exm55-FHIR.html)
-
-### A.3 Denominator
-=======
 #### A.4 Denominator
->>>>>>> Stashed changes
 
 The lower part of a fraction used to calculate a rate, proportion, or ratio. It can be the same as the initial population or a subset of the initial population to further constrain the population for the purpose of the measure. Continuous variable measures do not have a denominator, but instead define a measure population. [Source](https://ecqi.healthit.gov/glossary)
 
@@ -83,13 +77,7 @@ A measure that focuses on a sequence of actions or steps that should be followed
 
 A score derived by dividing the number of cases that meet a criterion for quality (the numerator) by the number of eligible cases within a given time frame (the denominator) where the numerator cases are a subset of the denominator cases (for example, percentage of eligible women with a mammogram performed in the last year). [Source](https://ecqi.healthit.gov/glossary)
 
-<<<<<<< Updated upstream
-Example proportion measures: [Breast Cancer Screening (EXM125)](Library-library-exm125-FHIR.html),  [Cervical Cancer Screening (EXM124)](Library-library-exm124-FHIR.html), [Colorectal Cancer Screening (EXM130)](Library-library-exm130-FHIR.html) [Appropriate Testing for Children with Pharyngitis (EXM146)](Library-library-exm146-FHIR.html)
-
-### A.17 Quality Measure Set
-=======
 #### A.18 Quality Measure Set
->>>>>>> Stashed changes
 
 A unique grouping of measures carefully selected to provide, when viewed together, a robust picture of the care provided in a given domain (e.g., cardiovascular care, pregnancy).
 
