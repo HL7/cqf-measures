@@ -217,7 +217,7 @@ value of `application/elm+json`
 6. Any translation-referenced ELM documents SHALL be semantically
 equivalent to the corresponding parent CQL expression document.
 
-The content elements in Snippet 4 provide an example of how a CQFMLibrary resource would reference both the CQL and the ELM. More on ELM can be found in Section 3.1.1. For examples of ELM using the XML and JSON representations please see the included examples, [EXM146v4_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html) and [EXM146v4_FHIR-4.0.0.json](Measure-measure-exm146-FHIR.json.html).
+The content elements in Snippet 4 provide an example of how a CQFMLibrary resource would contain both the CQL and the ELM as base-64-encoded strings. More on ELM can be found in Section 3.1.1. For examples of ELM using the XML and JSON representations please see the included examples, [EXM146v4_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html) and [EXM146v4_FHIR-4.0.0.json](Measure-measure-exm146-FHIR.json.html).
 
 #### 2.1.2 Measurement Period 
 {: #measurement-period}
@@ -358,19 +358,43 @@ The canonical representation of ELM makes it straightforward to derive data requ
 
 Note that if the data model does not specify profile identifiers, the ELM retrieves will not have a templateId specified. In this case, the name of the type in the data model is used.
 
-To illustrate the mapping, Snippet 10 shows an ELM data reference and Snippet 10 shows the corresponding dataRequirement
+To illustrate the mapping, Snippet 10 shows an ELM data reference and corresponding dataRequirement in both XML and JSON
 
+XML:
 ```xml
 <def name="Acute Pharyngitis" id="2.16.840.1.113883.3.464.1003.102.12.1011" accessLevel="Public" />
 ```
-
 ```xml
 <operand dataType="fhir:Condition" xsi:type="Retrieve">
     <codes name="Acute Pharyngitis" xsi:type="ValueSetRef" />
 </operand>
 ```
 
-Snippet 10: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html))
+JSON:
+```json
+"def" : [
+  {
+    "name" : "Acute Pharyngitis",
+    "id" : "2.16.840.1.113883.3.464.1003.102.12.1011",
+    "accessLevel" : "Public"
+  }
+]
+```
+```json
+"operand" : [
+  {
+    "dataType" : "{http://hl7.org/fhir}Condition",
+    "codeProperty" : "code",
+    "type" : "Retrieve",
+    "codes" : {
+       "name" : "Acute Pharyngitis",
+       "type" : "ValueSetRef"
+    }
+  }
+]
+ ```
+
+Snippet 10: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html) and [EXM146_FHIR-4.0.0.json](Measure-measure-exm146-FHIR.json.html))
 
 ```json
 {
@@ -479,7 +503,7 @@ Snippet 14: CQL definition of the "Initial Population" criteria (from [EXM146_FH
 #### 2.4.1 Criteria Names 
 {: #criteria-names}
 
-To encourage consistency among measures, the following guidelines for specifying population criteria within a measure are proposed. The measure population criteria names and calculation methods used here are based on those defined by the [base Measure specification]({{site.data.fhir.path}}measure.html) in FHIR.
+To encourage consistency among measures, the following guidelines for specifying population criteria within a measure are proposed. The measure population criteria names used here are defined by the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification.
 
 **Conformance Requirement 8 (Criteria Names):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-8)
 {: #conformance-requirement-8}
@@ -497,17 +521,9 @@ The name of an expression specifying a population criteria within a measure SHOU
 
 †† When using multiple populations and/or multiple population groups, see Section 2.4.7
 
-Note that the measure observation criteria is the name of a function used in the Continuous Variable Measure. See the [Continuous Variable Measure](measure-conformance.html#245-continuous-variable-measure) section for more.
+Note that the Measure Observation criteria is the name of a function used in the Continuous Variable Measure. See the [Continuous Variable Measure](measure-conformance.html#245-continuous-variable-measure) section for more.
 
-For each type of measure, the set of applicable criteria are defined by the [base Measure specification]({{site.data.fhir.path}}measure.html). In addition, the formula for calculating the measure score is implied by the type of the measure. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
-
-In addition to the measure type, measures generally fall into two categories, patient-based, and non-patient- based, such as episode-of-care-based.  In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
-
-#### 2.4.2 Measure Population Semantics 
-{: #measure-population-semantics}
-
-The base FHIR Measure resource defines a set of measure population components that are used to construct measures. Measure populations have implicit relationships to each other as defined in the [base specification]({{site.data.fhir.path}}measure.html). For example, for proportion measures, denominator criteria have an implicit dependency on initial population criteria, i.e. the criteria for inclusion in the denominator of a measure implicitly include the criteria for inclusion in the initial population.  Similarly, numerator criteria have an implicit dependency on denominator criteria, i.e. the criteria for inclusion in the numerator of a measure implicitly include the criteria for inclusion in the denominator. CQL expressions referenced by Measure population criteria are evaluated within the context of these implicit dependencies.
-
+For each scoring type, the set of applicable criteria are specified in the [Quality Reporting]() topic of the FHIR Clinical Reasoning module. The table is reproduced here for reference:
 
 Table 1: Measure populations based on types of measure scoring.
 
@@ -523,10 +539,21 @@ R=Required. O=Optional. NP=Not Permitted.
 
 ‡‡ Some ratio measures will require multiple Initial Populations, one for the numerator and one for the denominator.
 
-**Conformance Requirement 9 (Measure Population Semantics):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-9)
+In addition, the formula for calculating the measure score is implied by the type of the measure. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
+
+In addition to the measure type, measures generally fall into two categories, patient-based, and non-patient-based (e.g. encounter-based).  In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
+
+**Conformance Requirement 9 (Population Basis):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-9)
 {: #conformance-requirement-9}
-1. CQL expressions used as measure population criteria SHALL be evaluated taking relevant dependencies into account, as specified by the membership determination formulas.<br/>
-      a. And include membership determination formulas from the base HQMF specification. (And submit a tracker to promote those to the base FHIR specification).
+1. CQL expressions SHALL be written to return an appropriate value for each population depending on the measure type
+2. The populationBasis extension SHALL be used to identify the result type of population criteria expressions in the measure
+
+#### 2.4.2 Measure Population Semantics
+
+The base FHIR Measure resource defines a set of measure population components that are used to construct measures. Measure populations have implicit relationships to each other depending on the measure scoring type. For example, for proportion measures, denominator criteria have an implicit dependency on initial population criteria, i.e. the criteria for inclusion in the denominator of a measure implicitly include the criteria for inclusion in the initial population.  Similarly, numerator criteria have an implicit dependency on denominator criteria, i.e. the criteria for inclusion in the numerator of a measure implicitly include the criteria for inclusion in the denominator. CQL expressions referenced by Measure population criteria are evaluated within the context of these implicit dependencies.
+
+**Conformance Requirement 9 (Measure Population Semantics):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-9)
+1. CQL expressions used as measure population criteria SHALL be evaluated taking relevant dependencies into account, as specified by the membership determination formulas defined for each scoring type.
 2. CQL expressions MAY include explicit dependencies that duplicate the
 implicit FHIR-based eCQM population dependencies.
 
@@ -534,7 +561,7 @@ For example, Snippet 15 defines the "Initial Population" and "Denominator" for a
 
 ```cql
 define "Initial Population":
-"In Demographic" and "Has Target Encounter"
+  "In Demographic" and "Has Target Encounter"
 
 define "Denominator": "Initial Population"
 ```
@@ -547,7 +574,7 @@ In this snippet, the relationship between the "Denominator" and the "Initial Pop
 define "Denominator": true
 ```
 
- This last bit of code defines the "Denominator" utilizing the Measure dependencies but this dependency is not obvious from the CQL; this is called an implicit dependency.
+In this variant, the "Denominator" is utilizing the Measure dependencies but this dependency is not explicitly expressed in the CQL; this is referred to as an implicit dependency.
 
 #### 2.4.3 Proportion Measures 
 {: #proportion-measures}
@@ -562,7 +589,7 @@ The referenced CQL expressions return either an indication that a patient meets 
 |:--------|:------------|:----------|
 | Patient-based | All patients with condition A that had one or more encounters during the measurement period. | All patients with condition A that underwent procedure B during the measurement period. |
 | Episode-of-Care | All encounters for patients with condition A during the measurement period. | All encounters for patients with condition A during the measurement period where procedure B was performed during the encounter. | -->
-<table class="table">
+<table class="grid">
   <thead>
     <tr>
       <th style="text-align: left" class="col-2">Measure</th>
@@ -586,7 +613,8 @@ The referenced CQL expressions return either an indication that a patient meets 
 Table 2: Patient-based and Episode-of-Care Measure Examples
 
 In Table 2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is an episode-of-care measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
-For measures conforming to this implementation guide, the populationBasis extension is used to identify the return type of population criteria expressions. CQL expressions SHALL be written to return an appropriate value for each population depending on the measure type, and that type SHALL be specified using the populationBasis extension.
+
+For complete examples of patient-based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an encounter-based proportion measure, see the [VTE-1-FHIR](Measure-measure-vte-1-FHIR.html) measure included in this implementation.
 
 **Conformance Requirement 10 (Proportion Measures):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-10)
 {: #conformance-requirement-10}
@@ -597,7 +625,96 @@ For measures conforming to this implementation guide, the populationBasis extens
 ##### 2.4.3.1 Proportion measure scoring 
 {: #proportion-measure-scoring}
 
-Additional information on how proportion measures are scored (and the semantics behind the criteria names) can be found in the [base Measure specification]({{site.data.fhir.path}}measure.html).
+The population types for a Proportion measure are "Initial Population", "Denominator", "Denominator Exclusion", "Numerator", "Numerator Exclusion" and "Denominator Exception". The following diagram shows the relationships between the populations for proportion measures and the table below provides their definitions.
+
+Figure 4: Population criteria for Proportion measures illustration
+
+![Proportion Venn Diagram](assets/images/ProportionVenn.jpg)
+
+Table 2: Population Criteria Definitions for Proportion Measures
+
+| Population | Definition |
+|:----|:----:|
+| Initial Population (IPOP) | All entities to be evaluated by an eMeasure which may but are not required to share a common set of specified characteristics within a named measurement set to which the eMeasure belongs. |
+| Denominator (DENOM) | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the eMeasure. |
+| Denominator Exclusion (DENEX) | Entities to be removed from the Initial Population and Denominator before determining if Numerator criteria are met. Denominator Exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
+| Numerator (NUMER) | The processes or outcomes for each entity defined in the Denominator of a Proportion or Ratio measure. |
+| Numerator Exclusion (NUMEX) | Entities that should be removed from the eMeasure's Numerator. Numerator exclusions are used in Proportion and Ratio measures to help narrow the Numerator (for inverted measures). |
+| Denominator Exception (DENEXCEP) | Those conditions that should remove a patient, procedure, or unit of measurement from the Denominator only if the Numerator criteria are not met. Denominator exceptions allow for adjustment of the calculated score for those providers with higher risk populations. |
+
+Here is an example of using population types to select data on diabetes patients for a Proportion measure:
+
+* Initial Population (IPOP): Patient is between the age of 16 and 74
+* Denominator (DENOM): Patient has Diabetes Type II
+* Numerator (NUMER): Patient is between the age of 16 and 74, has Diabetes Type II, and the most recent laboratory result has hbA1C value > 9%
+* Denominator Exception (DENEXCEP): Patient meets the DENOM criteria and does NOT meet the NUMER criteria, and is designated as having "Steroid Induced Diabetes" or "Gestational Diabetes"
+
+Figure 5: Calcuation Flow for Proportion Measures
+
+![Calculation Flow Diagram-Proportion](assets/images/CalculationFlowDiagrams-Proportion.jpg)
+
+* Initial population (IPOP): Identify those cases that meet the IPOP criteria.
+* Denominator (DENOM): Identify that subset of the IPOP that meet the DENOM criteria.
+* Denominator exclusion (DENEX): Identify that subset of the DENOM that meet the DENEX criteria. There are cases that should be removed from the denominator as exclusion. Once these cases are removed, the subset remaining would reflect the denominator per criteria.
+* Numerator (NUMER): Identify those cases in the DENOM and NOT in the DENEX that meet the NUMER criteria. In proportion measures, the numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the denominator.
+* Numerator exclusion (NUMEX): Identify that subset of the NUMER that meet the NUMEX criteria. Numerator Exclusion is used only in ratio eMeasures to define instances that should not be included in the numerator data.
+* Denominator exception (DENEXCEP): Identify those in the DENOM and NOT in the DENEX and NOT in the NUMER that meet the DENEXCEP criteria.
+
+The “performance rate” is a ratio of patients meeting NUMER criteria, divided by patients in the DENOM (accounting for exclusion and exception). Performance rate can be calculated using this formula:
+
+Performance rate = (NUMER - NUMEX) / (DENOM – DENEX – DENEXCEP)
+
+##### 2.3.1.1.1 Patient-based Calcuation
+
+The following snippet provides precise semantics for the measure score calculation for a patient-based proportion measure:
+
+```cql
+context Patient
+
+define "Denominator Membership":
+  "Initial Population"
+    and "Denominator"
+    and not "Denominator Exclusion"
+    and not ("Denominator Exception" and not "Numerator")
+
+define "Numerator Membership":
+  "Initial Population"
+    and "Denominator"
+    and not "Denominator Exclusion"
+    and "Numerator"
+    and not "Numerator Exclusion"
+
+context Population
+
+define "Measure Score":
+  Count("Numerator Membership" IsMember where IsMember is true)
+    / Count("Denominator Membership" IsMember where IsMember is true)
+```
+
+##### 2.3.1.1.2 Non-patient-based Calcuation
+
+The following snippet provides precise semantics for the measure score calculation for a non-patient-based proportion measure:
+
+```cql
+define "Numerator Membership":
+  "Initial Population"
+    intersect "Denominator"
+    except "Denominator Exclusion"
+    intersect "Numerator"
+    except "Numerator Exclusion"
+
+define "Denominator Membership":
+  "Initial Population"
+    intersect "Denominator"
+    except "Denominator Exclusion"
+    except ("Denominator Exception" except "Numerator")
+
+context Population
+
+define "Measure Score":
+  Count("Numerator Membership") /
+    Count("Denominator Membership")
+```
 
 #### 2.4.4 Ratio Measures 
 {: #ratio-measures}
@@ -618,7 +735,111 @@ For ratio measures that include a Measure Observation, the measure observation i
 ##### 2.4.4.1 Ratio measure scoring 
 {: #ratio-measure-scoring}
 
-Additional information on how ratio measures are scored (and the semantics behind the criteria names) can be found in the [base Measure specification]({{site.data.fhir.path}}measure.html).
+The population types for a Ratio measure are "Initial Population", "Denominator", "Denominator Exclusion", "Numerator" and "Numerator Exclusion". The following diagrams show the relationships between the populations for Ratio measures and the table below provides their definitions.
+
+Figure 8: Population criteria for Ratio measures illustration
+
+![Ratio Venn Diagram](assets/images/RatioVenn.jpg)
+
+Figure 9: Population criteria for Ratio measures illustration
+
+![Ratio 2 Venn Diagram](assets/images/Ratio2Venn.png)
+
+Figure 10: Population criteria for Ratio measures illustration
+
+![Ratio 3 Venn Diagram](assets/images/Ratio3Venn.png)
+
+Table 4: Population Criteria Definitions for Ratio Measures
+
+| Population | Definition |
+|:----|:----:|
+| Initial Population (IPOP) | All entities to be evaluated by an eMeasure which may but are not required to share a common set of specified characteristics within a named measurement set to which the eMeasure belongs. Ratio measures are allowed to have two Initial Populations, one for Numerator and one for Denominator. In most cases, there is only 1 Initial Population |
+| Denominator (DENOM) | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the eMeasure. |
+| Denominator Exclusion (DENEX) | Entities that should be removed from the Initial Population and Denominator before determining if Numerator criteria are met. Denominator exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
+| Numerator (NUMER) | The outcomes expected for each entity defined in the Denominator of a Proportion or Ratio measure. |
+| Numerator Exclusion (NUMEX) | Entities that should be removed from the eMeasure's Numerator before determining if Numerator criteria are met. Numerator exclusions are used in Proportion and Ratio measures to help narrow the Numerator. |
+
+Here is an example of using the population types to select data on patients with central line catheters for a ratio measure:
+
+* Initial Population (IPOP): Patient is aged 65 years or older and admitted to hospital
+* Denominator (DENOM): Patient has a central line
+* Denominator Exclusion (DENEX): Patient is immunosuppressed
+* Numerator (NUMER): Patient has a central line blood stream infection
+* Numerator Exclusion (NUMEX): Patient's central line blood stream infection is deemed to be a contaminant
+
+Figure 11: Calcuation Flow for Ratio Measure Score
+
+![Calculation Flow Diagram-Ratio](assets/images/CalculationFlowDiagrams-Ratio.jpg)
+
+* Initial population (IPOP): Identify those cases that meet the IPOP criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
+* Denominator (DENOM): Identify that subset of the IPOP that meet the DENOM criteria.
+* Denominator exclusion (DENEX): Identify that subset of the DENOM that meet the DENEX criteria.
+* Numerator (NUMER): Identify that subset of the IPOP that meet the NUMER criteria.
+* Numerator exclusion (NUMEX): Identify that subset of the NUMER that meet the NUMEX criteria.
+
+##### 2.3.1.3.1 Individual Observations
+
+For each case in the DENOM and not in the DENEX, determine the individual DENOM observations.
+
+For each case in the NUMER and not in the NUMEX, determine the individual NUMER observations.
+
+##### 2.3.1.3.2 Measusre Aggregates
+
+Using individual observations for all cases in the DENOM and not in the DENEX, calculate the aggregate DENOM.
+
+Using individual observations for all cases in the NUMER and not in the NUMEX, calculate the aggregate NUMER.
+
+Ratio = aggregate NUMER / aggregate DENOM
+
+##### 2.3.1.3.3 Patient-based Calcuation
+
+The following snippet provides precise semantics for the measure score calculation for a patient-based ratio measure:
+
+```cql
+context Patient
+
+define "Denominator Membership":
+  "Initial Population"
+    and "Denominator"
+    and not "Denominator Exclusion"
+
+define "Numerator Membership":
+  "Initial Population"
+    and "Numerator"
+    and not "Numerator Exclusion"
+
+context Population
+
+define "Measure Ratio Numerator":
+  Count("Numerator Membership" IsMember where IsMember is true)
+
+define "Measure Ratio Denominator":
+  Count("Denominator Membership" IsMember where IsMember is true)
+```
+
+##### 2.3.1.3.4 Non-patient-based Calcuation
+
+The following snippet provides precise semantics for the measure score calculation for a non-patient-based ratio measure:
+
+```cql
+define "Numerator Membership":
+  "Initial Population"
+    intersect "Numerator"
+    except "Numerator Exclusion"
+
+define "Denominator Membership":
+  "Initial Population"
+    intersect "Denominator"
+    except "Denominator Exclusion"
+
+context Population
+
+define "Measure Score Numerator":
+  Count("Numerator Membership")
+
+define "Measure Score Denominator":
+  Count("Denominator Membership")
+```
 
 #### 2.4.5 Continuous Variable Measure 
 {: #continuous-variable-measure}
@@ -743,14 +964,90 @@ Note that the criteria reference in the measure observation definition is presen
 ##### 2.4.5.1 Continuous variable measure scoring 
 {: #continuous-variable-measure-scoring}
 
-Additional information on how continuous variable measures are scored (and the semantics behind the criteria names) can be found in the [base Measure specification]({{site.data.fhir.path}}measure.html).
+The population types for a Continuous Variable measure are "Initial Population", "Measure Population", and "Measure Population Exclusion". In addition to these populations, a Measure Observation is defined which contains one or more Continuous Variable statements that are used to score one or more particular aspects of performance. The following diagram shows the relationships between the populations for Continuous Variable measures and the table below provides their definitions.
+
+Figure 6: Population criteria for Continuous Variable measures illustration
+
+![Continuous Variable Venn Diagram](assets/images/CVVenn.jpg)
+
+Table 3: Population Criteria Definitions for Continuous Variable Measures
+
+| Population | Definition |
+|:----|:----:|
+| Initial Population (IPOP) | All entities to be evaluated by an eMeasure which may but are not required to share a common set of specified characteristics within a named measurement set to which the eMeasure belongs. |
+| Measure Population (MSRPOPL) | Continuous Variable measures do not have a Denominator, but instead define a Measure Population, as shown in the figure above. Rather than reporting a Numerator and Denominator, a Continuous Variable measure defines variables that are computed across the Measure Population (e.g., average wait time in the emergency department). A Measure Population may be the same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the eMeasure. |
+| Measure Population Exclusions (MSRPOPLEX) | Patients who should be removed from the eMeasure's Initial Population and Measure Population before determining the outcome of one or more continuous variables defined within a Measure Observation. Measure Population Exclusions are used in Continuous Variable measures to help narrow the Measure Population. |
+
+Here is an example of using the population types to select data on emergency department patients for a Continuous Variable measure:
+
+* Initial Population (IPOP): Patient had an emergency department (ED) encounter
+* Measure Population (MSRPOPL): Same as Initial Population
+* Measure Population Exclusion (MSRPOPLEX): Patient had an inpatient encounter that was within 6 hours of the ED encounter or expired in the ED
+
+Figure 7: Calcuation Flow for Continuous Variable Measure Score
+
+![Calculation Flow Diagram-ContinuousVariable](assets/images/CalculationFlowDiagrams-ContinuousVariable.jpg)
+
+* Initial population (IPOP): Identify those cases that meet the IPOP criteria.
+* Measure population (MSRPOPL): Identify that subset of the IPOP that meet the MSRPOPL criteria.
+* Measure population exclusion (MSRPOPLEX): Identify that subset of the MSRPOPL that meet the MSRPOPLEX criteria.
+
+##### 2.3.1.2.1 Individual Observations
+
+Individual Observations are calculated for each case in the MSRPOPL and not in the MSRPOPLEX.
+
+##### 2.3.1.2.2 Measure Aggregates
+
+Using individual observations for all cases in the MSRPOPL and not in the MSRPOPLEX, calculate the aggregate MSRPOPL.
+
+Score = aggregate MSRPOPL
+
+##### 2.3.1.2.3 Calcuation
+
+The following snippet provides precise semantics for the measure score calculation for a continuous variable measure:
+
+```cql
+define "Measure Population Membership":
+  "Initial Population"
+    intersect "Measure Population"
+    except "Measure Population Exclusion"
+
+context Population
+
+define "Measure Score":
+  Avg("Measure Population Membership" PopulationMember
+      return "Median ED Time"(PopulationMember)
+  )
+```
 
 #### 2.4.6 Cohort Definitions 
 {: #cohort-definitions}
 
 For cohort definitions, only the Initial Population criteria type is used. For patient-based cohort definitions, the criteria should return a true or false (or null). For other types of cohort definitions, the criteria may return any type.
 
-#### 2.4.7 Measures with Multiple Populations 
+In a cohort measure, a population is identified from the population of all items being counted. For example, one might identify all the patients who have had H1N1 symptoms. The identified population is very similar to the Initial Population but is called a Cohort Population for public health purposes. In the Constrained Information Model (CIM), the population will be expressed using the InitialPopulationCriteria act. The Cohort Population result is used by public health agencies to trigger specific public health activities. The following diagram depicts the population for a Cohort measure and the table below provides its definition.
+
+Figure 12: Population criteria for Cohort measures illustration
+
+![Cohort Venn Diagram](assets/images/CohortVenn.jpg)
+
+Table 5: Population Criteria Definitions for Cohort Measures
+
+| Population | Definition |
+|:----|:----:|
+| Initial Population (IPOP) | All entities to be evaluated by an eMeasure which may but are not required to share a common set of specified characteristics within a named measurement set to which the eMeasure belongs. (Also known as a Cohort Population) |
+
+Here is an example of using the population types to select data on patients who have received immunizations for a Cohort measure:
+
+* Initial Population (IPOP): All patients who had an immunization
+
+Figure 13: Calcuation Flow for Cohort
+
+Calculation Flow Diagram-Cohort
+
+* Initial population (IPOP): Identify those cases that meet the IPOP criteria.
+
+#### 2.4.7 Measures with Multiple Populations
 {: #measures-with-multiple-populations}
 
 When a measure has multiple population groups (multiple group elements), the criteria names will follow the convention above, adding the number of the population group to each criterion, e.g. "Initial Population 1", "Denominator 1", etc. Note that when multiple population groups are present, the number of the group is added to all population groups, not just the groups other than the first.
