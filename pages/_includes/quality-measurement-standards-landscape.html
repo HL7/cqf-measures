@@ -81,16 +81,17 @@ Quality Framework</a> for more information):</p>
 
 <h5>Fast Healthcare Interoperability Resources (FHIR)</h5>
 
-<p>Fast Healthcare Interoperability Resources, or FHIR, is an HL7 platform
-specification for healthcare that supports exchange of healthcare information
-between systems. FHIR is universally applicable, meaning that it can be used in
-a broad variety of implementation environments. The platform provides layers of
-implementation that support foundational protocols; base implementation
-functionality such as conformance and terminology; administrative functionality
-to represent patients, care teams, locations, and organizations; healthcare
-processes including clinical and diagnostic information, as well as medication,
-workflow, and financial; and finally, a clinical reasoning layer that provides
-support for the representation of knowledge and reasoning about healthcare.</p>
+<p><a href="http://hl7.org/fhir">Fast Healthcare Interoperability Resources</a>, 
+or FHIR, is a Health Level 7 (HL7) platform specification for healthcare that 
+supports exchange of healthcare information between systems. FHIR is universally 
+applicable, meaning that it can be used in a broad variety of implementation 
+environments. The platform provides layers of implementation that support 
+foundational protocols; base implementation functionality such as conformance 
+and terminology; administrative functionality to represent patients, care teams, 
+locations, and organizations; healthcare processes including clinical and 
+diagnostic information, as well as medication, workflow, and financial; and 
+finally, a clinical reasoning layer that provides support for the representation 
+of knowledge and reasoning about healthcare.</p>
 
 <p>The quality measurement standards landscape makes use of all these layers of
 FHIR: the foundational and implementation layers to define interactions and
@@ -121,16 +122,26 @@ any particular measure, rather it defines the standard approach to the
 representation of that content so that quality measure specifiers can define and
 share standardized FHIR-based electronic Clinical Quality Measures (eCQMs).</p>
 
-<h5>Quality Improvement Core Implementation Guide (QI Core)</h5>
+<h5>Quality Improvement Core Implementation Guide (QI-Core)</h5>
 
 <p>The Quality Improvement Core Implementation Guide, or QI-Core, defines a set
 of FHIR profiles with extensions and bindings needed to create interoperable,
-quality-focused applications. Importantly, the scope of QI Core includes both
+quality-focused applications. Importantly, the scope of QI-Core includes both
 quality measurement and decision support to ensure that knowledge expressed can
-be shared across both domains. QI Core is derived from US Core, meaning that
-where possible, QI Core profiles are based on US Core to ensure alignment with
+be shared across both domains. QI-Core is derived from US Core, meaning that
+where possible, QI-Core profiles are based on US Core to ensure alignment with
 and support for quality improvement data within healthcare systems in the US
 Realm.</p>
+
+<blockquote> <p>Note that QI-Core is intended to be a FHIR-based rendering of a 
+quality-focused <em>logical model</em> called QUICK (Quality Information and 
+Clinical Knowledge). However, the QUICK model is still in development, so the 
+QI-Core profiles are currently built directly as a FHIR Implementation Guide. To 
+support the goals of the QUICK logical model, the QI-Core implementation guide 
+includes an author-focused <em>view</em> of QUICK, the QUICK <em>logical 
+view</em>. See the <a href="http://hl7.org/fhir/us/qicore/index.html#relationships">
+Relationship Between QUICK, the QI-Core Profiles, and FHIR</a> discussion in the 
+QI-Core implementation guide for more information.</p> </blockquote>
 
 <h5>Data Exchange for Quality Measures (DEQM)</h5>
 
@@ -139,4 +150,4 @@ provides a framework that defines conformance profiles and guidance to enable
 the exchange of quality information and quality measure reporting (e.g. for
 transfering quality information from a health care provider to a payer). The
 DEQM expects to use quality measures specified in accordance with the Quality
-Measure IG and QI Core.</p>
+Measure IG and QI-Core.</p>
