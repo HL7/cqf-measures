@@ -16,7 +16,7 @@ A CQL artifact is referred to as a library.
 
 #### 3.1.1 Library Versioning
 
-This IG recommends an approach to versioning libraries used within Measures to help track and manage dependencies. The approach recommended here is based on the Apache APR Versioning Scheme [^11].
+This IG recommends an approach to versioning libraries used within Measures to help track and manage dependencies. The approach recommended here is based on the [Semantic Versioning Scheme.](https://semver.org/)
 
 There are three main types of changes that can be made to a library. First, a library can be changed in a way that would alter the public use of its components. Second, a library can be changed by adding new components or functionality but without changing existing components are used. And third, a library can be changed in a way that does not change existing components or add new components, but only corrects or improves the originally intended functionality.
 By exposing version numbers that identify all three types of changes, libraries can be versioned in a way that makes clear when a change will impact usage, versus when a change can potentially be safely incorporated as an update. The first type of change will be referred to as a “major” change, and will require incrementing of the “major version number”. The second type of change will be referred to as a “minor” change, and will only require incrementing of the “minor version number”. And finally, the third type of change will be referred to as a “patch”, and will only require incrementing the “patch version number”.
@@ -177,7 +177,7 @@ When direct reference codes are represented within CQL, the logical identifier i
 
 **Conformance Requirement 24 (Direct Referenced Codes):**
 1. When direct reference codes are represented within CQL, the logical identifier:<br/>
-     a. SHALL NOT be a URI.<br/>
+     a. MUST NOT be a URI.<br/>
      b. SHALL be a code from the code system.
 
 ```cql
