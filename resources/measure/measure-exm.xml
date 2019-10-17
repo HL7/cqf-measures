@@ -65,6 +65,15 @@
   <approvalDate value="2019-02-17"/>
   <lastReviewDate value="2019-02-17"/>
   <effectivePeriod>
+		<extension url="http://hl7.org/fhir/us/cqfmeasures/cqfm-effectivePeriodAnchor">
+			<valueDateTime value="2018-01-01"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/us/cqfmeasures/cqfm-effectivePeriodDuration">
+			<valueDuration>
+				<value value="1"/>
+				<code value="a"/>
+			</valueDuration>
+		</extension>
     <start value="2018-01-01"/>
     <end value="2018-12-31"/>
   </effectivePeriod>

@@ -23,7 +23,9 @@ A measure score in which each individual value for the measure can fall anywhere
 
 The lower part of a fraction used to calculate a rate, proportion, or ratio. It can be the same as the initial population or a subset of the initial population to further constrain the population for the purpose of the measure. Continuous variable measures do not have a denominator, but instead define a measure population. [Source](https://ecqi.healthit.gov/glossary)
 
-Also may be grouped for inclusion in a specific performance measure based on specific criteria (e.g., patient's age, diagnosis, prior Myocardial Infarction (MI)). Different measures within a measure set may have different Denominators (e.g., measure #1 Denominator = Initial Population AND Smoker; measure #2 Denominator = Initial Population AND Atrial Fibrillation). A Denominator can have inclusion and exclusion criteria.
+For measures that include multiple populations, different populations may have different denomintaors, grouping the denominators along specific criteria (e.g. patient's age, diagnosis, surgical procedures, prior myocardial infarction, etc.).
+
+Different measures within a measure set (see A.18, Quality Measure Set) may have different Denominators (e.g., measure #1 Denominator = Initial Population AND Smoker; measure #2 Denominator = Initial Population AND Atrial Fibrillation). A Denominator can have inclusion and exclusion criteria.
 
 #### A.5 Denominator Exception
 
