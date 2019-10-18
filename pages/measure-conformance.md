@@ -773,7 +773,7 @@ Here is an example of using the population types to select data on patients with
 
 **Figure 3-7: Calcuation Flow for Ratio Measure Score**
 
-![Calculation Flow Diagram-Ratio](assets/images/CalculationFlow.jpg)
+![Calculation Flow Diagram-Ratio](assets/images/CalculationFlow.png)
 
 * Initial population (IPOP): Identify those cases that meet the IPOP criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
 * Denominator (DENOM): Identify that subset of the IPOP that meet the DENOM criteria.
