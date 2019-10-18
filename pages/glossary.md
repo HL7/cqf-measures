@@ -2,9 +2,9 @@
 layout: default
 title: Glossary
 ---
-## 8 Glossary
+## 9 Glossary
 
-### 8.1 Glossary 
+### 9.1 Glossary 
 See the [eCQI Resource Center](https://ecqi.healthit.gov/glossary) for additional definitions
 
 #### A.1 Clinical Quality Framework (CQF)
@@ -102,7 +102,7 @@ Criteria used to classify populations into one or more characteristics, variable
 Additional variables required for risk adjustment or other purposes of data aggregation. Comparison of results across strata can be used to show where disparities exist or where there is a need to expose differences in results. Examples of supplemental data elements include payer, ethnicity, race and gender.
 
 
-### 8.2 Acronyms
+### 9.2 Acronyms
 
 | Acronym |  |  Definition        |
 | :--- | :---: | :--- |
