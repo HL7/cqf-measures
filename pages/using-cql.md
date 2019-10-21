@@ -66,6 +66,24 @@ The set of all CQL libraries used to define a Measure must adhere to Conformance
 
 Because of this conformance statement, the primary library for a measure can always be determined by looking at the library referenced by the initial population criteria for the measure.
 
+#### 4.1.3 Library Namespaces
+
+CQL allows libraries to define a namespace that can be used to organize libraries across different groups of users. Within a namespace, library names are required to be unique. Across namespaces, the same library name may be reused. For example, OrganizationA and OrganizationB can both define a library named `Common`, so long as they use different namespaces. For example, consider the following library declaration:
+
+```cql
+library CMS.Common version '2.0.0'
+```
+
+This example declares a library named Common in the CMS namespace. Per the CQL specification, the namespace for a library is included in the ELM, along with a URI that provides a globally unique, stable identifier for the namespace. For example, the URI for the CMS namespace would be `https://ecqi.healthit.gov/ecqm/measures`.
+
+Note that this is a URI that may or may not correspond to a reachable web address (a URL). The important aspect is not the addressability, but the uniqueness, ensuring that library name collisions cannot occur.
+
+**Conformance Requirement 19 (Library Namespaces):**
+1. CQL libraries SHOULD use namespaces.
+2. When a namespace is not used, the library SHALL be considered part of a "public" global namespace for the purposes of resolution within a given environment.
+
+In addition, because the namespace of a library is part of the text, changing the namespace of a library requires a new version, just like any other change to the text of the library. However, because a change to the namespace is not a material change to the library itself, changing the namespace does not require a different version-independent identifier to be used for the library.
+
 ### 4.2 Data Model
 
 CQL can be used with any data model. In the context of a Measure, any referenced CQL library must identify the same data model.
@@ -171,11 +189,24 @@ valueset "Face-to-Face Interaction":
 
 The representation of valueset declarations in a Library is discussed in the [Measure Conformance Chapter](measure-conformance.html#30-ecqm) of this IG.
 
+#### 4.4.4 String-based Membership Testing
+
+Although CQL allows the use of strings as input to membership testing in value sets, this capability should be disallowed in measure CQL as it can lead to incorrect matching if the code system is ignored.
+
+**Conformance Requirement 24 (String-based Membership Testing):**
+1. String-based membership testing SHALL NOT be used in CQL libraries
+
+For example, given a valueset named `"Administrative Gender"`, the following CQL expression would be non-conformant:
+
+```cql
+'female' in "Administrative Gender"
+```
+
 ### 4.5 Codes
 
 When direct reference codes are represented within CQL, the logical identifier is not recommended to be a URI. Instead, the logical identifier is the code from the code system.
 
-**Conformance Requirement 24 (Direct Referenced Codes):**
+**Conformance Requirement 25 (Direct Referenced Codes):**
 1. When direct reference codes are represented within CQL, the logical identifier:<br/>
      a. MUST NOT be a URI.<br/>
      b. SHALL be a code from the code system.
@@ -203,14 +234,14 @@ The representation of code declarations in a Library is discussed in [Measure Co
 
 In addition to codes, CQL supports a concept construct, which is defined as a set of codes that are all semantically equivalent. CQL Concepts are not currently used within measure development and SHALL NOT be used within FHIR-based eCQMs, except to the extent that individual codes will be implicitly converted to concepts for the purposes of comparision with the Concept-value elements in FHIR resources.
 
-**Conformance Requirement 25 (Concepts):**
+**Conformance Requirement 26 (Concepts):**
 1. The CQL concept construct SHALL NOT be used.
 
 ### 4.7 Library-level Identifiers
 
-A “library-level identifier” is any named expression, function, parameter, code system, value set, concept, or code defined in the CQL. The library name referenced in the library-line, the data model, and any referenced external library should not be considered “library-level identifiers”. Library-level identifiers ought to be given a descriptive meaningful name (avoid abbreviations) and conform to Conformance Requirement 26.
+A “library-level identifier” is any named expression, function, parameter, code system, value set, concept, or code defined in the CQL. The library name referenced in the library-line, the data model, and any referenced external library should not be considered “library-level identifiers”. Library-level identifiers ought to be given a descriptive meaningful name (avoid abbreviations) and conform to Conformance Requirement 27.
 
-**Conformance Requirement 26 (Library-level Identifiers):**
+**Conformance Requirement 27 (Library-level Identifiers):**
 1. Library-level identifiers referenced in the CQL:<br/>
       a. SHOULD Use quoted identifiers<br/>
       b. SHOULD Use Title Case<br/>
@@ -229,9 +260,9 @@ Snippet 4-8: Function definition from [Common_FHIR-2.0.0.cql](cql/Common_FHIR-2.
 
 ### 4.8 Data Type Names
 
-A "data type" in CQL refers to any named type used within CQL expressions. They may be primitive types, such as the system-defined "Integer" and "DateTime", or they may be model-defined types such as "Encounter" or "Medication". For FHIR-based eCQMs using the QI-Core profiles, these will be the author-friendly identifiers for the QI-Core profile. Data types referenced in CQL libraries to be included in a Measure must conform to Conformance Requirement 27.
+A "data type" in CQL refers to any named type used within CQL expressions. They may be primitive types, such as the system-defined "Integer" and "DateTime", or they may be model-defined types such as "Encounter" or "Medication". For FHIR-based eCQMs using the QI-Core profiles, these will be the author-friendly identifiers for the QI-Core profile. Data types referenced in CQL libraries to be included in a Measure must conform to Conformance Requirement 28.
 
-**Conformance Requirement 27 (Data Type Names):**
+**Conformance Requirement 28 (Data Type Names):**
 1. Data type names referenced in CQL SHALL:<br/>
        a. Use quoted identifiers<br/>
        b. Use PascalCase plus appropriate spacing
@@ -295,14 +326,14 @@ Similarly, "Procedure, Not Performed": "Cardiac Surgery" should not require spec
 
 ### 4.9 Attribute Names
 
-All attributes referenced in the CQL follow Conformance Requirement 28.
+All attributes referenced in the CQL follow Conformance Requirement 29.
 
-**Conformance Requirement 28 (Attribute Names):**
+**Conformance Requirement 29 (Attribute Names):**
 1. Data model attributes referenced in the CQL:<br/>
       a. SHALL NOT Use quoted identifiers<br/>
       b. SHALL Use camelCase
 
-Examples of attributes conforming to Conformance Requirement 28 is given below. For a full list of valid of attributes, refer to an appropriate data model specification such as QI-Core.
+Examples of attributes conforming to Conformance Requirement 29 is given below. For a full list of valid of attributes, refer to an appropriate data model specification such as QI-Core.
 
 ```cql
 period
@@ -312,9 +343,9 @@ result
 
 ### 4.10 Aliases and Argument Names
 
-Aliases are used in CQL as local variable names to refer to sections of code. When defining a function, argument names are used to create scoped variables that refer to the function inputs. Both aliases and argument names conform to Conformance Requirement 29.
+Aliases are used in CQL as local variable names to refer to sections of code. When defining a function, argument names are used to create scoped variables that refer to the function inputs. Both aliases and argument names conform to Conformance Requirement 30.
 
-**Conformance Requirement 29 (Aliases and Argument Names):**
+**Conformance Requirement 30 (Aliases and Argument Names):**
 1. Aliases and argument names referenced in the CQL:<br/>
       a. SHALL NOT Use quoted identifiers<br/>
       b. SHALL Use PascalCase<br/>

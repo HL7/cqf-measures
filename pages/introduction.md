@@ -26,16 +26,17 @@ As features and functionality are identified by this implementation guide that a
 
 The FHIR Quality Measure Implementation Guide (this IG) is structured as follows:
 
-1. Home- Provides the summary and background information for the FHIR Quality Measure Implementation Guide
-2. Introduction - This section, providing narrative introduction and background material
-3. eCQMs - Provides detailed guidance and conformance requirements for measures
+0. Home- Provides the summary and background information for the FHIR Quality Measure Implementation Guide
+1. Introduction - This section, providing narrative introduction and background material
+2. eCQMs - Provides detailed guidance and conformance requirements for measures
 3. Using CQL - Provides guidance and conformance requirements for the use of CQL within measures
 4. Examples - Provides examples used in the other pages, as well as by the Data Exchange for Quality Measures IG
-5. Profiles - Lists the set of profiles and extensions defined for use by eCQMs
-6. Terminology - Lists value Sets and code systems defined in this IG
-7. Glossary - Defines terms related to quality measurement
-8. Downloads - Provides links to downloadable artifacts for implementations
-9. Version History - Lists the previous version(s) of the FHIR Quality Measure Implementation Guide
+5. Profiles - Lists the set of profiles defined for use by eCQMs
+6. Extensions - Lists the set of extensions defined for use by eCQMs
+7. Terminology - Lists value Sets and code systems defined in this IG
+8. Glossary - Defines terms related to quality measurement
+9. Downloads - Provides links to downloadable artifacts for implementations
+10. Version History - Lists the previous version(s) of the FHIR Quality Measure Implementation Guide
 
 
 ### 2.3 Audience
