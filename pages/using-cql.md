@@ -2,9 +2,9 @@
 layout: default
 title: Using CQL
 ---
-## 3 CQL Basics
+## 4 CQL Basics
 
-### 3.1 Libraries
+### 4.1 Libraries
 
 A CQL artifact is referred to as a library.
 
@@ -14,7 +14,7 @@ A CQL artifact is referred to as a library.
   3. The library version number SHALL follow the convention :  
        < major >.< minor >.< patch >
 
-#### 3.1.1 Library Versioning
+#### 4.1.1 Library Versioning
 
 This IG recommends an approach to versioning libraries used within Measures to help track and manage dependencies. The approach recommended here is based on the [Semantic Versioning Scheme.](https://semver.org/)
 
@@ -44,18 +44,18 @@ And a major change could be released by incrementing the major version, and rese
 library EXM146 version '2.0.0'
 ```
 
-Snippet 1: Library line from EXM146_FHIR-2.0.0.cql, the second major version.
+Snippet 4-1: Library line from EXM146_FHIR-2.0.0.cql, the second major version.
 
-#### 3.1.2 Nested Libraries
+#### 4.1.2 Nested Libraries
 
 CQL allows libraries to re-use logic already defined in other libraries. This is accomplished by utilizing the
-include line as in Snippet 2.
+include line as in Snippet 4-2.
 
 ```cql
 includes Common_FHIR version '2.0.0' called Common
 ```
 
-Snippet 2: Nested library within [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
+Snippet 4-2: Nested library within [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
 
 The set of all CQL libraries used to define a Measure must adhere to Conformance Requirement 18.
 
@@ -66,9 +66,9 @@ The set of all CQL libraries used to define a Measure must adhere to Conformance
 
 Because of this conformance statement, the primary library for a measure can always be determined by looking at the library referenced by the initial population criteria for the measure.
 
-#### 3.1.3 Library Namespaces
+#### 4.1.3 Library Namespaces
 
-CQL allows libraries to define a namespace that can be used to organize libraries across different group s of users. Within a namespace, library names are required to be unique. Across namespaces, the same library name may be reused. For example, OrganizationA and OrganizationB can both define a library named `Common`, so long as they use different namespaces. For example, consider the following library declaration:
+CQL allows libraries to define a namespace that can be used to organize libraries across different groups of users. Within a namespace, library names are required to be unique. Across namespaces, the same library name may be reused. For example, OrganizationA and OrganizationB can both define a library named `Common`, so long as they use different namespaces. For example, consider the following library declaration:
 
 ```cql
 library CMS.Common version '2.0.0'
@@ -84,7 +84,7 @@ Note that this is a URI that may or may not correspond to a reachable web addres
 
 In addition, because the namespace of a library is part of the text, changing the namespace of a library requires a new version, just like any other change to the text of the library. However, because a change to the namespace is not a material change to the library itself, changing the namespace does not require a different version-independent identifier to be used for the library.
 
-### 3.2 Data Model
+### 4.2 Data Model
 
 CQL can be used with any data model. In the context of a Measure, any referenced CQL library must identify the same data model.
 
@@ -99,9 +99,9 @@ For example:
 using FHIR version '3.0.0'
 ```
 
-Snippet 3: Data Model line from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
+Snippet 4-3: Data Model line from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
 
-### 3.3 Code Systems
+### 4.3 Code Systems
 
 Conformance Requirement 20 describes how to specify a code system within a CQL library.
 
@@ -117,7 +117,7 @@ codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108'
   version 'http://snomed.info/sct/731000124108/version/201709'
 ```
 
-Snippet 4: codesystem definition line from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
+Snippet 4-4: codesystem definition line from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
 The canonical URL for a code system is a globally unique, stable, version-independent identifier for the code system. The base FHIR specification defines canonical URLs for most common code systems [here](http://hl7.org/fhir/STU3/terminologies-systems.html).
 
@@ -125,7 +125,7 @@ The local identifier for the codesystem ("SNOMED-CT" in this case) should includ
 
 Version information for code systems is not required to be included in eCQMs; terminology versioning information may be specified externally. However, if versioning information is included, it must be done in accordance with the terminology usage specified by FHIR.
 
-## 3.4 Value Sets
+## 4.4 Value Sets
 
 Conformance Requirement 21 describes how to specify a valueset within a CQL library.
 
@@ -140,7 +140,7 @@ For example:
 valueset "Acute Pharyngitis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011'
 ```
 
-Snippet 5: Valueset reference from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
+Snippet 4-5: Valueset reference from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
 
 The canonical URL for a value set is typically defined by the value set author, though it may be provided by the publisher as well. For example, value sets defined in the Value Set Authority Center and exposed via the VSAC FHIR interface have a base URL of `http://cts.nlm.nih.gov/fhir/`. This base is then used to construct the canonical URL for the value set (in the same way as any FHIR URL) using the resource type (`ValueSet` in this case) and the id (the value set OID in this case).
 
@@ -155,7 +155,7 @@ valueset "Acute Pharyngitis (2)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840
 
 Version information for value sets is not required to be included in eCQMs; terminology versioning information may be specified externally. However, if versioning information is included, it must be done in accordance with the terminology usage specified by FHIR. Note that the VSAC supports different approaches to retrieving the expansion of a valueset through its [Sharing Value Sets (SVS) API](https://www.nlm.nih.gov/vsac/support/usingvsac/vsacsvsapiv2.html). For the purposes of this guidance, two approaches are described: 1) by version, and 2) by profile.
 
-#### 3.4.1 By Version
+#### 4.4.1 By Version
 
 Conformance Requirement 22 describes how to retrieve an expansion of a value set by version.
 
@@ -169,9 +169,9 @@ valueset "Encounter Inpatient SNOMEDCT Value Set":
    'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
 ```
 
-Snippet 6: valueset definition from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
+Snippet 4-6: valueset definition from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
-#### 3.4.2 By Profile
+#### 4.4.2 By Profile
 
 From the perspective FHIR-based eCQMs, the profile identifier is considered a version identifier, so the identifier of the value set conforms to Conformance Requirement 23.
 
@@ -185,11 +185,11 @@ valueset "Face-to-Face Interaction":
   'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1004.101.12.1048|MU2%20Update@202016-04-01'
 ```
 
-#### 3.4.3 Representation in a Library
+#### 4.4.3 Representation in a Library
 
-The representation of valueset declarations in a Library is discussed in the [Measure Conformance Chapter](measure-conformance.html#20-ecqm) of this IG.
+The representation of valueset declarations in a Library is discussed in the [Measure Conformance Chapter](measure-conformance.html#30-ecqm) of this IG.
 
-#### 3.4.4 String-based Membership Testing
+#### 4.4.4 String-based Membership Testing
 
 Although CQL allows the use of strings as input to membership testing in value sets, this capability should be disallowed in measure CQL as it can lead to incorrect matching if the code system is ignored.
 
@@ -202,7 +202,7 @@ For example, given a valueset named `"Administrative Gender"`, the following CQL
 'female' in "Administrative Gender"
 ```
 
-### 3.5 Codes
+### 4.5 Codes
 
 When direct reference codes are represented within CQL, the logical identifier is not recommended to be a URI. Instead, the logical identifier is the code from the code system.
 
@@ -215,11 +215,11 @@ When direct reference codes are represented within CQL, the logical identifier i
 code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT"
 ```
 
-Snippet 7: code definition from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
+Snippet 4-7: code definition from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
 Note that for direct reference code usage, the local identifier (in Snippet 7 the local identifier is "Venous foot pump, device (physical object)") should be the same as the description of the code within the terminology in order to avoid conflicting with any usage or license agreements with the referenced terminologies, but can be different to allow for potential naming conflicts, as well as simplification of longer names when appropriate.
 
-#### 3.5.1 Representation in a Library
+#### 4.5.1 Representation in a Library
 
 When direct reference codes are used within eCQMs, they will be represented in the narrative (Human-readable) as:
 
@@ -228,16 +228,16 @@ When direct reference codes are used within eCQMs, they will be represented in t
 using "Venous foot pump, device (physical object) SNOMED-CT Code (442023007)"
 ```
 
-The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html#20-ecqm) of this IG.
+The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html#30-ecqm) of this IG.
 
-### 3.6 Concepts
+### 4.6 Concepts
 
 In addition to codes, CQL supports a concept construct, which is defined as a set of codes that are all semantically equivalent. CQL Concepts are not currently used within measure development and SHALL NOT be used within FHIR-based eCQMs, except to the extent that individual codes will be implicitly converted to concepts for the purposes of comparision with the Concept-value elements in FHIR resources.
 
 **Conformance Requirement 26 (Concepts):**
 1. The CQL concept construct SHALL NOT be used.
 
-### 3.7 Library-level Identifiers
+### 4.7 Library-level Identifiers
 
 A “library-level identifier” is any named expression, function, parameter, code system, value set, concept, or code defined in the CQL. The library name referenced in the library-line, the data model, and any referenced external library should not be considered “library-level identifiers”. Library-level identifiers ought to be given a descriptive meaningful name (avoid abbreviations) and conform to Conformance Requirement 27.
 
@@ -256,9 +256,9 @@ define function
          or Condition.onset during Encounter.period
 ```
 
-Snippet 8: Function definition from [Common_FHIR-2.0.0.cql](cql/Common_FHIR-2.0.0.cql)
+Snippet 4-8: Function definition from [Common_FHIR-2.0.0.cql](cql/Common_FHIR-2.0.0.cql)
 
-### 3.8 Data Type Names
+### 4.8 Data Type Names
 
 A "data type" in CQL refers to any named type used within CQL expressions. They may be primitive types, such as the system-defined "Integer" and "DateTime", or they may be model-defined types such as "Encounter" or "Medication". For FHIR-based eCQMs using the QI-Core profiles, these will be the author-friendly identifiers for the QI-Core profile. Data types referenced in CQL libraries to be included in a Measure must conform to Conformance Requirement 28.
 
@@ -276,9 +276,9 @@ define "Flexible Sigmoidoscopy Performed":
       and FlexibleSigmoidoscopy.performed ends 5 years or less on or before end of "Measurement Period"
 ```
 
-Snippet 9: Expression definition from [EXM130_FHIR-7.2.000.cql](cql/EXM130_FHIR-7.2.000.cql)
+Snippet 4-9: Expression definition from [EXM130_FHIR-7.2.000.cql](cql/EXM130_FHIR-7.2.000.cql)
 
-### 3.8.1 Negation in FHIR
+### 4.8.1 Negation in FHIR
 
 Two commonly used patterns for negation in quality measurement are:
 
@@ -324,7 +324,7 @@ In this example for negation rationale, the logic looks for a member of the valu
 
 Similarly, "Procedure, Not Performed": "Cardiac Surgery" should not require specification of which cardiac surgery in a value set was not performed, but only reference any member of the class of procedures defined by the value set. The same process works for any application of negation rationale.
 
-### 3.9 Attribute Names
+### 4.9 Attribute Names
 
 All attributes referenced in the CQL follow Conformance Requirement 29.
 
@@ -341,7 +341,7 @@ authoredOn
 result
 ```
 
-### 3.10 Aliases and Argument Names
+### 4.10 Aliases and Argument Names
 
 Aliases are used in CQL as local variable names to refer to sections of code. When defining a function, argument names are used to create scoped variables that refer to the function inputs. Both aliases and argument names conform to Conformance Requirement 30.
 
@@ -362,7 +362,7 @@ define function "ED Stay Time"(Encounter "Encounter"):
     duration in minutes of Encounter.period
 ```
 
-## 3.11 Translation to ELM
+## 4.11 Translation to ELM
 
 Tooling exists to support translation of CQL to ELM for distribution in XML or JSON formats. These distributions are included with eCQMs to facilitate implementation. The existing translator tooling applies to both measure and decision support development, and has several options available to make use of different data models in different environments. For measure development with FHIR, the following options are recommended:
 
