@@ -551,9 +551,9 @@ The name of an expression specifying a population criteria within a measure SHOU
 
 †† When using multiple populations and/or multiple population groups, see Section 3.4.7
 
-Note that the Measure Observation criteria is the name of a function used in the Continuous Variable Measure. See the [Continuous Variable Measure](measure-conformance.html#345-continuous-variable-measure) section for more.
+Note that the Measure Observation criteria is the name of a function used in the Continuous Variable Measure. See the [Continuous Variable Measure](measure-conformance.html#continuous-variable-measure) section for more.
 
-For each scoring type, the set of applicable criteria are specified in the [Quality Reporting]() topic of the FHIR Clinical Reasoning module. The table is reproduced here for reference:
+For each scoring type, the set of applicable criteria are specified in the [Quality Reporting](http://www.hl7.org/fhir/clinicalreasoning-quality-reporting.html) topic of the FHIR Clinical Reasoning module. The table is reproduced here for reference:
 
 **Table 3-1: Measure populations based on types of measure scoring.**
 
@@ -682,7 +682,7 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 
 **Figure 3-2: Population criteria for Proportion measures illustration**
 
-![Proportion Venn Diagram](assets/images/ProportionMeasureFlow.png)
+![Proportion Venn Diagram](assets/images/PopulationCriteraProportionVenn.png)
 
 **Table 3-3: Population Criteria Definitions for Proportion Measures**
 
@@ -705,7 +705,7 @@ Here is an example of using population types to select data on diabetes patients
 
 **Figure 3-3: Calcuation Flow for Proportion Measures**<br/>
 
-![Calculation Flow Diagram-Proportion](assets/images/ProportionMeasureFlow.jpg)
+![Calculation Flow Diagram-Proportion](assets/images/ProportionMeasureFlowresize.png)
 
 * Initial population (IPOP): Identify those cases that meet the IPOP criteria.<br/>
 * Denominator (DENOM): Identify that subset of the IPOP that meet the DENOM criteria.<br/>
