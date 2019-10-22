@@ -6,7 +6,7 @@
   <id value="measure-exm"/>
   <meta>
     <!-- The versionId of the measure is the server-maintained version identifier for this resource (as opposed to the business
-    version, which is specified using the version of the measure). It is not expected to be globally unique, only unique within the resource id. 
+    version, which is specified using the version of the measure). It is not expected to be globally unique, only unique within the resource id.
     (Though it may be globally unique if the server implements version using a globally unique identifier such as a guid.) -->
     <versionId value="1"/>
     <!-- The date on which the measure resource was last updated -->
@@ -72,6 +72,7 @@
 			<valueDuration>
 				<value value="1"/>
 				<code value="a"/>
+        <system value="http://unitsofmeasure.org"/>
 			</valueDuration>
 		</extension>
     <start value="2018-01-01"/>
@@ -86,51 +87,51 @@
     </valueCodeableConcept>
   </useContext>
   <jurisdiction>
-    <coding> 
-      <system value="urn:iso:std:iso:3166"/> 
-      <code value="US"/> 
-    </coding> 
-  </jurisdiction>
-  <topic> 
-    <coding> 
-      <system value="http://loinc.org"/> 
-      <code value="57024-2"/> 
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
     </coding>
-    <text value="Health Quality Measure Document"/> 
-  </topic> 
-  <contributor> 
-    <type value="author"/> 
-    <name value="Example Measure Content Developer"/> 
-  </contributor> 
-  <contact> 
-    <telecom> 
-      <system value="url"/> 
-      <value value="http://www.example.org/"/> 
-    </telecom> 
-  </contact> 
-  <copyright value="Example Copyright Statement"/> 
-  <relatedArtifact> 
+  </jurisdiction>
+  <topic>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="57024-2"/>
+    </coding>
+    <text value="Health Quality Measure Document"/>
+  </topic>
+  <contributor>
+    <type value="author"/>
+    <name value="Example Measure Content Developer"/>
+  </contributor>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.example.org/"/>
+    </telecom>
+  </contact>
+  <copyright value="Example Copyright Statement"/>
+  <relatedArtifact>
     <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
       <valueBoolean value="true"/>
     </extension>
-    <type value="documentation"/> 
+    <type value="documentation"/>
     <citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. &quot;Antibiotic treatment
-      of children with sore throat.&quot; JAMA 294(18):2315-2322."/> 
-  </relatedArtifact> 
-  <relatedArtifact> 
+      of children with sore throat.&quot; JAMA 294(18):2315-2322."/>
+  </relatedArtifact>
+  <relatedArtifact>
     <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
       <valueBoolean value="true"/>
     </extension>
-    <type value="documentation"/> 
-    <citation value="Infectious Diseases Society of America. 2012. &quot;Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update.&quot;"/> 
-  </relatedArtifact> 
-  <relatedArtifact> 
+    <type value="documentation"/>
+    <citation value="Infectious Diseases Society of America. 2012. &quot;Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update.&quot;"/>
+  </relatedArtifact>
+  <relatedArtifact>
     <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
       <valueBoolean value="true"/>
     </extension>
-    <type value="documentation"/> 
+    <type value="documentation"/>
     <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot; Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
-  </relatedArtifact>   
+  </relatedArtifact>
   <library>
     <reference value="Library/library-exm-logic"/>
   </library>
@@ -141,11 +142,11 @@
       <code value="proportion"/>
     </coding>
   </scoring>
-  <type> 
-    <coding> 
+  <type>
+    <coding>
       <system value="http://hl7.org/fhir/measure-type"/>
-      <code value="process"/> 
-    </coding> 
+      <code value="process"/>
+    </coding>
   </type>
   <riskAdjustment value="Risk adjustment for this measure is performed by..."/>
   <rateAggregation value="Rate aggregation for this measure is performed by..."/>
