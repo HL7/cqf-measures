@@ -551,9 +551,9 @@ The name of an expression specifying a population criteria within a measure SHOU
 
 †† When using multiple populations and/or multiple population groups, see Section 3.4.7
 
-Note that the Measure Observation criteria is the name of a function used in the Continuous Variable Measure. See the [Continuous Variable Measure](measure-conformance.html#345-continuous-variable-measure) section for more.
+Note that the Measure Observation criteria is the name of a function used in the Continuous Variable Measure. See the [Continuous Variable Measure](measure-conformance.html#continuous-variable-measure) section for more.
 
-For each scoring type, the set of applicable criteria are specified in the [Quality Reporting]() topic of the FHIR Clinical Reasoning module. The table is reproduced here for reference:
+For each scoring type, the set of applicable criteria are specified in the [Quality Reporting](http://www.hl7.org/fhir/clinicalreasoning-quality-reporting.html) topic of the FHIR Clinical Reasoning module. The table is reproduced here for reference:
 
 **Table 3-1: Measure populations based on types of measure scoring.**
 
@@ -682,7 +682,7 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 
 **Figure 3-2: Population criteria for Proportion measures illustration**
 
-![Proportion Venn Diagram](assets/images/ProportionMeasureFlow.png)
+![Proportion Venn Diagram](assets/images/PopulationCriteraProportionVenn.png)
 
 **Table 3-3: Population Criteria Definitions for Proportion Measures**
 
@@ -705,7 +705,7 @@ Here is an example of using population types to select data on diabetes patients
 
 **Figure 3-3: Calcuation Flow for Proportion Measures**<br/>
 
-![Calculation Flow Diagram-Proportion](assets/images/ProportionMeasureFlow.jpg)
+![Calculation Flow Diagram-Proportion](assets/images/ProportionMeasureFlowresize.png)
 
 * Initial population (IPOP): Identify those cases that meet the IPOP criteria.<br/>
 * Denominator (DENOM): Identify that subset of the IPOP that meet the DENOM criteria.<br/>
@@ -793,15 +793,15 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 
 **Figure 3-4: Population criteria for Ratio measures illustration**
 
-![Ratio Venn Diagram](assets/images/RatioVenn.jpg)
+![Ratio Venn Diagram](assets/images/PopulationCriteriaRatioVenn1.png)
 
 **Figure 3-5: Population criteria for Ratio measures illustration**
 
-![Ratio 2 Venn Diagram](assets/images/Ratio2Venn.png)
+![Ratio 2 Venn Diagram](assets/images/PopulationCriteriaRatioVenn2.png)
 
 **Figure 3-6: Population criteria for Ratio measures illustration**
 
-![Ratio 3 Venn Diagram](assets/images/Ratio3Venn.png)
+![Ratio 3 Venn Diagram](assets/images/PopulationCriteriaRatioVenn3.png)
 
 **Table 3-4: Population Criteria Definitions for Ratio Measures**
 
@@ -1023,7 +1023,7 @@ The population types for a Continuous Variable measure are "Initial Population",
 
 **Figure 3-8: Population criteria for Continuous Variable measures illustration**
 
-![Continuous Variable Venn Diagram](assets/images/CVVenn.jpg)
+![Continuous Variable Venn Diagram](assets/images/PopulationCriteriaRatioVenn4.png)
 
 **Table 3-5: Population Criteria Definitions for Continuous Variable Measures**
 
@@ -1085,7 +1085,7 @@ In a cohort measure, a population is identified from the population of all items
 
 **Figure 3-10: Population criteria for Cohort measures illustration**
 
-![Cohort Venn Diagram](assets/images/CohortVenn.jpg)
+![Cohort Venn Diagram](assets/images/PopulationCriteriaRatioVenn5.png)
 
 **Table 3-6: Population Criteria Definitions for Cohort Measures**
 

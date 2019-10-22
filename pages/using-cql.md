@@ -187,7 +187,7 @@ valueset "Face-to-Face Interaction":
 
 #### 4.4.3 Representation in a Library
 
-The representation of valueset declarations in a Library is discussed in the [Measure Conformance Chapter](measure-conformance.html#30-ecqm) of this IG.
+The representation of valueset declarations in a Library is discussed in the [Measure Conformance Chapter](measure-conformance.html#ecqm-basics) of this IG.
 
 #### 4.4.4 String-based Membership Testing
 
@@ -228,7 +228,7 @@ When direct reference codes are used within eCQMs, they will be represented in t
 using "Venous foot pump, device (physical object) SNOMED-CT Code (442023007)"
 ```
 
-The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html#30-ecqm) of this IG.
+The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html#ecqm-basics) of this IG.
 
 ### 4.6 Concepts
 
