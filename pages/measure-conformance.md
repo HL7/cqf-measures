@@ -793,15 +793,15 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 
 **Figure 3-4: Population criteria for Ratio measures illustration**
 
-![Ratio Venn Diagram](assets/images/RatioVenn.jpg)
+![Ratio Venn Diagram](assets/images/PopulationCriteriaRatioVenn1.png)
 
 **Figure 3-5: Population criteria for Ratio measures illustration**
 
-![Ratio 2 Venn Diagram](assets/images/Ratio2Venn.png)
+![Ratio 2 Venn Diagram](assets/images/PopulationCriteriaRatioVenn2.png)
 
 **Figure 3-6: Population criteria for Ratio measures illustration**
 
-![Ratio 3 Venn Diagram](assets/images/Ratio3Venn.png)
+![Ratio 3 Venn Diagram](assets/images/PopulationCriteriaRatioVenn3.png)
 
 **Table 3-4: Population Criteria Definitions for Ratio Measures**
 
@@ -1023,7 +1023,7 @@ The population types for a Continuous Variable measure are "Initial Population",
 
 **Figure 3-8: Population criteria for Continuous Variable measures illustration**
 
-![Continuous Variable Venn Diagram](assets/images/CVVenn.jpg)
+![Continuous Variable Venn Diagram](assets/images/PopulationCriteriaRatioVenn4.png)
 
 **Table 3-5: Population Criteria Definitions for Continuous Variable Measures**
 
@@ -1085,7 +1085,7 @@ In a cohort measure, a population is identified from the population of all items
 
 **Figure 3-10: Population criteria for Cohort measures illustration**
 
-![Cohort Venn Diagram](assets/images/CohortVenn.jpg)
+![Cohort Venn Diagram](assets/images/PopulationCriteriaRatioVenn5.png)
 
 **Table 3-6: Population Criteria Definitions for Cohort Measures**
 
