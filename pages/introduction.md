@@ -83,7 +83,7 @@ This Implementation Guide (IG) defines an approach to using CQL with the FHIR Me
 
 This Implementation Guide (Figure 2-1(b)) is the successor of the CQL-based HQMF IG R1 STU4 (Figure 2-1(a)).
 
-<details>
+<details open>
 
 <summary>
 
