@@ -1,8 +1,8 @@
 library PotentialOpioidOveruse_FHIR version '0.1.082'
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.0'
 
-include FHIRHelpers version '3.0.0'
+include FHIRHelpers version '4.0.0'
 include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
 include OpioidConversion version '1.21.000' called OpioidConversionLogic
 include DayMonthTimings version '0.9.000' called Timing

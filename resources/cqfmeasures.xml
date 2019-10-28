@@ -1,942 +1,395 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-    <id value="us-cqfmeasures-0.1.0"/>
-    <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/us-cqfmeasures-0.1.0"/>
-    <version value="0.1.0"/>
-    <name value="CQFMeasures"/>
-    <status value="draft"/>
-    <experimental value="true"/>
-    <date value="2018-08-28"/>
-    <publisher value="Clinical Quality Information WG"/>
-    <contact>
-      <telecom>
-        <system value="url"/>
-        <value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
-      </telecom>
-    </contact>
-    <description value="Measure content in support of the Clinical Reasoning Track at the Baltimore 2018 FHIR Connectathon"/>
-    <package>
-        <name value="MeasureContent"/>
-        <resource>
-			<example value="true"/>
-            <name value="Library - Adult Outpatient Encounters FHIR"/>
-            <sourceReference>
-                <reference value="Library/library-adult-outpatient-encounters-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - Common Example"/>
-            <description value="Example Common Library"/>
-            <sourceReference>
-                <reference value="Library/library-common-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - Example"/>
-            <description value="Example Library"/>
-            <sourceReference>
-                <reference value="Library/library-exm-logic"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - EXM55"/>
-            <description value="Continuous Variable Measure Example Library"/>
-            <sourceReference>
-                <reference value="Library/library-exm55-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - EXM124"/>
-            <description value="Cervical Cancer Screening Example Library"/>
-            <sourceReference>
-                <reference value="Library/library-exm124-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - EXM125"/>
-            <description value="Breast Cancer Screening Example Library"/>
-            <sourceReference>
-                <reference value="Library/library-exm125-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - EXM130"/>
-            <description value="Colorectal Cancer Screening Example Library"/>
-            <sourceReference>
-                <reference value="Library/library-exm130-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - EXM146"/>
-            <description value="Proportion Measure Example Library"/>
-            <sourceReference>
-                <reference value="Library/library-exm146-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - FHIRHelpers - DSTU2"/>
-            <sourceReference>
-                <reference value="Library/library-fhir-helpers-FHIR2"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - FHIRHelpers"/>
-            <sourceReference>
-                <reference value="Library/library-fhir-helpers"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - FHIR Model Definition - DSTU2"/>
-            <sourceReference>
-                <reference value="Library/library-fhir-model-definition-FHIR2"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - FHIR Model Definition"/>
-            <sourceReference>
-                <reference value="Library/library-fhir-model-definition"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - Hospice FHIR"/>
-            <sourceReference>
-                <reference value="Library/library-hospice-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - MAT Global Common Functions FHIR"/>
-            <sourceReference>
-                <reference value="Library/library-mat-global-common-functions-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - Risk Adjustment - DSTU2"/>
-            <sourceReference>
-                <reference value="Library/library-risk-adjustment-FHIR2"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - Supplemental Data Elements FHIR"/>
-            <sourceReference>
-                <reference value="Library/library-supplemental-data-elements-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - Supplemental Data Elements DSTU2"/>
-            <sourceReference>
-                <reference value="Library/library-supplemental-data-elements-FHIR2"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - Terminology Example"/>
-            <sourceReference>
-                <reference value="Library/library-terminology-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - VTE ICU FHIR"/>
-            <sourceReference>
-                <reference value="Library/library-vte-icu-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="true"/>
-            <name value="Library - Venous Thromboembolism Prophylaxis FHIR"/>
-            <sourceReference>
-                <reference value="Library/library-vte-1-FHIR"/>
-            </sourceReference>
-        </resource>
-        <!-- TODO: Bring in QDM examples if appropriate
-        <resource>
-            <name value="Library - CMS124 - QDM"/>
-            <description value="Cervical Cancer Screening"/>
-            <sourceReference>
-                <reference value="Library/library-cms124-QDM"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <name value="Library - CMS125 - QDM"/>
-            <description value="Breast Cancer Screening"/>
-            <sourceReference>
-                <reference value="Library/library-cms125-QDM"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <name value="Library - CMS130 - QDM"/>
-            <description value="Colorectal Cancer Screening"/>
-            <sourceReference>
-                <reference value="Library/library-cms130-QDM"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <name value="Library - Adult Outpatient Encounters - QDM"/>
-            <sourceReference>
-                <reference value="Library/library-adult-outpatient-encounters-QDM"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <name value="Library - Hospice - QDM"/>
-            <sourceReference>
-                <reference value="Library/library-hospice-QDM"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <name value="Library - MAT Global Common Functions - QDM"/>
-            <sourceReference>
-                <reference value="Library/library-mat-global-common-functions-QDM"/>
-            </sourceReference>
-        </resource>
-        -->
-        <resource>
-            <example value="true"/>
-            <name value="Measure - Example"/>
-            <description value="Example Measure"/>
-            <sourceReference>
-                <reference value="Measure/measure-exm"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - EXM55"/>
-            <description value="Example Continuous-variable Measure"/>
-            <sourceReference>
-                <reference value="Measure/measure-exm55-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - EXM124"/>
-            <description value="Cervical Cancer Screening"/>
-            <sourceReference>
-                <reference value="Measure/measure-exm124-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - EXM125"/>
-            <description value="Breast Cancer Screening"/>
-            <sourceReference>
-                <reference value="Measure/measure-exm125-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - EXM130"/>
-            <description value="Colorectal Cancer Screening"/>
-            <sourceReference>
-                <reference value="Measure/measure-exm130-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - EXM146"/>
-            <description value="Example Proportion Measure"/>
-            <sourceReference>
-                <reference value="Measure/measure-exm146-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - Risk Adjustment Example - DSTU2"/>
-            <description value="Example measure illustrating the use of risk adjustment"/>
-            <sourceReference>
-                <reference value="Measure/measure-risk-adjustment-FHIR2"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - Terminology Example"/>
-            <description value="Example measure illustrating the use of terminology"/>
-            <sourceReference>
-                <reference value="Measure/measure-terminology-FHIR"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - Venous Thromboembolism Prophylaxis"/>
-            <description value="Example VTE-1 Measure"/>
-            <sourceReference>
-                <reference value="Measure/measure-vte-1-FHIR"/>
-            </sourceReference>
-        </resource>
-        <!-- TODO: Bring in QDM examples if appropriate
-        <resource>
-            <example value="true"/>
-            <name value="Measure - CMS124"/>
-            <description value="Cervical Cancer Screening - QDM"/>
-            <sourceReference>
-                <reference value="Measure/measure-cms124-QDM"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - CMS125"/>
-            <description value="Breast Cancer Screening - QDM"/>
-            <sourceReference>
-                <reference value="Measure/measure-cms125-QDM"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="Measure - CMS130"/>
-            <description value="Colorectal Cancer Screening - QDM"/>
-            <sourceReference>
-                <reference value="Measure/measure-cms130-QDM"/>
-            </sourceReference>
-        </resource>
-        -->
-        <!-- Removing StructureMaps since the ig builder started validating them differently, resulting in errors
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap encounter-performed-to-encounter"/>
-            <description value="StructureMap encounter-performed-to-encounter"/>
-            <sourceReference>
-                <reference value="StructureMap/encounter-performed-to-encounter"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap encounter-recommended-to-referralrequest"/>
-            <description value="StructureMap encounter-recommended-to-referralrequest"/>
-            <sourceReference>
-                <reference value="StructureMap/encounter-recommended-to-referralrequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap encounter-order-to-referralrequest"/>
-            <description value="StructureMap encounter-order-to-referralrequest"/>
-            <sourceReference>
-                <reference value="StructureMap/encounter-order-to-referralrequest"/>
-            </sourceReference>
-        </resource>			
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap familyhistory-to-familymemberhistory"/>
-            <description value="StructureMap familyhistory-to-familymemberhistory"/>
-            <sourceReference>
-                <reference value="StructureMap/familyhistory-to-familymemberhistory"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap adverseevent-to-adverseevent"/>
-            <description value="StructureMap adverseevent-to-adverseevent"/>
-            <sourceReference>
-                <reference value="StructureMap/adverseevent-to-adverseevent"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap caregoal-to-goal"/>
-            <description value="StructureMap caregoal-to-goal"/>
-            <sourceReference>
-                <reference value="StructureMap/caregoal-to-goal"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap allergyintolerance-to-allergyintolerance"/>
-            <description value="StructureMap allergyintolerance-to-allergyintolerance"/>
-            <sourceReference>
-                <reference value="StructureMap/allergyintolerance-to-allergyintolerance"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap assessment-order-to-procedurerequest"/>
-            <description value="StructureMap assessment-order-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/assessment-order-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap assessment-recommended-to-procedurerequest"/>
-            <description value="StructureMap assessment-recommended-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/assessment-recommended-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap assessment-performed-to-observation"/>
-            <description value="StructureMap assessment-performed-to-observation"/>
-            <sourceReference>
-                <reference value="StructureMap/assessment-performed-to-observation"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap patientcareexperience-to-observation"/>
-            <description value="StructureMap patientcareexperience-to-observation"/>
-            <sourceReference>
-                <reference value="StructureMap/patientcareexperience-to-observation"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap providercareexperience-to-observation"/>
-            <description value="StructureMap providercareexperience-to-observation"/>
-            <sourceReference>
-                <reference value="StructureMap/providercareexperience-to-observation"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap laboratorytest-recommended-to-procedurerequest"/>
-            <description value="StructureMap laboratorytest-recommended-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/laboratorytest-recommended-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap laboratorytest-performed-to-observation"/>
-            <description value="StructureMap laboratorytest-performed-to-observation"/>
-            <sourceReference>
-                <reference value="StructureMap/laboratorytest-performed-to-observation"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap laboratorytest-order-to-procedurerequest"/>
-            <description value="StructureMap laboratorytest-order-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/laboratorytest-order-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap communication-patienttoprovider-to-communication"/>
-            <description value="StructureMap communication-patienttoprovider-to-communication"/>
-            <sourceReference>
-                <reference value="StructureMap/communication-patienttoprovider-to-communication"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap communication-providertopatient-to-communication"/>
-            <description value="StructureMap communication-providertopatient-to-communication"/>
-            <sourceReference>
-                <reference value="StructureMap/communication-providertopatient-to-communication"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap communication-providertoprovider-to-communication"/>
-            <description value="StructureMap communication-providertoprovider-to-communication"/>
-            <sourceReference>
-                <reference value="StructureMap/communication-providertoprovider-to-communication"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap diagnosis-to-condition"/>
-            <description value="StructureMap diagnosis-to-condition"/>
-            <sourceReference>
-                <reference value="StructureMap/diagnosis-to-condition"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap immunization-administered-to-immunization"/>
-            <description value="StructureMap immunization-administered-to-immunization"/>
-            <sourceReference>
-                <reference value="StructureMap/immunization-administered-to-immunization"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap immunization-order-to-medicationrequest"/>
-            <description value="StructureMap immunization-order-to-medicationrequest"/>
-            <sourceReference>
-                <reference value="StructureMap/immunization-order-to-medicationrequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap symptom-to-observation"/>
-            <description value="StructureMap symptom-to-observation"/>
-            <sourceReference>
-                <reference value="StructureMap/symptom-to-observation"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap medication-active-to-medicationstatement"/>
-            <description value="StructureMap medication-active-to-medicationstatement"/>
-            <sourceReference>
-                <reference value="StructureMap/medication-active-to-medicationstatement"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap medication-administered-to-medicationadministration"/>
-            <description value="StructureMap medication-administered-to-medicationadministration"/>
-            <sourceReference>
-                <reference value="StructureMap/medication-administered-to-medicationadministration"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap medication-dispensed-to-medicationdispense"/>
-            <description value="StructureMap medication-dispensed-to-medicationdispense"/>
-            <sourceReference>
-                <reference value="StructureMap/medication-dispensed-to-medicationdispense"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap medication-discharge-to-medicationrequest"/>
-            <description value="StructureMap medication-discharge-to-medicationrequest"/>
-            <sourceReference>
-                <reference value="StructureMap/medication-discharge-to-medicationrequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap medication-order-to-medicationrequest"/>
-            <description value="StructureMap medication-order-to-medicationrequest"/>
-            <sourceReference>
-                <reference value="StructureMap/medication-order-to-medicationrequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap procedure-order-to-procedurerequest"/>
-            <description value="StructureMap procedure-order-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/procedure-order-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap procedure-recommended-to-procedurerequest"/>
-            <description value="StructureMap procedure-recommended-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/procedure-recommended-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap procedure-performed-to-procedure"/>
-            <description value="StructureMap procedure-performed-to-procedure"/>
-            <sourceReference>
-                <reference value="StructureMap/procedure-performed-to-procedure"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap participation-to-coverage"/>
-            <description value="StructureMap participation-to-coverage"/>
-            <sourceReference>
-                <reference value="StructureMap/participation-to-coverage"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap physicalexam-order-to-procedurerequest"/>
-            <description value="StructureMap physicalexam-order-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/physicalexam-order-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap physicalexam-recommended-to-procedurerequest"/>
-            <description value="StructureMap physicalexam-recommended-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/physicalexam-recommended-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap physicalexam-performed-to-observation"/>
-            <description value="StructureMap physicalexam-performed-to-observation"/>
-            <sourceReference>
-                <reference value="StructureMap/physicalexam-performed-to-observation"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap substance-administered-to-medicationadministration"/>
-            <description value="StructureMap substance-administered-to-medicationadministration"/>
-            <sourceReference>
-                <reference value="StructureMap/substance-administered-to-medicationadministration"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap substance-order-to-medicationrequest"/>
-            <description value="StructureMap substance-order-to-medicationrequest"/>
-            <sourceReference>
-                <reference value="StructureMap/substance-order-to-medicationrequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap substance-recommended-to-medicationrequest"/>
-            <description value="StructureMap substance-recommended-to-medicationrequest"/>
-            <sourceReference>
-                <reference value="StructureMap/substance-recommended-to-medicationrequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap diagnosticstudy-order-to-procedurerequest"/>
-            <description value="StructureMap diagnosticstudy-order-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/diagnosticstudy-order-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap diagnosticstudy-recommended-to-procedurerequest"/>
-            <description value="StructureMap diagnosticstudy-recommended-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/diagnosticstudy-recommended-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap diagnosticstudy-performed-imagingstudies-to-diagnosticreport"/>
-            <description value="StructureMap diagnosticstudy-performed-imagingstudies-to-diagnosticreport"/>
-            <sourceReference>
-                <reference value="StructureMap/diagnosticstudy-performed-imagingstudies-to-diagnosticreport"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap diagnosticstudy-performed-nonimagingstudies-to-observation"/>
-            <description value="StructureMap diagnosticstudy-performed-nonimagingstudies-to-observation"/>
-            <sourceReference>
-                <reference value="StructureMap/diagnosticstudy-performed-nonimagingstudies-to-observation"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap intervention-order-to-procedurerequest"/>
-            <description value="StructureMap intervention-order-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/intervention-order-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap intervention-recommended-to-procedurerequest"/>
-            <description value="StructureMap intervention-recommended-to-procedurerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/intervention-recommended-to-procedurerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap intervention-performed-to-procedure"/>
-            <description value="StructureMap intervention-performed-to-procedure"/>
-            <sourceReference>
-                <reference value="StructureMap/intervention-performed-to-procedure"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap intervention-order-to-task"/>
-            <description value="StructureMap intervention-order-to-task"/>
-            <sourceReference>
-                <reference value="StructureMap/intervention-order-to-task"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap intervention-recommended-to-task"/>
-            <description value="StructureMap intervention-recommended-to-task"/>
-            <sourceReference>
-                <reference value="StructureMap/intervention-recommended-to-task"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap intervention-performed-to-task"/>
-            <description value="StructureMap intervention-performed-to-task"/>
-            <sourceReference>
-                <reference value="StructureMap/intervention-performed-to-task"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap device-applied-to-deviceusestatement"/>
-            <description value="StructureMap device-applied-to-deviceusestatement"/>
-            <sourceReference>
-                <reference value="StructureMap/device-applied-to-deviceusestatement"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap device-order-to-devicerequest"/>
-            <description value="StructureMap device-order-to-devicerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/device-order-to-devicerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap device-recommended-to-devicerequest"/>
-            <description value="StructureMap device-recommended-to-devicerequest"/>
-            <sourceReference>
-                <reference value="StructureMap/device-recommended-to-devicerequest"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap patientcharacteristic-generic-to-patient"/>
-            <description value="StructureMap patientcharacteristic-generic-to-patient"/>
-            <sourceReference>
-                <reference value="StructureMap/patientcharacteristic-generic-to-patient"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap patientcharacteristic-birthdate-to-patient"/>
-            <description value="StructureMap patientcharacteristic-birthdate-to-patient"/>
-            <sourceReference>
-                <reference value="StructureMap/patientcharacteristic-birthdate-to-patient"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap patientcharacteristic-clinicaltrialparticipant-to-patient"/>
-            <description value="StructureMap patientcharacteristic-clinicaltrialparticipant-to-patient"/>
-            <sourceReference>
-                <reference value="StructureMap/patientcharacteristic-clinicaltrialparticipant-to-patient"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap patientcharacteristic-ethnicity-to-patient"/>
-            <description value="StructureMap patientcharacteristic-ethnicity-to-patient"/>
-            <sourceReference>
-                <reference value="StructureMap/patientcharacteristic-ethnicity-to-patient"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap patientcharacteristic-expired-to-patient"/>
-            <description value="StructureMap patientcharacteristic-expired-to-patient"/>
-            <sourceReference>
-                <reference value="StructureMap/patientcharacteristic-expired-to-patient"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap patientcharacteristic-payer-to-patient"/>
-            <description value="StructureMap patientcharacteristic-payer-to-patient"/>
-            <sourceReference>
-                <reference value="StructureMap/patientcharacteristic-payer-to-patient"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap patientcharacteristic-race-to-patient"/>
-            <description value="StructureMap patientcharacteristic-race-to-patient"/>
-            <sourceReference>
-                <reference value="StructureMap/patientcharacteristic-race-to-patient"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap patientcharacteristic-sex-to-patient"/>
-            <description value="StructureMap patientcharacteristic-sex-to-patient"/>
-            <sourceReference>
-                <reference value="StructureMap/patientcharacteristic-sex-to-patient"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="true"/>
-            <name value="StructureMap providercharacteristic-to-practitioner"/>
-            <description value="StructureMap providercharacteristic-to-practitioner"/>
-            <sourceReference>
-                <reference value="StructureMap/providercharacteristic-to-practitioner"/>
-            </sourceReference>
-        </resource>
-      -->
-        <resource>
-			<example value="false"/>
-            <name value="StructureDefinition - Measure allocation extension"/>
-            <sourceReference>
-                <reference value="StructureDefinition/cqfm-allocation"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="false"/>
-            <name value="StructureDefinition - Measure definitionTerm extension"/>
-            <sourceReference>
-                <reference value="StructureDefinition/cqfm-definitionTerm"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="false"/>
-            <name value="StructureDefinition - Measure isPrimaryCitation extension"/>
-            <sourceReference>
-                <reference value="StructureDefinition/cqfm-isPrimaryCitation"/>
-            </sourceReference>
-        </resource>
-        <resource>
-			<example value="false"/>
-            <name value="StructureDefinition - Measure populationBasis extension"/>
-            <sourceReference>
-                <reference value="StructureDefinition/cqfm-populationBasis"/>
-            </sourceReference>
-        </resource>
+  <id value="us-cqfmeasures-0.2.0"/>
+  <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/us-cqfmeasures-0.2.0"/>
+  <version value="0.2.0"/>
+  <name value="CQFMeasures"/>
+  <title value="Quality Measures Implementation Guide"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2018-08-28"/>
+  <publisher value="Clinical Quality Information WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Measure content in support of the Clinical Reasoning Track at the Baltimore 2018 FHIR Connectathon"/>
+  <packageId value="hl7.fhir.us.cqfmeasures"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.0"/>
+  <definition>
+    <name value="MeasureContent"/>
+    <!-- Examples -->
+    <resource>
+      <reference>
+        <reference value="Library/library-adult-outpatient-encounters-FHIR"/>
+      </reference>
+      <exampleBoolean value="true"/>
+      <name value="Library - Adult Outpatient Encounters FHIR"/>
+    </resource>
+    <resource>
+      <description value="Example Common Library"/>
+      <reference>
+        <reference value="Library/library-common-FHIR"/>
+      </reference>
+      <name value="Library - Common Example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <name value="Library - Example"/>
+      <reference>
+        <reference value="Library/library-exm-logic"/>
+      </reference>
+      <exampleBoolean value="true"/>
+      <description value="Example Library"/>
+    </resource>
+    <resource>
+      <description value="Continuous Variable Measure Example Library"/>
+      <reference>
+        <reference value="Library/library-exm55-FHIR"/>
+      </reference>
+      <name value="Library - EXM55"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <description value="Cervical Cancer Screening Example Library"/>
+      <reference>
+        <reference value="Library/library-exm124-FHIR"/>
+      </reference>
+      <name value="Library - EXM124"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <description value="Breast Cancer Screening Example Library"/>
+      <reference>
+        <reference value="Library/library-exm125-FHIR"/>
+      </reference>
+      <name value="Library - EXM125"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <description value="Colorectal Cancer Screening Example Library"/>
+      <reference>
+        <reference value="Library/library-exm130-FHIR"/>
+      </reference>
+      <name value="Library - EXM130"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <description value="Proportion Measure Example Library"/>
+      <reference>
+        <reference value="Library/library-exm146-FHIR"/>
+      </reference>
+      <name value="Library - EXM146"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <!-- <resource>
+      <reference>
+        <reference value="Library/library-fhir-helpers-FHIR2"/>
+      </reference>
+      <name value="Library - FHIRHelpers - DSTU2"/>
+      <exampleBoolean value="true"/>
+    </resource> -->
+    <resource>
+      <reference>
+        <reference value="Library/library-fhir-helpers"/>
+      </reference>
+      <name value="Library - FHIRHelpers"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/library-fhir-model-definition-FHIR2"/>
+      </reference>
+      <name value="Library - FHIR Model Definition - DSTU2"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/library-fhir-model-definition"/>
+      </reference>
+      <name value="Library - FHIR Model Definition"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/library-hospice-FHIR"/>
+      </reference>
+      <name value="Library - Hospice FHIR"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/library-mat-global-common-functions-FHIR"/>
+      </reference>
+      <name value="Library - MAT Global Common Functions FHIR"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/library-risk-adjustment-FHIR2"/>
+      </reference>
+      <name value="Library - Risk Adjustment - DSTU2"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/library-supplemental-data-elements-FHIR"/>
+      </reference>
+      <name value="Library - Supplemental Data Elements FHIR"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/library-supplemental-data-elements-FHIR2"/>
+      </reference>
+      <name value="Library - Supplemental Data Elements DSTU2"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/library-terminology-FHIR"/>
+      </reference>
+      <name value="Library - Terminology Example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/library-vte-icu-FHIR"/>
+      </reference>
+      <name value="Library - VTE ICU FHIR"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/library-vte-1-FHIR"/>
+      </reference>
+      <name value="Library - Venous Thromboembolism Prophylaxis FHIR"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <!-- TODO: Bring in QDM examples if appropriate <resource> <name value="Library - CMS124 - QDM"/> <description value="Cervical Cancer Screening"/> <reference> <reference value="Library/library-cms124-QDM"/> </reference> </resource>
+    <resource> <name value="Library - CMS125 - QDM"/> <description value="Breast Cancer Screening"/> <reference> <reference value="Library/library-cms125-QDM"/> </reference> </resource> <resource> <name value="Library - CMS130 - QDM"/>
+    <description value="Colorectal Cancer Screening"/> <reference> <reference value="Library/library-cms130-QDM"/> </reference> </resource> <resource> <name value="Library - Adult Outpatient Encounters - QDM"/> <reference> <reference
+    value="Library/library-adult-outpatient-encounters-QDM"/> </reference> </resource> <resource> <name value="Library - Hospice - QDM"/> <reference> <reference value="Library/library-hospice-QDM"/> </reference> </resource> <resource>
+    <name value="Library - MAT Global Common Functions - QDM"/> <reference> <reference value="Library/library-mat-global-common-functions-QDM"/> </reference> </resource> -->
+    <resource>
+      <reference>
+        <reference value="Measure/measure-exm"/>
+      </reference>
+      <name value="Measure - Example"/>
+      <description value="Example Measure"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-exm55-FHIR"/>
+      </reference>
+      <name value="Measure - EXM55"/>
+      <description value="Example Continuous-variable Measure"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-exm124-FHIR"/>
+      </reference>
+      <name value="Measure - EXM124"/>
+      <description value="Cervical Cancer Screening"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-exm125-FHIR"/>
+      </reference>
+      <name value="Measure - EXM125"/>
+      <description value="Breast Cancer Screening"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-exm130-FHIR"/>
+      </reference>
+      <name value="Measure - EXM130"/>
+      <description value="Colorectal Cancer Screening"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-exm146-FHIR"/>
+      </reference>
+      <name value="Measure - EXM146"/>
+      <description value="Example Proportion Measure"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-risk-adjustment-FHIR2"/>
+      </reference>
+      <name value="Measure - Risk Adjustment Example - DSTU2"/>
+      <description value="Example measure illustrating the use of risk adjustment"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-terminology-FHIR"/>
+      </reference>
+      <name value="Measure - Terminology Example"/>
+      <description value="Example measure illustrating the use of terminology"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-vte-1-FHIR"/>
+      </reference>
+      <name value="Measure - Venous Thromboembolism Prophylaxis"/>
+      <description value="Example VTE-1 Measure"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <!-- TODO: Bring in QDM examples if appropriate <resource> <exampleBoolean value="true"/> <name value="Measure - CMS124"/> <description value="Cervical Cancer Screening - QDM"/> <reference> <reference value="Measure/measure-cms124-QDM"/>
+    </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="Measure - CMS125"/> <description value="Breast Cancer Screening - QDM"/> <reference> <reference value="Measure/measure-cms125-QDM"/> </reference> </resource>
+    <resource> <exampleBoolean value="true"/> <name value="Measure - CMS130"/> <description value="Colorectal Cancer Screening - QDM"/> <reference> <reference value="Measure/measure-cms130-QDM"/> </reference> </resource> -->
+    <!-- Removing StructureMaps since the ig builder started validating them differently, resulting in errors <resource> <exampleBoolean value="true"/> <name value="StructureMap encounter-performed-to-encounter"/> <description value="StructureMap
+    encounter-performed-to-encounter"/> <reference> <reference value="StructureMap/encounter-performed-to-encounter"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    encounter-recommended-to-referralrequest"/> <description value="StructureMap encounter-recommended-to-referralrequest"/> <reference> <reference value="StructureMap/encounter-recommended-to-referralrequest"/> </reference> </resource>
+    <resource> <exampleBoolean value="true"/> <name value="StructureMap encounter-order-to-referralrequest"/> <description value="StructureMap encounter-order-to-referralrequest"/> <reference> <reference
+    value="StructureMap/encounter-order-to-referralrequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap familyhistory-to-familymemberhistory"/> <description value="StructureMap
+    familyhistory-to-familymemberhistory"/> <reference> <reference value="StructureMap/familyhistory-to-familymemberhistory"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    adverseevent-to-adverseevent"/> <description value="StructureMap adverseevent-to-adverseevent"/> <reference> <reference value="StructureMap/adverseevent-to-adverseevent"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name
+    value="StructureMap caregoal-to-goal"/> <description value="StructureMap caregoal-to-goal"/> <reference> <reference value="StructureMap/caregoal-to-goal"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name
+    value="StructureMap allergyintolerance-to-allergyintolerance"/> <description value="StructureMap allergyintolerance-to-allergyintolerance"/> <reference> <reference value="StructureMap/allergyintolerance-to-allergyintolerance"/>
+    </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap assessment-order-to-procedurerequest"/> <description value="StructureMap assessment-order-to-procedurerequest"/> <reference> <reference
+    value="StructureMap/assessment-order-to-procedurerequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap assessment-recommended-to-procedurerequest"/> <description value="StructureMap
+    assessment-recommended-to-procedurerequest"/> <reference> <reference value="StructureMap/assessment-recommended-to-procedurerequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    assessment-performed-to-observation"/> <description value="StructureMap assessment-performed-to-observation"/> <reference> <reference value="StructureMap/assessment-performed-to-observation"/> </reference> </resource> <resource> <example
+    value="true"/> <name value="StructureMap patientcareexperience-to-observation"/> <description value="StructureMap patientcareexperience-to-observation"/> <reference> <reference value="StructureMap/patientcareexperience-to-observation"/>
+    </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap providercareexperience-to-observation"/> <description value="StructureMap providercareexperience-to-observation"/> <reference> <reference
+    value="StructureMap/providercareexperience-to-observation"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap laboratorytest-recommended-to-procedurerequest"/> <description value="StructureMap
+    laboratorytest-recommended-to-procedurerequest"/> <reference> <reference value="StructureMap/laboratorytest-recommended-to-procedurerequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    laboratorytest-performed-to-observation"/> <description value="StructureMap laboratorytest-performed-to-observation"/> <reference> <reference value="StructureMap/laboratorytest-performed-to-observation"/> </reference> </resource>
+    <resource> <exampleBoolean value="true"/> <name value="StructureMap laboratorytest-order-to-procedurerequest"/> <description value="StructureMap laboratorytest-order-to-procedurerequest"/> <reference> <reference
+    value="StructureMap/laboratorytest-order-to-procedurerequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap communication-patienttoprovider-to-communication"/> <description value="StructureMap
+    communication-patienttoprovider-to-communication"/> <reference> <reference value="StructureMap/communication-patienttoprovider-to-communication"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    communication-providertopatient-to-communication"/> <description value="StructureMap communication-providertopatient-to-communication"/> <reference> <reference value="StructureMap/communication-providertopatient-to-communication"/>
+    </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap communication-providertoprovider-to-communication"/> <description value="StructureMap communication-providertoprovider-to-communication"/> <reference>
+    <reference value="StructureMap/communication-providertoprovider-to-communication"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap diagnosis-to-condition"/> <description value="StructureMap
+    diagnosis-to-condition"/> <reference> <reference value="StructureMap/diagnosis-to-condition"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap immunization-administered-to-immunization"/> <description
+    value="StructureMap immunization-administered-to-immunization"/> <reference> <reference value="StructureMap/immunization-administered-to-immunization"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    immunization-order-to-medicationrequest"/> <description value="StructureMap immunization-order-to-medicationrequest"/> <reference> <reference value="StructureMap/immunization-order-to-medicationrequest"/> </reference> </resource>
+    <resource> <exampleBoolean value="true"/> <name value="StructureMap symptom-to-observation"/> <description value="StructureMap symptom-to-observation"/> <reference> <reference value="StructureMap/symptom-to-observation"/> </reference>
+    </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap medication-active-to-medicationstatement"/> <description value="StructureMap medication-active-to-medicationstatement"/> <reference> <reference
+    value="StructureMap/medication-active-to-medicationstatement"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap medication-administered-to-medicationadministration"/> <description value="StructureMap
+    medication-administered-to-medicationadministration"/> <reference> <reference value="StructureMap/medication-administered-to-medicationadministration"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    medication-dispensed-to-medicationdispense"/> <description value="StructureMap medication-dispensed-to-medicationdispense"/> <reference> <reference value="StructureMap/medication-dispensed-to-medicationdispense"/> </reference> </resource>
+    <resource> <exampleBoolean value="true"/> <name value="StructureMap medication-discharge-to-medicationrequest"/> <description value="StructureMap medication-discharge-to-medicationrequest"/> <reference> <reference
+    value="StructureMap/medication-discharge-to-medicationrequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap medication-order-to-medicationrequest"/> <description value="StructureMap
+    medication-order-to-medicationrequest"/> <reference> <reference value="StructureMap/medication-order-to-medicationrequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    procedure-order-to-procedurerequest"/> <description value="StructureMap procedure-order-to-procedurerequest"/> <reference> <reference value="StructureMap/procedure-order-to-procedurerequest"/> </reference> </resource> <resource> <example
+    value="true"/> <name value="StructureMap procedure-recommended-to-procedurerequest"/> <description value="StructureMap procedure-recommended-to-procedurerequest"/> <reference> <reference
+    value="StructureMap/procedure-recommended-to-procedurerequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap procedure-performed-to-procedure"/> <description value="StructureMap
+    procedure-performed-to-procedure"/> <reference> <reference value="StructureMap/procedure-performed-to-procedure"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap participation-to-coverage"/>
+    <description value="StructureMap participation-to-coverage"/> <reference> <reference value="StructureMap/participation-to-coverage"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    physicalexam-order-to-procedurerequest"/> <description value="StructureMap physicalexam-order-to-procedurerequest"/> <reference> <reference value="StructureMap/physicalexam-order-to-procedurerequest"/> </reference> </resource> <resource>
+    <exampleBoolean value="true"/> <name value="StructureMap physicalexam-recommended-to-procedurerequest"/> <description value="StructureMap physicalexam-recommended-to-procedurerequest"/> <reference> <reference
+    value="StructureMap/physicalexam-recommended-to-procedurerequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap physicalexam-performed-to-observation"/> <description value="StructureMap
+    physicalexam-performed-to-observation"/> <reference> <reference value="StructureMap/physicalexam-performed-to-observation"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    substance-administered-to-medicationadministration"/> <description value="StructureMap substance-administered-to-medicationadministration"/> <reference> <reference value="StructureMap/substance-administered-to-medicationadministration"/>
+    </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap substance-order-to-medicationrequest"/> <description value="StructureMap substance-order-to-medicationrequest"/> <reference> <reference
+    value="StructureMap/substance-order-to-medicationrequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap substance-recommended-to-medicationrequest"/> <description value="StructureMap
+    substance-recommended-to-medicationrequest"/> <reference> <reference value="StructureMap/substance-recommended-to-medicationrequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    diagnosticstudy-order-to-procedurerequest"/> <description value="StructureMap diagnosticstudy-order-to-procedurerequest"/> <reference> <reference value="StructureMap/diagnosticstudy-order-to-procedurerequest"/> </reference> </resource>
+    <resource> <exampleBoolean value="true"/> <name value="StructureMap diagnosticstudy-recommended-to-procedurerequest"/> <description value="StructureMap diagnosticstudy-recommended-to-procedurerequest"/> <reference> <reference
+    value="StructureMap/diagnosticstudy-recommended-to-procedurerequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap diagnosticstudy-performed-imagingstudies-to-diagnosticreport"/> <description
+    value="StructureMap diagnosticstudy-performed-imagingstudies-to-diagnosticreport"/> <reference> <reference value="StructureMap/diagnosticstudy-performed-imagingstudies-to-diagnosticreport"/> </reference> </resource> <resource> <example
+    value="true"/> <name value="StructureMap diagnosticstudy-performed-nonimagingstudies-to-observation"/> <description value="StructureMap diagnosticstudy-performed-nonimagingstudies-to-observation"/> <reference> <reference
+    value="StructureMap/diagnosticstudy-performed-nonimagingstudies-to-observation"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap intervention-order-to-procedurerequest"/> <description value="StructureMap
+    intervention-order-to-procedurerequest"/> <reference> <reference value="StructureMap/intervention-order-to-procedurerequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    intervention-recommended-to-procedurerequest"/> <description value="StructureMap intervention-recommended-to-procedurerequest"/> <reference> <reference value="StructureMap/intervention-recommended-to-procedurerequest"/> </reference>
+    </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap intervention-performed-to-procedure"/> <description value="StructureMap intervention-performed-to-procedure"/> <reference> <reference
+    value="StructureMap/intervention-performed-to-procedure"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap intervention-order-to-task"/> <description value="StructureMap intervention-order-to-task"/>
+    <reference> <reference value="StructureMap/intervention-order-to-task"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap intervention-recommended-to-task"/> <description value="StructureMap
+    intervention-recommended-to-task"/> <reference> <reference value="StructureMap/intervention-recommended-to-task"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap intervention-performed-to-task"/>
+    <description value="StructureMap intervention-performed-to-task"/> <reference> <reference value="StructureMap/intervention-performed-to-task"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    device-applied-to-deviceusestatement"/> <description value="StructureMap device-applied-to-deviceusestatement"/> <reference> <reference value="StructureMap/device-applied-to-deviceusestatement"/> </reference> </resource> <resource>
+    <exampleBoolean value="true"/> <name value="StructureMap device-order-to-devicerequest"/> <description value="StructureMap device-order-to-devicerequest"/> <reference> <reference value="StructureMap/device-order-to-devicerequest"/> </reference>
+    </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap device-recommended-to-devicerequest"/> <description value="StructureMap device-recommended-to-devicerequest"/> <reference> <reference
+    value="StructureMap/device-recommended-to-devicerequest"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap patientcharacteristic-generic-to-patient"/> <description value="StructureMap
+    patientcharacteristic-generic-to-patient"/> <reference> <reference value="StructureMap/patientcharacteristic-generic-to-patient"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    patientcharacteristic-birthdate-to-patient"/> <description value="StructureMap patientcharacteristic-birthdate-to-patient"/> <reference> <reference value="StructureMap/patientcharacteristic-birthdate-to-patient"/> </reference> </resource>
+    <resource> <exampleBoolean value="true"/> <name value="StructureMap patientcharacteristic-clinicaltrialparticipant-to-patient"/> <description value="StructureMap patientcharacteristic-clinicaltrialparticipant-to-patient"/> <reference> <reference
+    value="StructureMap/patientcharacteristic-clinicaltrialparticipant-to-patient"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap patientcharacteristic-ethnicity-to-patient"/> <description
+    value="StructureMap patientcharacteristic-ethnicity-to-patient"/> <reference> <reference value="StructureMap/patientcharacteristic-ethnicity-to-patient"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name
+    value="StructureMap patientcharacteristic-expired-to-patient"/> <description value="StructureMap patientcharacteristic-expired-to-patient"/> <reference> <reference value="StructureMap/patientcharacteristic-expired-to-patient"/>
+    </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap patientcharacteristic-payer-to-patient"/> <description value="StructureMap patientcharacteristic-payer-to-patient"/> <reference> <reference
+    value="StructureMap/patientcharacteristic-payer-to-patient"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap patientcharacteristic-race-to-patient"/> <description value="StructureMap
+    patientcharacteristic-race-to-patient"/> <reference> <reference value="StructureMap/patientcharacteristic-race-to-patient"/> </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="StructureMap
+    patientcharacteristic-sex-to-patient"/> <description value="StructureMap patientcharacteristic-sex-to-patient"/> <reference> <reference value="StructureMap/patientcharacteristic-sex-to-patient"/> </reference> </resource> <resource>
+    <exampleBoolean value="true"/> <name value="StructureMap providercharacteristic-to-practitioner"/> <description value="StructureMap providercharacteristic-to-practitioner"/> <reference> <reference
+    value="StructureMap/providercharacteristic-to-practitioner"/> </reference> </resource> -->
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-allocation"/>
+      </reference>
+      <name value="StructureDefinition - Measure allocation extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-definitionTerm"/>
+      </reference>
+      <name value="StructureDefinition - Measure definitionTerm extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-isPrimaryCitation"/>
+      </reference>
+      <name value="StructureDefinition - Measure isPrimaryCitation extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-populationBasis"/>
+      </reference>
+      <name value="StructureDefinition - Measure populationBasis extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
 
-        <resource>
-            <example value="false"/>
-            <sourceReference>
-                <reference value="CodeSystem/aggregate-method"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="false"/>
-            <sourceReference>
-                <reference value="CodeSystem/artifact-comment-type"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="false"/>
-            <sourceReference>
-                <reference value="CodeSystem/improvement-notation"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="false"/>
-            <sourceReference>
-                <reference value="ValueSet/aggregate-method"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="false"/>
-            <sourceReference>
-                <reference value="ValueSet/artifact-comment-type"/>
-            </sourceReference>
-        </resource>
-        <resource>
-            <example value="false"/>
-            <sourceReference>
-                <reference value="ValueSet/improvement-notation"/>
-            </sourceReference>
-        </resource>
-	</package>
-    <binary value="cql/AdultOutpatientEncounters_FHIR-1.1.000.cql"/>
-    <binary value="elm/AdultOutpatientEncounters_FHIR-1.1.000.xml"/>
-    <binary value="elm/AdultOutpatientEncounters_FHIR-1.1.000.json"/>
-    <binary value="cql/Common_FHIR-2.0.0.cql"/>
-    <binary value="elm/Common_FHIR-2.0.0.xml"/>
-    <binary value="elm/Common_FHIR-2.0.0.json"/>
-    <binary value="cql/exm-logic-1.0.0.cql"/>
-    <binary value="elm/exm-logic-1.0.0.xml"/>
-    <binary value="elm/exm-logic-1.0.0.json"/>
-    <binary value="cql/EXM55_FHIR-5.0.0.cql"/>
-    <binary value="elm/EXM55_FHIR-5.0.0.xml"/>
-    <binary value="elm/EXM55_FHIR-5.0.0.json"/>
-    <binary value="cql/EXM124_FHIR-7.2.000.cql"/>
-    <binary value="elm/EXM124_FHIR-7.2.000.xml"/>
-    <binary value="elm/EXM124_FHIR-7.2.000.json"/>
-    <binary value="cql/EXM125_FHIR-7.2.000.cql"/>
-    <binary value="elm/EXM125_FHIR-7.2.000.xml"/>
-    <binary value="elm/EXM125_FHIR-7.2.000.json"/>
-    <binary value="cql/EXM130_FHIR-7.2.000.cql"/>
-    <binary value="elm/EXM130_FHIR-7.2.000.xml"/>
-    <binary value="elm/EXM130_FHIR-7.2.000.json"/>
-    <binary value="cql/EXM146_FHIR-4.0.0.cql"/>
-    <binary value="elm/EXM146_FHIR-4.0.0.xml"/>
-    <binary value="elm/EXM146_FHIR-4.0.0.json"/>
-    <binary value="cql/FHIRHelpers-1.0.2.cql"/>
-    <binary value="elm/FHIRHelpers-1.0.2.xml"/>
-    <binary value="elm/FHIRHelpers-1.0.2.json"/>
-    <binary value="cql/FHIRHelpers-3.0.0.cql"/>
-    <binary value="elm/FHIRHelpers-3.0.0.xml"/>
-    <binary value="elm/FHIRHelpers-3.0.0.json"/>
-    <binary value="cql/Hospice_FHIR-1.0.000.cql"/>
-    <binary value="elm/Hospice_FHIR-1.0.000.xml"/>
-    <binary value="elm/Hospice_FHIR-1.0.000.json"/>
-    <binary value="cql/MATGlobalCommonFunctions_FHIR-2.0.000.cql"/>
-    <binary value="elm/MATGlobalCommonFunctions_FHIR-2.0.000.xml"/>
-    <binary value="elm/MATGlobalCommonFunctions_FHIR-2.0.000.json"/>
-    <binary value="cql/RiskAdjustment_FHIR2.cql"/>
-    <binary value="elm/RiskAdjustment_FHIR2.xml"/>
-    <binary value="elm/RiskAdjustment_FHIR2.json"/>
-    <binary value="cql/SupplementalDataElements_FHIR-1.0.0.cql"/>
-    <binary value="elm/SupplementalDataElements_FHIR-1.0.0.xml"/>
-    <binary value="elm/SupplementalDataElements_FHIR-1.0.0.json"/>
-    <binary value="cql/SupplementalDataElements_FHIR2-1.0.0.cql"/>
-    <binary value="elm/SupplementalDataElements_FHIR2-1.0.0.xml"/>
-    <binary value="elm/SupplementalDataElements_FHIR2-1.0.0.json"/>
-    <binary value="cql/Terminology_FHIR.cql"/>
-    <binary value="elm/Terminology_FHIR.xml"/>
-    <binary value="elm/Terminology_FHIR.json"/>
-    <binary value="cql/VTE-1_FHIR-7.4.000.cql"/>
-    <binary value="elm/VTE-1_FHIR-7.4.000.xml"/>
-    <binary value="elm/VTE-1_FHIR-7.4.000.json"/>
-    <binary value="cql/VTEICU_FHIR-2.4.000.cql"/>
-    <binary value="elm/VTEICU_FHIR-2.4.000.xml"/>
-    <binary value="elm/VTEICU_FHIR-2.4.000.json"/>
-    <binary value="cql/qdm/AdultOutpatientEncounters_QDM-1.1.000.cql"/>
-    <binary value="elm/qdm/AdultOutpatientEncounters_QDM-1.1.000.xml"/>
-    <binary value="elm/qdm/AdultOutpatientEncounters_QDM-1.1.000.json"/>
-    <binary value="cql/qdm/cms124_QDM-7.2.000.cql"/>
-    <binary value="elm/qdm/cms124_QDM-7.2.000.xml"/>
-    <binary value="elm/qdm/cms124_QDM-7.2.000.json"/>
-    <binary value="cql/qdm/cms125_QDM-7.2.000.cql"/>
-    <binary value="elm/qdm/cms125_QDM-7.2.000.xml"/>
-    <binary value="elm/qdm/cms125_QDM-7.2.000.json"/>
-    <binary value="cql/qdm/cms130_QDM-7.2.000.cql"/>
-    <binary value="elm/qdm/cms130_QDM-7.2.000.xml"/>
-    <binary value="elm/qdm/cms130_QDM-7.2.000.json"/>
-    <binary value="cql/qdm/Common_QDM-2.0.0.cql"/>
-    <binary value="elm/qdm/Common_QDM-2.0.0.xml"/>
-    <binary value="elm/qdm/Common_QDM-2.0.0.json"/>
-    <binary value="cql/qdm/EXM55_QDM-5.0.0.cql"/>
-    <binary value="elm/qdm/EXM55_QDM-5.0.0.xml"/>
-    <binary value="elm/qdm/EXM55_QDM-5.0.0.json"/>
-    <binary value="cql/qdm/EXM146_QDM-4.0.0.cql"/>
-    <binary value="elm/qdm/EXM146_QDM-4.0.0.xml"/>
-    <binary value="elm/qdm/EXM146_QDM-4.0.0.json"/>
-    <binary value="cql/qdm/Hospice_QDM-1.0.000.cql"/>
-    <binary value="elm/qdm/Hospice_QDM-1.0.000.xml"/>
-    <binary value="elm/qdm/Hospice_QDM-1.0.000.json"/>
-    <binary value="cql/qdm/MATGlobalCommonFunctions_QDM-2.0.000.cql"/>
-    <binary value="elm/qdm/MATGlobalCommonFunctions_QDM-2.0.000.xml"/>
-    <binary value="elm/qdm/MATGlobalCommonFunctions_QDM-2.0.000.json"/>
-    <binary value="cql/qdm/Terminology_QDM.cql"/>
-    <binary value="elm/qdm/Terminology_QDM.xml"/>
-    <binary value="elm/qdm/Terminology_QDM.json"/>
-    <binary value="cql/qdm/VTE-1_QDM-7.4.000.cql"/>
-    <binary value="elm/qdm/VTE-1_QDM-7.4.000.xml"/>
-    <binary value="elm/qdm/VTE-1_QDM-7.4.000.json"/>
-    <binary value="cql/qdm/VTEICU_QDM-2.4.000.cql"/>
-    <binary value="elm/qdm/VTEICU_QDM-2.4.000.xml"/>
-    <binary value="elm/qdm/VTEICU_QDM-2.4.000.json"/>
-    <page>
-        <source value="index.html"/>
-        <title value="CQF Measure Content"/>
-        <kind value="page"/>
-        <format value="html"/>
-    </page>
+    <resource>
+      <reference>
+        <reference value="CodeSystem/aggregate-method"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CodeSystem/artifact-comment-type"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CodeSystem/improvement-notation"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/aggregate-method"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/artifact-comment-type"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/improvement-notation"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+  </definition>
 </ImplementationGuide>

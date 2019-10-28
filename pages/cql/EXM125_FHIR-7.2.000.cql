@@ -7,12 +7,12 @@ of finding conventions and usage patterns that meet the needs of the various sta
 in the measure development community.
 */
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.0'
 
 include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
 include AdultOutpatientEncounters_FHIR version '1.1.000' called AdultOutpatientEncounters
 include Hospice_FHIR version '1.0.000' called Hospice
-include FHIRHelpers version '3.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 include SupplementalDataElements_FHIR version '1.0.0' called SDE
 
 valueset "ONC Administrative Sex": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
@@ -51,27 +51,49 @@ define "Denominator":
 
 define "Unilateral Mastectomy Procedure":
 		[Procedure: "Unilateral Mastectomy"] UnilateralMastectomyProcedure
-				where UnilateralMastectomyProcedure.performed ends before day of end of "Measurement Period"
+				where (UnilateralMastectomyProcedure.performed as Period) ends before day of end of "Measurement Period"
 						and UnilateralMastectomyProcedure.status = 'completed'
 
 define "Right Mastectomy":
 		(
-				( [Condition: "Status Post Right Mastectomy"] C where C.clinicalStatus = 'active' )
+				(
+          [Condition: "Status Post Right Mastectomy"] C
+            where exists
+            (
+              C.clinicalStatus.coding ClinicalStatusCoding
+                where ClinicalStatusCoding.code = 'active'
+            )
+        )
 				union (
-						[Condition: "Unilateral Mastectomy, Unspecified Laterality"] UnilateralMastectomyDiagnosis
-								where UnilateralMastectomyDiagnosis.bodySite in "Right"
-										and UnilateralMastectomyDiagnosis.clinicalStatus = 'active'
+					[Condition: "Unilateral Mastectomy, Unspecified Laterality"] UnilateralMastectomyDiagnosis
+						where UnilateralMastectomyDiagnosis.bodySite in "Right"
+							and exists
+              (
+                UnilateralMastectomyDiagnosis.clinicalStatus.coding ClinicalStatusCoding
+                  where ClinicalStatusCoding.code = 'active'
+              )
 				)
 		) RightMastectomy
 				where Global."Normalize Onset"(RightMastectomy.onset) starts before day of end of "Measurement Period"
 
 define "Left Mastectomy":
 		(
-		    ( [Condition: "Status Post Left Mastectomy"] C where C.clinicalStatus = 'active' )
+		    (
+          [Condition: "Status Post Left Mastectomy"] C
+            where exists
+            (
+              C.clinicalStatus.coding ClinicalStatusCoding
+                where ClinicalStatusCoding.code = 'active'
+            )
+        )
 				union (
-						[Condition: "Unilateral Mastectomy, Unspecified Laterality"] UnilateralMastectomyDiagnosis
-								where UnilateralMastectomyDiagnosis.bodySite in "Left"
-										and UnilateralMastectomyDiagnosis.clinicalStatus = 'active'
+					[Condition: "Unilateral Mastectomy, Unspecified Laterality"] UnilateralMastectomyDiagnosis
+						where UnilateralMastectomyDiagnosis.bodySite in "Left"
+							and exists
+              (
+                UnilateralMastectomyDiagnosis.clinicalStatus.coding ClinicalStatusCoding
+                  where ClinicalStatusCoding.code = 'active'
+              )
 				)
 		) LeftMastectomy
 				where Global."Normalize Onset"(LeftMastectomy.onset) starts before day of end of "Measurement Period"
@@ -79,11 +101,16 @@ define "Left Mastectomy":
 define "History Bilateral Mastectomy":
 		[Condition: "History of bilateral mastectomy"] BilateralMastectomyHistory
 				where Global."Normalize Onset"(BilateralMastectomyHistory.onset) starts before day of end of "Measurement Period"
-						and BilateralMastectomyHistory.clinicalStatus = 'active'
+						and
+            exists
+            (
+              BilateralMastectomyHistory.clinicalStatus.coding ClinicalStatusCoding
+                where ClinicalStatusCoding.code = 'active'
+            )
 
 define "Bilateral Mastectomy Procedure":
 		[Procedure: "Bilateral Mastectomy"] BilateralMastectomyPerformed
-				where BilateralMastectomyPerformed.performed ends before day of end of "Measurement Period"
+				where (BilateralMastectomyPerformed.performed as Period) ends before day of end of "Measurement Period"
 						and BilateralMastectomyPerformed.status = 'completed'
 
 define "Numerator":

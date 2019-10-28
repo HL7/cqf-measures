@@ -7,12 +7,12 @@ of finding conventions and usage patterns that meet the needs of the various sta
 in the measure development community.
 */
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.0'
 
 include AdultOutpatientEncounters_FHIR version '1.1.000' called AdultOutpatientEncounters
 include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
 include Hospice_FHIR version '1.0.000' called Hospice
-include FHIRHelpers version '3.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 include SupplementalDataElements_FHIR version '1.0.0' called SDE
 
 valueset "ONC Administrative Sex": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
@@ -49,12 +49,12 @@ define "Denominator":
 define "Flexible Sigmoidoscopy Performed":
 	[Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
 		where FlexibleSigmoidoscopy.status = 'completed'
-			and FlexibleSigmoidoscopy.performed ends 5 years or less on or before end of "Measurement Period"
+			and (FlexibleSigmoidoscopy.performed as Period) ends 5 years or less on or before end of "Measurement Period"
 
 define "CT Colonography Performed":
 	[Procedure: "CT Colonography"] Colonography
 		where Colonography.status = 'completed'
-			and Colonography.performed ends 5 years or less on or before end of "Measurement Period"
+			and (Colonography.performed as Period) ends 5 years or less on or before end of "Measurement Period"
 
 define "Total Colectomy Performed":
 	[Procedure: "Total Colectomy"] Colectomy
@@ -81,7 +81,7 @@ define "Fecal Immunochemical Test DNA":
 define "Colonoscopy Performed":
 	[Procedure: "Colonoscopy"] Colonoscopy
 		where Colonoscopy.status = 'completed'
-		 	and Colonoscopy.performed ends 10 years or less on or before end of "Measurement Period"
+		 	and (Colonoscopy.performed as Period) ends 10 years or less on or before end of "Measurement Period"
 
 define "Numerator":
 	exists "Colonoscopy Performed"
