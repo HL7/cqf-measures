@@ -103,6 +103,7 @@ body {
   margin-top: 14px;
   margin-bottom: 20px;
 }
+
 /* SCAFFOlDING OBJECTS
 ----------------------------------------------------------------------------------------*/
 #logo {
@@ -169,6 +170,9 @@ body {
   box-shadow: none;
   padding-left: 0px;
   padding-right: 0px;
+  margin-bottom: 0;
+}
+.navbar .nav > li {
   margin-bottom: 0;
 }
 .navbar .nav > li > a {
@@ -427,6 +431,8 @@ ul#markdown-toc {
 #publish-box {
   list-style: none;
   padding: 0;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 p#publish-box {
@@ -442,4 +448,20 @@ img#publish-box {
 #markdown-toc li{
   font-size: 1em;
 
+}
+
+#contentDiv {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+  padding-bottom: 5px;
+}
+
+details > summary:hover {
+  cursor: hand;
+}
+
+details > summary {
+  padding-bottom: 5px;
 }

@@ -2,6 +2,14 @@
 layout: default
 title: Glossary
 ---
+
+---
+
+<!-- TOC  the css styling for this is \pages\assets\css\project.css under 'markdown-toc'-->
+
+* Do not remove this line (it will not be displayed)
+{:toc}
+
 ## 9 Glossary
 
 ### 9.1 Glossary 

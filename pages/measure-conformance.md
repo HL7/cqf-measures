@@ -6,12 +6,11 @@ title: Measure Conformance
 ---
 
 <!-- TOC  the css styling for this is \pages\assets\css\project.css under 'markdown-toc'-->
-**Contents**
 
 * Do not remove this line (it will not be displayed)
 {:toc}
 
----
+
 ## 3 eCQM Basics 
 {: #ecqm-basics}
 
@@ -76,7 +75,7 @@ library EXM146_FHIR version '4.0.0'
 
 Snippet 3-2: Library declaration line from [EXM146_FHIR-4.0.0.cql](cql/EXM146_FHIR-4.0.0.cql)
 
-When using multiple CQL libraries to define a measure, refer to the [Nested Libraries](using-cql.html#412-nested-libraries) section of the [Using CQL](using-cql.html#4-cql-basics) topic of this guide.
+When using multiple CQL libraries to define a measure, refer to the [Nested Libraries](using-cql.html#nested-libraries) section of the [Using CQL](using-cql.html#cql-basics) topic of this guide.
 
 Inclusion of CQL into a FHIR eCQM is accomplished through the use of a FHIR Library resource as shown in Snippet 3-4. These libraries are then incorporated into the FHIR eCQM using the `library` element of the Measure (Snippet 3). CQL library content is encoded as `base64` and included as the `content` element of the Library resource.
 
@@ -292,7 +291,7 @@ code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT:2
 
 Snippet 3-7: CQL declaration of codesystem, valueset, and code (from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql))
 
-Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html#4-cql-basics) of this IG, sections [4.3](using-cql.html#43-code-systems), [4.4](using-cql.html#44-value-sets), and [4.5](using-cql.html#45-codes).
+Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html#cql-basics) of this IG, sections [4.3](using-cql.html#code-systems), [4.4](using-cql.html#value-sets), and [4.5](using-cql.html#codes).
 
 All declared valuesets and codes can be found in the [dataRequirement](StructureDefinition-library-cqfm-definitions.html#Library.dataRequirement) elements in the Library resource referenced by the Measure resource.
 
