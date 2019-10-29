@@ -15,7 +15,7 @@ include Hospice_FHIR version '1.0.000' called Hospice
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 include SupplementalDataElements_FHIR version '1.0.0' called SDE
 
-codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108' version 'http://snomed.info/sct/731000124108/version/201709'
+codesystem "SNOMED CT:2017-09": 'http://snomed.info/sct' version 'http://snomed.info/sct/731000124108/version/201709'
 
 valueset "ONC Administrative Sex": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
 valueset "Race": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
@@ -30,7 +30,7 @@ valueset "Preventive Care Services - Established Office Visit, 18 and Up": 'http
 valueset "Preventive Care Services-Initial Office Visit, 18 and Up": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023'
 valueset "HPV Test": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1059'
 
-code "Congenital absence of cervix (disorder)": '37687000' from "SNOMEDCT:2017-09" display 'Congenital absence of cervix (disorder)'
+code "Congenital absence of cervix (disorder)": '37687000' from "SNOMED CT:2017-09" display 'Congenital absence of cervix (disorder)'
 
 parameter "Measurement Period" Interval<DateTime>
 
