@@ -62,9 +62,7 @@
     }
   ],
   "library": [
-    {
-      "reference": "Library/library-terminology-FHIR"
-    }
+    "Library/library-terminology-FHIR"
   ],
   "scoring": {
     "coding": [
@@ -84,17 +82,18 @@
       ]
     }
   ],
-  "improvementNotation": "decrease",
+  "improvementNotation": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/ValueSet/measure-improvement-notation",
+        "code": "decrease"
+      }
+    ]
+  },
   "group": [
     {
-      "identifier": {
-        "value": "group-1"
-      },
       "population": [
         {
-          "identifier": {
-            "value": "initial-population-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -104,7 +103,10 @@
               }
             ]
           },
-          "criteria": "Initial Population"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Initial Population"
+          }
         }
       ]
     }

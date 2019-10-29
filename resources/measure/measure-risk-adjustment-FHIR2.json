@@ -62,9 +62,7 @@
     }
   ],
   "library": [
-    {
-      "reference": "Library/library-risk-adjustment-FHIR2"
-    }
+    "Library/library-risk-adjustment-FHIR2"    
   ],
   "scoring": {
     "coding": [
@@ -84,17 +82,18 @@
       ]
     }
   ],
-  "improvementNotation": "decrease",
+  "improvementNotation": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/ValueSet/measure-improvement-notation",
+        "code": "decrease"
+      }
+    ]
+  },
   "group": [
     {
-      "identifier": {
-        "value": "group-1"
-      },
       "population": [
         {
-          "identifier": {
-            "value": "initial-population-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -104,12 +103,12 @@
               }
             ]
           },
-          "criteria": "Initial Population"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Initial Population"
+          }
         },
         {
-          "identifier": {
-            "value": "numerator-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -119,12 +118,12 @@
               }
             ]
           },
-          "criteria": "Numerator"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Numerator"
+          }
         },
         {
-          "identifier": {
-            "value": "denominator-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -134,7 +133,10 @@
               }
             ]
           },
-          "criteria": "Denominator"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Denominator"
+          }
         }
       ]
     }
@@ -154,7 +156,10 @@
           ]
         }
       ],
-      "criteria": "SDE Ethnicity"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Ethnicity"
+      }
     },
     {
       "identifier": {
@@ -170,7 +175,10 @@
           ]
         }
       ],
-      "criteria": "SDE Payer"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Payer"
+      }
     },
     {
       "identifier": {
@@ -186,7 +194,10 @@
           ]
         }
       ],
-      "criteria": "SDE Race"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Race"
+      }
     },
     {
       "identifier": {
@@ -202,7 +213,10 @@
           ]
         }
       ],
-      "criteria": "SDE Sex"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Sex"
+      }
     },
     {
       "identifier": {
@@ -218,7 +232,10 @@
           ]
         }
       ],
-      "criteria": "Hepatic Failure"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "Hepatic Failure"
+      }
     },
     {
       "identifier": {
@@ -234,7 +251,10 @@
           ]
         }
       ],
-      "criteria": "Cirrhosis Dx"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "Cirrhosis Dx"
+      }
     },
     {
       "identifier": {
@@ -250,7 +270,10 @@
           ]
         }
       ],
-      "criteria": "Bilirubin Test"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "Bilirubin Test"
+      }
     },
     {
       "identifier": {
@@ -266,7 +289,10 @@
           ]
         }
       ],
-      "criteria": "Serum Albumin Test"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "Serum Albumin Test"
+      }
     }
   ]
 }

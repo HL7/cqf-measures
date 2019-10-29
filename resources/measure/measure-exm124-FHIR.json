@@ -113,9 +113,7 @@
     }
   ],
   "library": [
-    {
-      "reference": "Library/library-exm124-FHIR"
-    }
+    "Library/library-exm124-FHIR"
   ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. <br> Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
@@ -138,18 +136,19 @@
   ],
   "rationale": "Breast cancer is one of the most common types of cancers, accounting for 15 percent of all new cancer diagnoses in the U.S. (Howlader et al, 2016). In 2013, over 3 million women were estimated to be living with breast cancer in the U.S. and it is estimated that 12 percent of women will be diagnosed with breast cancer at some point during their lifetime (Howlader et al, 2016). <br> While there are other factors that affect a woman's risk of developing breast cancer, advancing age is a primary risk factor. Breast cancer is most frequently diagnosed among women ages 55-64; the median age at diagnosis is 62 years (Howlader et al, 2016). The chance of a woman being diagnosed with breast cancer in a given year increases with age. By age 40, the chances are 1 in 235; by age 50 it becomes 1 in 54; by age 60, it is 1 in 25 (National Business Group on Health, 2011). <br> In the U.S., costs associated with a diagnosis of breast cancer range from $451 to $2,520, factoring in continued testing, multiple office visits and procedures. The total costs related to breast cancer add up to nearly $7 billion per year in the U.S., including $2 billion spent on late-stage treatment (National Business Group on Health, 2011). If breast cancer is detected through mammography screening and diagnosed in its earliest stages, treatment may be less expensive (Feig, 2011).",
   "clinicalRecommendationStatement": "The U.S. Preventive Services Task Force (USPSTF) recommends biennial screening mammography for women aged 50-74 years (B recommendation).  <br> The decision to start screening mammography in women prior to age 50 years should be an individual one. Women who place a higher value on the potential benefit than the potential harms may choose to begin biennial screening between the ages of 40 and 49 years (C recommendation). (USPSTF, 2016) <br> The USPSTF concludes that the current evidence is insufficient to assess the balance of benefits and harms of screening mammography in women aged 75 years or older (I statement). (USPSTF, 2016) <br> The USPSTF concludes that the current evidence is insufficient to assess the benefits and harms of digital breast tomosynthesis (DBT) as a primary screening method for breast cancer (I Statement). (USPSTF, 2016)  <br> The USPSTF concludes that the current evidence is insufficient to assess the balance of benefits and harms of adjunctive screening for breast cancer using breast ultrasonography, magnetic resonance imaging, DBT, or other methods in women identified to have dense breasts on an otherwise negative screening mammogram (I statement). (USPSTF, 2016)",
-  "improvementNotation": "increase",
+  "improvementNotation": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/ValueSet/measure-improvement-notation",
+        "code": "increase"
+      }
+    ]
+  },
   "guidance": "To ensure the measure is only looking for a cervical cytology test only after a woman turns 21 years of age, the youngest age in the initial population is 23. <br> Patient self-report for procedures as well as diagnostic studies should be recorded in 'Procedure, Performed' template or 'Diagnostic Study, Performed' template in QRDA-1. <br> Include only cytology and HPV \"co-testing\"; in co-testing, both cytology and HPV tests are performed (i.e., the samples are collected and both tests are ordered, regardless of the cytology result) on the same date of service. Do not include reflex testing. In addition, if the medical record indicates the HPV test was performed only after determining the cytology result, this is considered reflex testing and does not meet criteria for the measure.",
   "group": [
     {
-      "identifier": {
-        "value": "group-1"
-      },
       "population": [
         {
-          "identifier": {
-            "value": "initial-population-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -159,12 +158,12 @@
               }
             ]
           },
-          "criteria": "Initial Population"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Initial Population"
+          }
         },
         {
-          "identifier": {
-            "value": "numerator-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -174,12 +173,12 @@
               }
             ]
           },
-          "criteria": "Numerator"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Numerator"
+          }
         },
         {
-          "identifier": {
-            "value": "denominator-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -189,12 +188,12 @@
               }
             ]
           },
-          "criteria": "Denominator"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Denominator"
+          }
         },
         {
-          "identifier": {
-            "value": "denominator-exclusions-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -204,7 +203,10 @@
               }
             ]
           },
-          "criteria": "Denominator Exclusion"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Denominator Exclusion"
+          }
         }
       ]
     }
@@ -224,7 +226,10 @@
           ]
         }
       ],
-      "criteria": "SDE Ethnicity"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Ethnicity"
+      }
     },
     {
       "identifier": {
@@ -240,7 +245,10 @@
           ]
         }
       ],
-      "criteria": "SDE Payer"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Payer"
+      }
     },
     {
       "identifier": {
@@ -256,7 +264,10 @@
           ]
         }
       ],
-      "criteria": "SDE Race"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Race"
+      }
     },
     {
       "identifier": {
@@ -272,7 +283,10 @@
           ]
         }
       ],
-      "criteria": "SDE Sex"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Sex"
+      }
     }
   ]
 }

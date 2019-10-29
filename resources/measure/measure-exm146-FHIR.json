@@ -108,9 +108,7 @@
     }
   ],
   "library": [
-    {
-      "reference": "Library/library-exm146-FHIR"
-    }
+    "Library/library-exm146-FHIR"
   ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. <br> Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
@@ -133,13 +131,17 @@
   ],
   "rationale": "Group A streptococcal bacterial infections and other infections that cause pharyngitis (which are most often viral) often produce the same signs and symptoms (IDSA 2002). The American Academy of Pediatrics, the Centers for Disease Control and Prevention, and the Infectious Diseases Society of America all recommend a diagnostic test for Strep A to improve diagnostic accuracy and avoid unnecessary antibiotic treatment (Linder et al. 2005).  A study on antibiotic treatment of children with sore throat found that although only 15 to 36 percent of children with sore throat have Strep A pharyngitis, physicians prescribed antibiotics to 53 percent of children with a chief complaint of sore throat between 1995 and 2003 (Linder et al. 2005).",
   "clinicalRecommendationStatement": "Institute for Clinical Systems Improvement (ICSI) (2007) <br> Reduce unnecessary use of antibiotics. Antibiotic treatment should be reserved for a bacterial illness. Diagnosis of group A beta streptococcal Pharyngitis should be made by laboratory testing rather than clinically. <br>Infectious Disease Society of America (Bisno et al. 2002) <br>The signs and symptoms of group A streptococcal and other (most frequently viral) pharyngitides overlap broadly. Therefore, unless the physician is able with confidence to exclude the diagnosis of streptococcal pharyngitis on epidemiological and clinical grounds alone, a laboratory test should be done to determine whether group A streptococci are present in the pharynx. <br>With the exception of very rare infections by certain other pharyngeal bacterial pathogens (eg, Corynebacterium diphtheriae and Neisseria gonorrhoeae), antimicrobial therapy is of no proven benefit as treatment for acute pharyngitis due to bacteria other than group A streptococci. Therefore, it is extremely important that physicians exclude the diagnosis of group A streptococcal pharyngitis to prevent inappropriate administration of antimicrobials to large numbers of patients with pharyngitis. <br>Michigan Quality Improvement Consortium (2007)<br>Probability of group A beta hemolytic streptococci (GABHS): Low; Testing: None; Treatment: Symptomatic treatment only. Avoid antibiotics. Probability of GABHS: Intermediate or High; Testing: Throat Culture (TC) OR Rapid Screen; Treatment: If TC is positive, use antibiotics. If TC is negative, use symptomatic treatment only. Avoid antibiotics. If treatment is started and culture result is negative, stop antibiotics. If Rapid Screen is positive, use antibiotics. If Rapid Screen is negative, culture (Culture is optional for age 16 and over) and only use antibiotics if throat culture is positive. (Michigan, 2007)",
-  "improvementNotation": "increase",
+  "improvementNotation": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/ValueSet/measure-improvement-notation",
+        "code": "increase"
+      }
+    ]
+  },
   "guidance": "This is an episode of care measure that examines all eligible episodes for the patient during the measurement period. If the patient has more than one episode, include all episodes in the measure.",
   "group": [
     {
-      "identifier": {
-        "value": "group-1"
-      },
       "population": [
         {
           "identifier": {
@@ -154,7 +156,10 @@
               }
             ]
           },
-          "criteria": "Initial Population"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Initial Population"
+          }
         },
         {
           "identifier": {
@@ -169,7 +174,10 @@
               }
             ]
           },
-          "criteria": "Numerator"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Numerator"
+          }
         },
         {
           "identifier": {
@@ -184,7 +192,10 @@
               }
             ]
           },
-          "criteria": "Denominator"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Denominator"
+          }
         },
         {
           "identifier": {
@@ -199,7 +210,10 @@
               }
             ]
           },
-          "criteria": "Denominator Exclusion"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Denominator Exclusion"
+          }
         }
       ]
     }

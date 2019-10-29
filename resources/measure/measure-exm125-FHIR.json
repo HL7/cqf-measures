@@ -117,9 +117,7 @@
     }
   ],
   "library": [
-    {
-      "reference": "Library/library-exm125-FHIR"
-    }
+    "Library/library-exm125-FHIR"    
   ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.",
   "scoring": {
@@ -142,18 +140,19 @@
   ],
   "rationale": "Breast cancer is one of the most common types of cancers, accounting for a quarter of all new cancer diagnoses for women in the U.S. (BreastCancer.Org, 2011). It ranks as the second leading cause of cancer-related mortality in women, accounting for nearly 40,000 estimated deaths in 2013 (American Cancer Society, 2011). <br> According to the National Cancer Institute's Surveillance Epidemiology and End Results program, the chance of a woman being diagnosed with breast cancer in a given year increases with age. By age 30, it is one in 2,212. By age 40, the chances increase to one in 235, by age 50, it becomes one in 54, and, by age 60, it is one in 25. From 2004 to 2008, the median age at the time of breast cancer diagnosis was 61 years among adult women (Tangka et al, 2010). <br> In the U.S., costs associated with a diagnosis of breast cancer range from $451 to $2,520, factoring in continued testing, multiple office visits, and varying procedures. The total costs related to breast cancer add up to nearly $7 billion per year in the U.S., including $2 billion spent on late-stage treatment (Lavigne et al, 2008; Boykoff et al, 2009).",
   "clinicalRecommendationStatement": "The U.S. Preventive Services Task Force (USPSTF) recommends biennial screening mammography for women aged 50-74 years (B recommendation). The decision to start regular, biennial screening mammography before the age of 50 years should be an individual one and take patient context into account, including the patient's values regarding specific benefits and harms (C recommendation). The Task Force concludes the evidence is insufficient to assess the additional benefits and harms of screening mammography in women 75 years and older (I statement). <br> U.S. Preventive Services Task Force (2009) <br> Grade: B recommendation. The USPSTF recommends biennial screening mammography for women aged 50 to 74 years. <br> Grade: C recommendation. The decision to start regular, biennial screening mammography before the age of 50 years should be an individual one and take patient context into account, including the patient's values regarding specific benefits and harms. <br> Grade: I Statement. The USPSTF concludes that the current evidence is insufficient to assess the additional benefits and harms of screening mammography in women 75 years or older. <br> Grade: D recommendation. The USPSTF recommends against teaching breast self-examination (BSE). <br> Grade: I Statement. The USPSTF concludes that the current evidence is insufficient to assess the additional benefits and harms of clinical breast examination (CBE) beyond screening mammography in women 40 years or older. <br> Grade: I Statement. The USPSTF concludes that the current evidence is insufficient to assess the additional benefits and harms of either digital mammography or magnetic resonance imaging (MRI) instead of film mammography as screening modalities for breast cancer.",
-  "improvementNotation": "increase",
+  "improvementNotation": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/ValueSet/measure-improvement-notation",
+        "code": "increase"
+      }
+    ]
+  },
   "guidance": "Patient self-report for procedures as well as diagnostic studies should be recorded in 'Procedure, Performed' template or 'Diagnostic Study, Performed' template in QRDA-1. Patient self-report is not allowed for laboratory tests. <br> This measure evaluates primary screening. Do not count biopsies, breast ultrasounds, MRIs or tomosynthesis (3D mammography), because they are not appropriate methods for primary breast cancer screening.",
   "group": [
     {
-      "identifier": {
-        "value": "group-1"
-      },
       "population": [
         {
-          "identifier": {
-            "value": "initial-population-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -163,12 +162,12 @@
               }
             ]
           },
-          "criteria": "Initial Population"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Initial Population"
+          }
         },
         {
-          "identifier": {
-            "value": "numerator-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -178,12 +177,12 @@
               }
             ]
           },
-          "criteria": "Numerator"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Numerator"
+          }
         },
         {
-          "identifier": {
-            "value": "denominator-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -193,12 +192,12 @@
               }
             ]
           },
-          "criteria": "Denominator"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Denominator"
+          }
         },
         {
-          "identifier": {
-            "value": "denominator-exclusions-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -208,7 +207,10 @@
               }
             ]
           },
-          "criteria": "Denominator Exclusion"
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Denominator Exclusion"
+          }
         }
       ]
     }
@@ -228,7 +230,10 @@
           ]
         }
       ],
-      "criteria": "SDE Ethnicity"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Ethnicity"
+      }
     },
     {
       "identifier": {
@@ -244,7 +249,10 @@
           ]
         }
       ],
-      "criteria": "SDE Payer"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Payer"
+      }
     },
     {
       "identifier": {
@@ -260,7 +268,10 @@
           ]
         }
       ],
-      "criteria": "SDE Race"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Race"
+      }
     },
     {
       "identifier": {
@@ -276,7 +287,10 @@
           ]
         }
       ],
-      "criteria": "SDE Sex"
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Sex"
+      }
     }
   ]
 }
