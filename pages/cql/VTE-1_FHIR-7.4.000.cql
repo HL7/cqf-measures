@@ -1,4 +1,4 @@
-library VenousThromboembolismProphylaxis_FHIR version '7.4.000'
+library VTE_1_FHIR version '7.4.000'
 
 /*
 This example is a work in progress and should not be considered a final specification

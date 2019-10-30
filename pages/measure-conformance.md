@@ -201,7 +201,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 }
 ```
 
-Snippet 3-4: Example CQL Library (from [library-exm146-FHIR.json](Library-library-exm146-FHIR.json.html))
+Snippet 3-4: Example CQL Library (from [library-exm146-fhir.json](Library-exm146-fhir.json.html))
 
 Inclusion of CQL libraries within the FHIR-based eCQM framework must conform to [Conformance Requirement 1](#conformance-requirement-1).
 
@@ -322,7 +322,7 @@ All declared valuesets and codes can be found in the [dataRequirement](Structure
 ]
 ```
 
-Snippet 3-8: Example Library terminology definitions (from [library-terminology-FHIR.json](Library-library-terminology-FHIR.json.html))
+Snippet 3-8: Example Library terminology definitions (from [library-terminology-fhir.json](Library-terminology-fhir.json.html))
 
 **Conformance Requirement 4 (Terminology Inclusion):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4)
 {: #conformance-requirement-4}
@@ -358,7 +358,7 @@ The data criteria section defines the patient data of interest in the library as
 ]
 ```
 
-Snippet 3-9: Example data criteria (from [library-terminology-FHIR.json](Library-library-terminology-FHIR.json.html))
+Snippet 3-9: Example data criteria (from [library-terminology-fhir.json](Library-terminology-fhir.json.html))
 
 **Conformance Requirement 5 (Data Criteria Inclusion):**[<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5)
 {: #conformance-requirement-5}
@@ -436,7 +436,7 @@ Snippet 3-10: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_
 }
 ```
 
-Snippet 3-11: Library dataRequirement for Condition: Acute Pharyngitis (from [library-exm146-FHIR.json](Library-library-exm146-FHIR.xml.html))
+Snippet 3-11: Library dataRequirement for Condition: Acute Pharyngitis (from [library-exm146-fhir.json](Library-exm146-fhir.xml.html))
 
 ### 3.4 Population Criteria 
 {: #population-criteria}
