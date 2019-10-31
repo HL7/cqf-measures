@@ -14,12 +14,12 @@ include MATGlobalCommonFunctions_FHIR version '2.0.000' called Common
 
 // TODO: Determine how to reference a particular version of LOINC
 codesystem "LOINC:2.46": 'http://loinc.org' version 'urn:hl7:version:2.46'
-codesystem "SNOMEDCT:2016-03": 'http://snomed.info/sct/731000124108' version 'http://snomed.info/sct/731000124108/version/201603'
+codesystem "SNOMED CT:2016-03": 'http://snomed.info/sct' version 'http://snomed.info/sct/731000124108/version/201603'
 
 valueset "Intensive Care Unit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.23'
 
 code "Birthdate": '21112-8' from "LOINC:2.46" display 'Birth date'
-code "Dead": '419099009' from "SNOMEDCT:2016-03" display 'Dead'
+code "Dead": '419099009' from "SNOMED CT:2016-03" display 'Dead'
 
 parameter "Measurement Period" Interval<DateTime>
 

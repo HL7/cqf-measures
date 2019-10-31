@@ -12,7 +12,7 @@ using FHIR version '4.0.0'
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 
 codesystem "LOINC": 'http://loinc.org'
-codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
+codesystem "SNOMED CT": 'http://snomed.info/sct'
 codesystem "RoleCode": 'http://hl7.org/fhir/v3/RoleCode'
 codesystem "Diagnosis Role": 'http://hl7.org/fhir/diagnosis-role'
 
@@ -20,7 +20,7 @@ valueset "Encounter Inpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1
 valueset "Emergency Department Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292'
 
 code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
-code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
+code "Dead": '419099009' from "SNOMED CT" display 'Dead'
 code "ER": 'ER' from "RoleCode" display 'Emergency room'
 code "ICU": 'ICU' from "RoleCode" display 'Intensive care unit'
 code "Billing": 'billing' from "Diagnosis Role" display 'Billing'

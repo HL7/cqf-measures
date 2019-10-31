@@ -1,4 +1,4 @@
-library VenousThromboembolismProphylaxis_FHIR version '7.4.000'
+library VTE_1_FHIR version '7.4.000'
 
 /*
 This example is a work in progress and should not be considered a final specification
@@ -55,7 +55,7 @@ include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
 include VTEICU_FHIR version '2.4.000' called VTEICU
 include SupplementalDataElements_FHIR version '1.0.0' called SDE
 
-codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
+codesystem "SNOMED CT": 'http://snomed.info/sct'
 codesystem "LOINC": 'http://loinc.org'
 codesystem "RequestIntent": 'http://hl7.org/fhir/request-intent'
 
@@ -101,7 +101,7 @@ valueset "Warfarin": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1
 valueset "Intensive Care Unit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.23'
 
 code "Risk for venous thromboembolism": '72136-5' from "LOINC" display 'Risk for venous thromboembolism'
-code "Principal": '63161005' from "SNOMEDCT" display 'Principal (qualifier value)'
+code "Principal": '63161005' from "SNOMED CT" display 'Principal (qualifier value)'
 code "Order": 'order' from "RequestIntent" display 'Order'
 
 context Patient

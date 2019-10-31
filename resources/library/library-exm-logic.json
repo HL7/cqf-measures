@@ -1,11 +1,26 @@
 {
   "resourceType": "Library",
   "id": "exm-logic",
+  "meta": {
+    "versionId": "3",
+    "lastUpdated": "2019-03-12T02:14:44.038-06:00",
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm"
+    ]
+  },
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">exm-logic</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://terminology.hl7.org/CodeSystem/library-type</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>logic-library</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">0.0.1</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr>  <!-- <th:block th:each=\"cont, iter : ${resource.contributor}\"> -->  <!-- <tr style=\"vertical-align: top;\"> -->  <!-- <th th:if=\"${iter.index == 0}\" th:rowspan=\"${iter.size}\"  scope=\"row\"><b>Contributor: </b></th> -->  <!-- <td style=\"padding-left: 25px; padding-right: 25px;\"> -->  <!-- <b><span th:narrative=\"${cont.type.toCode()}\"></span>: </b><span th:narrative=\"${cont.name}\"></span> -->  <!-- </td> -->  <!-- </tr> -->  <!-- </th:block> -->  <!-- Filter down to human readable content --><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library EXM_Logic version '0.0.1'\n\nusing FHIR version '4.0.0'\n\nparameter \"Measurement Period\" Interval&lt;DateTime&gt;\n\ncontext Patient\n</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">exm-logic</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/library-type</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>logic-library</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">0.0.0</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr>  <!-- Filter down to human readable content --><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library EXM_Logic version '0.0.0'\n\nusing FHIR version '3.0.0'\n\nparameter \"Measurement Period\" Interval&lt;DateTime&gt;\n\ncontext Patient\n\n</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
   },
-  "version": "0.0.1",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/exm-logic",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
+      "value": "EXM_Logic"
+    }
+  ],
+  "version": "0.0.0",
   "name": "EXM_Logic",
   "status": "active",
   "experimental": true,
@@ -17,14 +32,29 @@
       }
     ]
   },
+  "date": "2019-09-03",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "This library is used as an example in the FHIR Quality Measure Implementation Guide",
+  "approvalDate": "2019-08-03",
+  "lastReviewDate": "2019-08-03",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
   "content": [
     {
       "contentType": "application/elm+xml",
-      "data": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGxpYnJhcnkgeG1sbnM9InVybjpobDctb3JnOmVsbTpyMSIgeG1sbnM6dD0idXJuOmhsNy1vcmc6ZWxtLXR5cGVzOnIxIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4bWxuczp4c2Q9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hIiB4bWxuczpmaGlyPSJodHRwOi8vaGw3Lm9yZy9maGlyIiB4bWxuczpxZG00Mz0idXJuOmhlYWx0aGl0LWdvdjpxZG06djRfMyIgeG1sbnM6cWRtNTM9InVybjpoZWFsdGhpdC1nb3Y6cWRtOnY1XzMiIHhtbG5zOmE9InVybjpobDctb3JnOmNxbC1hbm5vdGF0aW9uczpyMSI+CiAgIDxpZGVudGlmaWVyIGlkPSJFWE1fTG9naWMiIHZlcnNpb249IjAuMC4xIi8+CiAgIDxzY2hlbWFJZGVudGlmaWVyIGlkPSJ1cm46aGw3LW9yZzplbG0iIHZlcnNpb249InIxIi8+CiAgIDx1c2luZ3M+CiAgICAgIDxkZWYgbG9jYWxJZGVudGlmaWVyPSJTeXN0ZW0iIHVyaT0idXJuOmhsNy1vcmc6ZWxtLXR5cGVzOnIxIi8+CiAgICAgIDxkZWYgbG9jYWxJZGVudGlmaWVyPSJGSElSIiB1cmk9Imh0dHA6Ly9obDcub3JnL2ZoaXIiIHZlcnNpb249IjQuMC4wIi8+CiAgIDwvdXNpbmdzPgogICA8cGFyYW1ldGVycz4KICAgICAgPGRlZiBuYW1lPSJNZWFzdXJlbWVudCBQZXJpb2QiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPgogICAgICAgICA8cGFyYW1ldGVyVHlwZVNwZWNpZmllciB4c2k6dHlwZT0iSW50ZXJ2YWxUeXBlU3BlY2lmaWVyIj4KICAgICAgICAgICAgPHBvaW50VHlwZSBuYW1lPSJ0OkRhdGVUaW1lIiB4c2k6dHlwZT0iTmFtZWRUeXBlU3BlY2lmaWVyIi8+CiAgICAgICAgIDwvcGFyYW1ldGVyVHlwZVNwZWNpZmllcj4KICAgICAgPC9kZWY+CiAgIDwvcGFyYW1ldGVycz4KICAgPHN0YXRlbWVudHM+CiAgICAgIDxkZWYgbmFtZT0iUGF0aWVudCIgY29udGV4dD0iUGF0aWVudCI+CiAgICAgICAgIDxleHByZXNzaW9uIHhzaTp0eXBlPSJTaW5nbGV0b25Gcm9tIj4KICAgICAgICAgICAgPG9wZXJhbmQgZGF0YVR5cGU9ImZoaXI6UGF0aWVudCIgeHNpOnR5cGU9IlJldHJpZXZlIi8+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgIDwvc3RhdGVtZW50cz4KPC9saWJyYXJ5Pgo="
+      "data": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGxpYnJhcnkgeG1sbnM9InVybjpobDctb3JnOmVsbTpyMSIgeG1sbnM6dD0idXJuOmhsNy1vcmc6ZWxtLXR5cGVzOnIxIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4bWxuczp4c2Q9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hIiB4bWxuczpmaGlyPSJodHRwOi8vaGw3Lm9yZy9maGlyIiB4bWxuczpxZG00Mz0idXJuOmhlYWx0aGl0LWdvdjpxZG06djRfMyIgeG1sbnM6cWRtNTM9InVybjpoZWFsdGhpdC1nb3Y6cWRtOnY1XzMiIHhtbG5zOmE9InVybjpobDctb3JnOmNxbC1hbm5vdGF0aW9uczpyMSI+CiAgIDxpZGVudGlmaWVyIGlkPSJFWE1fTG9naWMiIHZlcnNpb249IjAuMC4wIi8+CiAgIDxzY2hlbWFJZGVudGlmaWVyIGlkPSJ1cm46aGw3LW9yZzplbG0iIHZlcnNpb249InIxIi8+CiAgIDx1c2luZ3M+CiAgICAgIDxkZWYgbG9jYWxJZGVudGlmaWVyPSJTeXN0ZW0iIHVyaT0idXJuOmhsNy1vcmc6ZWxtLXR5cGVzOnIxIi8+CiAgICAgIDxkZWYgbG9jYWxJZGVudGlmaWVyPSJGSElSIiB1cmk9Imh0dHA6Ly9obDcub3JnL2ZoaXIiIHZlcnNpb249IjMuMC4wIi8+CiAgIDwvdXNpbmdzPgogICA8cGFyYW1ldGVycz4KICAgICAgPGRlZiBuYW1lPSJNZWFzdXJlbWVudCBQZXJpb2QiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPgogICAgICAgICA8cGFyYW1ldGVyVHlwZVNwZWNpZmllciB4c2k6dHlwZT0iSW50ZXJ2YWxUeXBlU3BlY2lmaWVyIj4KICAgICAgICAgICAgPHBvaW50VHlwZSBuYW1lPSJ0OkRhdGVUaW1lIiB4c2k6dHlwZT0iTmFtZWRUeXBlU3BlY2lmaWVyIi8+CiAgICAgICAgIDwvcGFyYW1ldGVyVHlwZVNwZWNpZmllcj4KICAgICAgPC9kZWY+CiAgIDwvcGFyYW1ldGVycz4KICAgPHN0YXRlbWVudHM+CiAgICAgIDxkZWYgbmFtZT0iUGF0aWVudCIgY29udGV4dD0iUGF0aWVudCI+CiAgICAgICAgIDxleHByZXNzaW9uIHhzaTp0eXBlPSJTaW5nbGV0b25Gcm9tIj4KICAgICAgICAgICAgPG9wZXJhbmQgZGF0YVR5cGU9ImZoaXI6UGF0aWVudCIgeHNpOnR5cGU9IlJldHJpZXZlIi8+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgIDwvc3RhdGVtZW50cz4KPC9saWJyYXJ5Pgo="
     },
     {
       "contentType": "text/cql",
-      "data": "bGlicmFyeSBFWE1fTG9naWMgdmVyc2lvbiAnMC4wLjEnCgp1c2luZyBGSElSIHZlcnNpb24gJzQuMC4wJwoKcGFyYW1ldGVyICJNZWFzdXJlbWVudCBQZXJpb2QiIEludGVydmFsPERhdGVUaW1lPgoKY29udGV4dCBQYXRpZW50Cg=="
+      "data": "bGlicmFyeSBFWE1fTG9naWMgdmVyc2lvbiAnMC4wLjAnCgp1c2luZyBGSElSIHZlcnNpb24gJzMuMC4wJwoKcGFyYW1ldGVyICJNZWFzdXJlbWVudCBQZXJpb2QiIEludGVydmFsPERhdGVUaW1lPgoKY29udGV4dCBQYXRpZW50Cgo="
     }
   ]
 }

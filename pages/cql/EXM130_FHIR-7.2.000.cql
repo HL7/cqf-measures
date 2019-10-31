@@ -1,4 +1,4 @@
-library ColorectalCancerScreening version '7.2.000'
+library EXM130_FHIR version '7.2.000'
 
 /*
 This example is a work in progress and should not be considered a final specification

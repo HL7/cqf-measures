@@ -52,13 +52,13 @@ as well as by the Data Exchange for Quality Measures IG
 {: #background}
 
 <!-- 1.3.1 Quality Improvement Ecosystem -->
-{% include quality-improvement-ecosystem.html %}
+{% include quality-improvement-ecosystem.md %}
 
 <!-- 1.3.2 Quality Measurement Standards Landscape -->
-{% include quality-measurement-standards-landscape.html %}
+{% include quality-measurement-standards-landscape.md %}
 
 <!-- 1.3.3 Data Model Standards Landscape -->
-{% include data-model-standards-landscape.html %}
+{% include data-model-standards-landscape.md %}
 
 ### 1.4 References
 {: #references}

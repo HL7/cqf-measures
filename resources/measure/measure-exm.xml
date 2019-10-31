@@ -14,11 +14,6 @@
     <!-- The url of the profile to which this measure resource conforms. -->
     <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"/>
   </meta>
-  <!-- The text of the measure is the human-readable rendering of the resource. This content is generated from the contents of the
-  resource and the referenced library or libraries. -->
-  <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: measure-exm</p><p><b>status</b>: active</p><p><b>experimental</b>: true</p><p><b>library</b>: <a href="Library-library-exm-logic.html">Generated Summary: id: library-exm-logic; version: 1.0.0; status: active; experimental; <span title="Codes: ">logic-library</span>; </a></p><p><b style="color: maroon">Exception generating Narrative: type org.hl7.fhir.r4.model.DataRequirement not handled yet</b></p></div>
-  </text>
   <!-- Extensions in FHIR support data as part of the measure that is not supported by the base Measure resource definition -->
   <!-- This example illustrates an artifactComment extension, used to provide additional comments at any point in the measure -->
   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment">
@@ -65,10 +60,10 @@
   <approvalDate value="2019-02-17"/>
   <lastReviewDate value="2019-02-17"/>
   <effectivePeriod>
-		<extension url="http://hl7.org/fhir/us/cqfmeasures/cqfm-effectivePeriodAnchor">
+		<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor">
 			<valueDateTime value="2018-01-01"/>
 		</extension>
-		<extension url="http://hl7.org/fhir/us/cqfmeasures/cqfm-effectivePeriodDuration">
+		<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration">
 			<valueDuration>
 				<value value="1"/>
 				<code value="a"/>

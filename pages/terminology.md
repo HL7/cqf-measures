@@ -21,6 +21,7 @@ title: Terminology
 -  [Artifact Comment Type](CodeSystem-artifact-comment-type.html)
 
 ### 8.2 ValueSet Resources
+{: #valueset-resources}
 
 -  [Improvement Notation](ValueSet-improvement-notation.html)
 -  [Aggregate Method](ValueSet-aggregate-method.html)
