@@ -42,7 +42,9 @@ Chapter 1 provides an introduction to this IG, gives a brief history of the IG, 
 
 Chapter 2 provides an overview of HQMF structure, how to reference CQL documents in the HQMF document, and how to specify control variables (measure period).
 
-Chapter 3 describes how to reference codes and valuesets in CQL and the accompanying HQMF. Chapter 4 describes how to construct the dataCriteriaSection of the HQMF document.
+Chapter 3 describes how to reference codes and valuesets in CQL and the accompanying HQMF.
+
+Chapter 4 describes how to construct the dataCriteriaSection of the HQMF document.
 
 Chapter 5 discusses measure scoring types, how to specify population criteria in the HQMF document using CQL, and how to specify measure populations in CQL. There are also sections discussing stratification, inclusion of supplemental data, and defining risk adjustment variables.
 
@@ -621,7 +623,7 @@ An HQMF document representing a ratio measure will include one or more populatio
 In addition, it may also include one measure observation section with one or more measureObservation- Definition elements. The semantics of these components are unchanged from the HQMF specification; the only difference is that each measure population component and each measure observation definition references a single criterion encoded as a CQL expression.
 
     Conformance Requirement 12 (Ratio Measures):
-    Population criteria components SHALL each reference a single CQL expression as defined by 
+    Population criteria components SHALL each reference a single CQL expression as defined by
     measureObservationDefinition elements SHALL reference CQL expressions as defined by ., with the exception that instead of a measurePopulationCriteria, the component element SHALL reference a numeratorCriteria or denominatorCriteria by id (i.e. using root and extension attributes).
 
 For patient-based ratio measures, all population criteria must return true or false (or null). For non-patient- based ratio measures, each population criteria must return the same type, such as an Encounter, or Procedure.
@@ -1201,7 +1203,7 @@ The following table summarizes the allowable measure types for each of the compo
 | All-or-nothing | Proportion/Ratio | Proportion/Ratio |
 | Patient-level Linear | Continuous Variable | Proportion/Ratio/Continuous Variable |
 
-Note that these requirements are about ensuring that the population criteria expressions among the components use similar sets of population criteria. This means that all the components of a given composite measure don’t necessarily have to use the same scoring type, just that they have to have similar population criteria. For example, a Proportion composite may use a Proportion component and a Ratio component. 
+Note that these requirements are about ensuring that the population criteria expressions among the components use similar sets of population criteria. This means that all the components of a given composite measure don’t necessarily have to use the same scoring type, just that they have to have similar population criteria. For example, a Proportion composite may use a Proportion component and a Ratio component.
 
 ### 6.6 Measure Basis
 
@@ -1215,7 +1217,7 @@ As with single measures, composite measures may be patient-based, or use some ot
 
     Conformance Requirement 24 (Composite Measure Stratification):
 
-    Stratifiers of components in a composite measure SHALL NOT be used to stratify the composite measure 
+    Stratifiers of components in a composite measure SHALL NOT be used to stratify the composite measure
 
 Because composite measure scoring for individual-based composites effectively ignores component scores, stratifiers defined on component measures are not applicable to the composite measure score. As such, stratifiers are supported in composite measures, just as they are with non-composites, but stratifiers of the component measures are ignored.
 

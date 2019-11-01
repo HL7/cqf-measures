@@ -18,15 +18,13 @@ title: Introduction
 
 [The Institute of Medicine (IOM)](http://www.nationalacademies.org/hmd/Reports/2001/Crossing-the-Quality-Chasm-A-New-Health-System-for-the-21st-Century.aspx) defines quality as: “The degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge.” For care quality to be evaluated, it must be standardized and communicated to the appropriate organizations. To that end, the FHIR Quality Measure Implementation Guide (this IG) has been written to provide guidance for authoring electronic clinical quality measures ([eCQMs](https://ecqi.healthit.gov/glossary/ecqms)), clinical quality measures specified in a standard electronic format and designed to use structured, encoded data present in the electronic health record. This implementation guide references the following standards for creating eCQMs:
 
-* [Fast Healthcare Interoperability Resources (FHIR) STU3](https://www.hl7.org/fhir/stu3/)
+* [Fast Healthcare Interoperability Resources (FHIR) R4](https://www.hl7.org/fhir/r4/)
 * [Clinical Quality Language (CQL) R1.4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400)
 * [QI-Core Implementation Guide (QI-Core) R3.2](http://build.fhir.org/ig/cqframework/qi-core/)
 
 To avoid variation in the use of FHIR Resources and metadata consistently across eCQMs and clinical decision support (CDS), a quality-related implementation guide based on a logical data model is essential. In the US Realm, eCQMs SHALL use [FHIR Quality Improvement Core (QICore)](http://build.fhir.org/ig/cqframework/qi-core) profiles as the data model to maintain consistency.
 
 Although the specification is based on the 1.4 version of CQL, backwards-compatible future versions of CQL can be used as well. In addition, if necessary, the 1.2 and 1.3 versions of CQL can be used without loss of functionality for this Implementation Guide.
-
-Note that the FHIR Quality Measure Implementation Guide (this IG) is based on FHIR STU3, as that is the first version with the Clinical Reasoning module, which provides the necessary support for representing and reporting quality measures. Future versions of this implementation guide will address the use of R4 and later versions of FHIR.
 
 Except where noted, material from the base FHIR specification, and in particular the Clinical Reasoning module, is not repeated here.
 
@@ -64,7 +62,7 @@ This IG is STU1 of the FHIR Quality Measure IG.
 ### 2.5 Scope
 {: #scope}
 
-This IG is a conformance profile, as described in the [“Conformance” section of the HL7 FHIR specification](http://hl7.org/fhir/STU3/conformance-module.html). The base resource for this IG is the HL7 FHIR Measure and Library resources and associated guidance within the Clinical Reasoning module. This IG does not describe every aspect of quality reporting in FHIR. Rather, it defines profiles and constraints on the base Measure and Library resources used in a FHIR Quality Measure. Additional optional Measure and Library elements, not included here, can be included and the result will be compliant with the specifications in this guide. The FHIR Clinical Reasoning module provides resources and universally applicable guidance for reporting quality measurement results, and the [Data Exchange for Quality Measures Implementation Guide](http://build.fhir.org/ig/HL7/davinci-deqm/) provides additional guidance and use cases related to quality reporting.
+This IG is a conformance profile, as described in the [“Conformance” section of the HL7 FHIR specification](http://hl7.org/fhir/R4/conformance-module.html). The base resource for this IG is the HL7 FHIR Measure and Library resources and associated guidance within the Clinical Reasoning module. This IG does not describe every aspect of quality reporting in FHIR. Rather, it defines profiles and constraints on the base Measure and Library resources used in a FHIR Quality Measure. Additional optional Measure and Library elements, not included here, can be included and the result will be compliant with the specifications in this guide. The FHIR Clinical Reasoning module provides resources and universally applicable guidance for reporting quality measurement results, and the [Data Exchange for Quality Measures Implementation Guide](http://build.fhir.org/ig/HL7/davinci-deqm/) provides additional guidance and use cases related to quality reporting.
 
 ### 2.6 Conventions
 {: #conventions}

@@ -81,15 +81,11 @@ based on. There is broad vendor support for this version.
 -  **FHIR R4** - This is the first normative release of FHIR, including several of the
 foundational, conformance, and administrative resources going normative.
 
-The implementation guides in this landscape are currently focused on FHIR
-STU3, with the plan to produce R4 versions once the US Core and QI Core profiles
-have been updated to R4.
-
-In addition to _what_ data is reported, use cases frequently require the 
-communication of _when_, _where_ and _how_ to report. See the 
-[Electronic Case Reporting (eCR) implementation guide](http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html#fhir-design-considerations) 
-for a more complete discussion of these design considerations. We are actively 
-seeking feedback from implementers how this type of information is currently 
-communicated in quality reporting scenarios and when it would be useful to do 
+In addition to _what_ data is reported, use cases frequently require the
+communication of _when_, _where_ and _how_ to report. See the
+[Electronic Case Reporting (eCR) implementation guide](http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html#fhir-design-considerations)
+for a more complete discussion of these design considerations. We are actively
+seeking feedback from implementers how this type of information is currently
+communicated in quality reporting scenarios and when it would be useful to do
 so electronically.
 {: .stu-note}
