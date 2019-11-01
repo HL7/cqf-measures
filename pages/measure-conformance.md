@@ -147,7 +147,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "codeFilter": [
         {
           "path": "type",
-          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
+          "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
         }
       ]
     },
@@ -156,7 +156,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "codeFilter": [
         {
           "path": "medication",
-          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
+          "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
         }
       ]
     },
@@ -165,7 +165,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "codeFilter": [
         {
           "path": "code",
-          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
+          "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
         }
       ]
     },
@@ -174,7 +174,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "codeFilter": [
         {
           "path": "code",
-          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
+          "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
         }
       ]
     },
@@ -183,7 +183,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "codeFilter": [
         {
           "path": "code",
-          "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
+          "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
         }
       ]
     }
@@ -315,7 +315,7 @@ All declared valuesets and codes can be found in the [dataRequirement](Structure
     "codeFilter": [
       {
         "path": "type",
-        "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
+        "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
       }
     ]
   }
@@ -351,7 +351,7 @@ The data criteria section defines the patient data of interest in the library as
     "codeFilter": [
       {
         "path": "type",
-        "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
+        "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
       }
     ]
   }
@@ -430,7 +430,7 @@ Snippet 3-10: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_
   "codeFilter": [
     {
       "path": "code",
-      "valueSetString": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
+      "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
     }
   ]
 }
