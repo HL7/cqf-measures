@@ -1,12 +1,28 @@
 {
   "resourceType": "Library",
   "id": "exm55-fhir",
+  "meta": {
+    "versionId": "3",
+    "lastUpdated": "2019-03-12T02:15:00.696-06:00",
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm"
+    ]
+  },
   "text": {
     "status": "generated",
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">exm55-fhir</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/library-type</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>logic-library</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">5.0.0</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span><span style=\"padding-left: 25px;\"><b>reference: </b><span>Library/fhirhelpers</span></span></span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"5\" scope=\"row\"><b>Data Requirements: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>id</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292</span></span></p></div></td></tr>  <!-- Filter down to human readable content --><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library EXM55_FHIR version '5.0.0' \n\n/*\nThis example is a work in progress and should not be considered a final specification\nor recommendation for guidance. This example will help guide and direct the process\nof finding conventions and usage patterns that meet the needs of the various stakeholders\nin the measure development community.\n*/\n\nusing FHIR version '3.0.0' \n\ninclude FHIRHelpers version '3.0.0' called FHIRHelpers\n\ncodesystem \"Diagnosis Role\": 'http://hl7.org/fhir/diagnosis-role'\n\nvalueset \"Emergency Department Visit\" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292' \nvalueset \"Psychiatric/Mental Health Patient\" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299' \nvalueset \"Hospital Settings\" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.126' \n\ncode \"Billing\": 'billing' from \"Diagnosis Role\" display 'Billing'\n\nparameter \"Measurement Period\" Interval&lt;DateTime&gt; \n\ncontext Patient \n\ndefine \"Initial Population\" : \n  \"Inpatient Encounter\" Encounter \n    with [\"Encounter\" : \"Emergency Department Visit\"] ED\n     such that ED.status = 'finished'\n       and ED.period ends 1 hour or less before start of Encounter.period\n\ndefine \"Measure Population\" : \n  \"Initial Population\" \n\ndefine \"Inpatient Encounter\" : \n  [\"Encounter\"] Encounter\n    where LengthInDays(Encounter.period) &lt;= 120\n      and Encounter.period ends during \"Measurement Period\" \n\ndefine \"Measure Population Exclusion\" : \n  \"Inpatient Encounter\" Encounter\n    with [\"Encounter\" : \"Emergency Department Visit\"] ED \n      such that ED.period ends 1 hour or less before start of Encounter.period\n        and ED.status = 'finished'\n        and ED.hospitalization.admitSource in \"Hospital Settings\" \n\ndefine function \"PrincipalDiagnosis\"(Encounter Encounter):\n\t(singleton from (Encounter.diagnosis D where D.role ~ ToConcept(\"Billing\") and D.rank = 1)) PD\n\t\treturn singleton from ([Condition: id in \"GetId\"(PD.condition.reference)])\n\ndefine function \"LengthInDays\"(Value Interval&lt;DateTime&gt;):\n\tdifference in days between start of Value and end of Value\n\ndefine function \"GetId\"(uri String):\n\tLast(Split(uri, '/'))\n\t\ndefine \"Stratification 1\" : \n  \"Inpatient Encounter\" Encounter \n    where not (PrincipalDiagnosis(Encounter).code in \"Psychiatric/Mental Health Patient\") \n\ndefine \"Stratification 2\" : \n  \"Inpatient Encounter\" Encounter\n    where PrincipalDiagnosis(Encounter).code in \"Psychiatric/Mental Health Patient\" \n\ndefine \"Stratification 3\" : \n  \"Inpatient Encounter\" Encounter\n    where PrincipalDiagnosis(Encounter) is null \n\n//Measure Observation\ndefine function \"Related ED Visit\" (Encounter \"Encounter\" ) : \n  Last([\"Encounter\" : \"Emergency Department Visit\"] ED \n    where ED.status = 'finished'\n      and ED.period ends 1 hour or less before start of Encounter.period\n    sort by start of period ) \n\ndefine function \"Measure Observation\" (Encounter \"Encounter\" ) : \n  duration in minutes of \"Related ED Visit\"(Encounter).period\n</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
   },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/exm55-fhir",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
+      "value": "EXM55"
+    }
+  ],
   "version": "5.0.0",
   "name": "EXM55_FHIR",
+  "title": "Example Continuous Variable Measure Library",
   "status": "active",
   "experimental": true,
   "type": {
@@ -17,6 +33,21 @@
       }
     ]
   },
+  "date": "2019-09-03",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "This library is used as an example in the FHIR Quality Measure Implementation Guide",
+  "approvalDate": "2019-08-03",
+  "lastReviewDate": "2019-08-03",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
   "relatedArtifact": [
     {
       "type": "depends-on",

@@ -1,12 +1,28 @@
 {
   "resourceType": "Library",
   "id": "common-fhir",
+  "meta": {
+    "versionId": "3",
+    "lastUpdated": "2019-03-12T02:14:39.386-06:00",
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm"
+    ]
+  },
   "text": {
     "status": "generated",
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">common-fhir</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/library-type</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>logic-library</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">2.0.0</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span><span style=\"padding-left: 25px;\"><b>reference: </b><span>Library/fhirhelpers</span></span></span></p></td></tr>  <!-- Filter down to human readable content --><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library Common_FHIR version '2.0.0'\n\n/*\nThis example is a work in progress and should not be considered a final specification\nor recommendation for guidance. This example will help guide and direct the process\nof finding conventions and usage patterns that meet the needs of the various stakeholders\nin the measure development community.\n*/\n\nusing FHIR version '3.0.0'\n\ninclude FHIRHelpers version '3.0.0' called FHIRHelpers\n\ncontext Patient\n\ndefine function \n   \"Includes Or Starts During\"(Condition Condition, Encounter Encounter):\n      Interval[Condition.onset, Condition.abatement] includes Encounter.period\n         or Condition.onset during Encounter.period\n</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
   },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/common-fhir",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
+      "value": "Common_FHIR"
+    }
+  ],
   "version": "2.0.0",
   "name": "Common_FHIR",
+  "title": "Common Library",
   "status": "active",
   "experimental": true,
   "type": {
@@ -17,6 +33,21 @@
       }
     ]
   },
+  "date": "2019-09-03",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "This library is used as an example in the FHIR Quality Measure Implementation Guide",
+  "approvalDate": "2019-08-03",
+  "lastReviewDate": "2019-08-03",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
   "relatedArtifact": [
     {
       "type": "depends-on",

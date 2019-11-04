@@ -1,12 +1,28 @@
 {
   "resourceType": "Library",
   "id": "exm146-fhir",
+  "meta": {
+    "versionId": "3",
+    "lastUpdated": "2019-03-12T02:14:58.026-06:00",
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm"
+    ]
+  },
   "text": {
     "status": "generated",
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">exm146-fhir</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/library-type</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>logic-library</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">4.0.0</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"2\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span><span style=\"padding-left: 25px;\"><b>reference: </b><span>Library/fhirhelpers</span></span></span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span><span style=\"padding-left: 25px;\"><b>reference: </b><span>Library/common-fhir</span></span></span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"5\" scope=\"row\"><b>Data Requirements: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Observation</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012</span></span></p></div></td></tr>  <!-- Filter down to human readable content --><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library EXM146_FHIR version '4.0.0'\n\n/*\nThis example is a work in progress and should not be considered a final specification\nor recommendation for guidance. This example will help guide and direct the process\nof finding conventions and usage patterns that meet the needs of the various stakeholders\nin the measure development community.\n*/\n\nusing FHIR version '3.0.0'\n\ninclude FHIRHelpers version '3.0.0' called FHIRHelpers\ninclude Common_FHIR version '2.0.0' called Common\n\nvalueset \"Acute Pharyngitis\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011'\nvalueset \"Acute Tonsillitis\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012'\nvalueset \"Ambulatory/ED Visit\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061'\nvalueset \"Antibiotic Medications\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001'\nvalueset \"Group A Streptococcus Test\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012'\n\nparameter \"Measurement Period\" Interval&lt;DateTime&gt;\n\ncontext Patient\n\n// Region: Initial Population\n\ndefine \"Is Between 2 and 17 Years of Age at Start of Measurement Period\":\n   AgeInYearsAt(start of \"Measurement Period\") &gt;= 2\n      and AgeInYearsAt(start of \"Measurement Period\") &lt;= 17\n\ndefine \"Antibiotics\":\n   [MedicationRequest: medication in \"Antibiotic Medications\"] Prescription\n     where Prescription.status = 'active'\n       and Prescription.intent = 'order'\n\ndefine \"Pharyngitis\":\n   ([Condition: code in \"Acute Pharyngitis\"]\n     union [Condition: code in \"Acute Tonsillitis\"]) Pharyngitis\n     where Pharyngitis.clinicalStatus = 'active'\n       and Pharyngitis.verificationStatus = 'confirmed'\n\ndefine \"Measurement Period Encounters\":\n   [Encounter: \"Ambulatory/ED Visit\"] Encounter\n      where Encounter.period during \"Measurement Period\"\n        and Encounter.status = 'finished'\n        and \"Is Between 2 and 17 Years of Age at Start of Measurement Period\"\n\ndefine \"Pharyngitis Encounters With Antibiotics\":\n   \"Measurement Period Encounters\" Encounters\n      with \"Pharyngitis\" Pharyngitis such that\n         Common.\"Includes Or Starts During\"(Pharyngitis, Encounters)\n      with \"Antibiotics\" Antibiotics such that Antibiotics.authoredOn\n         3 days or less after FHIRHelpers.ToInterval(Encounters.period)\n\ndefine \"Initial Population\":\n   \"Pharyngitis Encounters With Antibiotics\"\n\n// EndRegion: Initial Population\n\n// Region: Denominator\n\n// None\n\n// EndRegion: Denominator\n\n// Region: Denominator Exclusions\n\ndefine \"Pharyngitis With Prior Antibiotics\":\n   \"Pharyngitis\" Pharyngitis\n      with \"Antibiotics\" Antibiotics such that\n         Antibiotics.authoredOn 30 days or less before Pharyngitis.onset\n\ndefine \"Excluded Encounters\":\n   \"Pharyngitis Encounters With Antibiotics\" Encounters\n      with \"Pharyngitis With Prior Antibiotics\" Pharyngitis such that\n         Common.\"Includes Or Starts During\"(Pharyngitis, Encounters)\n\ndefine \"Denominator Exclusions\":\n  \"Excluded Encounters\"\n\n// EndRegion: Denominator Exclusions\n\n// Region: Denominator Exceptions\n\n// None\n\n// EndRegion: Denominator Exceptions\n\n// Region: Numerator\n\ndefine \"Strep Test Encounters\":\n   \"Pharyngitis Encounters With Antibiotics\" Encounters\n      with [Observation: code in \"Group A Streptococcus Test\"] Tests\n         such that Tests.value is not null\n            and Tests.effective starts during\n               Interval[start of FHIRHelpers.ToInterval(Encounters.period) - 3 days,\n                 end of FHIRHelpers.ToInterval(Encounters.period) + 3 days]\n\ndefine \"Numerator\":\n   \"Strep Test Encounters\"\n\n// EndRegion: Numerator\n\n// Region: Numerator Exclusion\n\n// None\n\n// EndRegion: Numerator Exclusion\n</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
   },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/exm146-fhir",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
+      "value": "EXM146"
+    }
+  ],
   "version": "4.0.0",
   "name": "EXM146_FHIR",
+  "title": "EXM146 - Example Proportion Measure Library",
   "status": "active",
   "experimental": true,
   "type": {
@@ -17,6 +33,21 @@
       }
     ]
   },
+  "date": "2019-09-03",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "This library is used as an example in the FHIR Quality Measure Implementation Guide",
+  "approvalDate": "2019-08-03",
+  "lastReviewDate": "2019-08-03",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
   "relatedArtifact": [
     {
       "type": "depends-on",
