@@ -1,0 +1,147 @@
+{
+   "library" : {
+      "identifier" : {
+         "id" : "Common_FHIR",
+         "version" : "2.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.0"
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "4.0.0"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
+            "name" : "Includes Or Starts During",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "expression" : {
+               "type" : "Or",
+               "operand" : [ {
+                  "type" : "Contains",
+                  "operand" : [ {
+                     "lowClosed" : true,
+                     "highClosed" : true,
+                     "type" : "Interval",
+                     "low" : {
+                        "path" : "onset",
+                        "type" : "Property",
+                        "source" : {
+                           "name" : "Condition",
+                           "type" : "OperandRef"
+                        }
+                     },
+                     "high" : {
+                        "path" : "abatement",
+                        "type" : "Property",
+                        "source" : {
+                           "name" : "Condition",
+                           "type" : "OperandRef"
+                        }
+                     }
+                  }, {
+                     "type" : "As",
+                     "operand" : {
+                        "path" : "period",
+                        "type" : "Property",
+                        "source" : {
+                           "name" : "Encounter",
+                           "type" : "OperandRef"
+                        }
+                     },
+                     "asTypeSpecifier" : {
+                        "type" : "ChoiceTypeSpecifier",
+                        "choice" : [ {
+                           "name" : "{http://hl7.org/fhir}dateTime",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "name" : "{http://hl7.org/fhir}Age",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "name" : "{http://hl7.org/fhir}Period",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "name" : "{http://hl7.org/fhir}Range",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "name" : "{http://hl7.org/fhir}string",
+                           "type" : "NamedTypeSpecifier"
+                        } ]
+                     }
+                  } ]
+               }, {
+                  "type" : "IncludedIn",
+                  "operand" : [ {
+                     "name" : "ToInterval",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "operand" : [ {
+                        "asType" : "{http://hl7.org/fhir}Period",
+                        "type" : "As",
+                        "operand" : {
+                           "path" : "onset",
+                           "type" : "Property",
+                           "source" : {
+                              "name" : "Condition",
+                              "type" : "OperandRef"
+                           }
+                        }
+                     } ]
+                  }, {
+                     "name" : "ToInterval",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "operand" : [ {
+                        "path" : "period",
+                        "type" : "Property",
+                        "source" : {
+                           "name" : "Encounter",
+                           "type" : "OperandRef"
+                        }
+                     } ]
+                  } ]
+               } ]
+            },
+            "operand" : [ {
+               "name" : "Condition",
+               "operandTypeSpecifier" : {
+                  "name" : "{http://hl7.org/fhir}Condition",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }, {
+               "name" : "Encounter",
+               "operandTypeSpecifier" : {
+                  "name" : "{http://hl7.org/fhir}Encounter",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         } ]
+      }
+   }
+}

@@ -1,0 +1,176 @@
+{
+   "library" : {
+      "identifier" : {
+         "id" : "AdultOutpatientEncounters_FHIR",
+         "version" : "1.1.000"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.0"
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "4.0.0"
+         } ]
+      },
+      "valueSets" : {
+         "def" : [ {
+            "name" : "Office Visit",
+            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001",
+            "accessLevel" : "Public"
+         }, {
+            "name" : "Annual Wellness Visit",
+            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240",
+            "accessLevel" : "Public"
+         }, {
+            "name" : "Preventive Care Services - Established Office Visit, 18 and Up",
+            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025",
+            "accessLevel" : "Public"
+         }, {
+            "name" : "Preventive Care Services-Initial Office Visit, 18 and Up",
+            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023",
+            "accessLevel" : "Public"
+         }, {
+            "name" : "Home Healthcare Services",
+            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016",
+            "accessLevel" : "Public"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
+            "name" : "Qualifying Encounters",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "expression" : {
+               "type" : "Query",
+               "source" : [ {
+                  "alias" : "ValidEncounter",
+                  "expression" : {
+                     "type" : "Union",
+                     "operand" : [ {
+                        "type" : "Union",
+                        "operand" : [ {
+                           "type" : "Union",
+                           "operand" : [ {
+                              "dataType" : "{http://hl7.org/fhir}Encounter",
+                              "codeProperty" : "type",
+                              "type" : "Retrieve",
+                              "codes" : {
+                                 "name" : "Office Visit",
+                                 "type" : "ValueSetRef"
+                              }
+                           }, {
+                              "dataType" : "{http://hl7.org/fhir}Encounter",
+                              "codeProperty" : "type",
+                              "type" : "Retrieve",
+                              "codes" : {
+                                 "name" : "Annual Wellness Visit",
+                                 "type" : "ValueSetRef"
+                              }
+                           } ]
+                        }, {
+                           "type" : "Union",
+                           "operand" : [ {
+                              "dataType" : "{http://hl7.org/fhir}Encounter",
+                              "codeProperty" : "type",
+                              "type" : "Retrieve",
+                              "codes" : {
+                                 "name" : "Preventive Care Services - Established Office Visit, 18 and Up",
+                                 "type" : "ValueSetRef"
+                              }
+                           }, {
+                              "dataType" : "{http://hl7.org/fhir}Encounter",
+                              "codeProperty" : "type",
+                              "type" : "Retrieve",
+                              "codes" : {
+                                 "name" : "Preventive Care Services-Initial Office Visit, 18 and Up",
+                                 "type" : "ValueSetRef"
+                              }
+                           } ]
+                        } ]
+                     }, {
+                        "dataType" : "{http://hl7.org/fhir}Encounter",
+                        "codeProperty" : "type",
+                        "type" : "Retrieve",
+                        "codes" : {
+                           "name" : "Home Healthcare Services",
+                           "type" : "ValueSetRef"
+                        }
+                     } ]
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "type" : "And",
+                  "operand" : [ {
+                     "precision" : "Day",
+                     "type" : "IncludedIn",
+                     "operand" : [ {
+                        "name" : "ToInterval",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "path" : "period",
+                           "scope" : "ValidEncounter",
+                           "type" : "Property"
+                        } ]
+                     }, {
+                        "name" : "MeasurementPeriod",
+                        "type" : "OperandRef"
+                     } ]
+                  }, {
+                     "type" : "Equal",
+                     "operand" : [ {
+                        "name" : "ToString",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "path" : "status",
+                           "scope" : "ValidEncounter",
+                           "type" : "Property"
+                        } ]
+                     }, {
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "finished",
+                        "type" : "Literal"
+                     } ]
+                  } ]
+               }
+            },
+            "operand" : [ {
+               "name" : "MeasurementPeriod",
+               "operandTypeSpecifier" : {
+                  "type" : "IntervalTypeSpecifier",
+                  "pointType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            } ]
+         } ]
+      }
+   }
+}
