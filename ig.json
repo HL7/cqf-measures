@@ -16,7 +16,7 @@
     "txCache": "txCache",
     "history": "http://hl7.org/fhir/us/cqfmeasures/history.html"
   },
-  "version": "3.0.1",
+  "version": "3.0.2",
   "fixed-business-version": "1.0.0",
   "license": "CC0-1.0",
   "logging": ["init", "progress", "context", "html", "tx"],
@@ -100,35 +100,44 @@
   "canonicalBase": "http://hl7.org/fhir/us/cqfmeasures",
   "source": "cqfmeasures.xml",
   "resources": {
-    "Library/library-adult-outpatient-encounters-FHIR": {
-      "base": "Library-library-adult-outpatient-encounters-FHIR.html"
+    "Library/adultoutpatientencounters-fhir": {
+      "source": "library/library-adultoutpatientencounters-fhir.json",
+      "base": "Library-adult-outpatient-encounters-FHIR.html"
     },
-    "Library/library-common-FHIR": {
-      "base": "Library-library-common-FHIR.html"
+    "Library/common-fhir": {
+      "source": "library/library-common-fhir.json",
+      "base": "Library-common-FHIR.html"
     },
-    "Library/library-exm-logic": {
-      "base": "Library-library-exm-logic.html"
+    "Library/exm-logic": {
+      "source": "library/library-exm-logic.json",
+      "base": "Library-exm-logic.html"
     },
-    "Library/library-exm55-FHIR": {
-      "base": "Library-library-exm55-FHIR.html"
+    "Library/exm55-fhir": {
+      "source": "library/library-exm55-fhir.json",
+      "base": "Library-exm55-FHIR.html"
     },
-    "Library/library-exm124-FHIR": {
-      "base": "Library-library-exm124-FHIR.html"
+    "Library/exm124-fhir": {
+      "source": "library/library-exm124-fhir.json",
+      "base": "Library-exm124-FHIR.html"
     },
-    "Library/library-exm125-FHIR": {
-      "base": "Library-library-exm125-FHIR.html"
+    "Library/exm125-fhir": {
+      "source": "library/library-exm125-fhir.json",
+      "base": "Library-exm125-FHIR.html"
     },
-    "Library/library-exm130-FHIR": {
-      "base": "Library-library-exm130-FHIR.html"
+    "Library/exm130-fhir": {
+      "source": "library/library-exm130-fhir.json",
+      "base": "Library-exm130-FHIR.html"
     },
-    "Library/library-exm146-FHIR": {
-      "base": "Library-library-exm146-FHIR.html"
+    "Library/exm146-fhir": {
+      "source": "library/library-exm146-fhir.json",
+      "base": "Library-exm146-FHIR.html"
     },
     "Library/library-fhir-helpers-FHIR2": {
       "base": "Library-library-fhir-helpers-FHIR2.html"
     },
-    "Library/library-fhir-helpers": {
-      "base": "Library-library-fhir-helpers.html"
+    "Library/fhirhelpers": {
+      "source": "library/library-fhirhelpers.json",
+      "base": "Library-fhir-helpers.html"
     },
     "Library/library-fhir-model-definition-FHIR2": {
       "base": "Library-library-fhir-model-definition-FHIR2.html"
@@ -136,29 +145,35 @@
     "Library/library-fhir-model-definition": {
       "base": "Library-library-fhir-model-definition.html"
     },
-    "Library/library-hospice-FHIR": {
-      "base": "Library-library-hospice-FHIR.html"
+    "Library/hospice-fhir": {
+      "source": "library/library-hospice-fhir.json",
+      "base": "Library-hospice-FHIR.html"
     },
-    "Library/library-mat-global-common-functions-FHIR": {
-      "base": "Library-library-mat-global-common-functions-FHIR.html"
+    "Library/matglobalcommonfunctions-fhir": {
+      "source": "library/library-matglobalcommonfunctions-fhir.json",
+      "base": "Library-mat-global-common-functions-FHIR.html"
     },
     "Library/risk-adjustment-FHIR2": {
       "base": "Library-library-risk-adjustment-FHIR2.html"
     },
-    "Library/library-supplemental-data-elements-FHIR": {
-      "base": "Library-library-supplemental-data-elements-FHIR.html"
+    "Library/supplementaldataelements-fhir": {
+      "source": "library/library-supplementaldataelements-fhir.json",
+      "base": "Library-supplemental-data-elements-FHIR.html"
     },
     "Library/library-supplemental-data-elements-FHIR2": {
       "base": "Library-library-supplemental-data-elements-FHIR2.html"
     },
-    "Library/library-terminology-FHIR": {
-      "base": "Library-library-terminology-FHIR.html"
+    "Library/terminology-fhir": {
+      "source": "library/library-terminology-fhir.json",
+      "base": "Library-terminology-FHIR.html"
     },
-    "Library/library-vte-1-FHIR": {
-      "base": "Library-library-vte-1-FHIR.html"
+    "Library/vte-1-fhir": {
+      "source": "library/library-vte-1-fhir.json",
+      "base": "Library-vte-1-FHIR.html"
     },
-    "Library/library-vte-icu-FHIR": {
-      "base": "Library-library-vte-icu-FHIR.html"
+    "Library/vteicu-fhir": {
+      "source": "library/library-vteicu-fhir.json",
+      "base": "Library-vte-icu-FHIR.html"
     },
     "Measure/measure-exm": {
       "base": "Measure-measure-exm.html"

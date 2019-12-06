@@ -1,346 +1,837 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <Measure xmlns="http://hl7.org/fhir">
-  <!-- This example illustrates the basic structure of a FHIR-based eCQM -->
-  <!-- The id of the measure is a server-owned id for the resource. It is not expected to be globally unique,
-  it is only unique as required by the server on which the resource is housed. -->
-  <id value="measure-exm"/>
-  <meta>
-    <!-- The versionId of the measure is the server-maintained version identifier for this resource (as opposed to the business
-    version, which is specified using the version of the measure). It is not expected to be globally unique, only unique within the resource id.
-    (Though it may be globally unique if the server implements version using a globally unique identifier such as a guid.) -->
-    <versionId value="1"/>
-    <!-- The date on which the measure resource was last updated -->
-    <lastUpdated value="2019-02-17T17:05:00.0-06:00"/>
-    <!-- The url of the profile to which this measure resource conforms. -->
-    <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"/>
-  </meta>
-  <!-- The text of the measure is the human-readable rendering of the resource. This content is generated from the contents of the
-  resource and the referenced library or libraries. -->
-  <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: measure-exm</p><p><b>status</b>: active</p><p><b>experimental</b>: true</p><p><b>library</b>: <a href="Library-library-exm-logic.html">Generated Summary: id: library-exm-logic; version: 1.0.0; status: active; experimental; <span title="Codes: ">logic-library</span>; </a></p><p><b style="color: maroon">Exception generating Narrative: type org.hl7.fhir.r4.model.DataRequirement not handled yet</b></p></div>
-  </text>
-  <!-- Extensions in FHIR support data as part of the measure that is not supported by the base Measure resource definition -->
-  <!-- This example illustrates an artifactComment extension, used to provide additional comments at any point in the measure -->
-  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment">
+    <id value="measure-exm"/>
+    <meta>
+        <versionId value="2"/>
+        <lastUpdated value="2019-11-06T16:55:48.200-07:00"/>
+        <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table style="width: 60%; border-bottom: none;" class="header_table">
+                <!-- <tr th:if="${resource.hasId()}" style="vertical-align: top;"><th style="background-color:#656565; width:20%" scope="row"><span class="td_label">Id: </span></th><td style="width:80%" colspan="3"  th:narrative="${resource.id}"></td></tr> -->
+            <tr style="vertical-align: top;">
+                <td scope="row" style="background-color:#656565; width:20%">
+                    <span class="td_label">Measure Title</span>
+                </td>
+                <td colspan="1" style="width:60%">
+                    <h1 style="font-size:10px">EXM Measure</h1>
+                </td>
+                <td scope="row" style="background-color:#656565; width:10%">
+                    <span class="td_label">Measure ID</span>
+                </td>
+                <td colspan="1" style="width:10%">
+                    <h1 style="font-size:10px">MeasureEXM</h1>
+                </td>
+            </tr>
+            <!-- <th:block th:each="ident, iter : ${resource.identifier}"><tr th:if="${ident.type.coding[0].code == 'CMS'}" style="vertical-align: top;"><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">eCQM Identifier (Measure Authoring Tool)</span></td><td style="width:30%" th:narrative="${ident.value}"></td><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">eCQM Version number</span></td><td style="width:30%" th:narrative="${resource.version}"></td></tr></th:block><th:block th:each="ident, iter : ${resource.identifier}"><tr th:if="${ident.type.coding[0].code == 'NQF'}" style="vertical-align: top;"><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">NQF Number</span></td><td style="width:30%" th:narrative="${ident.value}"></td><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">GUID</span></td><td style="width:30%" th:narrative="${resource.url}"></td></tr></th:block> -->
+<tr style="vertical-align: top;">
+    <td scope="row" style="background-color:#656565; width:20%">
+        <span class="td_label">Description</span>
+    </td>
+    <td colspan="3" style="width:80%">
+        <div style="width:660px;overflow-x:hidden;overflow-y:auto">
+            <pre>
+                <p>An example FHIR-based measure</p>
+            </pre>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td scope="row" style="background-color:#656565; width:20%">
+        <span class="td_label">Measurement Period</span>
+    </td>
+    <td colspan="3" style="width:80%">January 1 - December 31</td>
+</tr>
+<!-- <tr><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">Measure Steward</span></td><td style="width:80%" colspan="3" th:narrative="${resource.publisher}"></td></tr><tr><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">Measure Developer</span></td><td style="width:80%" colspan="3" th:narrative="${resource.publisher}"></td></tr> -->
+<!-- <tr th:if="${resource.hasDisclaimer()}"><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">Disclaimer</span></td><td style="width:80%" colspan="3"><div style="width:660px;overflow-x:hidden;overflow-y:auto"><pre th:text="${resource.disclaimer}"></pre></div>
+            </td>
+        </tr> -->
+<tr>
+    <td scope="row" style="background-color:#656565; width:20%">
+        <span class="td_label">Copyright and Disclaimer Notice</span>
+    </td>
+    <td colspan="3" style="width:80%">
+        <div style="width:660px;overflow-x:hidden;overflow-y:auto">
+            <pre>Example disclaimer</pre>
+            <br/>
+            <pre>Example Copyright Statement</pre>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td scope="row" style="background-color:#656565; width:20%">
+        <span class="td_label">Clinical Recommendation Statement</span>
+    </td>
+    <td colspan="3" style="width:80%">
+        <div style="width:660px;overflow-x:hidden;overflow-y:auto">
+            <p>The clinical recommendation statement for this measure is...</p>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td colspan="4" scope="row" style="background-color:#656565; width:100%">
+        <span class="td_label">Characteristics</span>
+    </td>
+</tr>
+<tr>
+    <td scope="row" style="width:20%">
+        <span>Scoring</span>
+    </td>
+    <td colspan="3" style="width:80%">Proportion</td>
+</tr>
+<!-- <tr th:if="${resource.hasCompositeScoring()}"><td style="width:20%" scope="row"><span class="td_label">Composite Scoring</span></td><td style="width:80%" colspan="3" th:narrative="${resource.compositeScoring.getText().substring(0, 1).toUpperCase() + resource.compositeScoring.getText().substring(1)}"></td></tr> -->
+<tr style="vertical-align: top;">
+    <td rowspan="1" scope="row" style="width:20%">
+        <span>Type</span>
+    </td>
+    <td colspan="3" style="width:80%">Process</td>
+</tr>
+<!-- <tr th:if="${resource.hasStatus()}" style="vertical-align: top;"><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">Status</span></td><td style="width:80%" colspan="3" th:narrative="${resource.status.toString().substring(0, 1).toUpperCase() + resource.status.toString().substring(1).toLowerCase()}"></td></tr><tr th:if="${resource.hasPurpose()}" style="vertical-align: top;"><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">Purpose</span></td><td style="width:80%" colspan="3" th:narrative="${resource.purpose}"></td></tr><tr th:if="${resource.hasUsage()}" style="vertical-align: top;" ><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">Usage</span></td><td style="width:80%" colspan="3" th:narrative="${resource.usage}"></td></tr><th:block th:each="context, iter : ${resource.useContext}" ><tr style="vertical-align: top;"><td th:if="${iter.index == 0}" th:rowspan="${iter.size}" style="background-color:#656565; width:20%" scope="row"><span class="td_label">Use Context</span></td><td style="width:80%" colspan="3" th:narrative="${context}"></td></tr>
+        </th:block><th:block th:each="topics, iter : ${resource.topic}" ><tr style="vertical-align: top;"><td th:if="${iter.index == 0}" th:rowspan="${iter.size}" style="background-color:#656565; width:20%" scope="row"><span class="td_label">Topic</span></td><td style="width:80%" colspan="3" th:narrative="${topics}"></td></tr>
+        </th:block><th:block th:each="cont, iter : ${resource.contributor}" ><tr style="vertical-align: top;"><td th:if="${iter.index == 0}" th:rowspan="${iter.size}" style="background-color:#656565; width:20%" scope="row"><span class="td_label">Contributor</span></td><td style="width:80%" colspan="3"><b><span th:narrative="${cont.type.toCode()}"></span>:</b><span th:narrative="${cont.name}"></span></td>
+            </tr>
+        </th:block> -->
+<!-- <th:block th:each="lib, iter : ${resource.library}" ><tr style="vertical-align: top;"><td th:if="${iter.index == 0}" th:rowspan="${iter.size}" style="background-color:#656565; width:20%" scope="row"><span class="td_label">Library</span></td><td style="width:80%" colspan="3"><p th:if="${lib.hasIdentifier()}"><b>identifier: </b><span th:narrative="${lib.identifier}"></span></p><p th:if="${lib.hasReference()}"><b>reference: </b><span th:narrative="${lib.reference}"></span></p><p th:if="${lib.hasDisplay()}"><b>display: </b><span th:narrative="${lib.display}"></span></p>
+                </td>
+            </tr>
+        </th:block> -->
+<tr>
+    <td scope="row" style="width:20%">
+        <span>Risk Adjustment</span>
+    </td>
+    <td colspan="3" style="width:80%">
+        <div style="width:660px;overflow-x:hidden;overflow-y:auto">
+            <pre>Risk adjustment for this measure is performed by...</pre>
+        </div>
+    </td>
+</tr>
+<!-- <tr th:if="${resource.hasRateAggregation()}" ><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">Rate Aggregation</span></td><td style="width:80%" colspan="3"><div style="width:660px;overflow-x:hidden;overflow-y:auto"><pre th:text="${resource.rateAggregation}"></pre></div>
+            </td>
+        </tr><tr th:if="${resource.hasRationale()}"><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">Rationale</span></td><td style="width:80%" colspan="3"><div style="width:660px;overflow-x:hidden;overflow-y:auto"><pre th:text="${resource.rationale}"></pre></div>
+            </td>
+        </tr> -->
+<tr>
+    <td scope="row" style="width:20%">
+        <span>Improvement Notation</span>
+    </td>
+    <td colspan="3" style="width:80%">A higher rate indicates better performance.</td>
+</tr>
+<tr>
+    <td scope="row" style="width:20%">
+        <span>Guidance</span>
+    </td>
+    <td colspan="3" style="width:80%">
+        <div style="width:660px;overflow-x:hidden;overflow-y:auto">
+            <p>Additional guidance provided to help communicate the intent of the measure</p>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td colspan="4" scope="row" style="background-color:#656565; width:100%">
+        <span class="td_label">Definitions</span>
+    </td>
+</tr>
+<tr>
+    <!-- <td style="width:20%" scope="row"><span th:text="${definition.name}"></span></td> -->
+    <td colspan="4" style="width:100%">
+        <div style="width:880px;overflow-x:hidden;overflow-y:auto">
+            <p>A term used in the measure that bears clearly defining to communicate the measure intent</p>
+        </div>
+    </td>
+</tr>
+<!-- <th:block th:each="groups, iter : ${resource.uniquePopulationGroup}" ><tr style="vertical-align: top;"><td style="background-color:#656565; width:20%" scope="row"><span class="td_label" th:text="${groups.identifier.value}"></span></td><td style="width:80%" colspan="3"><div style="width:660px;overflow-x:hidden;overflow-y:auto"><pre th:text="${pops.description}"></pre></div>
+                </td>
+            </tr>
+        </th:block> -->
+
+</table>
+<table style="width: 60%; border-top: none; border-bottom: none" class="header_table">
+    <tr style="vertical-align: top;">
+        <td rowspan="3" scope="row" style="background-color:#656565; width:20%">
+            <span class="td_label">Population Criteria 1</span>
+        </td>
+        <td style="width:20%;">
+            <span style="font-size:10px; font-weight: bold;">Initial Population</span>
+        </td>
+        <td colspan="2" style="width:60%;">
+            <div style="overflow-x:hidden;overflow-y:auto">
+                <pre/>
+            </div>
+        </td>
+    </tr>
+    <tr style="vertical-align: top;">
+        <td style="width:20%;">
+            <span style="font-size:10px; font-weight: bold;">Numerator</span>
+        </td>
+        <td colspan="2" style="width:60%;">
+            <div style="overflow-x:hidden;overflow-y:auto">
+                <pre/>
+            </div>
+        </td>
+    </tr>
+    <tr style="vertical-align: top;">
+        <td style="width:20%;">
+            <span style="font-size:10px; font-weight: bold;">Denominator</span>
+        </td>
+        <td colspan="2" style="width:60%;">
+            <div style="overflow-x:hidden;overflow-y:auto">
+                <pre/>
+            </div>
+        </td>
+    </tr>
+    <tr style="vertical-align: top;">
+        <td rowspan="3" scope="row" style="background-color:#656565; width:20%">
+            <span class="td_label">Population Criteria 2</span>
+        </td>
+        <td style="width:20%;">
+            <span style="font-size:10px; font-weight: bold;">Initial Population</span>
+        </td>
+        <td colspan="2" style="width:60%;">
+            <div style="overflow-x:hidden;overflow-y:auto">
+                <pre/>
+            </div>
+        </td>
+    </tr>
+    <tr style="vertical-align: top;">
+        <td style="width:20%;">
+            <span style="font-size:10px; font-weight: bold;">Numerator</span>
+        </td>
+        <td colspan="2" style="width:60%;">
+            <div style="overflow-x:hidden;overflow-y:auto">
+                <pre/>
+            </div>
+        </td>
+    </tr>
+    <tr style="vertical-align: top;">
+        <td style="width:20%;">
+            <span style="font-size:10px; font-weight: bold;">Denominator</span>
+        </td>
+        <td colspan="2" style="width:60%;">
+            <div style="overflow-x:hidden;overflow-y:auto">
+                <pre/>
+            </div>
+        </td>
+    </tr>
+</table>
+<table style="width: 60%; border-top: none;" class="header_table">
+    <!-- <th:block th:each="supples, iter : ${resource.supplementalData}"><tr><th th:if="${iter.index == 0}" th:rowspan="${iter.size}" scope="row"><b>Supplemental Data:</b></th><td style="width:80%" colspan="3" ><p style="margin-bottom: 5px;" th:narrative="${supples.identifier}"></p><p style="margin-bottom: 5px;" th:each="uses : ${supples.usage}"><b>usage: </b><span th:narrative="${uses}"></span></p><p style="margin-bottom: 5px;" th:if="${supples.hasCriteria()}"><b>criteria: </b><span th:narrative="${supples.criteria}"></span></p><p style="margin-bottom: 5px;" th:if="${supples.hasPath()}"><b>path: </b><span th:narrative="${supples.path}"></span></p>
+                </td>
+            </tr>
+        </th:block> -->
+<!-- <th:block th:each="param, iter : ${resource.parameter}"><tr style="vertical-align: top;"><th th:if="${iter.index == 0}" th:rowspan="${iter.size}" scope="row"><b>Parameter: </b></th><td style="width:80%" colspan="3" ><span th:if="${param.hasName()}"><b>name: </b><span th:narrative="${param.name}"></span><br/>
+                    </span><b>use: </b><span th:narrative="${param.use.toCode()}"></span><br/><span th:if="${param.hasMin()}"><b>minimum cardinality: </b><span th:narrative="${param.min}"></span><br/>
+                    </span><span th:if="${param.hasMax()}"><b>maximum cardinality: </b><span th:narrative="${param.max}"></span><br/>
+                    </span><b>type: </b><span th:narrative="${param.type}"></span><br/><span th:if="${param.hasDocumentation()}"><b>documentation: </b><span th:narrative="${param.documentation}"></span><br/>
+                    </span><span th:if="${param.hasProfile()}"><b>profile: </b><span th:narrative="${param.profile}"></span><br/>
+                    </span><p style="margin-bottom: 5px;"></p></td>
+            </tr>
+        </th:block> -->
+<!-- <th:block th:each="dataReq, iter : ${resource.dataRequirement}"><tr style="vertical-align: top;"><th th:if="${iter.index == 0}" th:rowspan="${iter.size}" scope="row" ><b>Data Requirements: </b></th><td style="width:80%" colspan="3" th:narrative="${dataReq}"></td></tr>
+        </th:block> -->
+</table>
+<h2>
+    <a name="toc">Table of Contents</a>
+</h2>
+<ul style="padding-left: 50px;">
+    <li>
+        <a href="#d1e405">Population Criteria</a>
+    </li>
+    <li>
+        <a href="#d1e649">Definitions</a>
+    </li>
+    <li>
+        <a href="#d1e650">Functions</a>
+    </li>
+    <li>
+        <a href="#d1e555">Terminology</a>
+    </li>
+    <li>
+        <a href="#d1e647">Data Criteria (QDM Data Elements)</a>
+    </li>
+    <li>
+        <a href="#d1e767">Supplemental Data Elements</a>
+    </li>
+    <li>
+        <a href="#d1e879">Risk Adjustment Variables</a>
+    </li>
+</ul>
+<div style="float:left; background:teal; height:3px; width:80%"/>
+<pre>
+    <br/>
+</pre>
+<h3>
+    <a name="d1e405" href="#toc">Population Criteria 1</a>
+</h3>
+<div>
+    <ul style="list-style:none;padding-left:10px;">
+        <li style="list-style:none;padding-left:0px;" class="list-unstyled">
+            <div class="treeview hover p-l-10"> </div>
+            <div class="treeview hover p-l-10"> </div>
+            <div class="treeview hover p-l-10"> </div>
+            <div class="treeview hover p-l-10">
+                <ul class="list-unstyled">
+                    <li class="list-unstyled">
+                        <input id="stratifier 1" type="checkbox"/>
+                        <label for="stratifier 1" class="list-header">
+                            <strong>Stratifier 1</strong>
+                        </label>
+                        <ul class="code">
+                            <li class="list-unstyled">
+                                <div class="treeview hover p-l-10">
+                                    <ul>
+                                        <li style="padding-left: 0px;">
+                                            <div>
+                                                <pre class="cql-definition-body">Stratifier 1</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="treeview hover p-l-10">
+                <ul class="list-unstyled">
+                    <li class="list-unstyled">
+                        <input id="stratifier 2" type="checkbox"/>
+                        <label for="stratifier 2" class="list-header">
+                            <strong>Stratifier 2</strong>
+                        </label>
+                        <ul class="code">
+                            <li class="list-unstyled">
+                                <div class="treeview hover p-l-10">
+                                    <ul>
+                                        <li style="padding-left: 0px;">
+                                            <div>
+                                                <pre class="cql-definition-body">Stratifier 2</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="treeview hover p-l-10">
+                <ul class="list-unstyled">
+                    <li class="list-unstyled">
+                        <input id="stratifier 3" type="checkbox"/>
+                        <label for="stratifier 3" class="list-header">
+                            <strong>Stratifier 3</strong>
+                        </label>
+                        <ul class="code">
+                            <li class="list-unstyled">
+                                <div class="treeview hover p-l-10">
+                                    <ul>
+                                        <li style="padding-left: 0px;">
+                                            <div>
+                                                <pre class="cql-definition-body">Stratifier 3</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="treeview hover p-l-10">
+                <ul class="list-unstyled">
+                    <li class="list-unstyled">
+                        <input id="stratifier 4" type="checkbox"/>
+                        <label for="stratifier 4" class="list-header">
+                            <strong>Stratifier 4</strong>
+                        </label>
+                        <ul class="code">
+                            <li class="list-unstyled">
+                                <div class="treeview hover p-l-10">
+                                    <ul>
+                                        <li style="padding-left: 0px;">
+                                            <div>
+                                                <pre class="cql-definition-body">Stratifier 4</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<pre>
+    <br/>
+</pre>
+<h3>
+    <a name="d1e405" href="#toc">Population Criteria 2</a>
+</h3>
+<div>
+    <ul style="list-style:none;padding-left:10px;">
+        <li style="list-style:none;padding-left:0px;" class="list-unstyled">
+            <div class="treeview hover p-l-10"> </div>
+            <div class="treeview hover p-l-10"> </div>
+            <div class="treeview hover p-l-10"> </div>
+            <div class="treeview hover p-l-10">
+                <ul class="list-unstyled">
+                    <li class="list-unstyled">
+                        <input id="stratifier 1" type="checkbox"/>
+                        <label for="stratifier 1" class="list-header">
+                            <strong>Stratifier 1</strong>
+                        </label>
+                        <ul class="code">
+                            <li class="list-unstyled">
+                                <div class="treeview hover p-l-10">
+                                    <ul>
+                                        <li style="padding-left: 0px;">
+                                            <div>
+                                                <pre class="cql-definition-body">Stratifier 1</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="treeview hover p-l-10">
+                <ul class="list-unstyled">
+                    <li class="list-unstyled">
+                        <input id="stratifier 2" type="checkbox"/>
+                        <label for="stratifier 2" class="list-header">
+                            <strong>Stratifier 2</strong>
+                        </label>
+                        <ul class="code">
+                            <li class="list-unstyled">
+                                <div class="treeview hover p-l-10">
+                                    <ul>
+                                        <li style="padding-left: 0px;">
+                                            <div>
+                                                <pre class="cql-definition-body">Stratifier 2</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="treeview hover p-l-10">
+                <ul class="list-unstyled">
+                    <li class="list-unstyled">
+                        <input id="stratifier 3" type="checkbox"/>
+                        <label for="stratifier 3" class="list-header">
+                            <strong>Stratifier 3</strong>
+                        </label>
+                        <ul class="code">
+                            <li class="list-unstyled">
+                                <div class="treeview hover p-l-10">
+                                    <ul>
+                                        <li style="padding-left: 0px;">
+                                            <div>
+                                                <pre class="cql-definition-body">Stratifier 3</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="treeview hover p-l-10">
+                <ul class="list-unstyled">
+                    <li class="list-unstyled">
+                        <input id="stratifier 4" type="checkbox"/>
+                        <label for="stratifier 4" class="list-header">
+                            <strong>Stratifier 4</strong>
+                        </label>
+                        <ul class="code">
+                            <li class="list-unstyled">
+                                <div class="treeview hover p-l-10">
+                                    <ul>
+                                        <li style="padding-left: 0px;">
+                                            <div>
+                                                <pre class="cql-definition-body">Stratifier 4</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<h3>
+    <a name="d1e649" href="#toc">Definitions</a>
+</h3>
+<h3>
+    <a name="d1e650" href="#toc">Functions</a>
+</h3>
+<h3>
+    <a name="d1e555" href="#toc">Terminology</a>
+</h3>
+<div>
+    <ul style="padding-left: 50px;"> </ul>
+</div>
+<h3>
+    <a name="d1e647" href="#toc">Data Criteria (QDM Data Elements)</a>
+</h3>
+<div>
+    <ul style="padding-left: 50px;"> </ul>
+</div>
+<h3>
+    <a name="d1e767" href="#toc">Supplemental Data Elements</a>
+</h3>
+<div>
+    <ul style="list-style:none;padding-left: 25px;">
+        <li>None</li>
+    </ul>
+</div>
+<h3>
+    <a name="d1e879" href="#toc">Risk Adjustment Variables</a>
+</h3>
+<div>
+    <ul style="list-style:none;padding-left: 25px;">
+        <li>None</li>
+    </ul>
+</div>
+<div style="float:left; background:teal; height:3px; width:80%"/>
+<table>
+    <!-- <th:block th:each="con, iter : ${resource.content}"><tr th:if="${con.contentType == 'text/cql'}" style="vertical-align: top;"><td style="background-color:#656565; width:20%" scope="row"><span class="td_label">Content</span></td><td style="width:80%" ><b>type: </b><span th:text="${con.contentType}"></span></td>
+            </tr><tr th:if="${con.contentType == 'text/cql'}"><td style="width:100%" colspan="2" ><th:block th:if="${con.getData() != null }" ><pre><code th:class="${con.contentType == 'text/cql' ? 'language-cql' : 'language-xml'}" th:text="${new java.lang.String(con.getData())}"></code></pre>
+                    </th:block><th:block th:if="${con.getData() == null }" ><span><i>&lt;content is empty&gt;</i></span>
+                    </th:block>
+                </td>
+            </tr>
+        </th:block > -->
+</table>
+</div>
+</text>
+<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment">
     <extension url="type">
-      <valueCode value="documentation"/>
+        <valueCode value="documentation"/>
     </extension>
     <extension url="text">
-      <valueString value="This illustrates an example comment"/>
+        <valueString value="This illustrates an example comment"/>
     </extension>
-  </extension>
-  <!-- Population Basis, specifies the type of the elements in the population lists. For a patient-based proportion measure,
-  for example, the criteria are all yes/no questions, resulting in a "boolean" value. -->
-  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+</extension>
+<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
     <valueCode value="boolean"/>
-  </extension>
-  <!-- Allocation, provides additional guidance about the allocation for a measure -->
-  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-allocation">
+</extension>
+<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-allocation">
     <valueMarkdown value="Additional guidance for allocation"/>
-  </extension>
-  <!-- Canonical URL for the measure. This is a globally unique, version-independent identifier for the eCQM. -->
-  <url value="http://example.org/fhir/measures/measure-exm"/>
-  <!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
+</extension>
+<!-- Canonical URL for the measure. This is a globally unique, version-independent identifier for the eCQM. -->
+<url value="http://example.org/fhir/measures/measure-exm"/>
+<!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
   set of eCQMs such as HEDIS or CMS eCQM identifiers. A measure may have any number of business identifiers. -->
-  <identifier>
+<identifier>
     <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm"/>
     <value value="EXM"/>
-  </identifier>
-  <!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
-  <version value="1.0.0"/>
-  <!-- The name of the measure. This is a machine-friendly identifier for the measure -->
-  <name value="MeasureEXM"/>
-  <!-- The title of the measure. This is a user-friendly identifier for the measure -->
-  <title value="EXM Measure"/>
-  <status value="active"/>
-  <experimental value="true"/>
-  <!-- The publication date of the measure -->
-  <date value="2019-02-17"/>
-  <!-- The publisher of the measure -->
-  <publisher value="Example Measure Publisher"/>
-  <!-- The description of the measure -->
-  <description value="An example FHIR-based measure"/>
-  <purpose value="The purpose of this measure is to..."/>
-  <usage value="Users of this measure should be aware of..."/>
-  <approvalDate value="2019-02-17"/>
-  <lastReviewDate value="2019-02-17"/>
-  <effectivePeriod>
-		<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor">
-			<valueDateTime value="2018-01-01"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration">
-			<valueDuration>
-				<value value="1"/>
-				<code value="a"/>
-        <system value="http://unitsofmeasure.org"/>
-			</valueDuration>
-		</extension>
+</identifier>
+<!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
+<version value="1.0.0"/>
+<!-- The name of the measure. This is a machine-friendly identifier for the measure -->
+<name value="MeasureEXM"/>
+<!-- The title of the measure. This is a user-friendly identifier for the measure -->
+<title value="EXM Measure"/>
+<status value="active"/>
+<experimental value="true"/>
+<!-- The publication date of the measure -->
+<date value="2019-02-17"/>
+<!-- The publisher of the measure -->
+<publisher value="Example Measure Publisher"/>
+<!-- The description of the measure -->
+<description value="An example FHIR-based measure"/>
+<purpose value="The purpose of this measure is to..."/>
+<usage value="Users of this measure should be aware of..."/>
+<approvalDate value="2019-02-17"/>
+<lastReviewDate value="2019-02-17"/>
+<effectivePeriod>
+    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor">
+        <valueDateTime value="2018-01-01"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration">
+        <valueDuration>
+            <value value="1"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="a"/>
+        </valueDuration>
+    </extension>
     <start value="2018-01-01"/>
     <end value="2018-12-31"/>
-  </effectivePeriod>
-  <useContext>
+</effectivePeriod>
+<useContext>
     <code>
-      <code value="program"/>
-    </code>
+        <code value="program"/></code>
     <valueCodeableConcept>
-      <text value="eligible-provider"/>
+        <text value="eligible-provider"/>
     </valueCodeableConcept>
-  </useContext>
-  <jurisdiction>
+</useContext>
+<jurisdiction>
     <coding>
-      <system value="urn:iso:std:iso:3166"/>
-      <code value="US"/>
+        <system value="urn:iso:std:iso:3166"/>
+        <code value="US"/>
     </coding>
-  </jurisdiction>
-  <topic>
+</jurisdiction>
+<topic>
     <coding>
-      <system value="http://loinc.org"/>
-      <code value="57024-2"/>
+        <system value="http://loinc.org"/>
+        <code value="57024-2"/>
     </coding>
     <text value="Health Quality Measure Document"/>
-  </topic>
-  <contributor>
+</topic>
+<contributor>
     <type value="author"/>
     <name value="Example Measure Content Developer"/>
-  </contributor>
-  <contact>
+</contributor>
+<contact>
     <telecom>
-      <system value="url"/>
-      <value value="http://www.example.org/"/>
+        <system value="url"/>
+        <value value="http://www.example.org/"/>
     </telecom>
-  </contact>
-  <copyright value="Example Copyright Statement"/>
-  <relatedArtifact>
+</contact>
+<copyright value="Example Copyright Statement"/>
+<relatedArtifact>
     <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
-      <valueBoolean value="true"/>
+        <valueBoolean value="true"/>
     </extension>
     <type value="documentation"/>
-    <citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. &quot;Antibiotic treatment
-      of children with sore throat.&quot; JAMA 294(18):2315-2322."/>
-  </relatedArtifact>
-  <relatedArtifact>
+    <citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. &quot;Antibiotic treatment       of children with sore throat.&quot; JAMA 294(18):2315-2322."/>
+</relatedArtifact>
+<relatedArtifact>
     <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
-      <valueBoolean value="true"/>
+        <valueBoolean value="true"/>
     </extension>
     <type value="documentation"/>
     <citation value="Infectious Diseases Society of America. 2012. &quot;Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update.&quot;"/>
-  </relatedArtifact>
-  <relatedArtifact>
+</relatedArtifact>
+<relatedArtifact>
     <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
-      <valueBoolean value="true"/>
+        <valueBoolean value="true"/>
     </extension>
     <type value="documentation"/>
     <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot; Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
-  </relatedArtifact>
-  <library>
-    <reference value="Library/library-exm-logic"/>
-  </library>
-  <disclaimer value="Example disclaimer"/>
-  <scoring>
+</relatedArtifact>
+<library>
+    <reference value="Library/exm-logic"/>
+</library>
+<disclaimer value="Example disclaimer"/>
+<scoring>
     <coding>
-      <system value="http://hl7.org/fhir/measure-scoring"/>
-      <code value="proportion"/>
+        <system value="http://hl7.org/fhir/measure-scoring"/>
+        <code value="proportion"/>
     </coding>
-  </scoring>
-  <type>
+</scoring>
+<type>
     <coding>
-      <system value="http://hl7.org/fhir/measure-type"/>
-      <code value="process"/>
+        <system value="http://hl7.org/fhir/measure-type"/>
+        <code value="process"/>
     </coding>
-  </type>
-  <riskAdjustment value="Risk adjustment for this measure is performed by..."/>
-  <rateAggregation value="Rate aggregation for this measure is performed by..."/>
-  <rationale value="Rationale for this measure is..."/>
-  <clinicalRecommendationStatement value="The clinical recommendation statement for this measure is..."/>
-  <improvementNotation value="increase"/>
-  <definition value="A term used in the measure that bears clearly defining to communicate the measure intent">
+</type>
+<riskAdjustment value="Risk adjustment for this measure is performed by..."/>
+<rateAggregation value="Rate aggregation for this measure is performed by..."/>
+<rationale value="Rationale for this measure is..."/>
+<clinicalRecommendationStatement value="The clinical recommendation statement for this measure is..."/>
+<improvementNotation value="increase"/>
+<definition value="A term used in the measure that bears clearly defining to communicate the measure intent">
     <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-definitionTerm">
-      <valueString value="Term"/>
+        <valueString value="Term"/>
     </extension>
-  </definition>
-  <guidance value="Additional guidance provided to help communicate the intent of the measure"/>
-  <group>
+</definition>
+<guidance value="Additional guidance provided to help communicate the intent of the measure"/>
+<group>
     <identifier>
-      <value value="group-1"/>
+        <value value="group-1"/>
     </identifier>
     <population>
-      <identifier>
-        <value value="initial-population 1"/>
-      </identifier>
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="initial-population"/>
-          <display value="Initial Population"/>
-        </coding>
-      </code>
-      <criteria value="Initial Population 1"/>
+        <identifier>
+            <value value="initial-population 1"/>
+        </identifier>
+        <code>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+                <code value="initial-population"/>
+                <display value="Initial Population"/>
+            </coding>
+        </code>
+        <criteria value="Initial Population 1"/>
     </population>
     <population>
-      <identifier>
-        <value value="numerator 1"/>
-      </identifier>
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="numerator"/>
-          <display value="Numerator"/>
-        </coding>
-      </code>
-      <criteria value="Numerator 1"/>
+        <identifier>
+            <value value="numerator 1"/>
+        </identifier>
+        <code>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+                <code value="numerator"/>
+                <display value="Numerator"/>
+            </coding>
+        </code>
+        <criteria value="Numerator 1"/>
     </population>
     <population>
-      <identifier>
-        <value value="denominator 1"/>
-      </identifier>
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="denominator"/>
-          <display value="Denominator"/>
-        </coding>
-      </code>
-      <criteria value="Denominator 1"/>
+        <identifier>
+            <value value="denominator 1"/>
+        </identifier>
+        <code>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+                <code value="denominator"/>
+                <display value="Denominator"/>
+            </coding>
+        </code>
+        <criteria value="Denominator 1"/>
     </population>
     <stratifier>
-      <identifier>
-        <value value="stratifier 1"/>
-      </identifier>
-      <criteria value="Stratifier 1"/>
+        <identifier>
+            <value value="stratifier 1"/>
+        </identifier>
+        <criteria value="Stratifier 1"/>
     </stratifier>
     <stratifier>
-      <identifier>
-        <value value="stratifier 2"/>
-      </identifier>
-      <criteria value="Stratifier 2"/>
+        <identifier>
+            <value value="stratifier 2"/>
+        </identifier>
+        <criteria value="Stratifier 2"/>
     </stratifier>
     <stratifier>
-      <identifier>
-        <value value="stratifier 3"/>
-      </identifier>
-      <criteria value="Stratifier 3"/>
+        <identifier>
+            <value value="stratifier 3"/>
+        </identifier>
+        <criteria value="Stratifier 3"/>
     </stratifier>
     <stratifier>
-      <identifier>
-        <value value="stratifier 4"/>
-      </identifier>
-      <criteria value="Stratifier 4"/>
+        <identifier>
+            <value value="stratifier 4"/>
+        </identifier>
+        <criteria value="Stratifier 4"/>
     </stratifier>
-  </group>
-  <group>
+</group>
+<group>
     <identifier>
-      <value value="group-2"/>
+        <value value="group-2"/>
     </identifier>
     <population>
-      <identifier>
-        <value value="initial-population 2"/>
-      </identifier>
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="initial-population"/>
-          <display value="Initial Population"/>
-        </coding>
-      </code>
-      <criteria value="Initial Population 2"/>
+        <identifier>
+            <value value="initial-population 2"/>
+        </identifier>
+        <code>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+                <code value="initial-population"/>
+                <display value="Initial Population"/>
+            </coding>
+        </code>
+        <criteria value="Initial Population 2"/>
     </population>
     <population>
-      <identifier>
-        <value value="numerator 2"/>
-      </identifier>
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="numerator"/>
-          <display value="Numerator"/>
-        </coding>
-      </code>
-      <criteria value="Numerator 2"/>
+        <identifier>
+            <value value="numerator 2"/>
+        </identifier>
+        <code>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+                <code value="numerator"/>
+                <display value="Numerator"/>
+            </coding>
+        </code>
+        <criteria value="Numerator 2"/>
     </population>
     <population>
-      <identifier>
-        <value value="denominator 2"/>
-      </identifier>
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="denominator"/>
-          <display value="Denominator"/>
-        </coding>
-      </code>
-      <criteria value="Denominator 2"/>
+        <identifier>
+            <value value="denominator 2"/>
+        </identifier>
+        <code>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+                <code value="denominator"/>
+                <display value="Denominator"/>
+            </coding>
+        </code>
+        <criteria value="Denominator 2"/>
     </population>
     <stratifier>
-      <identifier>
-        <value value="stratifier 1"/>
-      </identifier>
-      <criteria value="Stratifier 1"/>
+        <identifier>
+            <value value="stratifier 1"/>
+        </identifier>
+        <criteria value="Stratifier 1"/>
     </stratifier>
     <stratifier>
-      <identifier>
-        <value value="stratifier 2"/>
-      </identifier>
-      <criteria value="Stratifier 2"/>
+        <identifier>
+            <value value="stratifier 2"/>
+        </identifier>
+        <criteria value="Stratifier 2"/>
     </stratifier>
     <stratifier>
-      <identifier>
-        <value value="stratifier 3"/>
-      </identifier>
-      <criteria value="Stratifier 3"/>
+        <identifier>
+            <value value="stratifier 3"/>
+        </identifier>
+        <criteria value="Stratifier 3"/>
     </stratifier>
     <stratifier>
-      <identifier>
-        <value value="stratifier 4"/>
-      </identifier>
-      <criteria value="Stratifier 4"/>
+        <identifier>
+            <value value="stratifier 4"/>
+        </identifier>
+        <criteria value="Stratifier 4"/>
     </stratifier>
-  </group>
-  <supplementalData>
+</group>
+<supplementalData>
     <identifier>
-      <value value="sde-ethnicity"/>
+        <value value="sde-ethnicity"/>
     </identifier>
     <usage>
-      <coding>
-        <system value="http://hl7.org/fhir/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
+        <coding>
+            <system value="http://hl7.org/fhir/measure-data-usage"/>
+            <code value="supplemental-data"/>
+        </coding>
     </usage>
     <criteria value="SDE Ethnicity"/>
-  </supplementalData>
-  <supplementalData>
+</supplementalData>
+<supplementalData>
     <identifier>
-      <value value="sde-race"/>
+        <value value="sde-race"/>
     </identifier>
     <usage>
-      <coding>
-        <system value="http://hl7.org/fhir/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
+        <coding>
+            <system value="http://hl7.org/fhir/measure-data-usage"/>
+            <code value="supplemental-data"/>
+        </coding>
     </usage>
     <criteria value="SDE Race"/>
-  </supplementalData>
-  <supplementalData>
+</supplementalData>
+<supplementalData>
     <identifier>
-      <value value="sde-payer"/>
+        <value value="sde-payer"/>
     </identifier>
     <usage>
-      <coding>
-        <system value="http://hl7.org/fhir/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
+        <coding>
+            <system value="http://hl7.org/fhir/measure-data-usage"/>
+            <code value="supplemental-data"/>
+        </coding>
     </usage>
     <criteria value="SDE Payer"/>
-  </supplementalData>
-  <supplementalData>
+</supplementalData>
+<supplementalData>
     <identifier>
-      <value value="sde-sex"/>
+        <value value="sde-sex"/>
     </identifier>
     <usage>
-      <coding>
-        <system value="http://hl7.org/fhir/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
+        <coding>
+            <system value="http://hl7.org/fhir/measure-data-usage"/>
+            <code value="supplemental-data"/>
+        </coding>
     </usage>
     <criteria value="SDE Sex"/>
-  </supplementalData>
+</supplementalData>
 </Measure>
