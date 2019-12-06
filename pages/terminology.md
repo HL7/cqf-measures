@@ -10,17 +10,17 @@ title: Terminology
 * Do not remove this line (it will not be displayed)
 {:toc}
 
-## 8 Terminology
+## 9 Terminology
 {: #terminology}
 
-### 8.1 CodeSystem Resources
+### 9.1 CodeSystem Resources
 {: #codesystem-resources}
 
 -  [Improvement Notation](CodeSystem-improvement-notation.html)
 -  [Aggregate Method](CodeSystem-aggregate-method.html)
 -  [Artifact Comment Type](CodeSystem-artifact-comment-type.html)
 
-### 8.2 ValueSet Resources
+### 9.2 ValueSet Resources
 {: #valueset-resources}
 
 -  [Improvement Notation](ValueSet-improvement-notation.html)

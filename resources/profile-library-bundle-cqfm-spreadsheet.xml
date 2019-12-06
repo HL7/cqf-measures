@@ -750,7 +750,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="64" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="65" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s81" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="122.25"/>
@@ -881,6 +881,25 @@
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s98"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">type</Data></Cell>
+    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Bundle.type</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">collection</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s100"><Data ss:Type="String">The bundle is a collection of artifacts for distribution</Data></Cell>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s99"/>
@@ -1888,7 +1907,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>

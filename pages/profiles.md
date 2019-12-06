@@ -5,7 +5,7 @@ title: Profiles
 
 ---
 
-## 6 Profiles 
+## 7 Profiles 
 {: #profiles}
 
 {% include list-simple-profiles.xhtml %}
