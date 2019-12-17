@@ -62,13 +62,14 @@
     }
   ],
   "library": [
-    "Library/library-risk-adjustment-FHIR2"    
+    "Library/library-risk-adjustment-FHIR2"
   ],
   "scoring": {
     "coding": [
       {
         "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
-        "code": "proportion"
+        "code": "proportion",
+        "display": "Proportion"
       }
     ]
   },
@@ -85,8 +86,9 @@
   "improvementNotation": {
     "coding": [
       {
-        "system": "http://hl7.org/fhir/ValueSet/measure-improvement-notation",
-        "code": "decrease"
+        "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+        "code": "decrease",
+        "display": "Decreased score indicates improvement"
       }
     ]
   },

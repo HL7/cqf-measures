@@ -53,10 +53,31 @@
   <date value="2019-02-17"/>
   <!-- The publisher of the measure -->
   <publisher value="Example Measure Publisher"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.example.org/"/>
+    </telecom>
+  </contact>
   <!-- The description of the measure -->
   <description value="An example FHIR-based measure"/>
+  <useContext>
+    <code>
+      <code value="program"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="eligible-provider"/>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
   <purpose value="The purpose of this measure is to..."/>
   <usage value="Users of this measure should be aware of..."/>
+  <copyright value="Example Copyright Statement"/>
   <approvalDate value="2019-02-17"/>
   <lastReviewDate value="2019-02-17"/>
   <effectivePeriod>
@@ -73,20 +94,6 @@
     <start value="2018-01-01"/>
     <end value="2018-12-31"/>
   </effectivePeriod>
-  <useContext>
-    <code>
-      <code value="program"/>
-    </code>
-    <valueCodeableConcept>
-      <text value="eligible-provider"/>
-    </valueCodeableConcept>
-  </useContext>
-  <jurisdiction>
-    <coding>
-      <system value="urn:iso:std:iso:3166"/>
-      <code value="US"/>
-    </coding>
-  </jurisdiction>
   <topic>
     <coding>
       <system value="http://loinc.org"/>
@@ -97,13 +104,6 @@
   <author>
     <name value="Example Measure Content Developer"/>
   </author>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.example.org/"/>
-    </telecom>
-  </contact>
-  <copyright value="Example Copyright Statement"/>
   <relatedArtifact>
     <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
       <valueBoolean value="true"/>
@@ -126,14 +126,13 @@
     <type value="documentation"/>
     <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot; Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
   </relatedArtifact>
-  <library>
-    <reference value="Library/exm-logic"/>
-  </library>
+  <library value="Library/exm-logic"/>
   <disclaimer value="Example disclaimer"/>
   <scoring>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
       <code value="proportion"/>
+      <display value="Proportion"/>
     </coding>
   </scoring>
   <type>
@@ -146,7 +145,13 @@
   <rateAggregation value="Rate aggregation for this measure is performed by..."/>
   <rationale value="Rationale for this measure is..."/>
   <clinicalRecommendationStatement value="The clinical recommendation statement for this measure is..."/>
-  <improvementNotation value="increase"/>
+  <improvementNotation>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+      <code value="increase"/>
+      <display value="Increased score indicates improvement"/>
+    </coding>
+  </improvementNotation>
   <!-- NOTE: When using the extension, do not provide the definition in the element, or the extension may end up associated with an arbitrary definition -->
   <definition>
     <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-definitionTerm">
@@ -168,7 +173,10 @@
           <display value="Initial Population"/>
         </coding>
       </code>
-      <criteria value="Initial Population 1"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Initial Population 1"/>
+      </criteria>
     </population>
     <population id="numerator-1">
       <code>
@@ -178,7 +186,10 @@
           <display value="Numerator"/>
         </coding>
       </code>
-      <criteria value="Numerator 1"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Numerator 1"/>
+      </criteria>
     </population>
     <population id="denominator-1">
       <code>
@@ -188,19 +199,34 @@
           <display value="Denominator"/>
         </coding>
       </code>
-      <criteria value="Denominator 1"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Denominator 1"/>
+      </criteria>
     </population>
     <stratifier id="stratifier-1-1">
-      <criteria value="Stratifier 1-1"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Stratifier 1-1"/>
+      </criteria>
     </stratifier>
     <stratifier id="stratifier-1-2">
-      <criteria value="Stratifier 1-2"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Stratifier 1-2"/>
+      </criteria>
     </stratifier>
     <stratifier id="stratifier-1-3">
-      <criteria value="Stratifier 1-3"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Stratifier 1-3"/>
+      </criteria>
     </stratifier>
     <stratifier id="stratifier-1-4">
-      <criteria value="Stratifier 1-4"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Stratifier 1-4"/>
+      </criteria>
     </stratifier>
   </group>
   <group id="group-2">
@@ -212,7 +238,10 @@
           <display value="Initial Population"/>
         </coding>
       </code>
-      <criteria value="Initial Population 2"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Initial Population 2"/>
+      </criteria>
     </population>
     <population id="numerator-2">
       <code>
@@ -222,7 +251,10 @@
           <display value="Numerator"/>
         </coding>
       </code>
-      <criteria value="Numerator 2"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Numerator 2"/>
+      </criteria>
     </population>
     <population id="denominator-2">
       <code>
@@ -232,19 +264,34 @@
           <display value="Denominator"/>
         </coding>
       </code>
-      <criteria value="Denominator 2"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Denominator 2"/>
+      </criteria>
     </population>
     <stratifier id="stratifier-2-1">
-      <criteria value="Stratifier 2-1"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Stratifier 2-1"/>
+      </criteria>
     </stratifier>
     <stratifier id="stratifier-2-2">
-      <criteria value="Stratifier 2-2"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Stratifier 2-2"/>
+      </criteria>
     </stratifier>
     <stratifier id="stratifier-2-3">
-      <criteria value="Stratifier 2-3"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Stratifier 2-3"/>
+      </criteria>
     </stratifier>
     <stratifier id="stratifier-2-4">
-      <criteria value="Stratifier 2-4"/>
+      <criteria>
+        <language value="text/cql"/>
+        <expression value="Stratifier 2-4"/>
+      </criteria>
     </stratifier>
   </group>
   <supplementalData id="sde-ethnicity">
@@ -254,7 +301,10 @@
         <code value="supplemental-data"/>
       </coding>
     </usage>
-    <criteria value="SDE Ethnicity"/>
+    <criteria>
+      <language value="text/cql"/>
+      <expression value="SDE Ethnicity"/>
+    </criteria>
   </supplementalData>
   <supplementalData id="sde-race">
     <usage>
@@ -263,7 +313,10 @@
         <code value="supplemental-data"/>
       </coding>
     </usage>
-    <criteria value="SDE Race"/>
+    <criteria>
+      <language value="text/cql"/>
+      <expression value="SDE Race"/>
+    </criteria>
   </supplementalData>
   <supplementalData id="sde-payer">
     <usage>
@@ -272,7 +325,10 @@
         <code value="supplemental-data"/>
       </coding>
     </usage>
-    <criteria value="SDE Payer"/>
+    <criteria>
+      <language value="text/cql"/>
+      <expression value="SDE Payer"/>
+    </criteria>
   </supplementalData>
   <supplementalData id="sde-sex">
     <usage>
@@ -281,6 +337,9 @@
         <code value="supplemental-data"/>
       </coding>
     </usage>
-    <criteria value="SDE Sex"/>
+    <criteria>
+      <language value="text/cql"/>
+      <expression value="SDE Sex"/>
+    </criteria>
   </supplementalData>
 </Measure>
