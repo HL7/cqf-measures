@@ -1,8 +1,8 @@
 library MATGlobalCommonFunctions_FHIR version '2.0.000'
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.0'
 
-include FHIRHelpers version '3.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'

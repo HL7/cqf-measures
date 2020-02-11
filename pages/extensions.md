@@ -5,7 +5,7 @@ title: Profiles
 
 ---
 
-## 7 Extensions
+## 8 Extensions
 {: #extensions}
 
 {%  include list-simple-extensions.xhtml %}

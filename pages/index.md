@@ -28,18 +28,19 @@ Refer to the [QI-Core implementation guide](http://build.fhir.org/ig/cqframework
 ### 1.2 How to read this Guide
 {: #how-to-read-this-guide}
 
-This Guide is divided into several pages which are listed at the top of each 
+This Guide is divided into several pages which are listed at the top of each
 page in the menu bar:
 
--  **[Home](index.html)**: The home page provides the summary and background 
+-  **[Home](index.html)**: The home page provides the summary and background
 information for the FHIR Quality Measure Implementation Guide
--  **[Introduction](introduction.html)**: The introduction provides a more detailed 
+-  **[Introduction](introduction.html)**: The introduction provides a more detailed
 overview of quality measurement and the background for this guide
--  **[eCQMs](measure-conformance.html)**: This page describes measure representation 
+-  **[eCQMs](measure-conformance.html)**: This page describes measure representation
 and conformance requirements for eCQMs
--  **[Using CQL](using-cql.html)**: This page covers using Clinical Quality Language 
+-  **[Using CQL](using-cql.html)**: This page covers using Clinical Quality Language
 to author eCQMs
--  **[Examples](examples.html)**: This page provides examples used in the other pages, 
+-  **[Packaging](packaging.html)**: This page describes measure packaging and distribution requirements for eCQMs
+-  **[Examples](examples.html)**: This page provides examples used in the other pages,
 as well as by the Data Exchange for Quality Measures IG
 -  **[Profiles](profiles.html)**: This page lists the set of profiles defined for use by eCQMs
 -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by eCQMs

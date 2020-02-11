@@ -1,4 +1,4 @@
-#### 1.2.2 Quality Measurement Standards Landscape
+#### 1.3.2 Quality Measurement Standards Landscape
 {: #quality-measurement-standards-landscape}
 
 This implementation guide is part of a larger FHIR-based quality improvement
@@ -30,17 +30,17 @@ and Specifier.
 development process, a precisely specified, valid, reliable, and clinically
 significant measure specification to support accurate data representation and
 capture of quality measures. Clinical quality measures (CQMs) are tools that
-help measure and track the quality of health care services provided in care 
-delivery environments, including eligible clinicians (ECs), eligible hospitals 
-(EHs), and critical access hospitals (CAHs). Measuring and reporting CQMs helps 
-to ensure that our health care system is delivering effective, safe, efficient, 
-patient-centered, equitable, and timely care. CQMs measure many aspects of 
-patient care, including patient and family engagement, patient safety, care 
-coordination, public health, population health management, efficient use of 
-healthcare resources, and clinical process and effectiveness. For more 
-information on the basics of Clinical Quality Measures, see 
-[Clinical Quality Measures Basics](https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html). 
-Before Electronic Health Record (EHR) systems, chart-abstracted CQMs were 
+help measure and track the quality of health care services provided in care
+delivery environments, including eligible clinicians (ECs), eligible hospitals
+(EHs), and critical access hospitals (CAHs). Measuring and reporting CQMs helps
+to ensure that our health care system is delivering effective, safe, efficient,
+patient-centered, equitable, and timely care. CQMs measure many aspects of
+patient care, including patient and family engagement, patient safety, care
+coordination, public health, population health management, efficient use of
+healthcare resources, and clinical process and effectiveness. For more
+information on the basics of Clinical Quality Measures, see
+[Clinical Quality Measures Basics](https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html).
+Before Electronic Health Record (EHR) systems, chart-abstracted CQMs were
 predominant. Modern EHR systems enable electronic CQMs, or eCQMs.
 
 **Measure reporting** involves the data collection and aggregation,
@@ -79,22 +79,22 @@ specify quality measures for use in their own environments and quality
 improvement initiatives.
 
 The shaded areas underlying the stakeholders depict the various standards
-involved (see [Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework) 
+involved (see [Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework)
 for more information).
 
-##### 1.2.2.1 Fast Healthcare Interoperability Resources (FHIR)
+##### 1.3.2.1 Fast Healthcare Interoperability Resources (FHIR)
 {: #fast-healthcare-interoperability-resources-(fhir)}
 
-[Fast Healthcare Interoperability Resources](http://hl7.org/fhir), 
-or FHIR, is a Health Level 7 (HL7) platform specification for healthcare that 
-supports exchange of healthcare information between systems. FHIR is universally 
-applicable, meaning that it can be used in a broad variety of implementation 
-environments. The platform provides layers of implementation that support 
-foundational protocols; base implementation functionality such as conformance 
-and terminology; administrative functionality to represent patients, care teams, 
-locations, and organizations; healthcare processes including clinical and 
-diagnostic information, as well as medication, workflow, and financial; and 
-finally, a clinical reasoning layer that provides support for the representation 
+[Fast Healthcare Interoperability Resources](http://hl7.org/fhir),
+or FHIR, is a Health Level 7 (HL7) platform specification for healthcare that
+supports exchange of healthcare information between systems. FHIR is universally
+applicable, meaning that it can be used in a broad variety of implementation
+environments. The platform provides layers of implementation that support
+foundational protocols; base implementation functionality such as conformance
+and terminology; administrative functionality to represent patients, care teams,
+locations, and organizations; healthcare processes including clinical and
+diagnostic information, as well as medication, workflow, and financial; and
+finally, a clinical reasoning layer that provides support for the representation
 of knowledge and reasoning about healthcare.
 
 The quality measurement standards landscape makes use of all these layers of
@@ -103,7 +103,7 @@ profiles; the administrative and process layers to represent the data of
 interest for quality measurement; and the clinical reasoning layer to specify
 and support evaluation and reporting of quality measures.
 
-##### 1.2.2.2 Clinical Quality Language (CQL)
+##### 1.3.2.2 Clinical Quality Language (CQL)
 {: #clinical-quality-language-(cql)}
 
 [Clinical Quality Language](https://cql.hl7.org), or CQL, is an HL7 cross-paradigm specification
@@ -118,7 +118,7 @@ as well as an intermediate-level, platform-independent machine-readable form
 makes CQL an ideal mechanism for specifying the criteria involved in quality
 measures.
 
-##### 1.2.2.3 FHIR Quality Measure Implementation Guide
+##### 1.3.2.3 FHIR Quality Measure Implementation Guide
 {: #fhir-quality-measure-implementation-guide}
 
 The FHIR Quality Measure Implementation Guide (this IG) defines conformance
@@ -128,7 +128,7 @@ any particular measure, rather it defines the standard approach to the
 representation of that content so that quality measure specifiers can define and
 share standardized FHIR-based electronic Clinical Quality Measures (eCQMs).
 
-##### 1.2.2.4 Quality Improvement Core Implementation Guide (QI-Core)
+##### 1.3.2.4 Quality Improvement Core Implementation Guide (QI-Core)
 {: #quality-improvement-core-implementation-guide-(qi-core)}
 
 The Quality Improvement Core Implementation Guide, or QI-Core, defines a set
@@ -140,16 +140,16 @@ where possible, QI-Core profiles are based on US Core to ensure alignment with
 and support for quality improvement data within healthcare systems in the US
 Realm.
 
-> Note that QI-Core is intended to be a FHIR-based rendering of a 
-quality-focused _logical model_ called QUICK (Quality Information and 
-Clinical Knowledge). However, the QUICK model is still in development, so the 
-QI-Core profiles are currently built directly as a FHIR Implementation Guide. To 
-support the goals of the QUICK logical model, the QI-Core implementation guide 
-includes an author-focused _view_ of QUICK, the QUICK _logical 
+> Note that QI-Core is intended to be a FHIR-based rendering of a
+quality-focused _logical model_ called QUICK (Quality Information and
+Clinical Knowledge). However, the QUICK model is still in development, so the
+QI-Core profiles are currently built directly as a FHIR Implementation Guide. To
+support the goals of the QUICK logical model, the QI-Core implementation guide
+includes an author-focused _view_ of QUICK, the QUICK _logical
 view_. See the [Relationship Between QUICK, the QI-Core Profiles, and FHIR](http://hl7.org/fhir/us/qicore/index.html#relationships)
 discussion in the QI-Core implementation guide for more information.
 
-##### 1.2.2.5 Data Exchange for Quality Measures (DEQM)
+##### 1.3.2.5 Data Exchange for Quality Measures (DEQM)
 {: #data-exchange-for-quality-measures-(deqm)}
 
 The Data Exchange for Quality Measures Implementation Guide, or DEQM,

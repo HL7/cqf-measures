@@ -7,9 +7,9 @@ of finding conventions and usage patterns that meet the needs of the various sta
 in the measure development community.
 */
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.0'
 
-include FHIRHelpers version '3.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 include Common_FHIR version '2.0.0' called Common
 
 valueset "Acute Pharyngitis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011'
@@ -36,8 +36,17 @@ define "Antibiotics":
 define "Pharyngitis":
    ([Condition: code in "Acute Pharyngitis"]
      union [Condition: code in "Acute Tonsillitis"]) Pharyngitis
-     where Pharyngitis.clinicalStatus = 'active'
-       and Pharyngitis.verificationStatus = 'confirmed'
+     where 
+       exists
+       (
+         Pharyngitis.clinicalStatus.coding ClinicalStatusCoding
+           where ClinicalStatusCoding.code ~ 'active'
+       )
+       and exists
+       (
+         Pharyngitis.verificationStatus.coding VerificationStatusCoding
+           where VerificationStatusCoding.code ~ 'confirmed'
+       )
 
 define "Measurement Period Encounters":
    [Encounter: "Ambulatory/ED Visit"] Encounter

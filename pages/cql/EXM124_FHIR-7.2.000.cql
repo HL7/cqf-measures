@@ -7,12 +7,12 @@ of finding conventions and usage patterns that meet the needs of the various sta
 in the measure development community.
 */
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.0'
 
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
 include AdultOutpatientEncounters_FHIR version '1.1.000' called AdultOutpatientEncounters
 include Hospice_FHIR version '1.0.000' called Hospice
-include FHIRHelpers version '3.0.0' called FHIRHelpers
 include SupplementalDataElements_FHIR version '1.0.0' called SDE
 
 codesystem "SNOMED CT:2017-09": 'http://snomed.info/sct' version 'http://snomed.info/sct/731000124108/version/201709'
@@ -88,11 +88,15 @@ define "Denominator Exclusion":
 define "Absence of Cervix":
 	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
 		where NoCervixBirth.onset as FHIR.dateTime before end "Measurement Period"
-			and NoCervixBirth.clinicalStatus = 'active'
+			and exists
+      (
+        NoCervixBirth.clinicalStatus.coding ClinicalStatusCoding
+          where ClinicalStatusCoding.code = 'active'
+      )
 
 define "Surgical Absence of Cervix":
 	[Procedure: "Hysterectomy with No Residual Cervix"] NoCervixHysterectomy
-		where NoCervixHysterectomy.performed ends before end "Measurement Period"
+		where (NoCervixHysterectomy.performed as Period) ends before end "Measurement Period"
 			and NoCervixHysterectomy.status = 'completed'
 
 define "Initial Population":

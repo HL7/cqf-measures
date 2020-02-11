@@ -1,5 +1,5 @@
 library RiskAdjustment_FHIR2 version '0.0.001'
-
+/* 
 using FHIR version '1.0.2'
 
 include FHIRHelpers version '1.0.2' called FHIRHelpers
@@ -70,4 +70,4 @@ define "Initial Population": "Encounter Inpatient 365"
 
 define "Denominator": "Initial Population"
 
-define "Numerator": "CABG_Open and Endoscopic During Encounter"
+define "Numerator": "CABG_Open and Endoscopic During Encounter" */

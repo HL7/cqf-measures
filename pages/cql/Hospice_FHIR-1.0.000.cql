@@ -7,10 +7,10 @@ of finding conventions and usage patterns that meet the needs of the various sta
 in the measure development community.
 */
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.0'
 
 include MATGlobalCommonFunctions_FHIR version '2.0.000' called Global
-include FHIRHelpers version '3.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 
 codesystem "SNOMED CT:2017-09": 'http://snomed.info/sct' version 'http://snomed.info/sct/731000124108/version/201709'
 
@@ -33,7 +33,7 @@ define function "Has Hospice"(MeasurementPeriod Interval<DateTime>):
 				and DischargeHospice.period ends during day of MeasurementPeriod
 	)
     or exists (
-        [ProcedureRequest: "Hospice care ambulatory"] HospiceOrder
+        [ServiceRequest: "Hospice care ambulatory"] HospiceOrder
             where HospiceOrder.intent = 'order'
                 and HospiceOrder.authoredOn in day of MeasurementPeriod
     )

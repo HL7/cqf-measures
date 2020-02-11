@@ -1,4 +1,4 @@
-#### 1.2.1 Quality Improvement Ecosystem
+#### 1.3.1 Quality Improvement Ecosystem
 {: #quality-improvement-ecosystem}
 
 As shown in step 1 in the diagram below, the Quality Improvement Ecosystem
@@ -43,6 +43,5 @@ quality improvement at the point of care. Every effort should be made to
 establish a capable distributed rule processing environment in FHIR. For
 additional information about idealized processes for moving evidence and
 information from guidelines to CDS and measurement, refer to an effort by the
-Centers for Disease Control and Prevention (CDC) called 
+Centers for Disease Control and Prevention (CDC) called
 [Adapting Clinical Guidelines for the Digital Age](https://www.cdc.gov/ddphss/clinical-guidelines/index.html).
-

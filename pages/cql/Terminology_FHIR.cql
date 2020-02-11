@@ -1,8 +1,8 @@
-library Terminology_FHIR version '4.0.0'
+library Terminology_FHIR version '1.0.0'
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.0'
 
-include FHIRHelpers version '3.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 
 // NOTE: Versioning is used in this example to illustrate completely how versioning is applied
 // References to specific versions of code systems and value sets should be used only when necessary
