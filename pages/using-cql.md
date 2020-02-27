@@ -167,7 +167,7 @@ The canonical URL for a code system is a globally unique, stable, version-indepe
 The base FHIR specification defines canonical URLs for most common code systems
 [here](http://hl7.org/fhir/R4/terminologies-systems.html).
 
-The local identifier for the codesystem ("SNOMED CT:2017-09" in this case) should include the friendly name of the code system 
+The local identifier for the codesystem ("SNOMED CT:2017-09" in this case) should include the friendly name of the code system
 and optionally, an indication of the version, separated with a colon.
 
 Version information for code systems is not required to be included in eCQMs; terminology versioning information may be
@@ -331,7 +331,7 @@ The representation of code declarations in a Library is discussed in [Measure Co
 In addition to codes, CQL supports a concept construct, which is defined as a set of codes that are all semantically
 equivalent. CQL Concepts are not currently used within measure development and SHALL NOT be used within FHIR-based
 eCQMs, except to the extent that individual codes will be implicitly converted to concepts for the purposes of
-comparision with the Concept-value elements in FHIR resources.
+comparison with the Concept-value elements in FHIR resources.
 
 **Conformance Requirement 27 (Concepts):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-27)
 {: #conformance-requirement-27}
@@ -446,14 +446,14 @@ defined by a value set referenced by the eCQM (i.e., negation rationale):
 
 In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
-value set. To report Antithrombotic Therapy Not Administered, this is done by referencing uri of the "Antithrombotic
+value set. To report Antithrombotic Therapy Not Administered, this is done by referencing URI of the "Antithrombotic
 Therapy" value set using the [value set extension](http://hl7.org/fhir/extension-valueset-reference.html) to indicate
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
-set uri to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
+set URI to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
 not forced to having to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
 did not administer in order to negate.
 
-Similarly, to report "Procedure, Not Performed": "Cardiac Surgery" with a reason, the uri of "Cardiac Surgery" value set
+Similarly, to report "Procedure, Not Performed": "Cardiac Surgery" with a reason, the URI of "Cardiac Surgery" value set
 is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
 specified in the "Cardiac Surgery" value set.
 

@@ -57,7 +57,7 @@ The audience for this IG includes software developers of measure authoring tools
 
 The approach taken here is consistent with balloted IGs for FHIR. These publications view the ultimate implementation specification as a set of formal artifacts, including profiles, extensions, and terminologies. The base FHIR specification provides for the representation of quality measures using the Measure resource, as well as guidance on quality reporting within the Clinical Reasoning module. IGs such as this add constraints to the base resources and guidance through profiles and conformance requirements that further define and restrict the sequence and cardinality of elements in the FHIR resources and the vocabulary sets for coded elements.
 
-This IG is STU1 of the FHIR Quality Measure IG.
+This IG is STU2 of the FHIR Quality Measure IG.
 
 ### 2.5 Scope
 {: #scope}

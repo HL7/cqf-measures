@@ -56,7 +56,7 @@ The rest of this section describes some of the more important components to the 
 #### 3.1.0 Must Support
 {: #must-support}
 
-Certain elements in the profiles defined in this implementation guide are marked as _Must Support_. This flag is used to indicate that the element plays an critical role in defining and sharing quality measures, and implementations SHALL understand and process the element.
+Certain elements in the profiles defined in this implementation guide are marked as _Must Support_. This flag is used to indicate that the element plays a critical role in defining and sharing quality measures, and implementations SHALL understand and process the element.
 
 In addition, because measure specifications typically make use of data implementation guides (e.g. US Core, QI-Core), the implications of the Must Support flag for profiles used from those implementation guides must be considered.
 
@@ -232,7 +232,7 @@ The content elements in Snippet 3-4 provide an example of how a CQFMLibrary reso
 
 The Measure resource uses the `effectivePeriod` element to define the "Measurement Period", a control variable as metadata that influences the computation of measures. Snippet 3-5 demonstrates how to provide the "Measurement Period" in the Measure (line: 3 of Snippet 3-1).
 
-The value of the "Measurement Period" control variable is accessible to CQL libraries as a parameter called "Measurement Period". Snippet 5 shows an example of a CQL library declaring this parameter.
+The value of the "Measurement Period" control variable is accessible to CQL libraries as a parameter called "Measurement Period". Snippet 3-6 shows an example of a CQL library declaring this parameter.
 
 ```xml
 <effectivePeriod>
@@ -382,7 +382,7 @@ The canonical representation of ELM makes it straightforward to derive data requ
 2. The Retrieve ELM element's "dataType" value is represented by the DataRequirement's "type" attribute
 3. The Retrieve ELM element's "codes" value referencing a value set or direct reference code is represented by the DataRequirement's "codeFilter.valueSetString" attribute
 4. The Retrieve ELM element's " templateId" value can be represented by the DataRequirement's "profile" attribute.
-5. For each ELM element identified in item (1) above, an dataRequirement should be included using the profile identified in item (4) that references the value set identified in item (3)
+5. For each ELM element identified in item (1) above, a dataRequirement should be included using the profile identified in item (4) that references the value set identified in item (3)
 
 Note that if the data model does not specify profile identifiers, the ELM retrieves will not have a templateId specified. In this case, the name of the type in the data model is used.
 
@@ -667,7 +667,7 @@ The referenced CQL expressions return either an indication that a patient meets 
 
 In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is an episode-of-care measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
 
-For complete examples of patient-based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an encounter-based proportion measure, see the [VTE-1-FHIR](Measure-measure-vte-1-FHIR.html) measure included in this implementation.
+For complete examples of patient-based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an encounter-based proportion measure, see the [VTE-1-FHIR](Measure-measure-vte-1-FHIR.html) measure included in this implementation guide.
 
 **Conformance Requirement 11 (Proportion Measures):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-11)
 {: #conformance-requirement-11}
@@ -703,7 +703,7 @@ Here is an example of using population types to select data on diabetes patients
 * Numerator (NUMER): Patient is between the age of 16 and 74, has Diabetes Type II, and the most recent laboratory result has hbA1C value > 9%
 * Denominator Exception (DENEXCEP): Patient meets the DENOM criteria and does NOT meet the NUMER criteria, and is designated as having "Steroid Induced Diabetes" or "Gestational Diabetes"
 
-**Figure 3-3: Calcuation Flow for Proportion Measures**<br/>
+**Figure 3-3: Calculation Flow for Proportion Measures**<br/>
 
 ![Calculation Flow Diagram-Proportion](assets/images/ProportionMeasureFlowresize.png)
 
@@ -718,7 +718,7 @@ The “performance rate” is a ratio of patients meeting NUMER criteria, divide
 
 Performance rate = (NUMER - NUMEX) / (DENOM – DENEX – DENEXCEP)
 
-##### 3.3.1.1.1 Patient-based Calcuation
+##### 3.3.1.1.1 Patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a patient-based proportion measure:
 
@@ -745,7 +745,7 @@ define "Measure Score":
     / Count("Denominator Membership" IsMember where IsMember is true)
 ```
 
-##### 3.3.1.1.2 Non-patient-based Calcuation
+##### 3.3.1.1.2 Non-patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a non-patient-based proportion measure:
 
@@ -807,7 +807,7 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 
 | Population | Definition |
 |:----|:----:|
-| Initial Population (IPOP) | All entities to be evaluated by an measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. Ratio measures are allowed to have two Initial Populations, one for Numerator and one for Denominator. In most cases, there is only 1 Initial Population |
+| Initial Population (IPOP) | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. Ratio measures are allowed to have two Initial Populations, one for Numerator and one for Denominator. In most cases, there is only 1 Initial Population |
 | Denominator (DENOM) | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure. |
 | Denominator Exclusion (DENEX) | Entities that should be removed from the Initial Population and Denominator before determining if Numerator criteria are met. Denominator exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
 | Numerator (NUMER) | The outcomes expected for each entity defined in the Denominator of a Proportion or Ratio measure. |
@@ -822,7 +822,7 @@ Here is an example of using the population types to select data on patients with
 * Numerator (NUMER): Patient has a central line blood stream infection
 * Numerator Exclusion (NUMEX): Patient's central line blood stream infection is deemed to be a contaminant
 
-**Figure 3-7: Calcuation Flow for Ratio Measure Score**
+**Figure 3-7: Calculation Flow for Ratio Measure Score**
 
 ![Calculation Flow Diagram-Ratio](assets/images/CalculationFlow.png)
 
@@ -838,7 +838,7 @@ For each case in the DENOM and not in the DENEX, determine the individual DENOM 
 
 For each case in the NUMER and not in the NUMEX, determine the individual NUMER observations.
 
-##### 3.3.1.3.2 Measusre Aggregates
+##### 3.3.1.3.2 Measure Aggregates
 
 Using individual observations for all cases in the DENOM and not in the DENEX, calculate the aggregate DENOM.
 
@@ -846,7 +846,7 @@ Using individual observations for all cases in the NUMER and not in the NUMEX, c
 
 Ratio = aggregate NUMER / aggregate DENOM
 
-##### 3.3.1.3.3 Patient-based Calcuation
+##### 3.3.1.3.3 Patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a patient-based ratio measure:
 
@@ -872,7 +872,7 @@ define "Measure Ratio Denominator":
   Count("Denominator Membership" IsMember where IsMember is true)
 ```
 
-##### 3.3.1.3.4 Non-patient-based Calcuation
+##### 3.3.1.3.4 Non-patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a non-patient-based ratio measure:
 
@@ -901,7 +901,7 @@ define "Measure Score Denominator":
 
 A Measure document representing a continuous variable measure will include one or more population criteria sections as described in Table 2-1.
 
-In addition, it will also include at least one measure-observation criteria. The semantics of these components are unchanged from the base [Measure]({{site.data.fhir.path}}measure.html) specification. For measure-observation criteria, two extensions are used to ensure implementability:
+In addition, it will also include at least one measure-observation criterion. The semantics of these components are unchanged from the base [Measure]({{site.data.fhir.path}}measure.html) specification. For measure-observation criteria, two extensions are used to ensure implementability:
 
 1. aggregateMethod: This extension defines the method used to aggregate the measure observations defined by the criteria
 2. criteriaReference: This extension is used to indicate which population should be used as the source for the measure observations. This extension is used in cases where there may be multiple initial populations in a single group (such as a Ratio measure).
@@ -1040,7 +1040,7 @@ Here is an example of using the population types to select data on emergency dep
 * Measure Population (MSRPOPL): Same as Initial Population
 * Measure Population Exclusion (MSRPOPLEX): Patient had an inpatient encounter that was within 6 hours of the ED encounter or expired in the ED
 
-**Figure 3-9: Calcuation Flow for Continuous Variable Measure Score**
+**Figure 3-9: Calculation Flow for Continuous Variable Measure Score**
 
 ![Calculation Flow Diagram-ContinuousVariable](assets/images/ContinuousVariableMeasure.jpg)
 
@@ -1058,7 +1058,7 @@ Using individual observations for all cases in the MSRPOPL and not in the MSRPOP
 
 Score = aggregate MSRPOPL
 
-##### 3.3.1.2.3 Calcuation
+##### 3.3.1.2.3 Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a continuous variable measure:
 
@@ -1098,7 +1098,7 @@ Here is an example of using the population types to select data on patients who 
 
 * Initial Population (IPOP): All patients who had an immunization
 
-**Figure 3-11: Calcuation Flow for Cohort**
+**Figure 3-11: Calculation Flow for Cohort**
 
 Calculation Flow Diagram-Cohort
 
