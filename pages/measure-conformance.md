@@ -466,8 +466,9 @@ CQL provides the logical expression language that is used to define population c
 
 **Figure 3-1: Relationship between FHIR Measure and CQL Expression Script**
 
-![Measure with linked expression document](assets/images/FHIRMeasureWithLinkedExpression.png)
-
+<div>
+<img src="assets/images/FHIRMeasureWithLinkedExpression.png">
+</div>
 
 ```json
 "population": [
