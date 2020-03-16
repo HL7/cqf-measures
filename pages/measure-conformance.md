@@ -147,7 +147,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "codeFilter": [
         {
           "path": "type",
-          "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
         }
       ]
     },
@@ -156,7 +156,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "codeFilter": [
         {
           "path": "medication",
-          "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
         }
       ]
     },
@@ -165,7 +165,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "codeFilter": [
         {
           "path": "code",
-          "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
         }
       ]
     },
@@ -174,7 +174,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "codeFilter": [
         {
           "path": "code",
-          "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
         }
       ]
     },
@@ -183,7 +183,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "codeFilter": [
         {
           "path": "code",
-          "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
         }
       ]
     }
@@ -284,7 +284,7 @@ codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108'
   version 'http://snomed.info/sct/731000124108/version/201709'
 
 valueset "Encounter Inpatient SNOMEDCT Value Set":
-   'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
+   'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
 
 code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT:2017-09"
 ```
@@ -315,7 +315,7 @@ All declared valuesets and codes can be found in the [dataRequirement](Structure
     "codeFilter": [
       {
         "path": "type",
-        "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
       }
     ]
   }
@@ -351,7 +351,7 @@ The data criteria section defines the patient data of interest in the library as
     "codeFilter": [
       {
         "path": "type",
-        "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
       }
     ]
   }
@@ -430,7 +430,7 @@ Snippet 3-10: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_
   "codeFilter": [
     {
       "path": "code",
-      "valueSet": "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
     }
   ]
 }
@@ -718,7 +718,7 @@ The “performance rate” is a ratio of patients meeting NUMER criteria, divide
 
 Performance rate = (NUMER - NUMEX) / (DENOM – DENEX – DENEXCEP)
 
-##### 3.3.1.1.1 Patient-based Calculation
+##### 3.4.3.2 Patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a patient-based proportion measure:
 
@@ -745,7 +745,7 @@ define "Measure Score":
     / Count("Denominator Membership" IsMember where IsMember is true)
 ```
 
-##### 3.3.1.1.2 Non-patient-based Calculation
+##### 3.4.3.3 Non-patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a non-patient-based proportion measure:
 
@@ -811,7 +811,7 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 | Denominator (DENOM) | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure. |
 | Denominator Exclusion (DENEX) | Entities that should be removed from the Initial Population and Denominator before determining if Numerator criteria are met. Denominator exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
 | Numerator (NUMER) | The outcomes expected for each entity defined in the Denominator of a Proportion or Ratio measure. |
-| Numerator Exclusion (NUMEX) | Entities that should be removed from the eMeasure's Numerator before determining if Numerator criteria are met. Numerator exclusions are used in Proportion and Ratio measures to help narrow the Numerator. |
+| Numerator Exclusion (NUMEX) | Entities that should be removed from the eCQM's Numerator before determining if Numerator criteria are met. Numerator exclusions are used in Proportion and Ratio measures to help narrow the Numerator. |
 {: .grid}
 
 Here is an example of using the population types to select data on patients with central line catheters for a ratio measure:
@@ -832,13 +832,13 @@ Here is an example of using the population types to select data on patients with
 * Numerator (NUMER): Identify that subset of the IPOP that meet the NUMER criteria.
 * Numerator exclusion (NUMEX): Identify that subset of the NUMER that meet the NUMEX criteria.
 
-##### 3.3.1.3.1 Individual Observations
+##### 3.4.4.2 Individual Observations
 
 For each case in the DENOM and not in the DENEX, determine the individual DENOM observations.
 
 For each case in the NUMER and not in the NUMEX, determine the individual NUMER observations.
 
-##### 3.3.1.3.2 Measure Aggregates
+##### 3.4.4.3 Measure Aggregates
 
 Using individual observations for all cases in the DENOM and not in the DENEX, calculate the aggregate DENOM.
 
@@ -846,7 +846,7 @@ Using individual observations for all cases in the NUMER and not in the NUMEX, c
 
 Ratio = aggregate NUMER / aggregate DENOM
 
-##### 3.3.1.3.3 Patient-based Calculation
+##### 3.4.4.5 Patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a patient-based ratio measure:
 
@@ -872,7 +872,7 @@ define "Measure Ratio Denominator":
   Count("Denominator Membership" IsMember where IsMember is true)
 ```
 
-##### 3.3.1.3.4 Non-patient-based Calculation
+##### 3.4.4.6 Non-patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a non-patient-based ratio measure:
 
@@ -1029,9 +1029,9 @@ The population types for a Continuous Variable measure are "Initial Population",
 
 | Population | Definition |
 |:----|:----:|
-| Initial Population (IPOP) | All entities to be evaluated by an eMeasure which may but are not required to share a common set of specified characteristics within a named measurement set to which the eMeasure belongs. |
-| Measure Population (MSRPOPL) | Continuous Variable measures do not have a Denominator, but instead define a Measure Population, as shown in the figure above. Rather than reporting a Numerator and Denominator, a Continuous Variable measure defines variables that are computed across the Measure Population (e.g., average wait time in the emergency department). A Measure Population may be the same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the eMeasure. |
-| Measure Population Exclusions (MSRPOPLEX) | Patients who should be removed from the eMeasure's Initial Population and Measure Population before determining the outcome of one or more continuous variables defined within a Measure Observation. Measure Population Exclusions are used in Continuous Variable measures to help narrow the Measure Population. |
+| Initial Population (IPOP) | All entities to be evaluated by an eCQM which may but are not required to share a common set of specified characteristics within a named measurement set to which the eCQM belongs. |
+| Measure Population (MSRPOPL) | Continuous Variable measures do not have a Denominator, but instead define a Measure Population, as shown in the figure above. Rather than reporting a Numerator and Denominator, a Continuous Variable measure defines variables that are computed across the Measure Population (e.g., average wait time in the emergency department). A Measure Population may be the same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the eCQM. |
+| Measure Population Exclusions (MSRPOPLEX) | Patients who should be removed from the eCQM's Initial Population and Measure Population before determining the outcome of one or more continuous variables defined within a Measure Observation. Measure Population Exclusions are used in Continuous Variable measures to help narrow the Measure Population. |
 {: .grid}
 
 Here is an example of using the population types to select data on emergency department patients for a Continuous Variable measure:
@@ -1048,17 +1048,17 @@ Here is an example of using the population types to select data on emergency dep
 * Measure population (MSRPOPL): Identify that subset of the IPOP that meet the MSRPOPL criteria.
 * Measure population exclusion (MSRPOPLEX): Identify that subset of the MSRPOPL that meet the MSRPOPLEX criteria.
 
-##### 3.3.1.2.1 Individual Observations
+##### 3.4.5.2 Individual Observations
 
 Individual Observations are calculated for each case in the MSRPOPL and not in the MSRPOPLEX.
 
-##### 3.3.1.2.2 Measure Aggregates
+##### 3.4.5.3 Measure Aggregates
 
 Using individual observations for all cases in the MSRPOPL and not in the MSRPOPLEX, calculate the aggregate MSRPOPL.
 
 Score = aggregate MSRPOPL
 
-##### 3.3.1.2.3 Calculation
+##### 3.4.5.4 Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a continuous variable measure:
 
@@ -1091,7 +1091,7 @@ In a cohort measure, a population is identified from the population of all items
 
 | Population | Definition |
 |:----|:----:|
-| Initial Population (IPOP) | All entities to be evaluated by an eMeasure which may but are not required to share a common set of specified characteristics within a named measurement set to which the eMeasure belongs. (Also known as a Cohort Population) |
+| Initial Population (IPOP) | All entities to be evaluated by an eCQM which may but are not required to share a common set of specified characteristics within a named measurement set to which the eCQM belongs. (Also known as a Cohort Population) |
 {: .grid}
 
 Here is an example of using the population types to select data on patients who have received immunizations for a Cohort measure:
@@ -1194,7 +1194,7 @@ Snippet 3-25: Example Supplemental Data Element from [EXM146_FHIR-4.0.0.cql](cql
 With CQL, supplemental data elements are specified using the same mechanism as any other population criteria, by defining an expression that returns the appropriate data element, and then identifying that expression within the Measure resource. Examples of the Measure resource and CQL are given in Snippet 18 and Snippet 19, respectively.
 By convention, the name of each supplemental data element expression would start with "SDE". The supplemental data element expressions are normally expected to return a single value when evaluated in the context of a member of the population. For example, patient-based measures would return the value of a supplemental data element for a given patient. However, there are cases where returning multiple elements for supplemental data would be useful. For example, collecting observations related to a particular condition. The intent of this conformance requirement is to simplify implementation of supplemental data collection, so care should be taken when using supplemental data elements that return multiple elements.
 
-#### 2.4.10 Risk Adjustment
+#### 3.4.10 Risk Adjustment
 {: #risk-adjustment}
 
 **Conformance Requirement 17 (Risk Adjustment Criteria):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-17)
