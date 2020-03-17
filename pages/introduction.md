@@ -68,7 +68,7 @@ This Implementation Guide (Figure 2-1(b)) is the successor of the CQL-based HQMF
 
 <summary>
 
-<b>Figure 2-1: Relationship between QDM based and CQL based HQMF IG’s Diagram.</b>
+<b>Figure 2-1: Relationship between CQL based HQMF and FHIR Quality Measure IG’s Diagram.</b>
 
 </summary>
 
