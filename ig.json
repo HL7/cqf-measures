@@ -36,9 +36,9 @@
     "Claim": {
       "template-format": "instance-template-example.html"
     },
-		"CodeSystem": {
-			"template-base": "instance-template-codesystem.html"
-		},
+    "CodeSystem": {
+        "template-base": "instance-template-codesystem.html"
+    },
     "Condition": {
       "template-format": "instance-template-example.html"
     },
@@ -98,7 +98,8 @@
     "profile-cohort-measure-cqfm-spreadsheet.xml",
     "profile-testcase-bundle-cqfm-spreadsheet.xml",
     "profile-library-bundle-cqfm-spreadsheet.xml",
-    "profile-measure-bundle-cqfm-spreadsheet.xml"
+    "profile-measure-bundle-cqfm-spreadsheet.xml",
+    "profile-device-softwaresystem-cqfm-spreadsheet.xml"
   ],
   "canonicalBase": "http://hl7.org/fhir/us/cqfmeasures",
   "source": "cqfmeasures.xml",
@@ -246,6 +247,10 @@
     "StructureDefinition/library-bundle-cqfm": {
       "defns": "StructureDefinition-library-bundle-cqfm-definitions.html",
       "base": "StructureDefinition-library-bundle-cqfm.html"
+    },
+    "StructureDefinition/device-softwaresystem-cqfm": {
+      "defns": "StructureDefinition-device-softwaresystem-cqfm-definitions.html",
+      "base": "StructureDefinition-device-softwaresystem-cqfm.html"
     },
     "StructureDefinition/cqfm-aggregateMethod": {
       "base": "StructureDefinition-cqfm-aggregateMethod.html"
