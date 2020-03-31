@@ -86,3 +86,10 @@ The CQFMMeasureBundle profile formalizes these components:
   1. Test Cases SHALL be distributed as a collection bundle conforming to the [CQFMTestCaseBundle](StructureDefinition-testcase-bundle-cqfm.html) profile
   2. The first entry in a TestCase bundle SHALL be a MeasureReport resource representing the expected outcome of evaluating the measure, given the test data provided as part of the test case
   3. TestCase bundles SHALL include any resource data required to evaluate the test case
+
+### 5.5 Intellectual Property of Packaging
+  {: #intellectual-property-packaging}
+
+**Conformance Requirement 35 (Intellectual Property Considerations):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-35)
+  {: #conformance-requirement-35}
+  1. Artifacts distributed in this way SHALL carry the appropriate copyright and intellectual property declarations.
