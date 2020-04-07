@@ -473,7 +473,6 @@ CQL provides the logical expression language that is used to define population c
 <img src="assets/images/FHIRMeasureWithLinkedExpression.png">
 </div>
 
-
 ```json
 "population": [
   {
