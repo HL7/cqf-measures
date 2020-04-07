@@ -446,7 +446,7 @@ defined by a value set referenced by the eCQM (i.e., negation rationale):
 
 In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
-value set. To report Antithrombotic Therapy Not Administered, this is done by referencing URI of the "Antithrombotic
+value set. To report Antithrombotic Therapy Not Administered, this is done by referencing the URI of the "Antithrombotic
 Therapy" value set using the [value set extension](http://hl7.org/fhir/extension-valueset-reference.html) to indicate
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
 set URI to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
