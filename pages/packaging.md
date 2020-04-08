@@ -10,7 +10,7 @@ title: Packaging
 * Do not remove this line (it will not be displayed)
 {:toc}
 
-## Measure Packaging
+## 5 Measure Packaging
 {: #measure-packaging}
 
 To facilitate publishing and distribution of quality measures, this Implementation Guide
@@ -18,7 +18,7 @@ defines several profiles that enable the use of FHIR [Bundle]({{site.data.fhir.p
 to package quality measures, either independently, or as part of a collection of related
 measures.
 
-### Packaging Artifacts
+### 5.1 Packaging Artifacts
 {: #packaging-artifacts}
 
 In general, artifacts such as libraries, measures, and test cases are packaged as a Bundle
@@ -33,7 +33,7 @@ dependencies and associated artifacts as subsequent entries as follows:
 3. **Terminology Dependencies**: Any CodeSystem or ValueSet resources required for the artifact
 4. **Test Cases**: Any test cases defined for the artifact
 
-### Packaging Libraries
+### 5.2 Packaging Libraries
 {: #packaging-libraries}
 
 To support usage of a logic library, the library package contains the following general components:
@@ -53,7 +53,7 @@ The CQFMLibraryBundle profile formalizes these components:
   3. Library bundles MAY include any libraries referenced by the primary library
   4. Library bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
 
-### Packaging Measures
+### 5.3 Packaging Measures
 {: #packaging-measures}
 
 To support usage of a quality measure, the quality measure package contains the following
@@ -78,7 +78,7 @@ The CQFMMeasureBundle profile formalizes these components:
   5. Library bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
   6. Library bundles MAY include any test case bundles defined for the measure
 
-### Packaging Test Cases
+### 5.4 Packaging Test Cases
 {: #packaging-test-cases}
 
 **Conformance Requirement 34 (Test Case Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-34)
@@ -86,3 +86,10 @@ The CQFMMeasureBundle profile formalizes these components:
   1. Test Cases SHALL be distributed as a collection bundle conforming to the [CQFMTestCaseBundle](StructureDefinition-testcase-bundle-cqfm.html) profile
   2. The first entry in a TestCase bundle SHALL be a MeasureReport resource representing the expected outcome of evaluating the measure, given the test data provided as part of the test case
   3. TestCase bundles SHALL include any resource data required to evaluate the test case
+
+### 5.5 Intellectual Property of Packaging
+  {: #intellectual-property-packaging}
+
+**Conformance Requirement 35 (Intellectual Property Considerations):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-35)
+  {: #conformance-requirement-35}
+  1. Artifacts distributed in this way SHALL carry the appropriate copyright and intellectual property declarations.
