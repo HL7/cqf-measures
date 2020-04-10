@@ -2,8 +2,6 @@
   "resourceType": "Measure",
   "id": "measure-exm55-FHIR",
   "meta": {
-    "versionId": "12",
-    "lastUpdated": "2019-11-08T21:14:20.172-07:00",
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cv-measure-cqfm"
     ]
@@ -16,6 +14,17 @@
     {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "Encounter"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+      "extension": [
+        {
+          "url": "reference",
+          "valueReference": {
+            "reference": "Device/software-system-example"
+          }
+        }
+      ]
     }
   ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm55-FHIR",
