@@ -36,9 +36,9 @@
     "Claim": {
       "template-format": "instance-template-example.html"
     },
-		"CodeSystem": {
-			"template-base": "instance-template-codesystem.html"
-		},
+    "CodeSystem": {
+        "template-base": "instance-template-codesystem.html"
+    },
     "Condition": {
       "template-format": "instance-template-example.html"
     },
@@ -98,11 +98,16 @@
     "profile-cohort-measure-cqfm-spreadsheet.xml",
     "profile-testcase-bundle-cqfm-spreadsheet.xml",
     "profile-library-bundle-cqfm-spreadsheet.xml",
-    "profile-measure-bundle-cqfm-spreadsheet.xml"
+    "profile-measure-bundle-cqfm-spreadsheet.xml",
+    "profile-device-softwaresystem-cqfm-spreadsheet.xml"
   ],
   "canonicalBase": "http://hl7.org/fhir/us/cqfmeasures",
   "source": "cqfmeasures.xml",
   "resources": {
+    "Device/software-system-example": {
+      "source": "device/device-software-system-example.json",
+      "base": "Device-software-system-example.html"
+    },
     "Library/adultoutpatientencounters-fhir": {
       "source": "library/library-adultoutpatientencounters-fhir.json",
       "base": "Library-adult-outpatient-encounters-FHIR.html"
@@ -247,6 +252,10 @@
       "defns": "StructureDefinition-library-bundle-cqfm-definitions.html",
       "base": "StructureDefinition-library-bundle-cqfm.html"
     },
+    "StructureDefinition/device-softwaresystem-cqfm": {
+      "defns": "StructureDefinition-device-softwaresystem-cqfm-definitions.html",
+      "base": "StructureDefinition-device-softwaresystem-cqfm.html"
+    },
     "StructureDefinition/cqfm-aggregateMethod": {
       "base": "StructureDefinition-cqfm-aggregateMethod.html"
     },
@@ -274,12 +283,19 @@
     "StructureDefinition/cqfm-populationBasis": {
       "base": "StructureDefinition-cqfm-populationBasis.html"
     },
+    "StructureDefinition/cqfm-softwaresystem": {
+      "base": "StructureDefinition-cqfm-softwaresystem.html"
+    },
     "StructureDefinition/cv-measure-cqfm": {
       "base": "StructureDefinition-cv-measure-cqfm.html"
     },
     "CodeSystem/artifact-comment-type": {
       "source": "codesystem/codesystem-artifact-comment-type.json",
       "base": "CodeSystem-artifact-comment-type.html"
+    },
+    "CodeSystem/software-system-type": {
+      "source": "codesystem/codesystem-software-system-type.json",
+      "base": "CodeSystem-software-system-type.html"
     },
     "CodeSystem/aggregate-method": {
       "source": "codesystem/codesystem-aggregate-method.json",
@@ -292,6 +308,10 @@
     "ValueSet/aggregate-method": {
       "source": "valueset/valueset-aggregate-method.json",
       "base": "ValueSet-aggregate-method.html"
+    },
+    "ValueSet/software-system-type": {
+      "source": "valueset/valueset-software-system-type.json",
+      "base": "ValueSet-software-system-type.html"
     }
   }
 }

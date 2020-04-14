@@ -23,6 +23,13 @@
     <!-- Examples -->
     <resource>
       <reference>
+        <reference value="Device/software-system-example"/>
+      </reference>
+      <exampleBoolean value="true"/>
+      <name value="Device - Software System"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="Library/adultoutpatientencounters-fhir"/>
       </reference>
       <exampleBoolean value="true"/>
@@ -353,6 +360,13 @@
       <name value="StructureDefinition - Measure populationBasis extension"/>
       <exampleBoolean value="false"/>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-softwaresystem"/>
+      </reference>
+      <name value="StructureDefinition - Measure softwaresystem extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
 
     <resource>
       <reference>
@@ -368,6 +382,12 @@
     </resource>
     <resource>
       <reference>
+        <reference value="CodeSystem/software-system-type"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="ValueSet/aggregate-method"/>
       </reference>
       <exampleBoolean value="false"/>
@@ -375,6 +395,12 @@
     <resource>
       <reference>
         <reference value="ValueSet/artifact-comment-type"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/software-system-type"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>

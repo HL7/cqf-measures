@@ -1,0 +1,58 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "software-system-type",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type",
+  "version": "1.0.0",
+  "name": "SoftwareSystemType",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-03-14T23:21:03-06:00",
+  "publisher": "Clinical Quality Information Workgroup",
+  "description": "The type of software system (authoring, testing, tooling, evaluation)",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/software-system-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "authoring",
+      "display": "Authoring",
+      "definition": "A knowledge authoring environment"
+    },
+    {
+      "code": "testing",
+      "display": "Testing",
+      "definition": "A testing environment"
+    },
+    {
+      "code": "tooling",
+      "display": "Tooling",
+      "definition": "Tooling software"
+    },
+    {
+      "code": "evaluation",
+      "display": "Evaluation",
+      "definition": "A knowledge evaluation environment"
+    },
+    {
+      "code": "reporting",
+      "display": "Reporting",
+      "definition": "A quality reporting system"
+    },
+    {
+      "code": "data-capture",
+      "display": "Data Capture",
+      "definition": "A system that performs data-capture as part of a reporting pipeline"
+    }
+  ]
+}

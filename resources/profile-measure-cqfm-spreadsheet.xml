@@ -8,9 +8,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Adam Stevenson</LastAuthor>
+  <LastAuthor>Chris Schuler</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2019-10-29T20:53:07Z</LastSaved>
+  <LastSaved>2020-04-10T04:55:41Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,12 +24,11 @@
    <Path>/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\davinci</Path>
    <SheetName>davinci</SheetName>
   </SupBook>
-  <WindowHeight>16440</WindowHeight>
-  <WindowWidth>27240</WindowWidth>
-  <WindowTopX>12380</WindowTopX>
-  <WindowTopY>2860</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
-  <RefModeR1C1/>
+  <WindowHeight>16940</WindowHeight>
+  <WindowWidth>27640</WindowWidth>
+  <WindowTopX>3180</WindowTopX>
+  <WindowTopY>2040</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -852,10 +851,8 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The name of an element for the purposes of this profile (used for slicing, code generation, etc. (see wiki for more details)</Font>       </ss:Data></Comment></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Discriminator</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Color="#000000">        </Font><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">relative path | ordered? (true/false) | rules (open/openAtEnd/closed) See wiki</Font><Font
-        html:Color="#000000">       </Font></ss:Data></Comment></Cell>
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">relative path | ordered? (true/false) | rules (open/openAtEnd/closed) See wiki</Font>       </ss:Data></Comment></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Slice Description</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Used when discriminator can't be specified to explain how to differentiate slices</Font>       </ss:Data></Comment></Cell>
@@ -1012,6 +1009,25 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"><Data ss:Type="String">softwaresystem</Data></Cell>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">softwaresystem</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.extension</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Extension{#softwaresystem}</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s104"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"/>
@@ -1141,12 +1157,64 @@
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">contact</Data></Cell>
+    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.contact</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure must provide contact information for the publisher</Data></Cell>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s104"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"><Data ss:Type="String">description</Data></Cell>
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.description</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure must provide a concise description of the measure content</Data></Cell>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s104"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">useContext</Data></Cell>
+    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.useContext</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should provide a clear indication of the expected contexts of use for the measure content</Data></Cell>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s104"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">jurisdiction</Data></Cell>
+    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.jurisdiction</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should indicate intended jurisdictions for the measure content</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s103"/>
@@ -1190,9 +1258,21 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5"><Data ss:Type="String">Measure.text</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">copyright</Data></Cell>
+    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.copyright</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should provide copyright information for the measure content</Data></Cell>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s100"/>
@@ -1289,80 +1369,11 @@
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">useContext</Data></Cell>
-    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.useContext</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should provide a clear indication of the expected contexts of use for the measure content</Data></Cell>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">jurisdiction</Data></Cell>
-    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.jurisdiction</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should indicate intended jurisdictions for the measure content</Data></Cell>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"><Data ss:Type="String">topic</Data></Cell>
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.topic</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should provide relevant topics for the measure content</Data></Cell>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">contact</Data></Cell>
-    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.contact</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure must provide contact information for the publisher</Data></Cell>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">copyright</Data></Cell>
-    <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.copyright</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should provide copyright information for the measure content</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s103"/>
@@ -2656,13 +2667,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2677,8 +2687,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>41</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3216,10 +3226,10 @@
  </Worksheet>
  <Worksheet ss:Name="Extensions">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R37C24"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R35C24"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="38" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="36" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s82" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s83" ss:Width="227" ss:Span="1"/>
@@ -3264,8 +3274,9 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The English display name to use if auto-rendering the extension</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Aliases</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Other names - semi-colon separated</Font>       </ss:Data></Comment><NamedCell
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Other names - semi-colon separated</Font><Font
+        html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Card.</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -3560,35 +3571,21 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s124"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s124"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s124"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">softwaresystem</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">softwaresystem</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Resource</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Measure</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Software System</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0..*</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Reference{http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm}</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="16" ss:StyleID="s101"><Data ss:Type="String">Specifies the software systems used in the packaging and testing of measure and library resources. Specifically to know which version of what software was used</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3950,6 +3947,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3969,15 +3967,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>15</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R37C24"
+  <AutoFilter x:Range="R1C1:R35C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -4204,7 +4201,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4212,6 +4209,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4219,7 +4217,6 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>34</ActiveRow>
-     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
