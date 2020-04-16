@@ -24,13 +24,12 @@
    <Path>/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\davinci</Path>
    <SheetName>davinci</SheetName>
   </SupBook>
-  <WindowHeight>16440</WindowHeight>
-  <WindowWidth>27240</WindowWidth>
-  <WindowTopX>3580</WindowTopX>
-  <WindowTopY>2560</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <WindowHeight>17440</WindowHeight>
+  <WindowWidth>28040</WindowWidth>
+  <WindowTopX>31440</WindowTopX>
+  <WindowTopY>4620</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -675,6 +674,31 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
   </Style>
+  <Style ss:ID="s150">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+  </Style>
+  <Style ss:ID="s151">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+  </Style>
+  <Style ss:ID="s152">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+  </Style>
+  <Style ss:ID="s153">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+  </Style>
+  <Style ss:ID="s154">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#969696" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -839,7 +863,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="95" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="98" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s82" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s82" ss:AutoFitWidth="0" ss:Width="122"/>
@@ -972,6 +996,47 @@
     <Cell ss:StyleID="s99"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">meta</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Library.meta</Data></Cell>
+    <Cell ss:StyleID="s150"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s150"/>
+    <Cell ss:Index="16" ss:StyleID="s150"/>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s104"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">profile</Data></Cell>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">meta</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Library.meta.profile</Data></Cell>
+    <Cell ss:StyleID="s150"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s150"/>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s150"/>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s104"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s100"><Data ss:Type="String">comment</Data></Cell>
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"/>
@@ -1001,6 +1066,24 @@
     <Cell ss:Index="17" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s101"><Data ss:Type="String">A published library must have a canonical url defined</Data></Cell>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s104"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">text</Data></Cell>
+    <Cell><Data ss:Type="String">Library.text</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"/>
@@ -2462,12 +2545,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>21</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2482,8 +2566,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3613,7 +3697,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

@@ -24,11 +24,11 @@
    <Path>/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\davinci</Path>
    <SheetName>davinci</SheetName>
   </SupBook>
-  <WindowHeight>16940</WindowHeight>
-  <WindowWidth>27640</WindowWidth>
-  <WindowTopX>3180</WindowTopX>
-  <WindowTopY>2040</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <WindowHeight>17440</WindowHeight>
+  <WindowWidth>28040</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>6540</WindowTopY>
+  <ActiveSheet>9</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -656,6 +656,11 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
   </Style>
+  <Style ss:ID="s146">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -820,7 +825,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="107" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="108" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s82" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s82" ss:AutoFitWidth="0" ss:Width="122"/>
@@ -1258,6 +1263,12 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s146"><Data ss:Type="String">text</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.text</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"/>
@@ -1424,7 +1435,7 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">library</Data></Cell>
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.library</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">ele-2</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
@@ -1584,7 +1595,7 @@
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"><Data ss:Type="String">group.id</Data></Cell>
     <Cell><Data ss:Type="String">Measure.group.id</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">ele-3</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -2687,8 +2698,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>41</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>38</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2742,7 +2753,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="Number">1</Data><NamedCell
+    <Cell ss:StyleID="s82"><Data ss:Type="String">ele-2</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Measure libraries</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2758,7 +2769,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ele-3</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Group identifiers</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">warning</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Measure.group.id</Data></Cell>
@@ -2767,7 +2778,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">exists(f:value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ele-4</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Population Criteria</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">warning</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Measure.group.population.criteria</Data></Cell>
@@ -2776,7 +2787,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">exists(f:value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ele-5</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Stratification Criteria</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">warning</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Measure.group.stratifier.criteria</Data></Cell>
@@ -2785,7 +2796,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">exists(f:value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ele-6</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Supplemental Data</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">warning</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Measure.supplementalData</Data></Cell>
@@ -3213,8 +3224,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3947,7 +3958,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5920,6 +5930,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
