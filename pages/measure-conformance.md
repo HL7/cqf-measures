@@ -383,7 +383,7 @@ The canonical representation of ELM makes it straightforward to derive data requ
 {: #conformance-requirement-6}
 1. ELM elements with type "Retrieve" are represented using the DataRequirement type defined in FHIR
 2. The Retrieve ELM element's "dataType" value is represented by the DataRequirement's "type" attribute
-3. The Retrieve ELM element's "codes" value referencing a value set or direct reference code is represented by the DataRequirement's "codeFilter.valueSetString" attribute
+3. The Retrieve ELM element's "codes" value referencing a value set or direct reference code is represented by the DataRequirement's "codeFilter.valueSet" attribute
 4. The Retrieve ELM element's " templateId" value can be represented by the DataRequirement's "profile" attribute.
 5. For each ELM element identified in item (1) above, a dataRequirement should be included using the profile identified in item (4) that references the value set identified in item (3)
 
@@ -697,7 +697,7 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 |:----|:----:|
 | Initial Population (IPOP) | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. |
 | Denominator (DENOM) | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure. |
-| Denominator Exclusion (DENEX) | Entities to be removed from the Initial Population and Denominator before determining if Numerator criteria are met. Denominator Exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
+| Denominator Exclusion (DENEX) | Entities to be removed from the Denominator before determining if Numerator criteria are met. Denominator Exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
 | Numerator (NUMER) | The processes or outcomes for each entity defined in the Denominator of a Proportion or Ratio measure. |
 | Numerator Exclusion (NUMEX) | Entities that should be removed from the measure's Numerator. Numerator exclusions are used in Proportion and Ratio measures to help narrow the Numerator (for inverted measures). |
 | Denominator Exception (DENEXCEP) | Those conditions that should remove a patient, procedure, or unit of measurement from the Denominator only if the Numerator criteria are not met. Denominator exceptions allow for adjustment of the calculated score for those providers with higher risk populations. |
