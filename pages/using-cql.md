@@ -507,7 +507,7 @@ define function "ED Stay Time"(Encounter "Encounter"):
 {: #translation-to-elm}
 
 Tooling exists to support translation of CQL to ELM for distribution in XML or JSON formats. These distributions are
-included with eCQMs to facilitate implementation. The existing translator tooling applies to both measure and decision
+included with eCQMs to facilitate implementation. [The existing translator tooling](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md) applies to both measure and decision
 support development, and has several options available to make use of different data models in different environments.
 For measure development with FHIR, the following options are recommended:
 
