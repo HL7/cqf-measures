@@ -552,3 +552,22 @@ When referencing terminology-valued elements within CQL, the following compariso
 * [Equal (`=`)](https://cql.hl7.org/09-b-cqlreference.html#equal-3)<br/>
 * [Equivalent (`~`)](https://cql.hl7.org/09-b-cqlreference.html#equivalent-3)<br/>
 * [In (`in`)](https://cql.hl7.org/09-b-cqlreference.html#in-valueset)<br/>
+
+## 4.13 Time Valued Quantities
+{: #time-valued-quantities}
+
+For time-valued quantities, in addition to the definite duration UCUM units, CQL defines calendar duration keywords to support calendar-based durations and arithmetic. For example, UCUM defines an annum ('a') as 365.25 days, whereas the year ('year') duration in CQL is specifically a calendar year. This difference is important, especially when performing calendar arithmetic.
+
+For example if we take a datetime and subtract a calendar year
+```cql
+@2019-01-01T05:00:00 - 1 year
+```
+This would resolve to 2018-01-01T05:00:00
+
+However, if we take the same datetime and subtract a UCUM annum
+```cql
+@2019-01-01T05:00:00 - 1 'a'
+```
+This would resolve to 2017-12-31T23:00:00
+
+See the definition of the [Quantity](https://cql.hl7.org/2020May/02-authorsguide.html#quantities) type in the CQL Author's Guide, as well as the [Date/Time Arithmetic](https://cql.hl7.org/2020May/02-authorsguide.html#datetime-arithmetic) discussion for more information.
