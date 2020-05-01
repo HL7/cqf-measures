@@ -313,6 +313,8 @@ device (physical object)") should be the same as the description of the code wit
 conflicting with any usage or license agreements with the referenced terminologies, but can be different to allow for
 potential naming conflicts, as well as simplification of longer names when appropriate.
 
+CQL supports both version-specific and version-independent specification of and comparison to direct reference codes. The best practice is for measure authors to use version-independent direct reference codes and comparisons unless there is a specific reason not to (such as the code is retired in the current version). Even in the case that version-specific direct reference codes are required, best practice is still to use the equivalent (~) operator in CQL for the comparison (again, unless there is a specific reason to do version-specific comparison)
+
 #### 4.5.1 Representation in a Library
 {: #representation-in-a-library}
 
