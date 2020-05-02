@@ -177,7 +177,7 @@ usage specified by FHIR.
 If no version is specified, then the default behavior for a FHIR terminology server is to use the most recent code
 system version available on the server.
 
-## 4.4 Value Sets
+### 4.4 Value Sets
 {: #value-sets}
 
 Conformance Requirement 23 describes how to specify a valueset within a CQL library.
@@ -391,7 +391,7 @@ define "Flexible Sigmoidoscopy Performed":
 
 Snippet 4-9: Expression definition from [EXM130_FHIR-7.2.000.cql](cql/EXM130_FHIR-7.2.000.cql)
 
-### 4.8.1 Negation in FHIR
+#### 4.8.1 Negation in FHIR
 {: #negation-in-fhir}
 
 Two commonly used patterns for negation in quality measurement are:
@@ -411,7 +411,7 @@ The following examples differentiate methods to indicate (a) presence of evidenc
 of an action, and (c) negation rationale for not performing an action. In each case, the "action" is an administration
 of medication included within a value set for "Antithrombotic Therapy".
 
-#### 4.8.1.1 Presence
+##### 4.8.1.1 Presence
 {: #presence}
 
 Evidence that "Antithrombotic Therapy" (defined by a medication-specific value set) was administered:
@@ -421,7 +421,7 @@ Evidence that "Antithrombotic Therapy" (defined by a medication-specific value s
         where AntithromboticTherapy.status = 'completed'
           and AntithromboticTherapy.category = "Inpatient Setting"
 
-#### 4.8.1.2 Absence
+##### 4.8.1.2 Absence
 {: #absence}
 
 No evidence that "Antithrombotic Therapy" medication was administered:
@@ -433,7 +433,7 @@ No evidence that "Antithrombotic Therapy" medication was administered:
             and AntithromboticTherapy.category = "Inpatient Setting"
       )
 
-#### 4.8.1.3 Negation Rationale
+##### 4.8.1.3 Negation Rationale
 {: #negation-rationale}
 
 Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as
@@ -503,11 +503,11 @@ define function "ED Stay Time"(Encounter "Encounter"):
     duration in minutes of Encounter.period
 ```
 
-## 4.11 Translation to ELM
+### 4.11 Translation to ELM
 {: #translation-to-elm}
 
 Tooling exists to support translation of CQL to ELM for distribution in XML or JSON formats. These distributions are
-included with eCQMs to facilitate implementation. The existing translator tooling applies to both measure and decision
+included with eCQMs to facilitate implementation. [The existing translator tooling](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md) applies to both measure and decision
 support development, and has several options available to make use of different data models in different environments.
 For measure development with FHIR, the following options are recommended:
 

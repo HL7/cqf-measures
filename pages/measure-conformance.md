@@ -210,19 +210,19 @@ Inclusion of CQL libraries within the FHIR-based eCQM framework must conform to 
 
 CQL defines both a human-readable text representation and a machine-oriented  representation called the Expression Logical Model (ELM), which can be represented using XML or JSON. The human-readable text representation is optimized for authoring while the ELM representation offers a canonical, simplified representation that is easier to implement in software. Any CQL expression can be directly translated to its ELM equivalent. Measure authors do not work with ELM directly; rather authoring tools convert CQL to the ELM representation for distribution.
 
-Both CQL and ELM representations should be referenced from the Library resource to follow the approach of supporting human readability at a minimum (in this case, the high-level CQL syntax) and a canonical representation for machine processing (in this case, CQL’s Expression Logical Model (ELM)). This approach facilitates human review of measure logic via CQL and implementation of that logic in tools via ELM.
+Both CQL and ELM representations may be included in the Library resource depending on the requirements of the appropriate profile. It can follow the approach of supporting human readability (in this case, the high-level CQL syntax) and a canonical representation for machine processing (in this case, CQL’s Expression Logical Model (ELM)). This approach facilitates human review of measure logic via CQL and implementation of that logic in tools via ELM.
 
 **Conformance Requirement 2 (Referencing ELM Documents):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-2)
 {: #conformance-requirement-2}
 1. CQFMLibraries SHOULD include a content element with the ELM  in either XML or JSON format
 2. CQFMLibraries SHALL specify ELM content as a base-64-encoded string in the content sub-element as content.data
-3. If an ELM translation is provided, both an XML and JSON representation
-of the ELM SHOULD be included.
-4. The XML representation of the ELM SHALL have a mediaType attribute
+3. An ELM translation SHOULD be provided, in either XML or JSON format.
+4. For executable environments, an ELM translation SHALL be provided, in either XML or JSON format.
+5. The XML representation of the ELM SHALL have a mediaType attribute
 value of `application/elm+xml`
-5. The JSON representation of the ELM SHALL have a mediaType attribute
+6. The JSON representation of the ELM SHALL have a mediaType attribute
 value of `application/elm+json`
-6. Any translation-referenced ELM documents SHALL be semantically
+7. Any translation-referenced ELM documents SHALL be semantically
 equivalent to the corresponding parent CQL expression document.
 
 The content elements in Snippet 3-4 provide an example of how a CQFMLibrary resource would contain both the CQL and the ELM as base-64-encoded strings. More on ELM can be found in Section 3.1.1. For examples of ELM using the XML and JSON representations please see the included examples, [EXM146v4_FHIR-4.0.0.xml](Measure-measure-exm146-FHIR.xml.html) and [EXM146v4_FHIR-4.0.0.json](Measure-measure-exm146-FHIR.json.html).
@@ -383,7 +383,7 @@ The canonical representation of ELM makes it straightforward to derive data requ
 {: #conformance-requirement-6}
 1. ELM elements with type "Retrieve" are represented using the DataRequirement type defined in FHIR
 2. The Retrieve ELM element's "dataType" value is represented by the DataRequirement's "type" attribute
-3. The Retrieve ELM element's "codes" value referencing a value set or direct reference code is represented by the DataRequirement's "codeFilter.valueSetString" attribute
+3. The Retrieve ELM element's "codes" value referencing a value set or direct reference code is represented by the DataRequirement's "codeFilter.valueSet" attribute
 4. The Retrieve ELM element's " templateId" value can be represented by the DataRequirement's "profile" attribute.
 5. For each ELM element identified in item (1) above, a dataRequirement should be included using the profile identified in item (4) that references the value set identified in item (3)
 
@@ -697,7 +697,7 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 |:----|:----:|
 | Initial Population (IPOP) | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. |
 | Denominator (DENOM) | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure. |
-| Denominator Exclusion (DENEX) | Entities to be removed from the Initial Population and Denominator before determining if Numerator criteria are met. Denominator Exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
+| Denominator Exclusion (DENEX) | Entities to be removed from the Denominator before determining if Numerator criteria are met. Denominator Exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
 | Numerator (NUMER) | The processes or outcomes for each entity defined in the Denominator of a Proportion or Ratio measure. |
 | Numerator Exclusion (NUMEX) | Entities that should be removed from the measure's Numerator. Numerator exclusions are used in Proportion and Ratio measures to help narrow the Numerator (for inverted measures). |
 | Denominator Exception (DENEXCEP) | Those conditions that should remove a patient, procedure, or unit of measurement from the Denominator only if the Numerator criteria are not met. Denominator exceptions allow for adjustment of the calculated score for those providers with higher risk populations. |
