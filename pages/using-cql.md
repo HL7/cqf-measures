@@ -313,6 +313,8 @@ device (physical object)") should be the same as the description of the code wit
 conflicting with any usage or license agreements with the referenced terminologies, but can be different to allow for
 potential naming conflicts, as well as simplification of longer names when appropriate.
 
+CQL supports both version-specific and version-independent specification of and comparison to direct reference codes. The best practice is for measure authors to use version-independent direct reference codes and comparisons unless there is a specific reason not to (such as the code is retired in the current version). Even in the case that version-specific direct reference codes are required, best practice is still to use the equivalent (~) operator in CQL for the comparison (again, unless there is a specific reason to do version-specific comparison)
+
 #### 4.5.1 Representation in a Library
 {: #representation-in-a-library}
 
@@ -522,3 +524,52 @@ For measure development with FHIR, the following options are recommended:
 | EnableResultTypes | This instructs the translator to include inferred result types in the output ELM. | This feature may be used with Measures. |
 | EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with Measures. |
 | DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With Measures, disabling this feature would prevent a useful capability. | This feature should not be used with Measures. |
+
+## 4.12 Use of Terminologies
+{: #use-of-terminologies}
+
+FHIR supports various types of terminology-valued elements, including:
+
+* [code](http://hl7.org/fhir/datatypes.html#code)<br/>
+* [Coding](http://hl7.org/fhir/datatypes.html#Coding)<br/>
+* [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept)<br/>
+
+These types correspond directly to the CQL primitive types:
+
+* [String](https://cql.hl7.org/09-b-cqlreference.html#string-1)<br/>
+* [Code](https://cql.hl7.org/09-b-cqlreference.html#code-1)<br/>
+* [Concept](https://cql.hl7.org/09-b-cqlreference.html#concept-1)<br/>
+
+In addition to the type of element, FHIR provides the ability to bind these elements to specific codes, in the form of a direct-reference code (constraint to a specific code in a [CodeSystem](http://hl7.org/fhir/codesystem.html)), or a binding to a [ValueSet](http://hl7.org/fhir/valueset.html). These bindings can be different [binding strengths](http://hl7.org/fhir/codesystem-binding-strength.html)
+
+* [required](http://hl7.org/fhir/terminologies.html#required) - To be conformant, the concept in this element SHALL be from the specified value set.<br/>
+* [extensible](http://hl7.org/fhir/terminologies.html#extensible) - To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated. If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.</br>
+* [preferred](http://hl7.org/fhir/terminologies.html#preferred) - Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.<br/>
+* [example](http://hl7.org/fhir/terminologies.html#example) - Instances are not expected or even encouraged to draw from the specified value set. The value set merely provides examples of the types of concepts intended to be included.<br/>
+
+Within CQL, references to terminology code systems, value sets, codes, and concepts are directly supported, and all such usages are declared within CQL libraries, as described in the  [Terminology](https://cql.hl7.org/02-authorsguide.html#terminology) section of the CQL Author's Guide.
+
+When referencing terminology-valued elements within CQL, the following comparison operations are supported:
+
+* [Equal (`=`)](https://cql.hl7.org/09-b-cqlreference.html#equal-3)<br/>
+* [Equivalent (`~`)](https://cql.hl7.org/09-b-cqlreference.html#equivalent-3)<br/>
+* [In (`in`)](https://cql.hl7.org/09-b-cqlreference.html#in-valueset)<br/>
+
+## 4.13 Time Valued Quantities
+{: #time-valued-quantities}
+
+For time-valued quantities, in addition to the definite duration UCUM units, CQL defines calendar duration keywords to support calendar-based durations and arithmetic. For example, UCUM defines an annum ('a') as 365.25 days, whereas the year ('year') duration in CQL is specifically a calendar year. This difference is important, especially when performing calendar arithmetic.
+
+For example if we take a datetime and subtract a calendar year
+```cql
+@2019-01-01T05:00:00 - 1 year
+```
+This would resolve to 2018-01-01T05:00:00
+
+However, if we take the same datetime and subtract a UCUM annum
+```cql
+@2019-01-01T05:00:00 - 1 'a'
+```
+This would resolve to 2017-12-31T23:00:00
+
+See the definition of the [Quantity](https://cql.hl7.org/2020May/02-authorsguide.html#quantities) type in the CQL Author's Guide, as well as the [Date/Time Arithmetic](https://cql.hl7.org/2020May/02-authorsguide.html#datetime-arithmetic) discussion for more information.
