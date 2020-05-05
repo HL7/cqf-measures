@@ -280,7 +280,7 @@ Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-cq
 
 This section describes how to use codes and valuesets from codesystems like LOINC, SNOMED-CT, and others within the CQL and FHIR-based eCQM files of a measure package.
 
-Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [cql/Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
+Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
 ```cql
 codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct'
@@ -532,6 +532,7 @@ Snippet 3-15: CQL definition of the "Initial Population" criteria (from [EXM146_
 1. All Measure population criteria components <br/>
      a. SHALL reference exactly one CQL expression.<br/>
      b. SHALL reference the same CQL library.
+2. References to expressions SHALL use the text/cql.identifier media type defined in the [CQL specification](https://cql.hl7.org/2020May/07-physicalrepresentation.html#media-types-and-namespaces).<br/>
 
 #### 3.4.1 Criteria Names
 {: #criteria-names}
