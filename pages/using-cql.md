@@ -263,7 +263,14 @@ wish to retrieve the _expansion_ of a value set, or the set of all codes that ar
 Because the definition of a value set can, and often does, include codes from a code system based on properties of that code system, the
 expansion of a value set is sensitive to the versions of the code systems used in the definition. This means that in general, the expansion
 of a value set is version-specific, and care must be taken to ensure that version considerations are taken into account when using the
-results of an expansion. For more information, see the [Value Set Expansion](http://hl7.org/fhir/valueset.html#expansion) topic in the
+results of an expansion.
+
+**Conformance Requirement 25 (Value Set Expansion):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-25)
+{: #conformance-requirement-25}
+
+1. The use of expressions that require to perform the expansion of a value set SHOULD be avoided. The use of the terminology membership operator is preferred.
+
+For example, rather than combining multiple value sets using a "union", separate membership tests in each value set should be used. For more information, see the [Value Set Expansion](http://hl7.org/fhir/valueset.html#expansion) topic in the
 base FHIR specification.
 
 #### 4.4.2 Representation in a Library
@@ -278,8 +285,8 @@ The representation of valueset declarations in a Library is discussed in the
 Although CQL allows the use of strings as input to membership testing in value sets, this capability should be
 disallowed in measure CQL as it can lead to incorrect matching if the code system is ignored.
 
-**Conformance Requirement 25 (String-based Membership Testing):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-25)
-{: #conformance-requirement-25}
+**Conformance Requirement 26 (String-based Membership Testing):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-25)
+{: #conformance-requirement-26}
 
 1. String-based membership testing SHALL NOT be used in CQL libraries
 
@@ -295,8 +302,8 @@ For example, given a valueset named `"Administrative Gender"`, the following CQL
 When direct reference codes are represented within CQL, the logical identifier is not recommended to be a URI. Instead,
 the logical identifier is the code from the code system.
 
-**Conformance Requirement 26 (Direct Referenced Codes):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-26)
-{: #conformance-requirement-26}
+**Conformance Requirement 27 (Direct Referenced Codes):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-26)
+{: #conformance-requirement-27}
 
 1. When direct reference codes are represented within CQL, the logical identifier:<br/>
      a. MUST NOT be a URI.<br/>
@@ -308,7 +315,7 @@ code "Venous foot pump, device (physical object)": '442023007' from "SNOMED CT"
 
 Snippet 4-7: code definition from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
-Note that for direct reference code usage, the local identifier (in Snippet 7 the local identifier is "Venous foot pump,
+Note that for direct reference code usage, the local identifier (in Snippet 4-7 the local identifier is "Venous foot pump,
 device (physical object)") should be the same as the description of the code within the terminology in order to avoid
 conflicting with any usage or license agreements with the referenced terminologies, but can be different to allow for
 potential naming conflicts, as well as simplification of longer names when appropriate.
@@ -335,8 +342,8 @@ equivalent. CQL Concepts are not currently used within measure development and S
 eCQMs, except to the extent that individual codes will be implicitly converted to concepts for the purposes of
 comparison with the Concept-value elements in FHIR resources.
 
-**Conformance Requirement 27 (Concepts):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-27)
-{: #conformance-requirement-27}
+**Conformance Requirement 28 (Concepts):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-28)
+{: #conformance-requirement-28}
 
 1. The CQL concept construct SHALL NOT be used.
 
@@ -346,10 +353,10 @@ comparison with the Concept-value elements in FHIR resources.
 A "library-level identifier" is any named expression, function, parameter, code system, value set, concept, or code
 defined in the CQL. The library name referenced in the library-line, the data model, and any referenced external library
 should not be considered "library-level identifiers". Library-level identifiers ought to be given a descriptive
-meaningful name (avoid abbreviations) and conform to Conformance Requirement 28.
+meaningful name (avoid abbreviations) and conform to Conformance Requirement 29.
 
-**Conformance Requirement 28 (Library-level Identifiers):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-28)
-{: #conformance-requirement-28}
+**Conformance Requirement 29 (Library-level Identifiers):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-28)
+{: #conformance-requirement-29}
 
 1. Library-level identifiers referenced in the CQL:<br/>
       a. SHOULD Use quoted identifiers<br/>
@@ -373,10 +380,10 @@ Snippet 4-8: Function definition from [Common_FHIR-2.0.0.cql](cql/Common_FHIR-2.
 A "data type" in CQL refers to any named type used within CQL expressions. They may be primitive types, such as the
 system-defined "Integer" and "DateTime", or they may be model-defined types such as "Encounter" or "Medication". For
 FHIR-based eCQMs using the QI-Core profiles, these will be the author-friendly identifiers for the QI-Core profile. Data
-types referenced in CQL libraries to be included in a Measure must conform to Conformance Requirement 29.
+types referenced in CQL libraries to be included in a Measure must conform to Conformance Requirement 30.
 
-**Conformance Requirement 29 (Data Type Names):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-29)
-{: #conformance-requirement-29}
+**Conformance Requirement 30 (Data Type Names):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-29)
+{: #conformance-requirement-30}
 
 1. Data type names referenced in CQL SHALL:<br/>
        a. Use quoted identifiers<br/>
@@ -464,14 +471,14 @@ specified in the "Cardiac Surgery" value set.
 
 All attributes referenced in the CQL follow Conformance Requirement 30.
 
-**Conformance Requirement 30 (Attribute Names):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-30)
-{: #conformance-requirement-30}
+**Conformance Requirement 31 (Attribute Names):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-30)
+{: #conformance-requirement-31}
 
 1. Data model attributes referenced in the CQL:<br/>
       a. SHALL NOT Use quoted identifiers<br/>
       b. SHALL Use camelCase
 
-Examples of attributes conforming to Conformance Requirement 30 are given below. For a full list of valid of attributes, refer to an appropriate data model specification such as QI-Core.
+Examples of attributes conforming to Conformance Requirement 31 are given below. For a full list of valid of attributes, refer to an appropriate data model specification such as QI-Core.
 
 ```cql
 period
@@ -484,10 +491,10 @@ result
 
 Aliases are used in CQL as local variable names to refer to sections of code. When defining a function, argument names
 are used to create scoped variables that refer to the function inputs. Both aliases and argument names conform to
-Conformance Requirement 31.
+Conformance Requirement 32.
 
-**Conformance Requirement 31 (Aliases and Argument Names):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-31)
-{: #conformance-requirement-31}
+**Conformance Requirement 32 (Aliases and Argument Names):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-31)
+{: #conformance-requirement-32}
 
 1. Aliases and argument names referenced in the CQL:<br/>
       a. SHALL NOT Use quoted identifiers<br/>
