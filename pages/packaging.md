@@ -81,6 +81,8 @@ The CQFMMeasureBundle profile formalizes these components:
 ### 5.4 Packaging Test Cases
 {: #packaging-test-cases}
 
+Basic testing of measure logic should involve at least one positive and negative test of each of the population criteria. A test case is represented as a set of test resources, together with a MeasureReport resource that defines the expected results. The test case bundle can then be used to package and distribute the test case.
+
 **Conformance Requirement 34 (Test Case Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-34)
 {: #conformance-requirement-34}
   1. Test Cases SHALL be distributed as a collection bundle conforming to the [CQFMTestCaseBundle](StructureDefinition-testcase-bundle-cqfm.html) profile
