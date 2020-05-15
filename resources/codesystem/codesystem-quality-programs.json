@@ -1,0 +1,58 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "quality-programs",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
+  "version": "1.0.0",
+  "name": "QualityPrograms",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-03-14T23:21:03-06:00",
+  "publisher": "Clinical Quality Information Workgroup",
+  "description": "Defines the programs associated with a measure",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/quality-programs",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "mips",
+      "display": "MIPS",
+      "definition": "Merit-Based Incentive Payment System (MIPS)"
+    },
+    {
+      "code": "ep-ec",
+      "display": "EP/EC",
+      "definition": "CMS Promoting Interoperability Eligible Professionals/Eligible Clinicians."
+    },
+    {
+      "code": "eh-cah",
+      "display": "EH/CAH",
+      "definition": "CMS Promoting Interoperability Eligible Hospitals or Critical Access Hospitals."
+    },
+    {
+      "code": "qpp",
+      "display": "QPP",
+      "definition": "Quality Payment Program."
+    },
+    {
+      "code": "aapm",
+      "display": "AAPM",
+      "definition": "Advanced Alternative Payment Models."
+    },
+    {
+      "code": "cpcp",
+      "display": "CPC+",
+      "definition": "Comprehensive Primary Care Plus (CPC+)"
+    }
+  ]
+}

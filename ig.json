@@ -103,6 +103,7 @@
     "profile-distributable-library-cqfm-spreadsheet.xml",
     "profile-executable-library-cqfm-spreadsheet.xml",
     "profile-measure-bundle-cqfm-spreadsheet.xml",
+    "profile-quality-program-cqfm-spreadsheet.xml",
     "profile-device-softwaresystem-cqfm-spreadsheet.xml"
   ],
   "canonicalBase": "http://hl7.org/fhir/us/cqfmeasures",
@@ -276,6 +277,13 @@
       "defns": "StructureDefinition-device-softwaresystem-cqfm-definitions.html",
       "base": "StructureDefinition-device-softwaresystem-cqfm.html"
     },
+    "StructureDefinition/quality-program-cqfm": {
+      "defns": "StructureDefinition-quality-program-cqfm-definitions.html",
+      "base": "StructureDefinition-quality-program-cqfm.html"
+    },
+    "StructureDefinition/cqfm-qualityprograms": {
+      "base": "StructureDefinition-cqfm-qualityprograms.html"
+    },
     "StructureDefinition/cqfm-aggregateMethod": {
       "base": "StructureDefinition-cqfm-aggregateMethod.html"
     },
@@ -303,12 +311,6 @@
     "StructureDefinition/cqfm-populationBasis": {
       "base": "StructureDefinition-cqfm-populationBasis.html"
     },
-    "StructureDefinition/cqfm-publicationDate": {
-      "base": "StructureDefinition-cqfm-publicationDate.html"
-    },
-    "StructureDefinition/cqfm-publicationStatus": {
-      "base": "StructureDefinition-cqfm-publicationStatus.html"
-    },
     "StructureDefinition/cqfm-softwaresystem": {
       "base": "StructureDefinition-cqfm-softwaresystem.html"
     },
@@ -327,6 +329,10 @@
       "source": "codesystem/codesystem-aggregate-method.json",
       "base": "CodeSystem-aggregate-method.html"
     },
+    "CodeSystem/quality-programs": {
+      "source": "codesystem/codesystem-quality-programs.json",
+      "base": "CodeSystem-quality-programs.html"
+    },
     "ValueSet/artifact-comment-type": {
       "source": "valueset/valueset-artifact-comment-type.json",
       "base": "ValueSet-artifact-comment-type.html"
@@ -334,6 +340,10 @@
     "ValueSet/aggregate-method": {
       "source": "valueset/valueset-aggregate-method.json",
       "base": "ValueSet-aggregate-method.html"
+    },
+    "ValueSet/quality-programs": {
+      "source": "valueset/valueset-quality-programs.json",
+      "base": "ValueSet-quality-programs.html"
     },
     "ValueSet/software-system-type": {
       "source": "valueset/valueset-software-system-type.json",
