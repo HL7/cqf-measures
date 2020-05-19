@@ -273,7 +273,7 @@ results of an expansion.
 **Conformance Requirement 26 (Value Set Expansion):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-26)
 {: #conformance-requirement-26}
 
-1. The use of expressions that require to perform the expansion of a value set SHOULD be avoided. The use of the terminology membership operator is preferred.
+1. Expressions that require implementations to perform the complete expansion of a value set SHOULD NOT be used. The use of the terminology membership operator is preferred.
 
 For example, rather than combining multiple value sets using a "union", separate membership tests in each value set should be used. For more information, see the [Value Set Expansion](http://hl7.org/fhir/valueset.html#expansion) topic in the
 base FHIR specification.
@@ -304,13 +304,13 @@ For example, given a valueset named `"Administrative Gender"`, the following CQL
 ### 4.5 Codes
 {: #codes}
 
-When direct reference codes are represented within CQL, the logical identifier is not recommended to be a URI. Instead,
+When direct-reference codes are represented within CQL, the logical identifier is not recommended to be a URI. Instead,
 the logical identifier is the code from the code system.
 
 **Conformance Requirement 28 (Direct Referenced Codes):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-28)
 {: #conformance-requirement-28}
 
-1. When direct reference codes are represented within CQL, the logical identifier:<br/>
+1. When direct-reference codes are represented within CQL, the logical identifier:<br/>
      a. MUST NOT be a URI.<br/>
      b. SHALL be a code from the code system.
 
@@ -320,17 +320,17 @@ code "Venous foot pump, device (physical object)": '442023007' from "SNOMED CT"
 
 Snippet 4-7: code definition from [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
-Note that for direct reference code usage, the local identifier (in Snippet 4-7 the local identifier is "Venous foot pump,
+Note that for direct-reference code usage, the local identifier (in Snippet 4-7 the local identifier is "Venous foot pump,
 device (physical object)") should be the same as the description of the code within the terminology in order to avoid
 conflicting with any usage or license agreements with the referenced terminologies, but can be different to allow for
 potential naming conflicts, as well as simplification of longer names when appropriate.
 
-CQL supports both version-specific and version-independent specification of and comparison to direct reference codes. The best practice is for measure authors to use version-independent direct reference codes and comparisons unless there is a specific reason not to (such as the code is retired in the current version). Even in the case that version-specific direct reference codes are required, best practice is still to use the equivalent (~) operator in CQL for the comparison (again, unless there is a specific reason to do version-specific comparison)
+CQL supports both version-specific and version-independent specification of and comparison to direct-reference codes. The best practice is for measure authors to use version-independent direct-reference codes and comparisons unless there is a specific reason not to (such as the code is retired in the current version). Even in the case that version-specific direct-reference codes are required, best practice is still to use the equivalent (~) operator in CQL for the comparison (again, unless there is a specific reason to do version-specific comparison)
 
 #### 4.5.1 Representation in a Library
 {: #representation-in-a-library}
 
-When direct reference codes are used within eCQMs, they will be represented in the narrative (Human-readable) as:
+When direct-reference codes are used within eCQMs, they will be represented in the narrative (Human-readable) as:
 
 ```html
 "Assessment, Performed: Assessment of breastfeeding"
@@ -418,7 +418,7 @@ be documented with a reason in order to meet the intent. If a reason is not part
 evidence pattern should be used, rather than documentation of an event not occurring.
 
 To address the reason an action did not occur (negation rationale), the eCQM must define the event it expects to occur
-using appropriate terminology to identify the kind of event (using a value set or direct reference code), and then use
+using appropriate terminology to identify the kind of event (using a value set or direct-reference code), and then use
 additional criteria to indicate that the event did not occur, as well as identifying a reason.
 
 The following examples differentiate methods to indicate (a) presence of evidence of an action, (b) absence of evidence
