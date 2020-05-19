@@ -280,7 +280,7 @@ Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-cq
 
 This section describes how to use codes and valuesets from codesystems like LOINC, SNOMED-CT, and others within the CQL and FHIR-based eCQM files of a measure package.
 
-Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [cql/Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
+Valuesets and direct-reference codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct-reference codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
 ```cql
 codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct'
@@ -329,7 +329,7 @@ Snippet 3-9: Example Library terminology definitions (from [library-terminology-
 
 **Conformance Requirement 4 (Terminology Inclusion):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4)
 {: #conformance-requirement-4}
-Measures using valueset and/or direct referenced codes must conform to the requirements of Conformance Requirement 4.
+Measures using valueset and/or direct-reference codes must conform to the requirements of Conformance Requirement 4.
 1. All valuesets and codes referenced in the CQL SHALL be included in the Library using dataRequirement elements.
 2. If a valueset or code is referenced outside the context of a retrieve, the dataRequirement SHALL have the type 'CodeableConcept'
 
@@ -383,7 +383,7 @@ The canonical representation of ELM makes it straightforward to derive data requ
 {: #conformance-requirement-6}
 1. ELM elements with type "Retrieve" are represented using the DataRequirement type defined in FHIR
 2. The Retrieve ELM element's "dataType" value is represented by the DataRequirement's "type" attribute
-3. The Retrieve ELM element's "codes" value referencing a value set or direct reference code is represented by the DataRequirement's "codeFilter.valueSet" attribute
+3. The Retrieve ELM element's "codes" value referencing a value set or direct-reference code is represented by the DataRequirement's "codeFilter.valueSet" attribute
 4. The Retrieve ELM element's " templateId" value can be represented by the DataRequirement's "profile" attribute.
 5. For each ELM element identified in item (1) above, a dataRequirement should be included using the profile identified in item (4) that references the value set identified in item (3)
 
@@ -473,6 +473,7 @@ CQL provides the logical expression language that is used to define population c
 <img src="assets/images/FHIRMeasureWithLinkedExpression.png">
 </div>
 
+
 ```json
 "population": [
   {
@@ -532,6 +533,7 @@ Snippet 3-15: CQL definition of the "Initial Population" criteria (from [EXM146_
 1. All Measure population criteria components <br/>
      a. SHALL reference exactly one CQL expression.<br/>
      b. SHALL reference the same CQL library.
+2. References to expressions SHALL use the `text/cql.identifier` media type defined in the [CQL specification](https://cql.hl7.org/2020May/07-physicalrepresentation.html#media-types-and-namespaces).<br/>
 
 #### 3.4.1 Criteria Names
 {: #criteria-names}
@@ -686,10 +688,10 @@ For complete examples of patient-based proportion measures, see the Screening Me
 
 The population types for a Proportion measure are "Initial Population", "Denominator", "Denominator Exclusion", "Numerator", "Numerator Exclusion" and "Denominator Exception". The following diagram shows the relationships between the populations for proportion measures and the table below provides their definitions.
 
-**Figure 3-2: Population criteria for Proportion measures illustration**
+**Figure 3-2: Population criteria relationships for Proportion measures illustration**
 
 <div>
-<img src="assets/images/PopulationCriteraProportionVenn.png">
+<img src="assets/images/UpdatedOutcomeFlow__Proportion_version_05052020.png">
 </div>
 <br>
 
@@ -697,38 +699,33 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 
 | Population | Definition |
 |:----|:----:|
-| Initial Population (IPOP) | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. |
-| Denominator (DENOM) | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure. |
-| Denominator Exclusion (DENEX) | Entities to be removed from the Denominator before determining if Numerator criteria are met. Denominator Exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
-| Numerator (NUMER) | The processes or outcomes for each entity defined in the Denominator of a Proportion or Ratio measure. |
-| Numerator Exclusion (NUMEX) | Entities that should be removed from the measure's Numerator. Numerator exclusions are used in Proportion and Ratio measures to help narrow the Numerator (for inverted measures). |
-| Denominator Exception (DENEXCEP) | Those conditions that should remove a patient, procedure, or unit of measurement from the Denominator only if the Numerator criteria are not met. Denominator exceptions allow for adjustment of the calculated score for those providers with higher risk populations. |
+| Initial Population | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. |
+| Denominator | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure. |
+| Denominator Exclusion | Entities to be removed from the Denominator before determining if Numerator criteria are met. Denominator Exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
+| Numerator | The processes or outcomes for each entity defined in the Denominator of a Proportion or Ratio measure. |
+| Numerator Exclusion | Entities that should be removed from the measure's Numerator. Numerator Exclusions are used in Proportion and Ratio measures to help narrow the Numerator (for inverted measures). |
+| Denominator Exception | Those conditions that should remove a patient, procedure, or unit of measurement from the Denominator only if the Numerator criteria are not met. Denominator Exception allows for adjustment of the calculated score for those providers with higher risk populations. |
 {: .grid}
+
+* Initial population : Identify those cases that meet the Initial Population criteria.<br/>
+* Denominator : Identify that subset of the Initial Population that meet the Denominator criteria.<br/>
+* Denominator Exclusion : Identify that subset of the Denominator that meet the Denominator Exclusion criteria. There are cases that should be removed from the Denominator as exclusion. Once these cases are removed, the subset remaining would reflect the Denominator per criteria.
+* Numerator : Identify those cases in the Denominator and NOT in the Denominator Exclusion that meet the Numerator criteria. In proportion measures, the Numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the Denominator.
+* Numerator Exclusion : Identify that subset of the Numerator that meet the Numerator Exclusion criteria. Numerator Exclusion is used only in ratio measures to define instances that should not be included in the Numerator data.
+* Denominator Exception : Identify those in the Denominator and NOT in the Denominator Exclusion and NOT in the Numerator Exclusion that meet the Denominator Exception criteria.
+
+The “performance rate” is a ratio of patients meeting Numerator criteria, divided by patients in the Denominator (accounting for exclusion and exception). Performance rate can be calculated using this formula:
+
+Performance rate = (Numerator - Numerator Exclusion) / (Denominator – Denominator Exclusion – Denominator Exception)
 
 Here is an example of using population types to select data on diabetes patients for a Proportion measure:
 
-* Initial Population (IPOP): Patient is between the age of 16 and 74
-* Denominator (DENOM): Patient has Diabetes Type II
-* Numerator (NUMER): Patient is between the age of 16 and 74, has Diabetes Type II, and the most recent laboratory result has hbA1C value > 9%
-* Denominator Exception (DENEXCEP): Patient meets the DENOM criteria and does NOT meet the NUMER criteria, and is designated as having "Steroid Induced Diabetes" or "Gestational Diabetes"
+* Initial Population : Patient is between the age of 16 and 74
+* Denominator : Patient has Diabetes Type II
+* Denominator Exclusion : Patient is in Hospice Care
+* Numerator : Patient is between the age of 16 and 74, has Diabetes Type II, and the most recent laboratory result has hbA1C value > 9%
+* Denominator Exception : Patient meets the Denominator criteria and does NOT meet the Numerator criteria, and is designated as having "Steroid Induced Diabetes" or "Gestational Diabetes"
 
-**Figure 3-3: Calculation Flow for Proportion Measures**<br/>
-
-<div>
-<img src="assets/images/ProportionMeasureFlowresize.png">
-</div>
-
-
-* Initial population (IPOP): Identify those cases that meet the IPOP criteria.<br/>
-* Denominator (DENOM): Identify that subset of the IPOP that meet the DENOM criteria.<br/>
-* Denominator exclusion (DENEX): Identify that subset of the DENOM that meet the DENEX criteria. There are cases that should be removed from the denominator as exclusion. Once these cases are removed, the subset remaining would reflect the denominator per criteria.
-* Numerator (NUMER): Identify those cases in the DENOM and NOT in the DENEX that meet the NUMER criteria. In proportion measures, the numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the denominator.
-* Numerator exclusion (NUMEX): Identify that subset of the NUMER that meet the NUMEX criteria. Numerator Exclusion is used only in ratio measures to define instances that should not be included in the numerator data.
-* Denominator exception (DENEXCEP): Identify those in the DENOM and NOT in the DENEX and NOT in the NUMER that meet the DENEXCEP criteria.
-
-The “performance rate” is a ratio of patients meeting NUMER criteria, divided by patients in the DENOM (accounting for exclusion and exception). Performance rate can be calculated using this formula:
-
-Performance rate = (NUMER - NUMEX) / (DENOM – DENEX – DENEXCEP)
 
 ##### 3.4.3.2 Patient-based Calculation
 
@@ -801,70 +798,62 @@ For ratio measures that include a Measure Observation, the measure observation i
 ##### 3.4.4.1 Ratio measure scoring
 {: #ratio-measure-scoring}
 
-The population types for a Ratio measure are "Initial Population", "Denominator", "Denominator Exclusion", "Numerator" and "Numerator Exclusion". The following diagrams show the relationships between the populations for Ratio measures and the table below provides their definitions.
+The population types for a Ratio measure are "Initial Population", "Denominator", "Denominator Exclusion", "Numerator" and "Numerator Exclusion". The following diagrams✧ show the relationships between the populations for Ratio measures and the table below provides their definitions
 
-**Figure 3-4: Population criteria for Ratio measures illustration**
 
-<div>
-<img src="assets/images/PopulationCriteriaRatioVenn1.png">
-</div>
-
-**Figure 3-5: Population criteria for Ratio measures illustration**
+**Figure 3-3: Population criteria for Ratio measures illustration - Numerator**
 
 <div>
-<img src="assets/images/PopulationCriteriaRatioVenn2.png">
+<img src="assets/images/UpdatedOutcomeFlow__Ratio_Numerator_05052020.png">
 </div>
 
-**Figure 3-6: Population criteria for Ratio measures illustration**
+**Figure 3-4: Population criteria for Ratio measures illustration - Denominator**
 
 <div>
-<img src="assets/images/PopulationCriteriaRatioVenn3.png">
+<img src="assets/images/UpdatedOutcomeFlow__Ratio_Denominator_05052020.png">
 </div>
+
+✧ The ratio diagrams depict the rate-based ratio measure. Ratio measures may also include continuous variable calculations for the numerator and denominator (continuous variable ratio measures) but the diagrams do not depict the continuous variable ratio measures.
 
 **Table 3-4: Population Criteria Definitions for Ratio Measures**
 
 | Population | Definition |
 |:----|:----:|
-| Initial Population (IPOP) | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. Ratio measures are allowed to have two Initial Populations, one for Numerator and one for Denominator. In most cases, there is only 1 Initial Population |
-| Denominator (DENOM) | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure. |
-| Denominator Exclusion (DENEX) | Entities that should be removed from the Initial Population and Denominator before determining if Numerator criteria are met. Denominator exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
-| Numerator (NUMER) | The outcomes expected for each entity defined in the Denominator of a Proportion or Ratio measure. |
-| Numerator Exclusion (NUMEX) | Entities that should be removed from the eCQM's Numerator before determining if Numerator criteria are met. Numerator exclusions are used in Proportion and Ratio measures to help narrow the Numerator. |
+| Initial Population | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. Ratio measures are allowed to have two Initial Populations, one for Numerator and one for Denominator. In most cases, there is only 1 Initial Population |
+| Denominator | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure. |
+| Denominator Exclusion | Entities that should be removed from the Initial Population and Denominator before determining if Numerator criteria are met. Denominator exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
+| Numerator | The outcomes expected for each entity defined in the Denominator of a Proportion or Ratio measure. |
+| Numerator Exclusion | Entities that should be removed from the eCQM's Numerator before determining if Numerator criteria are met. Numerator Exclusions are used in Proportion and Ratio measures to help narrow the Numerator. |
 {: .grid}
+
+* Initial population : Identify those cases that meet the Initial Population criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
+* Denominator : Identify that subset of the Initial Population that meet the Denominator criteria.
+* Denominator Exclusion : Identify that subset of the Denominator that meet the Denominator Exclusion criteria.
+* Numerator : Identify that subset of the Initial Population that meet the Numerator criteria.
+* Numerator Exclusion : Identify that subset of the Numerator that meet the Numerator Exclusion criteria.
 
 Here is an example of using the population types to select data on patients with central line catheters for a ratio measure:
 
-* Initial Population (IPOP): Patient is aged 65 years or older and admitted to hospital
-* Denominator (DENOM): Patient has a central line
-* Denominator Exclusion (DENEX): Patient is immunosuppressed
-* Numerator (NUMER): Patient has a central line blood stream infection
-* Numerator Exclusion (NUMEX): Patient's central line blood stream infection is deemed to be a contaminant
+* Initial Population : Patient is aged 65 years or older and admitted to hospital
+* Denominator : Patient has a central line
+* Denominator Exclusion : Patient is immunosuppressed
+* Numerator : Patient has a central line blood stream infection
+* Numerator Exclusion : Patient's central line blood stream infection is deemed to be a contaminant
 
-**Figure 3-7: Calculation Flow for Ratio Measure Score**
-
-<div>
-<img src="assets/images/CalculationFlow.png">
-</div>
-
-* Initial population (IPOP): Identify those cases that meet the IPOP criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
-* Denominator (DENOM): Identify that subset of the IPOP that meet the DENOM criteria.
-* Denominator exclusion (DENEX): Identify that subset of the DENOM that meet the DENEX criteria.
-* Numerator (NUMER): Identify that subset of the IPOP that meet the NUMER criteria.
-* Numerator exclusion (NUMEX): Identify that subset of the NUMER that meet the NUMEX criteria.
 
 ##### 3.4.4.2 Individual Observations
 
-For each case in the DENOM and not in the DENEX, determine the individual DENOM observations.
+For each case in the Denominator and not in the Denominator Exclusion, determine the individual Denominator observations.
 
-For each case in the NUMER and not in the NUMEX, determine the individual NUMER observations.
+For each case in the Numerator and not in the Numerator Exclusion, determine the individual Numerator observations.
 
 ##### 3.4.4.3 Measure Aggregates
 
-Using individual observations for all cases in the DENOM and not in the DENEX, calculate the aggregate DENOM.
+Using individual observations for all cases in the Denominator and not in the Denominator Exclusion, calculate the aggregate Denominator.
 
-Using individual observations for all cases in the NUMER and not in the NUMEX, calculate the aggregate NUMER.
+Using individual observations for all cases in the Numerator and not in the Numerator Exclusion, calculate the aggregate Numerator.
 
-Ratio = aggregate NUMER / aggregate DENOM
+Ratio = aggregate Numerator / aggregate Denominator
 
 ##### 3.4.4.5 Patient-based Calculation
 
@@ -1041,46 +1030,41 @@ Note that the criteria reference in the measure observation definition is presen
 
 The population types for a Continuous Variable measure are "Initial Population", "Measure Population", and "Measure Population Exclusion". In addition to these populations, a Measure Observation is defined which contains one or more Continuous Variable statements that are used to score one or more particular aspects of performance. The following diagram shows the relationships between the populations for Continuous Variable measures and the table below provides their definitions.
 
-**Figure 3-8: Population criteria for Continuous Variable measures illustration**
+**Figure 3-5: Population criteria for Continuous Variable measures illustration**
 
 <div>
-<img src="assets/images/PopulationCriteriaRatioVenn4.png">
+<img src="assets/images/UpdatedOutcomeFlow_CV_Version_05052020.png">
 </div>
 
 **Table 3-5: Population Criteria Definitions for Continuous Variable Measures**
 
 | Population | Definition |
 |:----|:----:|
-| Initial Population (IPOP) | All entities to be evaluated by an eCQM which may but are not required to share a common set of specified characteristics within a named measurement set to which the eCQM belongs. |
-| Measure Population (MSRPOPL) | Continuous Variable measures do not have a Denominator, but instead define a Measure Population, as shown in the figure above. Rather than reporting a Numerator and Denominator, a Continuous Variable measure defines variables that are computed across the Measure Population (e.g., average wait time in the emergency department). A Measure Population may be the same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the eCQM. |
-| Measure Population Exclusions (MSRPOPLEX) | Patients who should be removed from the eCQM's Initial Population and Measure Population before determining the outcome of one or more continuous variables defined within a Measure Observation. Measure Population Exclusions are used in Continuous Variable measures to help narrow the Measure Population. |
+| Initial Population | All entities to be evaluated by an eCQM which may but are not required to share a common set of specified characteristics within a named measurement set to which the eCQM belongs. |
+| Measure Population | Continuous Variable measures do not have a Denominator, but instead define a Measure Population, as shown in the figure above. Rather than reporting a Numerator and Denominator, a Continuous Variable measure defines variables that are computed across the Measure Population (e.g., average wait time in the emergency department). A Measure Population may be the same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the eCQM. |
+| Measure Population Exclusion | Patients who should be removed from the eCQM's Initial Population and Measure Population before determining the outcome of one or more continuous variables defined within a Measure Observation. Measure Population Exclusions are used in Continuous Variable measures to help narrow the Measure Population. |
 {: .grid}
+
+* Initial Population : Identify those cases that meet the Initial Population criteria.
+* Measure Population : Identify that subset of the Initial Population that meet the Measure Population criteria.
+* Measure Population Exclusion : Identify that subset of the Measure Population that meet the Measure Population Exclusion criteria.
 
 Here is an example of using the population types to select data on emergency department patients for a Continuous Variable measure:
 
-* Initial Population (IPOP): Patient had an emergency department (ED) encounter
-* Measure Population (MSRPOPL): Same as Initial Population
-* Measure Population Exclusion (MSRPOPLEX): Patient had an inpatient encounter that was within 6 hours of the ED encounter or expired in the ED
+* Initial Population : Patient had an emergency department (ED) encounter
+* Measure Population : Same as Initial Population
+* Measure Population Exclusion : Patient had an inpatient encounter that was within 6 hours of the ED encounter or expired in the ED
 
-**Figure 3-9: Calculation Flow for Continuous Variable Measure Score**
-
-<div>
-<img src="assets/images/ContinuousVariableMeasure.jpg">
-</div>
-
-* Initial population (IPOP): Identify those cases that meet the IPOP criteria.
-* Measure population (MSRPOPL): Identify that subset of the IPOP that meet the MSRPOPL criteria.
-* Measure population exclusion (MSRPOPLEX): Identify that subset of the MSRPOPL that meet the MSRPOPLEX criteria.
 
 ##### 3.4.5.2 Individual Observations
 
-Individual Observations are calculated for each case in the MSRPOPL and not in the MSRPOPLEX.
+Individual Observations are calculated for each case in the Measure Population and not in the Measure Population Exclusion.
 
 ##### 3.4.5.3 Measure Aggregates
 
-Using individual observations for all cases in the MSRPOPL and not in the MSRPOPLEX, calculate the aggregate MSRPOPL.
+Using individual observations for all cases in the Measure Population and not in the Measure Population Exclusion, calculate the aggregate Measure Population.
 
-Score = aggregate MSRPOPL
+Score = aggregate Measure Population
 
 ##### 3.4.5.4 Calculation
 
@@ -1107,28 +1091,26 @@ For cohort definitions, only the Initial Population criteria type is used. For p
 
 In a cohort measure, a population is identified from the population of all items being counted. For example, one might identify all the patients who have had H1N1 symptoms. The identified population is very similar to the Initial Population but is called a Cohort Population for public health purposes. In the Constrained Information Model (CIM), the population will be expressed using the InitialPopulationCriteria act. The Cohort Population result is used by public health agencies to trigger specific public health activities. The following diagram depicts the population for a Cohort measure and the table below provides its definition.
 
-**Figure 3-10: Population criteria for Cohort measures illustration**
+**Figure 3-6: Population criteria for Cohort measures illustration**
 
 <div>
-<img src="assets/images/PopulationCriteriaRatioVenn5.png">
+<img src="assets/images/Cohort1.png">
 </div>
 
 **Table 3-6: Population Criteria Definitions for Cohort Measures**
 
 | Population | Definition |
 |:----|:----:|
-| Initial Population (IPOP) | All entities to be evaluated by an eCQM which may but are not required to share a common set of specified characteristics within a named measurement set to which the eCQM belongs. (Also known as a Cohort Population) |
+| Initial Population | All entities to be evaluated by an eCQM which may but are not required to share a common set of specified characteristics within a named measurement set to which the eCQM belongs. (Also known as a Cohort Population) |
 {: .grid}
+
+* Initial population : Identify those cases that meet the Initial Population criteria.
 
 Here is an example of using the population types to select data on patients who have received immunizations for a Cohort measure:
 
-* Initial Population (IPOP): All patients who had an immunization
+* Initial Population : All patients who had an immunization
 
-**Figure 3-11: Calculation Flow for Cohort**
 
-Calculation Flow Diagram-Cohort
-
-* Initial population (IPOP): Identify those cases that meet the IPOP criteria.
 
 #### 3.4.7 Measures with Multiple Populations
 {: #measures-with-multiple-populations}
