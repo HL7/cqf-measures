@@ -280,7 +280,7 @@ Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-cq
 
 This section describes how to use codes and valuesets from codesystems like LOINC, SNOMED-CT, and others within the CQL and FHIR-based eCQM files of a measure package.
 
-Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
+Valuesets and direct-reference codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct-reference codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [Terminology_FHIR.cql](cql/Terminology_FHIR.cql).
 
 ```cql
 codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct'
@@ -329,7 +329,7 @@ Snippet 3-9: Example Library terminology definitions (from [library-terminology-
 
 **Conformance Requirement 4 (Terminology Inclusion):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4)
 {: #conformance-requirement-4}
-Measures using valueset and/or direct referenced codes must conform to the requirements of Conformance Requirement 4.
+Measures using valueset and/or direct-reference codes must conform to the requirements of Conformance Requirement 4.
 1. All valuesets and codes referenced in the CQL SHALL be included in the Library using dataRequirement elements.
 2. If a valueset or code is referenced outside the context of a retrieve, the dataRequirement SHALL have the type 'CodeableConcept'
 
@@ -383,7 +383,7 @@ The canonical representation of ELM makes it straightforward to derive data requ
 {: #conformance-requirement-6}
 1. ELM elements with type "Retrieve" are represented using the DataRequirement type defined in FHIR
 2. The Retrieve ELM element's "dataType" value is represented by the DataRequirement's "type" attribute
-3. The Retrieve ELM element's "codes" value referencing a value set or direct reference code is represented by the DataRequirement's "codeFilter.valueSet" attribute
+3. The Retrieve ELM element's "codes" value referencing a value set or direct-reference code is represented by the DataRequirement's "codeFilter.valueSet" attribute
 4. The Retrieve ELM element's " templateId" value can be represented by the DataRequirement's "profile" attribute.
 5. For each ELM element identified in item (1) above, a dataRequirement should be included using the profile identified in item (4) that references the value set identified in item (3)
 
@@ -533,7 +533,7 @@ Snippet 3-15: CQL definition of the "Initial Population" criteria (from [EXM146_
 1. All Measure population criteria components <br/>
      a. SHALL reference exactly one CQL expression.<br/>
      b. SHALL reference the same CQL library.
-2. References to expressions SHALL use the text/cql.identifier media type defined in the [CQL specification](https://cql.hl7.org/2020May/07-physicalrepresentation.html#media-types-and-namespaces).<br/>
+2. References to expressions SHALL use the `text/cql.identifier` media type defined in the [CQL specification](https://cql.hl7.org/2020May/07-physicalrepresentation.html#media-types-and-namespaces).<br/>
 
 #### 3.4.1 Criteria Names
 {: #criteria-names}
