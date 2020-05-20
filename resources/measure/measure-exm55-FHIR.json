@@ -51,10 +51,17 @@
   "useContext": [
     {
       "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
         "code": "program"
       },
       "valueCodeableConcept": {
-        "text": "eligible-hospital"
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
+            "code": "eh-cah",
+            "display": "EH/CAH"
+          }
+        ]
       }
     }
   ],
