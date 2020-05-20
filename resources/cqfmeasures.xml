@@ -252,6 +252,15 @@
       <description value="Example VTE-1 Measure"/>
       <exampleBoolean value="true"/>
     </resource>
+    <resource>
+      <reference>
+        <reference value="Library/ep-ec-quality-program"/>
+      </reference>
+      <name value="EP/EC Quality Program - Example"/>
+      <description value="Example EP/EC Quality Program"/>
+      <exampleBoolean value="true"/>
+    </resource>
+
     <!-- TODO: Bring in QDM examples if appropriate <resource> <exampleBoolean value="true"/> <name value="Measure - CMS124"/> <description value="Cervical Cancer Screening - QDM"/> <reference> <reference value="Measure/measure-cms124-QDM"/>
     </reference> </resource> <resource> <exampleBoolean value="true"/> <name value="Measure - CMS125"/> <description value="Breast Cancer Screening - QDM"/> <reference> <reference value="Measure/measure-cms125-QDM"/> </reference> </resource>
     <resource> <exampleBoolean value="true"/> <name value="Measure - CMS130"/> <description value="Colorectal Cancer Screening - QDM"/> <reference> <reference value="Measure/measure-cms130-QDM"/> </reference> </resource> -->
@@ -376,6 +385,12 @@
     </resource>
     <resource>
       <reference>
+        <reference value="CodeSystem/quality-programs"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="CodeSystem/artifact-comment-type"/>
       </reference>
       <exampleBoolean value="false"/>
@@ -388,7 +403,19 @@
     </resource>
     <resource>
       <reference>
+        <reference value="ConceptMap/measure-populations"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="ValueSet/aggregate-method"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/quality-programs"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>

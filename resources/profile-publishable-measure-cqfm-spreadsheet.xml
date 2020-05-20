@@ -21,15 +21,11 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>\Users\abdulllahrafiqi\Desktop\GitRepo\cqf-measures\resources\profile-measure-cqfm-spreadsheet.xml</Path>
-   <SheetName>measure-cqfm</SheetName>
-  </SupBook>
-  <SupBook>
    <Path>/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\davinci</Path>
    <SheetName>davinci</SheetName>
   </SupBook>
-  <WindowHeight>6630</WindowHeight>
-  <WindowWidth>20520</WindowWidth>
+  <WindowHeight>13425</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -771,7 +767,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="68" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="75" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s81" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="122.25"/>
@@ -979,6 +975,138 @@
     <Cell ss:Index="13"><Data ss:Type="String">&lt;status value=&quot;active&quot; /&gt;</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s100"/>
     <Cell ss:StyleID="s101"><Data ss:Type="String">A published measure must have a status of active</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.date</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">A published measure must specify the date the measure content was last changed</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.publisher</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">A published measure must provide publisher information</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.contact</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">ContactDetail</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">A published measure must provide contact information for the publisher</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">useContext</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.useContext</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">qualityProgram</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">useContext</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.useContext</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">useContext.code</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.useContext.code</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Coding</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">&lt;type&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/usage-context-type&quot;/&gt;&lt;code value=&quot;program&quot;/&gt;&lt;/type&gt;</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">useContext.value</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.useContext.code.value</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">QualityPrograms</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -1974,7 +2102,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1989,8 +2117,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>25</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>13</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3509,10 +3636,13 @@
     <Cell ss:Index="14" ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:Index="6" ss:StyleID="s135"/>
-    <Cell ss:Index="14" ss:StyleID="s120"/>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">QualityPrograms</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String"> The quality programs</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">Extensible</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s135" ss:HRef="http://hl7.org/fhir/us/cqfmeasures/ValueSet/quality-programs"><Data
+      ss:Type="String">http://hl7.org/fhir/us/cqfmeasures/ValueSet/quality-programs</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s99"/>
@@ -3688,8 +3818,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
