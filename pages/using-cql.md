@@ -33,7 +33,7 @@ The approach recommended here is based on the [Semantic Versioning Scheme.](http
 
 **Conformance Requirement 19 (Library Versioning):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-19)
 {: #conformance-requirement-19}
-  1. The versioning scheme SHALL NOT apply and there is no expectation that content will be consistent with instances while an artifact is in draft status
+  1. For artifacts in draft status, the versioning scheme SHALL NOT apply, and there is no expectation that artifact contents are stable
   2. The versioning scheme SHALL apply when an artifact moves to active status.
 
 There are three main types of changes that can be made to a library. First, a library can be changed in a way that
