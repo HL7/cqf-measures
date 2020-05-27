@@ -1,0 +1,120 @@
+{
+  "resourceType": "Library",
+  "id": "exm-distributable-library-fhir",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2020-05-12T02:15:00.696-06:00",
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/distributable-library-cqfm"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">exm-distributable-library-fhir</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://terminology.hl7.org/CodeSystem/library-type</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>logic-library</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">5.0.0</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr>  <!-- <th:block th:each=\"cont, iter : ${resource.contributor}\"> -->  <!-- <tr style=\"vertical-align: top;\"> -->  <!-- <th th:if=\"${iter.index == 0}\" th:rowspan=\"${iter.size}\"  scope=\"row\"><b>Contributor: </b></th> -->  <!-- <td style=\"padding-left: 25px; padding-right: 25px;\"> -->  <!-- <b><span th:narrative=\"${cont.type.toCode()}\"></span>: </b><span th:narrative=\"${cont.name}\"></span> -->  <!-- </td> -->  <!-- </tr> -->  <!-- </th:block> --><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/fhirhelpers</span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"5\" scope=\"row\"><b>Data Requirements: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>id</span></span><span style=\"padding-left: 25px;\"><b>valueset: </b><span></span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292</span></span></p></div></td></tr>  <!-- Filter down to human readable content --><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library EXM-Distributable-Library_FHIR version '1.0.0'\n\n/*\nThis example is a work in progress and should not be considered a final specification\nor recommendation for guidance. This example will help guide and direct the process\nof finding conventions and usage patterns that meet the needs of the various stakeholders\nin the measure development community.\n*/\n\nusing FHIR version '4.0.0'\n\ninclude FHIRHelpers version '4.0.0' called FHIRHelpers\n\ncodesystem \"Diagnosis Role\": 'http://hl7.org/fhir/diagnosis-role'\n\nvalueset \"Emergency Department Visit\" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292'\nvalueset \"Psychiatric/Mental Health Patient\" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299'\nvalueset \"Hospital Settings\" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.126'\n\ncode \"Billing\": 'billing' from \"Diagnosis Role\" display 'Billing'\n\nparameter \"Measurement Period\" Interval&lt;DateTime&gt;\n\ncontext Patient\n\ndefine \"Initial Population\" :\n  \"Inpatient Encounter\" Encounter\n    with [\"Encounter\" : \"Emergency Department Visit\"] ED\n     such that ED.status = 'finished'\n       and ED.period ends 1 hour or less before start of Encounter.period\n\ndefine \"Measure Population\" :\n  \"Initial Population\"\n\ndefine \"Inpatient Encounter\" :\n  [\"Encounter\"] Encounter\n    where LengthInDays(Encounter.period) &lt;= 120\n      and Encounter.period ends during \"Measurement Period\"\n\ndefine \"Measure Population Exclusion\" :\n  \"Inpatient Encounter\" Encounter\n    with [\"Encounter\" : \"Emergency Department Visit\"] ED\n      such that ED.period ends 1 hour or less before start of Encounter.period\n        and ED.status = 'finished'\n        and ED.hospitalization.admitSource in \"Hospital Settings\"\n\ndefine function \"PrincipalDiagnosis\"(Encounter Encounter):\n\t(singleton from (Encounter.diagnosis D where D.use ~ ToConcept(\"Billing\") and D.rank = 1)) PD\n\t\treturn singleton from ([Condition: id in \"GetId\"(PD.condition.reference)])\n\ndefine function \"LengthInDays\"(Value Interval&lt;DateTime&gt;):\n\tdifference in days between start of Value and end of Value\n\ndefine function \"GetId\"(uri String):\n\tLast(Split(uri, '/'))\n\ndefine \"Stratification 1\" :\n  \"Inpatient Encounter\" Encounter\n    where not (PrincipalDiagnosis(Encounter).code in \"Psychiatric/Mental Health Patient\")\n\ndefine \"Stratification 2\" :\n  \"Inpatient Encounter\" Encounter\n    where PrincipalDiagnosis(Encounter).code in \"Psychiatric/Mental Health Patient\"\n\ndefine \"Stratification 3\" :\n  \"Inpatient Encounter\" Encounter\n    where PrincipalDiagnosis(Encounter) is null\n\n//Measure Observation\ndefine function \"Related ED Visit\" (Encounter \"Encounter\" ) :\n  Last([\"Encounter\" : \"Emergency Department Visit\"] ED\n    where ED.status = 'finished'\n      and ED.period ends 1 hour or less before start of Encounter.period\n    sort by start of period )\n\ndefine function \"Measure Observation\" (Encounter \"Encounter\" ) :\n  duration in minutes of \"Related ED Visit\"(Encounter).period\n</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
+  },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/exm-distributable-library-fhir",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
+      "value": "EXM-Distributable-Library"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "EXM_Distributable_Library_FHIR",
+  "title": "Example Distributable Library",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "logic-library"
+      }
+    ]
+  },
+  "date": "2019-09-03",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "This library is used as an example in the FHIR Quality Measure Implementation Guide",
+  "approvalDate": "2019-08-03",
+  "lastReviewDate": "2019-08-03",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "program"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
+            "code": "eh-cah",
+            "display": "EH/CAH"
+          }
+        ]
+      }
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": "Library/fhirhelpers"
+    }
+  ],
+  "dataRequirement": [
+    {
+      "type": "Encounter"
+    },
+    {
+      "type": "Encounter",
+      "codeFilter": [
+        {
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
+        }
+      ]
+    },
+    {
+      "type": "Encounter",
+      "codeFilter": [
+        {
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "id"
+        }
+      ]
+    },
+    {
+      "type": "Encounter",
+      "codeFilter": [
+        {
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeSBFWE01NV9GSElSIHZlcnNpb24gJzUuMC4wJwoKLyoKVGhpcyBleGFtcGxlIGlzIGEgd29yayBpbiBwcm9ncmVzcyBhbmQgc2hvdWxkIG5vdCBiZSBjb25zaWRlcmVkIGEgZmluYWwgc3BlY2lmaWNhdGlvbgpvciByZWNvbW1lbmRhdGlvbiBmb3IgZ3VpZGFuY2UuIFRoaXMgZXhhbXBsZSB3aWxsIGhlbHAgZ3VpZGUgYW5kIGRpcmVjdCB0aGUgcHJvY2VzcwpvZiBmaW5kaW5nIGNvbnZlbnRpb25zIGFuZCB1c2FnZSBwYXR0ZXJucyB0aGF0IG1lZXQgdGhlIG5lZWRzIG9mIHRoZSB2YXJpb3VzIHN0YWtlaG9sZGVycwppbiB0aGUgbWVhc3VyZSBkZXZlbG9wbWVudCBjb21tdW5pdHkuCiovCgp1c2luZyBGSElSIHZlcnNpb24gJzQuMC4wJwoKaW5jbHVkZSBGSElSSGVscGVycyB2ZXJzaW9uICc0LjAuMCcgY2FsbGVkIEZISVJIZWxwZXJzCgpjb2Rlc3lzdGVtICJEaWFnbm9zaXMgUm9sZSI6ICdodHRwOi8vaGw3Lm9yZy9maGlyL2RpYWdub3Npcy1yb2xlJwoKdmFsdWVzZXQgIkVtZXJnZW5jeSBEZXBhcnRtZW50IFZpc2l0IiA6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy4xMTcuMS43LjEuMjkyJwp2YWx1ZXNldCAiUHN5Y2hpYXRyaWMvTWVudGFsIEhlYWx0aCBQYXRpZW50IiA6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy4xMTcuMS43LjEuMjk5Jwp2YWx1ZXNldCAiSG9zcGl0YWwgU2V0dGluZ3MiIDogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzc2Mi4xLjQuMTExMS4xMjYnCgpjb2RlICJCaWxsaW5nIjogJ2JpbGxpbmcnIGZyb20gIkRpYWdub3NpcyBSb2xlIiBkaXNwbGF5ICdCaWxsaW5nJwoKcGFyYW1ldGVyICJNZWFzdXJlbWVudCBQZXJpb2QiIEludGVydmFsPERhdGVUaW1lPgoKY29udGV4dCBQYXRpZW50CgpkZWZpbmUgIkluaXRpYWwgUG9wdWxhdGlvbiIgOgogICJJbnBhdGllbnQgRW5jb3VudGVyIiBFbmNvdW50ZXIKICAgIHdpdGggWyJFbmNvdW50ZXIiIDogIkVtZXJnZW5jeSBEZXBhcnRtZW50IFZpc2l0Il0gRUQKICAgICBzdWNoIHRoYXQgRUQuc3RhdHVzID0gJ2ZpbmlzaGVkJwogICAgICAgYW5kIEVELnBlcmlvZCBlbmRzIDEgaG91ciBvciBsZXNzIGJlZm9yZSBzdGFydCBvZiBFbmNvdW50ZXIucGVyaW9kCgpkZWZpbmUgIk1lYXN1cmUgUG9wdWxhdGlvbiIgOgogICJJbml0aWFsIFBvcHVsYXRpb24iCgpkZWZpbmUgIklucGF0aWVudCBFbmNvdW50ZXIiIDoKICBbIkVuY291bnRlciJdIEVuY291bnRlcgogICAgd2hlcmUgTGVuZ3RoSW5EYXlzKEVuY291bnRlci5wZXJpb2QpIDw9IDEyMAogICAgICBhbmQgRW5jb3VudGVyLnBlcmlvZCBlbmRzIGR1cmluZyAiTWVhc3VyZW1lbnQgUGVyaW9kIgoKZGVmaW5lICJNZWFzdXJlIFBvcHVsYXRpb24gRXhjbHVzaW9uIiA6CiAgIklucGF0aWVudCBFbmNvdW50ZXIiIEVuY291bnRlcgogICAgd2l0aCBbIkVuY291bnRlciIgOiAiRW1lcmdlbmN5IERlcGFydG1lbnQgVmlzaXQiXSBFRAogICAgICBzdWNoIHRoYXQgRUQucGVyaW9kIGVuZHMgMSBob3VyIG9yIGxlc3MgYmVmb3JlIHN0YXJ0IG9mIEVuY291bnRlci5wZXJpb2QKICAgICAgICBhbmQgRUQuc3RhdHVzID0gJ2ZpbmlzaGVkJwogICAgICAgIGFuZCBFRC5ob3NwaXRhbGl6YXRpb24uYWRtaXRTb3VyY2UgaW4gIkhvc3BpdGFsIFNldHRpbmdzIgoKZGVmaW5lIGZ1bmN0aW9uICJQcmluY2lwYWxEaWFnbm9zaXMiKEVuY291bnRlciBFbmNvdW50ZXIpOgoJKHNpbmdsZXRvbiBmcm9tIChFbmNvdW50ZXIuZGlhZ25vc2lzIEQgd2hlcmUgRC51c2UgfiBUb0NvbmNlcHQoIkJpbGxpbmciKSBhbmQgRC5yYW5rID0gMSkpIFBECgkJcmV0dXJuIHNpbmdsZXRvbiBmcm9tIChbQ29uZGl0aW9uOiBpZCBpbiAiR2V0SWQiKFBELmNvbmRpdGlvbi5yZWZlcmVuY2UpXSkKCmRlZmluZSBmdW5jdGlvbiAiTGVuZ3RoSW5EYXlzIihWYWx1ZSBJbnRlcnZhbDxEYXRlVGltZT4pOgoJZGlmZmVyZW5jZSBpbiBkYXlzIGJldHdlZW4gc3RhcnQgb2YgVmFsdWUgYW5kIGVuZCBvZiBWYWx1ZQoKZGVmaW5lIGZ1bmN0aW9uICJHZXRJZCIodXJpIFN0cmluZyk6CglMYXN0KFNwbGl0KHVyaSwgJy8nKSkKCmRlZmluZSAiU3RyYXRpZmljYXRpb24gMSIgOgogICJJbnBhdGllbnQgRW5jb3VudGVyIiBFbmNvdW50ZXIKICAgIHdoZXJlIG5vdCAoUHJpbmNpcGFsRGlhZ25vc2lzKEVuY291bnRlcikuY29kZSBpbiAiUHN5Y2hpYXRyaWMvTWVudGFsIEhlYWx0aCBQYXRpZW50IikKCmRlZmluZSAiU3RyYXRpZmljYXRpb24gMiIgOgogICJJbnBhdGllbnQgRW5jb3VudGVyIiBFbmNvdW50ZXIKICAgIHdoZXJlIFByaW5jaXBhbERpYWdub3NpcyhFbmNvdW50ZXIpLmNvZGUgaW4gIlBzeWNoaWF0cmljL01lbnRhbCBIZWFsdGggUGF0aWVudCIKCmRlZmluZSAiU3RyYXRpZmljYXRpb24gMyIgOgogICJJbnBhdGllbnQgRW5jb3VudGVyIiBFbmNvdW50ZXIKICAgIHdoZXJlIFByaW5jaXBhbERpYWdub3NpcyhFbmNvdW50ZXIpIGlzIG51bGwKCi8vTWVhc3VyZSBPYnNlcnZhdGlvbgpkZWZpbmUgZnVuY3Rpb24gIlJlbGF0ZWQgRUQgVmlzaXQiIChFbmNvdW50ZXIgIkVuY291bnRlciIgKSA6CiAgTGFzdChbIkVuY291bnRlciIgOiAiRW1lcmdlbmN5IERlcGFydG1lbnQgVmlzaXQiXSBFRAogICAgd2hlcmUgRUQuc3RhdHVzID0gJ2ZpbmlzaGVkJwogICAgICBhbmQgRUQucGVyaW9kIGVuZHMgMSBob3VyIG9yIGxlc3MgYmVmb3JlIHN0YXJ0IG9mIEVuY291bnRlci5wZXJpb2QKICAgIHNvcnQgYnkgc3RhcnQgb2YgcGVyaW9kICkKCmRlZmluZSBmdW5jdGlvbiAiTWVhc3VyZSBPYnNlcnZhdGlvbiIgKEVuY291bnRlciAiRW5jb3VudGVyIiApIDoKICBkdXJhdGlvbiBpbiBtaW51dGVzIG9mICJSZWxhdGVkIEVEIFZpc2l0IihFbmNvdW50ZXIpLnBlcmlvZAo="
+    }
+  ]
+}
