@@ -60,6 +60,30 @@
       <exampleBoolean value="true"/>
     </resource>
     <resource>
+      <description value="Example Distributable Library"/>
+      <reference>
+        <reference value="Library/exm-distributable-library-fhir"/>
+      </reference>
+      <name value="Library - EXM-Distributable-Library"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <description value="Example Executable Library"/>
+      <reference>
+        <reference value="Library/exm-executable-library-fhir"/>
+      </reference>
+      <name value="Library - EXM-Executable-Library"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <description value="Example Publishable Library"/>
+      <reference>
+        <reference value="Library/exm-publishable-library-fhir"/>
+      </reference>
+      <name value="Library - EXM-Publishable-Library"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
       <description value="Cervical Cancer Screening Example Library"/>
       <reference>
         <reference value="Library/exm124-fhir"/>
@@ -360,6 +384,20 @@
         <reference value="StructureDefinition/cqfm-isPrimaryCitation"/>
       </reference>
       <name value="StructureDefinition - Measure isPrimaryCitation extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-publicationStatus"/>
+      </reference>
+      <name value="StructureDefinition - Measure publicationStatus extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-publicationDate"/>
+      </reference>
+      <name value="StructureDefinition - Measure publicationDate extension"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>

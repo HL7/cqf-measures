@@ -18,9 +18,16 @@ title: Terminology
 
 -  [Aggregate Method](CodeSystem-aggregate-method.html)
 -  [Artifact Comment Type](CodeSystem-artifact-comment-type.html)
+-  [Quality Programs](CodeSystem-quality-programs.html)
 
 ### 9.2 ValueSet Resources
 {: #valueset-resources}
 
 -  [Aggregate Method](ValueSet-aggregate-method.html)
 -  [Artifact Comment Type](ValueSet-artifact-comment-type.html)
+-  [Quality Programs](ValueSet-quality-programs.html)
+
+### 9.3 ConceptMap Resources
+{: #conceptmap-resources}
+
+-  [Measure Populations](conceptmap-measure-populations.html)
