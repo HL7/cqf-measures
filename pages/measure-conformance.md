@@ -232,6 +232,8 @@ The content elements in Snippet 3-4 provide an example of how a CQFMLibrary reso
 
 The Measure resource uses the `effectivePeriod` element to define the "Measurement Period", a control variable as metadata that influences the computation of measures. Snippet 3-5 demonstrates how to provide the "Measurement Period" in the Measure (line: 3 of Snippet 3-1).
 
+'Measurement Period' is anchored by the `effectivePeriod` element but not necessarily directly represented.
+
 
 ```xml
 <effectivePeriod>
@@ -254,10 +256,12 @@ Rather than specifying a static effective period, implementations may specify th
 
 This implementation guide defines two extensions, [`cqfm-effectivePeriodAnchor`](StructureDefinition-cqfm-effectivePeriodAnchor.html) and [`cqfm-effectivePeriodDuration`](StructureDefinition-cqfm-effectivePeriodDuration.html) to support this alternative.
 
+As shown below in Snippet 3-7, a measure anchored to January 1, 2019 with a calendar duration of 1 year, would have valid Measurement Periods of 1/1/2019-12/31/2019. Note that although UCUM definite-duration units are required within FHIR, the semantics in this case use calendar duration semantics.
+
 ```xml
 <effectivePeriod>
 	<extension url="http://hl7.org/fhir/us/cqfmeasures/cqfm-effectivePeriodAnchor">
-		<valueDateTime value="2018-01-01"/>
+		<valueDateTime value="2019-01-01"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/us/cqfmeasures/cqfm-effectivePeriodDuration">
 		<valueDuration>
@@ -271,9 +275,9 @@ Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-cq
 
 **Conformance Requirement 3 (Measurement Period):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3)
 {: #conformance-requirement-3}
-1. The value of the "Measurement Period" control variable SHALL be made available to CQL libraries as the value of the effectivePeriod element.
-2. CQL libraries that require access to the "Measurement Period" control variable SHALL either declare the type of the "Measurement Period" parameter as an interval of DateTime or provide a default value as an interval of DateTime.
-3. The value of the "Measurement Period" control variable MAY be made available using the `cqfm-effectivePeriodAnchor` and `cqfm-effectivePeriodDuration` extensions to specify the length of the reporting period, anchored to a first effective start date.
+1. FHIR-based eCQMs SHALL provide either an `effectivePeriod` element, or an `cqfm-effectivePeriodAnchor` and `cqfm-effectivePeriodDuration` extension
+2. Measurement Period SHALL be either the `effectivePeriod` as specified, or an appropriate interval of length duration, starting at the specified anchor
+
 
 ### 3.2 Terminology
 {: #terminology}
