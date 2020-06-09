@@ -1,9 +1,9 @@
 <Measure xmlns="http://hl7.org/fhir">
-    <id value="measure-exm"/>
+    <id value="measure-ratio-exm"/>
     <meta>
         <versionId value="2"/>
         <lastUpdated value="2019-11-06T16:55:48.200-07:00"/>
-        <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"/>
+        <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm"/>
     </meta>
     <text>
         <status value="generated"/>
@@ -504,9 +504,6 @@
 <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
     <valueCode value="boolean"/>
 </extension>
-<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-allocation">
-    <valueMarkdown value="Additional guidance for allocation"/>
-</extension>
 <!-- Canonical URL for the measure. This is a globally unique, version-independent identifier for the eCQM. -->
 <url value="http://example.org/fhir/measures/measure-exm"/>
 <!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
@@ -518,9 +515,9 @@
   <!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
   <version value="1.0.0"/>
   <!-- The name of the measure. This is a machine-friendly identifier for the measure -->
-  <name value="MeasureEXM"/>
+  <name value="PublishableMeasureEXM"/>
   <!-- The title of the measure. This is a user-friendly identifier for the measure -->
-  <title value="EXM Measure"/>
+  <title value="EXM Publishable Measure"/>
   <status value="active"/>
   <experimental value="true"/>
   <!-- The publication date of the measure -->
@@ -534,13 +531,17 @@
     </telecom>
   </contact>
   <!-- The description of the measure -->
-  <description value="An example FHIR-based measure"/>
+  <description value="An example FHIR-based publishable measure"/>
   <useContext>
     <code>
       <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="program"/>
     </code>
     <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs"/>
+        <code value="ep-ec"/>
+      </coding>
       <text value="eligible-provider"/>
     </valueCodeableConcept>
   </useContext>
@@ -600,13 +601,25 @@
     <type value="documentation"/>
     <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot; Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
   </relatedArtifact>
-  <library value="http://hl7.org/fhir/us/cqfmeasures/Library/exm-logic"/>
+  <relatedArtifact>
+    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationStatus">
+        <valueCode value="draft"/>
+    </extension>
+    <type value="composed-of"/>
+</relatedArtifact>
+<relatedArtifact>
+  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationDate">
+      <valueDate value="2019-01-01"/>
+  </extension>
+  <type value="composed-of"/>
+</relatedArtifact>
+<library value="http://hl7.org/fhir/us/cqfmeasures/Library/exm-logic"/>
   <disclaimer value="Example disclaimer"/>
   <scoring>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
-      <code value="proportion"/>
-      <display value="Proportion"/>
+      <code value="ratio"/>
+      <display value="Ratio"/>
     </coding>
 </scoring>
 <type>
@@ -639,7 +652,7 @@
   </definition>
   <guidance value="Additional guidance provided to help communicate the intent of the measure"/>
   <group id="group-1">
-    <population id="initial-population-1">
+    <population id="initial-population">
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -649,10 +662,10 @@
       </code>
       <criteria>
         <language value="text/cql"/>
-        <expression value="Initial Population 1"/>
+        <expression value="Initial Population"/>
       </criteria>
     </population>
-    <population id="numerator-1">
+    <population id="numerator">
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -662,10 +675,10 @@
       </code>
       <criteria>
         <language value="text/cql"/>
-        <expression value="Numerator 1"/>
+        <expression value="Numerator"/>
       </criteria>
     </population>
-    <population id="denominator-1">
+    <population id="denominator">
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -675,98 +688,9 @@
       </code>
       <criteria>
         <language value="text/cql"/>
-        <expression value="Denominator 1"/>
+        <expression value="Denominator"/>
       </criteria>
     </population>
-    <stratifier id="stratifier-1-1">
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 1-1"/>
-      </criteria>
-    </stratifier>
-    <stratifier id="stratifier-1-2">
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 1-2"/>
-      </criteria>
-    </stratifier>
-    <stratifier id="stratifier-1-3">
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 1-3"/>
-      </criteria>
-    </stratifier>
-    <stratifier id="stratifier-1-4">
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 1-4"/>
-      </criteria>
-    </stratifier>
-  </group>
-  <group id="group-2">
-    <population id="initial-population-2">
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="initial-population"/>
-          <display value="Initial Population"/>
-        </coding>
-      </code>
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Initial Population 2"/>
-      </criteria>
-    </population>
-    <population id="numerator-2">
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="numerator"/>
-          <display value="Numerator"/>
-        </coding>
-      </code>
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Numerator 2"/>
-      </criteria>
-    </population>
-    <population id="denominator-2">
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="denominator"/>
-          <display value="Denominator"/>
-        </coding>
-      </code>
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Denominator 2"/>
-      </criteria>
-    </population>
-    <stratifier id="stratifier-2-1">
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 2-1"/>
-      </criteria>
-    </stratifier>
-    <stratifier id="stratifier-2-2">
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 2-2"/>
-      </criteria>
-    </stratifier>
-    <stratifier id="stratifier-2-3">
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 2-3"/>
-      </criteria>
-    </stratifier>
-    <stratifier id="stratifier-2-4">
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 2-4"/>
-      </criteria>
-    </stratifier>
   </group>
   <supplementalData id="sde-ethnicity">
     <usage>
