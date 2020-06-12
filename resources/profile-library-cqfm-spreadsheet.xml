@@ -24,10 +24,10 @@
    <Path>/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\davinci</Path>
    <SheetName>davinci</SheetName>
   </SupBook>
-  <WindowHeight>15940</WindowHeight>
-  <WindowWidth>26840</WindowWidth>
-  <WindowTopX>30820</WindowTopX>
-  <WindowTopY>6620</WindowTopY>
+  <WindowHeight>17440</WindowHeight>
+  <WindowWidth>28040</WindowWidth>
+  <WindowTopX>20380</WindowTopX>
+  <WindowTopY>5460</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
@@ -876,7 +876,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="101" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="100" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s82" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s82" ss:AutoFitWidth="0" ss:Width="122"/>
@@ -912,8 +912,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">relative path | ordered? (true/false) | rules (open/openAtEnd/closed) See wiki</Font>       </ss:Data></Comment></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Slice Description</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Color="#000000">        </Font><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Used when discriminator can't be specified to explain how to differentiate slices</Font><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Used when discriminator can't be specified to explain how to differentiate slices</Font><Font
         html:Color="#000000">       </Font></ss:Data></Comment></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">DE</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Element</Data><Comment
@@ -1034,7 +1033,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">profile</Data></Cell>
+    <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"><Data ss:Type="String">meta</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Library.meta.profile</Data></Cell>
@@ -1042,28 +1041,6 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s103"/>
     <Cell><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="16" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s104"/>
-    <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s104"/>
-    <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s101"><Data ss:Type="String">cqlProfile</Data></Cell>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">meta.profile</Data></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Library.meta.profile</Data></Cell>
-    <Cell ss:StyleID="s103"/>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s103"><Data ss:Type="String">canonical</Data></Cell>
-    <Cell><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">&lt;profile value=&quot;http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm&quot; /&gt;</Data></Cell>
     <Cell ss:Index="16" ss:StyleID="s103"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"/>
@@ -2600,7 +2577,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -2614,13 +2591,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>35</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R36</RangeSelection>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

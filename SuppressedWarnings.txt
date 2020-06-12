@@ -1,4 +1,4 @@
 == Suppressed Messages ==
 
-# Determining if this is a bug within the publisher
-Bundle/exm-library-bundle: Bundle.entry[0]: Could not match discriminator ([resource]) for slice Bundle.entry:library in profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-bundle-cqfm - the discriminator [resource] does not have fixed value, binding or existence assertions
+# This device profile is intended to model software systems as devices, not implantable devices like what the US Core profile is describing
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile

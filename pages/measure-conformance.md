@@ -92,18 +92,19 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 {: #conformance-requirement-1}
 
 1. FHIR-based eCQMs SHALL consist of a FHIR Measure resource conforming to at least the CQFMMeasure profile. In particular, FHIR-based eCQMs SHALL contain a narrative containing a human-readable representation of the measure content.
-2. Proportion Measures SHALL conform to the CQFMProportionMeasure profile.
-3. Ratio Measures SHALL conform to the CQFMRatioMeasure profile.
-4. Continuous Variable Measures SHALL conform to the CQFMContinuousVariableMeasure profile.
-5. Cohort Measures SHALL conform to the CQFMCohortMeasure profile.
-6. Libraries used with FHIR-based eCQMs SHALL consist of a FHIR Library resource conforming to at least the CQFMLibrary profile.
-7. CQFMMeasures utilizing CQL libraries SHALL include exactly 1 CQFMLibrary per CQL library referenced in the Measure.
-8. CQL Libraries implicitly referenced through nesting of libraries MAY be included.
-9. CQFMLibraries SHALL include a content element for CQL.
-10. The CQFMLibrary content element SHALL include a sub-element with a mediaType of `text/cql`.
-11. CQFMLibraries SHALL  specify CQL content as a base-64-encoded string in the content sub-element as content.data.
-12. Any referenced CQL library SHALL contain a library declaration line.
-13. The library declaration line SHALL be the first line in the library.
+2. FHIR-based eCQM Measure and Library resource instances SHALL declare their profile.
+3. Proportion Measures SHALL conform to the CQFMProportionMeasure profile.
+4. Ratio Measures SHALL conform to the CQFMRatioMeasure profile.
+5. Continuous Variable Measures SHALL conform to the CQFMContinuousVariableMeasure profile.
+6. Cohort Measures SHALL conform to the CQFMCohortMeasure profile.
+7. Libraries used with FHIR-based eCQMs SHALL consist of a FHIR Library resource conforming to at least the CQFMLibrary profile.
+8. CQFMMeasures utilizing CQL libraries SHALL include exactly 1 CQFMLibrary per CQL library referenced in the Measure.
+9. CQL Libraries implicitly referenced through nesting of libraries MAY be included.
+10. CQFMLibraries SHALL include a content element for CQL.
+11. The CQFMLibrary content element SHALL include a sub-element with a mediaType of `text/cql`.
+12. CQFMLibraries SHALL  specify CQL content as a base-64-encoded string in the content sub-element as content.data.
+13. Any referenced CQL library SHALL contain a library declaration line.
+14. The library declaration line SHALL be the first line in the library.
 
 ```json
 {
@@ -256,7 +257,7 @@ Rather than specifying a static effective period, implementations may specify th
 
 This implementation guide defines two extensions, [`cqfm-effectivePeriodAnchor`](StructureDefinition-cqfm-effectivePeriodAnchor.html) and [`cqfm-effectivePeriodDuration`](StructureDefinition-cqfm-effectivePeriodDuration.html) to support this alternative.
 
-As shown below in Snippet 3-7, a measure anchored to January 1, 2019 with a calendar duration of 1 year, would have valid Measurement Periods of 1/1/2019-12/31/2019. Note that although UCUM definite-duration units are required within FHIR, the semantics in this case use calendar duration semantics.
+As shown below in Snippet 3-7, a measure anchored to January 1, 2019 with a calendar duration of 1 year, would have valid Measurement Periods of 1/1/2019-12/31/2019, 1/1/2020-12/31/2020, etc. Note that although UCUM definite-duration units are required within FHIR, the semantics in this case use calendar duration semantics.
 
 ```xml
 <effectivePeriod>
