@@ -95,7 +95,7 @@
   "relatedArtifact": [
     {
       "type": "depends-on",
-      "resource": "Library/fhirhelpers"
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/library-fhirhelpers"
     }
   ],
   "library": [
@@ -205,18 +205,39 @@
       ],
       "stratifier": [
         {
+          "code": {
+            "coding": [
+              {
+                "display": "Stratification 1"
+              }
+            ]
+          },
           "criteria": {
             "language": "text/cql",
             "expression": "Stratification 1"
           }
         },
         {
+          "code": {
+          "coding": [
+            {
+              "display": "Stratification 2"
+            }
+          ]
+        },
           "criteria": {
             "language": "text/cql",
             "expression": "Stratification 2"
           }
         },
         {
+          "code": {
+          "coding": [
+            {
+              "display": "Stratification 3"
+            }
+          ]
+        },
           "criteria": {
             "language": "text/cql",
             "expression": "Stratification 3"

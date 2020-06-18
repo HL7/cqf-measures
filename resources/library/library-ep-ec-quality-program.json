@@ -3,7 +3,7 @@
   "id": "ep-ec-quality-program",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm"
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"
     ]
   },
   "text": {
@@ -27,7 +27,7 @@
     "coding": [
       {
         "system": "http://terminology.hl7.org/CodeSystem/library-type",
-        "code": "logic-library"
+        "code": "asset-collection"
       }
     ]
   },
@@ -66,19 +66,23 @@
   "relatedArtifact": [
     {
       "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm124-FHIR"
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm124-FHIR",
+      "display": "Cervical Cancer Screening"
     },
     {
       "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm125-FHIR"
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm125-FHIR",
+      "display": "Breast Cancer Screening"
     },
     {
       "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm130-FHIR"
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm130-FHIR",
+      "display":"Colorectal Cancer Screening"
     },
     {
       "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm146-FHIR"
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm146-FHIR",
+      "display":"Appropriate Testing for Children with Pharyngitis"
     }
   ]
 }

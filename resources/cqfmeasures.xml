@@ -30,6 +30,27 @@
     </resource>
     <resource>
       <reference>
+        <reference value="Bundle/exm-measure-bundle"/>
+      </reference>
+      <exampleBoolean value="true"/>
+      <name value="Bundle - EXM Measure Bundle"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/exm-library-bundle"/>
+      </reference>
+      <exampleBoolean value="true"/>
+      <name value="Bundle - EXM Library Bundle"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/exm-testcase-bundle"/>
+      </reference>
+      <exampleBoolean value="true"/>
+      <name value="Bundle - EXM Testcase Bundle"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="Library/adultoutpatientencounters-fhir"/>
       </reference>
       <exampleBoolean value="true"/>
@@ -124,7 +145,7 @@
     </resource> -->
     <resource>
       <reference>
-        <reference value="Library/fhirhelpers"/>
+        <reference value="Library/library-fhirhelpers"/>
       </reference>
       <name value="Library - FHIRHelpers"/>
       <exampleBoolean value="true"/>
@@ -210,6 +231,22 @@
       </reference>
       <name value="Measure - Example"/>
       <description value="Example Measure"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-publishable-exm"/>
+      </reference>
+      <name value="Publishable Measure - Example"/>
+      <description value="Example Publishable Measure"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-ratio-exm"/>
+      </reference>
+      <name value="Ratio Measure - Example"/>
+      <description value="Example Ratio Measure"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -414,7 +451,6 @@
       <name value="StructureDefinition - Measure softwaresystem extension"/>
       <exampleBoolean value="false"/>
     </resource>
-
     <resource>
       <reference>
         <reference value="CodeSystem/aggregate-method"/>

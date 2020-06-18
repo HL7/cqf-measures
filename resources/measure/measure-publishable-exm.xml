@@ -1,9 +1,9 @@
 <Measure xmlns="http://hl7.org/fhir">
-    <id value="measure-exm"/>
+    <id value="measure-publishable-exm"/>
     <meta>
         <versionId value="2"/>
         <lastUpdated value="2019-11-06T16:55:48.200-07:00"/>
-        <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"/>
+        <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"/>
     </meta>
     <text>
         <status value="generated"/>
@@ -493,22 +493,8 @@
 </table>
 </div>
 </text>
-<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment">
-    <extension url="type">
-        <valueCode value="documentation"/>
-    </extension>
-    <extension url="text">
-        <valueString value="This illustrates an example comment"/>
-    </extension>
-</extension>
-<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
-    <valueCode value="boolean"/>
-</extension>
-<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-allocation">
-    <valueMarkdown value="Additional guidance for allocation"/>
-</extension>
 <!-- Canonical URL for the measure. This is a globally unique, version-independent identifier for the eCQM. -->
-<url value="http://example.org/fhir/measures/measure-exm"/>
+<url value="http://example.org/fhir/measures/publishable-measure-exm"/>
 <!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
   set of eCQMs such as HEDIS or CMS eCQM identifiers. A measure may have any number of business identifiers. -->
 <identifier>
@@ -518,9 +504,9 @@
   <!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
   <version value="1.0.0"/>
   <!-- The name of the measure. This is a machine-friendly identifier for the measure -->
-  <name value="MeasureEXM"/>
+  <name value="PublishableMeasureEXM"/>
   <!-- The title of the measure. This is a user-friendly identifier for the measure -->
-  <title value="EXM Measure"/>
+  <title value="EXM Publishable Measure"/>
   <status value="active"/>
   <experimental value="true"/>
   <!-- The publication date of the measure -->
@@ -534,13 +520,17 @@
     </telecom>
   </contact>
   <!-- The description of the measure -->
-  <description value="An example FHIR-based measure"/>
+  <description value="An example FHIR-based publishable measure"/>
   <useContext>
     <code>
       <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="program"/>
     </code>
     <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs"/>
+        <code value="ep-ec"/>
+      </coding>
       <text value="eligible-provider"/>
     </valueCodeableConcept>
   </useContext>
@@ -612,13 +602,13 @@
   </extension>
   <type value="composed-of"/>
 </relatedArtifact>
-  <library value="http://hl7.org/fhir/us/cqfmeasures/Library/exm-logic"/>
+<library value="http://hl7.org/fhir/us/cqfmeasures/Library/exm-logic"/>
   <disclaimer value="Example disclaimer"/>
   <scoring>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
-      <code value="proportion"/>
-      <display value="Proportion"/>
+      <code value="ratio"/>
+      <display value="Ratio"/>
     </coding>
 </scoring>
 <type>
@@ -650,13 +640,8 @@
     </extension>
   </definition>
   <guidance value="Additional guidance provided to help communicate the intent of the measure"/>
-  <group id="group-1">
-    <code>
-      <coding>
-        <display value="group-1"/>
-      </coding>
-    </code>
-    <population id="initial-population-1">
+  <group id="group">
+    <population id="initial-population">
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -695,50 +680,6 @@
         <expression value="Denominator"/>
       </criteria>
     </population>
-    <stratifier id="stratifier-1">
-      <code>
-        <coding>
-          <display value="Stratifier 1"/>
-        </coding>
-      </code>
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 1"/>
-      </criteria>
-    </stratifier>
-    <stratifier id="stratifier-2">
-      <code>
-        <coding>
-          <display value="Stratifier 2"/>
-        </coding>
-      </code>
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 2"/>
-      </criteria>
-    </stratifier>
-    <stratifier id="stratifier-3">
-      <code>
-        <coding>
-          <display value="Stratifier 3"/>
-        </coding>
-      </code>
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 3"/>
-      </criteria>
-    </stratifier>
-    <stratifier id="stratifier-4">
-      <code>
-        <coding>
-          <display value="Stratifier 4"/>
-        </coding>
-      </code>
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Stratifier 4"/>
-      </criteria>
-    </stratifier>
   </group>
   <supplementalData id="sde-ethnicity">
     <usage>
