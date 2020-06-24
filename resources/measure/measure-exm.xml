@@ -1,8 +1,6 @@
 <Measure xmlns="http://hl7.org/fhir">
   <id value="measure-exm"/>
   <meta>
-      <versionId value="2"/>
-      <lastUpdated value="2019-11-06T16:55:48.200-07:00"/>
       <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"/>
   </meta>
 <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment">
@@ -14,7 +12,7 @@
     </extension>
 </extension>
 <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
-    <valueCode value="boolean"/>
+    <valueCode value="Encounter"/>
 </extension>
 <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-allocation">
     <valueMarkdown value="Additional guidance for allocation"/>
@@ -28,7 +26,7 @@
     <value value="EXM"/>
   </identifier>
   <!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
-  <version value="1.0.0"/>
+  <version value="2.0.0"/>
   <!-- The name of the measure. This is a machine-friendly identifier for the measure -->
   <name value="MeasureEXM"/>
   <!-- The title of the measure. This is a user-friendly identifier for the measure -->

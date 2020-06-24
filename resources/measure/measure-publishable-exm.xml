@@ -1,10 +1,11 @@
 <Measure xmlns="http://hl7.org/fhir">
     <id value="measure-publishable-exm"/>
     <meta>
-        <versionId value="2"/>
-        <lastUpdated value="2019-11-06T16:55:48.200-07:00"/>
         <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"/>
     </meta>
+    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+        <valueCode value="Encounter"/>
+    </extension>
 <!-- Canonical URL for the measure. This is a globally unique, version-independent identifier for the eCQM. -->
 <url value="http://example.org/fhir/measures/publishable-measure-exm"/>
 <!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
@@ -14,7 +15,7 @@
     <value value="EXM"/>
   </identifier>
   <!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
-  <version value="1.0.0"/>
+  <version value="2.0.0"/>
   <!-- The name of the measure. This is a machine-friendly identifier for the measure -->
   <name value="PublishableMeasureEXM"/>
   <!-- The title of the measure. This is a user-friendly identifier for the measure -->
@@ -114,13 +115,13 @@
   </extension>
   <type value="composed-of"/>
 </relatedArtifact>
-<library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic"/>
+<library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMPublishableLibrary"/>
   <disclaimer value="Example disclaimer"/>
   <scoring>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
-      <code value="ratio"/>
-      <display value="Ratio"/>
+      <code value="proportion"/>
+      <display value="Proportion"/>
     </coding>
 </scoring>
 <type>
@@ -152,7 +153,7 @@
     </extension>
   </definition>
   <guidance value="Additional guidance provided to help communicate the intent of the measure"/>
-  <group id="group">
+  <group id="group-1">
     <population id="initial-population">
       <code>
         <coding>
