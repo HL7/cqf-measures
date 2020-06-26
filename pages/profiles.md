@@ -22,10 +22,10 @@ In addition, measures are required to conform to the appropriate measure profile
 
 <table>
   <tr><th>Scoring Type</th><th>Profile</th></tr>
-  <tr><td>Cohort</td><th><a href="StructureDefinition-cohort-measure-cqfm.html">CQFMCohortMeasure</a></td></tr>
-  <tr><td>Proportion</td><th><a href="StructureDefinition-proportion-measure-cqfm.html">CQFMProportionMeasure</a></td></tr>
-  <tr><td>Ratio</td><th><a href="StructureDefinition-ratio-measure-cqfm.html">CQFMRatioMeasure</a></td></tr>
-  <tr><td>Continuous Variable</td><th><a href="StructureDefinition-cv-measure-cqfm.html">CQFMContinuousVariableMeasure</a></td></tr>
+  <tr><td>Cohort</td><td><a href="StructureDefinition-cohort-measure-cqfm.html">CQFMCohortMeasure</a></td></tr>
+  <tr><td>Proportion</td><td><a href="StructureDefinition-proportion-measure-cqfm.html">CQFMProportionMeasure</a></td></tr>
+  <tr><td>Ratio</td><td><a href="StructureDefinition-ratio-measure-cqfm.html">CQFMRatioMeasure</a></td></tr>
+  <tr><td>Continuous Variable</td><td><a href="StructureDefinition-cv-measure-cqfm.html">CQFMContinuousVariableMeasure</a></td></tr>
 </table>
 
 To support packaging, testing, and distribution of measure and library artifacts, this implementation guide defines the following additional profiles:
