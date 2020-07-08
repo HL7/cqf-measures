@@ -24,11 +24,11 @@
    <Path>/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\davinci</Path>
    <SheetName>davinci</SheetName>
   </SupBook>
-  <WindowHeight>7440</WindowHeight>
-  <WindowWidth>20520</WindowWidth>
+  <WindowHeight>15060</WindowHeight>
+  <WindowWidth>32767</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1968,7 +1968,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2004,7 +2003,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="82" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="83" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s87" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="122.25"/>
@@ -2171,7 +2170,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">A published measure must declare their profile</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">A measure must declare its profile</Data></Cell>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -2190,7 +2189,7 @@
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">A published measure must have a canonical url defined</Data></Cell>
+    <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -2209,7 +2208,26 @@
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">A published measure must have a canonical url defined</Data></Cell>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s104"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">allocation</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">allocation</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.extension</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Extension{#allocation}</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s103"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -2247,7 +2265,7 @@
     <Cell ss:StyleID="s121"/>
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure MUST provide one primary library reference containing population criteria definitions for the measure</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure MUST provide one primary library reference containing population criteria definitions for the measure</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2265,7 +2283,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure must indicate the scoring method used for the measure</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure must indicate the scoring method used for the measure</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2283,7 +2301,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure must indicate the type of the measure</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure must indicate the type of the measure</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2302,7 +2320,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">increase | decrease</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range).</Data></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure must indicate the improvement notation used for the measure</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure must indicate the improvement notation used for the measure</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2320,7 +2338,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure must specify at least one population group</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure must specify at least one population group</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2356,7 +2374,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure must specify at least one population for each population group</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure must specify at least one population for each population group</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2374,7 +2392,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure must specify at least one population for each population group</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure must specify at least one population for each population group</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2392,7 +2410,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure must specify the type of population criteria</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure must specify the type of population criteria</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2426,7 +2444,7 @@
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group.stratifier</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should provide stratification information if appropriate for the measure content</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure should provide stratification information if appropriate for the measure content</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2444,7 +2462,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should provide stratification information if appropriate for the measure content</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure should provide stratification information if appropriate for the measure content</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2478,7 +2496,7 @@
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.supplementalData</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should provide supplemental data appropriate for the measure content</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure should provide supplemental data appropriate for the measure content</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -2496,7 +2514,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s103"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A published measure should provide supplemental data appropriate for the measure content</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A measure should provide supplemental data appropriate for the measure content</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s91"/>
@@ -3418,12 +3436,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>18</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3435,11 +3454,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>18</ActiveCol>
+     <ActiveRow>22</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
