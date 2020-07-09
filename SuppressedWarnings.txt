@@ -3,6 +3,6 @@
 # This device profile is intended to model software systems as devices, not implantable devices like what the US Core profile is describing. Approved by US Realm on 6/30/2020.
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile
 # These warnings are all caused by the use of the new text/cql.identifier media type. This has been addressed in the current R5 build and are expected to resolve once the core package updates.
-WARNING: ValueSet http://www.rfc-editor.org/bcp/bcp13.txt not found by validator
+ValueSet http://www.rfc-editor.org/bcp/bcp13.txt not found by validator
 # The narrative generation is happening in the tool, so this error is correct when it runs, but isn't correct for the final output:
 ERROR: Library/EXMPublishableLibrary: Library: Profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-library-cqfm, Element 'Library.text': minimum required = 1, but only found 0
