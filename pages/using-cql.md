@@ -392,7 +392,7 @@ types referenced in CQL libraries to be included in a Measure must conform to Co
 {: #conformance-requirement-31}
 
 1. Data type names referenced in CQL SHALL:<br/>
-       a. Use quoted identifiers<br/>
+       a. Use quoted identifiers only if necessary (i.e. the data type name includes spaces)<br/>
        b. Use PascalCase plus appropriate spacing
 
 For example:
