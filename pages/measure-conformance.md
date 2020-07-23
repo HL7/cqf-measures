@@ -907,7 +907,7 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 | Denominator Exception | Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures. |
 {: .grid}
 
-* Initial population : Identify those cases that meet the Initial Population criteria.<br/>
+* Initial population : Identify those cases that meet the Initial Population criteria. <br/>
 * Denominator : Identify that subset of the Initial Population that meet the Denominator criteria.<br/>
 * Denominator Exclusion : Identify that subset of the Denominator that meet the Denominator Exclusion criteria. There are cases that should be removed from the Denominator as exclusion. Once these cases are removed, the subset remaining would reflect the Denominator per criteria.
 * Numerator : Identify those cases in the Denominator and NOT in the Denominator Exclusion that meet the Numerator criteria. In proportion measures, the Numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the Denominator.
