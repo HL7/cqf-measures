@@ -24,11 +24,11 @@
    <Path>/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\davinci</Path>
    <SheetName>davinci</SheetName>
   </SupBook>
-  <WindowHeight>15060</WindowHeight>
-  <WindowWidth>32767</WindowWidth>
+  <WindowHeight>7440</WindowHeight>
+  <WindowWidth>20520</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -890,6 +890,7 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">scoring</Data></Cell>
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.scoring</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">&lt;type&gt;&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/measure-scoring&quot;/&gt;&lt;code value=&quot;continuous-variable&quot;/&gt;&lt;display value=&quot;Continuous Variable&quot;/&gt;&lt;/coding&gt;&lt;/type&gt;</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -907,6 +908,7 @@
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"><Data ss:Type="String">group</Data></Cell>
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s101"/>
@@ -924,6 +926,7 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">group.population</Data></Cell>
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group.population</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">3..4</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s101"/>
@@ -941,6 +944,7 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">group.population</Data></Cell>
     <Cell><Data ss:Type="String">Measure.group.population</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Initial Population</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -960,6 +964,7 @@
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group.population.code</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">&lt;type&gt;&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/measure-population&quot;/&gt;&lt;code value=&quot;initial-population&quot;/&gt;&lt;display value=&quot;Initial Population&quot;/&gt;&lt;/coding&gt;&lt;/type&gt;</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -978,6 +983,7 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">group.population</Data></Cell>
     <Cell><Data ss:Type="String">Measure.group.population</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Measure Population</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -997,6 +1003,7 @@
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group.population.code</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">&lt;type&gt;&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/measure-population&quot;/&gt;&lt;code value=&quot;measure-population&quot;/&gt;&lt;display value=&quot;Measure Population&quot;/&gt;&lt;/coding&gt;&lt;/type&gt;</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -1015,6 +1022,7 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">group.population</Data></Cell>
     <Cell><Data ss:Type="String">Measure.group.population</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Measure Population Exclusion</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -1034,6 +1042,7 @@
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group.population.code</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">&lt;type&gt;&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/measure-population&quot;/&gt;&lt;code value=&quot;measure-population-exclusion&quot;/&gt;&lt;display value=&quot;Measure Population Exclusion&quot;/&gt;&lt;/coding&gt;&lt;/type&gt;</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -1052,6 +1061,7 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">group.population</Data></Cell>
     <Cell><Data ss:Type="String">Measure.group.population</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Measure Observation</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -1071,6 +1081,7 @@
     <Cell><Data ss:Type="String">Measure.group.population.extension</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Extension{#criteriaReference}</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s101"/>
@@ -1089,6 +1100,7 @@
     <Cell><Data ss:Type="String">Measure.group.population.extension</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Extension{#aggregateMethod}</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s101"/>
@@ -1107,6 +1119,7 @@
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.group.population.code</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">&lt;type&gt;&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/measure-population&quot;/&gt;&lt;code value=&quot;measure-observation&quot;/&gt;&lt;display value=&quot;Measure Observation&quot;/&gt;&lt;/coding&gt;&lt;/type&gt;</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -1896,12 +1909,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1913,12 +1927,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>15</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3078,7 +3090,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
