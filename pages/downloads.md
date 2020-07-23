@@ -13,12 +13,12 @@ title: Terminology
 ## 11 Downloads
 {: #downloads }
 
-### 11.1 Validator Pack
-{: #validator-pack}
+### 11.1 Full Implementation Guide
+{: #full-ig}
 
-The following file contains all value sets, profiles, extensions, pages, etc. in this Implementation Guide:
+The following file contains the complete, downloadable implementation guide:
 
--  [Validator Pack](validator.pack)
+-  [Full IG](full-ig.zip)
 
 ### 11.2 Definitions
 {: #definitions}
