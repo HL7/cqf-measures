@@ -29,19 +29,19 @@ A measure score in which each individual value for the measure can fall anywhere
 
 #### A.4 Denominator
 
-The lower part of a fraction used to calculate a rate, proportion, or ratio. It can be the same as the initial population or a subset of the initial population to further constrain the population for the purpose of the measure. Continuous variable measures do not have a denominator, but instead define a measure population. [Source](https://ecqi.healthit.gov/glossary)
+Denominator criteria define the patients, subjects, or events that should be included in the lower portion of a fraction used to calculate a rate, proportion, or ratio. The denominator can be the same as the initial population, or a subset of the initial population to further constrain the population for the purpose of the measure.
 
-For measures that include multiple populations, different populations may have different denomintaors, grouping the denominators along specific criteria (e.g. patient's age, diagnosis, surgical procedures, prior myocardial infarction, etc.).
+For measures that include multiple populations, different populations may have different denominators, grouping the denominators along specific criteria (e.g. patient's age, diagnosis, surgical procedures, prior myocardial infarction, etc.).
 
 Different measures within a measure set (see A.18, Quality Measure Set) may have different Denominators (e.g., measure #1 Denominator = Initial Population AND Smoker; measure #2 Denominator = Initial Population AND Atrial Fibrillation). A Denominator can have inclusion and exclusion criteria.
 
 #### A.5 Denominator Exception
 
- Any condition that should remove a patient, procedure, or unit of measurement from the denominator of the performance rate only if the numerator criteria are not met. A denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. A denominator exception also provides for the exercise of clinical judgment and should be specifically defined where capturing the information in a structured manner fits the clinical workflow. A denominator exception is used only in proportion measures. Denominator exception cases are removed from the denominator. However, the number of patients with valid exceptions may still be reported. Allowable reasons fall into three general categories - medical reasons, patient reasons, or system reasons. [Source](https://ecqi.healthit.gov/glossary)
+Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures.
 
 #### A.6 Denominator Exclusion
 
-A case that should be removed from the denominator before determining if numerator criteria are met. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams. [Source](https://ecqi.healthit.gov/glossary)
+Denominator exclusion criteria define patients, subjects, or events that should be excluded from the denominator. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams.
 
 #### A.7 Direct Reference Code
 
@@ -57,7 +57,7 @@ An HL7 Version 3 normative standard for the representation of quality measures. 
 
 #### A.10 Initial Population
 
-All events to be evaluated by a specific electronic clinical quality measure (eCQM) involving patients who share a common set of specified characteristics within a specific measurement set to which a given measure belongs. All patients counted (for example, as numerator, as denominator) are drawn from the initial population. [Source](https://ecqi.healthit.gov/glossary)
+The initial population criteria refers to all patients, subjects, or events to be evaluated by a quality measure involving patients or subjects who share a common set of specified characterstics. All patients, subjects, or events counted (for example, as numerator, as denominator) are drawn from the initial population.
 
 #### A.11 Measure Population
 
@@ -69,11 +69,11 @@ Measure Population Exclusions are used in Continuous Variable Measures to define
 
 #### A.13 Numerator
 
-The numerator is the upper portion of a fraction used to calculate a rate, proportion, or ratio. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the denominator. A numerator statement describes the clinical action that satisfies the conditions of the performance measure. [Source](https://ecqi.healthit.gov/glossary)
+Numerator criteria define the patients, subjects, or events that should be included in the upper portion of a fraction used to calculate a rate, proportion, or ratio. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, subject, or event defined in the denominator. A numerator statement describes the clinical action that satisfies the conditions of the measure.
 
 #### A.14 Numerator Exclusion
 
-The numerator exclusion defines the instances that should not be included in the numerator data. Numerator exclusions are used in ratio and proportion measures. [Source](https://ecqi.healthit.gov/glossary)
+Numerator exclusion criteria define patients, subjects, or events to be excluded from the numerator. Numerator exclusions are used in proportion and ratio measures to help narrow the numerator (for inverted measures).
 
 #### A.15 Outcome Measure
 
