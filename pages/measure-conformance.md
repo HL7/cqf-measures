@@ -23,9 +23,7 @@ In FHIR, an eCQM is represented as a FHIR Measure resource containing metadata (
     <start value="2018-01-01"/>
     <end value="2018-12-31"/>
   </effectivePeriod>
-  <library>
-    <reference value="Library/EXMLogic"/>
-  </library>
+  <library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic"/>
   <group>
     <population>
       <code><coding><code value="initial-population"/></coding></code>
@@ -80,9 +78,7 @@ When using multiple CQL libraries to define a measure, refer to the [Nested Libr
 Inclusion of CQL into a FHIR eCQM is accomplished through the use of a FHIR Library resource as shown in Snippet 3-4. These libraries are then incorporated into the FHIR eCQM using the `library` element of the Measure (Snippet 3). CQL library content is encoded as `base64` and included as the `content` element of the Library resource.
 
 ```xml
- <library>
-    <reference value="Library/EXMLogic"/>
-  </library>
+<library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic"/>
 ```
 Snippet 3-3: `library` element from Snippet 3-1
 
