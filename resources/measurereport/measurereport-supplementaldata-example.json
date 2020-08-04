@@ -1,0 +1,26 @@
+{
+  "@comment": "For the individual report case"
+  "resourceType": "MeasureReport",
+  "id": "supplementaldata-example",
+  "contained": [
+    {
+      "@comment": "1 contained observation per supplemental data definition in the measure"
+      "resourceType": "Observation",
+      "id": "supplementaldata-example-observation",
+      "code": {
+        "@comment": "Should be the Measure.supplementalData.code, if available, otherwise, the text of the supplementalData.criteria.expression",
+        "text": "SDE Ethnicity"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino"
+          }
+        ]
+      }
+    }
+  ],
+  "@comment": "rest of the measure report"
+}

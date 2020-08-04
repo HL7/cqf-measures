@@ -12,14 +12,17 @@ valueset "Payer": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3
 context Patient
 
 define "SDE Ethnicity":
-  (flatten (
-    Patient.extension Extension
-      where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
-        return Extension.extension
-  )) E
-    where E.url = 'ombCategory'
-      or E.url = 'detailed'
-    return E.value as Coding
+  FHIR.CodeableConcept {
+    "coding":
+      (flatten (
+        Patient.extension Extension
+          where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
+            return Extension.extension
+      )) E
+        where E.url = 'ombCategory'
+          or E.url = 'detailed'
+        return E.value as Coding
+  }
 
 define "SDE Payer":
     [Coverage: type in "Payer"] Payer
@@ -28,15 +31,19 @@ define "SDE Payer":
         period: Payer.period
       }
 
+// TODO: Race in US Core has up to 5 categories defined, how should those be reported? All/first?
 define "SDE Race":
-  (flatten (
-    Patient.extension Extension
-      where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
-        return Extension.extension
-  )) E
-    where E.url = 'ombCategory'
-      or E.url = 'detailed'
-    return E.value as Coding
+  FHIR.CodeableConcept {
+    "coding":
+      (flatten (
+        Patient.extension Extension
+          where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
+            return Extension.extension
+      )) E
+        where E.url = 'ombCategory'
+          or E.url = 'detailed'
+        return E.value as Coding
+  }
 
 define "SDE Sex":
   case
