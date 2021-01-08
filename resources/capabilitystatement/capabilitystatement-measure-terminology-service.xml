@@ -7,8 +7,10 @@
   </extension>
   <url value="http://hl7.org/fhir/us/cqfmeasures/CapabilityStatement/measure-terminology-service"/>
   <version value="2.1.0"/>
-  <name value="Measure Terminology Service Capability Statement"/>
+  <name value="CQFMMeasureTerminologyService"/>
+  <title value="Measure Terminology Service Capability Statement"/>
   <status value="draft"/>
+  <experimental value="false"/>
   <date value="2015-07-05"/>
   <publisher value="HL7, Inc"/>
   <contact>
@@ -19,10 +21,11 @@
     </telecom>
   </contact>
   <description value="Capability statement for a terminology service supporting measure authoring and evaulation use cases. A server can support more functionality than defined here, but this defines the minimum expectations."/>
-  <kind value="capability"/>
+  <kind value="requirements"/>
   <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
+  <implementationGuide value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/us-cqfmeasures-2.1.0"/>
   <rest>
     <mode value="server"/>
     <documentation value="RESTful Measure Terminology Server"/>
@@ -38,6 +41,7 @@
     <resource>
       <type value="CodeSystem"/>
       <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-codesystem-cqfm"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
@@ -53,53 +57,76 @@
         <documentation value="Search allows clients to search for supported code systems"/>
       </interaction>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="url"/>
         <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-url"/>
         <type value="uri"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-version"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="identifier"/>
         <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-identifier"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="name"/>
         <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-name"/>
         <type value="string"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="title"/>
         <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-title"/>
         <type value="string"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="description"/>
         <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-description"/>
         <type value="string"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
         <name value="status"/>
         <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-status"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="code"/>
         <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-code"/>
         <type value="token"/>
       </searchParam>
-      <operation>
-        <name value=""/>
-        <definition/>
-      </operation>
     </resource>
     <resource>
       <type value="ValueSet"/>
       <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm"/>
+      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-valueset-cqfm"/>
+      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
@@ -115,46 +142,73 @@
         <documentation value="Search allows clients to find value sets on the server"/>
       </interaction>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="date"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-date"/>
         <type value="date"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="name"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-name"/>
         <type value="string"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="title"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-title"/>
         <type value="string"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="identifier"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-identifier"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="description"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-description"/>
         <type value="string"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="status"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-status"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="url"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-url"/>
         <type value="uri"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-version"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="code"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-code"/>
         <type value="token"/>
@@ -162,7 +216,7 @@
     </resource>
     <resource>
       <type value="Library"/>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/quality-program-cqfm"/>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
@@ -178,51 +232,81 @@
         <documentation value="Search allows clients to find quality programs on the server"/>
       </interaction>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="date"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-date"/>
         <type value="date"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="name"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-name"/>
         <type value="string"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="title"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-title"/>
         <type value="string"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="identifier"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-identifier"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="description"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-description"/>
         <type value="string"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="status"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-status"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="url"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-url"/>
         <type value="uri"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-version"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="composed-of"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-composed-of"/>
         <type value="reference"/>
       </searchParam>
       <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <name value="depends-on"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-composed-of"/>
         <type value="reference"/>
