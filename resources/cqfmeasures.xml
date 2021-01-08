@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-  <id value="us-cqfmeasures-2.0.0"/>
-  <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/us-cqfmeasures-2.0.0"/>
-  <version value="2.0.0"/>
+  <id value="us-cqfmeasures-2.1.0"/>
+  <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/us-cqfmeasures-2.1.0"/>
+  <version value="2.1.0"/>
   <name value="CQFMeasures"/>
   <title value="Quality Measure Implementation Guide"/>
   <status value="draft"/>
@@ -44,6 +44,16 @@
       </reference>
       <name value="Bundle - EXM Measure Bundle"/>
       <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CapabilityStatement/measure-terminology-service"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="OperationDefinition/Library-package"/>
+      </reference>
     </resource>
     <resource>
       <reference>
@@ -444,6 +454,10 @@
     <parameter>
       <code value="path-resource"/>
       <value value="resources\capabilitystatement"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\operationdefinition"/>
     </parameter>
     <parameter>
       <code value="path-resource"/>

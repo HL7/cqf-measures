@@ -106,7 +106,11 @@
     "profile-executable-library-cqfm-spreadsheet.xml",
     "profile-measure-bundle-cqfm-spreadsheet.xml",
     "profile-quality-program-cqfm-spreadsheet.xml",
-    "profile-device-softwaresystem-cqfm-spreadsheet.xml"
+    "profile-device-softwaresystem-cqfm-spreadsheet.xml",
+    "profile-publishable-codesystem-cqfm-spreadsheet.xml",
+    "profile-computable-valueset-cqfm-spreadsheet.xml",
+    "profile-executable-valueset-cqfm-spreadsheet.xml",
+    "profile-publishable-valueset-cqfm-spreadsheet.xml"
   ],
   "canonicalBase": "http://hl7.org/fhir/us/cqfmeasures",
   "source": "cqfmeasures.xml",
@@ -122,6 +126,10 @@
     "Bundle/exm-testcase-bundle": {
       "source": "bundle/exm-testcase-bundle.json",
       "base": "Bundle-exm-testcase-bundle.html"
+    },
+    "CapabilityStatement/measure-terminology-service": {
+      "source": "capabilitystatement/capabilitystatement-measure-terminology-service.xml",
+      "base": "CapabilityStatement-measure-terminology-service.html"
     },
     "Device/software-system-example": {
       "source": "device/device-software-system-example.json",
@@ -256,8 +264,11 @@
     "Measure/measure-VTE1": {
       "base": "Measure-measure-VTE1.html"
     },
+    "OperationDefinition/Library-package": {
+      "source": "operationdefinition/operationdefinition-library-package.xml",
+      "base": "OperationDefinition-Library-package.html"
+    },
     "StructureDefinition/library-cqfm": {
-      "version": "1.0",
       "defns": "StructureDefinition-library-cqfm-definitions.html",
       "base": "StructureDefinition-library-cqfm.html"
     },
@@ -316,6 +327,22 @@
     "StructureDefinition/quality-program-cqfm": {
       "defns": "StructureDefinition-quality-program-cqfm-definitions.html",
       "base": "StructureDefinition-quality-program-cqfm.html"
+    },
+    "StructureDefinition/publishable-codesystem-cqfm": {
+      "defns": "StructureDefinition-publishable-codesystem-cqfm-definitions.html",
+      "base": "StructureDefinition-publishable-codesystem-cqfm.html"
+    },
+    "StructureDefinition/computable-valueset-cqfm": {
+      "defns": "StructureDefinition-computable-valueset-cqfm-definitions.html",
+      "base": "StructureDefinition-computable-valueset-cqfm.html"
+    },
+    "StructureDefinition/executable-valueset-cqfm": {
+      "defns": "StructureDefinition-executable-valueset-cqfm-definitions.html",
+      "base": "StructureDefinition-executable-valueset-cqfm.html"
+    },
+    "StructureDefinition/publishable-valueset-cqfm": {
+      "defns": "StructureDefinition-publishable-valueset-cqfm-definitions.html",
+      "base": "StructureDefinition-publishable-valueset-cqfm.html"
     },
     "StructureDefinition/cqfm-qualityprograms": {
       "base": "StructureDefinition-cqfm-qualityprograms.html"
