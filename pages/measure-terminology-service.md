@@ -51,20 +51,20 @@ This page describes documents the use cases and conformance expectations of a te
     8. code: Returning any valueset with the given code
 
 7. Support ValueSet/$validate-code
-    1. Support the url parameter
-    2. Support the valueSetVersion parameter
-    3. Support the code parameter
-    4. Support the system parameter
-    5. Support the systemVersion parameter
-    6. Support the coding parameter
-    7. Support the codeableConcept parameter
+    1. SHALL support the url parameter
+    2. SHALL support the valueSetVersion parameter
+    3. SHALL support the code parameter
+    4. SHALL support the system parameter
+    5. SHALL support the systemVersion parameter
+    6. SHALL support the coding parameter
+    7. SHALL support the codeableConcept parameter
 
 8. Support ValueSet/$expand
-    1. Support the url parameter
-    2. Support the valueSetVersion parameter
-    3. Support the system-version parameter
-    4. Support the check-system-version parameter
-    5. Support the force-system-version parameter
+    1. SHALL support the url parameter
+    2. SHALL support the valueSetVersion parameter
+    3. SHALL support the system-version parameter
+    4. SHALL support the check-system-version parameter
+    5. SHALL support the force-system-version parameter
 
 ## Quality Programs (Binding Parameters Specification)
 
@@ -85,11 +85,17 @@ This page describes documents the use cases and conformance expectations of a te
     8. composed-of: Returning any quality program that includes the given measure canonical
     9. depends-on: Returning any quality program that references the given code system or value set canonical
 
-5. Support quality program value set packaging: [Library/$get-valueset-expansions](OperationDefinition-library-get-valueset-expansions.html) operation
-    1. url
-    2. version
-    3. offset
-    4. count
-    5. system-version
-    6. check-system-version
-    7. force-system-version
+5. Support quality program value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
+    1. SHALL support the url parameter
+    2. SHALL support the version parameter
+    3. SHOULD support the offset parameter
+    4. SHOULD support the count parameter
+    5. SHOULD support system-version parameter (overrides code system versions specified in the quality program release)
+    6. SHOULD support check-system-version parameter (overrides code system versions specified in the quality program release)
+    7. SHOULD support force-system-version parameter (overrides code system versions specified in the quality program release)
+
+## Capability Statement
+
+All the above capabilities are formally captured in the following capability statement:
+
+[CQFMMeasureTerminologyService](CapabilityStatement-measure-terminology-service.html)
