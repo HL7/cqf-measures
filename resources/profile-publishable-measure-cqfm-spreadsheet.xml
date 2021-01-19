@@ -8,9 +8,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Abdulllah Rafiqi</LastAuthor>
+  <LastAuthor>Bryn</LastAuthor>
   <Created>2020-04-09T11:12:07Z</Created>
-  <LastSaved>2020-05-06T19:24:54Z</LastSaved>
+  <LastSaved>2021-01-15T19:47:15Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -28,7 +28,8 @@
   <WindowWidth>22035</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -733,7 +734,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -767,7 +767,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="75" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="106" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s81" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="122.25"/>
@@ -929,15 +929,15 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">type</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s100"/>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">A published measure must have at least one identifier defined</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">A published measure must be able to specify additional identifiers such as endorser and publisher identifiers for the measure</Data></Cell>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -947,6 +947,517 @@
     <Cell ss:StyleID="s103"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">versionIndependentIdentifier</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Measure guid</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The version-independent globally unique identifier for the measure (GUID)</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.use</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">official</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.type</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">&lt;type&gt;&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type&quot;/&gt;&lt;code value=&quot;version-independent&quot;/&gt;&lt;/coding&gt;&lt;/type&gt;</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.system</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">urn:ietf:rfc:3986</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.value</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">versionSpecificIdentifier</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Measure version guid</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The version-specific globally unique identifier for the measure (GUID)</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.use</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">official</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.type</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">&lt;type&gt;&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type&quot;/&gt;&lt;code value=&quot;version-specific&quot;/&gt;&lt;/coding&gt;&lt;/type&gt;</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.system</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">urn:ietf:rfc:3986</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.value</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">shortName</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Short name</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The short name for the measure (e.g. CMS104v4)</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.use</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">usual</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.type</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">&lt;type&gt;&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type&quot;/&gt;&lt;code value=&quot;short-name&quot;/&gt;&lt;/coding&gt;&lt;/type&gt;</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.value</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">endorserIdentifier</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Endorser identifier</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">An identifier assigned by the measure endorser</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.use</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">official</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.type</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">&lt;type&gt;&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type&quot;/&gt;&lt;code value=&quot;endorser&quot;/&gt;&lt;/coding&gt;&lt;/type&gt;</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.system</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.value</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.assigner</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">publisherIdentifier</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Publisher identifier</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">An identifier assigned by the measure publisher</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.use</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">official</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.type</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">&lt;type&gt;&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type&quot;/&gt;&lt;code value=&quot;publisher&quot;/&gt;&lt;/coding&gt;&lt;/type&gt;</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.system</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.value</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Measure.identifier.assigner</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s105"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -1347,13 +1858,110 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">type</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">relatedArtifact</Data></Cell>
     <Cell><Data ss:Type="String">Measure.relatedArtifact</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s100"/>
     <Cell ss:StyleID="s101"><Data ss:Type="String">A published measure should provide related information such as supporting evidence, citations, and documentation</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">predecessor</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">relatedArtifact</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.relatedArtifact</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Previous measure?</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Reference to a predecessor measure that this measure is replacing</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">A published measure should indicate which measure it is replacing, if any</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">relatedArtifact.type</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.relatedArtifact.type</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">predecessor</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">relatedArtifact.resource</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.relatedArtifact.resource</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">canonical(Measure)</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">citation</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">relatedArtifact</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.relatedArtifact</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Reference/citation</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">relatedArtifact.type</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.relatedArtifact.type</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">citation</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
@@ -2085,12 +2693,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2102,10 +2711,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>40</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

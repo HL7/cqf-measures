@@ -33,6 +33,7 @@ This page describes documents the use cases and conformance expectations of a te
 ## Value Sets
 
 1. SHALL Represent basic ValueSet information, as specified by the [ShareableValueSet](http://hl7.org/fhir/shareablevalueset.html) profile, which includes url, version, name, status, experimental, publisher, and description.
+    1. TODO: Need to support the ability to include specific codes that are inactive in their code systems, without requiring authors to maintain code system versions for all specific codes included from a code system.
 
 2. SHALL Represent computable ValueSet information, as specified by the [CQFMComputableValueSet](StructureDefinition-computable-valueset-cqfm.html) profile, which specifies the definition of a value set using established extensions, or with the `compose` element, including in particular the ability to use the `inactive` element of the `include` to indicate that a specific code is inactive in the code system but should still be included in the expansion.
 

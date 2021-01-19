@@ -94,6 +94,7 @@
   "spreadsheets": [
     "profile-library-cqfm-spreadsheet.xml",
     "profile-measure-cqfm-spreadsheet.xml",
+    "profile-computable-measure-cqfm-spreadsheet.xml",
     "profile-proportion-measure-cqfm-spreadsheet.xml",
     "profile-publishable-measure-cqfm-spreadsheet.xml",
     "profile-ratio-measure-cqfm-spreadsheet.xml",
@@ -292,6 +293,10 @@
       "defns": "StructureDefinition-proportion-measure-cqfm-definitions.html",
       "base": "StructureDefinition-proportion-measure-cqfm.html"
     },
+    "StructureDefinition/computable-measure-cqfm": {
+      "defns": "StructureDefinition-computable-maesure-cqfm-definitions.html",
+      "base": "StructureDefinition-computable-measure-cqfm.html"
+    },
     "StructureDefinition/publishable-measure-cqfm": {
       "defns": "StructureDefinition-publishable-measure-cqfm-definitions.html",
       "base": "StructureDefinition-publishable-measure-cqfm.html"
@@ -359,8 +364,14 @@
     "StructureDefinition/cqfm-criteriaReference": {
       "base": "StructureDefinition-cqfm-criteriaReference.html"
     },
+    "StructureDefinition/cqfm-dataRequirement": {
+      "base": "StructureDefinition-cqfm-dataRequirement.html"
+    },
     "StructureDefinition/cqfm-definitionTerm": {
       "base": "StructureDefinition-cqfm-definitionTerm.html"
+    },
+    "StructureDefinition/cqfm-directReferenceCode": {
+      "base": "StructureDefinition-cqfm-directReferenceCode.html"
     },
     "StructureDefinition/cqfm-effectivePeriodAnchor": {
       "base": "StructureDefinition-cqfm-effectivePeriodAnchor.html"
@@ -370,6 +381,12 @@
     },
     "StructureDefinition/cqfm-isPrimaryCitation": {
       "base": "StructureDefinition-cqfm-isPrimaryCitation.html"
+    },
+    "StructureDefinition/cqfm-logicDefinition": {
+      "base": "StructureDefinition-cqfm-logicDefinition.html"
+    },
+    "StructureDefinition/cqfm-parameter": {
+      "base": "StructureDefinition-cqfm-parameter.html"
     },
     "StructureDefinition/cqfm-publicationStatus": {
       "base": "StructureDefinition-cqfm-publicationStatus.html"
@@ -398,6 +415,10 @@
       "source": "codesystem/codesystem-aggregate-method.json",
       "base": "CodeSystem-aggregate-method.html"
     },
+    "CodeSystem/identifier-type": {
+      "source": "codesystem/codesystem-identifier-type.json",
+      "base": "CodeSystem-identifier-type.html"
+    },
     "CodeSystem/quality-programs": {
       "source": "codesystem/codesystem-quality-programs.json",
       "base": "CodeSystem-quality-programs.html"
@@ -413,6 +434,10 @@
     "ValueSet/aggregate-method": {
       "source": "valueset/valueset-aggregate-method.json",
       "base": "ValueSet-aggregate-method.html"
+    },
+    "ValueSet/identifier-type": {
+      "source": "valueset/valueset-identifier-type.json",
+      "base": "ValueSet-identifier-type.html"
     },
     "ValueSet/quality-programs": {
       "source": "valueset/valueset-quality-programs.json",
