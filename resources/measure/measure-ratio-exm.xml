@@ -1,33 +1,25 @@
 <Measure xmlns="http://hl7.org/fhir">
-    <id value="measure-ratio-exm"/>
-    <meta>
-        <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm"/>
-    </meta>
-<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment">
-    <extension url="type">
-        <valueCode value="documentation"/>
-    </extension>
-    <extension url="text">
-        <valueString value="This illustrates an example comment"/>
-    </extension>
-</extension>
-<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
-    <valueCode value="Encounter"/>
-</extension>
-<!-- Canonical URL for the measure. This is a globally unique, version-independent identifier for the eCQM. -->
-<url value="http://example.org/fhir/measures/measure-exm"/>
-<!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
-  set of eCQMs such as HEDIS or CMS eCQM identifiers. A measure may have any number of business identifiers. -->
-<identifier>
+  <id value="measure-ratio-exm"/>
+  <meta>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+      <valueCode value="Encounter"/>
+  </extension>
+  <!-- Canonical URL for the measure. This is a globally unique, version-independent identifier for the eCQM. -->
+  <url value="http://example.org/fhir/measures/measure-ratio-exm"/>
+  <!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
+    set of eCQMs such as HEDIS or CMS eCQM identifiers. A measure may have any number of business identifiers. -->
+  <identifier>
     <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm"/>
-    <value value="EXM"/>
+    <value value="EXMRatio"/>
   </identifier>
   <!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
   <version value="2.0.0"/>
   <!-- The name of the measure. This is a machine-friendly identifier for the measure -->
-  <name value="PublishableMeasureEXM"/>
+  <name value="EXMRatioMeasure"/>
   <!-- The title of the measure. This is a user-friendly identifier for the measure -->
-  <title value="EXM Publishable Measure"/>
+  <title value="EXM Ratio Measure"/>
   <status value="active"/>
   <experimental value="true"/>
   <!-- The publication date of the measure -->
@@ -90,42 +82,17 @@
   <author>
     <name value="Example Measure Content Developer"/>
   </author>
-  <relatedArtifact>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
-        <valueBoolean value="true"/>
-    </extension>
-    <type value="documentation"/>
-    <citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. &quot;Antibiotic treatment       of children with sore throat.&quot; JAMA 294(18):2315-2322."/>
-</relatedArtifact>
-<relatedArtifact>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
-        <valueBoolean value="true"/>
-    </extension>
-    <type value="documentation"/>
-    <citation value="Infectious Diseases Society of America. 2012. &quot;Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update.&quot;"/>
-</relatedArtifact>
-<relatedArtifact>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
-        <valueBoolean value="true"/>
-    </extension>
-    <type value="documentation"/>
-    <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot; Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
-  </relatedArtifact>
-  <relatedArtifact>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationStatus">
-        <valueCode value="draft"/>
-    </extension>
-    <type value="composed-of"/>
-</relatedArtifact>
-<relatedArtifact>
-  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationDate">
-      <valueDate value="2019-01-01"/>
-  </extension>
-  <type value="composed-of"/>
-</relatedArtifact>
-<library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic"/>
+  <library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMRatio"/>
   <disclaimer value="Example disclaimer"/>
   <scoring>
+    <!-- https://jira.hl7.org/browse/FHIR-30506 -->
+    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit">
+      <coding>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="/1000d"/>
+      </coding>
+      <text value="Per 1000 Patient Days"/>
+    </extension>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
       <code value="ratio"/>
@@ -138,29 +105,13 @@
       <code value="process"/>
     </coding>
   </type>
-  <riskAdjustment value="Risk adjustment for this measure is performed by..."/>
-  <rateAggregation value="Rate aggregation for this measure is performed by..."/>
-  <rationale value="Rationale for this measure is..."/>
-  <clinicalRecommendationStatement value="The clinical recommendation statement for this measure is..."/>
   <improvementNotation>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
-      <code value="increase"/>
-      <display value="Increased score indicates improvement"/>
+      <code value="decrease"/>
+      <display value="Decreased score indicates improvement"/>
     </coding>
   </improvementNotation>
-  <!-- NOTE: When using the extension, do not provide the definition in the element, or the extension may end up associated with an arbitrary definition -->
-  <definition>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-definitionTerm">
-      <extension url="term">
-        <valueString value="Term"/>
-      </extension>
-      <extension url="definition">
-        <valueMarkdown value="A term used in the measure that bears clearly definition to communicate the measure intent"/>
-      </extension>
-    </extension>
-  </definition>
-  <guidance value="Additional guidance provided to help communicate the intent of the measure"/>
   <group id="group-1">
     <population id="initial-population">
       <code>
@@ -201,53 +152,43 @@
         <expression value="Denominator"/>
       </criteria>
     </population>
+    <population id="denominator-observation">
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference">
+        <valueString value="denominator"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod">
+        <valueCode value="sum"/>
+      </extension>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="measure-observation"/>
+          <display value="Measure Observation"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql.identifier"/>
+        <expression value="Measure Denominator Observation"/>
+      </criteria>
+    </population>
+    <population id="numerator-observation">
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference">
+        <valueString value="numerator"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod">
+        <valueCode value="sum"/>
+      </extension>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="measure-observation"/>
+          <display value="Measure Observation"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql.identifier"/>
+        <expression value="Measure Numerator Observation"/>
+      </criteria>
+    </population>
   </group>
-  <supplementalData id="sde-ethnicity">
-    <usage>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
-    </usage>
-    <criteria>
-      <language value="text/cql.identifier"/>
-      <expression value="SDE Ethnicity"/>
-    </criteria>
-  </supplementalData>
-  <supplementalData id="sde-race">
-    <usage>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
-    </usage>
-    <criteria>
-      <language value="text/cql.identifier"/>
-      <expression value="SDE Race"/>
-    </criteria>
-  </supplementalData>
-  <supplementalData id="sde-payer">
-    <usage>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
-    </usage>
-    <criteria>
-      <language value="text/cql.identifier"/>
-      <expression value="SDE Payer"/>
-    </criteria>
-  </supplementalData>
-  <supplementalData id="sde-sex">
-    <usage>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
-    </usage>
-    <criteria>
-      <language value="text/cql.identifier"/>
-      <expression value="SDE Sex"/>
-    </criteria>
-  </supplementalData>
 </Measure>

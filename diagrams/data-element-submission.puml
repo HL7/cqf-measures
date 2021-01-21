@@ -9,7 +9,7 @@ participant "Receiving System" as Receiver
 loop per measure
     Submitter -> KR: $data-requirements
     KR -> KR: Process data requirements
-    note right: 1. Include date-based filtering\n2. Map filters to search parameters\n3.   Prune data elements based on measure usage\n4. Eliminate duplicates
+    note right: 1. Include date-based filtering\n2. Map filters to search parameters\n3.   Prune data elements based on measure usage (incl attr)\n4. Eliminate duplicates
     KR -> Submitter: Library.dataRequirement (0..*)
 end
 note right: Measure selection
