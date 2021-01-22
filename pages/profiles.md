@@ -14,8 +14,11 @@ To support flexible representation and packaging of measure and library artifact
 
 <table>
   <tr><th>Artifact</th><th>Shareable</th><th>Computable</th><th>Publishable</th><th>Executable</th></tr>
+  <tr><td>CodeSystem</td><td>N/A (use base ShareableCodeSystem)</td><td>N/A (no requirements)</td><td><a href="StructureDefinition-publishable-codesystem-cqfm.html">CQFMPublishableCodeSystem</a></td><td>N/A (no requirements)</td></tr>
   <tr><td>Library</td><td><a href="StructureDefinition-library-cqfm.html">CQFMLibrary</a></td><td><a href="StructureDefinition-computable-library-cqfm.html">CQFMComputableLibrary</a></td><td><a href="StructureDefinition-publishable-library-cqfm.html">CQFMPublishableLibrary</a></td><td><a href="StructureDefinition-executable-library-cqfm.html">CQFMExecutableLibrary</a></td></tr>
   <tr><td>Measure</td><td><a href="StructureDefinition-measure-cqfm.html">CQFMMeasure</a></td><td><a href="StructureDefinition-computable-measure-cqfm.html">CQFMComputableMeasure</a></td><td><a href="StructureDefinition-publishable-measure-cqfm.html">CQFMPublishableMeasure</a></td><td>N/A</td></tr>
+  <tr><td>ValueSet</td><td>N/A (use base ShareableLibrary)</td><td><a href="StructureDefinition-computable-valueset-cqfm.html">CQFMComputableValueSet</a></td><td><a href="StructureDefinition-publishable-valueset-cqfm.html">CQFMPublishableValueSet</a></td><td><a href="StructureDefinition-executable-valueset-cqfm.html">CQFMExecutableValueSet</a></td></tr>
+
 </table>
 
 In addition, measures are required to conform to the appropriate measure profile based on their scoring type:

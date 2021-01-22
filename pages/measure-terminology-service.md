@@ -33,6 +33,11 @@ This page describes documents the use cases and conformance expectations of a te
 ## Value Sets
 
 1. SHALL Represent basic ValueSet information, as specified by the [ShareableValueSet](http://hl7.org/fhir/shareablevalueset.html) profile, which includes url, version, name, status, experimental, publisher, and description.
+    1. To support the ability to include specific codes that are inactive in their code systems, the following types of include elements SHALL be supported
+        1. Concepts in a system (unspecified version)
+        2. Concepts in a system (specified version)
+        3. Value Sets
+
     1. TODO: Need to support the ability to include specific codes that are inactive in their code systems, without requiring authors to maintain code system versions for all specific codes included from a code system.
 
 2. SHALL Represent computable ValueSet information, as specified by the [CQFMComputableValueSet](StructureDefinition-computable-valueset-cqfm.html) profile, which specifies the definition of a value set using established extensions, or with the `compose` element, including in particular the ability to use the `inactive` element of the `include` to indicate that a specific code is inactive in the code system but should still be included in the expansion.
@@ -75,7 +80,7 @@ This page describes documents the use cases and conformance expectations of a te
 
 ## Quality Programs (Binding Parameters Specification)
 
-1. SHALL Represent basic quality program information, as specified by the [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) profile, which includes identifier, title, type, date, useContext, effectivePeriod, measure, and terminology references
+1. SHALL Represent basic quality program release information, as specified by the [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) profile, which includes identifier, title, type, date, useContext, effectivePeriod, measure, library, and terminology references
 
 2. For published quality programs, SHALL represent publishable quality program information as specified by the [CQFMPublishableLibrary](StructureDefinition-publishable-library-cqfm.html) profile.
 
@@ -107,5 +112,5 @@ The above capabilities are formally captured in the following capability stateme
 
 [CQFMMeasureTerminologyService](CapabilityStatement-measure-terminology-service.html)
 
-TODO: Support bulk operations for: Code lookup, validation, expansion
+TODO: Support paged operations for: Code lookup, validation, expansion
 TODO: Consider how Measure value set and terminology usage is determined by the Terminology Service

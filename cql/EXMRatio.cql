@@ -63,25 +63,22 @@ valueset "Fall": 'TBD'
 context Patient
 
 define "Initial Population":
-  exists "Qualifying Encounters"
+  "Qualifying Encounters"
 
 define "Denominator":
+  "Initial Population"
+
+define "Numerator":
   "Initial Population"
 
 define "Qualifying Encounters":
   ["Encounter": "Inpatient"]
 
-define "Encounter Days":
-  Sum(
-    "Qualifying Encounters" Q
-      return duration in hours of Global.Hospitalization(Q) / 24
-  )
-
 define "Falls with Major Injury":
   ["Observation": "Fall"]
 
 define function "Denominator Observation"(Encounter "Encounter"):
-  "Encounter Days"
+  duration in hours of Global.Hospitalization(Encounter) / 24
 
 define function "Numerator Observation"(Encounter "Encounter"):
   Count(
