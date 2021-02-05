@@ -1,22 +1,22 @@
 {
   "resourceType": "Library",
-  "id": "ep-ec-quality-program",
+  "id": "quality-program-example-2020-05",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"
     ]
   },
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ep-ec-quality-program",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/quality-program-example-2020-05",
   "identifier": [
     {
       "use": "official",
       "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
-      "value": "EP/EC Quality Program"
+      "value": "QualityProgramExample-2020-05"
     }
   ],
   "version": "0.1.0",
-  "name": "EP_EC_Quality_Program",
-  "title": "EP/EC Quality Program",
+  "name": "QualityProgramExample_2020_05",
+  "title": "Quality Program Example - 2020-05",
   "status": "active",
   "experimental": true,
   "type": {
@@ -45,7 +45,7 @@
       "code": "US"
     }]
   }],
-  "description": "This library is an example of a quality program specification",
+  "description": "This library is an example of quality program release, specifying a single measure and version, with an example of versioned bindings for code system and value set dependencies.",
   "approvalDate": "2019-08-03",
   "lastReviewDate": "2019-08-03",
   "useContext": [
@@ -68,23 +68,24 @@
   "relatedArtifact": [
     {
       "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm124-FHIR",
-      "display": "Cervical Cancer Screening"
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm|2.0.0",
+      "display": "Example Measure"
     },
     {
-      "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm125-FHIR",
-      "display": "Breast Cancer Screening"
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/Library/FHIR-ModelInfo|4.0.1"
     },
     {
-      "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm130-FHIR",
-      "display":"Colorectal Cancer Screening"
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/Library/FHIRHelpers|4.0.1"
     },
     {
-      "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm146-FHIR",
-      "display":"Appropriate Testing for Children with Pharyngitis"
+      "type": "depends-on",
+      "resource": "http://snomed.info/sct|2019-09"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example|2020-05"
     }
   ]
 }

@@ -1065,6 +1065,7 @@ define "Denominator Membership":
 
 define "Numerator Membership":
   "Initial Population"
+    and "Denominator"
     and "Numerator"
     and not "Numerator Exclusion"
 
@@ -1084,6 +1085,8 @@ The following snippet provides precise semantics for the measure score calculati
 ```cql
 define "Numerator Membership":
   "Initial Population"
+    intersect "Denominator"
+    except "Denominator Exclusion"
     intersect "Numerator"
     except "Numerator Exclusion"
 

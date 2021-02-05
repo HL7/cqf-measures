@@ -1,0 +1,58 @@
+{
+  "resourceType": "ValueSet",
+  "id": "chronic-liver-disease-legacy-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/StructureDefinition/cqfm-computablevalueset"
+    ]
+  },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example",
+  "version": "2020-05",
+  "name": "ChronicLiverDiseaseLegacyExample",
+  "status": "active",
+  "experimental": true,
+  "date": "2019-03-14T23:21:03-06:00",
+  "publisher": "Clinical Quality Information Workgroup",
+  "description": "This is an example value set consisting of a subset of codes selected from Chronic Liver Disease (2.16.840.1.113883.3.464.1003.199.11.1065) for the purposes of illustrating a value set containing Legacy Codes.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "immutable": true,
+  "compose": {
+    "inactive": true,
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "1116000",
+            "display": "Chronic aggressive type B viral hepatitis (disorder)"
+          },
+          {
+            "code": "10295004",
+            "display": "Chronic viral hepatitis (disorder)"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "version": "2015-03",
+        "concpet": [
+          {
+            "code": "111370006",
+            "display": "Cirrhosis of liver not due to alcohol (disorder)"
+          }
+        ]
+      }
+    ]
+  }
+}

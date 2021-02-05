@@ -35,14 +35,14 @@ Denominator Observation: Sum(Encounter Days)
 This does result in a ratio, but there isn't mechanism in the current FHIR measure
 to specify that the ratio should be converted to "per 1000 days".
 
-To support that aspect, we are proposing an extension of the Quality Measure IG
+To support that aspect, we are proposing a scoringUnit extension of the Quality Measure IG
 to state the expected units of a ratio measure.
 
 This is submitted as a tracker to the quality measure IG here:
 https://jira.hl7.org/browse/FHIR-30506
 
 The included EXMRatioFHIRv603-Artifacts.zip is an export of this measure expressed
-in the MAT which includes everything but the proprosed unitScoring extension. That
+in the MAT which includes everything but the proprosed scoringUnit extension. That
 extension is proposed for inclusion in the May 2021 ballot of the quality measure ig
 and is not supported by the MAT at this time.
 */
