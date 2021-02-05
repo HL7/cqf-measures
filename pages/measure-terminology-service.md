@@ -289,7 +289,7 @@ bound to the 2019-09 version of the SNOMED code system.
 The following example illustrates an unversioned quality program specification,
 referencing a single version and providing no version dependency bindings:
 
-* [QualityProgramExample](library-quality-program-example.html)
+* [QualityProgramExample](Library-quality-program-example.html)
 
 Specifically, the `composed-of` element of the library resource is used to identify
 the measures included in the quality program:
