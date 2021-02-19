@@ -119,8 +119,21 @@ TODO: Consider how Measure value set and terminology usage is determined by the 
 ### Expansion of a value set that contains "legacy codes"
 
 This is the computable representation of an example Chronic Liver Disease value set. It
-contains two concepts that are active (as of the 2019-09 release of SNOMED-CT) and one
-concept that was last active in the 2015-03 release).
+contains two concepts that are active (as of the 2019-09 release of the US Edition of
+SNOMED-CT) and one concept that was last active in the 2015-03 release).
+
+TODO: Update SNOMED version
+TODO: CodeSystems with multiple OIDs:
+
+https://terminology.hl7.org/CodeSystem-HCPCS.html
+from Maureen Madden (internal) to everyone:    1:53 PM
+2.16.840.1.113883.6.14
+from Maureen Madden (internal) to everyone:    1:53 PM
+2.16.840.1.113883.6.285
+
+The OID 2.16.840.1.113883.6.14 should not be used in VSAC. The definition at the HL7 OID registry is wrong - it says HCPCS level II codes are CPT codes and that is not true. 2.16.840.1.113883.6.285 is the correct OID for real HCPCS level II codes and is the OID VSAC should have and use.
+
+For ICD-9-CM, the OID 2.16.840.1.113883.6.42 should be used.
 
 * [ChronicLiverDiseaseLegacyExample](ValueSet-chronic-liver-disease-legacy-example.html)
 
@@ -128,7 +141,6 @@ The `compose` element of this value set is:
 
 ```
 "compose": {
-  "inactive": true,
   "include": [
     {
       "system": "http://snomed.info/sct",
@@ -145,7 +157,7 @@ The `compose` element of this value set is:
     },
     {
       "system": "http://snomed.info/sct",
-      "version": "2015-03",
+      "version": "http://snomed.info/sct/731000124108/version/20150301",
       "concept": [
         {
           "code": "111370006",
@@ -160,7 +172,7 @@ The `compose` element of this value set is:
 Note specifically the use of the `inactive` element to indicate that the
 value set definition contains inactive codes, and the use of separate
 `include` elements, one for the codes that do not specify a code system version,
-and one for the _legacy_ code from version `2015-03`.
+and one for the _legacy_ code from version `http://snomed.info/sct/731000124108/version/20150301`.
 
 #### Current expand
 
@@ -242,7 +254,7 @@ though it was explicitly included in the value set definition.
 Given the following `$expand`:
 
 ```
-[base]/ValueSet/chronic-liver-disease-legacy-example/$expand?valueSetVersion=2020-05&system-version=http://snomed.info/sct|2019-09
+[base]/ValueSet/chronic-liver-disease-legacy-example/$expand?valueSetVersion=2020-05&system-version=http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20150301
 ```
 
 The expected [result](ValueSet-chronic-liver-disease-legacy-example-2019-09.html) expansion is:
@@ -257,7 +269,7 @@ The expected [result](ValueSet-chronic-liver-disease-legacy-example-2019-09.html
     },
     {
       "name": "system-version",
-      "valueUri": "http://snomed.info/sct|2019-09"
+      "valueUri": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
     }
   ],
   "contains": [
@@ -282,7 +294,7 @@ The expected [result](ValueSet-chronic-liver-disease-legacy-example-2019-09.html
 ```
 
 Note this expansion contains the same codes as the `current` example, but is explicitly
-bound to the 2019-09 version of the SNOMED code system.
+bound to the 2019-09 version of the US Edition of the SNOMED code system (http://snomed.info/sct/731000124108/version/201909).
 
 ### Quality Program Release (i.e. Version Manifest, or Binding Parameters Specification)
 
@@ -332,7 +344,7 @@ measure:
   },
   {
     "type": "depends-on",
-    "resource": "http://snomed.info/sct|2019-09"
+    "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
   },
   {
     "type": "depends-on",
@@ -361,7 +373,7 @@ and results in the same expansion, with the additional `manifest` parameter:
     },
     {
       "name": "system-version",
-      "valueUri": "http://snomed.info/sct|2019-09"
+      "valueUri": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
     },
     {
       "name": "manifest",
