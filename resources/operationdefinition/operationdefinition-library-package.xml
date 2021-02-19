@@ -18,7 +18,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Packages the contents referenced by a library such as a quality program."/>
+  <description value="Packages the contents referenced by an asset-collection library such as a quality program release or version manifest."/>
   <code value="package"/>
   <comment value="This operation is used to retrieve the contents associated with a particular library such as a quality program, including the use of the quality program as a binding parameters specification to identify code system and value set versions that should be used for expansion of value sets used by measures in the quality program."/>
   <resource value="Library"/>
@@ -39,6 +39,14 @@
     <min value="0"/>
     <max value="1"/>
     <documentation value="The version of the library to be used for packaging"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="capability"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="A desired capability of the resulting package. `computable` to include computable elements in packaged content, `executable` to include executable elements in packaged content, `publishable` to include publishable elements in packaged content."/>
     <type value="string"/>
   </parameter>
   <parameter>
@@ -79,6 +87,14 @@
     <min value="0"/>
     <max value="*"/>
     <documentation value="Edge Case: Specifies a version to use for a system. This parameter overrides any specified version in the library and value sets (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used SHALL explicitly be represented in the expansion parameters"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
+    <name value="manifest"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Specifies an asset-collection library that defines version bindings for code systems referenced by the value set(s) being expanded. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `system-version` parameter."/>
     <type value="canonical"/>
   </parameter>
   <parameter>

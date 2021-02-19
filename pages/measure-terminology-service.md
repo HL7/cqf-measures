@@ -30,6 +30,23 @@ This page describes documents the use cases and conformance expectations of a te
 
 7. TODO: Identify CodeSystems required for eCQM Development (CodeSystems referenced by ValueSets used in eCQM Development and/or referenced by bindings in QICore profiles)
 
+When determining the URI for a code system, the [HL7 Universal Terminology Governance (UTG)](http://terminology.hl7.org)
+site is the source of truth. If a code system is not identified there, submit a request with the
+HL7 Terminology Authority to identify an appropriate URL. For example, HCPCS Level II codes
+are not specified yet, discussion can be found [here](https://chat.fhir.org/#narrow/stream/179202-terminology/topic/HCPCS.20Level.20II.20External.20Code.20System.20Information).
+
+In accordance with the FHIR specification, CodeSystem resources, and references to code systems SHALL use the URI as specified by
+the HL7 terminology authority. In addition, version identifiers for code systems are specified according to the rules
+identified by the code system. For SNOMED-CT, this means the version string
+is required to specify the edition and the version:
+
+```
+http://snomed.info/sct/731000124108/version/20150301
+```
+
+The edition identifier for the US Edition is `731000124108`, and the version in the
+above example is the March 2015 release, specified as YYYYMMDD, `20150301`.
+
 ## Value Sets
 
 1. SHALL Represent basic ValueSet information, as specified by the [ShareableValueSet](http://hl7.org/fhir/shareablevalueset.html) profile, which includes url, version, name, status, experimental, publisher, and description.
@@ -37,8 +54,6 @@ This page describes documents the use cases and conformance expectations of a te
         1. Concepts in a system (unspecified version)
         2. Concepts in a system (specified version)
         3. Value Sets
-
-    1. TODO: Need to support the ability to include specific codes that are inactive in their code systems, without requiring authors to maintain code system versions for all specific codes included from a code system.
 
 2. SHALL Represent computable ValueSet information, as specified by the [CQFMComputableValueSet](StructureDefinition-computable-valueset-cqfm.html) profile, which specifies the definition of a value set using established extensions, or with the `compose` element, including in particular the ability to use the `inactive` element of the `include` to indicate that a specific code is inactive in the code system but should still be included in the expansion.
 
@@ -75,6 +90,7 @@ This page describes documents the use cases and conformance expectations of a te
     4. SHALL support the check-system-version parameter
     5. SHALL support the force-system-version parameter
     6. SHOULD support other parameters
+    7. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-cqfm-valueset-expand.html))
 
 9. TODO: Determine whether eCQM content development will ever need to be able to reference FHIR-defined value sets.
 
@@ -114,3 +130,277 @@ The above capabilities are formally captured in the following capability stateme
 
 TODO: Support paged operations for: Code lookup, validation, expansion
 TODO: Consider how Measure value set and terminology usage is determined by the Terminology Service
+
+## Examples
+
+### Expansion of a value set that contains "legacy codes"
+
+This is the computable representation of an example Chronic Liver Disease value set. It
+contains two concepts that are active (as of the 2019-09 release of the US Edition of
+SNOMED-CT) and one concept that was last active in the 2015-03 release).
+
+* [ChronicLiverDiseaseLegacyExample](ValueSet-chronic-liver-disease-legacy-example.html)
+
+The `compose` element of this value set is:
+
+```
+"compose": {
+  "include": [
+    {
+      "system": "http://snomed.info/sct",
+      "concept": [
+        {
+          "code": "1116000",
+          "display": "Chronic aggressive type B viral hepatitis (disorder)"
+        },
+        {
+          "code": "10295004",
+          "display": "Chronic viral hepatitis (disorder)"
+        }
+      ]
+    },
+    {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20150301",
+      "concept": [
+        {
+          "code": "111370006",
+          "display": "Cirrhosis of liver not due to alcohol (disorder)"
+        }
+      ]
+    }
+  ]
+}
+```
+
+Note specifically the use of the `inactive` element to indicate that the
+value set definition contains inactive codes, and the use of separate
+`include` elements, one for the codes that do not specify a code system version,
+and one for the _legacy_ code from version `http://snomed.info/sct/731000124108/version/20150301`.
+
+#### Current expand
+
+Given the following `$expand`:
+
+```
+[base]/ValueSet/chronic-liver-disease-legacy-example/$expand
+```
+
+The expected [result](ValueSet-chronic-liver-disease-legacy-example-current.html) expansion is:
+
+```
+"expansion": {
+  "timestamp": "2021-02-05T08:57:00-06:00",
+  "contains": [
+    {
+      "system": "http://snomed.info/sct",
+      "code": "1116000",
+      "display": "Chronic aggressive type B viral hepatitis (disorder)"
+    },
+    {
+      "system": "http://snomed.info/sct",
+      "code": "10295004",
+      "display": "Chronic viral hepatitis (disorder)"
+    },
+    {
+      "system": "http://snomed.info/sct",
+      "inactive": true,
+      "code": "111370006",
+      "display": "Cirrhosis of liver not due to alcohol (disorder)"
+    }
+  ]
+}
+```
+
+Note the use of the `inactive` element to indicate the code `111370006` is inactive in the
+current version of SNOMED (i.e. the version of SNOMED that was active when this
+expansion was produced, and the use of the `timestamp` to ensure that date is known).
+
+#### Current expand, activeOnly
+
+Given the following `$expand`:
+
+```
+[base]/ValueSet/chronic-liver-disease-legacy-example/$expand?activeOnly=true
+```
+
+The expected [result](ValueSet-chronic-liver-disease-legacy-example-current-active.html) expansion is:
+
+```
+"expansion": {
+  "timestamp": "2021-02-05T08:57:00-06:00",
+  "parameter": [
+    {
+      "name": "activeOnly",
+      "valueBoolean": true
+    }
+  ],
+  "contains": [
+    {
+      "system": "http://snomed.info/sct",
+      "code": "1116000",
+      "display": "Chronic aggressive type B viral hepatitis (disorder)"
+    },
+    {
+      "system": "http://snomed.info/sct",
+      "code": "10295004",
+      "display": "Chronic viral hepatitis (disorder)"
+    }
+  ]
+}
+```
+
+The result of the `activeOnly` parameter is to exclude the inactive code, even
+though it was explicitly included in the value set definition.
+
+#### Version-specific expand
+
+Given the following `$expand`:
+
+```
+[base]/ValueSet/chronic-liver-disease-legacy-example/$expand?valueSetVersion=2020-05&system-version=http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20150301
+```
+
+The expected [result](ValueSet-chronic-liver-disease-legacy-example-2019-09.html) expansion is:
+
+```
+"expansion": {
+  "timestamp": "2021-02-05T08:57:00-06:00",
+  "parameter": [
+    {
+      "name": "valueSetVersion",
+      "valueString": "2020-05"
+    },
+    {
+      "name": "system-version",
+      "valueUri": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+    }
+  ],
+  "contains": [
+    {
+      "system": "http://snomed.info/sct",
+      "code": "1116000",
+      "display": "Chronic aggressive type B viral hepatitis (disorder)"
+    },
+    {
+      "system": "http://snomed.info/sct",
+      "code": "10295004",
+      "display": "Chronic viral hepatitis (disorder)"
+    },
+    {
+      "system": "http://snomed.info/sct",
+      "inactive": true,
+      "code": "111370006",
+      "display": "Cirrhosis of liver not due to alcohol (disorder)"
+    }
+  ]
+}
+```
+
+Note this expansion contains the same codes as the `current` example, but is explicitly
+bound to the 2019-09 version of the US Edition of the SNOMED code system (http://snomed.info/sct/731000124108/version/201909).
+
+### Quality Program Release (i.e. Version Manifest, or Binding Parameters Specification)
+
+The following example illustrates an unversioned quality program specification,
+referencing a single version and providing no version dependency bindings:
+
+* [QualityProgramExample](Library-quality-program-example.html)
+
+Specifically, the `composed-of` element of the library resource is used to identify
+the measures included in the quality program:
+
+```
+"relatedArtifact": [
+  {
+    "type": "composed-of",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm",
+    "display": "Example Measure"
+  }
+]
+```
+
+For the version binding information, the following _release_ of the quality program
+illustrates specifying the versions of codesystem, valueset, and library dependencies
+used by the measure in the quality program:
+
+* [QualityProgramExample202005](Library-quality-program-example-2020-05.html)
+
+Specifically, the `composed-of` element of the library resource now includes the version
+of the measure, and the `depends-on` elements are used to specify version bindings
+for the SNOMED-CT code system, and the library and value set dependencies of the
+measure:
+
+```
+"relatedArtifact": [
+  {
+    "type": "composed-of",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm|2.0.0",
+    "display": "Example Measure"
+  },
+  {
+    "type": "depends-on",
+    "resource": "http://hl7.org/fhir/Library/FHIR-ModelInfo|4.0.1"
+  },
+  {
+    "type": "depends-on",
+    "resource": "http://hl7.org/fhir/Library/FHIRHelpers|4.0.1"
+  },
+  {
+    "type": "depends-on",
+    "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+  },
+  {
+    "type": "depends-on",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example|2020-05"
+  }
+]
+```
+
+Given the use of this _version manifest_, then the _manifest_ parameter can be used
+in the `$expand` operation to provide values for the relevant parameters:
+
+```
+[base]/ValueSet/chronic-liver-disease-legacy-example/$expand?manifest=http://hl7.org/fhir/us/cqfmeasures/Library/quality-program-example-2020-05
+```
+
+This is effectively an alternative mechanism for expressing the same value set and code system version specific expansion above,
+and results in the same expansion, with the additional `manifest` parameter:
+
+```
+"expansion": {
+  "timestamp": "2021-02-05T08:57:00-06:00",
+  "parameter": [
+    {
+      "name": "valueSetVersion",
+      "valueString": "2020-05"
+    },
+    {
+      "name": "system-version",
+      "valueUri": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+    },
+    {
+      "name": "manifest",
+      "valueUri": "http://hl7.org/fhir/us/cqfmeasures/Library/quality-program-example-2020-05"
+    }
+  ],
+  "contains": [
+    {
+      "system": "http://snomed.info/sct",
+      "code": "1116000",
+      "display": "Chronic aggressive type B viral hepatitis (disorder)"
+    },
+    {
+      "system": "http://snomed.info/sct",
+      "code": "10295004",
+      "display": "Chronic viral hepatitis (disorder)"
+    },
+    {
+      "system": "http://snomed.info/sct",
+      "inactive": true,
+      "code": "111370006",
+      "display": "Cirrhosis of liver not due to alcohol (disorder)"
+    }
+  ]
+}
+```

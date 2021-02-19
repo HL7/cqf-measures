@@ -1,22 +1,22 @@
 {
   "resourceType": "Library",
-  "id": "ep-ec-quality-program",
+  "id": "quality-program-example",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"
     ]
   },
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ep-ec-quality-program",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/quality-program-example",
   "identifier": [
     {
       "use": "official",
       "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
-      "value": "EP/EC Quality Program"
+      "value": "QualityProgramExample"
     }
   ],
   "version": "0.1.0",
-  "name": "EP_EC_Quality_Program",
-  "title": "EP/EC Quality Program",
+  "name": "QualityProgramExample",
+  "title": "Quality Program Example",
   "status": "active",
   "experimental": true,
   "type": {
@@ -45,7 +45,7 @@
       "code": "US"
     }]
   }],
-  "description": "This library is an example of a quality program specification",
+  "description": "This library is an example of quality program release, specifying a single measure without a version, and without version bindings for dependencies.",
   "approvalDate": "2019-08-03",
   "lastReviewDate": "2019-08-03",
   "useContext": [
@@ -68,23 +68,8 @@
   "relatedArtifact": [
     {
       "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm124-FHIR",
-      "display": "Cervical Cancer Screening"
-    },
-    {
-      "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm125-FHIR",
-      "display": "Breast Cancer Screening"
-    },
-    {
-      "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm130-FHIR",
-      "display":"Colorectal Cancer Screening"
-    },
-    {
-      "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm146-FHIR",
-      "display":"Appropriate Testing for Children with Pharyngitis"
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm",
+      "display": "Example Measure"
     }
   ]
 }
