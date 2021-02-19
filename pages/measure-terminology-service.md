@@ -30,6 +30,23 @@ This page describes documents the use cases and conformance expectations of a te
 
 7. TODO: Identify CodeSystems required for eCQM Development (CodeSystems referenced by ValueSets used in eCQM Development and/or referenced by bindings in QICore profiles)
 
+When determining the URI for a code system, the [HL7 Universal Terminology Governance (UTG)](http://terminology.hl7.org)
+site is the source of truth. If a code system is not identified there, submit a request with the
+HL7 Terminology Authority to identify an appropriate URL. For example, HCPCS Level II codes
+are not specified yet, discussion can be found [here](https://chat.fhir.org/#narrow/stream/179202-terminology/topic/HCPCS.20Level.20II.20External.20Code.20System.20Information).
+
+In accordance with the FHIR specification, CodeSystem resources, and references to code systems SHALL use the URI as specified by
+the HL7 terminology authority. In addition, version identifiers for code systems are specified according to the rules
+identified by the code system. For SNOMED-CT, this means the version string
+is required to specify the edition and the version:
+
+```
+http://snomed.info/sct/731000124108/version/20150301
+```
+
+The edition identifier for the US Edition is `731000124108`, and the version in the
+above example is the March 2015 release, specified as YYYYMMDD, `20150301`.
+
 ## Value Sets
 
 1. SHALL Represent basic ValueSet information, as specified by the [ShareableValueSet](http://hl7.org/fhir/shareablevalueset.html) profile, which includes url, version, name, status, experimental, publisher, and description.
@@ -121,19 +138,6 @@ TODO: Consider how Measure value set and terminology usage is determined by the 
 This is the computable representation of an example Chronic Liver Disease value set. It
 contains two concepts that are active (as of the 2019-09 release of the US Edition of
 SNOMED-CT) and one concept that was last active in the 2015-03 release).
-
-TODO: Update SNOMED version
-TODO: CodeSystems with multiple OIDs:
-
-https://terminology.hl7.org/CodeSystem-HCPCS.html
-from Maureen Madden (internal) to everyone:    1:53 PM
-2.16.840.1.113883.6.14
-from Maureen Madden (internal) to everyone:    1:53 PM
-2.16.840.1.113883.6.285
-
-The OID 2.16.840.1.113883.6.14 should not be used in VSAC. The definition at the HL7 OID registry is wrong - it says HCPCS level II codes are CPT codes and that is not true. 2.16.840.1.113883.6.285 is the correct OID for real HCPCS level II codes and is the OID VSAC should have and use.
-
-For ICD-9-CM, the OID 2.16.840.1.113883.6.42 should be used.
 
 * [ChronicLiverDiseaseLegacyExample](ValueSet-chronic-liver-disease-legacy-example.html)
 
