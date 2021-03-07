@@ -518,27 +518,109 @@ define function "ED Stay Time"(Encounter "Encounter"):
     duration in minutes of Encounter.period
 ```
 
-### 4.11 Translation to ELM
-{: #translation-to-elm}
+### 4.11 Library Resources
+{: #library-resources}
 
-Tooling exists to support translation of CQL to ELM for distribution in XML or JSON formats. These distributions are
-included with eCQMs to facilitate implementation. [The existing translator tooling](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md) applies to both measure and decision
-support development, and has several options available to make use of different data models in different environments.
-For measure development with FHIR, the following options are recommended:
+Inclusion of CQL content used within quality measures is accomplished through the use of a Library resource. These libraries are then referenced from Measure resources using the `library` element. The content of the CQL library is included using the `content` element of the Library.
 
-| Option | Description | Recommendation |
-|----|----|----|
-| EnableAnnotations | This instructs the translator to include the source CQL as an annotation within the ELM. | This option should be used to ensure that the distributed ELM could be linked back to the source CQL. |
-| EnableLocators | This instructs the translator to include line number and character information for each ELM node. | This option should be used to ensure that distributed ELM could be tied directly to the input source CQL. |
-| DisableListDemotion | This instructs the translator to disallow demotion of list-valued expressions to singletons. The list demotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with Measures to ensure list demotion does not occur unexpectedly. |
-| DisableListPromotion | This instructs the translator to disallow promotion of singletons to list-valued expressions. The list promotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with Measures to ensure list promotion does not occur unexpectedly. |
-| DisableMethodInvocation | This instructs the translator to disallow method-style invocation. The method-style invocation feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with Measures to ensure method-style invocation cannot be used within eCQMs. |
-| EnableDateRangeOptimization | This instructs the translator to optimize date range filters by moving them inside retrieve expressions. | This feature may be used with Measures. |
-| EnableResultTypes | This instructs the translator to include inferred result types in the output ELM. | This feature may be used with Measures. |
-| EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with Measures. |
-| DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With Measures, disabling this feature would prevent a useful capability. | This feature should not be used with Measures. |
+**Conformance Requirement 34 (Library Resources):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-34)
+{: #conformance-requirement-34}
 
-## 4.12 Use of Terminologies
+1. Content conforming to this implementation guide SHALL use at least the [CQFMLibrary](StructureDefinition-library-cqfm.html) profile for Library resources.
+
+#### 4.11.1 Library Name and URL
+{: #library-name-and-url}
+
+**Conformance Requirement 35 (Library Name and URL):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-35)
+{: #conformance-requirement-35}
+
+1. The identifying elements of a library SHALL conform to the following requirements:
+* Library.url SHALL be `<CQL namepsace url>/Library/<CQL library name>`
+* Library.name SHALL be `<CQL library name>`
+* Library.version SHALL be `<CQL library version>`
+
+2. For libraries included in FHIR implementation guides, the CQL namespace is defined by the implementation guide as follows:
+* CQL namespace name SHALL be IG.packageId
+* CQL namespace url SHALL be IG.canonicalBase
+
+For CQL library source files, the convention SHOULD be:
+
+```
+filename = <CQL library name>.cql
+```
+
+3. To avoid issues with characters between web ids and names, library names SHALL NOT have underscores.
+
+#### 4.11.2 FHIR Type Mapping
+{: #fhir-type-mapping}
+
+**Conformance Requirement 36 (FHIR Type Mapping):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-36)
+{: #conformance-requirement-36}
+
+1. CQL defined types SHALL map to types in FHIR according to the following mapping:
+
+|CQL System Type |FHIR Type |
+|---|---|
+|`System.Boolean`|`FHIR.boolean`|
+|`System.Integer`|`FHIR.integer`|
+|`System.Decimal`|`FHIR.decimal`|
+|`System.Date`|`FHIR.date`|
+|`System.DateTime`|`FHIR.dateTime`|
+|`System.Time`|`FHIR.time`|
+|`System.String`|`FHIR.string`|
+|`System.Quantity`|`FHIR.Quantity`|
+|`System.Ratio`|`FHIR.Ratio`|
+|`System.Any`|`FHIR.Any`|
+|`System.Code`|`FHIR.Coding`|
+|`System.Concept`|`FHIR.CodeableConcept`|
+|`Interval<System.Date>`|`FHIR.Period`|
+|`Interval<System.DateTime>`|`FHIR.Period`|
+|`Interval<System.Quantity>`|`FHIR.Range`|
+
+2. In addition:
+* List types SHALL be lists of element types that map to FHIR
+* Tuple types SHALL consist only of elements of types that map to FHIR
+
+#### 4.11.3 Parameters and Data Requirements
+{: #parameters-and-data-requirements}
+
+**Conformance Requirement 37 (FHIR Type Mapping):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-37)
+{: #conformance-requirement-37}
+
+1. Parameters to CQL libraries SHALL be either CQL-defined types that map to FHIR types, or FHIR resource types, optionally with profile designations.
+2. Top level expressions in CQL libraries SHALL return either CQL-defined types that map to FHIR types, or FHIR resources types, optionally with profile designations
+3. Tuple types are represented with Parameters that have `part` elements corresponding to the elements of the tuple. List types are represented with Parameters that have a cardinality of 0..*.
+4. Libraries used in computable guideline content SHALL use the `parameter` element to identify input parameters as well as the type of all top-level expressions as output parameters.
+5. Libraries used in computable guideline content SHALL use the `dataRequirement` element to identify any retrieves present in the CQL:
+
+|Retrieve Element|DataRequirement Element|
+|---|---|
+|dataType|type|
+|templateId|profile|
+|context|subject|
+|codeProperty|codeFilter.path or codeFilter.searchParam|
+|codes (Concept)|codeFilter.code (for each Code present in the Concept)|
+|codes (Code)|codeFilter.code|
+|codes (ValueSetRef)|codeFilter.valueSet (as specified by the `id` of the ValueSetDef referenced by the ValueSetRef)|
+|dateProperty|dateFilter.path|
+|dateLowProperty,dateHighProperty|dateFilter.path (resolved to an interval-valued property)|
+|dateRange|dateFilter.path or dateFilter.searchParam|
+
+#### 4.11.4 RelatedArtifacts
+{: #relatedartifacts}
+
+**Conformance Requirement 38 (Related Artifacts):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-38)
+{: #conformance-requirement-38}
+
+1. Libraries used in computable guideline content SHALL use the `relatedArtifact` element to identify includes, code systems, value sets, and data models used by the CQL library:
+
+|Dependency|RelatedArtifact representation|
+|Data Model (using declaration)|`depends-on` with `url` of the ModelInfo Library (e.g. `http://hl7.org/fhir/Library/FHIR-ModelInfo|4.0.1`)|
+|Library (include declaration)|`depends-on` with `url` of the Library (e.g. `http://hl7.org/fhir/Library/FHIRHelpers|4.0.1`)|
+|Code System|`depends-on` with `url` of the CodeSystem (e.g. `http://loing.org`)|
+|Value Set|`depends-on` with `url` of the ValueSet (e.g. `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.89`)|
+
+### 4.12 Use of Terminologies
 {: #use-of-terminologies}
 
 FHIR supports various types of terminology-valued elements, including:
@@ -568,7 +650,7 @@ When referencing terminology-valued elements within CQL, the following compariso
 * [Equivalent (`~`)](https://cql.hl7.org/09-b-cqlreference.html#equivalent-3)<br/>
 * [In (`in`)](https://cql.hl7.org/09-b-cqlreference.html#in-valueset)<br/>
 
-## 4.13 Time Valued Quantities
+### 4.13 Time Valued Quantities
 {: #time-valued-quantities}
 
 For time-valued quantities, in addition to the definite duration UCUM units, CQL defines calendar duration keywords to support calendar-based durations and arithmetic. For example, UCUM defines an annum ('a') as 365.25 days, whereas the year ('year') duration in CQL is specifically a calendar year. This difference is important, especially when performing calendar arithmetic.
@@ -586,3 +668,23 @@ However, if we take the same datetime and subtract a UCUM annum
 This would resolve to 2017-12-31T23:00:00
 
 See the definition of the [Quantity](https://cql.hl7.org/2020May/02-authorsguide.html#quantities) type in the CQL Author's Guide, as well as the [Date/Time Arithmetic](https://cql.hl7.org/2020May/02-authorsguide.html#datetime-arithmetic) discussion for more information.
+
+### 4.14 Translation to ELM
+{: #translation-to-elm}
+
+Tooling exists to support translation of CQL to ELM for distribution in XML or JSON formats. These distributions are
+included with eCQMs to facilitate implementation. [The existing translator tooling](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md) applies to both measure and decision
+support development, and has several options available to make use of different data models in different environments.
+For measure development with FHIR, the following options are recommended:
+
+| Option | Description | Recommendation |
+|----|----|----|
+| EnableAnnotations | This instructs the translator to include the source CQL as an annotation within the ELM. | This option should be used to ensure that the distributed ELM could be linked back to the source CQL. |
+| EnableLocators | This instructs the translator to include line number and character information for each ELM node. | This option should be used to ensure that distributed ELM could be tied directly to the input source CQL. |
+| DisableListDemotion | This instructs the translator to disallow demotion of list-valued expressions to singletons. The list demotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with Measures to ensure list demotion does not occur unexpectedly. |
+| DisableListPromotion | This instructs the translator to disallow promotion of singletons to list-valued expressions. The list promotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with Measures to ensure list promotion does not occur unexpectedly. |
+| DisableMethodInvocation | This instructs the translator to disallow method-style invocation. The method-style invocation feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with Measures to ensure method-style invocation cannot be used within eCQMs. |
+| EnableDateRangeOptimization | This instructs the translator to optimize date range filters by moving them inside retrieve expressions. | This feature may be used with Measures. |
+| EnableResultTypes | This instructs the translator to include inferred result types in the output ELM. | This feature may be used with Measures. |
+| EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with Measures. |
+| DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With Measures, disabling this feature would prevent a useful capability. | This feature should not be used with Measures. |
