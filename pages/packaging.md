@@ -46,8 +46,8 @@ To support usage of a logic library, the library package contains the following 
 
 The CQFMLibraryBundle profile formalizes these components:
 
-**Conformance Requirement 32 (Library Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-32)
-{: #conformance-requirement-32}
+**Conformance Requirement 39 (Library Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-39)
+{: #conformance-requirement-39}
   1. Libraries SHALL be distributed as a collection bundle conforming to the [CQFMLibraryBundle](StructureDefinition-library-bundle-cqfm.html) profile
   2. The first entry in a Library bundle SHALL be a Library resource conforming
   3. Library bundles MAY include any libraries referenced by the primary library
@@ -69,8 +69,8 @@ general components:
 
 The CQFMMeasureBundle profile formalizes these components:
 
-**Conformance Requirement 33 (Measure Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-33)
-{: #conformance-requirement-33}
+**Conformance Requirement 40 (Measure Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-40)
+{: #conformance-requirement-40}
   1. Measures SHALL be distributed as a collection bundle conforming to the [CQFMMeasureBundle](StructureDefinition-measure-bundle-cqfm.html) profile
   2. The first entry in a Measure bundle SHALL be a Measure resource
   3. The second entry in a Measure bundle SHALL be the primary Library resource for the measure
@@ -83,8 +83,8 @@ The CQFMMeasureBundle profile formalizes these components:
 
 Basic testing of measure logic should involve at least one positive and negative test of each of the population criteria. A test case is represented as a set of test resources, together with a MeasureReport resource that defines the expected results. The test case bundle can then be used to package and distribute the test case.
 
-**Conformance Requirement 34 (Test Case Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-34)
-{: #conformance-requirement-34}
+**Conformance Requirement 41 (Test Case Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-41)
+{: #conformance-requirement-41}
   1. Test Cases SHALL be distributed as a collection bundle conforming to the [CQFMTestCaseBundle](StructureDefinition-testcase-bundle-cqfm.html) profile
   2. The first entry in a TestCase bundle SHALL be a MeasureReport resource representing the expected outcome of evaluating the measure, given the test data provided as part of the test case
   3. TestCase bundles SHALL include any resource data required to evaluate the test case
@@ -92,12 +92,12 @@ Basic testing of measure logic should involve at least one positive and negative
 ### 5.5 Intellectual Property of Packaging
   {: #intellectual-property-packaging}
 
-**Conformance Requirement 35 (Intellectual Property Considerations):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-35)
-  {: #conformance-requirement-35}
+**Conformance Requirement 42 (Intellectual Property Considerations):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-42)
+  {: #conformance-requirement-42}
   1. Artifacts distributed in this way SHALL carry the appropriate copyright and intellectual property declarations.
 
-**Conformance Requirement 36 (Quality Program):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-36)
-{: #conformance-requirement-36}
+**Conformance Requirement 43 (Quality Program):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-43)
+{: #conformance-requirement-43}
 
 This implementation guide includes a profile for describing a quality program as a collection of quality measures. This profile is a Library of type `asset-collection` that uses the `relatedArtifact` element to indicate which measures are part of the quality program. In addition, measures and libraries can use the `useContext` element to specify a quality program.
 
