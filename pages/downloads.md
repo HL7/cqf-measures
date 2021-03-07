@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Terminology
+title: Downloads
 ---
 
 ---

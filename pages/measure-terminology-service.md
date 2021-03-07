@@ -298,7 +298,7 @@ The expected [result](ValueSet-chronic-liver-disease-legacy-example-2019-09.html
 ```
 
 Note this expansion contains the same codes as the `current` example, but is explicitly
-bound to the 2019-09 version of the US Edition of the SNOMED code system (http://snomed.info/sct/731000124108/version/201909).
+bound to the 2019-09 version of the US Edition of the SNOMED code system (http://snomed.info/sct/731000124108/version/20190901).
 
 ### Quality Program Release (i.e. Version Manifest, or Binding Parameters Specification)
 
