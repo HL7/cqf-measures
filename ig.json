@@ -105,6 +105,7 @@
     "profile-publishable-library-cqfm-spreadsheet.xml",
     "profile-computable-library-cqfm-spreadsheet.xml",
     "profile-executable-library-cqfm-spreadsheet.xml",
+    "profile-modelinfo-library-cqfm-spreadsheet.xml",
     "profile-measure-bundle-cqfm-spreadsheet.xml",
     "profile-quality-program-cqfm-spreadsheet.xml",
     "profile-device-softwaresystem-cqfm-spreadsheet.xml",
@@ -167,6 +168,10 @@
     "Library/EXMComputableLibrary": {
       "source": "library/Library-EXMComputableLibrary.json",
       "base": "Library-EXMComputableLibrary.html"
+    },
+    "Library/EXMModelInfoLibrary": {
+      "source": "library/Library-EXMModelInfoLibrary.json",
+      "base": "Library-EXMModelInfoLibrary.html"
     },
     "Library/EXMExecutableLibrary": {
       "source": "library/Library-EXMExecutableLibrary.json",
@@ -296,6 +301,10 @@
     "StructureDefinition/computable-library-cqfm": {
       "defns": "StructureDefinition-computable-library-cqfm-definitions.html",
       "base": "StructureDefinition-computable-library-cqfm.html"
+    },
+    "StructureDefinition/modelinfo-library-cqfm": {
+      "defns": "StructureDefinition-modelinfo-library-cqfm-definitions.html",
+      "base": "StructureDefinition-modelinfo-library-cqfm.html"
     },
     "StructureDefinition/measure-cqfm": {
       "defns": "StructureDefinition-measure-cqfm-definitions.html",
@@ -441,6 +450,22 @@
     "ConceptMap/measure-populations":{
       "source": "conceptmap/conceptmap-measure-populations.json",
       "base": "conceptmap-measure-populations.html"
+    },
+    "ConceptMap/measure-types":{
+      "source": "conceptmap/conceptmap-measure-types.json",
+      "base": "conceptmap-measure-types.html"
+    },
+    "ConceptMap/measure-scoring":{
+      "source": "conceptmap/conceptmap-measure-scoring.json",
+      "base": "conceptmap-measure-scoring.html"
+    },
+    "ConceptMap/composite-measure-scoring":{
+      "source": "conceptmap/conceptmap-composite-measure-scoring.json",
+      "base": "conceptmap-composite-measure-scoring.html"
+    },
+    "ConceptMap/aggregate-method":{
+      "source": "conceptmap/conceptmap-aggregate-method.json",
+      "base": "conceptmap-aggregate-method.html"
     },
     "ValueSet/artifact-comment-type": {
       "source": "valueset/valueset-artifact-comment-type.json",
