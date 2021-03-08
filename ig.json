@@ -100,6 +100,7 @@
     "profile-ratio-measure-cqfm-spreadsheet.xml",
     "profile-continuous-variable-measure-cqfm-spreadsheet.xml",
     "profile-cohort-measure-cqfm-spreadsheet.xml",
+    "profile-composite-measure-cqfm-spreadsheet.xml",
     "profile-testcase-bundle-cqfm-spreadsheet.xml",
     "profile-library-bundle-cqfm-spreadsheet.xml",
     "profile-publishable-library-cqfm-spreadsheet.xml",
@@ -322,6 +323,10 @@
       "defns": "StructureDefinition-computable-measure-cqfm-definitions.html",
       "base": "StructureDefinition-computable-measure-cqfm.html"
     },
+    "StructureDefinition/composite-measure-cqfm": {
+      "defns": "StructureDefinition-composite-measure-cqfm-definitions.html",
+      "base": "StructureDefinition-composite-measure-cqfm.html"
+    },
     "StructureDefinition/publishable-measure-cqfm": {
       "defns": "StructureDefinition-publishable-measure-cqfm-definitions.html",
       "base": "StructureDefinition-publishable-measure-cqfm.html"
@@ -422,8 +427,35 @@
     "StructureDefinition/cqfm-populationBasis": {
       "base": "StructureDefinition-cqfm-populationBasis.html"
     },
+    "StructureDefinition/cqfm-type": {
+      "base": "StructureDefinition-cqfm-type.html"
+    },
+    "StructureDefinition/cqfm-riskAdjustment": {
+      "base": "StructureDefinition-cqfm-riskAdjustment.html"
+    },
+    "StructureDefinition/cqfm-rateAggregation": {
+      "base": "StructureDefinition-cqfm-rateAggregation.html"
+    },
+    "StructureDefinition/cqfm-improvementNotation": {
+      "base": "StructureDefinition-cqfm-improvementNotation.html"
+    },
+    "StructureDefinition/cqfm-scoring": {
+      "base": "StructureDefinition-cqfm-scoring.html"
+    },
     "StructureDefinition/cqfm-scoringUnit": {
       "base": "StructureDefinition-cqfm-scoringUnit.html"
+    },
+    "StructureDefinition/cqfm-compositeScoring": {
+      "base": "StructureDefinition-cqfm-compositeScoring.html"
+    },
+    "StructureDefinition/cqfm-component": {
+      "base": "StructureDefinition-cqfm-component.html"
+    },
+    "StructureDefinition/cqfm-weight": {
+      "base": "StructureDefinition-cqfm-weight.html"
+    },
+    "StructureDefinition/cqfm-groupId": {
+      "base": "StructureDefinition-cqfm-groupId.html"
     },
     "StructureDefinition/cqfm-softwaresystem": {
       "base": "StructureDefinition-cqfm-softwaresystem.html"
