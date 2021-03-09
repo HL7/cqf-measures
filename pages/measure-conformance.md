@@ -91,19 +91,20 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 2. FHIR-based eCQM Measure and Library resource instances SHALL declare their profile.
 3. Proportion Measures SHALL conform to the CQFMProportionMeasure profile.
 4. Ratio Measures SHALL conform to the CQFMRatioMeasure profile.
-5. Continuous Variable Measures SHALL conform to the CQFMContinuousVariableMeasure profile.
-6. Cohort Measures SHALL conform to the CQFMCohortMeasure profile.
-7. Libraries used with FHIR-based eCQMs SHALL consist of a FHIR Library resource conforming to at least the CQFMLibrary profile.
-8. CQFMMeasures utilizing CQL libraries SHALL include exactly 1 CQFMLibrary per CQL library referenced in the Measure.
-9. CQL Libraries implicitly referenced through nesting of libraries MAY be included.
-10. CQFMLibraries SHALL include a content element for CQL.
-11. The CQFMLibrary content element SHALL include a sub-element with a mediaType of `text/cql`.
-12. CQFMLibraries SHALL specify CQL content as a base-64-encoded string in the content sub-element as content.data.
-13. Any referenced CQL library SHALL contain a library declaration line.
-14. The library declaration line SHALL be the first line in the library.
-15. The name of the Library resource SHALL be the same as the name of the CQL library.
-16. The version of the Library resource SHALL be the same as the version of the CQL library.
-17. The canonical URL of the Library resource SHALL end in the name of the Library resource.
+5. Composite Measures SHALL conform to the CQFMCompositeMeasure profile.
+6. Continuous Variable Measures SHALL conform to the CQFMContinuousVariableMeasure profile.
+7. Cohort Measures SHALL conform to the CQFMCohortMeasure profile.
+8. Libraries used with FHIR-based eCQMs SHALL consist of a FHIR Library resource conforming to at least the CQFMLibrary profile.
+9. CQFMMeasures utilizing CQL libraries SHALL include exactly 1 CQFMLibrary per CQL library referenced in the Measure.
+10. CQL Libraries implicitly referenced through nesting of libraries MAY be included.
+11. CQFMLibraries SHALL include a content element for CQL.
+12. The CQFMLibrary content element SHALL include a sub-element with a mediaType of `text/cql`.
+13. CQFMLibraries SHALL specify CQL content as a base-64-encoded string in the content sub-element as content.data.
+14. Any referenced CQL library SHALL contain a library declaration line.
+15. The library declaration line SHALL be the first line in the library.
+16. The name of the Library resource SHALL be the same as the name of the CQL library.
+17. The version of the Library resource SHALL be the same as the version of the CQL library.
+18. The canonical URL of the Library resource SHALL end in the name of the Library resource.
 
 ```json
 {

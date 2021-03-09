@@ -37,11 +37,9 @@ To support packaging, testing, and distribution of measure and library artifacts
 <table>
   <tr><th>Profile</th><th>Description</th></tr>
   <tr><td><a href="StructureDefinition-device-softwaresystem-cqfm.html">CQFMDevice</a></td><td>A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.</td></tr>
-  <tr><td><a href="StructureDefinition-library-bundle-cqfm.html">CQFMLibraryBundle</a></td><td>A bundle used to package a library artifact for distribution.</td></tr>
   <tr><td><a href="StructureDefinition-measure-bundle-cqfm.html">CQFMLibraryMeasure</a></td><td>A bundle used to package a measure artifact for distribution.</td></tr>
   <tr><td><a href="StructureDefinition-modelinfo-library-cqfm.html">CQFMModelInfoLibrary</a></td><td>A library profile used to distribute model information libraries used in quality measurement.</td></tr>
   <tr><td><a href="StructureDefinition-quality-program-cqfm.html">CQFMQualityProgram</a></td><td>A library profile used to establish a set of related quality improvement artifacts such as a measure program.</td></tr>
-  <tr><td><a href="StructureDefinition-testcase-bundle-cqfm.html">CQFMTestCaseBundle</a></td><td>A bundle used to package a test case for distribution.</td></tr>
 </table>
 
 ### 7.2 Alphabetical Listing
