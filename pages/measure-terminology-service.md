@@ -3,10 +3,10 @@ layout: default
 title: Measure Terminology Service
 ---
 
-# Overview
+## Overview
 This page describes documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based quality measure specifications as described in this implementation guide.
 
-## Code Systems
+### Code Systems
 
 1. SHALL Represent basic CodeSystem information, as specified by the [ShareableCodeSystem](http://hl7.org/fhir/shareablecodesystem.html) profile, which includes url, version, name, status, experimental, publisher, description, caseSensitive, content, and concept.
 
@@ -47,7 +47,7 @@ http://snomed.info/sct/731000124108/version/20150301
 The edition identifier for the US Edition is `731000124108`, and the version in the
 above example is the March 2015 release, specified as YYYYMMDD, `20150301`.
 
-## Value Sets
+### Value Sets
 
 1. SHALL Represent basic ValueSet information, as specified by the [ShareableValueSet](http://hl7.org/fhir/shareablevalueset.html) profile, which includes url, version, name, status, experimental, publisher, and description.
     1. To support the ability to include specific codes that are inactive in their code systems, the following types of include elements SHALL be supported
@@ -94,7 +94,7 @@ above example is the March 2015 release, specified as YYYYMMDD, `20150301`.
 
 9. TODO: Determine whether eCQM content development will ever need to be able to reference FHIR-defined value sets.
 
-## Quality Programs (Binding Parameters Specification)
+### Quality Programs (Binding Parameters Specification)
 
 1. SHALL Represent basic quality program release information, as specified by the [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) profile, which includes identifier, title, type, date, useContext, effectivePeriod, measure, library, and terminology references
 
@@ -122,7 +122,7 @@ above example is the March 2015 release, specified as YYYYMMDD, `20150301`.
     6. SHOULD support check-system-version parameter (overrides code system versions specified in the quality program release)
     7. SHOULD support force-system-version parameter (overrides code system versions specified in the quality program release)
 
-## Capability Statement
+### Capability Statement
 
 The above capabilities are formally captured in the following capability statement:
 
@@ -131,9 +131,9 @@ The above capabilities are formally captured in the following capability stateme
 TODO: Support paged operations for: Code lookup, validation, expansion
 TODO: Consider how Measure value set and terminology usage is determined by the Terminology Service
 
-## Examples
+### Examples
 
-### Expansion of a value set that contains "legacy codes"
+#### Expansion of a value set that contains "legacy codes"
 
 This is the computable representation of an example Chronic Liver Disease value set. It
 contains two concepts that are active (as of the 2019-09 release of the US Edition of
@@ -178,7 +178,7 @@ value set definition contains inactive codes, and the use of separate
 `include` elements, one for the codes that do not specify a code system version,
 and one for the _legacy_ code from version `http://snomed.info/sct/731000124108/version/20150301`.
 
-#### Current expand
+##### Current expand
 
 Given the following `$expand`:
 
@@ -216,7 +216,7 @@ Note the use of the `inactive` element to indicate the code `111370006` is inact
 current version of SNOMED (i.e. the version of SNOMED that was active when this
 expansion was produced, and the use of the `timestamp` to ensure that date is known).
 
-#### Current expand, activeOnly
+##### Current expand, activeOnly
 
 Given the following `$expand`:
 
@@ -253,7 +253,7 @@ The expected [result](ValueSet-chronic-liver-disease-legacy-example-current-acti
 The result of the `activeOnly` parameter is to exclude the inactive code, even
 though it was explicitly included in the value set definition.
 
-#### Version-specific expand
+##### Version-specific expand
 
 Given the following `$expand`:
 
@@ -300,7 +300,7 @@ The expected [result](ValueSet-chronic-liver-disease-legacy-example-2019-09.html
 Note this expansion contains the same codes as the `current` example, but is explicitly
 bound to the 2019-09 version of the US Edition of the SNOMED code system (http://snomed.info/sct/731000124108/version/20190901).
 
-### Quality Program Release (i.e. Version Manifest, or Binding Parameters Specification)
+#### Quality Program Release (i.e. Version Manifest, or Binding Parameters Specification)
 
 The following example illustrates an unversioned quality program specification,
 referencing a single version and providing no version dependency bindings:

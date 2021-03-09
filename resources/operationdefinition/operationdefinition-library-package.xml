@@ -26,6 +26,14 @@
   <type value="true"/>
   <instance value="true"/>
   <parameter>
+    <name value="id"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The logical id of the library to package. The server must know the library (e.g. it is defined explicitly in the server&#39;s libraries)"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
     <name value="url"/>
     <use value="in"/>
     <min value="0"/>
@@ -40,6 +48,15 @@
     <max value="1"/>
     <documentation value="The version of the library to be used for packaging"/>
     <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="identifier"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A business identifier of the library to be packaged. The server must know the library and the identifier must resolve unambiguously to a single library on the server."/>
+    <type value="string"/>
+    <searchType value="token"/>
   </parameter>
   <parameter>
     <name value="capability"/>
@@ -98,11 +115,27 @@
     <type value="canonical"/>
   </parameter>
   <parameter>
+    <name value="include-dependencies"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Specifies whether to include known (i.e. present on the server) dependencies of the library in the resulting package, recursively (default = true)"/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="include-components"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Specifies whether to include known (i.e. present on the server) components of the library in the resulting package, recursively (default = true)"/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
     <name value="return"/>
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The result of the packaging. Servers generating packages SHALL include all the resources referenced by the Library that are known to the server. For example, a terminology server SHALL include all the ValueSet resources, but would not necessarily have the Measure resources referenced by a Quality Program."/>
+    <documentation value="The result of the packaging. Servers generating packages SHALL include all the dependency resources referenced by the library that are known to the server (if include-dependencies is true), and all the component resources referenced by the library that are known to the server (if include-components is true). For example, a measure repository SHALL include all the required library resources, but would not necessarily have the ValueSet resources referenced by the measure."/>
     <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

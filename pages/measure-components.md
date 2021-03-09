@@ -3,11 +3,11 @@ layout: default
 title: Measure Components
 ---
 
-# 2 General HQMF Concepts
+## 2 General HQMF Concepts
 
 This chapter serves as a high-level introduction to the concepts used within an eMeasure document, all of which are described in greater detail in later chapters. For the purposes of public health reporting, the case reporting requirements will be expressed as Cohort measures.
 
-HQMF concepts of measurement period, Data and Population Criteria, stratifiers, and other measure attributes are bundled together in a structure shown in the diagram below. 
+HQMF concepts of measurement period, Data and Population Criteria, stratifiers, and other measure attributes are bundled together in a structure shown in the diagram below.
 
 Figure 3: Typical HQMF document structure
 
@@ -21,7 +21,7 @@ The HQMF narrative block must contain the human readable content to be rendered.
 
 A minimally conformant eMeasure will contain elements from the document header, but need not include computable Data Criteria. In this case, the full narrative of the eMeasure, in any electronic format, is placed into or referenced by QualityMeasureDocument.text. From there, one can represent the full narrative of a quality measure within the narrative blocks of HQMF defined components. Full encoding further enhances the narrative of the quality measure with the addition of entries.
 
-The following truncated XML snippet shows the high level XML structure of an HQMF Document. 
+The following truncated XML snippet shows the high level XML structure of an HQMF Document.
 
 ```xml
 <!-- Start of an HQMF R2 eMeasure. An eMeasure is surrounded by the QualityMeasureDocument element. -->
@@ -33,36 +33,36 @@ The following truncated XML snippet shows the high level XML structure of an HQM
    <author />
    <custodian />
    <verifier />
-   
+
    <!-- defining the time period that this eMeasure applies to -->
    <controlVariable>
       <measurePeriod />
    </controlVariable>
-   
+
    <!-- Miscellaneous metadata for an eMeasure -->
    <subjectOf>
       <measureAttribute />
-   </subjectOf> 
+   </subjectOf>
 
    <!-- Sections -->
    <!-- Measure Description Section -->
    <component>
       <measureDescriptionSection />      
-   </component> 
-    
-   <!-- Data Criteria Section, containing actCriteria, etc. --> 
+   </component>
+
+   <!-- Data Criteria Section, containing actCriteria, etc. -->
    <component>
       <dataCriteriaSection />
-   </component> 
-   
-   <!-- Population Criteria Section containing an Initial Population, 
-   numeratorCriteria, denominatorCriteria exclusions, exceptions, 
+   </component>
+
+   <!-- Population Criteria Section containing an Initial Population,
+   numeratorCriteria, denominatorCriteria exclusions, exceptions,
    stratifier Criteria etc. -->
    <component>
       <populationCriteriaSection />
    </component>
-   
-   <!-- Measure Observation Section containing expression language expressions 
+
+   <!-- Measure Observation Section containing expression language expressions
       for evaluation using Data Criteria-->
    <component>
       <measureObservationsSection />
@@ -72,11 +72,11 @@ The following truncated XML snippet shows the high level XML structure of an HQM
 <!-- end of eMeasure -->
 ```
 
-## 2.1 Measurement Period
+### 2.1 Measurement Period
 
-Every quality measure has a Measurement Period. The Measurement Period designates the reference time frame for which data are identified, filtered and analyzed. Measurement Period can be expressed as both fixed times (start and end date) and relative times (start date and a period of reporting frequency). The exact usage of Measurement Period depends on the measure and its purpose. Data that are collected before or after the Measurement Period can also be identified with a time relationship, explained in the next part of this document. 
+Every quality measure has a Measurement Period. The Measurement Period designates the reference time frame for which data are identified, filtered and analyzed. Measurement Period can be expressed as both fixed times (start and end date) and relative times (start date and a period of reporting frequency). The exact usage of Measurement Period depends on the measure and its purpose. Data that are collected before or after the Measurement Period can also be identified with a time relationship, explained in the next part of this document.
 
-## 2.2 Data Criteria
+### 2.2 Data Criteria
 
 A "criterion" is something that can be evaluated to be TRUE or FALSE for a given item. It lays out a pattern to be matched by an object in an EHR.
 
@@ -101,9 +101,9 @@ Data Criteria can be defined against the following types of clinical data elemen
     Allergies
     Immunizations
 
-Note that the actual contents of a Data Criteria element are determined by the type of data being referenced in the criteria. For example, an Encounter data criteria is represented with a Act of type Encounter, so the elements available will be determined by the structure of that type. 
+Note that the actual contents of a Data Criteria element are determined by the type of data being referenced in the criteria. For example, an Encounter data criteria is represented with a Act of type Encounter, so the elements available will be determined by the structure of that type.
 
-### 2.2.1 Filters and Data Criteria
+#### 2.2.1 Filters and Data Criteria
 
 
 
@@ -123,7 +123,7 @@ Data Criteria can be related to other Data Criteria or Measurement Period via ti
     Patient has encounters during the Measurement Period where a particular medication was requested.
     Patient had a diagnosis of disease X within N years of immunization for disease X.
 
-### 2.2.2 Value Sets and Data Criteria
+#### 2.2.2 Value Sets and Data Criteria
 
 
 
@@ -137,7 +137,7 @@ A value set from public health, for example, is Immunization Service Funding Eli
 
 Note that according to Quality Data Model (QDM), a value set is constrained to a single code system. The exception to this rule is grouping value sets. Through grouping value sets, multiple value sets of the same or different code systems can be combined into one value set.
 
-### 2.2.3 Processing Order and Data Criteria
+#### 2.2.3 Processing Order and Data Criteria
 
 Data Criteria can include a set of filters on the events identified. The order in which those filters are processed determines the end result for any specific criterion. All Data Criteria processing is performed in document order, meaning the order in which the criteria elements appear in the document, and the processing is not complete until all of the Data Criteria children are processed. The concepts are explained below using a few examples.
 
@@ -197,7 +197,7 @@ There are 3 different criteria elements required to perform this operation.
       </excerpt>
    </observationCriteria>
 </entry>
-		
+
 <!-- Criteria to check for a1c greater than 9% (Criteria B) -->
 <entry typeCode="DRIV">
    <localVariableName value="HbA1Cgt9"/>
@@ -213,7 +213,7 @@ There are 3 different criteria elements required to perform this operation.
       </definition>
    </observationCriteria>
 </entry>
-		
+
 <!-- Create another Grouper criteria which is an intersect of A and B, meaning that we are intersecting  -->
 <entry typeCode="DRIV">
    <grouperCriteria classCode="GROUPER" moodCode="EVN">
@@ -234,17 +234,17 @@ There are 3 different criteria elements required to perform this operation.
 </entry>
 ```
 
-### 2.2.4 Result Evaluation and Caching
+#### 2.2.4 Result Evaluation and Caching
 
-The HQMF standard allows Data Criteria to be referenced using the Data Criteria ID. This allows measure developers to create a Data Criteria definition once and reuse it multiple times throughout the measure document using the ID. Results compiled from evaluation of the original Data Criteria can be cached. The cached results can be reused, without reevaluation, whenever the Data Criteria ID is referenced. However, HQMF R2 does not mandate result caching (i.e., Data Criteria referenced via an ID can be reevaluated each time) and leaves this detail up to specific implementations of the standard. 
+The HQMF standard allows Data Criteria to be referenced using the Data Criteria ID. This allows measure developers to create a Data Criteria definition once and reuse it multiple times throughout the measure document using the ID. Results compiled from evaluation of the original Data Criteria can be cached. The cached results can be reused, without reevaluation, whenever the Data Criteria ID is referenced. However, HQMF R2 does not mandate result caching (i.e., Data Criteria referenced via an ID can be reevaluated each time) and leaves this detail up to specific implementations of the standard.
 
-### 2.2.5 Risk Adjustment Variables
+#### 2.2.5 Risk Adjustment Variables
 
 In developing outcome measures, one challenge that measure developers often have is accounting for factors outside of provider or hospital control. These are features such as patient characteristics (age, health, etc.) or other risk factors. Because of variations in these risk factors, patients may experience variations in outcomes of care. Such variations in outcomes might not reflect the actual quality of care provided by the health care organization. Adjusting an outcome measure for these factors, a process called Risk Adjustment which produces a risk adjusted outcome measure, allows accurate comparison of outcomes across organizations.
 
 Risk adjusted outcome measures identify risk factors as risk variables. Risk variables are plugged into a risk model to calculate the risk adjustment. In HQMF, risk variables are expressed in data criteria that extract the information needed for the risk model.
 
-For example, a measure that calculates the risk-standardized mortality rate will identify risk variables such as patient age, first measurement of systolic blood pressure, first troponin level, and first creatinine level. Data criteria for the troponin and patient age risk variables are shown below: 
+For example, a measure that calculates the risk-standardized mortality rate will identify risk variables such as patient age, first measurement of systolic blood pressure, first troponin level, and first creatinine level. Data criteria for the troponin and patient age risk variables are shown below:
 
 ```xml
 <entry typeCode="DRIV">
@@ -275,7 +275,7 @@ For example, a measure that calculates the risk-standardized mortality rate will
 </entry>
 ```
 
-## 2.3 Population Criteria Section
+### 2.3 Population Criteria Section
 
 The Population Criteria Section identifies a population using one or more Data Criteria elements. Populations can be of multiple types and are used in different ways by a variety of measure types. Each measure has a measure score that determines what population types may be used. Each population type has a normative definition stated within this HQMF standard (see Definitions).
 
@@ -288,7 +288,7 @@ Table 1: Allowed Population Criteria for Measure Scores
 | Continuous Variable | R | NP | NP | NP | NP | NP | R | O |
 | Cohort | R | NP | NP | NP | NP | NP | NP | NP |
 
-### 2.3.1 Population Criteria and Measure Scores
+#### 2.3.1 Population Criteria and Measure Scores
 
 The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
 
@@ -296,7 +296,7 @@ In addition to the measure type, measures generally fall into two categories, pa
 
 The measure calculation examples use Clinical Quality Language (CQL) to express the formulas, however this is only done to make the syntax and calculations clear. HQMF does not require the use of CQL.
 
-#### 2.3.1.1 Proportion Measure Score
+##### 2.3.1.1 Proportion Measure Score
 
 The population types for a Proportion measure are "Initial Population", "Denominator", "Denominator Exclusion", "Numerator", "Numerator Exclusion" and "Denominator Exception". The following diagram shows the relationships between the populations for proportion measures and the table below provides their definitions.
 
@@ -337,7 +337,7 @@ The “performance rate” is a ratio of patients meeting NUMER criteria, divide
 
 Performance rate = (NUMER - NUMEX) / (DENOM – DENEX – DENEXCEP)
 
-##### 2.3.1.1.1 Patient-based Calcuation
+###### 2.3.1.1.1 Patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a patient-based proportion measure:
 
@@ -364,7 +364,7 @@ define "Measure Score":
     / Count("Denominator Membership" IsMember where IsMember is true)
 ```
 
-##### 2.3.1.1.2 Non-patient-based Calcuation
+###### 2.3.1.1.2 Non-patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a non-patient-based proportion measure:
 
@@ -389,7 +389,7 @@ define "Measure Score":
     Count("Denominator Membership")
 ```
 
-#### 2.3.1.2 Continuous Variable Measure Score
+##### 2.3.1.2 Continuous Variable Measure Score
 
 The population types for a Continuous Variable measure are "Initial Population", "Measure Population", and "Measure Population Exclusion". In addition to these populations, a Measure Observation is defined which contains one or more Continuous Variable statements that are used to score one or more particular aspects of performance. The following diagram shows the relationships between the populations for Continuous Variable measures and the table below provides their definitions.
 
@@ -419,17 +419,17 @@ Figure 7: Calcuation Flow for Continuous Variable Measure Score
 * Measure population (MSRPOPL): Identify that subset of the IPOP that meet the MSRPOPL criteria.
 * Measure population exclusion (MSRPOPLEX): Identify that subset of the MSRPOPL that meet the MSRPOPLEX criteria.
 
-##### 2.3.1.2.1 Individual Observations
+###### 2.3.1.2.1 Individual Observations
 
 Individual Observations are calculated for each case in the MSRPOPL and not in the MSRPOPLEX.
 
-##### 2.3.1.2.2 Measure Aggregates
+###### 2.3.1.2.2 Measure Aggregates
 
 Using individual observations for all cases in the MSRPOPL and not in the MSRPOPLEX, calculate the aggregate MSRPOPL.
 
 Score = aggregate MSRPOPL
 
-##### 2.3.1.2.3 Calcuation
+###### 2.3.1.2.3 Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a continuous variable measure:
 
@@ -447,7 +447,7 @@ define "Measure Score":
   )
 ```
 
-#### 2.3.1.3 Ratio Measure Score
+##### 2.3.1.3 Ratio Measure Score
 
 The population types for a Ratio measure are "Initial Population", "Denominator", "Denominator Exclusion", "Numerator" and "Numerator Exclusion". The following diagrams show the relationships between the populations for Ratio measures and the table below provides their definitions.
 
@@ -491,13 +491,13 @@ Figure 11: Calcuation Flow for Ratio Measure Score
 * Numerator (NUMER): Identify that subset of the IPOP that meet the NUMER criteria.
 * Numerator exclusion (NUMEX): Identify that subset of the NUMER that meet the NUMEX criteria.
 
-##### 2.3.1.3.1 Individual Observations
+###### 2.3.1.3.1 Individual Observations
 
 For each case in the DENOM and not in the DENEX, determine the individual DENOM observations.
 
 For each case in the NUMER and not in the NUMEX, determine the individual NUMER observations.
 
-##### 2.3.1.3.2 Measusre Aggregates
+###### 2.3.1.3.2 Measure Aggregates
 
 Using individual observations for all cases in the DENOM and not in the DENEX, calculate the aggregate DENOM.
 
@@ -505,7 +505,7 @@ Using individual observations for all cases in the NUMER and not in the NUMEX, c
 
 Ratio = aggregate NUMER / aggregate DENOM
 
-##### 2.3.1.3.3 Patient-based Calcuation
+###### 2.3.1.3.3 Patient-based Calcuation
 
 The following snippet provides precise semantics for the measure score calculation for a patient-based ratio measure:
 
@@ -531,7 +531,7 @@ define "Measure Ratio Denominator":
   Count("Denominator Membership" IsMember where IsMember is true)
 ```
 
-##### 2.3.1.3.4 Non-patient-based Calcuation
+###### 2.3.1.3.4 Non-patient-based Calculation
 
 The following snippet provides precise semantics for the measure score calculation for a non-patient-based ratio measure:
 
@@ -555,7 +555,7 @@ define "Measure Score Denominator":
   Count("Denominator Membership")
 ```
 
-#### 2.3.1.4 Cohort Measure Score
+##### 2.3.1.4 Cohort Measure Score
 
 In a cohort measure, a population is identified from the population of all items being counted. For example, one might identify all the patients who have had H1N1 symptoms. The identified population is very similar to the Initial Population but is called a Cohort Population for public health purposes. In the Constrained Information Model (CIM), the population will be expressed using the InitialPopulationCriteria act. The Cohort Population result is used by public health agencies to trigger specific public health activities. The following diagram depicts the population for a Cohort measure and the table below provides its definition.
 
@@ -579,7 +579,7 @@ Calculation Flow Diagram-Cohort
 
 * Initial population (IPOP): Identify those cases that meet the IPOP criteria.
 
-### 2.3.2 Population Criteria and Data Criteria
+#### 2.3.2 Population Criteria and Data Criteria
 
 Population Criteria are constructed using Data Criteria to appropriately identify the right population. In order to use multiple Data Criteria to filter out populations, the Data Criteria are combined logically using "AND/OR/XOR" operators. These operators appear in the form of:
 
@@ -593,13 +593,13 @@ For example, to identify an Initial Population consisting of male patients betwe
 * Data Criteria Element 2: "Patient is male"
 * Combine the above two criteria using the "AllTrue" operator (which is a logical AND) to extract the Initial Population desired.
 
-### 2.3.3 Population Criteria and Items Counted
+#### 2.3.3 Population Criteria and Items Counted
 
 Most eMeasures need the ability to designate what a population is counting. For example, a single measure may need to look at how many patients met a particular criterion, the number of beds available for those patients, and the number of staff treating those patients. To express this, Items Counted (ITMCNT) is provided as a Measure Attribute so that a population can make explicit what is being counted.
 
 Items Counted can be specified at the document level or at the specific population level using the measureAttribute act class.
 
-## 2.4. Stratifiers
+### 2.4. Stratifiers
 
 Stratifiers are constructed using Data Criteria and used to specify how the results need to be grouped.
 
@@ -615,7 +615,7 @@ Performance rate = (NUMER - NUMEX) / (DENOM – DENEX – DENEXCEP)
 
 For measures with multiple numerators and/or strata, each patient/episode must be scored for inclusion/exclusion to every population. For example if a measure has 3 numerators, and the patient is included in the first numerator, the patient should be scored for inclusion/exclusion from the populations related to the other numerators as well.
 
-### 2.6 Human Readability and Rendering HQMF Documents
+#### 2.6 Human Readability and Rendering HQMF Documents
 
 HQMF requires that a receiver of an eMeasure be able to deterministically display the document in a standard Web browser such that a human reader would extract the same quality data as would a computer that is basing the extraction on formally encoded eMeasure entries. Material within a section to be rendered is placed into the section.text field. The content model of this field is the same as that used for other Structured Document specifications (e.g., Clinical Document Architecture, Structured Product Labeling).
 
@@ -643,9 +643,9 @@ To avoid confusion among readers, narrative block and rendered content must be d
 
 The textual elements at the document level and the section level can contain all the required information for a measure in a narrative form, however it cannot be verified or automated to provide consistent processing.
 
-### 2.7 Encoding eMeasure Quality Statements
+#### 2.7 Encoding eMeasure Quality Statements
 
-#### 2.7.1 General Approach
+##### 2.7.1 General Approach
 
 Quality measures exist in a variety of formats today. The HQMF specification, while providing formalism for query measure statements, also provides an incremental approach where one can:
 
@@ -660,7 +660,7 @@ Quality measures exist in a variety of formats today. The HQMF specification, wh
 
 These steps are described in greater detail in the chapters that follow. HQMF entries corresponding to these steps are segregated into different sections in an eMeasure.
 
-#### 2.7.2 Patient Criteria vs. Aggregate Scores
+##### 2.7.2 Patient Criteria vs. Aggregate Scores
 
 Terms like "numerator" and "denominator" can be ambiguous, in that they can refer to [1] the criteria for determining if an individual patient is included in a particular population (e.g., "numerator criteria are inpatient AND diagnosis of pneumonia AND treated with antibiotic"); [2] the total count of patients meeting the criteria (e.g., "27 patients meet the numerator criteria"); [3] the top or bottom of a fraction (e.g., "the numerator is total restraint time, the denominator is total psychiatric inpatient days"). HQMF differentiates these interpretations in a number of ways:
 
@@ -673,13 +673,13 @@ Terms like "numerator" and "denominator" can be ambiguous, in that they can refe
     * Exposure to treatment
   * Foreign travel in excess of 1 week
 
-#### 2.7.3 Measure Definition vs. Reporting Requirements
+##### 2.7.3 Measure Definition vs. Reporting Requirements
 
 Organizations with a variety of quality reporting goals can collect data based on the same eMeasure, but stipulate different reporting requirements. For example, several organizations might be interested in the use of antibiotics in patients with bronchitis. An eMeasure could then define the nenominator criteria as "encounter with diagnosis of bronchitis", and the numerator criteria as "antibiotic prescription is written". One quality organization wishes to receive a quarterly summary where all qualifying encounters are reported, stratified by age; whereas another quality organization requests semi-annual reports, where, in order to minimize the human burden of chart review, only 20% of encounters with a diagnosis of bronchitis need to be sampled.
 
 A "measure definition" includes those components of a quality measure that are fixed and universally applicable, whereas "reporting requirements" are not part of a measure's definition, and can vary across organizations. While the dividing line is not absolute, common reporting requirements that are not typically defined as part of an eMeasure include reporting frequency, sampling, etc.
 
-### 2.8 Data Collection, Missing Data and Corrupt or Invalid Data
+#### 2.8 Data Collection, Missing Data and Corrupt or Invalid Data
 
 HQMF eMeasure's Data and Population Criteria specify what measure population group the item being counted belongs to (e.g., Initial Population, Denominator, Denominator Exclusion, Numerator). For each Data or Population Criteria element defined in a HQMF measure, an item's EHR data can have three possible results:
 
@@ -702,4 +702,3 @@ For corrupt or invalid data, measure authors may need to take additional steps t
 One methodology is to define Data Criteria with caps at values deemed appropriate for the measure, using the appropriate Boolean logic (see the chapter on Logical Groupers) to check for false criteria before including a result into the result set.
 
 A second approach is to use stratifiers (see the chapter on StratifierCriteria) to group the outlier/corrupt data values separately so measure authors have an idea if and when their Data Criteria are returning values that might skew the results. This would require a measure developer to create the Data Criteria needed to pick out only the outlier values and then use the stratifier criteria entry to group these values together. An important point to note is that this approach does not remove these values from the overall result set as in the previous approach. It only makes it easier for developers to identify that such values exist in the data set.
-
