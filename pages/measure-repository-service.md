@@ -72,6 +72,7 @@ To support content authoring, searching, publication, and distribution, the foll
 * [**Retrieve**](#retrieve): Get a specific artifact by its server-specific identity
 * [**Search**](#search): Search for an artifact according to specific criteria
 * [**Package**](#package): Package an artifact for a particular environment (regardless of status)
+* [**Requirements**](#requirements): Determine the data requirements and dependencies for a particular artifact (regardless of status)
 * [**Submit**](#submit): Post a new artifact in _draft_ status
 * [**Revise**](#revise): Update an existing artifact in _draft_ status
 * [**Withdraw**](#withdraw): Delete a _draft_ artifact
@@ -140,8 +141,33 @@ The package operation supports the ability of a repository to package an artifac
 * **check-system-version**: Edge Case: Specifies a version to use for a system. If a library or value set specifies a different version, an error is returned instead of the package. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
 * **force-system-version**: Edge Case: Specifies a version to use for a system. This parameter overrides any specified version in the library and value sets (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used SHALL explicitly be represented in the expansion parameters
 * **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by the value set(s) being expanded. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `system-version` parameter.
-* **includeDependencies**: Specifies whether to include known dependencies of the artifact in the resulting package, recursively (default = true)
-* **includeComponents**: Specifies whether to include components of the artifact in the resulting package, recursively (default = true)
+* **include-dependencies**: Specifies whether to include known dependencies of the artifact in the resulting package, recursively (default = true)
+* **include-components**: Specifies whether to include components of the artifact in the resulting package, recursively (default = true)
+
+The result of the packaging operation is a Bundle (or Bundles if there is a need to partition based on size) containing the artifact, tailored for content based on the requested capabilities, and any components/dependencies as specified in the parameters.
+
+##### Requirements
+
+The requirements operation supports the ability of a repository to determine the effective requirements of an artifact, including:
+
+* terminology usage (code systems, value sets, and direct-reference codes)
+* parameters
+* dependencies (artifacts)
+* data requirements
+
+The following parameters SHOULD be supported for the requirements operations:
+
+* **id**: The server-specific id of the artifact to be analyzed
+* **url**: The canonical url of the artifact to be analyzed
+* **version**: The version of the artifact to be analyzed
+* **identifier**: A business identifier of the artifact to be analyzed
+* **expression**: If appropriate for the type of artifact, specific expressions or components to be analyzed. If not specified, the analysis is performed for the entire artifact
+* **parameters**: Any input parameters for the artifact. Parameters defined in this input will be bound by name to parameters defined in the CQL library (or referenced libraries). Parameter types are mapped to CQL as specified in the Using CQL section of this implementation guide. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL.
+* **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by value set(s) or other artifacts used in the artifact. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `system-version` parameter.
+* **include-dependencies**: Specifies whether to follow known dependencies of the artifact as part of the analysis, recursively (default = true)
+* **include-components**: Specifies whether to follow known components of the artifact as part of the analysis, recursively (default = true)
+
+The result of the requirements operation is a _module-definition_ Library that returns the computed effective requirements of the artifact.
 
 ##### Submit
 
@@ -250,8 +276,24 @@ A PublishableMeasureRepository:
     6. SHOULD support check-system-version parameter (overrides code system versions specified in the manifest)
     7. SHOULD support force-system-version parameter (overrides code system versions specified in the manifest)
     8. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
+    9. SHOULD support include-components parameter
+    10. SHOULD support include-dependencies parameter
 
-2. SHOULD support library Metadata searches:
+2. SHALL support library requirements analysis: [Library/$data-requirements](OperationDefinition-Library-data-requirements.html) operation
+    1. SHALL support the id parameter
+    2. SHALL support the url parameter
+    3. SHALL support the version parameter
+    4. SHALL support the identifier parameter
+    5. SHOULD support the expression parameter
+    6. SHOULD support the parameters parameter
+    7. SHOULD support system-version parameter (overrides code system versions specified in the manifest)
+    8. SHOULD support check-system-version parameter (overrides code system versions specified in the manifest)
+    9. SHOULD support force-system-version parameter (overrides code system versions specified in the manifest)
+    10. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
+    11. SHOULD support include-components parameter
+    12. SHOULD support include-dependencies parameter
+
+3. SHOULD support library Metadata searches:
     1. date: Returning all libraries matching the given date
     2. effective: Returning all libraries matching the given effectivePeriod
     3. jurisdiction: Returning all libraries matching the given jurisdiction
@@ -261,7 +303,7 @@ A PublishableMeasureRepository:
     7. context-type-value: Returning all libraries with a given use context type and value
     8. topic: Returning all libraries matching the given topic
 
-3. MAY support library RelatedArtifact searches:
+4. MAY support library RelatedArtifact searches:
     1. composed-of: Returning all libraries that have the given artifact as a component
     2. depends-on: Returning all libraries that have the given artifact as a dependency
     3. derived-from: Returning all libraries that are derived from the given artifact
@@ -282,7 +324,21 @@ A PublishableMeasureRepository:
     7. SHOULD support force-system-version parameter (overrides code system versions specified in the manifest)
     8. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
 
-2. SHOULD support measure Metadata searches:
+2. SHALL support measure requirements analysis: [Measure/$data-requirements](OperationDefinition-Measure-data-requirements.html) operation
+    1. SHALL support the id parameter
+    2. SHALL support the url parameter
+    3. SHALL support the version parameter
+    4. SHALL support the identifier parameter
+    5. SHOULD support the expression parameter
+    6. SHOULD support the parameters parameter
+    7. SHOULD support system-version parameter (overrides code system versions specified in the manifest)
+    8. SHOULD support check-system-version parameter (overrides code system versions specified in the manifest)
+    9. SHOULD support force-system-version parameter (overrides code system versions specified in the manifest)
+    10. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
+    11. SHOULD support include-components parameter
+    12. SHOULD support include-dependencies parameter
+
+3. SHOULD support measure Metadata searches:
     1. date: Returning all measures matching the given date
     2. effective: Returning all measures matching the given effectivePeriod
     3. jurisdiction: Returning all measures matching the given jurisdiction
@@ -292,7 +348,7 @@ A PublishableMeasureRepository:
     7. context-type-value: Returning all measures with a given use context type and value
     8. topic: Returning all measures matching the given topic
 
-3. MAY support library RelatedArtifact searches:
+4. MAY support library RelatedArtifact searches:
     1. composed-of: Returning all measures that have the given artifact as a component
     2. depends-on: Returning all measures that have the given artifact as a dependency
     3. derived-from: Returning all measures that are derived from the given artifact

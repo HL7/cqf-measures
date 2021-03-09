@@ -296,5 +296,19 @@
       <name value="package"/>
       <definition value="http://hl7.org/fhir/us/cqfmeasures/OperationDefinition/MeasureReport-package"/>
     </operation>
+    <operation>
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+        <valueCode value="SHALL"/>
+      </extension>
+      <name value="data-requirements"/>
+      <definition value="http://hl7.org/fhir/us/cqfmeasures/OperationDefinition/Library-data-requirements"/>
+    </operation>
+    <operation>
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+        <valueCode value="SHALL"/>
+      </extension>
+      <name value="data-requirements"/>
+      <definition value="http://hl7.org/fhir/us/cqfmeasures/OperationDefinition/Measure-data-requirements"/>
+    </operation>
   </rest>
 </CapabilityStatement>
