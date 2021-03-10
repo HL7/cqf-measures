@@ -5,10 +5,10 @@ title: Profiles
 
 ---
 
-## 7 Profiles
+## 8 Profiles
 {: #profiles}
 
-### 7.1 Capability Profiles
+### 8.1 Capability Profiles
 
 To support flexible representation and packaging of measure and library artifacts for different use cases, this implementation guide uses four general categories of profiles, aligned with the [knowledge capabilities](http://build.fhir.org/ig/HL7/cqf-recommendations/CodeSystem-cpg-knowledge-capability.html) established by the [CPG-on-FHIR](http://build.fhir.org/ig/HL7/cqf-recommendations) implementation guide:
 
@@ -39,9 +39,10 @@ To support packaging, testing, and distribution of measure and library artifacts
   <tr><td><a href="StructureDefinition-device-softwaresystem-cqfm.html">CQFMDevice</a></td><td>A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.</td></tr>
   <tr><td><a href="StructureDefinition-measure-bundle-cqfm.html">CQFMLibraryMeasure</a></td><td>A bundle used to package a measure artifact for distribution.</td></tr>
   <tr><td><a href="StructureDefinition-modelinfo-library-cqfm.html">CQFMModelInfoLibrary</a></td><td>A library profile used to distribute model information libraries used in quality measurement.</td></tr>
+  <tr><td><a href="StructureDefinition-module-definition-library-cqfm.html">CQFMModuleDefinitionLibrary</a></td><td>A library profile used to define and exchange effective data requirements and usage information for an artifact (or collection of artifacts) used in quality measurement.</td></tr>
   <tr><td><a href="StructureDefinition-quality-program-cqfm.html">CQFMQualityProgram</a></td><td>A library profile used to establish a set of related quality improvement artifacts such as a measure program.</td></tr>
 </table>
 
-### 7.2 Alphabetical Listing
+### 8.2 Alphabetical Listing
 
 {% include list-simple-profiles.xhtml %}
