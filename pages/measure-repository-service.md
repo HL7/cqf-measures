@@ -359,7 +359,7 @@ A PublishableMeasureRepository:
 
 A PublishableMeasureRepository:
 
-1. MAY support representation of test cases using the [CQFMMeasureReportTestCase](StructureDefinition-measurereport-testcase-cqfm.html) profile.
+1. MAY support representation of test cases using the [CQFMTestCase](StructureDefinition-test-case-cqfm.html) profile.
 
 1. MAY support retrieval of test cases by server-specific id through the MeasureReport/read interaction
 
