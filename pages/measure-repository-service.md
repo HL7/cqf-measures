@@ -6,6 +6,12 @@ title: Measure Repository Service
 ## Overview
 This page documents the use cases and conformance expectations of a knowledge repository service to support authoring, publishing, and distribution of FHIR-based quality measure specifications as described in this implementation guide.
 
+This implementation guide is not advocating for any particular central authority for content repositories but a rather the intent is to provide guidance to stewards/publishers in building content repositories.
+
+This implementation guide is not prescribing specifications regarding authentication/authorization security, they would be addressable through the [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html).
+
+Requests for ballot comment, specifically for implementer feedback can be made [here](https://jira.hl7.org/projects/FHIR/summary)
+
 ### Knowledge Artifact Management
 
 Quality measures (eCQMs) are a specific type of knowledge artifact, and share common attributes with other knowledge artifact types. This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of _status_, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
