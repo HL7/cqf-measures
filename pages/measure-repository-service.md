@@ -10,7 +10,6 @@ This implementation guide is not advocating for any particular central authority
 
 This implementation guide is not prescribing specifications regarding authentication/authorization security, they would be addressable through the [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html).
 
-Requests for ballot comment, specifically for implementer feedback can be made [here](https://jira.hl7.org/projects/FHIR/summary)
 
 ### Knowledge Artifact Management
 
