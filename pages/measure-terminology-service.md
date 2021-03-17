@@ -6,6 +6,22 @@ title: Measure Terminology Service
 ## Overview
 This page describes documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based quality measure specifications as described in this implementation guide.
 
+This implementation guide is not advocating for any particular central authority for terminology content, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable terminology services that support authoring, distribution, and evaluation of FHIR-based knowledge artifacts.
+
+This implementation guide is not prescriptive about authentication or authorization, but strongly recommends that these capabilities be addressed through standard mechanisms, as described in [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html).
+
+### Use Cases
+Beyond the basic required use cases of searching, retrieving, and expanding value sets, applications that reference value sets that are defined in terms of code systems from different authorities and with different publishing timelines face common challenges related to stable expansion of those value sets. To address that general problem, this implementation guide proposes a _manifest_ that allows the dependencies for a collection of artifacts to be bound to specific versions, enumerated as part of the manifest, rather than requiring the artifacts to be constructed with versioned references. This approach is captured in the [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) profile, and is designed around two central use cases:
+
+1. Supporting the authoring of a collection of related artifacts that make use of a shared pool of value sets
+2. Supporting the stable expansion of value sets referenced in a _release_ of those artifacts.
+
+#### Quality Program Version Manifest (Expansion Profile)
+The first use case is used while the collection of related artifacts is being authored. During this period, the set of code system versions that will be used by value sets referenced by the artifacts is selected and identified in a quality program version manifest (sometimes referred to as an "expansion profile" because it provides expansion rules for expanding value sets used by the artifacts). When authoring value sets and the artifacts that make use of them, this version manifest can be used to ensure stable expansions. Note that this definition will often evolve over the course of the development of collection of artifacts. Quality programs in this state are indicated with a status of _draft_.
+
+#### Quality Program Release
+The second use case applies when a _release_ of the artifact collection is established, and the content is effectively _locked_ to a particular set of code system versions, value set definition versions and in some cases expansion versions. The same profile is used, but quality programs in this state are indicated with a status of _active_. To support this use case, in addition to the code system version rules introduced by the manifest, a _release_ may also provide an _expansionUri_, either at the root of the quality program (if all the value sets use the same _expansion identifier_), or per value set by providing an _expansionUri_ on the relatedArtifact. The _expansionUri_ capability may also be used selectively to override expansions for specific value sets, with the behavior falling back to the manifest's expansion calculation rules if no expansionUri is specified for the value set.
+
 ### Code Systems
 
 1. SHALL Represent basic CodeSystem information, as specified by the [ShareableCodeSystem](http://hl7.org/fhir/shareablecodesystem.html) profile, which includes url, version, name, status, experimental, publisher, description, caseSensitive, content, and concept.
@@ -37,7 +53,7 @@ are not specified yet, discussion can be found [here](https://chat.fhir.org/#nar
 
 In accordance with the FHIR specification, CodeSystem resources, and references to code systems SHALL use the URI as specified by
 the HL7 terminology authority. In addition, version identifiers for code systems are specified according to the rules
-identified by the code system. For SNOMED-CT, this means the version string
+identified by the code system authority. For example, for SNOMED-CT, this means the version string
 is required to specify the edition and the version:
 
 ```
@@ -46,6 +62,8 @@ http://snomed.info/sct/731000124108/version/20150301
 
 The edition identifier for the US Edition is `731000124108`, and the version in the
 above example is the March 2015 release, specified as YYYYMMDD, `20150301`.
+
+Note that when a code system authority has not established a versioning system, terminology servers may, as a practical matter, determine an appropriate versioning system to enable consistent use of content from that code system. However, in this case, the selected versioning scheme SHALL be brought to the [HL7 Terminology Authority](https://confluence.hl7.org/display/TA/Terminology+Authority) for consideration as the standard versioning scheme for that code system.
 
 ### Value Sets
 
@@ -91,6 +109,8 @@ above example is the March 2015 release, specified as YYYYMMDD, `20150301`.
     5. SHALL support the force-system-version parameter
     6. SHOULD support other parameters
     7. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-cqfm-valueset-expand.html))
+    8. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-cqfm-valueset-expand.html))
+    9. SHOULD support the `preview` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-cqfm-valueset-expand.html))
 
 9. TODO: Determine whether eCQM content development will ever need to be able to reference FHIR-defined value sets.
 
@@ -103,15 +123,15 @@ above example is the March 2015 release, specified as YYYYMMDD, `20150301`.
 3. SHALL support Quality Program (Library) read, by the server-defined id for the quality program library
 
 4. SHALL support Quality Program (Library) searches by:
-    1. SHALL url: Returning all versions of the quality program matching that url
-    2. SHALL version: Returning the quality program matching that version (can appear only in combination with a url search)
-    3. SHALL identifier: Returning any quality program matching the identifier
-    4. SHALL name: Returning any quality program matching the name, according to the string-matching semantics in FHIR
-    5. SHALL title: Returning any quality program matching the title, according to the string-matching semantics in FHIR
-    6. SHOULD status: Returning quality programs that match the given status
-    7. SHALL description: Returning any quality programs matching the search description, according to string-matching semantics in FHIR
-    8. SHALL composed-of: Returning any quality program that includes the given measure canonical
-    9. SHALL depends-on: Returning any quality program that references the given code system or value set canonical
+    1. url: Returning all versions of the quality program matching that url
+    2. version: Returning the quality program matching that version (can appear only in combination with a url search)
+    3. identifier: Returning any quality program matching the identifier
+    4. name: Returning any quality program matching the name, according to the string-matching semantics in FHIR
+    5. title: Returning any quality program matching the title, according to the string-matching semantics in FHIR
+    6. status: Returning quality programs that match the given status
+    7. description: Returning any quality programs matching the search description, according to string-matching semantics in FHIR
+    8. composed-of: Returning any quality program that includes the given measure canonical
+    9. depends-on: Returning any quality program that references the given code system or value set canonical
 
 5. SHALL support quality program value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
     1. SHALL support the url parameter

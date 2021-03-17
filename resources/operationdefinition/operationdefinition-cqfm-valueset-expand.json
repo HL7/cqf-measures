@@ -199,9 +199,25 @@
     "name" : "manifest",
     "use" : "in",
     "min" : 0,
-    "max" : "*",
-    "documentation" : "Specifies an asset-collection library that defines version bindings for code systems referenced by the value set(s) being expanded. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `system-version` parameter.",
+    "max" : "1",
+    "documentation" : "Specifies an asset-collection library that defines version bindings for code systems and value sets referenced by the artifacts in a particular package, and optionally an expansion identifier to be used as the expansion for value sets used by artifacts in the package. If the manifest specifies an expansion identifier for the value set being expanded, or if the manifest specifies a manifest-level expansion identifier, it has the same meaning as specifying that expansion identifier as the value of the expansion parameter to the expand. Otherwise, when the manifest specifies a value set version for this value set, it has the same meaning as passing the specified version as the `valueSetVersion` parameter, and when the manifest specifies code systems identified as `depends-on` related artifacts in the library, they have the same meaning as specifying that code system version in the `system-version` parameter.",
     "type": "canonical"
+  },
+  {
+    "name" : "expansion",
+    "use" : "in",
+    "min" : 0,
+    "max" : "1",
+    "documentation" : "Specifies an expansion identifier to be used. If the value set has an expansion with that identifier, that expansion is used. This parameter has the same behavior as using the `expansion` search parameter with the canonical url for the value set. If the server performing the expand does not know the expansion identifier, it SHALL return an error.",
+    "type" : "uri"
+  },
+  {
+    "name" : "preview",
+    "use" : "in",
+    "min" : 0,
+    "max" : "1",
+    "documentation" : "Indicates that draft versions of the value set should be considered when determining the version of the value set to be used to perform the expand. This parameter is exclusive with `valueSetVersion`, in that if a specific `valueSetVersion` is provided, that is the version of the value set to be expanded. (default false)",
+    "type" : "boolean"
   },
   {
     "name" : "return",

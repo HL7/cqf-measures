@@ -6,10 +6,9 @@ title: Measure Repository Service
 ## Overview
 This page documents the use cases and conformance expectations of a knowledge repository service to support authoring, publishing, and distribution of FHIR-based quality measure specifications as described in this implementation guide.
 
-This implementation guide is not advocating for any particular central authority for content repositories but a rather the intent is to provide guidance to stewards/publishers in building content repositories.
+This implementation guide is not advocating for any particular central authority for content repositories, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable repositories for sharing knowledge artifacts.
 
-This implementation guide is not prescribing specifications regarding authentication/authorization security, they would be addressable through the [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html).
-
+This implementation guide is not prescriptive about authentication or authorization, but strongly recommends that these capabilities be addressed through standard mechanisms, as described in [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html).
 
 ### Knowledge Artifact Management
 
