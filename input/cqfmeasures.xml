@@ -41,12 +41,6 @@
   <definition>
     <resource>
       <reference>
-      <reference value="StructureDefinition/profile-measure-cqfm-spreadsheet"/>
-      </reference>
-      <name value="CQFM Measure Profile"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="Device/device-software-system-example"/>
       </reference>
       <name value="Device - Software System"/>
@@ -567,115 +561,115 @@
     </resource>
     <resource>
       <reference>
-        <reference value="CodeSystem/aggregate-method"/>
+        <reference value="CodeSystem/codesystem-aggregate-method"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="CodeSystem/identifier-type"/>
+        <reference value="CodeSystem/codesystem-identifier-type"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="CodeSystem/quality-programs"/>
+        <reference value="CodeSystem/codesystem-quality-programs"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="CodeSystem/artifact-comment-type"/>
+        <reference value="CodeSystem/codesystem-artifact-comment-type"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="CodeSystem/software-system-type"/>
+        <reference value="CodeSystem/codesystem-software-system-type"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ConceptMap/measure-populations"/>
+        <reference value="ConceptMap/conceptmap-measure-populations"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ConceptMap/measure-types"/>
+        <reference value="ConceptMap/conceptmap-measure-types"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ConceptMap/measure-scoring"/>
+        <reference value="ConceptMap/conceptmap-measure-scoring"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ConceptMap/composite-measure-scoring"/>
+        <reference value="ConceptMap/conceptmap-composite-measure-scoring"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ConceptMap/aggregate-method"/>
+        <reference value="ConceptMap/conceptmap-aggregate-method"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/aggregate-method"/>
+        <reference value="ValueSet/valueset-aggregate-method"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/identifier-type"/>
+        <reference value="ValueSet/valueset-identifier-type"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/quality-programs"/>
+        <reference value="ValueSet/valueset-quality-programs"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/artifact-comment-type"/>
+        <reference value="ValueSet/valueset-artifact-comment-type"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/software-system-type"/>
+        <reference value="ValueSet/valueset-software-system-type"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/chronic-liver-disease-legacy-example"/>
+        <reference value="ValueSet/valueset-chronic-liver-disease-legacy-example"/>
       </reference>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/chronic-liver-disease-legacy-example-current"/>
+        <reference value="ValueSet/valueset-chronic-liver-disease-legacy-example-current"/>
       </reference>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/chronic-liver-disease-legacy-example-current-active"/>
+        <reference value="ValueSet/valueset-chronic-liver-disease-legacy-example-current-active"/>
       </reference>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/chronic-liver-disease-legacy-example-2019-09"/>
+        <reference value="ValueSet/valueset-chronic-liver-disease-legacy-example-2019-09"/>
       </reference>
       <exampleBoolean value="true"/>
     </resource>
@@ -690,6 +684,10 @@
     <parameter>
       <code value="path-resource"/>
       <value value="resources"/>
+    </parameter>
+    <parameter>
+    <code value="find-other-resources"/>
+    <value value="true"/>
     </parameter>
     <parameter>
       <code value="path-resource"/>
