@@ -1,0 +1,152 @@
+{
+  "resourceType": "StructureMap",
+  "id": "device-recommended-to-devicerequest",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureMap/device-recommended-to-devicerequest",
+  "name": "device-recommended-to-devicerequest",
+  "title": "QDM Device, Recommended to QICore Device Request",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/device_recommended",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicerequest", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "device-recommended-to-devicerequest",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+  {
+          "name": "deviceRecommended-to-intent",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "intent",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "plan"
+                }
+              ]
+            }
+          ]
+        },   
+        {
+          "name": "reason-to-reasonCode",
+          "source": [
+            {
+              "context": "source",
+              "element": "reason",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "reasonCode",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "authorDateTime-to-AuthoredOn",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "AuthoredOn",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "code-to-code",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "code",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "source-to-requester",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "requester",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

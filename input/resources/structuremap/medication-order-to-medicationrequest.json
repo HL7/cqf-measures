@@ -1,0 +1,314 @@
+{
+  "resourceType": "StructureMap",
+  "id": "medication-order-to-medicationrequest",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureMap/medication-order-to-medicationrequest",
+  "name": "medication-order-to-medicationrequest",
+  "title": "QDM Medication, Order to QICore Medication Request",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/medication_order",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "medication-order-to-medicationrequest",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+  {
+          "name": "medicationOrder-to-intent",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "intent",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "order"
+                }
+              ]
+            }
+          ]
+        },   
+        {
+          "name": "dosage-to-dosageInstruction.dose",
+          "source": [
+            {
+              "context": "source",
+              "element": "dosage",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosageInstruction.dose",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "supply-to-dispenseRequest.quantity",
+          "source": [
+            {
+              "context": "source",
+              "element": "supply",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dispenseRequest.quantity",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "frequency-to-dosageInstruction.timing",
+          "source": [
+            {
+              "context": "source",
+              "element": "frequency",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosageInstruction.timing",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "setting-to-category",
+          "source": [
+            {
+              "context": "source",
+              "element": "setting",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "category",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "code-to-medication",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "medication",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "method-to-dosageInstruction.method",
+          "source": [
+            {
+              "context": "source",
+              "element": "method",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosageInstruction.method",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "negationRationale-to-reasonNotTaken",
+          "source": [
+            {
+              "context": "source",
+              "element": "negationRationale",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "reasonNotTaken",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "reason-to-reasonCode",
+          "source": [
+            {
+              "context": "source",
+              "element": "reason",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "reasonCode",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "refills-to-dispenseRequest.numberOfRepeatsAllowed",
+          "source": [
+            {
+              "context": "source",
+              "element": "refills",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dispenseRequest.numberOfRepeatsAllowed",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "relevantPeriod-to-dispenseRequest.expectedSupplyDuration",
+          "source": [
+            {
+              "context": "source",
+              "element": "relevantPeriod",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dispenseRequest.expectedSupplyDuration",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "route-to-dosageInstruction.route",
+          "source": [
+            {
+              "context": "source",
+              "element": "route",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dosageInstruction.route",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "authorDateTime-to-authoredOn",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "authoredOn",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "source-to-requester",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "requester",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

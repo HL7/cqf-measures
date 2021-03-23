@@ -1,0 +1,296 @@
+{
+  "resourceType": "StructureMap",
+  "id": "diagnosticstudy-performed-nonimagingstudies-to-observation",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureMap/diagnosticstudy-performed-nonimagingstudies-to-observation",
+  "name": "diagnosticstudy-performed-nonimagingstudies-to-observation",
+  "title": "QDM Diagnostic Study, Performed (Non-Imaging Studies) to QICore Observation",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/diagnostic_study_performed_nonimagingstudies",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "diagnosticstudy-performed-nonimagingstudies-to-observation",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+  {
+          "name": "diagnosticStudyPerformed-to-Observation",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "Observation",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "final"
+                }
+              ]
+            }
+          ]
+        },   
+        {
+          "name": "method-to-method",
+          "source": [
+            {
+              "context": "source",
+              "element": "method",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "method",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "negationRationale-to-dataAbsentReason",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dataAbsentReason",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "reason-to-basedOn",
+          "source": [
+            {
+              "context": "source",
+              "element": "reason",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "basedOn",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "result-to-value",
+          "source": [
+            {
+              "context": "source",
+              "element": "result",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "value",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "resultDateTime-to-issued",
+          "source": [
+            {
+              "context": "source",
+              "element": "resultDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "issued",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "relevantPeriod-to-effective",
+          "source": [
+            {
+              "context": "source",
+              "element": "relevantPeriod",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "effective",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "status-to-status",
+          "source": [
+            {
+              "context": "source",
+              "element": "status",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "status",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "code-to-code",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "code",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "components-to-component",
+          "source": [
+            {
+              "context": "source",
+              "element": "components",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "component",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "componentCode-to-component.code",
+          "source": [
+            {
+              "context": "source",
+              "element": "componentCode",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "component.code",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "componentResult-to-component.value",
+          "source": [
+            {
+              "context": "source",
+              "element": "componentResult",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "component.value",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "source-to-performer",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "performer",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

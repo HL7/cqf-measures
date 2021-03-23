@@ -1,0 +1,78 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "measure-scoring",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/ConceptMap/measure-scoring",
+  "version": "1.0.0",
+  "name": "MeasureScoringMapping",
+  "title": "Measure Scoring mapping",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-02-18",
+  "publisher": "Clinical Quality Information Workgroup",
+  "description": "The mapping of FHIR measure scoring codes to the corresponding HL7 V3 code used in HQMF for each type of measure scoring",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "sourceCanonical": "http://hl7.org/fhir/ValueSet/measure-scoring",
+  "targetCanonical": "http://terminology.hl7.org/ValueSet/v3-ObservationMeasureScoring",
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/ValueSet/measure-scoring",
+      "target": "http://terminology.hl7.org/ValueSet/v3-ObservationMeasureScoring",
+      "element": [
+        {
+          "code": "proportion",
+          "display": "Proportion",
+          "target": [
+            {
+              "code": "PROPOR",
+              "display": "proportion measure scoring",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "continuous-variable",
+          "display": "Continous Variable",
+          "target": [
+            {
+              "code": "CONTVAR",
+              "display": "continuous variable measure scoring",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "cohort",
+          "display": "Cohort",
+          "target": [
+            {
+              "code": "COHART",
+              "display": "continuous variable measure scoring",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "ratio",
+          "display": "Ratio",
+          "target": [
+            {
+              "code": "RATIO",
+              "display": "ratio measure scoring",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="transaction"/>
+	<entry>
+		<resource>
+			<Patient xmlns="http://hl7.org/fhir">
+				<id value="Patient_CMS105v7_001"/> 
+				<text> 
+					<status value="generated"/> 
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p> Patient 001 for CMS105v7</p> 
+					</div> 
+				</text> 
+				<identifier> 
+					<value value="Patient_CMS105v7_001"/> 
+				</identifier> 
+				<birthDate value="1950-01-01"/>
+				<active value="true"/> 
+				<name>  
+					<family value="FamilyName_001"/> 
+					<given value="GivenName_001"/> 
+				</name> 
+				<gender value="male"/> 
+			</Patient>
+		</resource>
+	</entry>
+	<entry>
+		<resource>
+			<Encounter xmlns="http://hl7.org/fhir">
+				<id value="Encounter_CMS105v7_001" />
+				<identifier value="Encounter_CMS105v7_001" />
+				<type>
+					<coding>
+						<code value="183452005" /><!--"Emergency hospital admission (procedure)" from value set "Non-Elective Inpatient Encounter": '2.16.840.1.113883.3.117.1.7.1.424' -->
+						<system value="http://snomed.info/sct" />
+					</coding>
+				</type>
+				<subject>
+					<reference value="Patient/Patient_CMS105v7_001"/> 
+				</subject>
+				<period>
+					<start value="2019-01-01" />
+					<end value="2019-01-31" />
+				</period>
+				<diagnosis>
+					<condition>
+						<reference value="Condition/Condition_CMS105v7_001"/> 
+					</condition>
+					<role>
+						<coding>
+							<code value="billing" />
+						</coding>
+					</role>
+					<rank value="1"/>
+				</diagnosis>
+				<hospitalization>
+					<dischargeDisposition>
+						<coding>
+							<code value="" />
+						</coding>
+					</dischargeDisposition>
+				</hospitalization>
+			</Encounter>
+		</resource>
+	</entry>
+	<entry>
+		<resource>
+			<Condition xmlns="http://hl7.org/fhir">
+				<id value="Condition_CMS105v7_001"/>
+				<identifier value="Condition_CMS105v7_001"/>
+				<code>
+					<coding>
+						<code value="195212005" /> <!--"Brainstem stroke syndrome (disorder)" from value set "Ischemic Stroke": '2.16.840.1.113883.3.117.1.7.1.247' -->
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/Patient_CMS105v7_001"/> 
+				</subject>
+			</Condition>
+		</resource>
+	</entry>
+</Bundle>
