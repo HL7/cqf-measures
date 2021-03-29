@@ -1,26 +1,15 @@
----
-layout: default
-title: Downloads
----
-
----
-
-<!-- TOC  the css styling for this is \pages\assets\css\project.css under 'markdown-toc'-->
-
-* Do not remove this line (it will not be displayed)
 {:toc}
 
-## 11 Downloads
 {: #downloads }
 
-### 11.1 Full Implementation Guide
+### Full Implementation Guide
 {: #full-ig}
 
 The following file contains the complete, downloadable implementation guide:
 
 -  [Full IG](full-ig.zip)
 
-### 11.2 Definitions
+### Definitions
 {: #definitions}
 
 In addition to the above, we have provided format-specific _definitions_:
@@ -35,7 +24,7 @@ specification and profiles that apply in order to make a conformant implementati
 [validating FHIR profiles and resources](http://hl7.org/fhir/validation.html) for more information about validating
 profiles and how to use these artifacts.
 
-### 11.3 Examples
+### Examples
 {: #examples}
 
 All examples used in this Implementation Guide:

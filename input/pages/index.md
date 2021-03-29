@@ -1,31 +1,31 @@
----
-layout: default
-title: Home
----
 
----
 
-<!-- TOC  the css styling for this is \pages\assets\css\project.css under 'markdown-toc'-->
-
-* Do not remove this line (it will not be displayed)
 {:toc}
+Note to implementers......
+{:.new-content}
 
-## 1 Quality Measure Implementation Guide
+<div markdown="1" class="bg-info">
+
+{{ site.data.package-list.list[0].desc }}
+
+</div>
+
+## Quality Measure Implementation Guide
 {: #quality-measure-implementation-guide}
 
-### 1.1 Summary
+### Summary
 {: #summary}
 
 The Fast Healthcare Interoperability Resource (FHIR) Quality Measure Implementation Guide (this IG) describes an approach to representing electronic Clinical Quality Measures (eCQMs) using the FHIR Clinical Reasoning Module and Clinical Quality Language (CQL) in the US Realm. However, this Implementation Guide can be usable for multiple use cases across domains, and much of the content is likely to be usable outside the US Realm.
 
 The implementation guide is based upon the previous generation of eCQM representation standards, the HL7 V3-based Health Quality Measure Format (HQMF) and accompanying implementation guides. As an HL7 FHIR Implementation Guide, changes to this specification are managed by the sponsoring Clinical Quality Information Work Group and are incorporated as part of the standard balloting process.
 
-### 1.1.1 Examples
+#### Examples
 {: #examples}
 
 Refer to the [QI-Core implementation guide](http://build.fhir.org/ig/cqframework/qi-core) for examples of how to represent data involved in calculation of quality measures.
 
-### 1.2 How to read this Guide
+### How to read this Guide
 {: #how-to-read-this-guide}
 
 This Guide is divided into several pages which are listed at the top of each
@@ -47,19 +47,19 @@ Measures IG
 -  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.
 -  **[Acknowledgements](acknowledgements.html)**
 
-### 1.3 Background
+### Background
 {: #background}
 
-<!-- 1.3.1 Quality Improvement Ecosystem -->
+<!-- Quality Improvement Ecosystem -->
 {% include quality-improvement-ecosystem.md %}
 
-<!-- 1.3.2 Quality Measurement Standards Landscape -->
+<!-- Quality Measurement Standards Landscape -->
 {% include quality-measurement-standards-landscape.md %}
 
-<!-- 1.3.3 Data Model Standards Landscape -->
+<!-- Data Model Standards Landscape -->
 {% include data-model-standards-landscape.md %}
 
-### 1.4 References
+### References
 {: #references}
 
 Centers for medicare &amp; medicaid. Clinical Quality Measures Basics. [Online]. Available from: [https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html](https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html) [Accessed 11 October 2019].

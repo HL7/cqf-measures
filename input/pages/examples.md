@@ -1,10 +1,6 @@
----
-layout: default
-title: Examples
----
-## 12 Examples
 
-### 12.1 Examples
+
+### Examples
 
 * [**Simple Example**](Measure-measure-exm.html) Usage example illustrating all the common data elements of the CQF Measure profile - [Library](Library-EXMLogic.html)
 * [**EXM146**](Measure-measure-exm146-FHIR.html) Encounter-based proportion measure example - [Library](Library-EXM146.html)
@@ -15,7 +11,7 @@ title: Examples
 * [**Common Library**](Library-Common.html) Usage example illustrating a library to share logic between measures
 * [**SupplementalDataElements**](Library-SupplementalDataElements.html) Library illustrating common supplemental data elements
 
-### 12.2 Screening Measures
+### Screening Measures
 
 These examples illustrate patient-based screening measures
 
@@ -23,6 +19,6 @@ These examples illustrate patient-based screening measures
 * [**EXM125**](Measure-measure-exm125-FHIR.html) Breast Cancer Screening - [Library](Library-EXM125.html)
 * [**EXM130**](Measure-measure-exm130-FHIR.html) Colorectal Cancer Screening - [Library](Library-EXM130.html)
 
-### 12.3 Hospital Measures
+### Hospital Measures
 
 * [**EXM108**](Measure-measure-vte-1-FHIR.html) Venous Thromboembolism Prophylaxis - [Library](Library-EXM108.html)

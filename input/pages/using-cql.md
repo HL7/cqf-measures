@@ -1,19 +1,6 @@
----
-layout: default
-title: Using CQL
----
-
----
-
-<!-- TOC  the css styling for this is \pages\assets\css\project.css under 'markdown-toc'-->
-
-* Do not remove this line (it will not be displayed)
 {:toc}
 
-## 4 Using CQL
-{: #using-cql}
-
-### 4.1 Libraries
+### Libraries
 {: #libraries}
 
 A CQL artifact is referred to as a library.
@@ -26,7 +13,7 @@ A CQL artifact is referred to as a library.
   4. The library version number SHALL follow the convention :  
        < major >.< minor >.< patch >
 
-#### 4.1.1 Library Versioning
+#### Library Versioning
 {: #library-versioning}
 
 This IG recommends an approach to versioning libraries used within Measures to help track and manage dependencies.
@@ -76,7 +63,7 @@ library EXM146 version '2.0.0'
 
 Snippet 4-1: Library line from EXM146.cql, the second major version.
 
-#### 4.1.2 Nested Libraries
+#### Nested Libraries
 {: #nested-libraries}
 
 CQL allows libraries to re-use logic already defined in other libraries. This is accomplished by utilizing the
@@ -101,7 +88,7 @@ contained within a single library.
 Because of this conformance statement, the primary library for a measure can always be determined by looking at the
 library referenced by the initial population criteria for the measure.
 
-#### 4.1.3 Library Namespaces
+#### Library Namespaces
 {: #library-namespaces}
 
 CQL allows libraries to define a namespace that can be used to organize libraries across different groups of users.
@@ -128,7 +115,7 @@ the addressability, but the uniqueness, ensuring that library name collisions ca
 
 In addition, because the namespace of a library is part of the text, changing the namespace of a library requires a new version, just like any other change to the text of the library. However, because a change to the namespace is not a material change to the library itself, changing the namespace does not require a different version-independent identifier to be used for the library.
 
-### 4.2 Data Model
+### Data Model
 {: #data-model}
 
 CQL can be used with any data model. In the context of a Measure, any referenced CQL library must identify the same data model.
@@ -148,7 +135,7 @@ using FHIR version '3.0.0'
 
 Snippet 4-3: Data Model line from [EXM146.cql](Library-EXM146.html#cql-content)
 
-### 4.3 Code Systems
+### Code Systems
 {: #code-systems}
 
 Conformance Requirement 4.6 describes how to specify a code system within a CQL library.
@@ -183,7 +170,7 @@ usage specified by FHIR.
 If no version is specified, then the default behavior for a FHIR terminology server is to use the most recent code
 system version available on the server.
 
-### 4.4 Value Sets
+### Value Sets
 {: #value-sets}
 
 Conformance Requirement 4.7 describes how to specify a valueset within a CQL library.
@@ -230,7 +217,7 @@ case. This use of a canonical URL can be resolved as a search by the `url` eleme
 GET fhir/ValueSet?url=http%3A%2F%2Fcts.nlm.nih.gov%2Ffhir%2FValueSet%2F2.16.840.1.113883.3.464.1003.102.12.1011.1
 ```
 
-#### 4.4.1 Value Set Version
+#### Value Set Version
 {: #value-set-version}
 
 Version information for value sets is not required to be included in eCQMs; terminology versioning information may be
@@ -260,7 +247,7 @@ This is a _version specific value set reference_, and can be resolved as a searc
 GET fhir/ValueSet?url=http%3A%2F%2Fcts.nlm.nih.gov%2Ffhir%2FValueSet%2F2.16.840.1.113883.3.666.7.307&version=20160929
 ```
 
-#### 4.4.2 Value Set Expansion
+#### Value Set Expansion
 
 It is important to maintain the distinction between the _definition_ of a value set and the _expansion_ of a value set. The searches
 described in previous sections all retrieve the definition of a value set. For the purposes of local evaluation, implementations may
@@ -279,13 +266,13 @@ results of an expansion.
 For example, rather than combining multiple value sets using a "union", separate membership tests in each value set should be used. For more information, see the [Value Set Expansion](http://hl7.org/fhir/valueset.html#expansion) topic in the
 base FHIR specification.
 
-#### 4.4.2 Representation in a Library
+#### Representation in a Library
 {: #representation-in-a-library}
 
 The representation of valueset declarations in a Library is discussed in the
 [Measure Conformance Chapter](measure-conformance.html#ecqm-basics) of this IG.
 
-#### 4.4.3 String-based Membership Testing
+#### String-based Membership Testing
 {: #string-based-membership-testing}
 
 Although CQL allows the use of strings as input to membership testing in value sets, this capability should be
@@ -302,7 +289,7 @@ For example, given a valueset named `"Administrative Gender"`, the following CQL
 'female' in "Administrative Gender"
 ```
 
-### 4.5 Codes
+### Codes
 {: #codes}
 
 When direct-reference codes are represented within CQL, the logical identifier is not recommended to be a URI. Instead,
@@ -328,7 +315,7 @@ potential naming conflicts, as well as simplification of longer names when appro
 
 CQL supports both version-specific and version-independent specification of and comparison to direct-reference codes. The best practice is for measure authors to use version-independent direct-reference codes and comparisons unless there is a specific reason not to (such as the code is retired in the current version). Even in the case that version-specific direct-reference codes are required, best practice is still to use the equivalent (~) operator in CQL for the comparison (again, unless there is a specific reason to do version-specific comparison)
 
-#### 4.5.1 Representation in a Library
+#### Representation in a Library
 {: #representation-in-a-library}
 
 When direct-reference codes are used within eCQMs, they will be represented in the narrative (Human-readable) as:
@@ -340,7 +327,7 @@ using "Venous foot pump, device (physical object) SNOMED CT Code (442023007)"
 
 The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html#ecqm-basics) of this IG.
 
-### 4.6 Concepts
+### Concepts
 {: #concepts}
 
 In addition to codes, CQL supports a concept construct, which is defined as a set of codes that are all semantically
@@ -353,7 +340,7 @@ comparison with the Concept-value elements in FHIR resources.
 
 1. The CQL concept construct SHALL NOT be used.
 
-### 4.7 Library-level Identifiers
+### Library-level Identifiers
 {: #library-level-identifiers}
 
 A "library-level identifier" is any named expression, function, parameter, code system, value set, concept, or code
@@ -380,7 +367,7 @@ define function
 
 Snippet 4-8: Function definition from [Common.cql](Library-Common.html#cql-content)
 
-### 4.8 Data Type Names
+### Data Type Names
 {: #data-type-names}
 
 A "data type" in CQL refers to any named type used within CQL expressions. They may be primitive types, such as the
@@ -406,7 +393,7 @@ define "Flexible Sigmoidoscopy Performed":
 
 Snippet 4-9: Expression definition from [EXM130.cql](Library-EXM130.html#cql-content)
 
-#### 4.8.1 Negation in FHIR
+#### Negation in FHIR
 {: #negation-in-fhir}
 
 Two commonly used patterns for negation in quality measurement are:
@@ -426,7 +413,7 @@ The following examples differentiate methods to indicate (a) presence of evidenc
 of an action, and (c) negation rationale for not performing an action. In each case, the "action" is an administration
 of medication included within a value set for "Antithrombotic Therapy".
 
-##### 4.8.1.1 Presence
+##### Presence
 {: #presence}
 
 Evidence that "Antithrombotic Therapy" (defined by a medication-specific value set) was administered:
@@ -436,7 +423,7 @@ Evidence that "Antithrombotic Therapy" (defined by a medication-specific value s
         where AntithromboticTherapy.status = 'completed'
           and AntithromboticTherapy.category = "Inpatient Setting"
 
-##### 4.8.1.2 Absence
+##### Absence
 {: #absence}
 
 No evidence that "Antithrombotic Therapy" medication was administered:
@@ -448,7 +435,7 @@ No evidence that "Antithrombotic Therapy" medication was administered:
             and AntithromboticTherapy.category = "Inpatient Setting"
       )
 
-##### 4.8.1.3 Negation Rationale
+##### Negation Rationale
 {: #negation-rationale}
 
 Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as
@@ -472,7 +459,7 @@ Similarly, to report "Procedure, Not Performed": "Cardiac Surgery" with a reason
 is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
 specified in the "Cardiac Surgery" value set.
 
-### 4.9 Attribute Names
+### Attribute Names
 {: #attribute-names}
 
 All attributes referenced in the CQL follow Conformance Requirement 4.15.
@@ -492,7 +479,7 @@ authoredOn
 result
 ```
 
-### 4.10 Aliases and Argument Names
+### Aliases and Argument Names
 {: #aliases-and-argument-names}
 
 Aliases are used in CQL as local variable names to refer to sections of code. When defining a function, argument names
@@ -518,7 +505,7 @@ define function "ED Stay Time"(Encounter "Encounter"):
     duration in minutes of Encounter.period
 ```
 
-### 4.11 Library Resources
+### Library Resources
 {: #library-resources}
 
 Inclusion of CQL content used within quality measures is accomplished through the use of a Library resource. These libraries are then referenced from Measure resources using the `library` element. The content of the CQL library is included using the `content` element of the Library.
@@ -528,7 +515,7 @@ Inclusion of CQL content used within quality measures is accomplished through th
 
 1. Content conforming to this implementation guide SHALL use at least the [CQFMLibrary](StructureDefinition-library-cqfm.html) profile for Library resources.
 
-#### 4.11.1 Library Name and URL
+#### Library Name and URL
 {: #library-name-and-url}
 
 **Conformance Requirement 4.18 (Library Name and URL):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-18)
@@ -551,7 +538,7 @@ filename = <CQL library name>.cql
 
 3. To avoid issues with characters between web ids and names, library names SHALL NOT have underscores.
 
-#### 4.11.2 FHIR Type Mapping
+#### FHIR Type Mapping
 {: #fhir-type-mapping}
 
 **Conformance Requirement 4.19 (FHIR Type Mapping):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-19)
@@ -581,7 +568,7 @@ filename = <CQL library name>.cql
 * List types SHALL be lists of element types that map to FHIR
 * Tuple types SHALL consist only of elements of types that map to FHIR
 
-#### 4.11.3 Parameters and Data Requirements
+#### Parameters and Data Requirements
 {: #parameters-and-data-requirements}
 
 **Conformance Requirement 4.20 (FHIR Type Mapping):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-20)
@@ -606,7 +593,7 @@ filename = <CQL library name>.cql
 |dateLowProperty,dateHighProperty|dateFilter.path (resolved to an interval-valued property)|
 |dateRange|dateFilter.path or dateFilter.searchParam|
 
-#### 4.11.4 RelatedArtifacts
+#### RelatedArtifacts
 {: #relatedartifacts}
 
 **Conformance Requirement 4.21 (Related Artifacts):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-21)
@@ -620,7 +607,7 @@ filename = <CQL library name>.cql
 |Code System|`depends-on` with `url` of the CodeSystem (e.g. `http://loing.org`)|
 |Value Set|`depends-on` with `url` of the ValueSet (e.g. `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.89`)|
 
-### 4.12 Use of Terminologies
+### Use of Terminologies
 {: #use-of-terminologies}
 
 FHIR supports various types of terminology-valued elements, including:
@@ -650,7 +637,7 @@ When referencing terminology-valued elements within CQL, the following compariso
 * [Equivalent (`~`)](https://cql.hl7.org/09-b-cqlreference.html#equivalent-3)<br/>
 * [In (`in`)](https://cql.hl7.org/09-b-cqlreference.html#in-valueset)<br/>
 
-### 4.13 Time Valued Quantities
+### Time Valued Quantities
 {: #time-valued-quantities}
 
 For time-valued quantities, in addition to the definite duration UCUM units, CQL defines calendar duration keywords to support calendar-based durations and arithmetic. For example, UCUM defines an annum ('a') as 365.25 days, whereas the year ('year') duration in CQL is specifically a calendar year. This difference is important, especially when performing calendar arithmetic.
@@ -669,7 +656,7 @@ This would resolve to 2017-12-31T23:00:00
 
 See the definition of the [Quantity](https://cql.hl7.org/2020May/02-authorsguide.html#quantities) type in the CQL Author's Guide, as well as the [Date/Time Arithmetic](https://cql.hl7.org/2020May/02-authorsguide.html#datetime-arithmetic) discussion for more information.
 
-### 4.14 Translation to ELM
+### Translation to ELM
 {: #translation-to-elm}
 
 Tooling exists to support translation of CQL to ELM for distribution in XML or JSON formats. These distributions are
