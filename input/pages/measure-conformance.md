@@ -627,7 +627,7 @@ Snippet 3-11: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_
 
 Snippet 3-12: Library dataRequirement for Condition: Acute Pharyngitis (from [library-EXM146.json](Library-EXM146.xml.html))
 
-### 3.4 Population Criteria
+### Population Criteria
 {: #population-criteria}
 
 The Population Criteria (Snippet 3-13) includes definitions of criteria used to specify populations. The criteria specifying these populations are described using CQL and those CQL expressions are given context in the FHIR Measure resource. In this section, we describe how to use CQL and the FHIR Measure resource to define population criteria.
