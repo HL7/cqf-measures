@@ -75,7 +75,7 @@ Snippet 3-3: `library` element from Snippet 3-1
 
 Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a stable, globally unique, version-independent identifier for the library, the `url`. If the library has a version specified, the versionNumber element is used as well.
 
-**Conformance Requirement 3.1 (Referencing CQL Documents):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-1)
+**Conformance Requirement 3.1 (Referencing CQL Documents):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-1)
 {: #conformance-requirement-3-1}
 
 1. FHIR-based eCQMs SHALL consist of a FHIR Measure resource conforming to at least the CQFMMeasure profile. In particular, FHIR-based eCQMs SHALL contain a narrative containing a human-readable representation of the measure content.
@@ -390,7 +390,7 @@ CQL defines both a human-readable text representation and a machine-oriented rep
 
 Both CQL and ELM representations may be included in the Library resource depending on the requirements of the appropriate profile. It can follow the approach of supporting human readability (in this case, the high-level CQL syntax) and a canonical representation for machine processing (in this case, CQL’s Expression Logical Model (ELM)). This approach facilitates human review of measure logic via CQL and implementation of that logic in tools via ELM.
 
-**Conformance Requirement 3.2 (Referencing ELM Documents):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-2)
+**Conformance Requirement 3.2 (Referencing ELM Documents):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-2)
 {: #conformance-requirement-3-2}
 1. CQFMLibraries SHOULD include a content element with the ELM in either XML or JSON format
 2. CQFMLibraries SHALL specify ELM content as a base-64-encoded string in the content sub-element as content.data
@@ -451,7 +451,7 @@ As shown below in Snippet 3-7, a measure anchored to January 1, 2019 with a cale
 ```
 Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-cqfm-effectivePeriodAnchor.html) (used to define the starting date and range) and [effectivePeriodDuration extension](StructureDefinition-cqfm-effectivePeriodDuration.html) (used to specify the reporting period).
 
-**Conformance Requirement 3.3 (Measurement Period):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-3)
+**Conformance Requirement 3.3 (Measurement Period):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-3)
 {: #conformance-requirement-3-3}
 1. FHIR-based eCQMs SHALL provide either an `effectivePeriod` element, or an `cqfm-effectivePeriodAnchor` and `cqfm-effectivePeriodDuration` extension
 2. Measurement Period SHALL be either the `effectivePeriod` as specified, or an appropriate interval of length duration, starting at the specified anchor
@@ -512,7 +512,7 @@ All declared valuesets and codes can be found in the [dataRequirement](Structure
 
 Snippet 3-9: Example Library terminology definitions (from [library-Terminology.json](Library-Terminology.json.html))
 
-**Conformance Requirement 3.4 (Terminology Inclusion):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-4)
+**Conformance Requirement 3.4 (Terminology Inclusion):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-4)
 {: #conformance-requirement-3-4}
 
 Measures using valueset and/or direct-reference codes must conform to the requirements of Conformance Requirement 3.4.
@@ -549,7 +549,7 @@ The data criteria section defines the patient data of interest in the library as
 
 Snippet 3-10: Example data criteria (from [library-Terminology.json](Library-Terminology.json.html))
 
-**Conformance Requirement 3.5 (Data Criteria Inclusion):**[<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-5)
+**Conformance Requirement 3.5 (Data Criteria Inclusion):**[<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-5)
 {: #conformance-requirement-3-5}
 1. `dataRequirement` entries SHALL be included in the Library for each retrieve appearing in the CQL library
 
@@ -565,7 +565,7 @@ Section 3.3.1 describes a means for deriving data requirements from CQL data ref
 
 The canonical representation of ELM makes it straightforward to derive data requirements for CQL data references to comply with Conformance Requirement 3.6:
 
-**Conformance Requirement 3.6** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-6)
+**Conformance Requirement 3.6** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-6)
 {: #conformance-requirement-3-6}
 1. ELM elements with type "Retrieve" are represented using the DataRequirement type defined in FHIR
 2. The Retrieve ELM element's "dataType" value is represented by the DataRequirement's "type" attribute
@@ -656,7 +656,7 @@ CQL provides the logical expression language that is used to define population c
 **Figure 3-1: Relationship between FHIR Measure and CQL Expression Script**
 
 <div>
-<img src="assets/images/FHIRMeasureWithLinkedExpression.png">
+<img src="FHIRMeasureWithLinkedExpression.png">
 </div>
 
 
@@ -714,7 +714,7 @@ define "Initial Population":
 Snippet 3-15: CQL definition of the "Initial Population" criteria (from [EXM146.cql](Library-EXM146.html#cql-content))
 
 
-**Conformance Requirement 3.7 (Referential Integrity):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-7)
+**Conformance Requirement 3.7 (Referential Integrity):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-7)
 {: #conformance-requirement-3-7}
 1. All Measure population criteria components <br/>
      a. SHALL reference exactly one CQL expression.<br/>
@@ -728,7 +728,7 @@ To encourage consistency among measures, the following guidelines for specifying
 
 The codes within the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification are explicitly spelled out, where as the measure population code [based on HQMF](http://terminology.hl7.org/ValueSet/v3-ActCode) are abbreviated. In order to make the development of eCQMs straightforward and clear, [this concept map](conceptmap-measure-populations.html) provides mapping from HQMF codes to FHIR codes for each of the measure component code.
 
-**Conformance Requirement 3.8 (Criteria Names):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-8)
+**Conformance Requirement 3.8 (Criteria Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-8)
 {: #conformance-requirement-3-8}
 The name of an expression specifying a population criteria within a measure SHOULD always be the name of the criteria type†† :
 * "Initial Population"
@@ -766,7 +766,7 @@ In addition, the formula for calculating the measure score is implied by the typ
 
 In addition to the measure type, measures generally fall into two categories, patient-based, and non-patient-based (e.g. encounter-based).  In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
 
-**Conformance Requirement 3.9 (Population Basis):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-9)
+**Conformance Requirement 3.9 (Population Basis):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-9)
 {: #conformance-requirement-3-9}
 1. CQL expressions SHALL be written to return an appropriate value for each population depending on the measure type
 2. The [`cqfm-populationBasis`](StructureDefinition-cqfm-populationBasis.html) extension SHALL be used to identify the result type of population criteria expressions in the measure
@@ -797,7 +797,7 @@ And the following example illustrates the use of the populationBasis extension f
 
 The base FHIR Measure resource defines a set of measure population components that are used to construct measures. Measure populations have implicit relationships to each other depending on the measure scoring type. For example, for proportion measures, denominator criteria have an implicit dependency on initial population criteria, i.e. the criteria for inclusion in the denominator of a measure implicitly include the criteria for inclusion in the initial population.  Similarly, numerator criteria have an implicit dependency on denominator criteria, i.e. the criteria for inclusion in the numerator of a measure implicitly include the criteria for inclusion in the denominator. CQL expressions referenced by Measure population criteria are evaluated within the context of these implicit dependencies.
 
-**Conformance Requirement 3.10 (Measure Population Semantics):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-10)
+**Conformance Requirement 3.10 (Measure Population Semantics):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-10)
 {: #conformance-requirement-3-10}
 1. CQL expressions used as measure population criteria SHALL be evaluated taking relevant dependencies into account, as specified by the membership determination formulas defined for each scoring type.
 2. CQL expressions MAY include explicit dependencies that duplicate the
@@ -865,7 +865,7 @@ In Table 3-2, the first measure is an example of a patient-based measure. Each p
 
 For complete examples of patient-based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an encounter-based proportion measure, see the [EXM108](Measure-measure-vte-1-FHIR.html) measure included in this implementation guide.
 
-**Conformance Requirement 3.11 (Proportion Measures):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-11)
+**Conformance Requirement 3.11 (Proportion Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-11)
 {: #conformance-requirement-3-11}
 1. The CQL expression SHALL use the Patient context and be executed within the context of a single patient record at a time.
 2. The CQL expression for patient-based measures SHALL return a Boolean to indicate whether a patient matches the population criteria (true) or not (false).
@@ -879,7 +879,7 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 **Figure 3-2: Population criteria relationships for Proportion measures illustration**
 
 <div>
-<img src="assets/images/UpdatedOutcomeFlow__Proportion_version_05052020.png">
+<img src="UpdatedOutcomeFlow__Proportion_version_05052020.png">
 </div>
 <br>
 
@@ -974,7 +974,7 @@ A Measure document representing a ratio measure will include one or more populat
 
 In addition, it may also include one or more measure-observation elements. The semantics of these components are unchanged from the base [Measure]({{site.data.fhir.path}}measure.html) specification; the only difference is that each measure population component and each measure observation definition references a single criterion encoded as a CQL expression.
 
-**Conformance Requirement 3.12 (Ratio Measures):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-12)
+**Conformance Requirement 3.12 (Ratio Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-12)
 {: #conformance-requirement-3-12}
 1. Population criteria SHALL each reference a single CQL expression as defined by [Conformance Requirement 3.11](#conformance-requirement-3-11).
 2. measure-observation criteria SHALL reference CQL expressions as defined by [Conformance Requirement 3.13](#conformance-requirement-3-13), with the exception that instead of a measure-population, the criteriaReference element SHALL reference a numerator or denominator criteria by the identifier of the criteria.
@@ -992,13 +992,13 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 **Figure 3-3: Population criteria for Ratio measures illustration - Numerator**
 
 <div>
-<img src="assets/images/UpdatedOutcomeFlow__Ratio_Numerator_05052020.png">
+<img src="UpdatedOutcomeFlow__Ratio_Numerator_05052020.png">
 </div>
 
 **Figure 3-4: Population criteria for Ratio measures illustration - Denominator**
 
 <div>
-<img src="assets/images/UpdatedOutcomeFlow__Ratio_Denominator_05052020.png">
+<img src="UpdatedOutcomeFlow__Ratio_Denominator_05052020.png">
 </div>
 
 ✧ The ratio diagrams depict the rate-based ratio measure. Ratio measures may also include continuous variable calculations for the numerator and denominator (continuous variable ratio measures) but the diagrams do not depict the continuous variable ratio measures.
@@ -1196,7 +1196,7 @@ define "Measure Population" :
 ```
 Snippet 3-23: Definition from Snippet 3-18 (Sample CQL (from [EXM55.cql](Library-EXM55.html#cql-content)) for a continuous-variable measure)
 
-**Conformance Requirement 3.13 (Continuous Variable Measures):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-13)
+**Conformance Requirement 3.13 (Continuous Variable Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-13)
 {: #conformance-requirement-3-13}
 1. Population criteria SHALL each reference a single CQL expression as defined by [Conformance Requirement 3.11](#conformance-requirement-3-11).
 2. The aggregateMethod extension SHALL be used on the measureObservation criteria to indicate the aggregate method for the observations.
@@ -1224,7 +1224,7 @@ The population types for a Continuous Variable measure are "Initial Population",
 **Figure 3-5: Population criteria for Continuous Variable measures illustration**
 
 <div>
-<img src="assets/images/UpdatedOutcomeFlow_CV_Version_05052020.png">
+<img src="UpdatedOutcomeFlow_CV_Version_05052020.png">
 </div>
 
 **Table 3-5: Population Criteria Definitions for Continuous Variable Measures**
@@ -1285,7 +1285,7 @@ In a cohort measure, a population is identified from the population of all items
 **Figure 3-6: Population criteria for Cohort measures illustration**
 
 <div>
-<img src="assets/images/Cohort1.png">
+<img src="Cohort1.png">
 </div>
 
 **Table 3-6: Population Criteria Definitions for Cohort Measures**
@@ -1310,7 +1310,7 @@ When a measure has multiple population groups (multiple group elements), the cri
 
 For multiple population ratio measures that specify 2 initial populations, the populations would be named with an additional "\_X" to distinguish the initial populations, e.g. "Initial Population 1_1", "Initial Population 1_2", "Initial Population 2_1", "Initial Population 2_2".
 
-**Conformance Requirement 3.14 (Multiple Population Indexing):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-14)
+**Conformance Requirement 3.14 (Multiple Population Indexing):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-14)
 {: #conformance-requirement-3-14}
 1. When specifying multiple populations and/or multiple population groups the following naming scheme
 SHOULD be used<br/>
@@ -1323,7 +1323,7 @@ Note also that when a measure has multiple population groups, the expectation is
 #### Stratification
 {: #stratification}
 
-**Conformance Requirement 3.15 (Stratification Criteria):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-15)
+**Conformance Requirement 3.15 (Stratification Criteria):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-15)
 {: #conformance-requirement-3-15}
 1. If stratification is specified as an expression, the result type of the expression SHALL match the result type of other population criteria expressions in the measure.
 2. If stratification is specified as a path, the path SHALL be resolvable on the type of the subject of the measure (or on the type of the population basis if the basis is different than the subject.
@@ -1358,7 +1358,7 @@ Snippet 3-25: Example Stratifier from [EXM55.cql](Library-EXM55.html#cql-content
 #### Supplemental Data Elements
 {: #supplemental-data-elements}
 
-**Conformance Requirement 3.16 (Supplemental Data Elements):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-16)
+**Conformance Requirement 3.16 (Supplemental Data Elements):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-16)
 {: #conformance-requirement-3-16}
 1. Supplemental Data Elements SHALL be included within the supplementalData element using a usage element of supplemental-data.
 2. Supplemental Data Elements SHOULD reference a single CQL expression definition, with a name beginning with SDE.
@@ -1402,7 +1402,7 @@ By convention, the name of each supplemental data element expression would start
 #### Risk Adjustment
 {: #risk-adjustment}
 
-**Conformance Requirement 3.17 (Risk Adjustment Criteria):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-17)
+**Conformance Requirement 3.17 (Risk Adjustment Criteria):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-17)
 {: #conformance-requirement-3-17}
 1. Risk Adjustment Variables SHALL be included within the supplementalData element using a usage element of risk-adjustment-variable
 2. Risk Adjustment Variables SHOULD reference a single CQL expression definition, with a name beginning with RAF

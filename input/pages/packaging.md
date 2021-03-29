@@ -34,7 +34,7 @@ To support usage of a logic library, the library package contains the following 
 
 The following are conformance requirements when packaging a Library:
 
-**Conformance Requirement 6.1 (Library Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-1)
+**Conformance Requirement 6.1 (Library Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-1)
 {: #conformance-requirement-6-1}
 
   1. The first entry in a Library bundle SHALL be a Library resource conforming
@@ -57,7 +57,7 @@ general components:
 
 The following are conformance requirements when packaging a Measure:
 
-**Conformance Requirement 6.2 (Measure Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-2)
+**Conformance Requirement 6.2 (Measure Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-2)
 {: #conformance-requirement-6-2}
 
   1. The first entry in a Measure bundle SHALL be a Measure resource
@@ -71,7 +71,7 @@ The following are conformance requirements when packaging a Measure:
 
 Basic testing of measure logic should involve at least one positive and negative test of each of the population criteria. A test case is represented as a set of test resources, together with a MeasureReport that conforms to the [CQFMTestCase](StructureDefinition-test-case-cqfm.html) profile to define the expected results. The test case bundle can then be used to package and distribute the test case.
 
-**Conformance Requirement 6.3 (Test Case Packaging):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-3)
+**Conformance Requirement 6.3 (Test Case Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-3)
 {: #conformance-requirement-6-3}
 
   1. The first entry in a TestCase bundle SHALL be a MeasureReport resource representing the expected outcome of evaluating the measure, given the test data provided as part of the test case
@@ -80,11 +80,11 @@ Basic testing of measure logic should involve at least one positive and negative
 ### Intellectual Property of Packaging
   {: #intellectual-property-packaging}
 
-**Conformance Requirement 6.4 (Intellectual Property Considerations):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-4)
+**Conformance Requirement 6.4 (Intellectual Property Considerations):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-4)
   {: #conformance-requirement-6-4}
   1. Artifacts distributed in this way SHALL carry the appropriate copyright and intellectual property declarations.
 
-**Conformance Requirement 6.5 (Quality Program):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-5)
+**Conformance Requirement 6.5 (Quality Program):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-5)
 {: #conformance-requirement-6-5}
 
 This implementation guide includes a profile for describing a quality program as a collection of quality measures. This profile is a Library of type `asset-collection` that uses the `relatedArtifact` element to indicate which measures are part of the quality program. In addition, measures and libraries can use the `useContext` element to specify a quality program.

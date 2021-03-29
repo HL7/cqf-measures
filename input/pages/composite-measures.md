@@ -5,7 +5,7 @@
 
 Composite measures make use of multiple component measures to produce a combined score. In the most general case, a composite measure is akin to a continuous variable measure, where the measure observation for each population member is some combination of the individual's component measure scores. However, the calculation logic involved is detailed, and a higher-level representation of the most common composite measure calculation approaches enables a much simpler representation to work with and understand. Note that composite measures must be constructed from existing component measures. Composites do not introduce any new measure logic beyond the composite score calculation. If a composite needs to introduce new logic, a new component measure must be developed that can then be included in the composite.
 
-**Conformance Requirement 5.1 (Composite Measures):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-1)
+**Conformance Requirement 5.1 (Composite Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-1)
 {: #conformance-requirement-5-1}
     1. Composite Measures SHALL conform to the [CQFMCompositeMeasure](StructureDefinition-composite-measure-cqfm.html) profile
     2. Composite Measures SHALL specify a composite measure scoring method
@@ -46,7 +46,7 @@ To illustrate the different composite scoring methods, an example Annual Wellnes
 ### All-or-nothing Scoring
 {: #all-or-nothing-scoring}
 
-**Conformance Requirement 5.2 (All-or-nothing Scoring):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-2)
+**Conformance Requirement 5.2 (All-or-nothing Scoring):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-2)
 {: #conformance-requirement-5-2}
     1. Calculation logic for all-or-nothing composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
     2. Calculation logic for all-or-nothing composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
@@ -59,13 +59,13 @@ All-or-nothing scoring includes an individual in the numerator of the composite 
 <summary>
 <b>Figure 5-1. All-or-none method</b>
 
-_Interpretation:_ For each Eligible Clinician (EC), the percentage of patients who received all preventive services for which they were eligible within the specified time interval. Gives EC numerator credit only if a patient meets the criteria for all of the components of the measure for which the patient is eligible.
-
-_Example:_ X% of an EC’s patients received all preventive services for which they were eligible.
 </summary>
 
-<img src="assets/images/composite-measure-all-or-nothing-scoring.png" alt="All-or-nothing scoring" class="img-responsive img-rounded
-center-block"/>
+<i>Interpretation:</i> For each Eligible Clinician (EC), the percentage of patients who received all preventive services for which they were eligible within the specified time interval. Gives EC numerator credit only if a patient meets the criteria for all of the components of the measure for which the patient is eligible. <br>
+<i>Example:</i> X% of an EC’s patients received all preventive services for which they were eligible.
+
+
+{% include img.html img="composite-measure-all-or-nothing-scoring.png" %}
 
 </details>
 
@@ -136,7 +136,7 @@ Snippet 24: Formal criteria for a patient-based All-or-nothing composite measure
 ### Opportunity Scoring
 {: opportunity-scoring}
 
-**Conformance Requirement 5.3 (Opportunity Scoring):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-3)
+**Conformance Requirement 5.3 (Opportunity Scoring):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-3)
 {: #conformance-requirement-5-3}
     1. Calculation logic for opportunity composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
     2. Calculation logic for opportunity composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
@@ -145,16 +145,17 @@ Snippet 24: Formal criteria for a patient-based All-or-nothing composite measure
 Opportunity scoring considers the appearance of a patient in a denominator of a component measure as an opportunity to provide a service, and the appearance of that patient in the numerator of each component as the fulfillment of that opportunity. This means that each component measure is considered a “case” in the composite population. The denominator is then the set of cases in which patients appeared in the denominator for the component measures, and so on for each population criteria. This allows the composite to then be calculated as a standard proportion measure where the basis for the population criteria is membership in the population for each component.
 
 <details open>
-<summary>
+
 <b>Figure 5-2. Opportunity scoring method</b>
 
-_Interpretation:_ For each Eligible Clinician (EC), the percentage of opportunities to provide preventive services that were completed.
+<summary>
 
-_Example:_ X% of preventive service opportunities for the EC were completed.
+<em>Interpretation:</em> For each Eligible Clinician (EC), the percentage of opportunities to provide preventive services that were completed.<br>
+
+<em>Example:</em> X% of preventive service opportunities for the EC were completed.
 </summary>
 
-<img src="assets/images/composite-measure-opportunity-scoring.png" alt="Opportunity scoring" class="img-responsive img-rounded
-center-block"/>
+{% include img.html img="composite-measure-opportunity-scoring.png" %}
 
 </details>
 
@@ -212,7 +213,7 @@ Note that this approach is using component measures where the improvement notati
 ### Patient-level Linear Combination Scoring
 {: patient-level-linear-combination-scoring}
 
-**Conformance Requirement 5.4 (Patient-level Linear Combination Scoring):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-4)
+**Conformance Requirement 5.4 (Patient-level Linear Combination Scoring):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-4)
 {: #conformance-requirement-5-4}
     1. Calculation logic for patient-level linear combination composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
     2. Calculation logic for patient-level linear combination composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
@@ -221,16 +222,16 @@ Note that this approach is using component measures where the improvement notati
 Patient-level linear combination scoring is modeled as a continuous variable measure that gives numerator credit for the proportion of patients in the numerators of composite measures.
 
 <details open>
-<summary>
 <b>Figure 5-3. Patient-level linear combination method</b>
 
-_Interpretation:_ For each Eligible Clinician (EC), the percentage of completed preventive services, which gives EC partial numerator credit for meeting the criteria for some but not all components of the measure.
+<summary>
 
-_Example:_ On average, each patient was provided X% of services for which the patient was eligible.
+<em>Interpretation:</em> For each Eligible Clinician (EC), the percentage of completed preventive services, which gives EC partial numerator credit for meeting the criteria for some but not all components of the measure.<br>
+
+<em>Example:</em> On average, each patient was provided X% of services for which the patient was eligible.
 </summary>
 
-<img src="assets/images/composite-measure-patient-level-linear-combination-scoring.png" alt="Patient-level linear combination scoring" class="img-responsive img-rounded
-center-block"/>
+{% include img.html img="composite-measure-patient-level-linear-combination-scoring.png" %}
 
 </details>
 
@@ -317,16 +318,16 @@ Weighted scoring combines component measure scores using a weighting factor for 
 Note that as discussed in the section on composite scoring methods, this method is a component-based composite measure scoring method, meaning that the calculation of the composite is performed on the population-level result of the component measures.
 
 <details open>
-<summary>
 <b>Figure 5-4. Component-level linear combination method</b>
 
-_Interpretation:_ For each Eligible Clinician (EC), percentage of patients who received preventive services, which gives EC partial numerator credit for meeting the criteria for some but not all components of the measure.
+<summary>
 
-_Example:_ On average, each preventive service was provided to X% of patients.
+<em>Interpretation:</em> For each Eligible Clinician (EC), percentage of patients who received preventive services, which gives EC partial numerator credit for meeting the criteria for some but not all components of the measure. <br>
+
+<em>Example:</em> On average, each preventive service was provided to X% of patients.
 </summary>
 
-<img src="assets/images/composite-measure-component-level-linear-combination-scoring.png" alt="Component-level linear combination scoring" class="img-responsive img-rounded
-center-block"/>
+{% include img.html img="composite-measure-component-level-linear-combination-scoring.png" %}
 
 </details>
 
@@ -369,7 +370,7 @@ Snippet 29: Weighted composite measure relatedDocuments
 ### Measure Types
 {: #measure-types}
 
-**Conformance Requirement 5.5 (Composite Measure Types):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-5)
+**Conformance Requirement 5.5 (Composite Measure Types):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-5)
 {: #conformance-requirement-5-5}
     1. For composite measures using Opportunity scoring
         a. The measure scoring method SHALL be Proportion or Ratio
@@ -396,7 +397,7 @@ Note that these requirements are about ensuring that the population criteria exp
 ### Measure Basis
 {: #measure-basis}
 
-**Conformance Requirement 5.6 (Composite Measure Basis):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-6)
+**Conformance Requirement 5.6 (Composite Measure Basis):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-6)
 {: #conformance-requirement-5-6}
     1. All component measures used within a composite measure SHALL have the same measure subject type
     1. All component measures used within an individual-level composite measure SHALL use the same measure basis
@@ -407,7 +408,7 @@ As with single measures, composite measures may be patient-based, or use some ot
 ### Stratification
 {: #stratification}
 
-**Conformance Requirement 5.7 (Composite Measure Stratification):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-7)
+**Conformance Requirement 5.7 (Composite Measure Stratification):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-7)
 {: #conformance-requirement-5-7}
     1. Stratifiers of components in a composite measure SHALL NOT be used to stratify the composite measure
 
@@ -416,7 +417,7 @@ Because composite measure scoring for individual-based composites effectively ig
 ### Multiple Populations
 {: #multiple-populations}
 
-**Conformance Requirement 5.8 (Composite Measure Population Groups):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-8)
+**Conformance Requirement 5.8 (Composite Measure Population Groups):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-8)
 {: #conformance-requirement-5-8}
     1. Component measures used in a composite SHOULD contain a single population group
     2. For component measures that contain multiple population groups, the composite measure SHALL specify the specific group to be used in the composite using the [groupId](StructureDefinition-cqfm-groupId) extension
@@ -426,7 +427,7 @@ To simplify expression and implementation of composite measures, all component m
 ### Supplemental Data Elements and Risk Adjustment Variables
 {: #supplemental-data-elements-and-risk-adjustment-variables}
 
-**Conformance Requirement 5.9 (Composite Measure Supplemental Data Elements and Risk Adjustment Variables):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-9)
+**Conformance Requirement 5.9 (Composite Measure Supplemental Data Elements and Risk Adjustment Variables):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-9)
 {: #conformance-requirement-5-9}
     1. Composite measure results SHALL include supplemental data elements and risk adjustment variables from all component measures, as well as those defined in the composite directly.
     2. Supplemental data elements and risk adjustment variables that appear in the multiple components or a component and the composite by name SHALL be of the same type
@@ -436,7 +437,7 @@ For individual-based composite scoring methods, additional data elements are col
 ### Component Quality Measures
 {: #component-quality-measures}
 
-**Conformance Requirement 5.10 (Component Quality Measures):** [<img src="assets/images/conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-10)
+**Conformance Requirement 5.10 (Component Quality Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-10)
 {: #conformance-requirement-5-10}
     1. Component quality measures SHALL be referenced using a relatedArtifact element with a type of _composed-of_
     2. Component quality measures SHALL be referenced using the canonical URL of the Measure resource

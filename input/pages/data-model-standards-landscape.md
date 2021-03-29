@@ -1,4 +1,4 @@
-#### 1.3.3 Data Model Standards Landscape
+#### Data Model Standards Landscape
 {: #data-model-standards-landscape}
 
 The quality improvement ecosystem covers every aspect of the healthcare
@@ -33,8 +33,7 @@ The following diagram depicts this data model standards landscape:
 
 </summary>
 
-<img src="assets/images/data-model-standards-landscape.png" alt="Data Model
-Standards Landscape" class="img-responsive img-rounded center-block"/>
+{% include img.html img="data-model-standards-landscape.png" %}
 
 </details>
 

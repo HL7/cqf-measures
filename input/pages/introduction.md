@@ -65,9 +65,7 @@ This Implementation Guide (Figure 2-1(b)) is the successor of the CQL-based HQMF
 
 </summary>
 
-<img src="assets/images/RelationshipToCQLBasedHQMFIG.png" alt="Quality
-Improvement Ecosystem" class="img-responsive img-rounded
-center-block"/>
+{% include img.html img="RelationshipToCQLBasedHQMFIG.png" %}
 
 </details>
 

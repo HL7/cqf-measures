@@ -12,10 +12,10 @@ diagram:
 
 </summary>
 
-<img src="../images/quality-measurement-standards-landscape.png"
-alt="Quality Measurement Standards Landscape" class="img-responsive img-rounded center-block"/>
+{% include img.html img="quality-measurement-standards-landscape.png" %}
 
 </details>
+
 
 The left side of the quality measurement standards landscape diagram depicts
 the activities and standards associated with measure specification, while the
