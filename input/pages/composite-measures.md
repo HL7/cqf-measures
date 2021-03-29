@@ -145,15 +145,14 @@ Snippet 24: Formal criteria for a patient-based All-or-nothing composite measure
 Opportunity scoring considers the appearance of a patient in a denominator of a component measure as an opportunity to provide a service, and the appearance of that patient in the numerator of each component as the fulfillment of that opportunity. This means that each component measure is considered a “case” in the composite population. The denominator is then the set of cases in which patients appeared in the denominator for the component measures, and so on for each population criteria. This allows the composite to then be calculated as a standard proportion measure where the basis for the population criteria is membership in the population for each component.
 
 <details open>
-
+<summary>
 <b>Figure 5-2. Opportunity scoring method</b>
 
-<summary>
+</summary>
 
 <em>Interpretation:</em> For each Eligible Clinician (EC), the percentage of opportunities to provide preventive services that were completed.<br>
 
 <em>Example:</em> X% of preventive service opportunities for the EC were completed.
-</summary>
 
 {% include img.html img="composite-measure-opportunity-scoring.png" %}
 
@@ -222,14 +221,13 @@ Note that this approach is using component measures where the improvement notati
 Patient-level linear combination scoring is modeled as a continuous variable measure that gives numerator credit for the proportion of patients in the numerators of composite measures.
 
 <details open>
-<b>Figure 5-3. Patient-level linear combination method</b>
-
 <summary>
+<b>Figure 5-3. Patient-level linear combination method</b>
+</summary>
 
 <em>Interpretation:</em> For each Eligible Clinician (EC), the percentage of completed preventive services, which gives EC partial numerator credit for meeting the criteria for some but not all components of the measure.<br>
 
 <em>Example:</em> On average, each patient was provided X% of services for which the patient was eligible.
-</summary>
 
 {% include img.html img="composite-measure-patient-level-linear-combination-scoring.png" %}
 
