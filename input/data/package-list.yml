@@ -1,0 +1,44 @@
+package-id: hl7.fhir.us.cqfmeasures
+title: Quality Measure Implementation Guide
+canonical: 'http://hl7.org/fhir/us/cqfmeasures'
+introduction: >-
+  This implementation guide describes an approach to representing electronic Clinical Quality Measures (eCQMs) using the FHIR Clinical Reasoning Module and Clinical Quality Language (CQL) in the U.S. Realm.
+  However, this Implementation Guide can be usable for multiple use cases across domains, and much of the content is likely to be usable outside the U.S. Realm.
+list:
+  - version: current
+    desc: |-
+      Continuous Integration Build for Quality Measures Implementation Guide(latest in version control)
+
+      The following resolutions have been voted on by the members of the sponsoring work group [HL7 International Clinical Quality Information](http://www.hl7.org/Special/committees/cqi/index.cfm).
+
+      **comments and their resolutions**
+
+      Listed below are the resolved trackers for this version:
+
+      **Status**: **Summary**:(**Jira Issue**)
+      1. **Applied**:conformance requirement 1 does not mention composite measures. Should it? ([FHIR-21107](https://jira.hl7.org/browse/FHIR-21107))
+      1. **Applied**:Need to clarify how measure evaluation parameters are specified in a test case ([FHIR-27795](https://jira.hl7.org/browse/FHIR-27795))
+      1. **Applied**:Permit stratifier expression to have any type (Conformance requirement 15) ([FHIR-27878](https://jira.hl7.org/browse/FHIR-27878))
+      1. **Applied**:Glossary population criteria entries are inconsistent with population code system ([FHIR-28206](https://jira.hl7.org/browse/FHIR-28206))
+      1. **Applied**:Example measure 146 is incorrectly described as "patient-based" ([FHIR-28210](https://jira.hl7.org/browse/FHIR-28210))
+      1. **Applied**:CQFM Library has incorrect cardinality for profile constraint ([FHIR-28238](https://jira.hl7.org/browse/FHIR-28238))
+      1. **Applied**:CQFMMeasure profile has incorrect cardinality for profile constraint ([FHIR-28239](https://jira.hl7.org/browse/FHIR-28239))
+      1. **Applied**:Possible issue with related artifact example ([FHIR-28288](https://jira.hl7.org/browse/FHIR-28288))
+      1. **Applied**:PopulationBasis definition ([FHIR-28290](https://jira.hl7.org/browse/FHIR-28290))
+      1. **Applied**:Measure Type valueset needs a concept map to the V3 codes ([FHIR-28300](https://jira.hl7.org/browse/FHIR-28300))
+      1. **Applied**:Measure scoring value set needs a concept map from V3 ([FHIR-28301](https://jira.hl7.org/browse/FHIR-28301))
+      1. **Applied**:Composite Measure Scoring needs a mapping to V3 concepts ([FHIR-28302](https://jira.hl7.org/browse/FHIR-28302))
+      1. **Applied**:Aggregate method needs a mapping to HL7 V3 concepts ([FHIR-28303](https://jira.hl7.org/browse/FHIR-28303))
+      1. **Applied**:Ratio measure profile ([FHIR-28338](https://jira.hl7.org/browse/FHIR-28338))
+      1. **Applied**:Cardinality of Measure.meta.profile ([FHIR-29649](https://jira.hl7.org/browse/FHIR-29649))
+      1. **Applied**:Issues with Packaging and Bundle profiles ([FHIR-30079](https://jira.hl7.org/browse/FHIR-30079))
+      1. **Applied**:Define a computable measure profile ([FHIR-30394](https://jira.hl7.org/browse/FHIR-30394))
+      1. **Applied**:Add identifier slices for shortname, publisher, and endorser ([FHIR-30395](https://jira.hl7.org/browse/FHIR-30395))
+      1. **Applied**:Add attribution model identifier to quality program ([FHIR-30401](https://jira.hl7.org/browse/FHIR-30401))
+      1. **Applied**:Support specification of scoringUnit ([FHIR-30506](https://jira.hl7.org/browse/FHIR-30506))
+      1. **Applied**:Conformance requirements for CQL Library resource usage ([FHIR-30569](https://jira.hl7.org/browse/FHIR-30569))
+      1. **Applied**:Add a profile for FHIR Model Info Library ([FHIR-30770](https://jira.hl7.org/browse/FHIR-30770))
+      1. **Applied**:Add composite measure support and profiles ([FHIR-30873](https://jira.hl7.org/browse/FHIR-30873))
+      1. **Applied**:Support measure terminology service ([FHIR-30874](https://jira.hl7.org/browse/FHIR-30874))
+      1. **Applied**:Create measure repository service ([FHIR-30875](https://jira.hl7.org/browse/FHIR-30875))
+      1. **Applied**:Support specifying quality domain and meaningful measure area in quality programs ([FHIR-31409](https://jira.hl7.org/browse/FHIR-31409))
