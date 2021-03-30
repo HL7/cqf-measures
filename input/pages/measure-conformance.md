@@ -879,7 +879,7 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 **Figure 3-2: Population criteria relationships for Proportion measures illustration**
 
 <div>
-<img src="UpdatedOutcomeFlow__Proportion_version_05052020.png">
+<img src="OutcomeFlow__Proportion_version.png">
 </div>
 <br>
 
@@ -992,13 +992,13 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 **Figure 3-3: Population criteria for Ratio measures illustration - Numerator**
 
 <div>
-<img src="UpdatedOutcomeFlow__Ratio_Numerator_05052020.png">
+<img src="OutcomeFlow__Ratio_Numerator.png">
 </div>
 
 **Figure 3-4: Population criteria for Ratio measures illustration - Denominator**
 
 <div>
-<img src="UpdatedOutcomeFlow__Ratio_Denominator_05052020.png">
+<img src="OutcomeFlow__Ratio_Denominator.png">
 </div>
 
 ✧ The ratio diagrams depict the rate-based ratio measure. Ratio measures may also include continuous variable calculations for the numerator and denominator (continuous variable ratio measures) but the diagrams do not depict the continuous variable ratio measures.
@@ -1224,7 +1224,7 @@ The population types for a Continuous Variable measure are "Initial Population",
 **Figure 3-5: Population criteria for Continuous Variable measures illustration**
 
 <div>
-<img src="UpdatedOutcomeFlow_CV_Version_05052020.png">
+<img src="OutcomeFlow_CV_Version.png">
 </div>
 
 **Table 3-5: Population Criteria Definitions for Continuous Variable Measures**
