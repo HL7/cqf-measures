@@ -20,7 +20,6 @@ The HL7 IG Publisher is committed to this repository to make building as easy as
 
   2. **_genonce[.bat | .sh]** - <i>This initiates the publication process. Launching the .bat file (Windows) or .sh file (Unix/Mac) will launch HL7's IGPublisher program and build/publish the IG one time.</i>
 
-    java -jar "org.hl7.fhir.publisher.jar" -ig ig.json
 
 ## Dependencies
 
