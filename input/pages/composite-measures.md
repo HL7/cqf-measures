@@ -7,7 +7,7 @@ Composite measures make use of multiple component measures to produce a combined
 
 **Conformance Requirement 5.1 (Composite Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-1)
 {: #conformance-requirement-5-1}
-    1. Composite Measures SHALL conform to the [CQFMCompositeMeasure](StructureDefinition-composite-measure-cqfm.html) profile
+    1. Composite Measures SHALL conform to the CQFMCompositeMeasure profile
     2. Composite Measures SHALL specify a composite measure scoring method
 
 // TODO: Update Example
