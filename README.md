@@ -14,7 +14,7 @@ Full debugging information is available here:
 
 ## Local Build
 
-The HL7 IG Publisher is committed to this repository to make building as easy as possible. To initially build locally, clone the repository and run the following commands the directions below in the root command:
+The HL7 IG Publisher is committed to this repository to make building as easy as possible. To initially build locally, clone the repository and run the following commands in order below in the root command:
 
   1. **_updatePublisher[.bat | .sh]** - <i>Process retrieves the current version of the IG publisher and stores it within the input-cache folder. The IG publisher is updated on a regular basis but this process does not have to be executed for every instance of the publication process.</i>
 
