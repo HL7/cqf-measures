@@ -20,7 +20,7 @@
 {: #conceptmap-resources}
 
 -  [Measure Populations](conceptmap-measure-populations.html)
--  [Measure Types](conceptmap-measure-types.html)
--  [Measure Scoring](conceptmap-measure-scoring.html)
--  [Composite Measure Scoring](conceptmap-composite-measure-scoring.html)
--  [Aggregate Method](conceptmap-aggregate-method.html)
+-  {:.new-content #FHIR-28300}[Measure Types](conceptmap-measure-types.html)
+-  {:.new-content #FHIR-28301}[Measure Scoring](conceptmap-measure-scoring.html)
+-  {:.new-content #FHIR-28302}[Composite Measure Scoring](conceptmap-composite-measure-scoring.html)
+-  {:.new-content #FHIR-28303}[Aggregate Method](conceptmap-aggregate-method.html)

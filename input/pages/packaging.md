@@ -8,7 +8,7 @@ provides guidance on how to package quality measures, either independently, or a
 ### Packaging Artifacts
 {: #packaging-artifacts}
 
-In general, artifacts such as libraries, measures, and test cases are packaged as a Bundle
+{:.new-content #FHIR-30079}In general, artifacts such as libraries, measures, and test cases are packaged as a Bundle
 of type `transaction`. They may span multiple bundles in a given delivery, thus the bundle should be processed as a unit.
 
 An artifact bundle contains the artifact as the first entry in the bundle, and optionally the
@@ -19,7 +19,7 @@ dependencies and associated artifacts as subsequent entries as follows:
 3. **Terminology Dependencies**: Any CodeSystem or ValueSet resources required for the artifact
 4. **Test Cases**: Any test cases defined for the artifact
 
-*Note that if an artifact package is large enough to require segmentation in multiple bundles, use of `transaction` bundles may not be feasible.
+{:.new-content #FHIR-30079}*Note that if an artifact package is large enough to require segmentation in multiple bundles, use of `transaction` bundles may not be feasible.
 
 ### Packaging Libraries
 {: #packaging-libraries}
