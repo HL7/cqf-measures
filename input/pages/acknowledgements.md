@@ -1,9 +1,3 @@
----
-layout: default
-title: Acknowledgements
----
-#Acknowledgements
-
 This Implementation Guide was made possible by the thoughtful contributions of the following people and organizations:
 
 * Rose Almont, MITRE - Contributor
