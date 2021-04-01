@@ -114,11 +114,8 @@ define "Denominator Exception":
     or ComponentMeasure3."Denominator Exception"
 
 define "ComponentMeasure1 Numerator Membership": // Repeat for each component
-  ComponentMeasure1."Initial Population"
-    and ComponentMeasure1."Denominator"
-    and not ComponentMeasure1."Denominator Exclusion"
-    and ComponentMeasure1."Numerator"
-    and not ComponentMeasure1."Numerator Exclusion"
+  ComponentMeasure1."Denominator Membership"
+   implies ComponentMeasure1."Numerator Membership"
 
 define "Numerator":
   "ComponentMeasure1 Numerator Membership"
@@ -132,6 +129,12 @@ define "Numerator Exclusion":
 ```
 
 Snippet 24: Formal criteria for a patient-based All-or-nothing composite measure
+
+Consider the example of a composite that includes a breast cancer screening measure and a colorectal cancer screening measure. For an individual that is male, they are only eligible for the colorectal cancer screening measure, so the fact that they do not appear in the denominator or numerator of the breast cancer screening measure should not remove them from the numerator of the composite measure.
+
+*Note that `implies` is a logical operator within CQL. "X implies Y" roughly translates to narrative text as "if X is true, then Y must be as well"
+
+Refer to the definition of ["implies" in CQL](https://cql.hl7.org/09-b-cqlreference.html#implies) for more information.
 
 ### Opportunity Scoring
 {: opportunity-scoring}
