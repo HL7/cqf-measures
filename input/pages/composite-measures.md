@@ -401,8 +401,8 @@ Note that these requirements are about ensuring that the population criteria exp
 **Conformance Requirement 5.6 (Composite Measure Basis):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-6)
 {: #conformance-requirement-5-6}
     1. All component measures used within a composite measure SHALL have the same measure subject type
-    1. All component measures used within an individual-level composite measure SHALL use the same measure basis
-    2. Component measures of component-level composite measures MAY have the same measure basis
+    2. All component measures used within an individual-level composite measure SHALL use the same measure basis
+    3. Component measures of component-level composite measures MAY have the same measure basis
 
 As with single measures, composite measures may be patient-based, or use some other element as the measure basis such as encounters or procedures. However, each component measure of an individual-level composite must use the same basis. For example, an individual-level composite measure may not include both patient-based and episode-of-care measures as component measures.
 
