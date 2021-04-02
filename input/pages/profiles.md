@@ -37,4 +37,24 @@ To support packaging, testing, and distribution of measure and library artifacts
 
 ## Alphabetical Listing
 
-{% include list-simple-profiles.xhtml %}
+- [Computable Library](StructureDefinition-computable-library-cqfm.html)
+- [Cohort Measure](StructureDefinition-cohort-measure-cqfm.html)
+- {:.new-content} [Composite Measure](StructureDefinition-composite-measure-cqfm.html)
+- {:.new-content} [Computable Measure](StructureDefinition-computable-measure-cqfm.html)
+- {:.new-content} [Computable ValueSet](StructureDefinition-computable-valueset-cqfm.html)
+- [Continuous Variable Measure](StructureDefinition-cv-measure-cqfm.html)
+- [Device](StructureDefinition-device-softwaresystem-cqfm.html)
+- [Executable Library](StructureDefinition-executable-library-cqfm.html)
+- {:.new-content} [Executable ValueSet](StructureDefinition-executable-valueset-cqfm.html)
+- [Library](StructureDefinition-library-cqfm.html)
+- [Measure](StructureDefinition-measure-cqfm.html)
+- {:.new-content} [Measure Test Case](StructureDefinition-test-case-cqfm.html)
+- {:.new-content} [Model Info Library](StructureDefinition-modelinfo-library-cqfm.html)
+- {:.new-content} [Module Definition Library](StructureDefinition-module-definition-library-cqfm.html)
+- [Proportion Measure](StructureDefinition-proportion-measure-cqfm.html)
+- {:.new-content} [Publishable CodeSystem](StructureDefinition-publishable-codesystem-cqfm.html)
+- [Publishable Library](StructureDefinition-publishable-library-cqfm.html)
+- [Publishable Measure](StructureDefinition-publishable-measure-cqfm.html)
+- {:.new-content} [Publishable ValueSet](StructureDefinition-publishable-valueset-cqfm.html)
+- [Ratio Measure](StructureDefinition-ratio-measure-cqfm.html)
+- {:.new-content} [Quality Program Specification](StructureDefinition-quality-program-cqfm.html)
