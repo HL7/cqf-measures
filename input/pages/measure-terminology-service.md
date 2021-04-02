@@ -1,7 +1,4 @@
----
-layout: default
-title: Measure Terminology Service
----
+{:toc}
 
 ## Overview
 This page describes documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based quality measure specifications as described in this implementation guide.

@@ -1,7 +1,4 @@
----
-layout: default
-title: Measure Repository Service
----
+{:toc}
 
 ## Overview
 This page documents the use cases and conformance expectations of a knowledge repository service to support authoring, publishing, and distribution of FHIR-based quality measure specifications as described in this implementation guide.
