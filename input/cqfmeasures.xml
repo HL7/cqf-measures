@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="us-cqfmeasures-2.1.0"/>
+  <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/us-cqfmeasures-2.1.0"/>
+  <version value="2.1.0"/>
+  <name value="CQFMeasures"/>
+  <title value="Quality Measure Implementation Guide"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2018-11-01T00:00:00-06:00"/>
+  <publisher value="Clinical Quality Information WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The Fast Healthcare Interoperability Resource (FHIR) Quality Measure Implementation Guide (this IG) describes an approach to representing electronic Clinical Quality Measures (eCQMs) using the FHIR Clinical Reasoning Module and Clinical Quality Language (CQL) in the US Realm. However, this Implementation Guide can be usable for multiple use cases across domains, and much of the content is likely to be usable outside the US Realm."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
+  <packageId value="hl7.fhir.us.cqfmeasures"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.1"/>
+  <fhirVersion value="4.0.1"/>
+  <dependsOn id="qicore">
+    <uri value="http://hl7.org/fhir/us/qicore"/>
+    <packageId value="hl7.fhir.us.qicore"/>
+    <version value="4.0.0"/>
+  </dependsOn>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-allocation"/>
+      </reference>
+      <name value="StructureDefinition - Measure allocation extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-definitionTerm"/>
+      </reference>
+      <name value="StructureDefinition - Measure definitionTerm extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-isPrimaryCitation"/>
+      </reference>
+      <name value="StructureDefinition - Measure isPrimaryCitation extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-publicationStatus"/>
+      </reference>
+      <name value="StructureDefinition - Measure publicationStatus extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-publicationDate"/>
+      </reference>
+      <name value="StructureDefinition - Measure publicationDate extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-populationBasis"/>
+      </reference>
+      <name value="StructureDefinition - Measure populationBasis extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-softwaresystem"/>
+      </reference>
+      <name value="StructureDefinition - Measure softwaresystem extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-parameter"/>
+      </reference>
+      <name value="StructureDefinition - Measure parameter extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-dataRequirement"/>
+      </reference>
+      <name value="StructureDefinition - Measure data requirement extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-directReferenceCode"/>
+      </reference>
+      <name value="StructureDefinition - Measure direct-reference code extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-logicDefinition"/>
+      </reference>
+      <name value="StructureDefinition - Measure logic definition extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-scoringUnit"/>
+      </reference>
+      <name value="StructureDefinition - Measure scoringUnit extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-scoring"/>
+      </reference>
+      <name value="StructureDefinition - Measure scoring extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-type"/>
+      </reference>
+      <name value="StructureDefinition - Measure type extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-riskAdjustment"/>
+      </reference>
+      <name value="StructureDefinition - Measure riskAdjustment extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-rateAggregation"/>
+      </reference>
+      <name value="StructureDefinition - Measure rateAggregation extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-improvementNotation"/>
+      </reference>
+      <name value="StructureDefinition - Measure improvementNotation extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-compositeScoring"/>
+      </reference>
+      <name value="StructureDefinition - Measure compositeScoring extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-component"/>
+      </reference>
+      <name value="StructureDefinition - Measure component extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-groupId"/>
+      </reference>
+      <name value="StructureDefinition - Measure groupId extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqfm-weight"/>
+      </reference>
+      <name value="StructureDefinition - Measure weight extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <page>
+      <nameUrl value="index.html"/>
+      <title value="Quality Measure Implementation Guide Homepage"/>
+      <generation value="markdown"/>
+    <page>
+    <nameUrl value="introduction.html"/>
+    <title value="Introduction"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="measure-conformance.html"/>
+    <title value="eCQMs"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="using-cql.html"/>
+    <title value="Using CQL"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="composite-measures.html"/>
+    <title value="Composites"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="packaging.html"/>
+    <title value="Packaging"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="profiles.html"/>
+    <title value="Profiles"/>
+    <generation value="markdown"/>
+    <page>
+      <nameUrl value="StructureDefinition-computable-library-cqfm.html"/>
+      <title value="CQFM Computable Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cohort-measure-cqfm.html"/>
+      <title value="CQFM Cohort Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-composite-measure-cqfm.html"/>
+      <title value="CQFM Composite Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-computable-measure-cqfm.html"/>
+      <title value="CQFM Comptable Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-computable-valueset-cqfm.html"/>
+      <title value="CQFM Computable ValueSet"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cv-measure-cqfm.html"/>
+      <title value="CQFM Continuous Variable Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-device-softwaresystem-cqfm.html"/>
+      <title value="CQFM SoftwareSystem Device"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-executable-library-cqfm.html"/>
+      <title value="CQFM Executable Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-executable-valueset-cqfm.html"/>
+      <title value="CQFM Executable ValuesSet"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-library-cqfm.html"/>
+      <title value="CQFM Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-measure-cqfm.html"/>
+      <title value="CQFM Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-modelinfo-library-cqfm.html"/>
+      <title value="CQFM Model Information Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-module-definition-library-cqfm.html"/>
+      <title value="CQFM Module Definitioni Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-proportion-measure-cqfm.html"/>
+      <title value="CQFM Proportion Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-publishable-codesystem-cqfm.html"/>
+      <title value="CQFM Publishable CodeSystem"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-publishable-library-cqfm.html"/>
+      <title value="CQFM Publishable Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-publishable-measure-cqfm.html"/>
+      <title value="CQFM Publishable Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-publishable-valueset-cqfm.html"/>
+      <title value="CQFM Publishable ValueSet"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-ratio-measure-cqfm.html"/>
+      <title value="CQFM Ratio Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-test-case-cqfm.html"/>
+      <title value="CQFM Test Case"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-quality-program-cqfm.html"/>
+      <title value="CQFM Quality Programs"/>
+      <generation value="generated"/>
+    </page>
+  </page>
+  <page>
+    <nameUrl value="extensions.html"/>
+    <title value="Extensions"/>
+    <generation value="markdown"/>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-artifactComment.html"/>
+      <title value="Measure Artifact Comment Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-definitionTerm.html"/>
+      <title value="Measure Defintion Term Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-allocation.html"/>
+      <title value="Measure Allocation Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-softwaresystem.html"/>
+      <title value="Software System Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-populationBasis.html"/>
+      <title value="Measure Population Basis Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-scoring.html"/>
+      <title value="Measure Scoring Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-scoringUnit.html"/>
+      <title value="Measure Scoring Unit Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-type.html"/>
+      <title value="Measure Type Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-riskAdjustment.html"/>
+      <title value="Measure Risk Adjustment Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-rateAggregation.html"/>
+      <title value="Measure Rate Aggregation Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-improvementNotation.html"/>
+      <title value="Measure Improvement Notation Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-parameter.html"/>
+      <title value="Measure Parameter Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-dataRequirement.html"/>
+      <title value="Measure Data Requirement Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-directReferenceCode.html"/>
+      <title value="Measure Direct Reference Code Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-logicDefinition.html"/>
+      <title value="Measure Logic Definition Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-effectivePeriodAnchor.html"/>
+      <title value="Measure Effective Period Anchor Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-effectivePeriodDuration.html"/>
+      <title value="Measure Effective Period Duration Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-isPrimaryCitation.html"/>
+      <title value="Measure Is Primary Citation Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-publicationStatus.html"/>
+      <title value="Measure Publication Status Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-publicationDate.html"/>
+      <title value="Measure Publication Date Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-criteriaReference.html"/>
+      <title value="Measure Criteria Reference Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-aggregateMethod.html"/>
+      <title value="Measure Aggregate Method Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-compositeScoring.html"/>
+      <title value="Measure Composite Scoring Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-component.html"/>
+      <title value="Measure Component Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-groupId.html"/>
+      <title value="Measure Group ID Extension "/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-weight.html"/>
+      <title value="Measure Weight Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-programIdentifier.html"/>
+      <title value="Measure Program Identifier Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-qualityDomain.html"/>
+      <title value="Measure Quality Domain Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-meaningfulMeasureArea.html"/>
+      <title value="Measure Meaningful Area Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-expansionUri.html"/>
+      <title value="Measure Expansion URI Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-isTestCase.html"/>
+      <title value="Measure Is Test Case Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-testCaseDescription.html"/>
+      <title value="Measure Test Case Description Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-inputParameters.html"/>
+      <title value="Measure Input Parameters Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-cqfm-usageWarning.html"/>
+      <title value="Measure Usage Warning Extension"/>
+      <generation value="generated"/>
+    </page>
+  </page>
+  <page>
+    <nameUrl value="terminology.html"/>
+    <title value="Terminology"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="capabilities.html"/>
+    <title value="Capabilities"/>
+    <generation value="markdown"/>
+    <page>
+      <nameUrl value="OperationDefinition-Library-package.html"/>
+      <title value="Library Package Operation Definitions"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="OperationDefinition-Library-data-requirements.html"/>
+      <title value="Library Data Requirements Operation Definitions"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="OperationDefinition-Measure-package.html"/>
+      <title value="Measure Packaging Operation Definitions"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="OperationDefinition-Measure-data-requirements.html"/>
+      <title value="Measure Data Requirements Operation Definitions"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="OperationDefinition-MeasureReport-package.html"/>
+      <title value="Measure Report Packaging Operation Definitions"/>
+      <generation value="generated"/>
+    </page>
+  </page>
+  <page>
+    <nameUrl value="examples.html"/>
+    <title value="Examples"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="glossary.html"/>
+    <title value="Glossary"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="downloads.html"/>
+    <title value="Downloads"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="acknowledgements.html"/>
+    <title value="Acknowledgements"/>
+    <generation value="markdown"/>
+  </page>
+</page>
+    <parameter>
+      <code value="releaselabel"/>
+      <value value="ci-build"/>
+    </parameter>
+    <parameter>
+      <code value="copyrightyear"/>
+      <value value="2019+"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources"/>
+    </parameter>
+    <parameter>
+    <code value="find-other-resources"/>
+    <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\capabilitystatement"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\operationdefinition"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\codesystem"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\conceptmap"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\device"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\library"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\measure"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\measurereport"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\valueset"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="pages"/>
+    </parameter>
+    <parameter>
+      <code value="path-binary"/>
+      <value value="cql"/>
+    </parameter>
+    <parameter>
+      <code value="path-liquid"/>
+      <value value="templates\liquid"/>
+    </parameter>
+    <parameter>
+      <code value="apply"/>
+      <value value="jurisdiction"/>
+    </parameter>
+    <parameter>
+      <code value="generate"/>
+      <value value="xml"/>
+    </parameter>
+    <parameter>
+      <code value="generate"/>
+      <value value="JSON"/>
+    </parameter>
+    <parameter>
+      <code value="apply"/>
+      <value value="jurisdiction"/>
+    </parameter>
+    <parameter>
+      <code value="generate"/>
+      <value value="xml"/>
+    </parameter>
+    <parameter>
+      <code value="generate"/>
+      <value value="JSON"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>

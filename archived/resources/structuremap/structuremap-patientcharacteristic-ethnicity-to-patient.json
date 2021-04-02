@@ -1,0 +1,76 @@
+{
+  "resourceType": "StructureMap",
+  "id": "patientcharacteristic-ethnicity-to-patient",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureMap/patientcharacteristic-ethnicity-to-patient",
+  "name": "patientcharacteristic-ethnicity-to-patient",
+  "title": "QDM Patient Characteristic: Ethnicity to QICore Patient",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/patientcharacteristic_ethnicity",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "patientcharacteristic-ethnicity-to-patient",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+        {
+          "name": "code-to-extension.ombCategory",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "extension.ombCategory",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

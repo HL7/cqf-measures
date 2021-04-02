@@ -1,0 +1,368 @@
+{
+  "resourceType": "StructureMap",
+  "id": "laboratorytest-performed-to-observation",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureMap/laboratorytest-performed-to-observation",
+  "name": "laboratorytest-performed-to-observation",
+  "title": "QDM Laboratory Test Performed, Observation to QICore Observation",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/laboratory_test_performed",  
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation", 
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "laboratorytest-performed-to-observation",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+  {
+          "name": "laboratoryTestPerformed-to-observation",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "observation",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "performed"
+                }
+              ]
+            }
+          ]
+        },   
+        {
+          "name": "method-to-method",
+          "source": [
+            {
+              "context": "source",
+              "element": "method",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "method",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "negationRationale-to-dataAbsentReason",
+          "source": [
+            {
+              "context": "source",
+              "element": "negationRationale",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "dataAbsentReason",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "reason-to-basedOn",
+          "source": [
+            {
+              "context": "source",
+              "element": "reason",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "basedOn",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "referenceRangeHigh-to-referenceRange.high",
+          "source": [
+            {
+              "context": "source",
+              "element": "referenceRangeHigh",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "referenceRange.high",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "referenceRangeLow-to-referenceRange.low",
+          "source": [
+            {
+              "context": "source",
+              "element": "referenceRangeLow",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "referenceRange.low",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "result-to-value",
+          "source": [
+            {
+              "context": "source",
+              "element": "result",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "value",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "resultDateTime-to-issued",
+          "source": [
+            {
+              "context": "source",
+              "element": "resultDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "issued",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "relevantPeriod-to-effective",
+          "source": [
+            {
+              "context": "source",
+              "element": "relevantPeriod",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "effective",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "status-to-status",
+          "source": [
+            {
+              "context": "source",
+              "element": "status",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "status",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "code-to-code",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "code",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "components-to-component",
+          "source": [
+            {
+              "context": "source",
+              "element": "components",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "component",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "componentCode-to-component.code",
+          "source": [
+            {
+              "context": "source",
+              "element": "componentCode",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "component.code",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "componentResult-to-component.value",
+          "source": [
+            {
+              "context": "source",
+              "element": "componentResult",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "component.value",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "componentReferenceRangeHigh-to-component.referenceRange.High",
+          "source": [
+            {
+              "context": "source",
+              "element": "componentReferenceRangeHigh",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "component.referenceRange.High",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "componentReferenceRangeLow-to-component.referenceRange.Low",
+          "source": [
+            {
+              "context": "source",
+              "element": "componentReferenceRangeLow",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "component.referenceRange.Low",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        },
+		{
+          "name": "source-to-performer",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "performer",
+              "transform": "copy"
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

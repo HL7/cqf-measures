@@ -14,9 +14,12 @@ Full debugging information is available here:
 
 ## Local Build
 
-The HL7 IG Publisher is committed to this repository to make building as easy as possible. To build locally, clone the repository and issue the following command in the root:
+To initially build locally, clone the repository and run the following commands in order below in the root command:
 
-    java -jar "org.hl7.fhir.publisher.jar" -ig ig.json
+  1. **_updatePublisher[.bat | .sh]** - <i>Process retrieves the current version of the IG publisher and stores it within the input-cache folder. The IG publisher is updated on a regular basis but this process does not have to be executed for every instance of the publication process.</i>
+
+  2. **_genonce[.bat | .sh]** - <i>This initiates the publication process. Launching the .bat file (Windows) or .sh file (Unix/Mac) will launch HL7's IGPublisher program and build/publish the IG one time.</i>
+
 
 ## Dependencies
 

@@ -1,0 +1,28 @@
+{
+  "resourceType": "Device",
+  "id": "software-system-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"
+    ]
+  },
+  "deviceName": [
+    {
+      "name": "cqf-tooling",
+      "type": "manufacturer-name"
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type",
+        "code": "tooling"
+      }
+    ]
+  },
+  "version": [
+    {
+      "value": "1.0.4"
+    }
+  ]
+}

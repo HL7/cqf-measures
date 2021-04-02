@@ -1,0 +1,206 @@
+{
+   "resourceType": "StructureMap",
+  "id": "immunization-administered-to-immunization",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>" 
+  },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureMap/immunization-administered-to-immunization",
+  "name": "immunization-administered-to-immunization",
+  "title": "QDM Immunization, Administered to QICore Immunization",
+  "status": "draft",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/QDM/immunization_administered",
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization",
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "immunization-administered-to-immunization",
+      "typeMode": "none",
+      "input": [
+        {
+          "name": "source",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+		{
+          "name": "immunizationAdministered-to-status",
+          "source": [
+            {
+              "context": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "status",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "completed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "dosage-to-doseQuantity",
+          "source": [
+            {
+              "context": "source",
+              "element": "dosage",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "doseQuantity",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "negationRationale-to-explanation.reasonNotGiven",
+          "source": [
+            {
+              "context": "source",
+              "element": "negationRationale",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "explanation.reasonNotGiven",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "reason-to-explanation.reason",
+          "source": [
+            {
+              "context": "source",
+              "element": "reason",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "explanation.reason",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "route-to-route",
+          "source": [
+            {
+              "context": "source",
+              "element": "route",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "route",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "authorDateTime-to-date",
+          "source": [
+            {
+              "context": "source",
+              "element": "authorDateTime",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "date",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "code-to-vaccineCode",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "vaccineCode",
+              "transform": "copy"
+            }
+          ]
+        },		
+        {
+          "name": "id-to-id",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "id",
+              "transform": "copy"
+            }
+          ]
+        }, 
+        {
+          "name": "source-to-primarySource",
+          "source": [
+            {
+              "context": "source",
+              "element": "source",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "contextType": "variable",
+              "element": "primarySource",
+              "transform": "copy" 
+            }
+          ]
+        }
+     ]
+    }
+  ]
+}

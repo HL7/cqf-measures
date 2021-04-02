@@ -1,0 +1,67 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "measure-types",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/ConceptMap/measure-types",
+  "version": "1.0.0",
+  "name": "MeasureTypeMapping",
+  "title": "Measure Type mapping",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-02-18",
+  "publisher": "Clinical Quality Information Workgroup",
+  "description": "The mapping of FHIR measure type codes to the corresponding HL7 V3 code used in HQMF for each of the measure type",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "sourceCanonical": "http://hl7.org/fhir/ValueSet/measure-type",
+  "targetCanonical": "http://terminology.hl7.org/ValueSet/v3-ObservationMeasureType",
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/ValueSet/measure-type",
+      "target": "http://terminology.hl7.org/ValueSet/v3-ObservationMeasureType",
+      "element": [
+        {
+          "code": "outcome",
+          "display": "Outcome",
+          "target": [
+            {
+              "code": "OUTCOME",
+              "display": "outcome measure type",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "structure",
+          "display": "Structure",
+          "target": [
+            {
+              "code": "STRUCTURE",
+              "display": "structure measure type",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "process",
+          "display": "Process",
+          "target": [
+            {
+              "code": "PROCESS",
+              "display": "process measure type",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
