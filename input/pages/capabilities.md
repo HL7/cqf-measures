@@ -1,5 +1,7 @@
 {: #capabilities}
 
+{% include img.html img="Data_Element_Submission_Scenario.png" %}
+
 ## Capability Statements
 
 This implementation guide defines capability statements, use cases, and conformance requirements for:

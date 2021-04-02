@@ -32,7 +32,7 @@ organizations, for public health and for payers.
 
 </summary>
 
-{% include img.html img="quality-improvement-ecosystem.png" %}
+{% include img.html img="Export_new.png" %}
 
 </details>
 
