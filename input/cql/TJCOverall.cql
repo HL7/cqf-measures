@@ -1,17 +1,16 @@
-library TJCOverall version '4.0.000'
-
 /*
 This example is a work in progress and should not be considered a final specification
 or recommendation for guidance. This example will help guide and direct the process
 of finding conventions and usage patterns that meet the needs of the various stakeholders
 in the measure development community.
 */
+library TJCOverall version '4.0.000'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 include MATGlobalCommonFunctions version '5.0.000' called Global
-include SupplementalDataElements version '2.0.0' called SDE
+include SupplementalDataElements version '2.0.000' called SDE
 
 codesystem "SNOMEDCT": 'http://snomed.info/sct'
 codesystem "LOINC": 'http://loinc.org'

@@ -1,18 +1,15 @@
-library EXMComputableLibrary version '2.0.0'
-
 /*
 This example is purely for illustration purposes to show how all the elements of a
 FHIR-based quality measure are represented. It is intentionally simplified to show
 specific aspects of a measure, and is not intended as an example of a clinically
 meaningful measure.
-*/
 
-/*
 NOTE: This is the same library as EXMLogic, being used to illustrate the different flavors of profiles:
 * Computable: Focusing on computable/design-time aspects
 * Executable: Focusing on run-time aspects
 * Publishable: Focusing on knowledge management aspects
 */
+library EXMComputableLibrary version '2.0.0'
 
 using FHIR version '4.0.1'
 

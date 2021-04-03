@@ -1,15 +1,12 @@
-library EXM130 version '8.0.000'
-
-/*
-Based on CMS130v8 - Colorectal Cancer Screening
-*/
-
 /*
 This example is a work in progress and should not be considered a final specification
 or recommendation for guidance. This example will help guide and direct the process
 of finding conventions and usage patterns that meet the needs of the various stakeholders
 in the measure development community.
+
+Based on CMS130v8 - Colorectal Cancer Screening
 */
+library EXM130 version '8.0.000'
 
 using FHIR version '4.0.1'
 
@@ -17,7 +14,7 @@ include FHIRHelpers version '4.0.1' called FHIRHelpers
 include Hospice version '2.0.000' called Hospice
 include AdultOutpatientEncounters version '2.0.000' called AdultOutpatientEncounters
 include MATGlobalCommonFunctions version '5.0.000' called Global
-include SupplementalDataElements version '2.0.0' called SDE
+include SupplementalDataElements version '2.0.000' called SDE
 
 valueset "ONC Administrative Sex": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
 valueset "Race": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'

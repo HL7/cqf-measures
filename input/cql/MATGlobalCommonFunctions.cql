@@ -1,3 +1,15 @@
+/*
+This example is a work in progress and should not be considered a final specification
+or recommendation for guidance. This example will help guide and direct the process
+of finding conventions and usage patterns that meet the needs of the various stakeholders
+in the measure development community.
+
+@update: BTR 2020-03-31 ->
+Incremented version to 5.0.000
+Updated FHIR version to 4.0.1
+Changed timezone keyword to timezoneoffset for use with CQL 1.4
+Removed Normalize Onset in favor of more general Normalize Interval
+*/
 library MATGlobalCommonFunctions version '5.0.000'
 
 using FHIR version '4.0.1'

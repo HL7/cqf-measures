@@ -1,21 +1,20 @@
-library EXM108 version '8.2.000'
-
 /*
 This example is a work in progress and should not be considered a final specification
 or recommendation for guidance. This example will help guide and direct the process
 of finding conventions and usage patterns that meet the needs of the various stakeholders
 in the measure development community.
-*/
 
-//Based on CMS108v8 2020 reporting year. QDM to QI-4
-//Venous Thromboembolism Prophylaxis
-//Author: TJC
+@author: TJC
+Based on CMS108v8 2020 reporting year. QDM to QI-4
+Venous Thromboembolism Prophylaxis
+*/
+library EXM108 version '8.2.000'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 include MATGlobalCommonFunctions version '5.0.000' called Global
-include SupplementalDataElements version '2.0.0' called SDE
+include SupplementalDataElements version '2.0.000' called SDE
 include VTEICU version '5.0.000' called VTEICU
 include TJCOverall version '4.0.000' called TJC
 

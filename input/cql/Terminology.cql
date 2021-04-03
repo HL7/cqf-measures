@@ -1,3 +1,9 @@
+/*
+This example is purely for illustration purposes to show how all the elements of a
+FHIR-based quality measure are represented. It is intentionally simplified to show
+specific aspects of a measure, and is not intended as an example of a clinically
+meaningful measure.
+*/
 library Terminology version '1.0.0'
 
 using FHIR version '4.0.1'

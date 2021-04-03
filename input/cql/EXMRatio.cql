@@ -1,11 +1,3 @@
-library EXMRatio
-
-using FHIR version '4.0.1'
-
-include FHIRHelpers version '4.0.1'
-
-include MATGlobalCommonFunctions version '5.0.000' called Global
-
 /*
 Measures the number of inpatient falls with major injury per 1000 patient days.
 
@@ -20,9 +12,7 @@ Patient A has a 10 day inpatient encounter. On day 1 she fell 9 times. No more f
 Patient B has a 2 day inpatient encounter. On day 2 he fell 1 time. No other falls in that stay
 
 Result: 10 falls/12 days = 833/1000 patient days
-*/
 
-/*
 Answer: There are multiple considerations involved in the representation of falls with major injury,
 this example does not address those considerations, focusing only on the overall structure
 of the measure and the final calculation.
@@ -46,6 +36,13 @@ in the MAT which includes everything but the proprosed scoringUnit extension. Th
 extension is proposed for inclusion in the May 2021 ballot of the quality measure ig
 and is not supported by the MAT at this time.
 */
+library EXMRatio
+
+using FHIR version '4.0.1'
+
+include FHIRHelpers version '4.0.1'
+
+include MATGlobalCommonFunctions version '5.0.000' called Global
 
 valueset "Inpatient": 'TBD'
 valueset "Fall": 'TBD'
