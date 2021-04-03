@@ -2,69 +2,314 @@
   "resourceType": "Measure",
   "id": "measure-exm146-FHIR",
   "meta": {
-    "profile": [
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"
-    ]
+    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
-  "extension": [
-    {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
-      "valueCode": "Encounter"
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+    "valueCode": "Encounter"
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Measurement Period",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "type": "Period"
     }
-  ],
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Numerator",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Strep Test Encounters",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Pharyngitis Encounters With Antibiotics",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Measurement Period Encounters",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Is Between 2 and 17 Years of Age at Start of Measurement Period",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Pharyngitis",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Condition"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Antibiotics",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "MedicationRequest"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Initial Population",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "codeFilter": [ {
+        "path": "medication",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+      "code": "active"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://terminology.hl7.org/CodeSystem/condition-verification",
+      "code": "confirmed"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM146"
+    }, {
+      "url": "name",
+      "valueString": "Numerator"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Numerator\":\n   \"Strep Test Encounters\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 0
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM146"
+    }, {
+      "url": "name",
+      "valueString": "Strep Test Encounters"
+    }, {
+      "url": "statement",
+      "valueString": "// EndRegion: Denominator Exclusions\n\n// Region: Denominator Exceptions\n\n// None\n\n// EndRegion: Denominator Exceptions\n\n// Region: Numeratordefine \"Strep Test Encounters\":\n   \"Pharyngitis Encounters With Antibiotics\" Encounters\n      with [Observation: code in \"Group A Streptococcus Test\"] Tests\n         such that Tests.value is not null\n            and Tests.effective starts during\n               Interval[start of FHIRHelpers.ToInterval(Encounters.period) - 3 days,\n                 end of FHIRHelpers.ToInterval(Encounters.period) + 3 days]"
+    }, {
+      "url": "sequence",
+      "valueInteger": 1
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM146"
+    }, {
+      "url": "name",
+      "valueString": "Pharyngitis Encounters With Antibiotics"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Pharyngitis Encounters With Antibiotics\":\n   \"Measurement Period Encounters\" Encounters\n      with \"Pharyngitis\" Pharyngitis such that\n         Common.\"Includes Or Starts During\"(Pharyngitis, Encounters)\n      with \"Antibiotics\" Antibiotics such that Antibiotics.authoredOn\n         3 days or less after FHIRHelpers.ToInterval(Encounters.period)"
+    }, {
+      "url": "sequence",
+      "valueInteger": 2
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM146"
+    }, {
+      "url": "name",
+      "valueString": "Measurement Period Encounters"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Measurement Period Encounters\":\n   [Encounter: \"Ambulatory/ED Visit\"] Encounter\n      where Encounter.period during \"Measurement Period\"\n        and Encounter.status = 'finished'\n        and \"Is Between 2 and 17 Years of Age at Start of Measurement Period\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 3
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM146"
+    }, {
+      "url": "name",
+      "valueString": "Is Between 2 and 17 Years of Age at Start of Measurement Period"
+    }, {
+      "url": "statement",
+      "valueString": "// Region: Initial Populationdefine \"Is Between 2 and 17 Years of Age at Start of Measurement Period\":\n   AgeInYearsAt(start of \"Measurement Period\") >= 2\n      and AgeInYearsAt(start of \"Measurement Period\") <= 17"
+    }, {
+      "url": "sequence",
+      "valueInteger": 4
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM146"
+    }, {
+      "url": "name",
+      "valueString": "Pharyngitis"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Pharyngitis\":\n   ([Condition: code in \"Acute Pharyngitis\"]\n     union [Condition: code in \"Acute Tonsillitis\"]) Pharyngitis\n     where Pharyngitis.clinicalStatus ~ Global.active\n       and Pharyngitis.verificationStatus ~ Global.confirmed"
+    }, {
+      "url": "sequence",
+      "valueInteger": 5
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM146"
+    }, {
+      "url": "name",
+      "valueString": "Antibiotics"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Antibiotics\":\n   [MedicationRequest: medication in \"Antibiotic Medications\"] Prescription\n     where Prescription.status = 'active'\n       and Prescription.intent = 'order'"
+    }, {
+      "url": "sequence",
+      "valueInteger": 6
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM146"
+    }, {
+      "url": "name",
+      "valueString": "Initial Population"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Initial Population\":\n   \"Pharyngitis Encounters With Antibiotics\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 7
+    } ]
+  } ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm146-FHIR",
-  "identifier": [
-    {
-      "use": "official",
-      "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
-      "value": "146"
-    }
-  ],
+  "identifier": [ {
+    "use": "official",
+    "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
+    "value": "146"
+  } ],
   "version": "4.0.0",
   "name": "EXM146",
   "title": "Appropriate Testing for Children with Pharyngitis",
   "status": "active",
   "experimental": true,
-  "date": "2019-02-21",
+  "date": "2021-04-03",
   "publisher": "National Committee for Quality Assurance",
-  "contact": [
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.ncqa.org/"
-        }
-      ]
-    }
-  ],
+  "contact": [ {
+    "telecom": [ {
+      "system": "url",
+      "value": "http://www.ncqa.org/"
+    } ]
+  } ],
   "description": "Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode.",
-  "useContext": [
-    {
-      "code": {
-        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
-        "code": "program"
-      },
-      "valueCodeableConcept": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
-            "code": "ep-ec",
-            "display": "EP/EC"
-          }
-        ]
-      }
+  "useContext": [ {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "program"
+    },
+    "valueCodeableConcept": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
+        "code": "ep-ec",
+        "display": "EP/EC"
+      } ]
     }
-  ],
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
+  } ],
+  "jurisdiction": [ {
+    "coding": [ {
+      "system": "urn:iso:std:iso:3166",
+      "code": "US"
+    } ]
+  } ],
   "purpose": "Group A streptococcal bacterial infections and other infections that cause pharyngitis (which are most often viral) often produce the same signs and symptoms (IDSA 2002). The American Academy of Pediatrics, the Centers for Disease Control and Prevention, and the Infectious Diseases Society of America all recommend a diagnostic test for Strep A to improve diagnostic accuracy and avoid unnecessary antibiotic treatment (Linder et al. 2005).  A study on antibiotic treatment of children with sore throat found that although only 15 to 36 percent of children with sore throat have Strep A pharyngitis, physicians prescribed antibiotics to 53 percent of children with a chief complaint of sore throat between 1995 and 2003 (Linder et al. 2005).",
   "copyright": "Physician Performance Measure (Measures) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). \r\nThe Measures are copyrighted but can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices). Commercial use is defined as the sale, licensing, or distribution of the Measures for commercial gain, or incorporation of the Measures into a product or service that is sold, licensed or distributed for commercial gain. Commercial use of the Measures requires a license agreement between the user and NCQA. NCQA is not responsible for any use of the Measures. \r\n(c) 2008 -2014 National Committee for Quality Assurance. All Rights Reserved. \r\nLimited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets.  NCQA disclaims all liability for use or accuracy of any CPT or other codes contained in the specifications.\r\nCPT(R) contained in the Measure specifications is copyright 2004-2013 American Medical Association. LOINC(R) copyright 2004-2013 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2013 International Health Terminology Standards Development Organisation. ICD-10 copyright 2013 World Health Organization. All Rights Reserved.",
   "approvalDate": "2016-01-01",
@@ -73,134 +318,128 @@
     "start": "2018-01-01",
     "end": "2018-12-31"
   },
-  "topic": [
-    {
-      "coding": [
-        {
-          "system": "http://loinc.org",
-          "code": "57024-2",
-          "display": "Health Quality Measure Document"
-        }
-      ]
-    }
-  ],
-  "relatedArtifact": [
-    {
-      "type": "citation",
-      "citation": "Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. “Antibiotic treatment of children with sore throat.” JAMA 294(18):2315-2322."
-    },
-    {
-      "type": "citation",
-      "citation": "Bisno, A.L., M.A. Gerber, J.M. Gwaltney Jr., E.L. Kaplan, R.H. Schwartz, Infectious Diseases Society of America. 2002. “Practice guidelines for the diagnosis and management of group A streptococcal pharyngitis. Infectious Diseases Society of America.” Clin Infect Dis 35(2):113-25."
-    },
-    {
-      "type": "citation",
-      "citation": "Institute for Clinical Systems Improvement (ICSI). 2008. \"Diagnosis and treatment of respiratory illness in children and adults.\" Bloomington: Institute for Clinical Systems Improvement (ICSI)."
-    },
-    {
-      "type": "citation",
-      "citation": "Michigan Quality Improvement Consortium. 2007. Acute pharyngitis in children. Southfield: Michigan Quality Improvement Consortium."
-    }
-  ],
-  "library": [
-    "http://hl7.org/fhir/us/cqfmeasures/Library/EXM146"
-  ],
+  "topic": [ {
+    "coding": [ {
+      "system": "http://loinc.org",
+      "code": "57024-2",
+      "display": "Health Quality Measure Document"
+    } ]
+  } ],
+  "relatedArtifact": [ {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
+  }, {
+    "type": "depends-on",
+    "display": "Library Global",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library Common",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/Common|2.0.0"
+  }, {
+    "type": "depends-on",
+    "display": "Code system ConditionClinicalStatusCodes",
+    "resource": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+  }, {
+    "type": "depends-on",
+    "display": "Code system ConditionVerificationStatusCodes",
+    "resource": "http://terminology.hl7.org/CodeSystem/condition-verification"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Ambulatory/ED Visit",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Acute Pharyngitis",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Acute Tonsillitis",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Antibiotic Medications",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Group A Streptococcus Test",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
+  } ],
+  "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/EXM146" ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. \n Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
-    "coding": [
-      {
-        "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
-        "code": "proportion",
-        "display": "Proportion"
-      }
-    ]
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+      "code": "proportion",
+      "display": "Proportion"
+    } ]
   },
-  "type": [
-    {
-      "coding": [
-        {
-          "system": "http://terminology.hl7.org/CodeSystem/measure-type",
-          "code": "process"
-        }
-      ]
-    }
-  ],
+  "type": [ {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+      "code": "process"
+    } ]
+  } ],
   "rationale": "Group A streptococcal bacterial infections and other infections that cause pharyngitis (which are most often viral) often produce the same signs and symptoms (IDSA 2002). The American Academy of Pediatrics, the Centers for Disease Control and Prevention, and the Infectious Diseases Society of America all recommend a diagnostic test for Strep A to improve diagnostic accuracy and avoid unnecessary antibiotic treatment (Linder et al. 2005).  A study on antibiotic treatment of children with sore throat found that although only 15 to 36 percent of children with sore throat have Strep A pharyngitis, physicians prescribed antibiotics to 53 percent of children with a chief complaint of sore throat between 1995 and 2003 (Linder et al. 2005).",
   "clinicalRecommendationStatement": "Institute for Clinical Systems Improvement (ICSI) (2007) \n Reduce unnecessary use of antibiotics. Antibiotic treatment should be reserved for a bacterial illness. Diagnosis of group A beta streptococcal Pharyngitis should be made by laboratory testing rather than clinically. \nInfectious Disease Society of America (Bisno et al. 2002) \nThe signs and symptoms of group A streptococcal and other (most frequently viral) pharyngitides overlap broadly. Therefore, unless the physician is able with confidence to exclude the diagnosis of streptococcal pharyngitis on epidemiological and clinical grounds alone, a laboratory test should be done to determine whether group A streptococci are present in the pharynx. \nWith the exception of very rare infections by certain other pharyngeal bacterial pathogens (eg, Corynebacterium diphtheriae and Neisseria gonorrhoeae), antimicrobial therapy is of no proven benefit as treatment for acute pharyngitis due to bacteria other than group A streptococci. Therefore, it is extremely important that physicians exclude the diagnosis of group A streptococcal pharyngitis to prevent inappropriate administration of antimicrobials to large numbers of patients with pharyngitis. \nMichigan Quality Improvement Consortium (2007)\nProbability of group A beta hemolytic streptococci (GABHS): Low; Testing: None; Treatment: Symptomatic treatment only. Avoid antibiotics. Probability of GABHS: Intermediate or High; Testing: Throat Culture (TC) OR Rapid Screen; Treatment: If TC is positive, use antibiotics. If TC is negative, use symptomatic treatment only. Avoid antibiotics. If treatment is started and culture result is negative, stop antibiotics. If Rapid Screen is positive, use antibiotics. If Rapid Screen is negative, culture (Culture is optional for age 16 and over) and only use antibiotics if throat culture is positive. (Michigan, 2007)",
   "improvementNotation": {
-    "coding": [
-      {
-        "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
-        "code": "increase",
-        "display": "Increased score indicates improvement"
-      }
-    ]
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+      "code": "increase",
+      "display": "Increased score indicates improvement"
+    } ]
   },
   "guidance": "This is an episode of care measure that examines all eligible episodes for the patient during the measurement period. If the patient has more than one episode, include all episodes in the measure.",
-  "group": [
-    {
-      "population": [
-        {
-          "code": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                "code": "initial-population",
-                "display": "Initial Population"
-              }
-            ]
-          },
-          "criteria": {
-            "language": "text/cql.identifier",
-            "expression": "Initial Population"
-          }
-        },
-        {
-          "code": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                "code": "numerator",
-                "display": "Numerator"
-              }
-            ]
-          },
-          "criteria": {
-            "language": "text/cql.identifier",
-            "expression": "Numerator"
-          }
-        },
-        {
-          "code": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                "code": "denominator",
-                "display": "Denominator"
-              }
-            ]
-          },
-          "criteria": {
-            "language": "text/cql.identifier",
-            "expression": "Denominator"
-          }
-        },
-        {
-          "code": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                "code": "denominator-exclusion",
-                "display": "Denominator Exclusion"
-              }
-            ]
-          },
-          "criteria": {
-            "language": "text/cql.identifier",
-            "expression": "Denominator Exclusion"
-          }
-        }
-      ]
-    }
-  ]
+  "group": [ {
+    "population": [ {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "initial-population",
+          "display": "Initial Population"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Initial Population"
+      }
+    }, {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "numerator",
+          "display": "Numerator"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Numerator"
+      }
+    }, {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator",
+          "display": "Denominator"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Denominator"
+      }
+    }, {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator-exclusion",
+          "display": "Denominator Exclusion"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Denominator Exclusion"
+      }
+    } ]
+  } ]
 }

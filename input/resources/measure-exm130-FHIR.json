@@ -2,74 +2,729 @@
   "resourceType": "Measure",
   "id": "measure-exm130-FHIR",
   "meta": {
-    "profile": [
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"
-    ]
+    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
-  "extension": [
-    {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
-      "valueCode": "boolean"
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+    "valueCode": "boolean"
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Measurement Period",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "type": "Period"
     }
-  ],
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "SDE Sex",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "Coding"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Numerator",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Colonoscopy Performed",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Procedure"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Fecal Occult Blood Test Performed",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Observation"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Flexible Sigmoidoscopy Performed",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Procedure"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Fecal Immunochemical Test DNA",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Observation"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "CT Colonography Performed",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Procedure"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Denominator",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "SDE Payer",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Any"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Initial Population",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Patient",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "Patient"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Qualifying Encounters",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "SDE Ethnicity",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Coding"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Denominator Exclusion",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Has Hospice",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Malignant Neoplasm Ever",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Condition"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "Total Colectomy Performed",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Procedure"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "SDE Race",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Coding"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Coverage",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Coverage" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Patient",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Patient",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "ServiceRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
+    "valueDataRequirement": {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/201709",
+      "code": "428361000124107",
+      "display": "Discharge to home for hospice care (procedure)"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/201709",
+      "code": "428371000124100",
+      "display": "Discharge to healthcare facility for hospice care (procedure)"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "SDE Sex"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Sex\":\n  SDE.\"SDE Sex\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 0
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElements"
+    }, {
+      "url": "name",
+      "valueString": "SDE Sex"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Sex\":\n  case\n      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }\n      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }\n      else null\n    end"
+    }, {
+      "url": "sequence",
+      "valueInteger": 1
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "Numerator"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Numerator\":\n\texists \"Colonoscopy Performed\"\n\t\tor exists \"Fecal Occult Blood Test Performed\"\n\t\tor exists \"Flexible Sigmoidoscopy Performed\"\n\t\tor exists \"Fecal Immunochemical Test DNA\"\n\t\tor exists \"CT Colonography Performed\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 2
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "Colonoscopy Performed"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Colonoscopy Performed\":\n\t[Procedure: \"Colonoscopy\"] Colonoscopy\n\t\twhere Colonoscopy.status = 'completed'\n\t\t  and Global.\"Normalize Interval\"(Colonoscopy.performed) ends 10 years or less on or before end of \"Measurement Period\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 3
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "Fecal Occult Blood Test Performed"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Fecal Occult Blood Test Performed\":\n\t[Observation: \"Fecal Occult Blood Test (FOBT)\"] FecalOccultResult\n\t\twhere FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}\n\t\t\tand FecalOccultResult.value is not null\n\t\t\tand Global.\"Normalize Interval\"(FecalOccultResult.effective) during day of \"Measurement Period\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 4
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "Flexible Sigmoidoscopy Performed"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Flexible Sigmoidoscopy Performed\":\n\t[Procedure: \"Flexible Sigmoidoscopy\"] FlexibleSigmoidoscopy\n\t\twhere FlexibleSigmoidoscopy.status = 'completed'\n\t\t\tand Global.\"Normalize Interval\"(FlexibleSigmoidoscopy.performed) ends 5 years or less on or before end of \"Measurement Period\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 5
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "Fecal Immunochemical Test DNA"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Fecal Immunochemical Test DNA\":\n\t[Observation: \"FIT DNA\"] FitDNA\n\t\twhere FitDNA.status in {'final', 'amended', 'corrected', 'preliminary'}\n\t\t\tand FitDNA.value is not null\n\t\t\tand Global.\"Normalize Interval\"(FitDNA.effective) occurs 3 years or less on or before day of end of \"Measurement Period\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 6
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "CT Colonography Performed"
+    }, {
+      "url": "statement",
+      "valueString": "define \"CT Colonography Performed\":\n\t[Procedure: \"CT Colonography\"] Colonography\n\t\twhere Colonography.status = 'completed'\n\t\t\tand Global.\"Normalize Interval\"(Colonography.performed) ends 5 years or less on or before end of \"Measurement Period\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 7
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "Denominator"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Denominator\":\n\ttrue"
+    }, {
+      "url": "sequence",
+      "valueInteger": 8
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "SDE Payer"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Payer\":\n  SDE.\"SDE Payer\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 9
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElements"
+    }, {
+      "url": "name",
+      "valueString": "SDE Payer"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Payer\":\n  [Coverage: type in \"Payer\"] Payer\n        return {\n          code: Payer.type,\n          period: Payer.period\n        }"
+    }, {
+      "url": "sequence",
+      "valueInteger": 10
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "Initial Population"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Initial Population\":\n\tGlobal.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\") in Interval[50, 75]\n\t\t\tand exists AdultOutpatientEncounters.\"Qualifying Encounters\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 11
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "AdultOutpatientEncounters"
+    }, {
+      "url": "name",
+      "valueString": "Qualifying Encounters"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Qualifying Encounters\":\n\t(\n    [Encounter: \"Office Visit\"]\n  \t\tunion [Encounter: \"Annual Wellness Visit\"]\n  \t\tunion [Encounter: \"Preventive Care Services - Established Office Visit, 18 and Up\"]\n  \t\tunion [Encounter: \"Preventive Care Services-Initial Office Visit, 18 and Up\"]\n  \t\tunion [Encounter: \"Home Healthcare Services\"]\n  ) ValidEncounter\n\t\twhere ValidEncounter.period during \"Measurement Period\"\n  \t\tand ValidEncounter.status  = 'finished'"
+    }, {
+      "url": "sequence",
+      "valueInteger": 12
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "SDE Ethnicity"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Ethnicity\":\n  SDE.\"SDE Ethnicity\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 13
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElements"
+    }, {
+      "url": "name",
+      "valueString": "SDE Ethnicity"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+    }, {
+      "url": "sequence",
+      "valueInteger": 14
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "Denominator Exclusion"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Denominator Exclusion\":\n\tHospice.\"Has Hospice\"\n\t\tor exists \"Malignant Neoplasm Ever\"\n\t\tor exists \"Total Colectomy Performed\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 15
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "Hospice"
+    }, {
+      "url": "name",
+      "valueString": "Has Hospice"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Has Hospice\":\n\texists (\n    [Encounter: \"Encounter Inpatient\"] DischargeHospice\n\t\t\twhere DischargeHospice.status = 'finished'\n\t\t    and (\n\t        DischargeHospice.hospitalization.dischargeDisposition ~ \"Discharge to home for hospice care (procedure)\"\n\t\t\t\t    or DischargeHospice.hospitalization.dischargeDisposition ~ \"Discharge to healthcare facility for hospice care (procedure)\"\n\t    \t)\n\t\t\t\tand DischargeHospice.period ends during \"Measurement Period\"\n\t)\n    or exists (\n      [ServiceRequest: \"Hospice care ambulatory\"] HospiceOrder\n        where HospiceOrder.intent = 'order'\n            and HospiceOrder.authoredOn in \"Measurement Period\"\n    )\n    or exists (\n      [Procedure: \"Hospice care ambulatory\"] HospicePerformed\n        where HospicePerformed.status = 'completed'\n          and Global.\"Normalize Interval\"(HospicePerformed.performed) overlaps \"Measurement Period\"\n    )"
+    }, {
+      "url": "sequence",
+      "valueInteger": 16
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "Malignant Neoplasm Ever"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Malignant Neoplasm Ever\":\n\t[Condition: \"Malignant Neoplasm of Colon\"] ColorectalCancer\n\t\twhere Global.\"Normalize Interval\"(ColorectalCancer.onset) starts on or before end of \"Measurement Period\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 17
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "Total Colectomy Performed"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Total Colectomy Performed\":\n\t[Procedure: \"Total Colectomy\"] Colectomy\n\t\twhere Colectomy.status = 'completed'\n\t\t\tand Global.\"Normalize Interval\"(Colectomy.performed) starts on or before end of \"Measurement Period\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 18
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "EXM130"
+    }, {
+      "url": "name",
+      "valueString": "SDE Race"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Race\":\n  SDE.\"SDE Race\""
+    }, {
+      "url": "sequence",
+      "valueInteger": 19
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "SupplementalDataElements"
+    }, {
+      "url": "name",
+      "valueString": "SDE Race"
+    }, {
+      "url": "statement",
+      "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+    }, {
+      "url": "sequence",
+      "valueInteger": 20
+    } ]
+  } ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm130-FHIR",
-  "identifier": [
-    {
-      "use": "official",
-      "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/cms",
-      "value": "130"
-    },
-    {
-      "use": "official",
-      "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/nqf",
-      "value": "0034"
-    }
-  ],
+  "identifier": [ {
+    "use": "official",
+    "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/cms",
+    "value": "130"
+  }, {
+    "use": "official",
+    "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/nqf",
+    "value": "0034"
+  } ],
   "version": "8.0.000",
   "name": "EXM130",
   "title": "Colorectal Cancer Screening",
   "status": "active",
   "experimental": true,
-  "date": "2018-08-28",
+  "date": "2021-04-03",
   "publisher": "National Committee for Quality Assurance",
-  "contact": [
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.ncqa.org/"
-        }
-      ]
-    }
-  ],
+  "contact": [ {
+    "telecom": [ {
+      "system": "url",
+      "value": "http://www.ncqa.org/"
+    } ]
+  } ],
   "description": "Percentage of adults 50-75 years of age who had appropriate screening for colorectal cancer",
-  "useContext": [
-    {
-      "code": {
-        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
-        "code": "program"
-      },
-      "valueCodeableConcept": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
-            "code": "ep-ec",
-            "display": "EP/EC"
-          }
-        ]
-      }
+  "useContext": [ {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "program"
+    },
+    "valueCodeableConcept": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
+        "code": "ep-ec",
+        "display": "EP/EC"
+      } ]
     }
-  ],
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
+  } ],
+  "jurisdiction": [ {
+    "coding": [ {
+      "system": "urn:iso:std:iso:3166",
+      "code": "US"
+    } ]
+  } ],
   "purpose": "Patients 50-75 years of age with a visit during the measurement period",
   "copyright": "This Physician Performance Measure (Measure) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2017 National Committee for Quality Assurance. All Rights Reserved. Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications. CPT(R) contained in the Measure specifications is copyright 2004-2017 American Medical Association. LOINC(R) copyright 2004-2017 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R] ) copyright 2004-2017 International Health Terminology Standards Development Organisation. ICD-10 copyright 2017 World Health Organization. All Rights Reserved.",
   "approvalDate": "2016-01-01",
@@ -78,196 +733,229 @@
     "start": "2018-01-01",
     "end": "2018-12-31"
   },
-  "topic": [
-    {
-      "coding": [
-        {
-          "system": "http://loinc.org",
-          "code": "57024-2",
-          "display": "Health Quality Measure Document"
-        }
-      ]
-    }
-  ],
-  "relatedArtifact": [
-    {
-      "type": "citation",
-      "citation": "U.S. Preventive Services Task Force. \"Screening for Colorectal Cancer: U.S. Preventive Services Task Force Recommendation Statement.\" JAMA, vol. 315, no. 23, 2016, pp. 2564-2575. doi: 10.1001/jama.2016.5989"
-    },
-    {
-      "type": "citation",
-      "citation": "Howlader, N., A.M. Noone, M. Krapcho, D. Miller, K. Bishop, C.L. Kosary, M. Yu, J. Ruhl, Z. Tatalovich, A. Mariotto, D.R. Lewis, H.S. Chen, E.J. Feuer, and K.A. Cronin. \"SEER Cancer Statistics Review, 1975-2014.\" Washington, DC: National Cancer Institute, 2017. Available at https://seer.cancer.gov/csr/1975_2014/"
-    },
-    {
-      "type": "citation",
-      "citation": "American Cancer Society. \"Can Colorectal Polyps and Cancer Be Found Early?\" Last modified March 2017. Washington, DC: American Cancer Society. Available at https://www.cancer.org/cancer/colon-rectal-cancer/detection-diagnosis-staging/detection.html."
-    }
-  ],
-  "library": [
-    "http://hl7.org/fhir/us/cqfmeasures/Library/EXM130"
-  ],
+  "topic": [ {
+    "coding": [ {
+      "system": "http://loinc.org",
+      "code": "57024-2",
+      "display": "Health Quality Measure Document"
+    } ]
+  } ],
+  "relatedArtifact": [ {
+    "type": "depends-on",
+    "display": "Library SDE",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
+  }, {
+    "type": "depends-on",
+    "display": "Library Global",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library AdultOutpatientEncounters",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/AdultOutpatientEncounters|2.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
+  }, {
+    "type": "depends-on",
+    "display": "Library Hospice",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/Hospice|2.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
+  }, {
+    "type": "depends-on",
+    "display": "Library Global",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Code system SNOMEDCT:2017-09",
+    "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/201709"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Colonoscopy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Fecal Occult Blood Test (FOBT)",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Flexible Sigmoidoscopy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010"
+  }, {
+    "type": "depends-on",
+    "display": "Value set FIT DNA",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039"
+  }, {
+    "type": "depends-on",
+    "display": "Value set CT Colonography",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Payer",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Office Visit",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Annual Wellness Visit",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Home Healthcare Services",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Encounter Inpatient",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Hospice care ambulatory",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Malignant Neoplasm of Colon",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Total Colectomy",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019"
+  } ],
+  "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/EXM130" ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
-    "coding": [
-      {
-        "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
-        "code": "proportion",
-        "display": "Proportion"
-      }
-    ]
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+      "code": "proportion",
+      "display": "Proportion"
+    } ]
   },
-  "type": [
-    {
-      "coding": [
-        {
-          "system": "http://terminology.hl7.org/CodeSystem/measure-type",
-          "code": "process"
-        }
-      ]
-    }
-  ],
+  "type": [ {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+      "code": "process"
+    } ]
+  } ],
   "rationale": "Colorectal cancer represents 8 percent of all new cancer cases and is the second leading cause of cancer deaths in the United States. In 2017, there were an estimated 135,430 new cases of colorectal cancer and an estimated 50,260 deaths attributed to it. According to the National Cancer Institute, about 4.3 percent of men and women will be diagnosed with colorectal cancer at some point during their lifetimes. For most adults, older age is the most important risk factor for colorectal cancer, although being male and black are also associated with higher incidence and mortality. Colorectal cancer is most frequently diagnosed among people 65 to 74 years old (Howlader et al. 2017). Screening can be effective for finding precancerous lesions (polyps) that could later become malignant, and for detecting early cancers that can be more easily and effectively treated. Precancerous polyps usually take about 10 to 15 years to develop into colorectal cancer, and most can be found and removed before turning into cancer. The five-year relative survival rate for people whose colorectal cancer is found in the early stage before it has spread is about 90 percent (American Cancer Society 2017).",
   "clinicalRecommendationStatement": "The U. S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force 2016). Screening tests: -Colonoscopy (every 10 years) -Flexible sigmoidoscopy (every 5 years) -Fecal occult blood test (annually) -FIT-DNA (every 3 years) -Computed tomographic colonography (every 5 years)",
   "improvementNotation": {
-    "coding": [
-      {
-        "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
-        "code": "increase",
-        "display": "Increased score indicates improvement"
-      }
-    ]
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+      "code": "increase",
+      "display": "Increased score indicates improvement"
+    } ]
   },
   "guidance": "Patient self-report for procedures as well as diagnostic studies should be recorded in \"Procedure, Performed\" template or \"Diagnostic Study, Performed\" template in QRDA-1. Do not count DRE, FOBT tests performed in an office setting or performed on a sample collected via DRE.",
-  "group": [
-    {
-      "population": [
-        {
-          "code": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                "code": "initial-population",
-                "display": "Initial Population"
-              }
-            ]
-          },
-          "criteria": {
-            "language": "text/cql.identifier",
-            "expression": "Initial Population"
-          }
-        },
-        {
-          "code": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                "code": "numerator",
-                "display": "Numerator"
-              }
-            ]
-          },
-          "criteria": {
-            "language": "text/cql.identifier",
-            "expression": "Numerator"
-          }
-        },
-        {
-          "code": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                "code": "denominator",
-                "display": "Denominator"
-              }
-            ]
-          },
-          "criteria": {
-            "language": "text/cql.identifier",
-            "expression": "Denominator"
-          }
-        },
-        {
-          "code": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                "code": "denominator-exclusion",
-                "display": "Denominator Exclusion"
-              }
-            ]
-          },
-          "criteria": {
-            "language": "text/cql.identifier",
-            "expression": "Denominator Exclusion"
-          }
-        }
-      ]
+  "group": [ {
+    "population": [ {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "initial-population",
+          "display": "Initial Population"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Initial Population"
+      }
+    }, {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "numerator",
+          "display": "Numerator"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Numerator"
+      }
+    }, {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator",
+          "display": "Denominator"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Denominator"
+      }
+    }, {
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator-exclusion",
+          "display": "Denominator Exclusion"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql.identifier",
+        "expression": "Denominator Exclusion"
+      }
+    } ]
+  } ],
+  "supplementalData": [ {
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql.identifier",
+      "expression": "SDE Ethnicity"
     }
-  ],
-  "supplementalData": [
-    {
-      "usage": [
-        {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
-              "code": "supplemental-data"
-            }
-          ]
-        }
-      ],
-      "criteria": {
-        "language": "text/cql.identifier",
-        "expression": "SDE Ethnicity"
-      }
-    },
-    {
-      "usage": [
-        {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
-              "code": "supplemental-data"
-            }
-          ]
-        }
-      ],
-      "criteria": {
-        "language": "text/cql.identifier",
-        "expression": "SDE Payer"
-      }
-    },
-    {
-      "usage": [
-        {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
-              "code": "supplemental-data"
-            }
-          ]
-        }
-      ],
-      "criteria": {
-        "language": "text/cql.identifier",
-        "expression": "SDE Race"
-      }
-    },
-    {
-      "usage": [
-        {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
-              "code": "supplemental-data"
-            }
-          ]
-        }
-      ],
-      "criteria": {
-        "language": "text/cql.identifier",
-        "expression": "SDE Sex"
-      }
+  }, {
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql.identifier",
+      "expression": "SDE Payer"
     }
-  ]
+  }, {
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql.identifier",
+      "expression": "SDE Race"
+    }
+  }, {
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql.identifier",
+      "expression": "SDE Sex"
+    }
+  } ]
 }
