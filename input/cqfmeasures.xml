@@ -504,6 +504,16 @@
     <title value="Capabilities"/>
     <generation value="markdown"/>
     <page>
+      <nameUrl value="measure-terminology-service.html"/>
+      <title value="Measure Terminology Service"/>
+      <generation value="markdown"/>
+    </page>
+    <page>
+      <nameUrl value="measure-repository-service.html"/>
+      <title value="Measure Repository Service"/>
+      <generation value="markdown"/>
+    </page>
+    <page>
       <nameUrl value="OperationDefinition-Library-package.html"/>
       <title value="Library Package Operation Definitions"/>
       <generation value="generated"/>
@@ -547,16 +557,6 @@
   <page>
     <nameUrl value="acknowledgements.html"/>
     <title value="Acknowledgements"/>
-    <generation value="markdown"/>
-  </page>
-  <page>
-    <nameUrl value="measure-terminology-service.html"/>
-    <title value="Measure Terminology Service"/>
-    <generation value="markdown"/>
-  </page>
-  <page>
-    <nameUrl value="measure-repository-service.html"/>
-    <title value="Measure Repository Service"/>
     <generation value="markdown"/>
   </page>
 </page>
@@ -616,10 +616,12 @@
       <code value="path-pages"/>
       <value value="pages"/>
     </parameter>
+    <!-- Use CQF-Tooling to refresh content
     <parameter>
       <code value="path-binary"/>
-      <value value="cql"/>
+      <value value="input/cql"/>
     </parameter>
+    -->
     <parameter>
       <code value="path-liquid"/>
       <value value="templates\liquid"/>

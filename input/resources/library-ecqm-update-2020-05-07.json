@@ -1,0 +1,110 @@
+{
+  "resourceType": "Library",
+  "id": "ecqm-update-2020-05-07",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-partOf",
+      "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-quality-program"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionUri",
+      "valueUri": "eCQM%20Update%202020-05-07"
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-quality-program",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
+      "value": "eCQM Update 2020-05-07"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "eCQM Update 2020-05-07",
+  "title": "eCQM Update 2020-05-07",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "asset-collection"
+      }
+    ]
+  },
+  "date": "2020-05-07",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [{
+    "coding": [{
+      "system": "urn:iso:std:iso:3166",
+      "code": "US"
+    }]
+  }],
+  "description": "This library is an example of a program release that provides versioning information in support of stable expansion of a set of value sets used in a particular quality program.",
+  "approvalDate": "2020-05-07",
+  "lastReviewDate": "2020-05-07",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "program"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
+            "code": "ep-ec",
+            "display": "EP/EC"
+          }
+        ]
+      }
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example|2020-05",
+      "display": "Chronic Liver Disease, Legacy Example (2020-05)"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901",
+      "display": "SNOMED-CT US Edition, 2019-09-01"
+    },
+    {
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm124-FHIR|9.0.0",
+      "display": "Cervical Cancer Screening"
+    },
+    {
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm125-FHIR",
+      "display": "Breast Cancer Screening"
+    },
+    {
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm130-FHIR",
+      "display":"Colorectal Cancer Screening"
+    },
+    {
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm146-FHIR",
+      "display":"Appropriate Testing for Children with Pharyngitis"
+    }
+  ]
+}
