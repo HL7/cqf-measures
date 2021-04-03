@@ -19,6 +19,11 @@ The first use case is used while the collection of related artifacts is being au
 #### Quality Program Release
 The second use case applies when a _release_ of the artifact collection is established, and the content is effectively _locked_ to a particular set of code system versions, value set definition versions and in some cases expansion versions. The same profile is used, but quality programs in this state are indicated with a status of _active_. To support this use case, in addition to the code system version rules introduced by the manifest, a _release_ may also provide an _expansionUri_, either at the root of the quality program (if all the value sets use the same _expansion identifier_), or per value set by providing an _expansionUri_ on the relatedArtifact. The _expansionUri_ capability may also be used selectively to override expansions for specific value sets, with the behavior falling back to the manifest's expansion calculation rules if no expansionUri is specified for the value set.
 
+#### Quality Program
+To support organization of version manifests and releases, the Quality Program profile can also be used to
+define quality programs that contain multiple manifests and releases over multiple years. This usage is represented
+by an overall Quality Program that then contains multiple "component-of" version manifests and releases. In addition, each version manifest or release indicates that it is "part-of" the Quality Program overall.
+
 ### Code Systems
 
 1. SHALL Represent basic CodeSystem information, as specified by the [ShareableCodeSystem](http://hl7.org/fhir/shareablecodesystem.html) profile, which includes url, version, name, status, experimental, publisher, description, caseSensitive, content, and concept.
@@ -127,10 +132,11 @@ Note that when a code system authority has not established a versioning system, 
     5. title: Returning any quality program matching the title, according to the string-matching semantics in FHIR
     6. status: Returning quality programs that match the given status
     7. description: Returning any quality programs matching the search description, according to string-matching semantics in FHIR
-    8. composed-of: Returning any quality program that includes the given measure canonical
+    8. composed-of: Returning any quality program that includes the given measure canonical or quality program version manifest or release
     9. depends-on: Returning any quality program that references the given code system or value set canonical
+    10. part-of: Returning any version manifest or release that is part of the given quality program
 
-5. SHALL support quality program value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
+5. SHALL support version manifest and release value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
@@ -317,6 +323,26 @@ The expected [result](ValueSet-chronic-liver-disease-legacy-example-2019-09.html
 Note this expansion contains the same codes as the `current` example, but is explicitly
 bound to the 2019-09 version of the US Edition of the SNOMED code system (http://snomed.info/sct/731000124108/version/20190901).
 
+#### Quality Programs
+
+A Quality Program has 3 different manifestations:
+
+1. As an organizer for an overall quality program that contains version manifests and releases over time.
+2. As a version manifest (also called an expansion profile) that specifies expansion rules for a set of value sets (supporting the authoring use case).
+3. As a program release that provides stable expansions for a set of value sets (supporting the distribution use case)
+
+##### Quality Program
+
+The following example illustrates a quality program that contains multiple version manifests and releases over time:
+
+```
+```
+
+##### Version Manifest (Expansion Profile)
+
+##### Program Release
+
+
 #### Quality Program Release (i.e. Version Manifest, or Binding Parameters Specification)
 
 The following example illustrates an unversioned quality program specification,
@@ -421,3 +447,8 @@ and results in the same expansion, with the additional `manifest` parameter:
   ]
 }
 ```
+
+#### Value Set Searches
+
+TODO: // Describe "expansion" search for ValueSets
+TODO: // Describe "usage" search for ValueSets
