@@ -1,0 +1,82 @@
+<Measure xmlns="http://hl7.org/fhir">
+   <id value="PreventiveCareandWellnessOpportunityComposite"/>
+   <meta>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/composite-measure-cqfm"/>
+   </meta>
+   <language value="en"/>
+   <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/PreventiveCareandWellnessOpportunityComposite"/>
+   <version value="0.0.001"/>
+   <name value="PreventiveCareandWellnessOpportunityComposite"/>
+   <title value="Preventive Care and Wellness Opportunity Composite"/>
+   <status value="draft"/>
+   <experimental value="true"/>
+   <publisher value="National Committee for Quality Assurance"/>
+   <description value="This artifact is an example of an opportunity composite measure that uses a mixture of single-rate or multi-rate component measures that have different measure bases."/>
+   <effectivePeriod>
+      <start value="2022-01-01"/>
+      <end value="2022-12-31"/>
+   </effectivePeriod>
+   <relatedArtifact>
+      <type value="composed-of"/>
+      <display value="Breast Cancer Screening"/>
+      <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/BCSComponent|0.0.001"/>
+   </relatedArtifact>
+   <relatedArtifact>
+      <type value="composed-of"/>
+      <display value="High Blood Pressure Screening"/>
+      <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/HBPComponent|0.0.001"/>
+   </relatedArtifact>
+   <relatedArtifact>
+      <type value="composed-of"/>
+      <display value="Colorectal Cancer Screening"/>
+      <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/CCSComponent|0.0.001"/>
+   </relatedArtifact>
+   <relatedArtifact>
+      <type value="composed-of"/>
+      <display value="Pneumococcal Vaccination Status"/>
+      <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/PVSComponent|0.0.001"/>
+   </relatedArtifact>
+   <relatedArtifact>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
+         <valueId value="Group1"/>
+      </extension>
+      <type value="composed-of"/>
+      <display value="Tobacco Use Screening and Cessation, Group1"/>
+      <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
+   </relatedArtifact>
+   <relatedArtifact>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
+         <valueId value="Group2"/>
+      </extension>
+      <type value="composed-of"/>
+      <display value="Tobacco Use Screening and Cessation, Group2"/>
+      <url value="http://hl7.org/fhir/us/cqfmeasures/TSCComponent|0.0.001"/>
+   </relatedArtifact>
+   <scoring>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+         <code value="composite"/>
+         <display value="Composite"/>
+      </coding>
+   </scoring>
+   <compositeScoring>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/composite-measure-scoring"/>
+         <code value="opportunity"/>
+         <display value="Opportunity"/>
+      </coding>
+   </compositeScoring>
+   <type>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
+         <code value="process"/>
+         <display value="Process"/>
+      </coding>
+   </type>
+   <improvementNotation>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+         <code value="increase"/>
+      </coding>
+   </improvementNotation>
+</Measure>
