@@ -901,7 +901,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Sex&quot;:&#xa;  SDE.&quot;SDE Sex&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="0"/>
       </extension>
    </extension>
@@ -915,7 +915,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Sex&quot;:&#xa;  case&#xa;      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }&#xa;      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }&#xa;      else null&#xa;    end"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="1"/>
       </extension>
    </extension>
@@ -929,7 +929,7 @@
       <extension url="statement">
          <valueString value="define &quot;Numerator&quot;:&#xa;  &quot;Encounter with Normal Blood Pressure Reading&quot;&#xa;      union ( &quot;Encounter with Prehypertensive Blood Pressure Reading&quot;&#xa;          intersect ( ( &quot;Encounter with Order for Intervention for Hypertension&quot;&#xa;                intersect &quot;Encounter with Order for Follow Up Within One Year&quot;&#xa;            )&#xa;              union &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;&#xa;          )&#xa;      )&#xa;      union ( &quot;Encounter with First Hypertensive Reading&quot;&#xa;          intersect ( ( &quot;Encounter with Order for Intervention for Hypertension&quot;&#xa;                intersect &quot;Encounter with Order for Follow Up Within 4 Weeks&quot;&#xa;            )&#xa;              union &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;&#xa;          )&#xa;      )&#xa;      union ( &quot;Encounter with Second Hypertensive Reading&quot;&#xa;          intersect ( ( &quot;Encounter with Order for Intervention for Hypertension&quot;&#xa;                intersect ( &quot;Encounter with Order for Laboratory Test for Hypertension&quot;&#xa;                    union &quot;Encounter with Order for Electrocardiogram for Hypertension&quot;&#xa;                    union &quot;Encounter with Order for Hypertension Medication&quot;&#xa;                )&#xa;            )&#xa;              union &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;&#xa;          )&#xa;      )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="2"/>
       </extension>
    </extension>
@@ -943,7 +943,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Normal Blood Pressure Reading&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP&#xa;          where SystolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      ),&#xa;      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP&#xa;          where DiastolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      )&#xa;      where EncounterLastSystolicBP.value included in Interval[1 'mm[Hg]', 120 'mm[Hg]' )&#xa;        and EncounterLastDiastolicBP.value included in Interval[1 'mm[Hg]', 80 'mm[Hg]' )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="3"/>
       </extension>
    </extension>
@@ -957,7 +957,7 @@
       <extension url="statement">
          <valueString value="define &quot;Qualifying Encounter During Measurement Period&quot;:&#xa;  [Encounter: &quot;Encounter to Screen for Blood Pressure&quot;] ValidEncounter&#xa;      where ValidEncounter.period during &quot;Measurement Period&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="4"/>
       </extension>
    </extension>
@@ -971,7 +971,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Prehypertensive Blood Pressure Reading&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP&#xa;          where SystolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      ),&#xa;      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP&#xa;          where DiastolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      )&#xa;      where EncounterLastSystolicBP.value included in Interval[1 'mm[Hg]', 140 'mm[Hg]' )&#xa;        and EncounterLastDiastolicBP.value included in Interval[1 'mm[Hg]', 90 'mm[Hg]' )&#xa;        and ( EncounterLastSystolicBP.value >= 120 'mm[Hg]'&#xa;            or EncounterLastDiastolicBP.value >= 80 'mm[Hg]'&#xa;        )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="5"/>
       </extension>
    </extension>
@@ -985,7 +985,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Order for Intervention for Hypertension&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with ( [ServiceRequest: &quot;Lifestyle Recommendation&quot;]&#xa;        union [ServiceRequest: &quot;Weight Reduction Recommended&quot;]&#xa;        union [ServiceRequest: &quot;Dietary Recommendations&quot;]&#xa;        union [ServiceRequest: &quot;Recommendation to Increase Physical Activity&quot;]&#xa;        union [ServiceRequest: &quot;Referral or Counseling for Alcohol Consumption&quot;] ) HighBloodPressureIntervention&#xa;        such that HighBloodPressureIntervention.authoredOn same day as start of QualifyingEncounter.period"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="6"/>
       </extension>
    </extension>
@@ -999,7 +999,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Order for Follow Up Within One Year&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [ServiceRequest: &quot;Follow Up Within One Year&quot;] FollowupOneYear&#xa;        such that FollowupOneYear.authoredOn same day as start of QualifyingEncounter.period"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="7"/>
       </extension>
    </extension>
@@ -1013,7 +1013,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [ServiceRequest: &quot;Referral to Primary Care or Alternate Provider&quot;] Referral&#xa;        such that Referral.authoredOn same day as start of QualifyingEncounter.period&#xa;          and Referral.reasonCode in &quot;Finding of Elevated Blood Pressure or Hypertension&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="8"/>
       </extension>
    </extension>
@@ -1027,7 +1027,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with First Hypertensive Reading&quot;:&#xa;  &quot;Encounter with High Blood Pressure Reading&quot;&#xa;      except &quot;Encounter with High Blood Pressure Reading Within Year Prior&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="9"/>
       </extension>
    </extension>
@@ -1041,7 +1041,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with High Blood Pressure Reading&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP&#xa;          where SystolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      ),&#xa;      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP&#xa;          where DiastolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      )&#xa;      where EncounterLastSystolicBP.value > 0 'mm[Hg]'&#xa;        and EncounterLastDiastolicBP.value > 0 'mm[Hg]'&#xa;        and ( EncounterLastSystolicBP.value >= 140 'mm[Hg]'&#xa;            or EncounterLastDiastolicBP.value >= 90 'mm[Hg]'&#xa;        )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="10"/>
       </extension>
    </extension>
@@ -1055,7 +1055,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with High Blood Pressure Reading Within Year Prior&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP&#xa;          where SystolicBP.effective 1 year or less before start of QualifyingEncounter.period&#xa;          sort by effective&#xa;      ),&#xa;      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP&#xa;          where DiastolicBP.effective 1 year or less before start of QualifyingEncounter.period&#xa;          sort by effective&#xa;      )&#xa;      where EncounterLastSystolicBP.value > 0 'mm[Hg]'&#xa;        and EncounterLastDiastolicBP.value > 0 'mm[Hg]'&#xa;        and ( EncounterLastSystolicBP.value >= 140 'mm[Hg]'&#xa;            or EncounterLastDiastolicBP.value >= 90 'mm[Hg]'&#xa;        )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="11"/>
       </extension>
    </extension>
@@ -1069,7 +1069,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Order for Follow Up Within 4 Weeks&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [ServiceRequest: &quot;Follow Up Within 4 Weeks&quot;] Followup4Weeks&#xa;        such that Followup4Weeks.authoredOn same day as start of QualifyingEncounter.period"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="12"/>
       </extension>
    </extension>
@@ -1083,7 +1083,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Second Hypertensive Reading&quot;:&#xa;  &quot;Encounter with High Blood Pressure Reading&quot;&#xa;      intersect &quot;Encounter with High Blood Pressure Reading Within Year Prior&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="13"/>
       </extension>
    </extension>
@@ -1097,7 +1097,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Order for Laboratory Test for Hypertension&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [ServiceRequest: &quot;Laboratory Tests for Hypertension&quot;] HypertensionLabs&#xa;        such that HypertensionLabs.authoredOn same day as start of QualifyingEncounter.period"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="14"/>
       </extension>
    </extension>
@@ -1111,7 +1111,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Order for Electrocardiogram for Hypertension&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with ( [ServiceRequest: &quot;EKG 12 channel panel&quot;]&#xa;        union [ServiceRequest: &quot;EKG study&quot;] ) ECG&#xa;        such that ECG.authoredOn same day as start of QualifyingEncounter.period"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="15"/>
       </extension>
    </extension>
@@ -1125,7 +1125,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Order for Hypertension Medication&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [MedicationRequest: &quot;Pharmacologic Therapy for Hypertension&quot;] AntihypertensiveMedication&#xa;        such that AntihypertensiveMedication.authoredOn same day as start of QualifyingEncounter.period"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="16"/>
       </extension>
    </extension>
@@ -1139,7 +1139,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator&quot;:&#xa;  &quot;Initial Population&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="17"/>
       </extension>
    </extension>
@@ -1153,7 +1153,7 @@
       <extension url="statement">
          <valueString value="define &quot;Initial Population&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [Patient] BirthDate&#xa;        such that Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( BirthDate.birthDate ), start of &quot;Measurement Period&quot; ) >= 18"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="18"/>
       </extension>
    </extension>
@@ -1167,7 +1167,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Payer&quot;:&#xa;  SDE.&quot;SDE Payer&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="19"/>
       </extension>
    </extension>
@@ -1181,7 +1181,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Payer&quot;:&#xa;  [Coverage: type in &quot;Payer&quot;] Payer&#xa;        return {&#xa;          code: Payer.type,&#xa;          period: Payer.period&#xa;        }"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="20"/>
       </extension>
    </extension>
@@ -1195,7 +1195,7 @@
       <extension url="statement">
          <valueString value="define &quot;Initial Population&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [Patient] BirthDate&#xa;        such that Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( BirthDate.birthDate ), start of &quot;Measurement Period&quot; ) >= 18"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="21"/>
       </extension>
    </extension>
@@ -1209,7 +1209,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Ethnicity&quot;:&#xa;  SDE.&quot;SDE Ethnicity&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="22"/>
       </extension>
    </extension>
@@ -1223,7 +1223,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Ethnicity&quot;:&#xa;  (flatten (&#xa;      Patient.extension Extension&#xa;        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'&#xa;          return Extension.extension&#xa;    )) E&#xa;      where E.url = 'ombCategory'&#xa;        or E.url = 'detailed'&#xa;      return E.value as Coding"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="23"/>
       </extension>
    </extension>
@@ -1237,7 +1237,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator Exclusions&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [Condition: &quot;Diagnosis of Hypertension&quot;] Hypertension&#xa;        such that Global.&quot;Prevalence Period&quot; ( Hypertension ) overlaps before QualifyingEncounter.period"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="24"/>
       </extension>
    </extension>
@@ -1251,7 +1251,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Race&quot;:&#xa;  SDE.&quot;SDE Race&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="25"/>
       </extension>
    </extension>
@@ -1265,7 +1265,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Race&quot;:&#xa;  (flatten (&#xa;      Patient.extension Extension&#xa;        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'&#xa;          return Extension.extension&#xa;    )) E&#xa;      where E.url = 'ombCategory'&#xa;        or E.url = 'detailed'&#xa;      return E.value as Coding"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="26"/>
       </extension>
    </extension>
@@ -1279,7 +1279,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator Exceptions&quot;:&#xa;  &quot;Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement&quot;&#xa;      union &quot;Encounter with Order for Hypertension Follow Up Declined by Patient&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="27"/>
       </extension>
    </extension>
@@ -1293,7 +1293,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with ( [Observation: &quot;Systolic blood pressure&quot;]&#xa;        union [Observation: &quot;Diastolic blood pressure&quot;] ) NoBPScreen&#xa;        such that ( NoBPScreen.code in &quot;Medical Reason&quot;&#xa;            or NoBPScreen.code in &quot;Patient Declined&quot;&#xa;        )&#xa;          and NoBPScreen.effective same day as start of QualifyingEncounter.period&#xa;          and &quot;Not Done&quot;(NoBPScreen)&#xa;          and NoBPScreen.status = 'final'"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="28"/>
       </extension>
    </extension>
@@ -1307,7 +1307,7 @@
       <extension url="statement">
          <valueString value="define &quot;Encounter with Order for Hypertension Follow Up Declined by Patient&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with ( [ServiceRequest: &quot;EKG 12 channel panel&quot;]&#xa;        union [ServiceRequest: &quot;EKG study&quot;]&#xa;        union [ServiceRequest: &quot;Follow Up Within One Year&quot;]&#xa;        union [ServiceRequest: &quot;Follow Up Within 4 Weeks&quot;]&#xa;        union [ServiceRequest: &quot;Referral to Primary Care or Alternate Provider&quot;]&#xa;        union [ServiceRequest: &quot;Lifestyle Recommendation&quot;]&#xa;        union [ServiceRequest: &quot;Weight Reduction Recommended&quot;]&#xa;        union [ServiceRequest: &quot;Dietary Recommendations&quot;]&#xa;        union [ServiceRequest: &quot;Recommendation to Increase Physical Activity&quot;]&#xa;        union [ServiceRequest: &quot;Referral or Counseling for Alcohol Consumption&quot;]&#xa;        union [ServiceRequest: &quot;Laboratory Tests for Hypertension&quot;]&#xa;        union [MedicationRequest: &quot;Pharmacologic Therapy for Hypertension&quot;] ) NoFollowUpOrdered&#xa;        such that NoFollowUpOrdered.doNotPerform is true&#xa;          and NoFollowUpOrdered.code in &quot;Patient Declined&quot;&#xa;          and NoFollowUpOrdered.authoredOn same day as start of QualifyingEncounter.period"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="29"/>
       </extension>
    </extension>
