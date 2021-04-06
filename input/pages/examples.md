@@ -7,7 +7,7 @@
 * [**EXM55**](Measure-measure-exm55-FHIR.html) Continuous-variable measure example - [Library](Library-EXM55.html)
 * [**RatioMeasure**](Measure-measure-ratio-exm.html) Ratio measure example - [Library](Library-EXMRatio.html)
 * [**Terminology**](Measure-measure-terminology-FHIR.html) Example illustrating terminology usage - [Library](Library-Terminology.html)
-* [**RiskAdjustment**](Measure-measure-risk-adjustment-FHIR2.html) Example illustrating risk adjustment usage - [Library](Library-library-risk-adjustment-FHIR2.html)
+* [**RiskAdjustment**](Measure-measure-risk-adjustment-FHIR2.html) Example illustrating risk adjustment usage - [Library](Library-risk-adjustment-FHIR2.html)
 * [**Common Library**](Library-Common.html) Usage example illustrating a library to share logic between measures
 * [**SupplementalDataElements**](Library-SupplementalDataElements.html) Library illustrating common supplemental data elements
 
