@@ -350,7 +350,7 @@
       "url": "statement",
       "valueString": "define \"SDE Sex\":\n  SDE.\"SDE Sex\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 0
     } ]
   }, {
@@ -365,7 +365,7 @@
       "url": "statement",
       "valueString": "define \"SDE Sex\":\n  case\n      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }\n      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }\n      else null\n    end"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 1
     } ]
   }, {
@@ -380,7 +380,7 @@
       "url": "statement",
       "valueString": "//    and NoCervixBirth.clinicalStatus ~ ToConcept(Global.\"active\") because this is an excluion, all statuses are acceptabledefine \"Numerator\":\n\texists \"Cervical Cytology Within 3 Years\"\n\t\tor exists \"HPV Test Within 5 Years for Women Age 30 and Older\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 2
     } ]
   }, {
@@ -395,7 +395,7 @@
       "url": "statement",
       "valueString": "define \"Cervical Cytology Within 3 Years\":\n\t[Observation: \"Pap Test\"] CervicalCytology\n\t\twhere CervicalCytology.value is not null\n\t\t\tand CervicalCytology.status in { 'final', 'amended', 'corrected', 'preliminary' }\n\t\t  and Global.\"Normalize Interval\"(CervicalCytology.effective) ends 3 years or less on or before end of \"Measurement Period\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 3
     } ]
   }, {
@@ -410,7 +410,7 @@
       "url": "statement",
       "valueString": "define \"HPV Test Within 5 Years for Women Age 30 and Older\":\n\t[Observation: \"HPV Test\"] HPVTest\n      where HPVTest.value is not null\n        and HPVTest.status in { 'final', 'amended', 'corrected', 'preliminary' }\n        and  Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of Global.\"Normalize Interval\"(HPVTest.effective))>= 30\n        and Global.\"Normalize Interval\"(HPVTest.effective) ends 5 years or less on or before end of \"Measurement Period\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 4
     } ]
   }, {
@@ -425,7 +425,7 @@
       "url": "statement",
       "valueString": "define \"Denominator\":\n\t\"Initial Population\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 5
     } ]
   }, {
@@ -440,7 +440,7 @@
       "url": "statement",
       "valueString": "define \"Initial Population\":\n\tPatient.gender = 'female'\n\t\tand Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\") in Interval[23, 64]\n\t\tand exists AdultOutpatientEncounters.\"Qualifying Encounters\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 6
     } ]
   }, {
@@ -455,7 +455,7 @@
       "url": "statement",
       "valueString": "define \"Qualifying Encounters\":\n\t(\n    [Encounter: \"Office Visit\"]\n  \t\tunion [Encounter: \"Annual Wellness Visit\"]\n  \t\tunion [Encounter: \"Preventive Care Services - Established Office Visit, 18 and Up\"]\n  \t\tunion [Encounter: \"Preventive Care Services-Initial Office Visit, 18 and Up\"]\n  \t\tunion [Encounter: \"Home Healthcare Services\"]\n  ) ValidEncounter\n\t\twhere ValidEncounter.period during \"Measurement Period\"\n  \t\tand ValidEncounter.status  = 'finished'"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 7
     } ]
   }, {
@@ -470,7 +470,7 @@
       "url": "statement",
       "valueString": "define \"SDE Payer\":\n  SDE.\"SDE Payer\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 8
     } ]
   }, {
@@ -485,7 +485,7 @@
       "url": "statement",
       "valueString": "define \"SDE Payer\":\n  [Coverage: type in \"Payer\"] Payer\n        return {\n          code: Payer.type,\n          period: Payer.period\n        }"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 9
     } ]
   }, {
@@ -500,7 +500,7 @@
       "url": "statement",
       "valueString": "define \"Initial Population\":\n\tPatient.gender = 'female'\n\t\tand Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\") in Interval[23, 64]\n\t\tand exists AdultOutpatientEncounters.\"Qualifying Encounters\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 10
     } ]
   }, {
@@ -515,7 +515,7 @@
       "url": "statement",
       "valueString": "define \"SDE Ethnicity\":\n  SDE.\"SDE Ethnicity\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 11
     } ]
   }, {
@@ -530,7 +530,7 @@
       "url": "statement",
       "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 12
     } ]
   }, {
@@ -545,7 +545,7 @@
       "url": "statement",
       "valueString": "define \"Denominator Exclusion\":\n\tHospice.\"Has Hospice\"\n\t\tor exists \"Absence of Cervix\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 13
     } ]
   }, {
@@ -560,7 +560,7 @@
       "url": "statement",
       "valueString": "define \"Has Hospice\":\n\texists (\n    [Encounter: \"Encounter Inpatient\"] DischargeHospice\n\t\t\twhere DischargeHospice.status = 'finished'\n\t\t    and (\n\t        DischargeHospice.hospitalization.dischargeDisposition ~ \"Discharge to home for hospice care (procedure)\"\n\t\t\t\t    or DischargeHospice.hospitalization.dischargeDisposition ~ \"Discharge to healthcare facility for hospice care (procedure)\"\n\t    \t)\n\t\t\t\tand DischargeHospice.period ends during \"Measurement Period\"\n\t)\n    or exists (\n      [ServiceRequest: \"Hospice care ambulatory\"] HospiceOrder\n        where HospiceOrder.intent = 'order'\n            and HospiceOrder.authoredOn in \"Measurement Period\"\n    )\n    or exists (\n      [Procedure: \"Hospice care ambulatory\"] HospicePerformed\n        where HospicePerformed.status = 'completed'\n          and Global.\"Normalize Interval\"(HospicePerformed.performed) overlaps \"Measurement Period\"\n    )"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 14
     } ]
   }, {
@@ -575,7 +575,7 @@
       "url": "statement",
       "valueString": "define \"Absence of Cervix\":\n  ([Procedure: \"Hysterectomy with No Residual Cervix\"] NoCervixProcedure\n   where Global.\"Normalize Interval\"(NoCervixProcedure.performed) ends on or before end of \"Measurement Period\"\n     and NoCervixProcedure.status = 'completed'\n     )\n  union [Condition : \"Congenital absence of cervix (disorder)\"] NoCervixBirth\n\t\twhere Global.\"Normalize Interval\"(NoCervixBirth.onset) starts on or before end of \"Measurement Period\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 15
     } ]
   }, {
@@ -590,7 +590,7 @@
       "url": "statement",
       "valueString": "define \"SDE Race\":\n  SDE.\"SDE Race\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 16
     } ]
   }, {
@@ -605,7 +605,7 @@
       "url": "statement",
       "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 17
     } ]
   } ],

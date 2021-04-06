@@ -174,7 +174,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Sex&quot;:&#xa;  case&#xa;    when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }&#xa;    when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }&#xa;    else null&#xa;  end"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="0"/>
       </extension>
    </extension>
@@ -188,7 +188,7 @@
       <extension url="statement">
          <valueString value="define &quot;Stratifier 3&quot; :&#xa;  &quot;Inpatient Encounter&quot; Encounter&#xa;    where PrincipalDiagnosis(Encounter) is null"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="1"/>
       </extension>
    </extension>
@@ -202,7 +202,7 @@
       <extension url="statement">
          <valueString value="define &quot;Inpatient Encounter&quot; :&#xa;  [&quot;Encounter&quot;] Encounter&#xa;    where LengthInDays(Encounter.period) &lt;= 120&#xa;      and Encounter.period ends during &quot;Measurement Period&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="2"/>
       </extension>
    </extension>
@@ -216,7 +216,7 @@
       <extension url="statement">
          <valueString value="define &quot;Stratifier 4&quot; :&#xa;  &quot;Inpatient Encounter&quot; Encounter&#xa;    where PrincipalDiagnosis(Encounter) is null"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="3"/>
       </extension>
    </extension>
@@ -230,7 +230,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Payer&quot;:&#xa;    [Coverage: type in &quot;Payer&quot;] Payer&#xa;      return {&#xa;        code: Payer.type,&#xa;        period: Payer.period&#xa;      }"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="4"/>
       </extension>
    </extension>
@@ -244,7 +244,7 @@
       <extension url="statement">
          <valueString value="define &quot;Initial Population&quot; :&#xa;  &quot;Inpatient Encounter&quot; Encounter"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="5"/>
       </extension>
    </extension>
@@ -258,7 +258,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Ethnicity&quot;:&#xa;  (flatten (&#xa;    Patient.extension Extension&#xa;      where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'&#xa;        return Extension.extension&#xa;  )) E&#xa;    where E.url = 'ombCategory'&#xa;      or E.url = 'detailed'&#xa;    return E.value as Coding"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="6"/>
       </extension>
    </extension>
@@ -272,7 +272,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Race&quot;:&#xa;  (flatten (&#xa;    Patient.extension Extension&#xa;      where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'&#xa;        return Extension.extension&#xa;  )) E&#xa;    where E.url = 'ombCategory'&#xa;      or E.url = 'detailed'&#xa;    return E.value as Coding"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="7"/>
       </extension>
    </extension>
@@ -286,7 +286,7 @@
       <extension url="statement">
          <valueString value="define &quot;Stratifier 1&quot; :&#xa;  &quot;Inpatient Encounter&quot; Encounter&#xa;    where not (PrincipalDiagnosis(Encounter).code in &quot;Psychiatric/Mental Health Patient&quot;)"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="8"/>
       </extension>
    </extension>
@@ -300,7 +300,7 @@
       <extension url="statement">
          <valueString value="define &quot;Stratifier 2&quot; :&#xa;  &quot;Inpatient Encounter&quot; Encounter&#xa;    where PrincipalDiagnosis(Encounter).code in &quot;Psychiatric/Mental Health Patient&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="9"/>
       </extension>
    </extension>

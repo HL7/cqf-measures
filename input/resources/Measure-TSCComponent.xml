@@ -554,7 +554,7 @@
       <extension url="statement">
          <valueString value="define &quot;Numerator 3&quot;:&#xa;  &quot;Most Recent Tobacco Use Screening Indicates Tobacco Non User&quot; is not null&#xa;      or ( &quot;Most Recent Tobacco Use Screening Indicates Tobacco User&quot; is not null&#xa;          and ( exists &quot;Tobacco Cessation Counseling Given&quot;&#xa;              or exists &quot;Tobacco Cessation Pharmacotherapy Ordered&quot;&#xa;              //or exists &quot;Active Pharmacotherapy for Tobacco Cessation&quot;&#xa;          )&#xa;      )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="0"/>
       </extension>
    </extension>
@@ -568,7 +568,7 @@
       <extension url="statement">
          <valueString value="define &quot;Most Recent Tobacco Use Screening Indicates Tobacco Non User&quot;:&#xa;  ( Last([&quot;Observation&quot;: &quot;Tobacco Use Screening&quot;] TobaccoUseScreening&#xa;        where Global.&quot;Normalize Interval&quot;(TobaccoUseScreening.effective)overlaps &quot;Measurement Period&quot;&#xa;        sort by start of Global.&quot;Normalize Interval&quot;(effective)&#xa;    )) MostRecentTobaccoUseScreening&#xa;      where MostRecentTobaccoUseScreening.value in &quot;Tobacco Non-User&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="1"/>
       </extension>
    </extension>
@@ -582,7 +582,7 @@
       <extension url="statement">
          <valueString value="define &quot;Most Recent Tobacco Use Screening Indicates Tobacco User&quot;:&#xa;  ( Last([&quot;Observation&quot;: &quot;Tobacco Use Screening&quot;] TobaccoUseScreening&#xa;        where Global.&quot;Normalize Interval&quot;(TobaccoUseScreening.effective)overlaps &quot;Measurement Period&quot;&#xa;        sort by start of Global.&quot;Normalize Interval&quot;(effective)&#xa;    )) MostRecentTobaccoUseScreening&#xa;      where MostRecentTobaccoUseScreening.value in &quot;Tobacco User&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="2"/>
       </extension>
    </extension>
@@ -596,7 +596,7 @@
       <extension url="statement">
          <valueString value="// MedicationStatement is not available in R5, known publication issue&#xa;//define &quot;Active Pharmacotherapy for Tobacco Cessation&quot;:&#xa;//  [&quot;MedicationStatement&quot;: &quot;Tobacco Use Cessation Pharmacotherapy&quot;] TakingCessationPharmacotherapy&#xa;//      where Global.&quot;Normalize Interval&quot; ( TakingCessationPharmacotherapy.effective ) overlaps after &quot;Measurement Period&quot;&#xa;//        and TakingCessationPharmacotherapy.status in { 'active', 'completed' }define &quot;Tobacco Cessation Counseling Given&quot;:&#xa;  [&quot;Encounter&quot;: &quot;Tobacco Use Cessation Counseling&quot;] TobaccoCessationCounseling&#xa;      where TobaccoCessationCounseling.period during &quot;Measurement Period&quot;&#xa;        and TobaccoCessationCounseling.status = 'finished'"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="3"/>
       </extension>
    </extension>
@@ -610,7 +610,7 @@
       <extension url="statement">
          <valueString value="define &quot;Tobacco Cessation Pharmacotherapy Ordered&quot;:&#xa;  [&quot;MedicationRequest&quot;: &quot;Tobacco Use Cessation Pharmacotherapy&quot;] CessationPharmacotherapyOrdered&#xa;      where CessationPharmacotherapyOrdered.authoredOn during &quot;Measurement Period&quot;&#xa;        and CessationPharmacotherapyOrdered.status = 'active'"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="4"/>
       </extension>
    </extension>
@@ -624,7 +624,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator Exceptions 1&quot;:&#xa;  exists &quot;Medical Reason for Not Screening for Tobacco Use&quot;&#xa;      or &quot;Has Limited Life Expectancy&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="5"/>
       </extension>
    </extension>
@@ -638,7 +638,7 @@
       <extension url="statement">
          <valueString value="define &quot;Medical Reason for Not Screening for Tobacco Use&quot;:&#xa;  [&quot;Observation&quot;: &quot;Tobacco Use Screening&quot;] NoTobaccoUseScreening&#xa;      where NoTobaccoUseScreening.issued during &quot;Measurement Period&quot;&#xa;        and &quot;Not Done&quot;(NoTobaccoUseScreening)&#xa;        and &quot;Not Done Reason in Medical Reason&quot;(NoTobaccoUseScreening)&#xa;        and NoTobaccoUseScreening.status = 'final'"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="6"/>
       </extension>
    </extension>
@@ -652,7 +652,7 @@
       <extension url="statement">
          <valueString value="//or exists &quot;Active Pharmacotherapy for Tobacco Cessation&quot;define &quot;Has Limited Life Expectancy&quot;:&#xa;  exists ( [&quot;Condition&quot;] LimitedLifeExpectancy&#xa;        where Global.&quot;Prevalence Period&quot; ( LimitedLifeExpectancy ) overlaps after &quot;Measurement Period&quot;&#xa;          and LimitedLifeExpectancy.clinicalStatus ~ ToConcept(Global.&quot;active&quot;)&#xa;    )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="7"/>
       </extension>
    </extension>
@@ -666,7 +666,7 @@
       <extension url="statement">
          <valueString value="define &quot;Numerator 1&quot;:&#xa;  &quot;Most Recent Tobacco Use Screening Indicates Tobacco Non User&quot; is not null&#xa;      or &quot;Most Recent Tobacco Use Screening Indicates Tobacco User&quot; is not null"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="8"/>
       </extension>
    </extension>
@@ -680,7 +680,7 @@
       <extension url="statement">
          <valueString value="define &quot;Numerator 2&quot;:&#xa;  exists &quot;Tobacco Cessation Counseling Given&quot;&#xa;      or exists &quot;Tobacco Cessation Pharmacotherapy Ordered&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="9"/>
       </extension>
    </extension>
@@ -694,7 +694,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Race&quot;:&#xa;  SDE.&quot;SDE Race&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="10"/>
       </extension>
    </extension>
@@ -708,7 +708,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Race&quot;:&#xa;  (flatten (&#xa;      Patient.extension Extension&#xa;        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'&#xa;          return Extension.extension&#xa;    )) E&#xa;      where E.url = 'ombCategory'&#xa;        or E.url = 'detailed'&#xa;      return E.value as Coding"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="11"/>
       </extension>
    </extension>
@@ -722,7 +722,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Sex&quot;:&#xa;  SDE.&quot;SDE Sex&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="12"/>
       </extension>
    </extension>
@@ -736,7 +736,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Sex&quot;:&#xa;  case&#xa;      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }&#xa;      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }&#xa;      else null&#xa;    end"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="13"/>
       </extension>
    </extension>
@@ -750,7 +750,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator 3&quot;:&#xa;  &quot;Initial Population&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="14"/>
       </extension>
    </extension>
@@ -764,7 +764,7 @@
       <extension url="statement">
          <valueString value="define &quot;Initial Population&quot;:&#xa;  exists ( [&quot;Patient&quot;] BirthDate&#xa;        where Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( BirthDate.birthDate ), start of &quot;Measurement Period&quot; ) >= 18&#xa;    )&#xa;      and ( Count(&quot;Office Based Visit During Measurement Period&quot;)>= 2&#xa;          or exists &quot;Preventive Visit During Measurement Period&quot;&#xa;      )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="15"/>
       </extension>
    </extension>
@@ -778,7 +778,7 @@
       <extension url="statement">
          <valueString value="define &quot;Office Based Visit During Measurement Period&quot;:&#xa;  ( [&quot;Encounter&quot;: &quot;Health behavior intervention, individual, face-to-face; initial 30 minutes&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Health behavior assessment, or re-assessment (ie, health-focused clinical interview, behavioral observations, clinical decision making)&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Home Healthcare Services&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Occupational Therapy Evaluation&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Office Visit&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Ophthalmological Services&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Physical Therapy Evaluation&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Psych Visit - Diagnostic Evaluation&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Psych Visit - Psychotherapy&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Psychoanalysis&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Speech and Hearing Evaluation&quot;] ) OfficeBasedEncounter&#xa;      where OfficeBasedEncounter.period during &quot;Measurement Period&quot;&#xa;        and OfficeBasedEncounter.status = 'finished'"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="16"/>
       </extension>
    </extension>
@@ -792,7 +792,7 @@
       <extension url="statement">
          <valueString value="define &quot;Preventive Visit During Measurement Period&quot;:&#xa;  ( [&quot;Encounter&quot;: &quot;Annual Wellness Visit&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Preventive Care Services - Established Office Visit, 18 and Up&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Preventive Care Services - Group Counseling&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Preventive Care Services - Other&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Preventive Care Services-Individual Counseling&quot;]&#xa;      union [&quot;Encounter&quot;: &quot;Preventive Care Services-Initial Office Visit, 18 and Up&quot;] ) PreventiveEncounter&#xa;      where PreventiveEncounter.period during &quot;Measurement Period&quot;&#xa;        and PreventiveEncounter.status = 'finished'"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="17"/>
       </extension>
    </extension>
@@ -806,7 +806,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator 2&quot;:&#xa;  &quot;Initial Population&quot;&#xa;      and &quot;Most Recent Tobacco Use Screening Indicates Tobacco User&quot; is not null"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="18"/>
       </extension>
    </extension>
@@ -820,7 +820,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Payer&quot;:&#xa;  SDE.&quot;SDE Payer&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="19"/>
       </extension>
    </extension>
@@ -834,7 +834,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Payer&quot;:&#xa;  [Coverage: type in &quot;Payer&quot;] Payer&#xa;        return {&#xa;          code: Payer.type,&#xa;          period: Payer.period&#xa;        }"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="20"/>
       </extension>
    </extension>
@@ -848,7 +848,7 @@
       <extension url="statement">
          <valueString value="define &quot;Initial Population&quot;:&#xa;  exists ( [&quot;Patient&quot;] BirthDate&#xa;        where Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( BirthDate.birthDate ), start of &quot;Measurement Period&quot; ) >= 18&#xa;    )&#xa;      and ( Count(&quot;Office Based Visit During Measurement Period&quot;)>= 2&#xa;          or exists &quot;Preventive Visit During Measurement Period&quot;&#xa;      )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="21"/>
       </extension>
    </extension>
@@ -862,7 +862,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Ethnicity&quot;:&#xa;  SDE.&quot;SDE Ethnicity&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="22"/>
       </extension>
    </extension>
@@ -876,7 +876,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Ethnicity&quot;:&#xa;  (flatten (&#xa;      Patient.extension Extension&#xa;        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'&#xa;          return Extension.extension&#xa;    )) E&#xa;      where E.url = 'ombCategory'&#xa;        or E.url = 'detailed'&#xa;      return E.value as Coding"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="23"/>
       </extension>
    </extension>
@@ -890,7 +890,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator Exceptions 2&quot;:&#xa;  exists &quot;Medical Reason for Not Counseling Tobacco User&quot;&#xa;      or exists &quot;Medical Reason for Not Ordering Tobacco Cessation Pharmacotherapy&quot;&#xa;      or &quot;Has Limited Life Expectancy&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="24"/>
       </extension>
    </extension>
@@ -904,7 +904,7 @@
       <extension url="statement">
          <valueString value="define &quot;Medical Reason for Not Counseling Tobacco User&quot;:&#xa;  [&quot;Procedure&quot;: &quot;Tobacco Use Cessation Counseling&quot;] NoTobaccoCessationCounseling&#xa;      where Global.&quot;Normalize Interval&quot; ( NoTobaccoCessationCounseling.performed ) starts during &quot;Measurement Period&quot;&#xa;        and ( ( NoTobaccoCessationCounseling.status = 'not-done'&#xa;              and NoTobaccoCessationCounseling.statusReason in &quot;Medical Reason&quot;&#xa;          )&#xa;            or ( &quot;Not Done&quot;(NoTobaccoCessationCounseling)&#xa;                and &quot;Not Done Reason in Medical Reason&quot;(NoTobaccoCessationCounseling)&#xa;            )&#xa;        )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="25"/>
       </extension>
    </extension>
@@ -918,7 +918,7 @@
       <extension url="statement">
          <valueString value="define &quot;Medical Reason for Not Ordering Tobacco Cessation Pharmacotherapy&quot;:&#xa;  [&quot;MedicationRequest&quot;: &quot;Tobacco Use Cessation Pharmacotherapy&quot;] NoCessationPharmacotherapyOrdered&#xa;      where NoCessationPharmacotherapyOrdered.authoredOn during &quot;Measurement Period&quot;&#xa;        and NoCessationPharmacotherapyOrdered.status = 'completed'&#xa;        and ( ( &quot;Not Done&quot;(NoCessationPharmacotherapyOrdered)&#xa;              and &quot;Not Done Reason in Medical Reason&quot;(NoCessationPharmacotherapyOrdered)&#xa;          )&#xa;            or ( NoCessationPharmacotherapyOrdered.doNotPerform = true&#xa;                and NoCessationPharmacotherapyOrdered.statusReason in &quot;Medical Reason&quot;&#xa;            )&#xa;        )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="26"/>
       </extension>
    </extension>
@@ -932,7 +932,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator Exceptions 3&quot;:&#xa;  exists &quot;Medical Reason for Not Screening for Tobacco Use&quot;&#xa;      or exists &quot;Medical Reason for Not Counseling Tobacco User&quot;&#xa;      or exists &quot;Medical Reason for Not Ordering Tobacco Cessation Pharmacotherapy&quot;&#xa;      or &quot;Has Limited Life Expectancy&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="27"/>
       </extension>
    </extension>
@@ -946,7 +946,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator 1&quot;:&#xa;  &quot;Initial Population&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="28"/>
       </extension>
    </extension>

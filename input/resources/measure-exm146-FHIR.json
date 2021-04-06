@@ -162,7 +162,7 @@
       "url": "statement",
       "valueString": "define \"Numerator\":\n   \"Strep Test Encounters\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 0
     } ]
   }, {
@@ -177,7 +177,7 @@
       "url": "statement",
       "valueString": "// EndRegion: Denominator Exclusions\n\n// Region: Denominator Exceptions\n\n// None\n\n// EndRegion: Denominator Exceptions\n\n// Region: Numeratordefine \"Strep Test Encounters\":\n   \"Pharyngitis Encounters With Antibiotics\" Encounters\n      with [Observation: code in \"Group A Streptococcus Test\"] Tests\n         such that Tests.value is not null\n            and Tests.effective starts during\n               Interval[start of FHIRHelpers.ToInterval(Encounters.period) - 3 days,\n                 end of FHIRHelpers.ToInterval(Encounters.period) + 3 days]"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 1
     } ]
   }, {
@@ -192,7 +192,7 @@
       "url": "statement",
       "valueString": "define \"Pharyngitis Encounters With Antibiotics\":\n   \"Measurement Period Encounters\" Encounters\n      with \"Pharyngitis\" Pharyngitis such that\n         Common.\"Includes Or Starts During\"(Pharyngitis, Encounters)\n      with \"Antibiotics\" Antibiotics such that Antibiotics.authoredOn\n         3 days or less after FHIRHelpers.ToInterval(Encounters.period)"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 2
     } ]
   }, {
@@ -207,7 +207,7 @@
       "url": "statement",
       "valueString": "define \"Measurement Period Encounters\":\n   [Encounter: \"Ambulatory/ED Visit\"] Encounter\n      where Encounter.period during \"Measurement Period\"\n        and Encounter.status = 'finished'\n        and \"Is Between 2 and 17 Years of Age at Start of Measurement Period\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 3
     } ]
   }, {
@@ -222,7 +222,7 @@
       "url": "statement",
       "valueString": "// Region: Initial Populationdefine \"Is Between 2 and 17 Years of Age at Start of Measurement Period\":\n   AgeInYearsAt(start of \"Measurement Period\") >= 2\n      and AgeInYearsAt(start of \"Measurement Period\") <= 17"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 4
     } ]
   }, {
@@ -237,7 +237,7 @@
       "url": "statement",
       "valueString": "define \"Pharyngitis\":\n   ([Condition: code in \"Acute Pharyngitis\"]\n     union [Condition: code in \"Acute Tonsillitis\"]) Pharyngitis\n     where Pharyngitis.clinicalStatus ~ Global.active\n       and Pharyngitis.verificationStatus ~ Global.confirmed"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 5
     } ]
   }, {
@@ -252,7 +252,7 @@
       "url": "statement",
       "valueString": "define \"Antibiotics\":\n   [MedicationRequest: medication in \"Antibiotic Medications\"] Prescription\n     where Prescription.status = 'active'\n       and Prescription.intent = 'order'"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 6
     } ]
   }, {
@@ -267,7 +267,7 @@
       "url": "statement",
       "valueString": "define \"Initial Population\":\n   \"Pharyngitis Encounters With Antibiotics\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 7
     } ]
   } ],
