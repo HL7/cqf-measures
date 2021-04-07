@@ -376,7 +376,7 @@
       "url": "statement",
       "valueString": "define \"SDE Sex\":\n  SDE.\"SDE Sex\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 0
     } ]
   }, {
@@ -391,7 +391,7 @@
       "url": "statement",
       "valueString": "define \"SDE Sex\":\n  case\n      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }\n      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }\n      else null\n    end"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 1
     } ]
   }, {
@@ -406,7 +406,7 @@
       "url": "statement",
       "valueString": "define \"Numerator\":\n\t\texists (\n\t\t\t\t[DiagnosticReport: \"Mammography\"] Mammogram\n\t\t\t\t\t\twhere ( Global.\"Normalize Interval\"(Mammogram.effective) ends 27 months or less before day of end of \"Measurement Period\" )\n\t\t\t\t\t\t\t\tand Mammogram.status in { 'final', 'amended', 'corrected', 'appended' }\n\t\t)"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 2
     } ]
   }, {
@@ -421,7 +421,7 @@
       "url": "statement",
       "valueString": "define \"Denominator\":\n\t\t\"Initial Population\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 3
     } ]
   }, {
@@ -436,7 +436,7 @@
       "url": "statement",
       "valueString": "define \"Initial Population\":\n\t\tPatient.gender = 'female'\n\t\t\t\tand Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\") in Interval[51, 74]\n\t\t\t\tand exists AdultOutpatientEncounters.\"Qualifying Encounters\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 4
     } ]
   }, {
@@ -451,7 +451,7 @@
       "url": "statement",
       "valueString": "define \"Qualifying Encounters\":\n\t(\n    [Encounter: \"Office Visit\"]\n  \t\tunion [Encounter: \"Annual Wellness Visit\"]\n  \t\tunion [Encounter: \"Preventive Care Services - Established Office Visit, 18 and Up\"]\n  \t\tunion [Encounter: \"Preventive Care Services-Initial Office Visit, 18 and Up\"]\n  \t\tunion [Encounter: \"Home Healthcare Services\"]\n  ) ValidEncounter\n\t\twhere ValidEncounter.period during \"Measurement Period\"\n  \t\tand ValidEncounter.status  = 'finished'"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 5
     } ]
   }, {
@@ -466,7 +466,7 @@
       "url": "statement",
       "valueString": "define \"SDE Payer\":\n  SDE.\"SDE Payer\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 6
     } ]
   }, {
@@ -481,7 +481,7 @@
       "url": "statement",
       "valueString": "define \"SDE Payer\":\n  [Coverage: type in \"Payer\"] Payer\n        return {\n          code: Payer.type,\n          period: Payer.period\n        }"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 7
     } ]
   }, {
@@ -496,7 +496,7 @@
       "url": "statement",
       "valueString": "define \"Initial Population\":\n\t\tPatient.gender = 'female'\n\t\t\t\tand Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\") in Interval[51, 74]\n\t\t\t\tand exists AdultOutpatientEncounters.\"Qualifying Encounters\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 8
     } ]
   }, {
@@ -511,7 +511,7 @@
       "url": "statement",
       "valueString": "define \"SDE Ethnicity\":\n  SDE.\"SDE Ethnicity\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 9
     } ]
   }, {
@@ -526,7 +526,7 @@
       "url": "statement",
       "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 10
     } ]
   }, {
@@ -541,7 +541,7 @@
       "url": "statement",
       "valueString": "define \"Denominator Exclusion\":\n\t\tHospice.\"Has Hospice\"\n\t\t\t\tor ( Count(\"Unilateral Mastectomy Procedure\") = 2 )\n\t\t\t\tor ( exists \"Right Mastectomy\" and exists \"Left Mastectomy\" )\n\t\t\t\tor exists \"History Bilateral Mastectomy\"\n\t\t\t\tor exists \"Bilateral Mastectomy Procedure\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 11
     } ]
   }, {
@@ -556,7 +556,7 @@
       "url": "statement",
       "valueString": "define \"Has Hospice\":\n\texists (\n    [Encounter: \"Encounter Inpatient\"] DischargeHospice\n\t\t\twhere DischargeHospice.status = 'finished'\n\t\t    and (\n\t        DischargeHospice.hospitalization.dischargeDisposition ~ \"Discharge to home for hospice care (procedure)\"\n\t\t\t\t    or DischargeHospice.hospitalization.dischargeDisposition ~ \"Discharge to healthcare facility for hospice care (procedure)\"\n\t    \t)\n\t\t\t\tand DischargeHospice.period ends during \"Measurement Period\"\n\t)\n    or exists (\n      [ServiceRequest: \"Hospice care ambulatory\"] HospiceOrder\n        where HospiceOrder.intent = 'order'\n            and HospiceOrder.authoredOn in \"Measurement Period\"\n    )\n    or exists (\n      [Procedure: \"Hospice care ambulatory\"] HospicePerformed\n        where HospicePerformed.status = 'completed'\n          and Global.\"Normalize Interval\"(HospicePerformed.performed) overlaps \"Measurement Period\"\n    )"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 12
     } ]
   }, {
@@ -571,7 +571,7 @@
       "url": "statement",
       "valueString": "define \"Unilateral Mastectomy Procedure\":\n\t\t[Procedure: \"Unilateral Mastectomy\"] UnilateralMastectomyProcedure\n\t\t\t\twhere Global.\"Normalize Interval\"(UnilateralMastectomyProcedure.performed) ends before day of end of \"Measurement Period\"\n\t\t\t\t\t\tand UnilateralMastectomyProcedure.status = 'completed'"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 13
     } ]
   }, {
@@ -586,7 +586,7 @@
       "url": "statement",
       "valueString": "define \"Right Mastectomy\":\n\t\t(\n\t\t\t\t( [Condition: \"Status Post Right Mastectomy\"] C\n          where C.clinicalStatus ~ ToConcept(Global.\"active\")\n        )\n\t\t\t\tunion (\n\t\t\t\t\t\t[Condition: \"Unilateral Mastectomy, Unspecified Laterality\"] UnilateralMastectomyDiagnosis\n\t\t\t\t\t\t\t\twhere UnilateralMastectomyDiagnosis.bodySite in \"Right\"\n                  and UnilateralMastectomyDiagnosis.clinicalStatus ~ ToConcept(Global.\"active\")\n\t\t\t\t)\n\t\t) RightMastectomy\n\t\t\t\twhere Global.\"Normalize Interval\"(RightMastectomy.onset) starts before day of end of \"Measurement Period\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 14
     } ]
   }, {
@@ -601,7 +601,7 @@
       "url": "statement",
       "valueString": "define \"Left Mastectomy\":\n\t\t(\n\t\t    ( [Condition: \"Status Post Left Mastectomy\"] C\n          where C.clinicalStatus ~ ToConcept(Global.\"active\")\n        )\n\t\t\t\tunion (\n\t\t\t\t\t\t[Condition: \"Unilateral Mastectomy, Unspecified Laterality\"] UnilateralMastectomyDiagnosis\n\t\t\t\t\t\t\t\twhere UnilateralMastectomyDiagnosis.bodySite in \"Left\"\n                  and UnilateralMastectomyDiagnosis.clinicalStatus ~ ToConcept(Global.\"active\")\n\t\t\t\t)\n\t\t) LeftMastectomy\n\t\t\t\twhere Global.\"Normalize Interval\"(LeftMastectomy.onset) starts before day of end of \"Measurement Period\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 15
     } ]
   }, {
@@ -616,7 +616,7 @@
       "url": "statement",
       "valueString": "define \"History Bilateral Mastectomy\":\n\t\t[Condition: \"History of bilateral mastectomy\"] BilateralMastectomyHistory\n\t\t\t\twhere Global.\"Normalize Interval\"(BilateralMastectomyHistory.onset) starts before day of end of \"Measurement Period\"\n          and BilateralMastectomyHistory.clinicalStatus ~ ToConcept(Global.\"active\")"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 16
     } ]
   }, {
@@ -631,7 +631,7 @@
       "url": "statement",
       "valueString": "define \"Bilateral Mastectomy Procedure\":\n\t\t[Procedure: \"Bilateral Mastectomy\"] BilateralMastectomyPerformed\n\t\t\t\twhere Global.\"Normalize Interval\"(BilateralMastectomyPerformed.performed) ends before day of end of \"Measurement Period\"\n\t\t\t\t\t\tand BilateralMastectomyPerformed.status = 'completed'"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 17
     } ]
   }, {
@@ -646,7 +646,7 @@
       "url": "statement",
       "valueString": "define \"SDE Race\":\n  SDE.\"SDE Race\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 18
     } ]
   }, {
@@ -661,7 +661,7 @@
       "url": "statement",
       "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 19
     } ]
   } ],

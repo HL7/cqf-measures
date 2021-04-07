@@ -270,7 +270,7 @@ base FHIR specification.
 {: #representation-in-a-library}
 
 The representation of valueset declarations in a Library is discussed in the
-[Measure Conformance Chapter](measure-conformance.html#ecqm-basics) of this IG.
+[Measure Conformance Chapter](measure-conformance.html) of this IG.
 
 #### String-based Membership Testing
 {: #string-based-membership-testing}
@@ -325,7 +325,7 @@ When direct-reference codes are used within eCQMs, they will be represented in t
 using "Venous foot pump, device (physical object) SNOMED CT Code (442023007)"
 ```
 
-The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html#ecqm-basics) of this IG.
+The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html) of this IG.
 
 ### Concepts
 {: #concepts}

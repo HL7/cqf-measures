@@ -334,7 +334,7 @@ Note that as discussed in the section on composite scoring methods, this method 
 
 Computationally, this method is simply the weighted average of the component measure scores. In the simplest case where the weights are all 1, this method is simply the average score of the component measures.
 
-A "weighted" score composite measure specifies the weights of each component using the [weight](StructureDefinition-cqfm-weight) extension on each component measure, as in the example below:
+A "weighted" score composite measure specifies the weights of each component using the [weight](StructureDefinition-cqfm-weight.html) extension on each component measure, as in the example below:
 
 TODO: Update Example
 

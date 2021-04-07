@@ -64,7 +64,7 @@ library EXM146 version '4.0.0'
 
 Snippet 3-2: Library declaration line from [EXM146.cql](Library-EXM146.html#cql-content)
 
-When using multiple CQL libraries to define a measure, refer to the [Nested Libraries](using-cql.html#nested-libraries) section of the [Using CQL](using-cql.html#cql-basics) topic of this guide.
+When using multiple CQL libraries to define a measure, refer to the [Nested Libraries](using-cql.html#nested-libraries) section of the [Using CQL](using-cql.html) topic of this guide.
 
 Inclusion of CQL into a FHIR eCQM is accomplished through the use of a FHIR Library resource as shown in Snippet 3-4. These libraries are then incorporated into the FHIR eCQM using the `library` element of the Measure (Snippet 3). CQL library content is encoded as `base64` and included as the `content` element of the Library resource.
 
@@ -479,7 +479,7 @@ code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT:2
 
 Snippet 3-8: CQL declaration of codesystem, valueset, and code (from [Terminology.cql](Library-Terminology.html))
 
-Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html#cql-basics) of this IG, sections [4.3](using-cql.html#code-systems), [4.4](using-cql.html#value-sets), and [4.5](using-cql.html#codes).
+Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html) of this IG, sections [4.3](using-cql.html#code-systems), [4.4](using-cql.html#value-sets), and [4.5](using-cql.html#codes).
 
 All declared valuesets and codes can be found in the [dataRequirement](StructureDefinition-library-cqfm-definitions.html#Library.dataRequirement) elements in the Library resource referenced by the Measure resource.
 
@@ -726,7 +726,7 @@ Snippet 3-15: CQL definition of the "Initial Population" criteria (from [EXM146.
 
 To encourage consistency among measures, the following guidelines for specifying population criteria within a measure are proposed. The measure population criteria names used here are defined by the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification.
 
-The codes within the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification are explicitly spelled out, where as the measure population code [based on HQMF](http://terminology.hl7.org/ValueSet/v3-ActCode) are abbreviated. In order to make the development of eCQMs straightforward and clear, [this concept map](conceptmap-measure-populations.html) provides mapping from HQMF codes to FHIR codes for each of the measure component code.
+The codes within the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification are explicitly spelled out, where as the measure population code [based on HQMF](http://terminology.hl7.org/ValueSet/v3-ActCode) are abbreviated. In order to make the development of eCQMs straightforward and clear, [this concept map](ConceptMap-measure-populations.html) provides mapping from HQMF codes to FHIR codes for each of the measure component code.
 
 **Conformance Requirement 3.8 (Criteria Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-8)
 {: #conformance-requirement-3-8}
@@ -1440,7 +1440,7 @@ define "Hepatic Failure":
     and exists ("Serum Albumin Test")
 ```
 
-Snippet 3-29: Sample Risk Adjustment Variable from [EXMRiskAdjustment_FHIR2.cql](Library-library-risk-adjustment-FHIR2.html#cql-content)                                                
+Snippet 3-29: Sample Risk Adjustment Variable from [EXMRiskAdjustment_FHIR2.cql](Library-risk-adjustment-FHIR2.html#cql-content)                                                
 
 An example of risk adjustment can be found in the included [examples](Measure-measure-risk-adjustment-FHIR2.html); the relevant sections of the FHIR Measure (Snippet 3-28) and CQL (Snippet 3-29) have been included.
 

@@ -1135,7 +1135,7 @@
       "url": "statement",
       "valueString": "define \"SDE Sex\":\n\tSDE.\"SDE Sex\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 0
     } ]
   }, {
@@ -1150,7 +1150,7 @@
       "url": "statement",
       "valueString": "define \"SDE Sex\":\n  case\n      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }\n      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }\n      else null\n    end"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 1
     } ]
   }, {
@@ -1165,7 +1165,7 @@
       "url": "statement",
       "valueString": "define \"Numerator\":\n    \"Encounter With VTE Prophylaxis Received on Day of or Day After Admission or Procedure\"\n    union ( \"Encounter With Medication Oral Factor Xa Inhibitor Administered on Day of or Day After Admission or Procedure\"\n    \t\t\t  intersect ( \"Encounter With Prior or Present Diagnosis of Atrial Fibrillation or VTE\"\n    \t\t\t\t\t\t    union \"Encounter With Prior or Present Procedure of Hip or Knee Replacement Surgery\"\n    \t\t\t            )\n          )\n    union \"Encounter With Low Risk for VTE or Anticoagulant Administered\"\n    union \"Encounter With No VTE Prophylaxis Due to Medical Reason\"\n    union \"Encounter With No VTE Prophylaxis Due to Patient Refusal\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 2
     } ]
   }, {
@@ -1180,7 +1180,7 @@
       "url": "statement",
       "valueString": "define \"Encounter With VTE Prophylaxis Received on Day of or Day After Admission or Procedure\":\n \t( from\n   \t\t\t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter,\n   \t\t\t\"VTE Prophylaxis by Medication Administered or Device Applied\" VTEProphylaxis\n  \t\twhere Coalesce(Global.\"Normalize Interval\"(VTEProphylaxis.effective), Global.\"Normalize Interval\"(VTEProphylaxis.performed)) starts during TJC.\"CalendarDayOfOrDayAfter\"(start of QualifyingEncounter.period)\n  \t\treturn QualifyingEncounter\n \t)\n \tunion (\n    from\n  \t\t\t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter,\n  \t\t\t[\"Procedure\": \"General or Neuraxial Anesthesia\"] AnesthesiaProcedure,\n  \t\t\t\"VTE Prophylaxis by Medication Administered or Device Applied\" VTEProphylaxis\n\t\t\twhere Global.\"Normalize Interval\"(AnesthesiaProcedure.performed) ends 1 day after day of start of QualifyingEncounter.period\n\t\t\t\tand Coalesce(Global.\"Normalize Interval\"(VTEProphylaxis.effective), Global.\"Normalize Interval\"(VTEProphylaxis.performed)) starts during TJC.\"CalendarDayOfOrDayAfter\"(end of Global.\"Normalize Interval\"(AnesthesiaProcedure.performed))\n\t\t\treturn QualifyingEncounter\n\t)"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 3
     } ]
   }, {
@@ -1195,7 +1195,7 @@
       "url": "statement",
       "valueString": "// Note: added FHIRHelpers.ToDate() in R4define \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\":\n    ( Global.\"Inpatient Encounter\" InpatientEncounter\n    \t\twith [\"Patient\"] BirthDate\n    \t\t\tsuch that Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(BirthDate.birthDate), start of InpatientEncounter.period) >= 18\n    )\n    intersect \"Admission Without VTE or Obstetrical Conditions\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 4
     } ]
   }, {
@@ -1210,7 +1210,7 @@
       "url": "statement",
       "valueString": "define \"Inpatient Encounter\":\n\t[Encounter: \"Encounter Inpatient\"] EncounterInpatient\n\t\twhere EncounterInpatient.status = 'finished'\n\t\t    and \"LengthInDays\"(EncounterInpatient.period) <= 120\n\t\t\tand EncounterInpatient.period ends during \"Measurement Period\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 5
     } ]
   }, {
@@ -1225,7 +1225,7 @@
       "url": "statement",
       "valueString": "define \"Admission Without VTE or Obstetrical Conditions\":\n\t  \tGlobal.\"Inpatient Encounter\" InpatientEncounter\n\t\t    where not (exists (Global.EncounterDiagnosis(InpatientEncounter)) EncounterDiagnosis\n              where (EncounterDiagnosis.code in \"Obstetrics\"\n\t\t\t\t\t\t\t\tor EncounterDiagnosis.code in \"Venous Thromboembolism\"\n\t\t\t\t\t\t\t\tor EncounterDiagnosis.code in \"Obstetrics VTE\"\n\t\t\t         )\n        )"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 6
     } ]
   }, {
@@ -1240,7 +1240,7 @@
       "url": "statement",
       "valueString": "// 10/29: Replaced DeviceUseStatement with Procedure with a new value set and procedure.usdCode for specifying devicesdefine \"VTE Prophylaxis by Medication Administered or Device Applied\":\n  ( [\"MedicationAdministration\": medication in \"Low Dose Unfractionated Heparin for VTE Prophylaxis\"] VTEMedication\n      where VTEMedication.status ='completed'\n\t\t\t     and VTEMedication.dosage.route in \"Subcutaneous route\"\n  )\n   union ([\"MedicationAdministration\": medication in \"Low Molecular Weight Heparin for VTE Prophylaxis\"] LMWH where LMWH.status = 'completed')\n    union ([\"MedicationAdministration\": medication in \"Injectable Factor Xa Inhibitor for VTE Prophylaxis\"] FactorXa where FactorXa.status = 'completed')\n     union ([\"MedicationAdministration\": medication in \"Warfarin\"] Warfarin where Warfarin.status = 'completed')\n      union (\n          [\"Procedure\": \"Device Application\"] DeviceApplied\n          where DeviceApplied.status = 'complete'\n                and (DeviceApplied.usedCode in \"Intermittent pneumatic compression devices (IPC)\"\n                    or DeviceApplied.usedCode in\"Venous foot pumps (VFP)\"\n                    or DeviceApplied.usedCode in \"Graduated compression stockings (GCS)\"\n                    )\n          )"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 7
     } ]
   }, {
@@ -1255,7 +1255,7 @@
       "url": "statement",
       "valueString": "define \"Encounter With Medication Oral Factor Xa Inhibitor Administered on Day of or Day After Admission or Procedure\":\n\t( from\n    \t\t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter,\n  \t\t\t[\"MedicationAdministration\": medication in \"Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment\"] FactorXaMedication\n    where FactorXaMedication.status = 'completed'\n      and Global.\"Normalize Interval\"(FactorXaMedication.effective) starts during TJC.\"CalendarDayOfOrDayAfter\"(start of QualifyingEncounter.period)\n    return QualifyingEncounter\n    )\n    union ( from\n    \t\t\t\t  \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter,\n      \t\t\t\t[\"Procedure\": \"General or Neuraxial Anesthesia\"] AnesthesiaProcedure,\n      \t\t\t\t[\"MedicationAdministration\": medication in \"Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment\"] FactorXaMedication\n      \t\t\twhere FactorXaMedication.status = 'completed'\n                and AnesthesiaProcedure.status = 'completed'\n      \t\t\t    and Global.\"Normalize Interval\"(AnesthesiaProcedure.performed) ends 1 day after day of start of QualifyingEncounter.period\n      \t\t\t\t\tand Global.\"Normalize Interval\"(FactorXaMedication.effective) starts during TJC.\"CalendarDayOfOrDayAfter\"(end of Global.\"Normalize Interval\"(AnesthesiaProcedure.performed))\n      \t\t\treturn QualifyingEncounter\n      \t\t)"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 8
     } ]
   }, {
@@ -1270,7 +1270,7 @@
       "url": "statement",
       "valueString": "/*NOTE: Feedback at Digitial Quality Summit 2019 indicates verificationStatus may be difficult for implementers to retrieve\n        both condition.clinicalStatus and condition.verificationStatus = 'confirmed'\n*/define \"Encounter With Prior or Present Diagnosis of Atrial Fibrillation or VTE\":\n\t( \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n\t\twith [\"Condition\": code in \"Atrial Fibrillation/Flutter\"] AtrialFibrillation\n\t\tsuch that FHIRHelpers.ToConcept(AtrialFibrillation.clinicalStatus) in { Global.\"active\", Global.\"recurrence\", Global.\"relapse\" }\n\t\t\tand Global.\"Normalize Interval\"(AtrialFibrillation.onset) starts on or before end of QualifyingEncounter.period\n    )\n    union ( \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n    \t\t\t\twhere Global.EncounterDiagnosis(QualifyingEncounter).code in \"Atrial Fibrillation/Flutter\"\n    \t\t\t)\n    union ( \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n    \t\t\t\twith [\"Condition\": code in \"Venous Thromboembolism\"] VTEDiagnosis\n    \t\t\t\tsuch that  FHIRHelpers.ToConcept(VTEDiagnosis.clinicalStatus) in { Global.\"inactive\", Global.\"remission\", Global.\"resolved\" }\n      \t\t\t\t\t//and VTEDiagnosis.verificationStatus = 'confirmed'\n    \t\t\t\tand Global.\"Normalize Interval\"(VTEDiagnosis.onset) before start of QualifyingEncounter.period\n      \t\t)"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 9
     } ]
   }, {
@@ -1285,7 +1285,7 @@
       "url": "statement",
       "valueString": "define \"Encounter With Prior or Present Procedure of Hip or Knee Replacement Surgery\":\n\t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n\twith ( [\"Procedure\": \"Hip Replacement Surgery\"]\n    \t\t\tunion [\"Procedure\": \"Knee Replacement Surgery\"] ) HipKneeProcedure\n\tsuch that HipKneeProcedure.status = 'completed'\n\t     and Global.\"Normalize Interval\"(HipKneeProcedure.performed) starts on or before end of QualifyingEncounter.period"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 10
     } ]
   }, {
@@ -1300,7 +1300,7 @@
       "url": "statement",
       "valueString": "define \"Encounter With Low Risk for VTE or Anticoagulant Administered\":\n   \"Low Risk for VTE or Anticoagulant Administered From Day of Start of Hospitalization To Day After Admission\"\n   \t union \"Low Risk for VTE or Anticoagulant Administered on Day of or Day After Procedure\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 11
     } ]
   }, {
@@ -1315,7 +1315,7 @@
       "url": "statement",
       "valueString": "define \"Low Risk for VTE or Anticoagulant Administered From Day of Start of Hospitalization To Day After Admission\":\n \t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n    with \"Is In Low Risk for VTE or On Anticoagulant\" VTERiskAssessment\n    such that Global.\"Normalize Interval\"(VTERiskAssessment.effective) starts during VTEICU.\"FromDayOfStartOfHospitalizationToDayAfterAdmission\"(QualifyingEncounter)"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 12
     } ]
   }, {
@@ -1330,7 +1330,7 @@
       "url": "statement",
       "valueString": "define \"Is In Low Risk for VTE or On Anticoagulant\":\n\t  ( [\"Observation\": \"Risk for venous thromboembolism\"] VTERiskAssessment\n\t\t\t  where VTERiskAssessment.value in \"Low Risk\"\n        and VTERiskAssessment.status in {'final','amended', 'corrected'}\n\t  )\n  union ( [\"Observation\": \"INR\"] INRLabTest\n        where INRLabTest.value as Quantity > 3.0\n            and INRLabTest.status in {'final','amended', 'corrected'}\n        return \"Observation\" { id: INRLabTest.id, effective: INRLabTest.issued }\n        )\n  union ((( [\"MedicationAdministration\": \"Unfractionated Heparin\"] UnfractionatedHeparin\n          where UnfractionatedHeparin.dosage.route in \"Intravenous route\"\n         )\n         union [\"MedicationAdministration\": \"Direct Thrombin Inhibitor\"]\n         union [\"MedicationAdministration\": \"Glycoprotein IIb/IIIa Inhibitors\"] ) AnticoagulantMedication\n         where AnticoagulantMedication.status = 'complete'\n         return \"Observation\" { id: AnticoagulantMedication.id, effective: AnticoagulantMedication.effective }\n      )"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 13
     } ]
   }, {
@@ -1345,7 +1345,7 @@
       "url": "statement",
       "valueString": "define \"Low Risk for VTE or Anticoagulant Administered on Day of or Day After Procedure\":\n \tfrom\n   \t\t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter,\n   \t\t[\"Procedure\": \"General or Neuraxial Anesthesia\"] AnesthesiaProcedure,\n   \t\t\"Is In Low Risk for VTE or On Anticoagulant\" VTERiskAssessment\n\twhere Global.\"Normalize Interval\"(AnesthesiaProcedure.performed) ends 1 day after day of start of QualifyingEncounter.period\n \t\t\tand Global.\"Normalize Interval\"(VTERiskAssessment.effective) starts during TJC.\"CalendarDayOfOrDayAfter\"(end of Global.\"Normalize Interval\"(AnesthesiaProcedure.performed))\n\treturn QualifyingEncounter"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 14
     } ]
   }, {
@@ -1360,7 +1360,7 @@
       "url": "statement",
       "valueString": "define \"Encounter With No VTE Prophylaxis Due to Medical Reason\":\n   ( \"No VTE Prophylaxis Medication Due to Medical Reason From Day of Start of Hospitalization To Day After Admission\"\n     intersect \"No VTE Prophylaxis Device Due to Medical Reason From Day of Start of Hospitalization To Day After Admission\"\n   )\n   union ( \"No VTE Prophylaxis Medication Due to Medical Reason on Day of or Day After Procedure\"\n       intersect \"No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After Procedure\"\n       )"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 15
     } ]
   }, {
@@ -1375,7 +1375,7 @@
       "url": "statement",
       "valueString": "define \"No VTE Prophylaxis Medication Due to Medical Reason From Day of Start of Hospitalization To Day After Admission\":\n   \t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n       with\t\"No VTE Prophylaxis Medication Administered or Ordered\" NoVTEMedication\n     \tsuch that Coalesce(NoVTEMedication.statusReason,NoVTEMedication.reasonCode) in \"Medical Reason\"\n      \t\t\tand Coalesce(NoVTEMedication.authoredOn, start of Global.\"Normalize Interval\"(NoVTEMedication.effective)) during VTEICU.\"FromDayOfStartOfHospitalizationToDayAfterAdmission\"(QualifyingEncounter)"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 16
     } ]
   }, {
@@ -1390,7 +1390,7 @@
       "url": "statement",
       "valueString": "define \"No VTE Prophylaxis Medication Administered or Ordered\":\n   ((\t[\"MedicationAdministration\": medication in \"Low Dose Unfractionated Heparin for VTE Prophylaxis\"]\n     union\n\t    [\"MedicationAdministration\": medication in \"Low Molecular Weight Heparin for VTE Prophylaxis\"]\n     union\n\t    [\"MedicationAdministration\": medication in \"Injectable Factor Xa Inhibitor for VTE Prophylaxis\"]\n     union\n\t    [\"MedicationAdministration\": medication in \"Warfarin\"]\n       ) MedicationAdm\n       where MedicationAdm.status = 'not-done'\n        )\n  union\n\t   ((\t[\"MedicationRequest\": medication in \"Low Dose Unfractionated Heparin for VTE Prophylaxis\"]\n  \tunion\n  \t [\"MedicationRequest\": medication in \"Low Molecular Weight Heparin for VTE Prophylaxis\"]\n    union\n    \t[\"MedicationRequest\": medication in \"Injectable Factor Xa Inhibitor for VTE Prophylaxis\"]\n    union\n    \t[\"MedicationRequest\": medication in \"Warfarin\"]\n    ) MedicationOrder\n    \twhere\tMedicationOrder.doNotPerform is true\n        and MedicationOrder.status in {'completed', 'cancelled'}\n        //11/5 discussion: all expressions for QI-Core must include a status.\n        //Therefore, we need ServiceRequest.status = completed; and MedicationRequest.status = cancelled (or completed, since cancelled indicates it was once ordered but intentionally never filled).\n        //So the not done issue is handled by ServiceRequest.doNotPerform = True  Or MedicationRequest.doNotPerform = True\n    )"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 17
     } ]
   }, {
@@ -1405,7 +1405,7 @@
       "url": "statement",
       "valueString": "define \"No VTE Prophylaxis Device Due to Medical Reason From Day of Start of Hospitalization To Day After Admission\":\n  \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n  \twith \"No VTE Prophylaxis Device Applied or Ordered\" NoVTEDevice\n      such that NoVTEDevice.requestStatusReason in \"Medical Reason\"\n        and  NoVTEDevice.authoredOn during VTEICU.\"FromDayOfStartOfHospitalizationToDayAfterAdmission\"(QualifyingEncounter)"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 18
     } ]
   }, {
@@ -1420,7 +1420,7 @@
       "url": "statement",
       "valueString": "define \"No VTE Prophylaxis Device Applied or Ordered\":\n  ((\n    [\"ServiceRequest\": \"Venous foot pumps (VFP)\"]\n    union [\"ServiceRequest\": \"Intermittent pneumatic compression devices (IPC)\"]\n    union [\"ServiceRequest\": \"Graduated compression stockings (GCS)\"]\n    ) DeviceOrder\n    where DeviceOrder.status = 'completed'\n    //11/5 discussion: all expressions for QI-Core must include a status\n    //ServiceRequest.status -  draft | active | suspended | completed | entered-in-error | cancelled\n        and DeviceOrder.doNotPerform is true\n    return {id: DeviceOrder.id, requestStatusReason: GetStatusReason(DeviceOrder), authoredOn: DeviceOrder.authoredOn}\n    )\n  union\n    (\n      [\"Procedure\": \"Device Application\"] DeviceApplied\n      let DeviceNotDoneTiming: Global.GetExtension(DeviceApplied, 'qicore-recorded').value\n      where (DeviceApplied.usedCode in \"Intermittent pneumatic compression devices (IPC)\"\n            or DeviceApplied.usedCode in \"Venous foot pumps (VFP)\"\n            or DeviceApplied.usedCode in \"Graduated compression stockings (GCS)\"\n            )\n         and  DeviceApplied.status = 'not-done'\n         return {id: DeviceApplied.id, requestStatusReason: DeviceApplied.statusReason, authoredOn: DeviceNotDoneTiming}\n\n    )"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 19
     } ]
   }, {
@@ -1435,7 +1435,7 @@
       "url": "statement",
       "valueString": "define \"No VTE Prophylaxis Medication Due to Medical Reason on Day of or Day After Procedure\":\n\tfrom\n  \t\t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter,\n  \t\t[\"Procedure\": \"General or Neuraxial Anesthesia\"] AnesthesiaProcedure,\n  \t\t\"No VTE Prophylaxis Medication Administered or Ordered\" NoVTEMedication\n\twhere Coalesce(NoVTEMedication.statusReason,NoVTEMedication.reasonCode) in \"Medical Reason\"\n\t\t\tand AnesthesiaProcedure.status = 'completed'\n\t\t\tand Global.\"Normalize Interval\"(AnesthesiaProcedure.performed) ends 1 day after day of start of QualifyingEncounter.period\n\t\t\tand Coalesce(NoVTEMedication.authoredOn, start of Global.\"Normalize Interval\"(NoVTEMedication.effective)) during TJC.\"CalendarDayOfOrDayAfter\"(end of Global.\"Normalize Interval\"(AnesthesiaProcedure.performed))\n  return QualifyingEncounter"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 20
     } ]
   }, {
@@ -1450,7 +1450,7 @@
       "url": "statement",
       "valueString": "define \"No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After Procedure\":\n  from\n  \t\t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter,\n  \t\t[\"Procedure\": \"General or Neuraxial Anesthesia\"] AnesthesiaProcedure,\n  \t\t\"No VTE Prophylaxis Device Applied or Ordered\" NoVTEDevice\n  where  NoVTEDevice.requestStatusReason in \"Medical Reason\"\n      and AnesthesiaProcedure.status = 'completed'\n  \t\tand Global.\"Normalize Interval\"(AnesthesiaProcedure.performed) ends 1 day after day of start of QualifyingEncounter.period\n      and NoVTEDevice.authoredOn during TJC.\"CalendarDayOfOrDayAfter\"(end of Global.\"Normalize Interval\"(AnesthesiaProcedure.performed))\n  return QualifyingEncounter"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 21
     } ]
   }, {
@@ -1465,7 +1465,7 @@
       "url": "statement",
       "valueString": "define \"Encounter With No VTE Prophylaxis Due to Patient Refusal\":\n \"No VTE Prophylaxis Due to Patient Refusal From Day of Start of Hospitalization To Day After Admission\"\n \tunion \"No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Procedure\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 22
     } ]
   }, {
@@ -1480,7 +1480,7 @@
       "url": "statement",
       "valueString": "define \"No VTE Prophylaxis Due to Patient Refusal From Day of Start of Hospitalization To Day After Admission\":\n \t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n\t with \"No VTE Prophylaxis Medication or Device Due to Patient Refusal\" PatientRefusal\n   such that Coalesce(start of Global.\"Normalize Interval\"(PatientRefusal.effective), PatientRefusal.authoredOn)\n         during VTEICU.\"FromDayOfStartOfHospitalizationToDayAfterAdmission\"(QualifyingEncounter)"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 23
     } ]
   }, {
@@ -1495,7 +1495,7 @@
       "url": "statement",
       "valueString": "define \"No VTE Prophylaxis Medication or Device Due to Patient Refusal\":\n    ( \"No VTE Prophylaxis Medication Administered or Ordered\" NoVTEMedication\n        where Coalesce(NoVTEMedication.statusReason,NoVTEMedication.reasonCode) in \"Patient Refusal\"\n    )\n  union (\"No VTE Prophylaxis Device Applied or Ordered\" NoVTEDevice\n           where NoVTEDevice.requestStatusReason in \"Patient Refusal\"\n        )"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 24
     } ]
   }, {
@@ -1510,7 +1510,7 @@
       "url": "statement",
       "valueString": "define \"No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Procedure\":\n \tfrom\n   \t\t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter,\n   \t\t[\"Procedure\": \"General or Neuraxial Anesthesia\"] AnesthesiaProcedure,\n   \t\t\"No VTE Prophylaxis Medication or Device Due to Patient Refusal\" PatientRefusal\n\twhere Global.\"Normalize Interval\"(AnesthesiaProcedure.performed) ends 1 day after day of start of QualifyingEncounter.period\n \t\t\tand Coalesce(start of Global.\"Normalize Interval\"(PatientRefusal.effective), PatientRefusal.authoredOn)\n             during TJC.\"CalendarDayOfOrDayAfter\"(end of Global.\"Normalize Interval\"(AnesthesiaProcedure.performed))\n\treturn QualifyingEncounter"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 25
     } ]
   }, {
@@ -1525,7 +1525,7 @@
       "url": "statement",
       "valueString": "define \"Denominator\":\n      \"Initial Population\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 26
     } ]
   }, {
@@ -1540,7 +1540,7 @@
       "url": "statement",
       "valueString": "define \"Initial Population\":\n  \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 27
     } ]
   }, {
@@ -1555,7 +1555,7 @@
       "url": "statement",
       "valueString": "define \"SDE Payer\":\n\tSDE.\"SDE Payer\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 28
     } ]
   }, {
@@ -1570,7 +1570,7 @@
       "url": "statement",
       "valueString": "define \"SDE Payer\":\n  [Coverage: type in \"Payer\"] Payer\n        return {\n          code: Payer.type,\n          period: Payer.period\n        }"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 29
     } ]
   }, {
@@ -1585,7 +1585,7 @@
       "url": "statement",
       "valueString": "define \"Initial Population\":\n  \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 30
     } ]
   }, {
@@ -1600,7 +1600,7 @@
       "url": "statement",
       "valueString": "define \"SDE Ethnicity\":\n  SDE.\"SDE Ethnicity\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 31
     } ]
   }, {
@@ -1615,7 +1615,7 @@
       "url": "statement",
       "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 32
     } ]
   }, {
@@ -1630,7 +1630,7 @@
       "url": "statement",
       "valueString": "define \"Denominator Exclusion\":\n    \"Encounter Less Than 2 Days\"\n     union \"Encounter With ICU Location Stay 1 Day or More\"\n     union \"Encounter With Principal Diagnosis of Mental Disorder or Stroke\"\n     union \"Encounter With Principal Procedure of SCIP VTE Selected Surgery\"\n     union \"Encounter With Intervention Comfort Measures From Day of Start of Hospitalization To Day After Admission\"\n     union \"Encounter With Intervention Comfort Measures on Day of or Day After Procedure\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 33
     } ]
   }, {
@@ -1645,7 +1645,7 @@
       "url": "statement",
       "valueString": "define \"Encounter Less Than 2 Days\":\n  \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n  \twhere Global.\"LengthInDays\"(QualifyingEncounter.period)< 2"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 34
     } ]
   }, {
@@ -1660,7 +1660,7 @@
       "url": "statement",
       "valueString": "define \"Encounter With ICU Location Stay 1 Day or More\":\n  \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n    where exists ( QualifyingEncounter.location Location\n    \t\twhere Global.GetLocation(Location.location).type in \"Intensive Care Unit\"\n    \t\t\tand Global.\"LengthInDays\"(Location.period)>= 1\n    \t\t\tand Location.period starts during TJC.\"CalendarDayOfOrDayAfter\"(start of QualifyingEncounter.period)\n\t    )"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 35
     } ]
   }, {
@@ -1675,7 +1675,7 @@
       "url": "statement",
       "valueString": "define \"Encounter With Principal Diagnosis of Mental Disorder or Stroke\":\n  \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n    where Global.\"PrincipalDiagnosis\"(QualifyingEncounter).code in \"Mental Health Diagnoses\"\n        or Global.\"PrincipalDiagnosis\"(QualifyingEncounter).code in \"Hemorrhagic Stroke\"\n        or Global.\"PrincipalDiagnosis\"(QualifyingEncounter).code in \"Ischemic Stroke\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 36
     } ]
   }, {
@@ -1690,7 +1690,7 @@
       "url": "statement",
       "valueString": "/* NOTE: 2 options to express Principal Procedure to retrive \"encounter Procedure as an url\" and proedure \"rank as extension\" in R4\n          VTE-1 uses Option 1 - generic extension funtion\n          VTE-2 uses Option 2 - Specific extension functions\n  TODO:  Mapping Table needs revision on using \"Encounter.procedure.code\", \"Encounter.procedure.sequence\"\n*/define \"Encounter With Principal Procedure of SCIP VTE Selected Surgery\":\n  from\n      \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter,\n      \"SCIP VTE Selected Surgery\" SelectedProcedure\n      let EncounterProcedure: Global.GetExtension(QualifyingEncounter, 'qicore-encounter-procedure')\n  where FHIRHelpers.ToInteger(Global.GetExtension(EncounterProcedure, 'rank').value as FHIR.positiveInt) = 1\n      and Global.GetId(FHIRHelpers.ToString((Global.GetExtension(EncounterProcedure, 'procedure').value as FHIR.Reference).reference)) = SelectedProcedure.id\n      and Global.\"Normalize Interval\"(SelectedProcedure.performed) during QualifyingEncounter.period"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 37
     } ]
   }, {
@@ -1705,7 +1705,7 @@
       "url": "statement",
       "valueString": "define \"SCIP VTE Selected Surgery\":\n  (\t[\"Procedure\": \"General Surgery\"]\n    union [\"Procedure\": \"Gynecological Surgery\"]\n    union [\"Procedure\": \"Hip Fracture Surgery\"]\n    union [\"Procedure\": \"Hip Replacement Surgery\"]\n    union [\"Procedure\": \"Intracranial Neurosurgery\"]\n    union [\"Procedure\": \"Knee Replacement Surgery\"]\n    union [\"Procedure\": \"Urological Surgery\"] ) Procedure\n  where Procedure.status = 'completed'"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 38
     } ]
   }, {
@@ -1720,7 +1720,7 @@
       "url": "statement",
       "valueString": "define \"Encounter With Intervention Comfort Measures From Day of Start of Hospitalization To Day After Admission\":\n\t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter\n\t\twith \"Intervention Comfort Measures\" ComfortMeasure\n\t\tsuch that Coalesce(start of Global.\"Normalize Interval\"(ComfortMeasure.performed), ComfortMeasure.authoredOn) during VTEICU.\"FromDayOfStartOfHospitalizationToDayAfterAdmission\"(QualifyingEncounter)"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 39
     } ]
   }, {
@@ -1735,7 +1735,7 @@
       "url": "statement",
       "valueString": "define \"Intervention Comfort Measures\":\n\t([\"ServiceRequest\": \"Comfort Measures\"] P\n    \t\twhere P.intent = 'order'\n  )\n  \tunion\n    \t([\"Procedure\": \"Comfort Measures\"] InterventionPerformed\n      \twhere InterventionPerformed.status in {'completed', 'in-progress'})"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 40
     } ]
   }, {
@@ -1750,7 +1750,7 @@
       "url": "statement",
       "valueString": "define \"Encounter With Intervention Comfort Measures on Day of or Day After Procedure\":\n  from\n  \t\t\"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\" QualifyingEncounter,\n  \t\t[\"Procedure\": \"General or Neuraxial Anesthesia\"] AnesthesiaProcedure,\n  \t\t\"Intervention Comfort Measures\" ComfortMeasure\n\t\twhere AnesthesiaProcedure.status = 'completed'\n\t\t\t\tand Global.\"Normalize Interval\"(AnesthesiaProcedure.performed) ends 1 day after day of start of QualifyingEncounter.period\n        and Coalesce(start of Global.\"Normalize Interval\"(ComfortMeasure.performed), ComfortMeasure.authoredOn) during TJC.\"CalendarDayOfOrDayAfter\"(end of Global.\"Normalize Interval\"(AnesthesiaProcedure.performed))\n    return QualifyingEncounter"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 41
     } ]
   }, {
@@ -1765,7 +1765,7 @@
       "url": "statement",
       "valueString": "define \"SDE Race\":\n  SDE.\"SDE Race\""
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 42
     } ]
   }, {
@@ -1780,7 +1780,7 @@
       "url": "statement",
       "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
     }, {
-      "url": "sequence",
+      "url": "displaySequence",
       "valueInteger": 43
     } ]
   } ],

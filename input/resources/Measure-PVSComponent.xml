@@ -294,7 +294,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Sex&quot;:&#xa;  SDE.&quot;SDE Sex&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="0"/>
       </extension>
    </extension>
@@ -308,7 +308,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Sex&quot;:&#xa;  case&#xa;      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }&#xa;      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }&#xa;      else null&#xa;    end"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="1"/>
       </extension>
    </extension>
@@ -322,7 +322,7 @@
       <extension url="statement">
          <valueString value="define &quot;Numerator&quot;:&#xa;  exists ( [Immunization: &quot;Pneumococcal Vaccine&quot;] PneumococcalVaccine&#xa;        where PneumococcalVaccine.status = 'completed'&#xa;          and PneumococcalVaccine.occurrence as dateTime on or before&#xa;          end of &quot;Measurement Period&quot;&#xa;    )&#xa;      or exists ( [Procedure: &quot;Pneumococcal Vaccine Administered&quot;] PneumococcalVaccineGiven&#xa;          where PneumococcalVaccineGiven.status = 'completed'&#xa;            and PneumococcalVaccineGiven.performed as Period on or before&#xa;            end of &quot;Measurement Period&quot;&#xa;      )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="2"/>
       </extension>
    </extension>
@@ -336,7 +336,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator&quot;:&#xa;  &quot;Initial Population&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="3"/>
       </extension>
    </extension>
@@ -350,7 +350,7 @@
       <extension url="statement">
          <valueString value="define &quot;Initial Population&quot;:&#xa;  Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( Patient.birthDate ), start of &quot;Measurement Period&quot; ) >= 65&#xa;      and exists &quot;Qualifying Encounters&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="4"/>
       </extension>
    </extension>
@@ -364,7 +364,7 @@
       <extension url="statement">
          <valueString value="define &quot;Qualifying Encounters&quot;:&#xa;  ( [Encounter: &quot;Office Visit&quot;]&#xa;      union [Encounter: &quot;Annual Wellness Visit&quot;]&#xa;      union [Encounter: &quot;Preventive Care Services - Established Office Visit, 18 and Up&quot;]&#xa;      union [Encounter: &quot;Preventive Care Services-Initial Office Visit, 18 and Up&quot;]&#xa;      union [Encounter: &quot;Home Healthcare Services&quot;]&#xa;      union [Encounter: &quot;Discharge Services - Nursing Facility&quot;]&#xa;      union [Encounter: &quot;Nursing Facility Visit&quot;]&#xa;      union [Encounter: &quot;Care Services in Long-Term Residential Facility&quot;] ) ValidEncounter&#xa;      where ValidEncounter.period during &quot;Measurement Period&quot;&#xa;        and ValidEncounter.status = 'finished'"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="5"/>
       </extension>
    </extension>
@@ -378,7 +378,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Payer&quot;:&#xa;  SDE.&quot;SDE Payer&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="6"/>
       </extension>
    </extension>
@@ -392,7 +392,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Payer&quot;:&#xa;  [Coverage: type in &quot;Payer&quot;] Payer&#xa;        return {&#xa;          code: Payer.type,&#xa;          period: Payer.period&#xa;        }"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="7"/>
       </extension>
    </extension>
@@ -406,7 +406,7 @@
       <extension url="statement">
          <valueString value="define &quot;Initial Population&quot;:&#xa;  Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( Patient.birthDate ), start of &quot;Measurement Period&quot; ) >= 65&#xa;      and exists &quot;Qualifying Encounters&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="8"/>
       </extension>
    </extension>
@@ -420,7 +420,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Ethnicity&quot;:&#xa;  SDE.&quot;SDE Ethnicity&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="9"/>
       </extension>
    </extension>
@@ -434,7 +434,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Ethnicity&quot;:&#xa;  (flatten (&#xa;      Patient.extension Extension&#xa;        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'&#xa;          return Extension.extension&#xa;    )) E&#xa;      where E.url = 'ombCategory'&#xa;        or E.url = 'detailed'&#xa;      return E.value as Coding"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="10"/>
       </extension>
    </extension>
@@ -448,7 +448,7 @@
       <extension url="statement">
          <valueString value="define &quot;Denominator Exclusions&quot;:&#xa;  Hospice.&quot;Has Hospice&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="11"/>
       </extension>
    </extension>
@@ -462,7 +462,7 @@
       <extension url="statement">
          <valueString value="define &quot;Has Hospice&quot;:&#xa;&#x9;exists (&#xa;    [Encounter: &quot;Encounter Inpatient&quot;] DischargeHospice&#xa;&#x9;&#x9;&#x9;where DischargeHospice.status = 'finished'&#xa;&#x9;&#x9;    and (&#xa;&#x9;        DischargeHospice.hospitalization.dischargeDisposition ~ &quot;Discharge to home for hospice care (procedure)&quot;&#xa;&#x9;&#x9;&#x9;&#x9;    or DischargeHospice.hospitalization.dischargeDisposition ~ &quot;Discharge to healthcare facility for hospice care (procedure)&quot;&#xa;&#x9;    &#x9;)&#xa;&#x9;&#x9;&#x9;&#x9;and DischargeHospice.period ends during &quot;Measurement Period&quot;&#xa;&#x9;)&#xa;    or exists (&#xa;      [ServiceRequest: &quot;Hospice care ambulatory&quot;] HospiceOrder&#xa;        where HospiceOrder.intent = 'order'&#xa;            and HospiceOrder.authoredOn in &quot;Measurement Period&quot;&#xa;    )&#xa;    or exists (&#xa;      [Procedure: &quot;Hospice care ambulatory&quot;] HospicePerformed&#xa;        where HospicePerformed.status = 'completed'&#xa;          and Global.&quot;Normalize Interval&quot;(HospicePerformed.performed) overlaps &quot;Measurement Period&quot;&#xa;    )"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="12"/>
       </extension>
    </extension>
@@ -476,7 +476,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Race&quot;:&#xa;  SDE.&quot;SDE Race&quot;"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="13"/>
       </extension>
    </extension>
@@ -490,7 +490,7 @@
       <extension url="statement">
          <valueString value="define &quot;SDE Race&quot;:&#xa;  (flatten (&#xa;      Patient.extension Extension&#xa;        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'&#xa;          return Extension.extension&#xa;    )) E&#xa;      where E.url = 'ombCategory'&#xa;        or E.url = 'detailed'&#xa;      return E.value as Coding"/>
       </extension>
-      <extension url="sequence">
+      <extension url="displaySequence">
          <valueInteger value="14"/>
       </extension>
    </extension>
