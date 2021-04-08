@@ -4,9 +4,14 @@
   "meta": {
     "profile": [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-      "http://hl7.org/fhir/StructureDefinition/cqfm-executablevalueset"
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-valueset-cqfm"
     ]
   },
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-usageWarning",
+    "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+    }
+  ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example-2019-09",
   "version": "2020-05",
   "name": "ChronicLiverDiseaseLegacyExample201909",
