@@ -4,7 +4,7 @@
   "meta": {
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm" ]
   },
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/EXM146",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/EXMRatio",
   "identifier": [ {
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
@@ -69,12 +69,10 @@
     "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
   }, {
     "type": "depends-on",
-    "display": "Value set Inpatient",
-    "resource": "TBD"
+    "display": "Value set Inpatient"
   }, {
     "type": "depends-on",
-    "display": "Value set Fall",
-    "resource": "TBD"
+    "display": "Value set Fall"
   }, {
     "type": "depends-on",
     "display": "Value set Emergency Department Visit",
@@ -124,15 +122,13 @@
     "type": "Encounter",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
     "codeFilter": [ {
-      "path": "type",
-      "valueSet": "TBD"
+      "path": "type"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
     "codeFilter": [ {
-      "path": "code",
-      "valueSet": "TBD"
+      "path": "code"
     } ]
   }, {
     "type": "Encounter",

@@ -3,8 +3,8 @@
   <text>
     <status value="generated"/>
   </text>
-  <url value="http://hl7.org/fhir/measure-calculation-service"/>
-  <name value="Measure Calculation Service Conformance Statement"/>
+  <url value="http://hl7.org/fhir/us/cqfmeasures/CapabilityStatement/measure-calculation-service"/>
+  <name value="MeasureCalculationServiceConformanceStatement"/>
   <title value="Measure Calculation Service Conformance Statement"/>
   <status value="draft"/>
   <date value="2016-09-16"/>
@@ -22,8 +22,7 @@
   <software>
     <name value="ACME Measure Calculation Service"/>
   </software>
-  <fhirVersion value="3.0.2"/>
-  <acceptUnknown value="both"/>
+  <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
   <rest>
@@ -33,17 +32,15 @@
       <cors value="true"/>
       <service>
         <coding>
-          <system value="http://hl7.org/fhir/restful-security-service"/>
+          <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
           <code value="Certificates"/>
         </coding>
       </service>
     </security>
     <resource>
       <type value="Measure"/>
-      <profile>
-        <reference value="StructureDefinition/Measure"/>
-      </profile>
-      <interaction>
+      <profile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+        <interaction>
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the measures"/>
       </interaction>
@@ -79,14 +76,12 @@
       <searchParam>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-version"/>
-        <type value="string"/>
+        <type value="token"/>
       </searchParam>
     </resource>
     <operation>
       <name value="evaluate"/>
-      <definition>
-        <reference value="OperationDefinition/Measure-evaluate-measure"/>
-      </definition>
-    </operation>
+      <definition value="http://hl7.org/fhir/OperationDefinition/Measure-evaluate-measure"/>
+      </operation>
   </rest>
 </CapabilityStatement>
