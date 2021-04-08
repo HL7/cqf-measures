@@ -32,17 +32,15 @@
       <cors value="true"/>
       <service>
         <coding>
-          <system value="http://hl7.org/fhir/restful-security-service"/>
+          <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
           <code value="Certificates"/>
         </coding>
       </service>
     </security>
     <resource>
       <type value="Measure"/>
-      <profile>
-        <reference value="StructureDefinition/Measure"/>
-      </profile>
-      <interaction>
+      <profile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+        <interaction>
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the measures"/>
       </interaction>
