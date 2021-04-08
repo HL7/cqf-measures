@@ -76,14 +76,12 @@
       <searchParam>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-version"/>
-        <type value="string"/>
+        <type value="token"/>
       </searchParam>
     </resource>
     <operation>
       <name value="evaluate"/>
-      <definition>
-        <reference value="OperationDefinition/Measure-evaluate-measure"/>
-      </definition>
-    </operation>
+      <definition value="http://hl7.org/fhir/OperationDefinition/Measure-evaluate-measure"/>
+      </operation>
   </rest>
 </CapabilityStatement>
