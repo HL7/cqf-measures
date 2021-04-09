@@ -10,26 +10,23 @@ Composite measures make use of multiple component measures to produce a combined
     1. Composite Measures SHALL conform to the CQFMCompositeMeasure profile
     2. Composite Measures SHALL specify a composite measure scoring method
 
-// TODO: Update Example
-
-The example illustrates the use of these measure attributes to indicate a composite measure:
+The example illustrates the use of these elements of a measure to specify a composite measure:
 
 ```xml
-<subjectOf>
-    <code code="MSRTYPE" codeSystem="2.16.840.1.113883.5.4">
-        <displayName value="Measure Type" />
-    </code>
-    <value code="COMPOSITE" codeSystem="2.16.840.1.113883.5.4">
-        <displayName value="Composite" />
-    </value>
-</subjectOf><subjectOf>
-    <code code="CMPMSRMTH" codeSystem="2.16.840.1.113883.5.4">
-        <displayName value="Measure Type" />
-    </code>
-    <value code="ALLORNONESCR" codeSystem="2.16.840.1.113883.5.1063">
-        <displayName value="All-or-nothing Scoring" />
-    </value>
-</subjectOf>
+<scoring>
+   <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+      <code value="composite"/>
+      <display value="Composite"/>
+   </coding>
+</scoring>
+<compositeScoring>
+   <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/composite-measure-scoring"/>
+      <code value="all-or-nothing"/>
+      <display value="All-or-nothing"/>
+   </coding>
+</compositeScoring>
  ```
 
 Snippet 22: Sample Risk Adjustment Variable from TestRiskAdj eCQM.xml
@@ -69,26 +66,50 @@ All-or-nothing scoring includes an individual in the numerator of the composite 
 
 </details>
 
-An example of an “All-or-nothing” scored composite measure has been in included in examples/TestComposite/. This directory contains the composite measure, Composite eCQM.xml, and the component measures in directories Test122v5 Artifacts/ and Test131v5 Artifacts/. From Composite eCQM.xml, note the component measures are referenced in using relatedDocument elements.  Within the metadata of the measure, a subjectOf element contains the details of the "Composite Measure Scoring" as shown in Snippet 22.
-
-TODO: Update Example
+An example of an “All-or-nothing” scored composite measure has been included in [Preventive Care and Wellness (All-or-nothing)](Measure-PreventiveCareandWellnessAllOrNothingComposite.html). This measure specifies the composite, and references the component measures using `relatedArtifact` elements with a type of `composed-of` as shown in Snippet 23:
 
 ```xml
-<subjectOf>
-    <measureAttribute>
-        <code code="CMPMSRMTH" codeSystem="2.16.840.1.113883.5.4">
-            <displayName value="Composite Measure Scoring" />
-        </code>
-        <value xsi:type="CD" code="ALLORNONESCR" codeSystem="2.16.840.1.113883.5.1063">
-            <displayName value="All-or-nothing Scoring" />
-        </value>
-    </measureAttribute>
-</subjectOf>
+<relatedArtifact>
+   <type value="composed-of"/>
+   <display value="Breast Cancer Screening"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/BCSComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <type value="composed-of"/>
+   <display value="High Blood Pressure Screening"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/HBPComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <type value="composed-of"/>
+   <display value="Colorectal Cancer Screening"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/CCSComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <type value="composed-of"/>
+   <display value="Pneumococcal Vaccination Status"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/PVSComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
+      <valueId value="Group1"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Tobacco Use Screening and Cessation, Group1"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
+      <valueId value="Group2"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Tobacco Use Screening and Cessation, Group2"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
+</relatedArtifact>
  ```
 
-Snippet 23: Example All-or-nothing scored composite measure from Composite eCQM.xml
+Snippet 23: Components of an example All-or-nothing scored composite measure from Preventive Care and Wellness (All-or-nothing).
 
-Computationally, this method amounts to expressing each population criteria for the composite measure as the union (logical ‘or’ for patient-based measures) of the respective population criteria for each component measure, except for the numerator, which is expressed as the intersection (logical ‘and’ for patient-based measures) of the numerators of the component measures.
+Computationally, this method amounts to expressing each population criteria for the composite measure as the union (logical ‘or’ for patient-based measures) of the respective population criteria for each component measure, except for the numerator, which is expressed as the intersection (logical ‘and’ for patient-based measures) of the numerators of the component measures. Note that in this requires that an individual is considered for the numerator only if they meet the denominator, which is accomplished using an `implies` operator in the component measure numerator membership criteria.
 
 Formally, this means the population criteria for the composite measure are expressed in terms of the population criteria for each component measure, as in:
 
@@ -130,7 +151,7 @@ define "Numerator Exclusion":
 
 Snippet 24: Formal criteria for a patient-based All-or-nothing composite measure
 
-Consider the example of a composite that includes a breast cancer screening measure and a colorectal cancer screening measure. For an individual that is male, they are only eligible for the colorectal cancer screening measure, so the fact that they do not appear in the denominator or numerator of the breast cancer screening measure should not remove them from the numerator of the composite measure.
+Consider this example of a composite that includes a breast cancer screening measure and a colorectal cancer screening measure. For an individual that is male, they are only eligible for the colorectal cancer screening measure, so the fact that they do not appear in the denominator or numerator of the breast cancer screening measure should not remove them from the numerator of the composite measure.
 
 *Note that `implies` is a logical operator within CQL. "X implies Y" roughly translates to narrative text as "if X is true, then Y must be as well"
 
@@ -336,62 +357,93 @@ Computationally, this method is simply the weighted average of the component mea
 
 A "weighted" score composite measure specifies the weights of each component using the [weight](StructureDefinition-cqfm-weight.html) extension on each component measure, as in the example below:
 
-TODO: Update Example
-
 ```xml
-<relatedDocument typeCode="XCRPT">
-    <componentQualityMeasureDocument>
-        <id root="40280381-537c-f767-0153-c378bd7207a5" />
-        <setId root="9a031e24-3d9b-11e1-8634-00237d5bf174" />
-        <versionNumber value="1.1" />
-        <subjectOf>
-            <measureAttribute>
-                <code code="CMPMSRSCRWGHT" codeSystem="2.16.840.1.113883.5.4" />
-                <value xsi:type="PQ" value="0.2" />
-                </measureattibute>
-        </subjectOf>
-    </componentQualityMeasureDocument>
-</relatedDocument><relatedDocument typeCode="XCRPT">
-    <componentQualityMeasureDocument>
-        <id root="40280381-51f0-825b-0152-22bd8ee41875" />
-        <setId root="500e4792-7f94-4e34-8546-ee71c56fe463" />
-        <versionNumber value="1.1" />
-        <subjectOf>
-            <measureAttribute>
-                <code code="CMPMSRSCRWGHT" codeSystem="2.16.840.1.113883.5.4" />
-                <value xsi:type="PQ" value="0.8" />
-                </measureattibute>
-        </subjectOf>
-    </componentQualityMeasureDocument>
-</relatedDocument>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.2"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Breast Cancer Screening"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/BCSComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.2"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="High Blood Pressure Screening"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/HBPComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.2"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Colorectal Cancer Screening"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/CCSComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.2"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Pneumococcal Vaccination Status"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/PVSComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
+      <valueId value="Group1"/>
+   </extension>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.1"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Tobacco Use Screening and Cessation, Group1"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
+      <valueId value="Group2"/>
+   </extension>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.1"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Tobacco Use Screening and Cessation, Group2"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
+</relatedArtifact>
  ```
 
-Snippet 29: Weighted composite measure relatedDocuments
+Snippet 29: Weighted composite measure relatedArtifact elements
 
 ### Measure Types
 {: #measure-types}
 
-**Conformance Requirement 5.5 (Composite Measure Types):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-5)
+**Conformance Requirement 5.5 (Composite Measure Scoring):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-5)
 {: #conformance-requirement-5-5}
     1. For composite measures using Opportunity scoring
-        a. The measure scoring method SHALL be Proportion or Ratio
+        a. The measure scoring method SHALL be Composite
         b. All component measures SHALL use Proportion or Ratio scoring
     2. For composite measures using All-or-nothing scoring
-        a. The measure scoring method SHALL be Proportion or Ratio
+        a. The measure scoring method SHALL be Composite
         b. All component measures SHALL use Proportion or Ratio scoring
     3. For composite measures using Patient-level linear scoring
-        a. The measure scoring method SHALL be Continuous Variable
+        a. The measure scoring method SHALL be Composite
+        b. All component measures SHALL use Proportion, Ratio, or Continuous Variable Scoring
+    4. For composite measures using Component-level scoring
+        a. The measure scoring method SHALL be Composite
         b. All component measures SHALL use Proportion, Ratio, or Continuous Variable Scoring
 
-For composite measures, the composite score calculation method effectively determines the measure type. The component measures in a composite can also be proportion, ratio, or continuous variable measures. However, all the component measures of a composite must be of the same type.
+For composite measures, the composite score calculation method specifies the measure scoring. The component measures in a composite can also be proportion, ratio, or continuous variable measures.
 
-The following table summarizes the allowable measure types for each of the composite scoring methods:
+The following table summarizes the allowable measure scoring for each of the composite scoring methods:
 
-| Scoring Method | Composite Measure Type | Component Measure Types |
+| Composite Scoring Method | Scoring Method | Component Measure Scoring |
 |:----:|:----:|:----:|
-| Opportunity | Proportion/Ratio | Proportion/Ratio |
-| All-or-nothing | Proportion/Ratio | Proportion/Ratio |
-| Patient-level Linear | Continuous Variable | Proportion/Ratio/Continuous Variable |
+| Opportunity | Composite | Proportion/Ratio |
+| All-or-nothing | Composite | Proportion/Ratio |
+| Patient-level Linear | Composite | Proportion/Ratio/Continuous Variable |
+| Component-level | Composite | Proportion/Ratio/Continuous Variable |
 
 Note that these requirements are about ensuring that the population criteria expressions among the components use similar sets of population criteria. This means that all the components of a given composite measure don’t necessarily have to use the same scoring type, just that they have to have similar population criteria. For example, a Proportion composite may use a Proportion component and a Ratio component.
 
@@ -401,10 +453,13 @@ Note that these requirements are about ensuring that the population criteria exp
 **Conformance Requirement 5.6 (Composite Measure Basis):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-6)
 {: #conformance-requirement-5-6}
     1. All component measures used within a composite measure SHALL have the same measure subject type
-    2. All component measures used within an individual-level composite measure SHALL use the same measure basis
+    2. All component measures used within an individual-level composite measure SHALL use the same measure basis, except that
+        a. Patient-based composite measures MAY reference non-patient-based components, but the scoring method
+           will determine how non-patient-based components are included, typically by converting the component
+           criteria to a boolean using an exists operation.
     3. Component measures of component-level composite measures MAY have the same measure basis
 
-As with single measures, composite measures may be patient-based, or use some other element as the measure basis such as encounters or procedures. However, each component measure of an individual-level composite must use the same basis. For example, an individual-level composite measure may not include both patient-based and episode-of-care measures as component measures.
+As with single measures, composite measures may be patient-based, or use some other element as the measure basis such as encounters or procedures. However, individual membership in each component measure of an individual-level composite must be able to be determined on the same basis. This means that when an individual-level composite includes non-individual-based components, criteria for those components must be converted to an individual membership test using an exists operation. Consider the example composites included in this implementation guide. When considering membership of an individual in the criteria of the encounter-based Tobacco Screening and Cessation component measure, the existence of encounters in each population criteria determine the membership of the individual in that criteria. In other words, the encounter-based component is "demoted" to a patient-based measure for inclusion in the composite.
 
 ### Stratification
 {: #stratification}
@@ -449,22 +504,61 @@ For individual-based composite scoring methods, additional data elements are col
 
 Regardless of the scoring method, a composite eCQM will include any number of component measures to be included in the composite calculations. Each component results in the appearance of a relatedArtifact element referencing a Measure by _url_, possibly including the _version_ and, if necessary, specifying the particular _group_ that should be used as the component, and the _weight_ of that component's contribution to the composite score (for weighted composite scoring methods). The following example illustrates a simple composite:
 
-TODO: Update example
-
 ```xml
-<relatedDocument typeCode="XCRPT">
-    <componentQualityMeasureDocument>
-        <id root="40280582-5b4d-ee92-015b-97f1b0670264" identifierName="TestCMS122v5" />
-        <setId root="449eb961-74e6-4e78-9723-9aa0ca4dd115" />
-        <versionNumber value="0.0.001" />
-    </componentQualityMeasureDocument>
-</relatedDocument><relatedDocument typeCode="XCRPT">
-    <componentQualityMeasureDocument>
-        <id root=" 40280582-5b4d-ee92-015b-97f745990272" identifierName="Test131v5" />
-        <setId root=" 447f098e-81ba-45e4-b296-5bb119d87762" />
-        <versionNumber value="0.0.001" />
-    </componentQualityMeasureDocument>
-</relatedDocument>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.2"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Breast Cancer Screening"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/BCSComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.2"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="High Blood Pressure Screening"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/HBPComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.2"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Colorectal Cancer Screening"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/CCSComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.2"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Pneumococcal Vaccination Status"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/PVSComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
+      <valueId value="Group1"/>
+   </extension>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.1"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Tobacco Use Screening and Cessation, Group1"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
+</relatedArtifact>
+<relatedArtifact>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
+      <valueId value="Group2"/>
+   </extension>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
+      <valueDecimal value="0.1"/>
+   </extension>
+   <type value="composed-of"/>
+   <display value="Tobacco Use Screening and Cessation, Group2"/>
+   <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
+</relatedArtifact>
  ```
 
-Snippet 30: Composite measure relatedDocuments
+Snippet 30: Composite measure relatedArtifacts

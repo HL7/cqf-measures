@@ -35,7 +35,7 @@ number". The second type of change will be referred to as a "minor" change, and 
 "minor version number". And finally, the third type of change will be referred to as a "patch", and will only require
 incrementing the "patch version number". Version numbers for CQL libraries can then be represented as:
 
-```cql
+```xml
 <major>.<minor>.<patch>
 ```
 {: #content-pre}
