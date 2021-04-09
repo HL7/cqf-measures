@@ -67,6 +67,26 @@
   ],
   "relatedArtifact": [
     {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-programIdentifier",
+          "valueIdentifier": {
+            "value": "EXM123"
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-qualityDomain",
+          "valueCodeableConcept": {
+            "text": "Example Quality Domain"
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-meaningfulMeasuresArea",
+          "valueCodeableConcept": {
+            "text": "Example Meaningful Measure Area"
+          }
+        }
+      ],
       "type": "composed-of",
       "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm",
       "display": "Example Measure"

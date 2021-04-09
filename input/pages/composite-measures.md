@@ -93,18 +93,18 @@ An example of an “All-or-nothing” scored composite measure has been included
 </relatedArtifact>
 <relatedArtifact>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
-      <valueId value="Group1"/>
+      <valueId value="group-1"/>
    </extension>
    <type value="composed-of"/>
-   <display value="Tobacco Use Screening and Cessation, Group1"/>
+   <display value="Tobacco Use Screening and Cessation, Group 1"/>
    <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
 </relatedArtifact>
 <relatedArtifact>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
-      <valueId value="Group2"/>
+      <valueId value="group-2"/>
    </extension>
    <type value="composed-of"/>
-   <display value="Tobacco Use Screening and Cessation, Group2"/>
+   <display value="Tobacco Use Screening and Cessation, Group 2"/>
    <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
 </relatedArtifact>
  ```
@@ -394,24 +394,24 @@ A "weighted" score composite measure specifies the weights of each component usi
 </relatedArtifact>
 <relatedArtifact>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
-      <valueId value="Group1"/>
+      <valueId value="group-1"/>
    </extension>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
       <valueDecimal value="0.1"/>
    </extension>
    <type value="composed-of"/>
-   <display value="Tobacco Use Screening and Cessation, Group1"/>
+   <display value="Tobacco Use Screening and Cessation, Group 1"/>
    <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
 </relatedArtifact>
 <relatedArtifact>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
-      <valueId value="Group2"/>
+      <valueId value="group-2"/>
    </extension>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
       <valueDecimal value="0.1"/>
    </extension>
    <type value="composed-of"/>
-   <display value="Tobacco Use Screening and Cessation, Group2"/>
+   <display value="Tobacco Use Screening and Cessation, Group 2"/>
    <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
 </relatedArtifact>
  ```
@@ -541,24 +541,24 @@ Regardless of the scoring method, a composite eCQM will include any number of co
 </relatedArtifact>
 <relatedArtifact>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
-      <valueId value="Group1"/>
+      <valueId value="group-1"/>
    </extension>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
       <valueDecimal value="0.1"/>
    </extension>
    <type value="composed-of"/>
-   <display value="Tobacco Use Screening and Cessation, Group1"/>
+   <display value="Tobacco Use Screening and Cessation, Group 1"/>
    <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
 </relatedArtifact>
 <relatedArtifact>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
-      <valueId value="Group2"/>
+      <valueId value="group-2"/>
    </extension>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight">
       <valueDecimal value="0.1"/>
    </extension>
    <type value="composed-of"/>
-   <display value="Tobacco Use Screening and Cessation, Group2"/>
+   <display value="Tobacco Use Screening and Cessation, Group 2"/>
    <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent|0.0.001"/>
 </relatedArtifact>
  ```

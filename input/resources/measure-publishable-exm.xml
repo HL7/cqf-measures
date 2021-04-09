@@ -10,9 +10,68 @@
 <url value="http://example.org/fhir/measures/publishable-measure-exm"/>
 <!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
   set of eCQMs such as HEDIS or CMS eCQM identifiers. A measure may have any number of business identifiers. -->
-<identifier>
+  <identifier>
+    <use value="usual"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"/>
+        <code value="short-name"/>
+      </coding>
+    </type>
     <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm"/>
-    <value value="EXM"/>
+    <value value="EXM-123"/>
+  </identifier>
+  <identifier>
+    <use value="official"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"/>
+        <code value="version-independent"/>
+      </coding>
+    </type>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:11873bc9-ca0a-4cf3-b8f2-605a950aac74"/>
+  </identifier>
+  <identifier>
+    <use value="official"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"/>
+        <code value="version-specific"/>
+      </coding>
+    </type>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:b366f29b-347f-464e-8064-c83842d825c7"/>
+  </identifier>
+  <identifier>
+    <use value="official"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"/>
+        <code value="endorser"/>
+      </coding>
+    </type>
+    <!-- This should be a system established by the endorser -->
+    <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/nqf"/>
+    <value value="NQF-123"/>
+    <assigner>
+      <display value="NQF"/>
+    </assigner>
+  </identifier>
+  <identifier>
+    <use value="official"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"/>
+        <code value="publisher"/>
+      </coding>
+    </type>
+    <!-- This should be a system established by the publisher -->
+    <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/cms"/>
+    <value value="CMS-123"/>
+    <assigner>
+      <display value="CMS"/>
+    </assigner>
   </identifier>
   <!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
   <version value="2.0.0"/>
