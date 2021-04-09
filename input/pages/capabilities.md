@@ -1,5 +1,7 @@
 {: #capabilities}
 
+<div class="new-content" markdown="1">
+
 {% include img.html img="Data_Element_Submission_Scenario.png" %}
 
 ## Capability Statements
@@ -16,3 +18,6 @@ This implementation guide defines capability statements, use cases, and conforma
 * [**Measure/$package**](OperationDefinition-Measure-package.html)
 * [**Measure/$data-requirements**](OperationDefinition-Measure-data-requirements.html)
 * [**MeasureReport/$package**](OperationDefinition-MeasureReport-package.html)
+* [**ValueSet/$expand**](OperationDefinition-ValueSet-expand.html)
+
+</div>

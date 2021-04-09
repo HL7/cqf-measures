@@ -1,5 +1,7 @@
 {:toc}
 
+<div class="new-content" markdown="1">
+
 ## Overview
 This page describes documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based quality measure specifications as described in this implementation guide.
 
@@ -452,3 +454,5 @@ and results in the same expansion, with the additional `manifest` parameter:
 
 TODO: // Describe "expansion" search for ValueSets
 TODO: // Describe "usage" search for ValueSets
+
+</div>

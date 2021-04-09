@@ -1,5 +1,7 @@
 {:toc}
 
+<div class="new-content" markdown="1">
+
 ## Overview
 This page documents the use cases and conformance expectations of a knowledge repository service to support authoring, publishing, and distribution of FHIR-based quality measure specifications as described in this implementation guide.
 
@@ -403,3 +405,5 @@ An AuthoringMeasureRepository:
 7. SHALL support [**Release**](#release): Update an existing _draft_ measure to _active_
 8. SHOULD support [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ measure
 9. SHOULD support [**Archive**](#archive): Delete a _retired_ measure
+
+</div>

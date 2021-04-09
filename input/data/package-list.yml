@@ -7,11 +7,18 @@ introduction: >-
 list:
   - version: current
     desc: |-
-      Continuous Integration Build for Quality Measures Implementation Guide(latest in version control)
-
       The following resolutions have been voted on by the members of the sponsoring work group [HL7 International Clinical Quality Information](http://www.hl7.org/Special/committees/cqi/index.cfm).
 
-      Note to implementers.....
+      Note to balloters:
+
+      In addition to general feedback and ballot review, the sponsoring work group is specifically seeking feedback on the following areas of the specification:
+      1. [Data Element Submission Sequence](capabilities.html)
+      1. [Measure Repository Service](measure-repository-service.html)
+      1. [Measure Terminology Service](measure-terminology-service.html)
+      1. [Composite Measure Modeling](composite-measures.html)
+      1. Feedback on whether the conceptual notion of "intended data source" (as currently specified in narrative categories of "eCQM", "Administrative", and "Hybrid") can be usefully represented as part of FHIR measure
+      1. Feedback on "identifier types" as defined in slices of the `identifier` element of the [Publishable Measure](StructureDefinition-publishable-measure-cqfm.html) profile
+      1. The use of [Library Resources](using-cql.html#library-resources) and conformance requirements for FHIR and CQL
 
       **Comments and their resolutions**
 
