@@ -471,42 +471,40 @@
                   <th>{% for support in requirement.mustSupport %}{{mustSupport}};{% endfor %}</th>
                   <th>
                     {% for cfilter in requirement.codeFilter %}
-                    <p style="margin-bottom: 5px;">
-                        <b>code filter: </b>
-                        {% if cfilter.path.exists() or cfilter.valueSet.exists() or cfilter.code.exists() %}
-                        <br/>
-                        {% endif %}
-                        {% if cfilter.path.exists() %}
-                        <span style="padding-left: 4px;">
-                            <b>path: </b><span>{{cfilter.path}}</span>
-                        </span>
-                        {% if cfilter.valueSet.exists() or cfilter.code.exists() %}
-                        <br/>
-                        {% endif %}
-                        {% endif %}
-                        {% if cfilter.valueSet.exists() %}
-                        <span style="padding-left: 4px;">
-                            <b>value set: </b><span>{{cfilter.valueSet.value}}</span>
-                        </span>
-                        {% endif %}
-                        {% for coding in cfilter.code %}
-                            {% if coding.system.exists() %}
-                            <p style="margin-bottom: 5px;">
-                                <b>system: </b> <span>{{coding.system}}</span>
-                            </p>
-                            {% endif %}
-                            {% if coding.code.exists() %}
-                            <p style="margin-bottom: 5px;">
-                                <b>code: </b> <span>{{coding.code}}</span>
-                            </p>
-                            {% endif %}
-                            {% if coding.display.exists() %}
-                            <p style="margin-bottom: 5px;">
-                                <b>display: </b> <span>{{coding.display}}</span>
-                            </p>
-                            {% endif %}
-                        {% endfor %}
-                    </p>
+                      <b>code filter: </b>
+                      {% if cfilter.path.exists() or cfilter.valueSet.exists() or cfilter.code.exists() %}
+                      <br/>
+                      {% endif %}
+                      {% if cfilter.path.exists() %}
+                      <span style="padding-left: 4px;">
+                          <b>path: </b><span>{{cfilter.path}}</span>
+                      </span>
+                      {% if cfilter.valueSet.exists() or cfilter.code.exists() %}
+                      <br/>
+                      {% endif %}
+                      {% endif %}
+                      {% if cfilter.valueSet.exists() %}
+                      <span style="padding-left: 4px;">
+                          <b>value set: </b><span>{{cfilter.valueSet.value}}</span>
+                      </span>
+                      {% endif %}
+                      {% for coding in cfilter.code %}
+                          {% if coding.system.exists() %}
+                          <p style="margin-bottom: 5px;">
+                              <b>system: </b> <span>{{coding.system}}</span>
+                          </p>
+                          {% endif %}
+                          {% if coding.code.exists() %}
+                          <p style="margin-bottom: 5px;">
+                              <b>code: </b> <span>{{coding.code}}</span>
+                          </p>
+                          {% endif %}
+                          {% if coding.display.exists() %}
+                          <p style="margin-bottom: 5px;">
+                              <b>display: </b> <span>{{coding.display}}</span>
+                          </p>
+                          {% endif %}
+                      {% endfor %}
                     {% endfor %}
                   </th>
                 </tr>
@@ -518,18 +516,22 @@
         {% for c in Measure.content %}
         {% if c.contentType = 'text/cql' %}
         <tr>
-          <table>
-            <tr><th><a id="cql-content"><b>Content: </b></a> {{c.contentType}}</th></tr>
-            <tr><td><pre><code>{{c.data.decode('base64').escape('html')}}</code></pre></td></tr>
-          </table>
+          <td colspan="2">
+            <table>
+              <tr><th><a id="cql-content"><b>Content: </b></a> {{c.contentType}}</th></tr>
+              <tr><td><pre><code class="language-cql">{{c.data.decode('base64').escape('html')}}</code></pre></td></tr>
+            </table>
+          </td>
         </tr>
         {% endif %}
         {% if c.contentType != 'text/cql' %}
         <tr>
-          <table>
-            <tr><th><b>Content: </b> {{c.contentType}}</th></tr>
-            <tr><td><pre><code>{{'Encoded data (' + c.data.length().toString() + ' characters)'}}</code></pre></td></tr>
-          </table>
+          <td colspan="2">
+            <table>
+              <tr><th><b>Content: </b> {{c.contentType}}</th></tr>
+              <tr><td><pre><code>{{'Encoded data (' + c.data.length().toString() + ' characters)'}}</code></pre></td></tr>
+            </table>
+          </td>
         </tr>
         {% endif %}
         {% endfor %}
@@ -553,7 +555,7 @@
                     </tr>
                 </table>
                 {% for statementExtension in extension.extension.where(url = 'statement') %}
-                    <pre><code>{{statementExtension.value.escape('html')}}</code></pre>
+                    <pre><code class="language-cql">{{statementExtension.value.escape('html')}}</code></pre>
                 {% endfor %}
                 <br/><br/>
             {% endfor %}

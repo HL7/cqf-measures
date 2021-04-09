@@ -83,7 +83,7 @@
         </extension>
         <name value="context-type-quantity"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-context-type-quantity"/>
-        <type value="quantity"/>
+        <type value="composite"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -91,7 +91,7 @@
         </extension>
         <name value="context-type-value"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-context-type-value"/>
-        <type value="token"/>
+        <type value="composite"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -190,7 +190,7 @@
         </extension>
         <name value="context-type-quantity"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-context-type-quantity"/>
-        <type value="quantity"/>
+        <type value="composite"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -198,7 +198,7 @@
         </extension>
         <name value="context-type-value"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-context-type-value"/>
-        <type value="token"/>
+        <type value="composite"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -251,7 +251,7 @@
     </resource>
     <resource>
       <type value="MeasureReport"/>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/testcase-measurereport-cqfm"/>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
@@ -272,7 +272,7 @@
         </extension>
         <name value="measure"/>
         <definition value="http://hl7.org/fhir/SearchParameter/MeasureReport-measure"/>
-        <type value="uri"/>
+        <type value="reference"/>
       </searchParam>
     </resource>
     <operation>
