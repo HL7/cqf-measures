@@ -48,7 +48,7 @@ For each of these measures, the population criteria are summarized as:
 Interpretation: For each Eligible Clinician, the percentage of patients who received
 all preventive services for which they were eligible
 
-[Preventive Care and Wellness (Opportunity)](Measure-PreventiveCareandWellnessAllOrNothingComposite.html)
+[Preventive Care and Wellness (All-or-nothing)](Measure-PreventiveCareandWellnessAllOrNothingComposite.html)
 
 #### Opportunity scoring
 
