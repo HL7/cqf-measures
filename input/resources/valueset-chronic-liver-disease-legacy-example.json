@@ -30,7 +30,6 @@
   "immutable": true,
   "copyright":"This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.",
   "compose": {
-    "inactive": false,
     "include": [
       {
         "system": "http://snomed.info/sct",
@@ -42,7 +41,13 @@
           {
             "code": "10295004",
             "display": "Chronic viral hepatitis (disorder)"
-          },
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/731000124108/version/20150301",
+        "concept": [
           {
             "code": "111370006",
             "display": "Cirrhosis of liver not due to alcohol (disorder)"

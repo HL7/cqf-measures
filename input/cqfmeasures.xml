@@ -26,9 +26,8 @@
   <packageId value="hl7.fhir.us.cqfmeasures"/>
   <license value="CC0-1.0"/>
   <fhirVersion value="4.0.1"/>
-  <fhirVersion value="4.0.1"/>
   <dependsOn id="qicore">
-    <uri value="http://hl7.org/fhir/us/qicore"/>
+    <uri value="http://hl7.org/fhir/us/qicore/ImplementationGuide/hl7.fhir.us.qicore"/>
     <packageId value="hl7.fhir.us.qicore"/>
     <version value="4.0.0"/>
   </dependsOn>
@@ -179,6 +178,14 @@
       </reference>
       <name value="StructureDefinition - Measure weight extension"/>
       <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Device/software-system-example"/>
+      </reference>
+      <name value="Device - Software System Example"/>
+      <description value="Example of a Software System Device used to illustrate tooling, testing, or authoring system"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"/>
     </resource>
     <page>
       <nameUrl value="index.html"/>
