@@ -1,15 +1,13 @@
 {
-  "@comment": "For the measure test case"
   "resourceType": "MeasureReport",
   "id": "testcase-example",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"
     ]
-  }
+  },
   "contained": [
     {
-      "@comment": "Input parameters provide expected input for the test case"
       "resourceType": "Parameters",
       "id": "testcase-example-parameters",
       "parameter": [
@@ -40,13 +38,18 @@
   ],
   "status": "complete",
   "type": "individual",
-  "measure": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM",
+  "measure": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm",
   "period": {
     "start": "2020-01-01",
     "end": "2020-12-31"
   },
   "improvementNotation": {
-
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+        "code": "increase"
+      }
+    ]
   },
   "group": [
     {
@@ -58,7 +61,7 @@
                 "system": "http://terminology.hl7.org/CodeSystem/measure-population",
                 "code": "initial-population"
               }
-            ]
+            ],
             "text": "Initial Population"
           },
           "count": 1
@@ -70,7 +73,7 @@
                 "system": "http://terminology.hl7.org/CodeSystem/measure-population",
                 "code": "denominator"
               }
-            ]
+            ],
             "text": "Denominator"
           },
           "count": 1
@@ -82,17 +85,81 @@
                 "system": "http://terminology.hl7.org/CodeSystem/measure-population",
                 "code": "numerator"
               }
-            ]
+            ],
             "text": "Numerator"
           },
           "count": 1
         }
       ],
       "measureScore": {
-        "value": "100",
-        "code": "%",
-        "unit": "%"
-      }
+        "value": 1.0
+      },
+      "stratifier": [
+        {
+          "id": "stratifier-1",
+          "code": [ {
+            "text": "Stratifier 1"
+          } ],
+          "stratum": [
+            {
+              "value": {
+                "text": "true"
+              },
+              "measureScore": {
+                "value": 1.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "stratifier-2",
+          "code": [ {
+            "text": "Stratifier 2"
+          } ],
+          "stratum": [
+            {
+              "value": {
+                "text": "true"
+              },
+              "measureScore": {
+                "value": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "stratifier-3",
+          "code": [ {
+            "text": "Stratifier 3"
+          } ],
+          "stratum": [
+            {
+              "value": {
+                "text": "true"
+              },
+              "measureScore": {
+                "value": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "stratifier-4",
+          "code": [ {
+            "text": "Stratifier 4"
+          } ],
+          "stratum": [
+            {
+              "value": {
+                "text": "true"
+              },
+              "measureScore": {
+                "value": 0.0
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

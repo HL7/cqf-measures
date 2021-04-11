@@ -7,6 +7,14 @@
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
       <valueCode value="Encounter"/>
    </extension>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit">
+     <valueCodeableConcept>
+       <coding>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="/1000.d"/>
+       </coding>
+     </valueCodeableConcept>
+   </extension>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
       <valueParameterDefinition>
          <name value="Numerator"/>

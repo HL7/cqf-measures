@@ -1,0 +1,674 @@
+{
+  "resourceType": "Measure",
+  "id": "multi-rate-example",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/multi-rate-example",
+  "version": "0.1.0",
+  "name": "MultiRateExample",
+  "title": "Multi-Rate Example Measure",
+  "status": "draft",
+  "experimental": true,
+  "subjectCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/resource-types",
+        "code": "Location"
+      }
+    ]
+  },
+  "description": "This measure example illustrates the use of the group-level computation extensions to describe a multi-rate measure with mixed population bases",
+  "library": ["http://hl7.org/fhir/us/cqfmeasures/Library/MultiRateExample"],
+  "group": [
+    {
+      "id": "group-1",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+          "valueCode": "Patient"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+                "code": "continuous-variable"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+                "code": "structure"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+                "code": "increase"
+              }
+            ]
+          }
+        }
+      ],
+      "code": {
+        "text": "Patients"
+      },
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population"
+              }
+            ]
+          },
+          "description": "Total number of patients",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Patients"
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "measure-population"
+              }
+            ]
+          },
+          "description": "Total number of patients",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Patients"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+              "valueCode": "sum"
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "measure-observation"
+              }
+            ]
+          },
+          "description": "Total number of patients",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "ToNumber"
+          }
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+          "valueCode": "PractitionerRole"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+                "code": "continuous-variable"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+                "code": "structure"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+                "code": "increase"
+              }
+            ]
+          }
+        }
+      ],
+      "code": {
+        "text": "Practitioners"
+      },
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population"
+              }
+            ]
+          },
+          "description": "Total number of practitioners",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Practitioners"
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "measure-population"
+              }
+            ]
+          },
+          "description": "Total number of practitioners",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Practitioners"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+              "valueCode": "sum"
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "measure-observation"
+              }
+            ]
+          },
+          "description": "Total number of practitioners",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "ToNumber"
+          }
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+          "valueCode": "Device"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+                "code": "continuous-variable"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+                "code": "structure"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+                "code": "increase"
+              }
+            ]
+          }
+        }
+      ],
+      "code": {
+        "text": "Beds"
+      },
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population"
+              }
+            ]
+          },
+          "description": "Total number of beds",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Beds"
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "measure-population"
+              }
+            ]
+          },
+          "description": "Total number of beds",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Beds"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+              "valueCode": "sum"
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "measure-observation"
+              }
+            ]
+          },
+          "description": "Total number of beds",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "ToNumber"
+          }
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+          "valueCode": "Procedure"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+                "code": "continuous-variable"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+                "code": "structure"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+                "code": "increase"
+              }
+            ]
+          }
+        }
+      ],
+      "code": {
+        "text": "Screening Procedures"
+      },
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population"
+              }
+            ]
+          },
+          "description": "Total number of screening procedures",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Procedures"
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "measure-population"
+              }
+            ]
+          },
+          "description": "Total number of screening procedures",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Procedures"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+              "valueCode": "sum"
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "measure-observation"
+              }
+            ]
+          },
+          "description": "Total number of screening procedures",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "ToNumber"
+          }
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+          "valueCode": "Patient"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+                "code": "proportion"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+                "code": "process"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+                "code": "increase"
+              }
+            ]
+          }
+        }
+      ],
+      "code": {
+        "text": "Patients that recevied screenings"
+      },
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population"
+              }
+            ]
+          },
+          "description": "Patients",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Initial Population"
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator"
+              }
+            ]
+          },
+          "description": "Eligible patients",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Denominator"
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator"
+              }
+            ]
+          },
+          "description": "Patients with screening",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Numerator"
+          }
+        }
+      ]
+    },
+    {
+      "id": "group-6",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-compositeScoring",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/composite-measure-scoring",
+                "code": "weighted"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+                "code": "composite"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+                "code": "structure"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
+          "valueString": "N/A"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+                "code": "increase"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component",
+          "valueRelatedArtifact": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId",
+                "valueString": "group-1"
+              },
+              {
+                "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight",
+                "valueDecimal": 1.0
+              }
+            ],
+            "type": "composed-of",
+            "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/multi-rate-example"
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component",
+          "valueRelatedArtifact": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId",
+                "valueString": "group-2"
+              },
+              {
+                "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight",
+                "valueDecimal": 5.0
+              }
+            ],
+            "type": "composed-of",
+            "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/multi-rate-example"
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component",
+          "valueRelatedArtifact": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId",
+                "valueString": "group-3"
+              },
+              {
+                "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight",
+                "valueDecimal": 2.5
+              }
+            ],
+            "type": "composed-of",
+            "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/multi-rate-example"
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component",
+          "valueRelatedArtifact": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId",
+                "valueString": "group-4"
+              },
+              {
+                "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight",
+                "valueDecimal": 1.0
+              }
+            ],
+            "type": "composed-of",
+            "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/multi-rate-example"
+          }
+        }
+      ],
+      "code": {
+        "text": "Weighted Average capacity"
+      }
+    }
+  ]
+}

@@ -28,7 +28,7 @@
   <WindowWidth>18765</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -968,7 +968,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s94"/>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Quality program specification</Data></Cell>
+    <Cell ss:StyleID="s95"/>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Represents an overall quality program as well as the measures and version-specific dependencies of those measures that are included in a release specification of a quality program. This profile is used prior to release (when the status is draft) of the quality program to establish the expansion rules such as code system versions used for expansion of value sets while measures are being authored, as well as to specify a full release of a quality program, optionally specifying expansion identifiers for value sets to ensure stability of value set expansions used for evaluation of the measures</Data></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Quality programs must be able to specify the set of measures they use, as well as provide versioning information for all the dependencies used in a particular release to enable stable expansion of value sets. Specifically, the versions of code systems used to construct value sets referenced by the measures must be identified so that terminology servers performing expansions can unambiguously select the version of each code system used to perform the expansion</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Prior to release, a quality program should specify code system versions to support stable expansion of value sets during the development phase of the artifacts involved in the quality program (also called an expansion profile). Post release, a quality program may specify expansion identifiers to lock the code lists used for value sets.</Data></Cell>
@@ -2404,12 +2404,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>15</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2424,8 +2425,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3102,7 +3103,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

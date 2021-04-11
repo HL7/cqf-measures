@@ -97,8 +97,8 @@ Note that when a code system authority has not established a versioning system, 
 
 7. SHOULD support ValueSet searches by:
     1. expansion: Used in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
-    2. usage-user: Used in combination with url or identifier (and optionally version), returning any value sets that are used by the given user (e.g. CMS)
-    3. usage-use: Used in combination with url or identifier (and optionally version), returning any value sets that have the specified use (e.g. CMS124)
+    2. usage-user: Typically used in combination with usage-use, returning any value sets that are used by the given user (e.g. CMS)
+    3. usage-use: Typically used combination with usage-user, returning any value sets that have the specified use (e.g. CMS124)
 
 7. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. SHALL support the url parameter
