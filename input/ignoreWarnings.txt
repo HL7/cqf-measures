@@ -1,5 +1,8 @@
 == Suppressed Messages ==
 
+# I have reviewed the proposed jira specification file and it is less correct than the one that is currently committed
+WARNING: The jira specification file appears to be out of date with the versions, artifacts and pages currently defined in the IG.  A proposed revised file to be reviewed and, if appropriate, submitted as a pull request against the XML folder in https://github.com/HL7/JIRA-Spec-Artifacts.  To see the differences, perform a file compare on 'template/jira-current.xml' (a normalized view of what is in Github) and 'template/jira-new.xml' (reflects current IG content)
+
 # This device profile is intended to model software systems as devices, not implantable devices like what the US Core profile is describing. Approved by US Realm on 6/30/2020.
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile
 
@@ -8,9 +11,6 @@ ValueSet http://www.rfc-editor.org/bcp/bcp13.txt not found by validator
 
 # The narrative generation is happening in the tool, so this error is correct when it runs, but isn't correct for the final output:
 ERROR: Library/EXMPublishableLibrary: Library: Profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-library-cqfm, Element 'Library.text': minimum required = 1, but only found 0
-
-# My understanding is the template should be generating this, but I can't find it anywhere in the output
-ERROR: There is no jira specification file defined with the expected name of FHIR-us-cqfmeasures in the xml folder of the  https://github.com/HL7/Jira-Spec-Artifacts project.  This must exist before ballot or publication.
 
 # Confirmed
 INFORMATION: CapabilityStatement/shareable-measure-repository: CapabilityStatement: Validate resource against profile http://hl7.org/fhir/StructureDefinition/CapabilityStatement
