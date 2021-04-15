@@ -5205,3 +5205,176 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "428361000124107",
+  "display" : "Discharge to home for hospice care (procedure)"
+}, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 428361000124107 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210131); The code \"428361000124107\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#428361000124107) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "428371000124100",
+  "display" : "Discharge to healthcare facility for hospice care (procedure)"
+}, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 428371000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210131); The code \"428371000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#428371000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "428361000124107",
+  "display" : "Discharge to home for hospice care (procedure)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 428361000124107 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210131); The code \"428361000124107\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#428361000124107) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "428371000124100",
+  "display" : "Discharge to healthcare facility for hospice care (procedure)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 428371000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210131); The code \"428371000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#428371000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
+      "valueBoolean" : true
+    }],
+    "identifier" : "urn:uuid:a36ed6fc-4b9c-4f8c-a6d0-8e83828d3ea5",
+    "timestamp" : "2021-04-08T22:30:06.604Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "1116000",
+        "display" : "Chronic aggressive type B viral hepatitis (disorder)"
+      },
+      {
+        "code" : "10295004",
+        "display" : "Chronic viral hepatitis (disorder)"
+      },
+      {
+        "code" : "111370006",
+        "display" : "Cirrhosis of liver not due to alcohol (disorder)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:1eee7f74-141f-4be3-921b-d20af9b0f5be",
+    "timestamp" : "2021-04-08T22:38:07.557Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20210301"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "1116000",
+      "display" : "Chronic aggressive type B viral hepatitis (disorder)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "10295004",
+      "display" : "Chronic viral hepatitis (disorder)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "111370006",
+      "display" : "Cirrhosis of liver not due to alcohol (disorder)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20150301",
+      "concept" : [{
+        "code" : "111370006",
+        "display" : "Cirrhosis of liver not due to alcohol (disorder)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:63c3b824-2388-4505-99c1-03c2e1e2316e",
+    "timestamp" : "2021-04-09T15:40:22.432Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20210301"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "111370006",
+      "display" : "Cirrhosis of liver not due to alcohol (disorder)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
