@@ -121,7 +121,9 @@ define function ToString(value DeviceMetricColor): value.value
 define function ToString(value DeviceMetricOperationalStatus): value.value
 define function ToString(value DeviceNameType): value.value
 define function ToString(value DeviceRequestStatus): value.value
-define function ToString(value DeviceUseStatementStatus): value.value
+// DeviceUseStatement has a known issue with the publication tooling
+// so it is removed to allow this IG to publish until that is fixed
+//define function ToString(value DeviceUseStatementStatus): value.value
 define function ToString(value DiagnosticReportStatus): value.value
 define function ToString(value DiscriminatorType): value.value
 define function ToString(value DocumentConfidentiality): value.value
