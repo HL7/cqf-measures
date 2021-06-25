@@ -69,9 +69,11 @@ define "Has Criteria Indicating Frailty":
       	exists ( [DeviceRequest: "Frailty Device"] FrailtyDeviceOrder
       			where FrailtyDeviceOrder.authoredOn during "Measurement Period"
       	)
-      		or exists ( [DeviceUseStatement: "Frailty Device"] FrailtyDeviceUse
-      				where Global."Normalize Interval"(FrailtyDeviceUse.timing) overlaps "Measurement Period"
-      		)
+          // DeviceUseStatement has a known issue with the publication tooling
+          // so it is removed to allow this IG to publish until that is fixed
+      		//or exists ( [DeviceUseStatement: "Frailty Device"] FrailtyDeviceUse
+      		//		where Global."Normalize Interval"(FrailtyDeviceUse.timing) overlaps "Measurement Period"
+      		//)
       		or exists ( [Condition: "Frailty Diagnosis"] FrailtyDiagnosis
       				where Global."Prevalence Period"(FrailtyDiagnosis) overlaps "Measurement Period"
       		)

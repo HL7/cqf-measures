@@ -28,7 +28,9 @@ define "Inpatient Encounter":
   ["Encounter": type in "Encounter Inpatient SNOMEDCT Value Set"] E
     where E.status = 'finished'
 
-define "Venous Foot Pumps Applied":
-  ["DeviceUseStatement": code in "Venous foot pump, device (physical object)"] D
-    where D.status = 'completed'
-      and D.bodySite ~ ToConcept("Right foot")
+// DeviceUseStatement has a known issue with the publication tooling
+// so it is removed to allow this IG to publish until that is fixed
+//define "Venous Foot Pumps Applied":
+//  ["DeviceUseStatement": code in "Venous foot pump, device (physical object)"] D
+//    where D.status = 'completed'
+//      and D.bodySite ~ ToConcept("Right foot")
