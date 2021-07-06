@@ -15,6 +15,10 @@ This implementation guide is not prescriptive about authentication or authorizat
 
 Quality measures (eCQMs) are a specific type of knowledge artifact, and share common attributes with other knowledge artifact types. This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of _status_, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
 
+Although this capability statement is expressed from the perspective of quality measurement, the concepts and behaviors described are applicable to knowledge artifacts more generally and could be usefully applied to other resource types such as PlanDefinition, StructureDefinition, ValueSet, etc.
+
+As far as Artifact Source, that information is generally captured for conformance resources with the "publisher" and "contact" elements, as well as for metadata resources with the "editor", "author", "reviewer", and "endorser" elements.
+
 #### Artifact Lifecycle
 
 Knowledge artifacts as represented within FHIR follow a general, high-level content development work flow, as represented by the possible values of the _status_ element of the artifact:
