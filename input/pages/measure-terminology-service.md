@@ -338,7 +338,7 @@ A Quality Program has 3 different manifestations:
 2. As a version manifest (also called an expansion profile) that specifies expansion rules for a set of value sets (supporting the authoring use case).
 3. As a program release that provides stable expansions for a set of value sets (supporting the distribution use case)
 
-##### Quality Program
+##### Quality Program Example
 
 The following example illustrates an overall quality program that contains multiple version manifests and releases over time:
 
