@@ -3,7 +3,9 @@
 <div class="new-content" markdown="1">
 
 ## Overview
-This page documents the use cases and conformance expectations of a knowledge repository service to support authoring, publishing, and distribution of FHIR-based quality measure specifications as described in this implementation guide.
+This page documents the use cases and conformance expectations of a measure repository service to support authoring, publishing, and distribution of FHIR-based quality measure specifications as described in this implementation guide.
+
+The measure repository service described here is a specific case of the more general knowledge repository service. The operations and capabilities described are in terms of measures and libraries specifically, but they can be generally applied to knowledge artifacts as well.
 
 This implementation guide is not advocating for any particular central authority for content repositories, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable repositories for sharing knowledge artifacts.
 
