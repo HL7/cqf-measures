@@ -7,6 +7,7 @@
 - {:.new-content} [Composite Scoring](StructureDefinition-cqfm-compositeScoring.html)
 - [Criteria Reference](StructureDefinition-cqfm-criteriaReference.html)
 - {:.new-content} [Data Requirement](StructureDefinition-cqfm-dataRequirement.html)
+- {:.new-content} [Default Value](StructureDefinition-cqfm-defaultValue.html)
 - [Definition Term](StructureDefinition-cqfm-definitionTerm.html)
 - {:.new-content} [Direct Reference Code](StructureDefinition-cqfm-directReferenceCode.html)
 - [Duration](StructureDefinition-cqfm-effectivePeriodDuration.html)
