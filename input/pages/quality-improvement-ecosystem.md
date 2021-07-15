@@ -4,7 +4,7 @@
 As shown in step 1 in the diagram below, the Quality Improvement Ecosystem
 begins with information, preferably evidence-based from research, public health
 surveillance, and data mining and other analyses performed by third parties such
-as payers. Such information indicates existing status and knowledge about a
+as academic institutions or payers. Such information indicates existing status and knowledge about a
 given clinical topic. In step 2, stakeholders, such as professional societies,
 public health and governmental bodies, and healthcare insurers have various
 methods for publishing such information to assure awareness among consumers,
