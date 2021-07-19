@@ -39,8 +39,8 @@ Ultimately, this information may then serve as part of the evidence base shown i
 
 </details>
 
-> Stakeholders such as public health have ongoing needs for
-quality improvement at the point of care. Every effort should be made to
+> Practictioner organizations along with stakeholders such as public health 
+have ongoing needs for quality improvement at the point of care. Every effort should be made to
 establish a capable distributed rule processing environment in FHIR. For
 additional information about idealized processes for moving evidence and
 information from guidelines to CDS and measurement, refer to an effort by the
