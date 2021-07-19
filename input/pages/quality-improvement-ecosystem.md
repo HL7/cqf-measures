@@ -24,8 +24,8 @@ provided included processes that addressed the intent of the guideline and if it
 Further information pn CDS and its optimization care delivery can be found [here](https://www.healthit.gov/sites/default/files/page/2018-04/Optimizing_Strategies_508.pdf).
 In step 5, to close the loop and enable continuous improvement, the results of such measurement
 analytics must be reported for aggregate review. Step 6, "Reporting" serves the
-purpose of evaluating clinical performance and outcomes for healthcare
-organizations, for public health and for payers.
+purpose of evaluating clinical performance and outcomes, whether it be internally 
+for health care organizations, or for third parties such as public health or for payers.  
 
 <details open>
 <summary>
