@@ -3,9 +3,9 @@
 <div class="new-content" markdown="1">
 
 ## Overview
-This page describes documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based quality measure specifications as described in this implementation guide.
+This page describes documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and implementation of FHIR-based quality measure specifications as described in this implementation guide.
 
-This implementation guide is not advocating for any particular central authority for terminology content, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable terminology services that support authoring, distribution, and evaluation of FHIR-based knowledge artifacts.
+This implementation guide is not advocating for any particular central authority for terminology content, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable terminology services that support authoring, distribution, and implementation of FHIR-based knowledge artifacts.
 
 This implementation guide is not prescriptive about authentication or authorization, but strongly recommends that these capabilities be addressed through standard mechanisms, as described in [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html).
 
