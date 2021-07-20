@@ -66,8 +66,7 @@ healthcare information.
 2.  **Data Consumers** in the diagram represent the various stakeholders
 involved in the consumption and use of healthcare data. Data Consumers can
 include data routers and aggregators, payers, health information exchanges and
-health integrated networks, as well as public health and other
-healthcare-related agencies.
+health integrated networks, as well as public health, registries, and other healthcare-related agencies.
 
 3.  **Specifiers** in the diagram represents the various stakeholders involved
 in the specification of quality measures for use in healthcare quality
