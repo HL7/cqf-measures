@@ -5,7 +5,7 @@
   <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/us-cqfmeasures-2.1.0"/>
   <version value="2.1.0"/>
   <name value="CQFMeasures"/>
-  <title value="Quality Measure Implementation Guide (STU3 Ballot)"/>
+  <title value="Quality Measure Implementation Guide"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2018-11-01T00:00:00-06:00"/>
@@ -186,14 +186,6 @@
       <name value="Device - Software System Example"/>
       <description value="Example of a Software System Device used to illustrate tooling, testing, or authoring system"/>
       <exampleCanonical value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="MeasureReport/testcase-example"/>
-      </reference>
-      <name value="MeasureReport - Test Case Example"/>
-      <description value="Example of a MeasureReport illustrating a test case"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"/>
     </resource>
     <page>
       <nameUrl value="index.html"/>
@@ -530,32 +522,27 @@
     </page>
     <page>
       <nameUrl value="OperationDefinition-Library-package.html"/>
-      <title value="Library Package Operation Definition"/>
+      <title value="Library Package Operation Definitions"/>
       <generation value="generated"/>
     </page>
     <page>
       <nameUrl value="OperationDefinition-Library-data-requirements.html"/>
-      <title value="Library Data Requirements Operation Definition"/>
+      <title value="Library Data Requirements Operation Definitions"/>
       <generation value="generated"/>
     </page>
     <page>
       <nameUrl value="OperationDefinition-Measure-package.html"/>
-      <title value="Measure Packaging Operation Definition"/>
+      <title value="Measure Packaging Operation Definitions"/>
       <generation value="generated"/>
     </page>
     <page>
       <nameUrl value="OperationDefinition-Measure-data-requirements.html"/>
-      <title value="Measure Data Requirements Operation Definition"/>
+      <title value="Measure Data Requirements Operation Definitions"/>
       <generation value="generated"/>
     </page>
     <page>
       <nameUrl value="OperationDefinition-MeasureReport-package.html"/>
-      <title value="Measure Report Packaging Operation Definition"/>
-      <generation value="generated"/>
-    </page>
-    <page>
-      <nameUrl value="OperationDefinition-ValueSet-expand.html"/>
-      <title value="Measure Value Set Expand Extension Definition"/>
+      <title value="Measure Report Packaging Operation Definitions"/>
       <generation value="generated"/>
     </page>
   </page>
@@ -582,7 +569,7 @@
 </page>
     <parameter>
       <code value="releaselabel"/>
-      <value value="ballot"/>
+      <value value="ci-build"/>
     </parameter>
     <parameter>
       <code value="copyrightyear"/>
@@ -653,10 +640,6 @@
     <parameter>
       <code value="apply"/>
       <value value="jurisdiction"/>
-    </parameter>
-    <parameter>
-      <code value="jira-code"/>
-      <value value="qm"/>
     </parameter>
     <parameter>
       <code value="generate"/>

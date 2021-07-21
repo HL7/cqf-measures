@@ -1,7 +1,5 @@
 {:toc}
-
-<div class="new-content" markdown="1">
-
+<div class='new-content' markdown='1'>
 ## Overview
 This page describes documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based quality measure specifications as described in this implementation guide.
 
@@ -95,11 +93,6 @@ Note that when a code system authority has not established a versioning system, 
     7. description: Returning any valueset matching the search description, according to string-matching semantics in FHIR
     8. code: Returning any valueset with the given code
 
-7. SHOULD support ValueSet searches by:
-    1. expansion: Used in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
-    2. usage-user: Typically used in combination with usage-use, returning any value sets that are used by the given user (e.g. CMS)
-    3. usage-use: Typically used combination with usage-user, returning any value sets that have the specified use (e.g. CMS124)
-
 7. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. SHALL support the url parameter
     2. SHALL support the valueSetVersion parameter
@@ -117,9 +110,9 @@ Note that when a code system authority has not established a versioning system, 
     4. SHALL support the check-system-version parameter
     5. SHALL support the force-system-version parameter
     6. SHOULD support other parameters
-    7. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    8. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    9. SHOULD support the `preview` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    7. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-cqfm-valueset-expand.html))
+    8. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-cqfm-valueset-expand.html))
+    9. SHOULD support the `preview` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-cqfm-valueset-expand.html))
 
 9. TODO: Determine whether eCQM content development will ever need to be able to reference FHIR-defined value sets.
 
@@ -340,89 +333,78 @@ A Quality Program has 3 different manifestations:
 
 ##### Quality Program
 
-The following example illustrates an overall quality program that contains multiple version manifests and releases over time:
+The following example illustrates a quality program that contains multiple version manifests and releases over time:
 
-* [eCQM Quality Program](Library-ecqm-quality-program.html)
-
-Note that as an organizer, this library just contains the program-level information. Version manifests and releases over time use the [part-of](StructureDefinition-cqfm-partOf.html) extension to indicate that they are part of a quality program.
+```
+```
 
 ##### Version Manifest (Expansion Profile)
 
-The following example illustrates a version manifest (or expansion profile) that is a _draft_ of a quality program release used to provide expansion rules while the artifacts for a program are being authored. Specifically, the manifest uses the `relatedArtifact` element to declare the version of the SNOMED-CT code system to be used:
+##### Program Release
+
+
+#### Quality Program Release (i.e. Version Manifest, or Binding Parameters Specification)
+
+The following example illustrates an unversioned quality program specification,
+referencing a single version and providing no version dependency bindings:
+
+* [QualityProgramExample](Library-quality-program-example.html)
+
+Specifically, the `composed-of` element of the library resource is used to identify
+the measures included in the quality program:
 
 ```
 "relatedArtifact": [
   {
-    "type": "depends-on",
-    "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901",
-    "display": "SNOMED-CT US Edition, 2019-09-01"
+    "type": "composed-of",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm",
+    "display": "Example Measure"
   }
 ]
 ```
 
-The full example is available here:
+For the version binding information, the following _release_ of the quality program
+illustrates specifying the versions of codesystem, valueset, and library dependencies
+used by the measure in the quality program:
 
-* [eCQM Version Manifest (Expansion Profile), 2020](Library-ecqm-update-2020.html)
+* [QualityProgramExample202005](Library-quality-program-example-2020-05.html)
 
-##### Program Release
-
-The following example illustrates a program release that is an _active_ instance of a quality program release used to provide stable extensions for the released artifacts in a quality program.
-
-Specifically, the program release uses the `expansionUri` extension at the library level to indicate that all value sets used with artifacts in the program should expand using this expansion identifier:
-
-```
-{
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionUri",
-  "valueUri": "eCQM%20Update%202020-05-07"
-}
-```
-
-In addition, the program release specifies versions of code systems, value sets, and measures included in the release:
+Specifically, the `composed-of` element of the library resource now includes the version
+of the measure, and the `depends-on` elements are used to specify version bindings
+for the SNOMED-CT code system, and the library and value set dependencies of the
+measure:
 
 ```
-{
-  "type": "depends-on",
-  "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901",
-  "display": "SNOMED-CT US Edition, 2019-09-01"
-},
-{
-  "type": "depends-on",
-  "resource": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example|2020-05",
-  "display": "Chronic Liver Disease, Legacy Example (2020-05)"
-},
-{
-  "type": "composed-of",
-  "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm124-FHIR|9.0.0",
-  "display": "Cervical Cancer Screening"
-},
-{
-  "type": "composed-of",
-  "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm125-FHIR",
-  "display": "Breast Cancer Screening"
-},
-{
-  "type": "composed-of",
-  "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm130-FHIR",
-  "display":"Colorectal Cancer Screening"
-},
-{
-  "type": "composed-of",
-  "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm146-FHIR",
-  "display": "Appropriate Testing for Children with Pharyngitis"
-}
+"relatedArtifact": [
+  {
+    "type": "composed-of",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm|2.0.0",
+    "display": "Example Measure"
+  },
+  {
+    "type": "depends-on",
+    "resource": "http://hl7.org/fhir/Library/FHIR-ModelInfo|4.0.1"
+  },
+  {
+    "type": "depends-on",
+    "resource": "http://hl7.org/fhir/Library/FHIRHelpers|4.0.1"
+  },
+  {
+    "type": "depends-on",
+    "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+  },
+  {
+    "type": "depends-on",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example|2020-05"
+  }
+]
 ```
 
-The full example is available here:
-
-* [eCQM Release, 2020-05-07](Library-ecqm-update-2020-05-07.html)
-
-##### Expansion with manifests and releases:
-
-Given the use of a _version manifest_ as well as a _program release_, then the _manifest_ parameter can be used
+Given the use of this _version manifest_, then the _manifest_ parameter can be used
 in the `$expand` operation to provide values for the relevant parameters:
 
 ```
-[base]/ValueSet/chronic-liver-disease-legacy-example/$expand?manifest=http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-update-2020
+[base]/ValueSet/chronic-liver-disease-legacy-example/$expand?manifest=http://hl7.org/fhir/us/cqfmeasures/Library/quality-program-example-2020-05
 ```
 
 This is effectively an alternative mechanism for expressing the same value set and code system version specific expansion above,
@@ -442,54 +424,7 @@ and results in the same expansion, with the additional `manifest` parameter:
     },
     {
       "name": "manifest",
-      "valueUri": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-update-2020"
-    }
-  ],
-  "contains": [
-    {
-      "system": "http://snomed.info/sct",
-      "code": "1116000",
-      "display": "Chronic aggressive type B viral hepatitis (disorder)"
-    },
-    {
-      "system": "http://snomed.info/sct",
-      "code": "10295004",
-      "display": "Chronic viral hepatitis (disorder)"
-    },
-    {
-      "system": "http://snomed.info/sct",
-      "inactive": true,
-      "code": "111370006",
-      "display": "Cirrhosis of liver not due to alcohol (disorder)"
-    }
-  ]
-}
-```
-
-Similarly, when using a release for the manifest parameter:
-
-```
-[base]/ValueSet/chronic-liver-disease-legacy-example/$expand?manifest=http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-update-2020-05-07
-```
-
-This is effectively the same as providing the `expansion` parameter to the value set expand, and results in the expansion with the specified expansion identifier:
-
-```
-"expansion": {
-  "identifier": "eCQM%20Update%202020-05-07",
-  "timestamp": "2021-02-05T08:57:00-06:00",
-  "parameter": [
-    {
-      "name": "valueSetVersion",
-      "valueString": "2020-05"
-    },
-    {
-      "name": "system-version",
-      "valueUri": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
-    },
-    {
-      "name": "manifest",
-      "valueUri": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-update-2020-05-07"
+      "valueUri": "http://hl7.org/fhir/us/cqfmeasures/Library/quality-program-example-2020-05"
     }
   ],
   "contains": [
@@ -515,22 +450,6 @@ This is effectively the same as providing the `expansion` parameter to the value
 
 #### Value Set Searches
 
-##### Expansion Search
-
-In addition to the use of the `expansion` parameter of the `$expand` operation, terminology services SHOULD support searching for a particular ValueSet expansion using the `expansion` search parameter:
-
-```
-[base]/ValueSet?url=http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example&expansion=eCQM%20Update%202020-05-07
-```
-
-The result of this search is the same as requesting an `$expand` with the `expansion` parameter.
-
-##### Usage Search
-
-The `usage-user` and `usage-use` search parameters can be used to search for valuesets that have been used in particular contexts and by particular users:
-
-```
-[base]/ValueSet?usage-user=CMS&usage-use=CMS124
-```
-
+TODO: // Describe "expansion" search for ValueSets
+TODO: // Describe "usage" search for ValueSets
 </div>

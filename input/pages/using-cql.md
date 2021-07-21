@@ -418,26 +418,22 @@ of medication included within a value set for "Antithrombotic Therapy".
 
 Evidence that "Antithrombotic Therapy" (defined by a medication-specific value set) was administered:
 
-```cql
-define "Antithrombotic Administered":
-  ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
-    where AntithromboticTherapy.status = 'completed'
-      and AntithromboticTherapy.category = "Inpatient Setting"
-```
+    define "Antithrombotic Administered":
+      ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
+        where AntithromboticTherapy.status = 'completed'
+          and AntithromboticTherapy.category = "Inpatient Setting"
 
 ##### Absence
 {: #absence}
 
 No evidence that "Antithrombotic Therapy" medication was administered:
 
-```cql
-define "No Antithrombotic Therapy":
-  not exists (
-    ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
-      where AntithromboticTherapy.status = 'completed'
-        and AntithromboticTherapy.category = "Inpatient Setting"
-  )
-```
+    define "No Antithrombotic Therapy":
+      not exists (
+        ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
+          where AntithromboticTherapy.status = 'completed'
+            and AntithromboticTherapy.category = "Inpatient Setting"
+      )
 
 ##### Negation Rationale
 {: #negation-rationale}
@@ -445,12 +441,10 @@ define "No Antithrombotic Therapy":
 Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as
 defined by a value set referenced by the eCQM (i.e., negation rationale):
 
-```cql
-define "Antithrombotic Not Administered":
-  ["MedicationAdministration": "Antithrombotic Therapy"] NotAdministered
-    where NotAdministered.notGiven is true
-      and NotAdministered.reasonNotGiven in "Medical Reason"
-```
+    define "Antithrombotic Not Administered":
+      ["MedicationAdministration": "Antithrombotic Therapy"] NotAdministered
+        where NotAdministered.notGiven is true
+          and NotAdministered.reasonNotGiven in "Medical Reason"
 
 In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
@@ -513,8 +507,6 @@ define function "ED Stay Time"(Encounter "Encounter"):
 
 ### Library Resources
 {: #library-resources}
-
-<div class="new-content" markdown="1">
 
 Inclusion of CQL content used within quality measures is accomplished through the use of a Library resource. These libraries are then referenced from Measure resources using the `library` element. The content of the CQL library is included using the `content` element of the Library.
 
@@ -614,8 +606,6 @@ filename = <CQL library name>.cql
 |Library (include declaration)|`depends-on` with `url` of the Library (e.g. `http://hl7.org/fhir/Library/FHIRHelpers|4.0.1`)|
 |Code System|`depends-on` with `url` of the CodeSystem (e.g. `http://loing.org`)|
 |Value Set|`depends-on` with `url` of the ValueSet (e.g. `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.89`)|
-
-</div>
 
 ### Use of Terminologies
 {: #use-of-terminologies}
