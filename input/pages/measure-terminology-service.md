@@ -21,7 +21,7 @@ The first use case is used while the collection of related artifacts is being au
 #### Quality Program Release
 The second use case applies when a _release_ of the artifact collection is established, and the content is effectively _locked_ to a particular set of code system versions, value set definition versions and in some cases expansion versions. The same profile is used, but quality programs in this state are indicated with a status of _active_. To support this use case, in addition to the code system version rules introduced by the manifest, a _release_ may also provide an _expansionUri_, either at the root of the quality program (if all the value sets use the same _expansion identifier_), or per value set by providing an _expansionUri_ on the relatedArtifact. The _expansionUri_ capability may also be used selectively to override expansions for specific value sets, with the behavior falling back to the manifest's expansion calculation rules if no expansionUri is specified for the value set.
 
-#### Quality Program
+#### Quality Program Profile
 To support organization of version manifests and releases, the Quality Program profile can also be used to
 define quality programs that contain multiple manifests and releases over multiple years. This usage is represented
 by an overall Quality Program that then contains multiple "component-of" version manifests and releases. In addition, each version manifest or release indicates that it is "part-of" the Quality Program overall.
