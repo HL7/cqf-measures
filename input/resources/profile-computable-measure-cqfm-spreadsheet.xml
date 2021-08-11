@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Michael Holck</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2021-07-12T15:40:20Z</LastSaved>
+  <LastSaved>2021-08-11T18:47:43Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,11 +24,12 @@
    <Path>/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\davinci</Path>
    <SheetName>davinci</SheetName>
   </SupBook>
-  <WindowHeight>16060</WindowHeight>
-  <WindowWidth>27640</WindowWidth>
-  <WindowTopX>860</WindowTopX>
-  <WindowTopY>820</WindowTopY>
+  <WindowHeight>16540</WindowHeight>
+  <WindowWidth>28040</WindowWidth>
+  <WindowTopX>380</WindowTopX>
+  <WindowTopY>500</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -756,7 +757,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="78" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="79" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s81" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="122"/>
@@ -943,6 +944,25 @@
     <Cell ss:Index="7"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Extension{#dataRequirement}</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:Index="26" ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">valueFilter</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">valueFilter</Data></Cell>
+    <Cell><Data ss:Type="String">Measure.extension.extension</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">drq-3</Data></Cell>
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-valueFilter}</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s100"/>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s100"/>
@@ -2155,8 +2175,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>31</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2210,13 +2230,13 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">drq-3</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Shall have path or searchParam</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Measure</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">one of path or searchParam SHALL be present</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">dataRequirement.valueFilter.path.exists() xor dataRequirement.valueFilter.searchParam.exists()</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">exists(f:valueFilter/path)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s114"/>
@@ -2629,8 +2649,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2:R6</RangeSelection>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2682,14 +2702,12 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Context Type</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Color="#000000">        </Font><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Identifies the type of context in which this particular extension is allowed to be used</Font><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Identifies the type of context in which this particular extension is allowed to be used</Font><Font
         html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Context</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Color="#000000">        </Font><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Place (or places - separate using ';')  extension can be used.  (path - resources &amp; data types; URL - extensions)</Font><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Place (or places - separate using ';')  extension can be used.  (path - resources &amp; data types; URL - extensions)</Font><Font
         html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Display</Data><Comment
@@ -2740,8 +2758,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Definition</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Color="#000000">        </Font><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full definition - required</Font><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Full definition - required</Font><Font
         html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Requirements</Data><Comment
@@ -3497,7 +3514,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3505,15 +3522,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
