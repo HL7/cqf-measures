@@ -26,10 +26,16 @@ may play any or all of the roles in this diagram. For example, an institution
 specifying its own measures for internal use would be the Producer, Consumer,
 and Specifier.
 
+**Quality measure (or performance measure)** is a numeric quantification of healthcare quality 
+for a designated accountable healthcare entity, such as hospital, health plan, 
+nursing home, clinician, etc. A healthcare performance measure is a way to calculate 
+whether and how often the healthcare system does what it should. Measures are based 
+on scientific evidence about processes, outcomes, perceptions, or systems that relate to high-quality care. [Source](https://ecqi.healthit.gov/glossary/)
+
 **Measure specification** involves the end product of the measure
 development process, a precisely specified, valid, reliable, and clinically
 significant measure specification to support accurate data representation and
-capture of quality measures. Clinical quality measures (CQMs) are tools that
+capture of quality measures. Quality measClinical quality measures (CQMs) are tools that
 help measure and track the quality of health care services provided in care
 delivery environments, including eligible clinicians (ECs), eligible hospitals
 (EHs), and critical access hospitals (CAHs). Measuring and reporting CQMs helps
