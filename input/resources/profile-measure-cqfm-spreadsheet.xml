@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Michael Holck</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2021-08-11T18:26:38Z</LastSaved>
+  <LastSaved>2021-08-17T15:42:05Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,13 +24,12 @@
    <Path>/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\davinci</Path>
    <SheetName>davinci</SheetName>
   </SupBook>
-  <WindowHeight>16040</WindowHeight>
+  <WindowHeight>16060</WindowHeight>
   <WindowWidth>27640</WindowWidth>
-  <WindowTopX>480</WindowTopX>
-  <WindowTopY>960</WindowTopY>
+  <WindowTopX>780</WindowTopX>
+  <WindowTopY>1000</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1091,6 +1090,7 @@
     <Cell ss:Formula="=R2C5&amp;&quot;.&quot;&amp;RC[-1]"><Data ss:Type="String">Measure.type</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">CQFMMeasureTypes</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"><Data ss:Type="String">A measure must indicate the type of the measure</Data></Cell>
     <Cell ss:StyleID="s101"/>
@@ -2233,9 +2233,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R23</RangeSelection>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4137,8 +4136,10 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Must implementations use this value set?</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Extensible</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Can non-overlapping codes from outside the value set be used?</Font>       </ss:Data></Comment><NamedCell
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
+        html:Color="#000000">        </Font><Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Can non-overlapping codes from outside the value set be used?</Font><Font
+        html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Reference</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -4189,9 +4190,13 @@
     <Cell ss:Index="14" ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="6" ss:StyleID="s137"/>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">CQFMMeasureTypes</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">The type of measure</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">extensible</Data></Cell>
+    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">http://hl7.org/fhir/us/cqfmeasures/ValueSet/cqfm-measure-type</Data></Cell>
+    <Cell><Data ss:Type="String">The type of Measure</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4363,8 +4368,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
