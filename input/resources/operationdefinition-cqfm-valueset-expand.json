@@ -208,7 +208,7 @@
     "use" : "in",
     "min" : 0,
     "max" : "1",
-    "documentation" : "Specifies an expansion identifier to be used. If the value set has an expansion with that identifier, that expansion is used. This parameter has the same behavior as using the `expansion` search parameter with the canonical url for the value set. If the server performing the expand does not know the expansion identifier, it SHALL return an error.",
+    "documentation" : "Specifies an expansion identifier to be used. If the value set has an expansion with that identifier, that expansion is used. This parameter has the same behavior as using the `expansion` search parameter with the canonical url for the value set. If the server performing the expand does not know the expansion identifier, it SHALL return an error. The expansion capability is a server-specific stable identifier for a single persistent expansion, and should only be used by terminology servers that use that approach.",
     "type" : "uri"
   },
   {
