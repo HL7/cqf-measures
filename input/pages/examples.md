@@ -71,3 +71,14 @@ Interpretation: For each Eligible Clinician (EC), percentage of patients who rec
 [Preventive Care and Wellness (Component-level weighted)](Measure-PreventiveCareandWellnessWeightedComposite.html)
 
 </div>
+
+### Quality Programs
+
+<div class="new-content" markdown="1">
+
+This section provides examples of all three ways to represent a Quality Program
+
+* [eCQM Quality Program Example](Library-ecqm-quality-program.html) an overall quality program that contains multiple version manifests and releases over time
+* [eCQM Version Manifest (Expansion Profile), 2020](Library-ecqm-update-2020.html) a version manifest (or expansion profile) that is a draft of a quality program release used to provide expansion rules while the artifacts for a program are being authored
+* [eCQM Release, 2020-05-07](Library-ecqm-update-2020-05-07.html) a program release that is an active instance of a quality program release used to provide stable extensions for the released artifacts in a quality program
+</div>
