@@ -1458,3 +1458,17 @@ Refer to the [ConceptMap Resources section](terminology.html#conceptmap-resource
 Member Attribution (ATR) lists are used between Payers and Providers for implementing risk-based contracts, value based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. The [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) is a library profile used to establish a set of related quality improvement artifacts such as a measure program and can be used to establish a "release" of a quality program.
 
 Referring to the [Member Attribution Lists Workflows and Defintions](http://build.fhir.org/ig/HL7/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinvi - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
+
+
+### Must Support
+
+**Conformance Requirement 3.18 (Must Support Elements):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-18)
+{: #conformance-requirement-3-18}
+For resource instances claiming to conform to Quality Measure IG profiles, Must Support on any profile data element SHALL be interpreted as follows:
+
+* Authoring systems and knowledge repositories SHALL be capable of populating all Must Support data elements.
+* Evaluating systems SHALL be capable of processing resource instances containing Must Support data elements without generating an error or causing the evaluation to fail.
+* In situations where information on a particular data element is not present and the reason for absence is unknown, authoring and repository systems SHALL NOT include the data elements in the resource instance.
+  * For example, for systems using '9999' to indicate unknown data values, do not include '9999' in the resource instance.
+* When consuming resource instances, evaluating systems SHALL interpret missing data elements within resource instances as data not present for the artifact.
+* Submitting and receiving systems using Quality Measure artifacts to perform data exchange or artifact evaluation operations SHALL respect the must support requirements of the profiles used by the artifact to describe the data involved in the operation.
