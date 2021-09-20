@@ -1193,7 +1193,7 @@
       "valueString": "Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions"
     }, {
       "url": "statement",
-      "valueString": "// Note: added FHIRHelpers.ToDate() in R4define \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\":\n    ( Global.\"Inpatient Encounter\" InpatientEncounter\n    \t\twith [\"Patient\"] BirthDate\n    \t\t\tsuch that Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(BirthDate.birthDate), start of InpatientEncounter.period) >= 18\n    )\n    intersect \"Admission Without VTE or Obstetrical Conditions\""
+      "valueString": "// Note: added FHIRHelpers.ToDate() in R4 \ndefine \"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions\":\n    ( Global.\"Inpatient Encounter\" InpatientEncounter\n    \t\twith [\"Patient\"] BirthDate\n    \t\t\tsuch that Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(BirthDate.birthDate), start of InpatientEncounter.period) >= 18\n    )\n    intersect \"Admission Without VTE or Obstetrical Conditions\""
     }, {
       "url": "displaySequence",
       "valueInteger": 4

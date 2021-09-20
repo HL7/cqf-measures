@@ -124,7 +124,7 @@ CQL can be used with any data model. In the context of a Measure, any referenced
 **Conformance Requirement 4.5 (CQL Data Model):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-5)
 {: #conformance-requirement-4-5}
 
-1. All CQL expressions used directly or indirectly within a measure SHALL reference a single data model
+1. All libraries and CQL expressions used directly or indirectly within a measure SHALL use FHIR based data models. For example, one could use QI Core and SDOH IGs.
 2. Data Model declarations SHALL include a version declaration.
 
 For example:
