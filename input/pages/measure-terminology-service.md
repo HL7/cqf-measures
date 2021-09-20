@@ -3,7 +3,7 @@
 <div class="new-content" markdown="1">
 
 ## Overview
-This page describes documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and implementation of FHIR-based quality measure specifications as described in this implementation guide.
+This page describes and documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based quality measure specifications as described in this implementation guide.
 
 This implementation guide is not advocating for any particular central authority for terminology content, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable terminology services that support authoring, distribution, and implementation of FHIR-based knowledge artifacts.
 
@@ -14,6 +14,8 @@ Beyond the basic required use cases of searching, retrieving, and expanding valu
 
 1. Supporting the authoring of a collection of related artifacts that make use of a shared pool of value sets
 2. Supporting the stable expansion of value sets referenced in a _release_ of those artifacts.
+
+Note that during the authoring phase, the value sets referenced by artifacts will change, but once released, the set is stable. Throughout this process, the focus of the capabilities supported by this service description are intended to ensure stable expansion of the value sets referenced by the artifacts.
 
 #### Quality Program Version Manifest (Expansion Profile)
 The first use case is used while the collection of related artifacts is being authored. During this period, the set of code system versions that will be used by value sets referenced by the artifacts is selected and identified in a quality program version manifest (sometimes referred to as an "expansion profile" because it provides expansion rules for expanding value sets used by the artifacts). When authoring value sets and the artifacts that make use of them, this version manifest can be used to ensure stable expansions. Note that this definition will often evolve over the course of the development of collection of artifacts. Quality programs in this state are indicated with a status of _draft_.

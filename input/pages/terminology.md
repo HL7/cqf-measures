@@ -7,6 +7,7 @@
 
 -  [Aggregate Method](CodeSystem-aggregate-method.html)
 -  [Artifact Comment Type](CodeSystem-artifact-comment-type.html)
+-  {:.new-content #FHIR-32675}[CQL Version](CodeSystem-cql-version.html)
 -  [Quality Programs](CodeSystem-quality-programs.html)
 
 ### ValueSet Resources
@@ -15,6 +16,7 @@
 -  [Aggregate Method](ValueSet-aggregate-method.html)
 -  [Artifact Comment Type](ValueSet-artifact-comment-type.html)
 -  [Quality Programs](ValueSet-quality-programs.html)
+-  {:.new-content #FHIR-32675}[CQL Version](ValueSet-cql-version.html)
 
 ### ConceptMap Resources
 {: #conceptmap-resources}
