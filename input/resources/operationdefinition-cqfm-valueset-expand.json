@@ -212,11 +212,11 @@
     "type" : "uri"
   },
   {
-    "name" : "preview",
+    "name" : "includeDraft",
     "use" : "in",
     "min" : 0,
     "max" : "1",
-    "documentation" : "Indicates that draft versions of the value set should be considered when determining the version of the value set to be used to perform the expand. If one (or more) draft versions exist, the $expand operation should use the latest draft to create the expansion. If parameter \"valueSetVersion\" is also provided, report an error because the includeDraft parameter expects the service to use the latest version available to create the expansion and when a draft exists, that should be the latest. If one does not exist, then the service should use the latest published (status=Active) version.",
+    "documentation" : "Indicates that draft versions of the value set should be considered when determining the version of the value set to be used to perform the expand. If one (or more) draft versions exist, the $expand operation should use the latest draft to create the expansion. This parameter cannot be used at the same time as the valueSetVersion parameter. If a draft version does not exist, then the service should use the latest published (status=Active) version.",
     "type" : "boolean"
   },
   {

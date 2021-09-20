@@ -119,7 +119,7 @@ Note that when a code system authority has not established a versioning system, 
     6. SHOULD support other parameters
     7. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
     8. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    9. SHOULD support the `preview` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    9. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
 
 9. TODO: Determine whether eCQM content development will ever need to be able to reference FHIR-defined value sets.
 
