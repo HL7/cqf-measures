@@ -48,7 +48,7 @@
     "use" : "in",
     "min" : 0,
     "max" : "1",
-    "documentation" : "The identifier that is used to identify a specific version of the value set to be used when generating the expansion. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available.",
+    "documentation" : "The identifier that is used to identify a specific version of the value set to be used when generating the expansion. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. This parameter cannot be used at the same time as includeDraft. If a version identifier is provided, the expansion is performed regardless of the status of the resource.",
     "type" : "string"
   },
   {
@@ -216,7 +216,7 @@
     "use" : "in",
     "min" : 0,
     "max" : "1",
-    "documentation" : "Indicates that draft versions of the value set should be considered when determining the version of the value set to be used to perform the expand. This parameter is exclusive with `valueSetVersion`, in that if a specific `valueSetVersion` is provided, that is the version of the value set to be expanded. (default false)",
+    "documentation" : "Indicates that draft versions of the value set should be considered when determining the version of the value set to be used to perform the expand. If one (or more) draft versions exist, the $expand operation should use the latest draft to create the expansion. If parameter \"valueSetVersion\" is also provided, report an error because the includeDraft parameter expects the service to use the latest version available to create the expansion and when a draft exists, that should be the latest. If one does not exist, then the service should use the latest published (status=Active) version.",
     "type" : "boolean"
   },
   {

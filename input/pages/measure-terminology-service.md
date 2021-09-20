@@ -3,9 +3,9 @@
 <div class="new-content" markdown="1">
 
 ## Overview
-This page describes documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based quality measure specifications as described in this implementation guide.
+This page describes documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and implementation of FHIR-based quality measure specifications as described in this implementation guide.
 
-This implementation guide is not advocating for any particular central authority for terminology content, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable terminology services that support authoring, distribution, and evaluation of FHIR-based knowledge artifacts.
+This implementation guide is not advocating for any particular central authority for terminology content, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable terminology services that support authoring, distribution, and implementation of FHIR-based knowledge artifacts.
 
 This implementation guide is not prescriptive about authentication or authorization, but strongly recommends that these capabilities be addressed through standard mechanisms, as described in [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html).
 
@@ -21,7 +21,7 @@ The first use case is used while the collection of related artifacts is being au
 #### Quality Program Release
 The second use case applies when a _release_ of the artifact collection is established, and the content is effectively _locked_ to a particular set of code system versions, value set definition versions and in some cases expansion versions. The same profile is used, but quality programs in this state are indicated with a status of _active_. To support this use case, in addition to the code system version rules introduced by the manifest, a _release_ may also provide an _expansionUri_, either at the root of the quality program (if all the value sets use the same _expansion identifier_), or per value set by providing an _expansionUri_ on the relatedArtifact. The _expansionUri_ capability may also be used selectively to override expansions for specific value sets, with the behavior falling back to the manifest's expansion calculation rules if no expansionUri is specified for the value set.
 
-#### Quality Program
+#### Quality Program Profile
 To support organization of version manifests and releases, the Quality Program profile can also be used to
 define quality programs that contain multiple manifests and releases over multiple years. This usage is represented
 by an overall Quality Program that then contains multiple "component-of" version manifests and releases. In addition, each version manifest or release indicates that it is "part-of" the Quality Program overall.
@@ -338,7 +338,7 @@ A Quality Program has 3 different manifestations:
 2. As a version manifest (also called an expansion profile) that specifies expansion rules for a set of value sets (supporting the authoring use case).
 3. As a program release that provides stable expansions for a set of value sets (supporting the distribution use case)
 
-##### Quality Program
+##### Quality Program Example
 
 The following example illustrates an overall quality program that contains multiple version manifests and releases over time:
 
