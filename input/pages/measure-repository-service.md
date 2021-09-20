@@ -5,7 +5,7 @@
 ## Overview
 This page documents the use cases and conformance expectations of a measure repository service to support authoring, publishing, and distribution of FHIR-based quality measure specifications as described in this implementation guide.
 
-The measure repository service described here is a specific case of the more general knowledge repository service. The operations and capabilities described are in terms of measures and libraries specifically, but they can be generally applied to knowledge artifacts as well.
+The measure repository service described here is a specific case of the more general knowledge repository service. The operations and capabilities described are in terms of measures and libraries specifically, but they can be generally applied to other knowledge artifacts as well, such as PlanDefinition, StructureDefinition, ValueSet, and others.
 
 This implementation guide is not advocating for any particular central authority for content repositories, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable repositories for sharing knowledge artifacts.
 
@@ -14,10 +14,6 @@ This implementation guide is not prescriptive about authentication or authorizat
 ### Knowledge Artifact Management
 
 Quality measures (eCQMs) are a specific type of knowledge artifact, and share common attributes with other knowledge artifact types. This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of _status_, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
-
-Although this capability statement is expressed from the perspective of quality measurement, the concepts and behaviors described are applicable to knowledge artifacts more generally and could be usefully applied to other resource types such as PlanDefinition, StructureDefinition, ValueSet, etc.
-
-As far as Artifact Source, that information is generally captured for conformance resources with the "publisher" and "contact" elements, as well as for metadata resources with the "editor", "author", "reviewer", and "endorser" elements.
 
 #### Artifact Lifecycle
 
@@ -73,6 +69,9 @@ Note that versioning content often involves _pre-release_ content, and this sche
 ```
 
 Content MAY use additional labels to support pre-release content or other versioning and build metadata use cases.
+
+#### Artifact Metadata
+In addition to identity, lifecycle, and versioning, knowledge artifacts typically have additional metadata such as descriptive content, documentation, justification, and source. This is especially true of _published_ knowledge artifacts, which make this type of information available to enable consumers to find, understand, and ultimately implement the content. In FHIR, knowledge artifacts generally follow the [Metadata Resource](https://hl7.org/fhir/clinicalreasoning-knowledge-artifact-representation.html#metadata) pattern. The capabilities described here make use of these elements for knowledge artifacts.
 
 #### Artifact Repository Operations
 
