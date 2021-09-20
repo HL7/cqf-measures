@@ -6,7 +6,7 @@ begins with information, preferably evidence-based from research, public health
 surveillance, and data mining and other analyses performed by third parties such
 as academic institutions or payers. Such information indicates existing status and knowledge about a
 given clinical topic. In step 2, stakeholders, such as professional societies,
-public health and governmental bodies, publish such information to assure awareness among consumers,
+public health agencies, and governmental bodies, publish such information to assure awareness among consumers,
 healthcare practitioners, and healthcare organizations about what is known and
 suggested methods for managing the clinical topic. Ideally, suggested management
 efforts are captured and documented in guidelines based on collaboration among
