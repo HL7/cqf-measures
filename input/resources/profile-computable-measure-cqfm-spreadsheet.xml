@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Michael Holck</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2021-08-11T18:47:43Z</LastSaved>
+  <LastSaved>2021-09-21T14:01:54Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,12 +24,11 @@
    <Path>/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\davinci</Path>
    <SheetName>davinci</SheetName>
   </SupBook>
-  <WindowHeight>16540</WindowHeight>
-  <WindowWidth>28040</WindowWidth>
-  <WindowTopX>380</WindowTopX>
-  <WindowTopY>500</WindowTopY>
+  <WindowHeight>14600</WindowHeight>
+  <WindowWidth>26440</WindowWidth>
+  <WindowTopX>1980</WindowTopX>
+  <WindowTopY>2500</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -593,6 +592,26 @@
   <Style ss:ID="s134" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s136">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s138">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s139">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -757,7 +776,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="79" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="80" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s81" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="122"/>
@@ -924,6 +943,27 @@
     <Cell><Data ss:Type="String">Measure.extension</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Extension{#parameter}</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:Index="26" ss:StyleID="s103"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s136"><Data ss:Type="String">defaultValue</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">defaultValue</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Measure.extension.extension</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Extension{#defaultValue}</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s100"/>
     <Cell ss:StyleID="s101"/>
@@ -2160,7 +2200,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2175,8 +2215,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>31</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
