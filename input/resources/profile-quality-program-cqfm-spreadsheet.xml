@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Maya Zuhl</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2021-09-23T19:38:48Z</LastSaved>
+  <LastSaved>2021-09-23T20:19:03Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -29,7 +29,7 @@
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -676,6 +676,15 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
   </Style>
+  <Style ss:ID="s151">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -842,7 +851,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="90" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="89" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s82" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s82" ss:AutoFitWidth="0" ss:Width="122.39999999999999"/>
@@ -1038,44 +1047,6 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"><Data ss:Type="String">expansionUri</Data></Cell>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">expansionUri</Data></Cell>
-    <Cell><Data ss:Type="String">Library.extension</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionUri}</Data></Cell>
-    <Cell><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="17" ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Specifies an expansionUri that is to be used as the expansion identifier for all value sets referenced as part of this quality program</Data></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Because value sets used in quality programs may reference code systems that have various release cadences (including continuous), ensuring reliable and consistent expansions of value sets is critical to supporting consistent evaluation of quality program artifacts. Identified expansions provide a straightforward mechanism to achieve this stability. If specified on the quality program, consumers SHALL use the specified expansion identifier for all value sets used by artifacts in the quality program, unless overriden by an expansion identifier specified by the value set dependency declaration in the quality program</Data></Cell>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"><Data ss:Type="String">activeOnly</Data></Cell>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">activeOnly</Data></Cell>
-    <Cell><Data ss:Type="String">Library.extension</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-activeOnly}</Data></Cell>
-    <Cell><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="17" ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">cqfm-cqlOptions</Data></Cell>
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"/>
@@ -1088,6 +1059,25 @@
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Options would be bound by name to the parameters in the Parameters resource.</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Provide options for the translator</Data></Cell>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s104"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s151"><Data ss:Type="String">expansionParameters</Data></Cell>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">expansionParameters</Data></Cell>
+    <Cell><Data ss:Type="String">Library.extension</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionParameters}</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Specifies default expansion parameters for a program</Data></Cell>
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"/>
@@ -1438,16 +1428,16 @@
     <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"><Data ss:Type="String">expansionUri</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">expansionParameters</Data></Cell>
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">expansionUri</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">expansionParameters</Data></Cell>
     <Cell><Data ss:Type="String">Library.relatedArtifact.extension</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Extension{#expansionUri}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Extension{#expansionParameters}</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s101"><Data ss:Type="String">Specifies an expansion that should be used for the value set</Data></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Because value sets used in quality programs may reference code systems that have various release cadences (including continuous), ensuring reliable and consistent expansions of value sets is critical to supporting consistent evaluation of quality program artifacts. Identified expansions provide a straightforward mechanism to achieve this stability. If specified on a value set dependency, consumers SHALL use the specified expansion identifier for this value set when used by artifacts in the quality program</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="Default"><Data ss:Type="String">Specifies default expansion parameters for a program</Data></Cell>
+    <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s103"/>
@@ -1513,22 +1503,7 @@
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s104"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="18" ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Index="31" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"/>
@@ -2430,9 +2405,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>18</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2444,11 +2419,13 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>19</ActiveCol>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R26</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2755,9 +2732,25 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">CQFMExpansionParameters</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">expansionParameters</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">expansionParameters</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1.0.0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Library;RelatedArtifact</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Expansion Parameters</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">uri</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">What expansion</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Specifies the expansion parameters that should be used to expand the ValueSet, or any ValueSets in the Library (or referenced by components of the Library)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3144,7 +3137,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3158,13 +3151,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
      <ActiveRow>7</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R8</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3949,6 +3940,274 @@
   <AutoFilter x:Range="R1C1:R1C5" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
+ <Worksheet ss:Name="Bindings">
+  <Names>
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
+    ss:Hidden="1"/>
+  </Names>
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="28" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s103" ss:DefaultColumnWidth="65.400000000000006"
+   ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s103" ss:Width="114.6"/>
+   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="275.40000000000003"/>
+   <Column ss:StyleID="s103" ss:Width="51"/>
+   <Column ss:StyleID="s103" ss:Width="68.399999999999991"/>
+   <Column ss:StyleID="s103" ss:Width="146.39999999999998"/>
+   <Column ss:StyleID="s103" ss:Width="173.39999999999998"/>
+   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="98.4"/>
+   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="89.4"/>
+   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="173.39999999999998"/>
+   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="165.6" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="107.4"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Binding Name</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique name across all resources</Font><Font
+        html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Definition</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Formal description of the types of codes allowed for elements with this binding</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Binding</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">How is the set of codes defined?</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Conformance</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Must implementations use this value set?</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Reference</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">#tab-name or value set filename(without extension) or URL for reference </Font><Font
+        html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Description</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Text to display for reference bindings (not used otherwise)</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">OID</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">The OID for the code list if one already exists.  (If omitted, one will be assigned)</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Website/Email</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Contact information for the code list (if different from standard HL7 FHIR contact info)</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Copyright</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Copyright information associated with the code list.  If not specified, Public Domain assumed</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">uri of v2 value set mapped to</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">uri of v3 value set mapped to</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Committee Notes</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unpublished notes</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ArtifactCommentType</Data></Cell>
+    <Cell><Data ss:Type="String">The type of artifact comment (documentation, review, guidance)</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s139" ss:HRef="http://hl7.org/fhir/us/cqfmeasures/ValueSet/artifact-comment-type"><Data
+      ss:Type="String">http://hl7.org/fhir/us/cqfmeasures/ValueSet/artifact-comment-type</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"><Data ss:Type="String">QualityPrograms</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Supports the defintion of Quality Programs and that the set of identified quality program is not exhaustive and not prescribing codes for programs</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">Extensible</Data></Cell>
+    <Cell ss:StyleID="s139" ss:HRef="http://hl7.org/fhir/us/cqfmeasures/ValueSet/quality-programs"><Data
+      ss:Type="String">http://hl7.org/fhir/us/cqfmeasures/ValueSet/quality-programs</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:Index="13" ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s112"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s126"/>
+   </Row>
+   <Row ss:AutoFitHeight="0"/>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+   <x:PageLayoutZoom>0</x:PageLayoutZoom>
+  </WorksheetOptions>
+  <AutoFilter x:Range="R1C1:R1C13"
+   xmlns="urn:schemas-microsoft-com:office:excel">
+  </AutoFilter>
+ </Worksheet>
  <Worksheet ss:Name="Operations">
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
@@ -4403,274 +4662,6 @@
    <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R2C9" xmlns="urn:schemas-microsoft-com:office:excel">
-  </AutoFilter>
- </Worksheet>
- <Worksheet ss:Name="Bindings">
-  <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
-    ss:Hidden="1"/>
-  </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="28" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s103" ss:DefaultColumnWidth="65.400000000000006"
-   ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s103" ss:Width="114.6"/>
-   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="275.40000000000003"/>
-   <Column ss:StyleID="s103" ss:Width="51"/>
-   <Column ss:StyleID="s103" ss:Width="68.399999999999991"/>
-   <Column ss:StyleID="s103" ss:Width="146.39999999999998"/>
-   <Column ss:StyleID="s103" ss:Width="173.39999999999998"/>
-   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="98.4"/>
-   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="89.4"/>
-   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="173.39999999999998"/>
-   <Column ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="165.6" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s103" ss:AutoFitWidth="0" ss:Width="107.4"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Binding Name</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique name across all resources</Font><Font
-        html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Definition</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Formal description of the types of codes allowed for elements with this binding</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Binding</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">How is the set of codes defined?</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Conformance</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Must implementations use this value set?</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Reference</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">#tab-name or value set filename(without extension) or URL for reference </Font><Font
-        html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Description</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Text to display for reference bindings (not used otherwise)</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">OID</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">The OID for the code list if one already exists.  (If omitted, one will be assigned)</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Website/Email</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Contact information for the code list (if different from standard HL7 FHIR contact info)</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Copyright</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Copyright information associated with the code list.  If not specified, Public Domain assumed</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">uri of v2 value set mapped to</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">uri of v3 value set mapped to</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Committee Notes</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unpublished notes</Font>       </ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ArtifactCommentType</Data></Cell>
-    <Cell><Data ss:Type="String">The type of artifact comment (documentation, review, guidance)</Data></Cell>
-    <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s139" ss:HRef="http://hl7.org/fhir/us/cqfmeasures/ValueSet/artifact-comment-type"><Data
-      ss:Type="String">http://hl7.org/fhir/us/cqfmeasures/ValueSet/artifact-comment-type</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"><Data ss:Type="String">QualityPrograms</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Supports the defintion of Quality Programs and that the set of identified quality program is not exhaustive and not prescribing codes for programs</Data></Cell>
-    <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">Extensible</Data></Cell>
-    <Cell ss:StyleID="s139" ss:HRef="http://hl7.org/fhir/us/cqfmeasures/ValueSet/quality-programs"><Data
-      ss:Type="String">http://hl7.org/fhir/us/cqfmeasures/ValueSet/quality-programs</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:Index="13" ss:StyleID="s124"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s112"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s126"/>
-   </Row>
-   <Row ss:AutoFitHeight="0"/>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Unsynced/>
-   <Print>
-    <ValidPrinterInfo/>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>600</VerticalResolution>
-   </Print>
-   <FreezePanes/>
-   <FrozenNoSplit/>
-   <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
-   <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
-   <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
-  </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R1C13"
-   xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="blah-codes">
