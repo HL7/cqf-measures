@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Maya Zuhl</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2021-09-27T19:07:41Z</LastSaved>
+  <LastSaved>2021-09-27T23:46:07Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -855,7 +855,7 @@
     ss:RefersTo="=measurereport-'/Users/christopherschuler/Documents/workspace/dcg/repos/HL7/cqf-measures/resources/\\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\DaVinci\source\resources\[davinci]davinci'!R1C1:R103C26"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="81" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="82" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s82" ss:DefaultColumnWidth="64.8"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s82" ss:AutoFitWidth="0" ss:Width="121.8"/>
@@ -1050,6 +1050,24 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s106"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="Default"><Data ss:Type="String">fhirQueryPattern</Data></Cell>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">fhirQueryPattern</Data></Cell>
+    <Cell><Data ss:Type="String">Library.extension</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern}</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s104"/>
+    <Cell ss:StyleID="s104"/>
+    <Cell ss:StyleID="s104"/>
+    <Cell ss:StyleID="s104"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s101"/>
@@ -2226,7 +2244,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>26</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -2240,12 +2258,13 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R5</RangeSelection>
+     <RangeSelection>R6</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2776,10 +2795,10 @@
  </Worksheet>
  <Worksheet ss:Name="Extensions">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R28C24"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R27C24"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="29" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s82" ss:DefaultColumnWidth="64.8"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s83" ss:Width="226.79999999999998" ss:Span="1"/>
@@ -3016,24 +3035,25 @@
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">fhirQueryPattern</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">FhirQueryPattern</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Resource</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Library</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">FHIR Query Pattern</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0..*</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">url</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">What FHIR query pattern?</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Supports communicating the FHIR query for a given data requirement. The query is server-specific, and will need to be created as informed by a CapabilityStatement. The $data-requirements operation should be extended to be able to provide an Endpoint or CapabilityStatement to provide this information. If no endpoint or capability statement is provided, the capability statement of the server performing the operation is used. This is not a resolveable URL, and that it will contain 1) No base canonical (so it's a relative query), and 2) Parameters using tokens that are denoted using double-braces and  the context parameters are dependent solely on the subjectType, according to the following: Patient: context.patientId, Practitioner: context.practitionerId, Organization: context.organizationId, Location: context.locationId, Device: context.deviceId</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3334,7 +3354,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>15</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3342,6 +3362,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3349,14 +3370,13 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>6</ActiveRow>
-     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R28C24"
+  <AutoFilter x:Range="R1C1:R27C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
