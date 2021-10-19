@@ -792,6 +792,7 @@ And the following example illustrates the use of the populationBasis extension f
     }
   ],
 ```
+The FHIRAllTypes value set is appropriate for the specification since it's possible to have population criteria that result in "abstract" types. Authoring environments may wish to limit the selection of population basis based on the content implementation guides used in authoring the measure, but that would be a content-driven validation, not necessarily a restriction at the specification.
 
 #### Measure Population Semantics
 
