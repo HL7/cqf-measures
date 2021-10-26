@@ -535,4 +535,50 @@ The `usage-user` and `usage-use` search parameters can be used to search for val
 [base]/ValueSet?usage-user=CMS&usage-use=CMS124
 ```
 
+#### Value Set References a Provisional/Fragment Code System
+
+Example ValueSet and example expansion that references a provisional/fragment code system.
+
+```
+[base]/ValueSet/chronic-liver-disease-legacy-example/$expand?valueSetVersion=2019-09&system-version=http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20150301
+```
+
+The expected [result](ValueSet-chronic-liver-disease-legacy-example-2019-09.html) expansion is:
+
+```
+"expansion": {
+  "timestamp": "2021-02-05T08:57:00-06:00",
+  "parameter": [
+    {
+      "name": "valueSetVersion",
+      "valueString": "2020-05"
+    },
+    {
+      "name": "system-version",
+      "valueUri": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+    }
+  ],
+  "contains": [
+    {
+      "system": "http://snomed.info/sct",
+      "code": "1116000",
+      "display": "Chronic aggressive type B viral hepatitis (disorder)"
+    },
+    {
+      "system": "http://snomed.info/sct",
+      "code": "10295004",
+      "display": "Chronic viral hepatitis (disorder)"
+    },
+    {
+      "system": "http://snomed.info/sct",
+      "inactive": true,
+      "code": "111370006",
+      "display": "Cirrhosis of liver not due to alcohol (disorder)"
+    }
+  ]
+}
+```
+
+Example ValueSet is available [here](ValueSet-chronic-liver-disease-legacy-example-2019-09.html).
+
 </div>
