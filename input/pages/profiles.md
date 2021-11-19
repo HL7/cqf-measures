@@ -28,6 +28,7 @@ To support packaging, testing, and distribution of measure and library artifacts
 
 <table>
   <tr><th>Profile</th><th>Description</th></tr>
+  <tr><td><a href="StructureDefinition-capability-statement-cqfm.html">CQFMCapabilityStatement</a></td><td>A system capability statement that can express which version of CQL is supported</td></tr>
   <tr><td><a href="StructureDefinition-device-softwaresystem-cqfm.html">CQFMDevice</a></td><td>A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.</td></tr>
   <tr><td><a href="StructureDefinition-modelinfo-library-cqfm.html">CQFMModelInfoLibrary</a></td><td>A library profile used to distribute model information libraries used in quality measurement.</td></tr>
   <tr><td><a href="StructureDefinition-module-definition-library-cqfm.html">CQFMModuleDefinitionLibrary</a></td><td>A library profile used to define and exchange effective data requirements and usage information for an artifact (or collection of artifacts) used in quality measurement.</td></tr>
@@ -37,6 +38,7 @@ To support packaging, testing, and distribution of measure and library artifacts
 
 ## Alphabetical Listing
 
+- [Capability Statement](StructureDefinition-capability-statement-cqfm.html)
 - [Computable Library](StructureDefinition-computable-library-cqfm.html)
 - [Cohort Measure](StructureDefinition-cohort-measure-cqfm.html)
 - {:.new-content} [Composite Measure](StructureDefinition-composite-measure-cqfm.html)

@@ -1,0 +1,73 @@
+{
+  "resourceType": "ValueSet",
+  "id": "value-filter-comparator",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "url": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/value-filter-comparator",
+  "version": "1.0.0",
+  "name": "ValueFilterComparator",
+  "title": "Value Filter Comparator",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-08-10T10:21:03-06:00",
+  "publisher": "Clinical Quality Information Workgroup",
+  "description": "The type of comparator operator to use",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "immutable": true,
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/search-comparator",
+        "version": "4.0.1",
+        "concept" : [{
+            "code" : "eq",
+            "display" : "Equals",
+            "definition" : "the value for the parameter in the resource is equal to the provided value."
+          },
+          {
+            "code" : "gt",
+            "display" : "Greater Than",
+            "definition" : "the value for the parameter in the resource is greater than the provided value."
+          },
+          {
+            "code" : "lt",
+            "display" : "Less Than",
+            "definition" : "the value for the parameter in the resource is less than the provided value."
+          },
+          {
+            "code" : "ge",
+            "display" : "Greater or Equals",
+            "definition" : "the value for the parameter in the resource is greater or equal to the provided value."
+          },
+          {
+            "code" : "le",
+            "display" : "Less of Equal",
+            "definition" : "the value for the parameter in the resource is less or equal to the provided value."
+          },
+          {
+            "code" : "sa",
+            "display" : "Starts After",
+            "definition" : "the value for the parameter in the resource starts after the provided value."
+          },
+          {
+            "code" : "eb",
+            "display" : "Ends Before",
+            "definition" : "the value for the parameter in the resource ends before the provided value."
+          }]
+      }
+    ]
+  }
+}

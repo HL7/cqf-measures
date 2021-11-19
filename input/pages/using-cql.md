@@ -124,7 +124,7 @@ CQL can be used with any data model. In the context of a Measure, any referenced
 **Conformance Requirement 4.5 (CQL Data Model):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-5)
 {: #conformance-requirement-4-5}
 
-1. All CQL expressions used directly or indirectly within a measure SHALL reference a single data model
+1. All libraries and CQL expressions used directly or indirectly within a measure SHALL use FHIR based data models. For example, one could use QI Core and SDOH IGs.
 2. Data Model declarations SHALL include a version declaration.
 
 For example:
@@ -326,6 +326,39 @@ using "Venous foot pump, device (physical object) SNOMED CT Code (442023007)"
 ```
 
 The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html) of this IG.
+
+### UCUM Best Practices
+{: #ucum-best-practices}
+
+<div class="new-content" markdown="1">
+
+Although the Unified Code for Units of Measure (UCUM) is a code system, it requires specific handling for two reasons. First, it is a grammar-based code system with an effectively infinite number of codes, so membership tests must be performed computationally, rather than just by checking for existence of a code in a list; and second, because UCUM codes are so commonly used as part of quantity values, healthcare contexts typically provide direct mechanisms for using UCUM codes.
+
+For these reasons, within quality artifacts in general, and quality measures specifically, UCUM codes should make use of the direct mechanisms wherever possible. In CQL logic, this means using the Quantity literal, rather than declaring UCUM codes as direct-reference codes as is recommended when using codes from other code systems. For example, when accessing a Body Mass Index (BMI) observation in CQL:
+
+```html
+define "BMI in Measurement Period":
+  [Observation: "BMI"] BMI
+    where BMI.status in {'final', 'amended', 'corrected'}
+      and BMI.effective during "Measurement Period"
+      and BMI.value is not null
+      and BMI.value.code = 'kg/m2'
+```
+
+Notice the use of the UCUM code directly, as opposed to declaring a CQL code for the unit:
+
+```html
+codesystem UCUM: 'http://unitsofmeasure.org'
+code "kg/m2": 'kg/m2' from UCUM
+
+define "BMI in Measurement Period":
+  [Observation: "BMI"] BMI
+    where BMI.status in {'final', 'amended', 'corrected'}
+      and BMI.effective during "Measurement Period"
+      and BMI.value is not null
+      and BMI.value.code = "kg/m2"
+```
+</div>
 
 ### Concepts
 {: #concepts}
@@ -614,6 +647,15 @@ filename = <CQL library name>.cql
 |Library (include declaration)|`depends-on` with `url` of the Library (e.g. `http://hl7.org/fhir/Library/FHIRHelpers|4.0.1`)|
 |Code System|`depends-on` with `url` of the CodeSystem (e.g. `http://loing.org`)|
 |Value Set|`depends-on` with `url` of the ValueSet (e.g. `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.89`)|
+
+#### MIME Type version
+The version of CQL/ELM content in a library should be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
+
+* `text/cql; version=1.4`
+* `application/elm+xml; version=1.4`
+* `application/elm+json; version=1.4`
+
+Resource narratives for Libraries and Measures that use CQL should include the CQL version if it is specified in the MIME type as shown above.
 
 </div>
 

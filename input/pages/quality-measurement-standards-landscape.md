@@ -26,10 +26,16 @@ may play any or all of the roles in this diagram. For example, an institution
 specifying its own measures for internal use would be the Producer, Consumer,
 and Specifier.
 
+**Quality measure (or performance measure)** is a numeric quantification of healthcare quality
+for a designated accountable healthcare entity, such as hospital, health plan,
+nursing home, clinician, etc. A healthcare performance measure is a way to calculate
+whether and how often the healthcare system does what it should. Measures are based
+on scientific evidence about processes, outcomes, perceptions, or systems that relate to high-quality care. [Source](https://ecqi.healthit.gov/glossary/)
+
 **Measure specification** involves the end product of the measure
 development process, a precisely specified, valid, reliable, and clinically
 significant measure specification to support accurate data representation and
-capture of quality measures. Clinical quality measures (CQMs) are tools that
+capture of quality measures. Clinical Quality Measures (CQMs) are tools that
 help measure and track the quality of health care services provided in care
 delivery environments, including eligible clinicians (ECs), eligible hospitals
 (EHs), and critical access hospitals (CAHs). Measuring and reporting CQMs helps
@@ -66,8 +72,7 @@ healthcare information.
 2.  **Data Consumers** in the diagram represent the various stakeholders
 involved in the consumption and use of healthcare data. Data Consumers can
 include data routers and aggregators, payers, health information exchanges and
-health integrated networks, as well as public health and other
-healthcare-related agencies.
+health integrated networks, as well as public health, registries, and other healthcare-related agencies.
 
 3.  **Specifiers** in the diagram represents the various stakeholders involved
 in the specification of quality measures for use in healthcare quality

@@ -3,7 +3,9 @@
 <div class="new-content" markdown="1">
 
 ## Overview
-This page documents the use cases and conformance expectations of a knowledge repository service to support authoring, publishing, and distribution of FHIR-based quality measure specifications as described in this implementation guide.
+This page documents the use cases and conformance expectations of a measure repository service to support authoring, publishing, and distribution of FHIR-based quality measure specifications as described in this implementation guide.
+
+The measure repository service described here is a specific case of the more general knowledge repository service. The operations and capabilities described are in terms of measures and libraries specifically, but they can be generally applied to other knowledge artifacts as well, such as PlanDefinition, StructureDefinition, ValueSet, and others.
 
 This implementation guide is not advocating for any particular central authority for content repositories, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable repositories for sharing knowledge artifacts.
 
@@ -67,6 +69,9 @@ Note that versioning content often involves _pre-release_ content, and this sche
 ```
 
 Content MAY use additional labels to support pre-release content or other versioning and build metadata use cases.
+
+#### Artifact Metadata
+In addition to identity, lifecycle, and versioning, knowledge artifacts typically have additional metadata such as descriptive content, documentation, justification, and source. This is especially true of _published_ knowledge artifacts, which make this type of information available to enable consumers to find, understand, and ultimately implement the content. In FHIR, knowledge artifacts generally follow the [Metadata Resource](https://hl7.org/fhir/clinicalreasoning-knowledge-artifact-representation.html#metadata) pattern. The capabilities described here make use of these elements for knowledge artifacts.
 
 #### Artifact Repository Operations
 
