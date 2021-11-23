@@ -24,7 +24,7 @@
   <WindowWidth>18870</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1154,8 +1154,7 @@
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
-   ss:DefaultRowHeight="15">
+   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="411"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Profile-authoring Spreadsheet</Data></Cell>
@@ -1199,9 +1198,9 @@
  </Worksheet>
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="16" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s69" ss:Width="98.4"/>
+   <Column ss:StyleID="s69" ss:Width="98.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="363"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Name</Data></Cell>
@@ -1234,7 +1233,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Defines an executable value set as one that SHALL have an expansion included, as well as a usage warning indicating the expansion is a point-in-time snapshot and must be maintained over time for production usage. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion.</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Defines an executable value set as one that SHALL have an expansion included, as well as a usage warning indicating the expansion is a point-in-time snapshot and must be maintained over time for production usage. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a computable definition of the value set must be obtained to compute the updated expansion.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -1301,6 +1300,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1316,29 +1316,29 @@
   <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="305.39999999999998"/>
-   <Column ss:StyleID="s86" ss:Width="68.399999999999991"/>
-   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="59.4"/>
-   <Column ss:StyleID="s86" ss:Width="299.39999999999998"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
-   <Column ss:StyleID="s85" ss:Width="29.4"/>
-   <Column ss:StyleID="s85" ss:Width="35.4"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="456.6"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="29.4"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="107.4"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="305.25"/>
+   <Column ss:StyleID="s86" ss:Width="68.25"/>
+   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="59.25"/>
+   <Column ss:StyleID="s86" ss:Width="299.25"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s85" ss:Width="29.25"/>
+   <Column ss:StyleID="s85" ss:Width="35.25"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="456.75"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="29.25"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="60" ss:Span="1"/>
    <Column ss:Index="13" ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="81"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="36.599999999999994"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="120.60000000000001"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="161.4"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="36.75"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="120.75"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="135"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="135"/>
-   <Column ss:Index="22" ss:StyleID="s85" ss:AutoFitWidth="0"
-    ss:Width="104.39999999999999" ss:Span="1"/>
+   <Column ss:Index="22" ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="104.25"
+    ss:Span="1"/>
    <Column ss:Index="24" ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="66"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="119.4"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s87">
     <Cell ss:StyleID="s88"><Data ss:Type="String">Profile Name</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -2798,7 +2798,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2813,8 +2813,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2828,14 +2828,14 @@
     ss:RefersTo="='executable-valueset-cqfm-Inv'!R1C1:R2C7" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="50" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s116" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s116" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="116.4"/>
-   <Column ss:StyleID="s116" ss:Width="56.4"/>
+   <Column ss:Index="2" ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="116.25"/>
+   <Column ss:StyleID="s116" ss:Width="56.25"/>
    <Column ss:StyleID="s116" ss:Width="165"/>
-   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="204.60000000000002"/>
-   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="198.6"/>
-   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="188.4"/>
+   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s87">
     <Cell ss:StyleID="s117"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -3319,7 +3319,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4805,7 +4804,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" x:FullColumns="1"
-         x:FullRows="1" ss:StyleID="s149" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s149" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s149" ss:AutoFitWidth="0" ss:Width="131.25"/>
    <Column ss:StyleID="s149" ss:AutoFitWidth="0" ss:Width="125.25"/>
