@@ -1,11 +1,51 @@
 {
   "resourceType": "Library",
-  "id": "quality-program-cqloption-example",
+  "id": "quality-program-cqlOptions-example",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"
     ]
   },
+  "contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "cql-options",
+      "parameter": [
+        {
+          "name": "options",
+          "valueString": "EnableAnnotations"
+        },
+        {
+          "name": "options",
+          "valueString": "EnableLocators"
+        },
+        {
+          "name": "options",
+          "valueString": "DisableListDemotion"
+        },
+        {
+          "name": "options",
+          "valueString": "DisableListPromotion"
+        },
+        {
+          "name": "formats",
+          "valueString": "XML"
+        },
+        {
+          "name": "formats",
+          "valueString": "JSON"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-cqlOptions",
+      "valueReference": {
+        "reference": "#cql-options"
+      }
+    }
+  ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/Library/quality-program-cqloption-example",
   "identifier": [
     {
@@ -92,12 +132,6 @@
       "display": "Example Measure"
     },
 	{
-	  "extension": [
-	    {
-		  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-cqlOptions",
-		  "valueCqfmCqlOptions": "Example CQL Options"
-		}
-	  ],
 	  "type": "composed-of",
 	  "resource": "http://hl7.org/fhir/us/cqfmeasures/2021May/Library-EXMComputableLibrary.html",
 	  "display": "Example Computable library"
