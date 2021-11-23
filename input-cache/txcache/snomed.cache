@@ -1,64 +1,127 @@
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
-  "code" : "183452005"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Emergency hospital admission",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
   "code" : "1116000"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Chronic aggressive type B viral hepatitis",
-  "severity" : null,
-  "error" : ""
+  "code" : "1116000",
+  "system" : "http://snomed.info/sct"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "10295004"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Chronic viral hepatitis",
-  "severity" : null,
-  "error" : ""
+  "code" : "10295004",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "111370006"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Cirrhosis of liver not due to alcohol",
+  "code" : "111370006",
+  "system" : "http://snomed.info/sct"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
   "version" : "http://snomed.info/sct/731000124108/version/20150301",
   "code" : "111370006"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Cirrhosis of liver not due to alcohol",
-  "severity" : null,
-  "error" : ""
+  "code" : "111370006",
+  "system" : "http://snomed.info/sct"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/201709",
   "code" : "37687000",
   "display" : "Congenital absence of cervix (disorder)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Congenital absence of cervix",
-  "severity" : null,
-  "error" : ""
+  "code" : "37687000",
+  "system" : "http://snomed.info/sct"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
-  "code" : "442023007"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+  "version" : "http://snomed.info/sct/version/201709",
+  "code" : "428361000124107",
+  "display" : "Discharge to home for hospice care (procedure)"
+}, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "Venous foot pump, device (physical object)",
-  "severity" : null,
-  "error" : ""
+  "severity" : "error",
+  "error" : "Version 'http://snomed.info/sct/version/201709' of the code system 'http://snomed.info/sct' is not known (encountered paired with code = '428361000124107'). ValidVersions = [http://snomed.info/sct/11000146104/version/20210930,http://snomed.info/sct/11000172109/version/20210915,http://snomed.info/sct/20611000087101/version/20210930,http://snomed.info/sct/32506021000036107/version/20210630,http://snomed.info/sct/45991000052106/version/20210531,http://snomed.info/sct/554471000005108/version/20210930,http://snomed.info/sct/731000124108/version/20210901,http://snomed.info/sct/900000000000207008/version/20190731,http://snomed.info/sct/900000000000207008/version/20200131,http://snomed.info/sct/900000000000207008/version/20200731,http://snomed.info/sct/900000000000207008/version/20210731]; The code provided (http://snomed.info/sct#428361000124107) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
+  "class" : "CODESYSTEM_UNSUPPORTED"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/version/201709",
+  "code" : "428371000124100",
+  "display" : "Discharge to healthcare facility for hospice care (procedure)"
+}, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "severity" : "error",
+  "error" : "Version 'http://snomed.info/sct/version/201709' of the code system 'http://snomed.info/sct' is not known (encountered paired with code = '428371000124100'). ValidVersions = [http://snomed.info/sct/11000146104/version/20210930,http://snomed.info/sct/11000172109/version/20210915,http://snomed.info/sct/20611000087101/version/20210930,http://snomed.info/sct/32506021000036107/version/20210630,http://snomed.info/sct/45991000052106/version/20210531,http://snomed.info/sct/554471000005108/version/20210930,http://snomed.info/sct/731000124108/version/20210901,http://snomed.info/sct/900000000000207008/version/20190731,http://snomed.info/sct/900000000000207008/version/20200131,http://snomed.info/sct/900000000000207008/version/20200731,http://snomed.info/sct/900000000000207008/version/20210731]; The code provided (http://snomed.info/sct#428371000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
+  "class" : "CODESYSTEM_UNSUPPORTED"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/201709",
+  "code" : "428361000124107",
+  "display" : "Discharge to home for hospice care (procedure)"
+}, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Discharge to home for hospice care (procedure)",
+  "code" : "428361000124107",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/201709",
+  "code" : "428371000124100",
+  "display" : "Discharge to healthcare facility for hospice care (procedure)"
+}, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Discharge to healthcare facility for hospice care (procedure)",
+  "code" : "428371000124100",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/201709",
+  "code" : "428361000124107",
+  "display" : "Discharge to home for hospice care (procedure)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Discharge to home for hospice care (procedure)",
+  "code" : "428361000124107",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/201709",
+  "code" : "428371000124100",
+  "display" : "Discharge to healthcare facility for hospice care (procedure)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Discharge to healthcare facility for hospice care (procedure)",
+  "code" : "428371000124100",
+  "system" : "http://snomed.info/sct"
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
@@ -77,6 +140,7 @@ v: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
     "extension" : [{
@@ -87,8 +151,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:6551bede-bae5-48f8-8a2f-351a48149a3b",
-    "timestamp" : "2021-03-24T18:23:47.246Z",
+    "identifier" : "urn:uuid:84eaa5cd-58b6-4e74-86ce-21c92c2438f5",
+    "timestamp" : "2021-11-23T20:40:25.463Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -99,7 +163,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20210131"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20210901"
     }],
     "contains" : [{
       "system" : "http://snomed.info/sct",
@@ -410,11 +474,6 @@ e: {
       "system" : "http://snomed.info/sct",
       "code" : "9611009",
       "display" : "Dermatotome"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "9817005",
-      "display" : "Mycoplasma pulmonis antibody test kit"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -868,18 +927,13 @@ e: {
     },
     {
       "system" : "http://snomed.info/sct",
-      "code" : "22852002",
-      "display" : "Therapeutic implant"
-    },
-    {
-      "system" : "http://snomed.info/sct",
       "code" : "23228005",
       "display" : "Arthroscope"
     },
     {
       "system" : "http://snomed.info/sct",
       "code" : "23366006",
-      "display" : "Motorized wheelchair device"
+      "display" : "Motorized wheelchair device (physical object)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -1493,11 +1547,6 @@ e: {
     },
     {
       "system" : "http://snomed.info/sct",
-      "code" : "43001000",
-      "display" : "Phlebotomy kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
       "code" : "43192004",
       "display" : "Bone pencil"
     },
@@ -1510,11 +1559,6 @@ e: {
       "system" : "http://snomed.info/sct",
       "code" : "43725001",
       "display" : "Airway device"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "43734006",
-      "display" : "Blood administration set"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -1679,7 +1723,7 @@ e: {
     {
       "system" : "http://snomed.info/sct",
       "code" : "48246009",
-      "display" : "Stud gun, device"
+      "display" : "Stud gun, device (physical object)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -1709,7 +1753,7 @@ e: {
     {
       "system" : "http://snomed.info/sct",
       "code" : "50121007",
-      "display" : "Glasses"
+      "display" : "Eye glasses, device (physical object)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -2039,7 +2083,7 @@ e: {
     {
       "system" : "http://snomed.info/sct",
       "code" : "60150003",
-      "display" : "Ski pole, device"
+      "display" : "Ski pole, device (physical object)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -2333,11 +2377,6 @@ e: {
     },
     {
       "system" : "http://snomed.info/sct",
-      "code" : "69670004",
-      "display" : "Patient utensil kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
       "code" : "69805005",
       "display" : "Insulin pump"
     },
@@ -2443,8 +2482,8 @@ e: {
     },
     {
       "system" : "http://snomed.info/sct",
-      "code" : "73276008",
-      "display" : "Staphylococcus aureus antibody test kit"
+      "code" : "73368009",
+      "display" : "Foley catheter"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -2513,18 +2552,8 @@ e: {
     },
     {
       "system" : "http://snomed.info/sct",
-      "code" : "75187009",
-      "display" : "Local anesthesia kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
       "code" : "75192006",
       "display" : "Arterial cannula"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "75750007",
-      "display" : "Escherichia coli antigen test kit"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -2933,11 +2962,6 @@ e: {
     },
     {
       "system" : "http://snomed.info/sct",
-      "code" : "88208003",
-      "display" : "Intravenous anesthesia administration set"
-    },
-    {
-      "system" : "http://snomed.info/sct",
       "code" : "88765001",
       "display" : "Artificial tissue"
     },
@@ -3240,131 +3264,6 @@ e: {
       "system" : "http://snomed.info/sct",
       "code" : "108874005",
       "display" : "Silicone plug"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "108882005",
-      "display" : "Tear test strip kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109145005",
-      "display" : "Albumin test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109148007",
-      "display" : "Bacteriuria test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109152007",
-      "display" : "Bilirubin test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109154008",
-      "display" : "Blood urea nitrogen test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109156005",
-      "display" : "Candida test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109159003",
-      "display" : "Chlamydia trachomatis test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109164004",
-      "display" : "Cholesterol test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109166002",
-      "display" : "Color allergy screening test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109168001",
-      "display" : "Cryptococcal antigen test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109176004",
-      "display" : "Urine glucose test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109177008",
-      "display" : "Gonorrhea test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109178003",
-      "display" : "Hematocrit/hemoglobin test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109179006",
-      "display" : "Human immunodeficiency virus test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109180009",
-      "display" : "Meningitis test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109181008",
-      "display" : "Mononucleosis test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109182001",
-      "display" : "Occult blood screening test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109183006",
-      "display" : "Ovulation test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109184000",
-      "display" : "Pregnancy test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109185004",
-      "display" : "Rheumatoid factor test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109186003",
-      "display" : "Sickle cell test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109187007",
-      "display" : "Staphylococcus test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109188002",
-      "display" : "Streptococci test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109189005",
-      "display" : "Toxoplasmosis test kit"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "109190001",
-      "display" : "Virus test kit"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -4489,7 +4388,7 @@ e: {
     {
       "system" : "http://snomed.info/sct",
       "code" : "183198000",
-      "display" : "Kleinert traction"
+      "display" : "Kleinert traction (physical object)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -4554,7 +4453,7 @@ e: {
     {
       "system" : "http://snomed.info/sct",
       "code" : "223394001",
-      "display" : "Equipment for positioning"
+      "display" : "Equipment for positioning (physical object)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -4623,6 +4522,11 @@ e: {
     },
     {
       "system" : "http://snomed.info/sct",
+      "code" : "228180006",
+      "display" : "Suspenders"
+    },
+    {
+      "system" : "http://snomed.info/sct",
       "code" : "228235002",
       "display" : "Slippers"
     },
@@ -4680,21 +4584,6 @@ e: {
       "system" : "http://snomed.info/sct",
       "code" : "228262005",
       "display" : "Zipper"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "228264006",
-      "display" : "Small button"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "228265007",
-      "display" : "Medium button"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "228266008",
-      "display" : "Large button"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -4864,7 +4753,7 @@ e: {
     {
       "system" : "http://snomed.info/sct",
       "code" : "228761004",
-      "display" : "Collimator"
+      "display" : "Collimator (physical object)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -4954,12 +4843,12 @@ e: {
     {
       "system" : "http://snomed.info/sct",
       "code" : "229839006",
-      "display" : "Functional foot orthosis"
+      "display" : "Functional foot orthosis (physical object)"
     },
     {
       "system" : "http://snomed.info/sct",
       "code" : "229840008",
-      "display" : "Non-functional foot orthosis"
+      "display" : "Non-functional foot orthosis (physical object)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -5100,29 +4989,184 @@ e: {
       "system" : "http://snomed.info/sct",
       "code" : "257212000",
       "display" : "Rotary cutter"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257213005",
+      "display" : "Rotary cutter with steel blades"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257214004",
+      "display" : "Rotary cutter with plastic blades"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257215003",
+      "display" : "Nail instrument"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257216002",
+      "display" : "Flexible endoscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257217006",
+      "display" : "Rigid endoscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257218001",
+      "display" : "Flexible cystoscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257219009",
+      "display" : "Rigid cystoscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257220003",
+      "display" : "Hysteroscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257221004",
+      "display" : "Flexible hysteroscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257222006",
+      "display" : "Rigid hysteroscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257223001",
+      "display" : "Contact hysteroscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257224007",
+      "display" : "Panoramic hysteroscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257225008",
+      "display" : "Flexible bronchoscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257226009",
+      "display" : "Rigid bronchoscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257227000",
+      "display" : "Anesthetic laryngoscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257228005",
+      "display" : "Fiberlight anesthetic laryngoscope"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257229002",
+      "display" : "Pharyngeal mirror"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257230007",
+      "display" : "Obstetric forceps"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257231006",
+      "display" : "Barnes forceps"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257232004",
+      "display" : "Haig Fergusson forceps"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257233009",
+      "display" : "Milne-Murray forceps"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257234003",
+      "display" : "Neville Barnes forceps"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257235002",
+      "display" : "Simpson forceps"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257236001",
+      "display" : "Wrigley forceps"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257237005",
+      "display" : "Kielland forceps"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257238000",
+      "display" : "Moolgaoker forceps"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257239008",
+      "display" : "Barton's forceps"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257240005",
+      "display" : "Hooked wire"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257241009",
+      "display" : "Barbed wire"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257243007",
+      "display" : "Fine needle"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257244001",
+      "display" : "Laser probe"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257245000",
+      "display" : "Yankauer suction catheter"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257246004",
+      "display" : "Rubber suction catheter"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257247008",
+      "display" : "Tourniquet cuff"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "257248003",
+      "display" : "Upper tourniquet cuff"
     }]
   }
 },
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "183452005"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Emergency hospital admission",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "111370006"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Cirrhosis of liver not due to alcohol",
-  "severity" : null,
   "error" : ""
 }
 -------------------------------------------------------------------------------------
@@ -5145,27 +5189,28 @@ v: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:0c3f2b86-2840-4eb4-90c8-15d0335ab31a",
-    "timestamp" : "2021-03-24T18:24:55.730Z",
+    "identifier" : "urn:uuid:03b8cd89-4e62-4193-8bcd-1d80d8261b00",
+    "timestamp" : "2021-11-23T20:40:46.088Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
     },
     {
       "name" : "version",
-      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20210131"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20210901"
     }],
     "contains" : [{
       "system" : "http://snomed.info/sct",
       "code" : "1116000",
-      "display" : "Chronic aggressive type B viral hepatitis (disorder)"
+      "display" : "Chronic aggressive type B viral hepatitis"
     },
     {
       "system" : "http://snomed.info/sct",
       "code" : "10295004",
-      "display" : "Chronic viral hepatitis (disorder)"
+      "display" : "Chronic viral hepatitis"
     }]
   }
 },
@@ -5177,31 +5222,43 @@ e: {
   "compose" : {
     "include" : [{
       "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20150301"
+      "version" : "http://snomed.info/sct/731000124108/version/20150301",
+      "concept" : [{
+        "code" : "111370006",
+        "display" : "Cirrhosis of liver not due to alcohol (disorder)"
+      }]
     }]
   }
 }}####
 e: {
-  "valueSet" : {
+  "error" : "Error from server: Unable to provide support for code system http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
-  "status" : "active",
-  "expansion" : {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
-      "valueBoolean" : true
-    }],
-    "identifier" : "urn:uuid:3034d0ac-6eb0-44eb-9a24-d59d7cdeb3b2",
-    "timestamp" : "2021-03-24T18:24:55.808Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "1116000",
+        "display" : "Chronic aggressive type B viral hepatitis (disorder)"
+      },
+      {
+        "code" : "10295004",
+        "display" : "Chronic viral hepatitis (disorder)"
+      }]
     },
     {
-      "name" : "excludeNested",
-      "valueBoolean" : true
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20150301",
+      "concept" : [{
+        "code" : "111370006",
+        "display" : "Cirrhosis of liver not due to alcohol (disorder)"
+      }]
     }]
   }
-},
-  "error" : ""
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://snomed.info/sct"
 }
 -------------------------------------------------------------------------------------
