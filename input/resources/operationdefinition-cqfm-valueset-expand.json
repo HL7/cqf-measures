@@ -200,7 +200,7 @@
     "use" : "in",
     "min" : 0,
     "max" : "1",
-    "documentation" : "Specifies an asset-collection library that defines version bindings for code systems and value sets referenced by the artifacts in a particular package, and optionally an expansion identifier to be used as the expansion for value sets used by artifacts in the package. If the manifest specifies an expansion identifier for the value set being expanded, or if the manifest specifies a manifest-level expansion identifier, it has the same meaning as specifying that expansion identifier as the value of the expansion parameter to the expand. Otherwise, when the manifest specifies a value set version for this value set, it has the same meaning as passing the specified version as the `valueSetVersion` parameter, and when the manifest specifies code systems identified as `depends-on` related artifacts in the library, they have the same meaning as specifying that code system version in the `system-version` parameter.",
+    "documentation" : "Specifies an asset-collection library that provides expansion rules for the operation. See the description of [manifest](measure-terminology-service.html#expansion-rules) for a complete description of how manifest values are used to provide defaults for expansion parameters. Parameters specified directly in an $expand operation override behaviors specified by the manifest parameter.",
     "type": "canonical"
   },
   {
@@ -208,7 +208,7 @@
     "use" : "in",
     "min" : 0,
     "max" : "1",
-    "documentation" : "Specifies an expansion identifier to be used. If the value set has an expansion with that identifier, that expansion is used. This parameter has the same behavior as using the `expansion` search parameter with the canonical url for the value set. If the server performing the expand does not know the expansion identifier, it SHALL return an error. The expansion capability is a server-specific stable identifier for a single persistent expansion, and should only be used by terminology servers that use that approach.",
+    "documentation" : "Specifies an expansion identifier to be used. If the value set has an expansion with that identifier, that expansion is used. This parameter has the same behavior as using the `expansion` search parameter with the canonical url for the value set. If the server performing the expand does not know the expansion identifier, it SHALL return an error. An expansion parameter takes precedence over other parameters that control expansion, since the expansion identifier establishes the expansion to be returned.",
     "type" : "uri"
   },
   {
