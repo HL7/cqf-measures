@@ -6,6 +6,26 @@
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"
     ]
   },
+  "contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "exp-params",
+      "parameter": [
+        {
+          "name" : "system-version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionParameters",
+      "valueReference": {
+        "reference": "#exp-params"
+      }
+    }
+  ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ep-ec-quality-program",
   "identifier": [
     {

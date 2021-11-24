@@ -37,11 +37,10 @@ Because this capability results in the potential for parameter values to be supp
 1. If a parameter is specified as part of the $expand operation directly, it takes precedence
 2. If a ValueSet dependency is specified as part of the version manifest (and no version for the value set is specified in the artifact reference), the version has the same meaning as the `valueSetVersion` parameter to the $expand
 3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
+4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
-#### Quality Program Profile
-To support organization of version manifests and releases, the Quality Program profile can also be used to
-define quality programs that contain multiple manifests and releases over multiple years. This usage is represented
-by an overall Quality Program that then contains multiple "component-of" version manifests and releases. In addition, each version manifest or release indicates that it is "part-of" the Quality Program overall.
+#### Quality Programs
+To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-cqfm-partOf) extension.
 
 ### Code Systems
 
@@ -185,6 +184,7 @@ Note that when a code system authority has not established a versioning system, 
     1. If a parameter is specified as part of the $expand operation directly, it takes precedence
     2. If a ValueSet dependency is specified as part of the version manifest (and no version for the value set is specified in the artifact reference), the version has the same meaning as the `valueSetVersion` parameter to the $expand
     3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
+    4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
 6. SHALL support version manifest and release value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
     1. SHALL support the url parameter
@@ -399,7 +399,42 @@ Note that as an organizer, this library just contains the program-level informat
 
 ##### Draft Quality Program Example
 
-This example illustrates the use of a draft quality program description to specify the version of SNOMED to be used for valuesets used by measures in the quality program:
+This example illustrates the use of a draft quality program description to specify the version of SNOMED to be used for valuesets used by measures in the quality program.
+
+```
+"contained": [
+  {
+    "resourceType": "Parameters",
+    "id": "exp-params",
+    "parameter": [
+      {
+        "name" : "system-version",
+        "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+      },
+      {
+        "name": "activeOnly",
+        "valueBoolean": true
+      },
+      {
+        "name": "includeDraft",
+        "valueBoolean": true
+      }
+    ]
+  }
+],
+"extension": [
+  {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionParameters",
+    "valueReference": {
+      "reference": "#exp-params"
+    }
+  }
+],
+```
+
+This example indicates that unless specified explicitly by artifacts in the collection, the 2019-09-01 version of SNOMED SHALL be used when expanding value sets that reference SNOMED.
+
+Note that the version of SNOMED in use is still listed as a dependency in the artifact collection to support providing a complete listing of dependencies in the version manifest. When this is done, the version provided in the expansion parameters SHALL take precedence (though the version manifest SHOULD be consistent with the expansion parameters).
 
 ```
 "relatedArtifact": [
@@ -411,8 +446,6 @@ This example illustrates the use of a draft quality program description to speci
 ]
 ```
 
-This example indicates that unless specified explicitly by the artifacts, the 2019-09-01 version of SNOMED should be used when expanding value sets that reference SNOMED.
-
 The full example is available here:
 
 * [eCQM Version Manifest, 2020](Library-ecqm-update-2020.html)
@@ -421,11 +454,11 @@ The full example is available here:
 
 The following example illustrates a program release that is an _active_ instance of a quality program release used to provide stable extensions for the released artifacts in a quality program.
 
-Specifically, the program release uses the `expansionUri` extension at the library level to indicate that all value sets used with artifacts in the program should expand using this expansion identifier:
+Specifically, the program release uses the `expansion` parameter in the contained expansion parameters at the artifact collection level to indicate that all value sets used with artifacts in the program should expand using this expansion identifier:
 
 ```
 {
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionUri",
+  "name": "expansion",
   "valueUri": "eCQM%20Update%202020-05-07"
 }
 ```
@@ -471,15 +504,13 @@ The full example is available here:
 
 ##### Expansion with manifests and releases:
 
-Given the use of a _version manifest_ as well as a _program release_, then the _manifest_ parameter can be used
-in the `$expand` operation to provide values for the relevant parameters:
+Given this use of an artifact collection, the _manifest_ parameter can be used in the `$expand` operation to provide values for the relevant parameters:
 
 ```
 [base]/ValueSet/chronic-liver-disease-legacy-example/$expand?manifest=http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-update-2020
 ```
 
-This is effectively an alternative mechanism for expressing the same value set and code system version specific expansion above,
-and results in the same expansion, with the additional `manifest` parameter:
+This is effectively an alternative mechanism for expressing the same value set and code system version specific expansion above, and results in the same expansion, with the additional `manifest` parameter:
 
 ```
 "expansion": {
@@ -577,13 +608,5 @@ In addition to the use of the `expansion` parameter of the `$expand` operation, 
 ```
 
 The result of this search is the same as requesting an `$expand` with the `expansion` parameter.
-
-##### Usage Search
-
-The `usage-user` and `usage-use` search parameters can be used to search for valuesets that have been used in particular contexts and by particular users:
-
-```
-[base]/ValueSet?usage-user=CMS&usage-use=CMS124
-```
 
 </div>
