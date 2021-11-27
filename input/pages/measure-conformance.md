@@ -1450,7 +1450,7 @@ Refer to the [ConceptMap Resources section](terminology.html#conceptmap-resource
 {:.new-content}
 Member Attribution (ATR) lists are used between Payers and Providers for implementing risk-based contracts, value based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. The [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) is a library profile used to establish a set of related quality improvement artifacts such as a measure program and can be used to establish a "release" of a quality program.
 
-Referring to the [Member Attribution Lists Workflows and Defintions](http://build.fhir.org/ig/HL7/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinvi - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
+Referring to the [Member Attribution Lists Workflows and Definitions](http://build.fhir.org/ig/HL7/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinvi - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
 
 
 ### Must Support

@@ -649,7 +649,7 @@ filename = <CQL library name>.cql
 |Value Set|`depends-on` with `url` of the ValueSet (e.g. `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.89`)|
 
 #### MIME Type version
-The version of CQL/ELM content in a library should be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
+The version of CQL/ELM used for content in a library should be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
 
 * `text/cql; version=1.4`
 * `application/elm+xml; version=1.4`
