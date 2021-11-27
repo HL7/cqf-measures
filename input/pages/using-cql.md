@@ -330,8 +330,6 @@ The representation of code declarations in a Library is discussed in [Measure Co
 ### UCUM Best Practices
 {: #ucum-best-practices}
 
-<div class="new-content" markdown="1">
-
 Although the Unified Code for Units of Measure (UCUM) is a code system, it requires specific handling for two reasons. First, it is a grammar-based code system with an effectively infinite number of codes, so membership tests must be performed computationally, rather than just by checking for existence of a code in a list; and second, because UCUM codes are so commonly used as part of quantity values, healthcare contexts typically provide direct mechanisms for using UCUM codes.
 
 For these reasons, within quality artifacts in general, and quality measures specifically, UCUM codes should make use of the direct mechanisms wherever possible. In CQL logic, this means using the Quantity literal, rather than declaring UCUM codes as direct-reference codes as is recommended when using codes from other code systems. For example, when accessing a Body Mass Index (BMI) observation in CQL:
@@ -358,7 +356,6 @@ define "BMI in Measurement Period":
       and BMI.value is not null
       and BMI.value.code = "kg/m2"
 ```
-</div>
 
 ### Concepts
 {: #concepts}
@@ -547,8 +544,6 @@ define function "ED Stay Time"(Encounter "Encounter"):
 ### Library Resources
 {: #library-resources}
 
-<div class="new-content" markdown="1">
-
 Inclusion of CQL content used within quality measures is accomplished through the use of a Library resource. These libraries are then referenced from Measure resources using the `library` element. The content of the CQL library is included using the `content` element of the Library.
 
 **Conformance Requirement 4.17 (Library Resources):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-17)
@@ -656,8 +651,6 @@ The version of CQL/ELM used for content in a library should be specified using t
 * `application/elm+json; version=1.4`
 
 Resource narratives for Libraries and Measures that use CQL should include the CQL version if it is specified in the MIME type as shown above.
-
-</div>
 
 ### Use of Terminologies
 {: #use-of-terminologies}

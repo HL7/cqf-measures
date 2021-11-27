@@ -73,7 +73,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 2. FHIR-based eCQM Measure and Library resource instances SHALL declare their profile.
 3. Proportion Measures SHALL conform to the CQFMProportionMeasure profile.
 4. Ratio Measures SHALL conform to the CQFMRatioMeasure profile.
-5. {:.new-content #FHIR-21107}Composite Measures SHALL conform to the CQFMCompositeMeasure profile.
+5. Composite Measures SHALL conform to the CQFMCompositeMeasure profile.
 6. Continuous Variable Measures SHALL conform to the CQFMContinuousVariableMeasure profile.
 7. Cohort Measures SHALL conform to the CQFMCohortMeasure profile.
 8. Libraries used with FHIR-based eCQMs SHALL consist of a FHIR Library resource conforming to at least the CQFMLibrary profile.
@@ -1318,8 +1318,8 @@ Note also that when a measure has multiple population groups, the expectation is
 
 **Conformance Requirement 3.15 (Stratification Criteria):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-15)
 {: #conformance-requirement-3-15}
-1. {:.new-content #FHIR-27878}If stratification is specified as an expression, the result type of the expression SHALL match the result type of other population criteria expressions in the measure.
-2. {:.new-content #FHIR-27878}If stratification is specified as a path, the path SHALL be resolvable on the type of the subject of the measure or on the type of the population basis if the basis is different than the subject.
+1. If stratification is specified as an expression, the result type of the expression SHALL match the result type of other population criteria expressions in the measure.
+2. If stratification is specified as a path, the path SHALL be resolvable on the type of the subject of the measure or on the type of the population basis if the basis is different than the subject.
 3. Stratification SHALL NOT be used with ratio measures, since ratio measures may define multiple initial populations.
 
 Stratification is represented using the stratifier element. The semantics of this element are unchanged from the base [Measure]({{site.data.fhir.path}}measure.html) specification; the only difference is that each population criteria references a CQL expression that returns a Boolean, (or event for event-based measures) to determine whether a given patient meets the criteria for that stratification. Snippet 3-24 shows an example stratifier that stratifies results for two sub-populations. Snippet 3-25 shows the CQL representation of the stratifier.
@@ -1439,19 +1439,15 @@ An example of risk adjustment can be found in the included [examples](Measure-me
 
 ### HQMF Mapping
 
-{:.new-content}
 HQMF is a normative HL7 V3 based standard that defines a header for classification and management of the quality measure, a document body that carries the content of the quality measure as well as important metadata. It standardizes a measure’s structure, metadata, definitions, and logic, the HQMF ensures measure consistency and unambiguous interpretation. The approach of representing electronic Clinical Quality Measures (eCQMs) using FHIR and specifically the FHIR Clinical Reasoning Module have generated code systems and value sets based on the FHIR R4 specification.
 
 Refer to the [ConceptMap Resources section](terminology.html#conceptmap-resources) under "Terminology" for the concept mapping of code systems and value sets between HL7 V3 to FHIR R4.
 
-
 ### Attribution
 
-{:.new-content}
 Member Attribution (ATR) lists are used between Payers and Providers for implementing risk-based contracts, value based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. The [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) is a library profile used to establish a set of related quality improvement artifacts such as a measure program and can be used to establish a "release" of a quality program.
 
 Referring to the [Member Attribution Lists Workflows and Definitions](http://build.fhir.org/ig/HL7/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinvi - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
-
 
 ### Must Support
 {: #must-support}

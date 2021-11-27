@@ -1,6 +1,8 @@
 
 
 {:toc}
+
+<!-- Ballot content markers
 Where possible, new and updated content will be highlighted with green text and background.
 {:.new-content}
 
@@ -9,6 +11,7 @@ Where possible, new and updated content will be highlighted with green text and 
 {{ site.data.package-list.list[0].desc }}
 
 </div>
+-->
 
 ## Quality Measure Implementation Guide
 {: #quality-measure-implementation-guide}
@@ -35,13 +38,13 @@ page in the menu bar:
 -  **[Introduction](introduction.html)**: The introduction provides a more detailed overview of quality measurement and the background for this guide
 -  **[eCQMs](measure-conformance.html)**: This page describes measure representation and conformance requirements for eCQMs
 -  **[Using CQL](using-cql.html)**: This page covers using Clinical Quality Language to author eCQMs
--  {:.new-content #FHIR-30873} **[Composites](composite-measures.html)**: This page covers composite measure representation and conformance requirements
+-  **[Composites](composite-measures.html)**: This page covers composite measure representation and conformance requirements
 -  **[Packaging](packaging.html)**: This page describes measure packaging and distribution requirements for eCQMs
 Measures IG
 -  **[Profiles](profiles.html)**: This page lists the set of profiles defined for use by eCQMs
 -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by eCQMs
 -  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
--  {:.new-content #FHIR-30874}**[Capabilities](capabilities.html)**: This page defines services and operations in support of authoring, publishing, and distributing eCQMs
+-  **[Capabilities](capabilities.html)**: This page defines services and operations in support of authoring, publishing, and distributing eCQMs
 -  **[Examples](examples.html)**: This page provides examples used in the other pages, as well as by the Data Exchange for Quality
 -  **[Glossary](glossary.html)** This page defines terms related to quality measurement.
 -  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.

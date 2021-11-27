@@ -1,7 +1,5 @@
 {:toc}
 
-<div class="new-content" markdown="1">
-
 ## Overview
 This page describes and documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based quality measure specifications as described in this implementation guide.
 
@@ -608,5 +606,3 @@ In addition to the use of the `expansion` parameter of the `$expand` operation, 
 ```
 
 The result of this search is the same as requesting an `$expand` with the `expansion` parameter.
-
-</div>

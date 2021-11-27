@@ -1,7 +1,5 @@
 {: #capabilities}
 
-<div class="new-content" markdown="1">
-
 The following sequence diagram depicts a data element submission scenario. The roles depicted are:
 
 * Submitting System - This would be either a hospital, physician practice, or any organization that wants to submit the relevant eCQM data to a receiving system
@@ -9,7 +7,7 @@ The following sequence diagram depicts a data element submission scenario. The r
 * Terminology Service - This can be any valid FHIR terminology service that has the appropriate valuesets used in the eCQMs and can provide the expansion of those valuesets
 * Receiving System - This would be the system that will receive all of the relevant clinical data for a given eCQM and be able to perform the evaluation of that measure
 
-There are 5 workflows depicted using the swimlanes. 
+There are 5 workflows depicted using the swimlanes.
 
 1. Setup - The setup workflow is used by the submitting system to identify what data elements are required for a given measure by calling to the Knowledge Repository to get the data requirements and then getting the appropriate valuesets for the measure from the Terminology Service
 2. Attribution/Selection - This workflow determines the attribution for the measure and determines the patients that would be in the initial population that will need to be submitted to the Receiving System
@@ -34,5 +32,3 @@ This implementation guide defines capability statements, use cases, and conforma
 * [**Measure/$data-requirements**](OperationDefinition-Measure-data-requirements.html)
 * [**MeasureReport/$package**](OperationDefinition-MeasureReport-package.html)
 * [**ValueSet/$expand**](OperationDefinition-ValueSet-expand.html)
-
-</div>
