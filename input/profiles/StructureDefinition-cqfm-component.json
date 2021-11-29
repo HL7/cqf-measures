@@ -1,0 +1,83 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-component",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component",
+  "version": "2.1.0",
+  "name": "CQFMComponent",
+  "title": "CQFM Component",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Specifies an artifact this is a component of a composite artifact.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Measure.group"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "What artifact",
+        "definition": "Specifies an artifact this is a component of a composite artifact.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "RelatedArtifact"
+          }
+        ]
+      }
+    ]
+  }
+}

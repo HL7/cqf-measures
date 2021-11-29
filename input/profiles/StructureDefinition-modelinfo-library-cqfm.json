@@ -1,0 +1,118 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "modelinfo-library-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/modelinfo-library-cqfm",
+  "version": "2.1.0",
+  "name": "CQFMModelInfoLibrary",
+  "title": "CQFM Model Info Library",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-11-27T13:31:32-07:00",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM Model Information Library profile defines the must support elements for a computable Model Definition library used to support declaration and distribution of CQL ModelInfo such as the FHIR Model Info Library",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Library",
+  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Library",
+        "path": "Library",
+        "mustSupport": false
+      },
+      {
+        "id": "Library.type",
+        "path": "Library.type",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/library-type",
+              "code": "model-definition"
+            }
+          ]
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Library.content",
+        "path": "Library.content",
+        "requirements": "A model information library must provide the contents of the modelinfo library in a computable form.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.content.contentType",
+        "path": "Library.content.contentType",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "fixedCode": "application/xml",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.content.data",
+        "path": "Library.content.data",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      }
+    ]
+  }
+}

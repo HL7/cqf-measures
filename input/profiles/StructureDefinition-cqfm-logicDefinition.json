@@ -1,0 +1,192 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-logicDefinition",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+  "version": "2.1.0",
+  "name": "CQFMLogicDefinition",
+  "title": "CQFM Logic Definition",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Defines a logic definition used by the measure.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "A computable measure must specify all definitions used by the measure in order to provide a complete, human-readable narrative for the measure.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Measure"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "A logic definition used in the measure",
+        "definition": "Defines a logic definition used by the measure.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Extension.extension:libraryName",
+        "path": "Extension.extension",
+        "sliceName": "libraryName",
+        "short": "Which library",
+        "definition": "The name of the library that contains this definition. This is the library name, not the library alias within any particular library usage, and SHOULD be the fully qualified name of the library (i.e. namespace included).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:libraryName.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "libraryName"
+      },
+      {
+        "id": "Extension.extension:libraryName.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:name",
+        "path": "Extension.extension",
+        "sliceName": "name",
+        "short": "Which definition",
+        "definition": "The name of the definition, e.g. Initial Population. For function definitions, this SHOULD include the function parameters (e.g. \"Measure Observation\"(Encounter Encounter)).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:name.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "name"
+      },
+      {
+        "id": "Extension.extension:name.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:statement",
+        "path": "Extension.extension",
+        "sliceName": "statement",
+        "short": "Complete declaration statement",
+        "definition": "The complete declaration statement for the definition. For example, `define \"Initial Population\": [Encounter: \"Inpatient\"] E where duration in days of E.period > 2`.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:statement.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "statement"
+      },
+      {
+        "id": "Extension.extension:statement.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:displaySequence",
+        "path": "Extension.extension",
+        "sliceName": "displaySequence",
+        "short": "What order?",
+        "definition": "An integer value indicating the order in which this definition should be displayed in any human readable representation.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:displaySequence.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "displaySequence"
+      },
+      {
+        "id": "Extension.extension:displaySequence.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-artifactComment",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment",
+  "version": "2.0.0",
+  "name": "CQFMArtifactComment",
+  "title": "CQFM Artifact Comment",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "A comment containing additional documentation, a review comment, usage guidance, or other relevant information from a particular user.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Element"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Additional documentation, review, or usage guidance",
+        "definition": "A comment containing additional documentation, a review comment, usage guidance, or other relevant information from a particular user.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Extension.extension:type",
+        "path": "Extension.extension",
+        "sliceName": "type",
+        "short": "documentation | review | guidance",
+        "definition": "Indicates whether the comment is  providing additional documentation, a review comment that requires resolution, or providing usage guidance to an artifact consumer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:type.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "type"
+      },
+      {
+        "id": "Extension.extension:type.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "description": "The type of artifact comment (documentation, review, guidance)",
+          "valueSet": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/artifact-comment-type"
+        }
+      },
+      {
+        "id": "Extension.extension:text",
+        "path": "Extension.extension",
+        "sliceName": "text",
+        "short": "The comment",
+        "definition": "The text content of the comment.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:text.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "text"
+      },
+      {
+        "id": "Extension.extension:text.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "markdown"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:target",
+        "path": "Extension.extension",
+        "sliceName": "target",
+        "short": "What the comment is directed to",
+        "definition": "A URI that points to what the comment is about, such as a line of text in the CQL, or a specific element in a resource.",
+        "comment": "The target element is used to point the comment to aspect of the artifact, typically a text range within a CQL library (e.g. Library/example#content?0:0-120:80).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:target.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "target"
+      },
+      {
+        "id": "Extension.extension:target.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:reference",
+        "path": "Extension.extension",
+        "sliceName": "reference",
+        "short": "Supporting reference for the comment",
+        "definition": "Provides additional supporting information relevant to the comment.",
+        "comment": "The reference element is used to reference other relevant information. For example, a comment may point to a citation in a relatedArtifact element (e.g. Library/example#relatedArtifact[ABC]).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:reference.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "reference"
+      },
+      {
+        "id": "Extension.extension:reference.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:user",
+        "path": "Extension.extension",
+        "sliceName": "user",
+        "short": "Who commented",
+        "definition": "Specifies the user that authored the comment.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:user.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "user"
+      },
+      {
+        "id": "Extension.extension:user.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

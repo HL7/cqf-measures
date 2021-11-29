@@ -1,0 +1,84 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-directReferenceCode",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+  "version": "2.1.0",
+  "name": "CQFMDirectReferenceCode",
+  "title": "CQFM Direct Reference Code",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Defines a code directly referenced by measure logic, as opposed to a value set. Direct reference codes may be the target of data requirements.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "A computable measure must specify terminology requirements. Direct reference codes SHALL be at least the set of all codes defined in the primary measure library and any referenced libraries, recursively, and SHOULD be limited to only those direct reference codes that are actually referenced in expressions used by the measure.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Measure"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "A code directly referenced by the measure",
+        "definition": "Defines a code directly referenced by measure logic, as opposed to a value set. Direct reference codes may be the target of data requirements.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ]
+      }
+    ]
+  }
+}

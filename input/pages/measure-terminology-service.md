@@ -38,7 +38,7 @@ Because this capability results in the potential for parameter values to be supp
 4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
 #### Quality Programs
-To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-cqfm-partOf) extension.
+To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-cqfm-partOf.html) extension.
 
 ### Code Systems
 

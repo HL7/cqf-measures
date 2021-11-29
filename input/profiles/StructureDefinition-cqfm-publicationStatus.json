@@ -1,0 +1,89 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-publicationStatus",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationStatus",
+  "version": "2.1.0",
+  "name": "CQFMPublicationStatus",
+  "title": "CQFM Publication Status",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-11-27T13:31:32-07:00",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Specifies the publication status of the referenced artifacts.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "A published measure should provide the publication status of the referenced artifacts.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Measure.relatedArtifact"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Publication status of referenced artifact",
+        "definition": "Specifies the publication status of the referenced artifacts.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationStatus"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "description": "The lifecycle status of a reference artifact",
+          "valueSet": "http://hl7.org/fhir/ValueSet/publication-status"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "computable-measure-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
+  "version": "2.1.0",
+  "name": "CQFMComputableMeasure",
+  "title": "CQFM Computable Measure",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM Computable Measure Profile describes minimum expectations for a computable electronic Clinical Quality Measure (eCQM)",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Measure",
+  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Measure",
+        "path": "Measure",
+        "mustSupport": false
+      },
+      {
+        "id": "Measure.extension:populationBasis",
+        "path": "Measure.extension",
+        "sliceName": "populationBasis",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.extension:scoringUnit",
+        "path": "Measure.extension",
+        "sliceName": "scoringUnit",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.extension:effectiveDataRequirements",
+        "path": "Measure.extension",
+        "sliceName": "effectiveDataRequirements",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.library",
+        "path": "Measure.library",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.scoring",
+        "path": "Measure.scoring",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.type",
+        "path": "Measure.type",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.riskAdjustment",
+        "path": "Measure.riskAdjustment",
+        "mustSupport": false
+      },
+      {
+        "id": "Measure.rateAggregation",
+        "path": "Measure.rateAggregation",
+        "mustSupport": false
+      },
+      {
+        "id": "Measure.improvementNotation",
+        "path": "Measure.improvementNotation",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group",
+        "path": "Measure.group",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.extension:populationBasis",
+        "path": "Measure.group.extension",
+        "sliceName": "populationBasis",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.extension:scoring",
+        "path": "Measure.group.extension",
+        "sliceName": "scoring",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.extension:scoringUnit",
+        "path": "Measure.group.extension",
+        "sliceName": "scoringUnit",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.extension:type",
+        "path": "Measure.group.extension",
+        "sliceName": "type",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type"
+            ]
+          }
+        ],
+        "mustSupport": false
+      },
+      {
+        "id": "Measure.group.extension:riskAdjustment",
+        "path": "Measure.group.extension",
+        "sliceName": "riskAdjustment",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-riskAdjustment"
+            ]
+          }
+        ],
+        "mustSupport": false
+      },
+      {
+        "id": "Measure.group.extension:rateAggregation",
+        "path": "Measure.group.extension",
+        "sliceName": "rateAggregation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-rateAggregation"
+            ]
+          }
+        ],
+        "mustSupport": false
+      },
+      {
+        "id": "Measure.group.extension:improvementNotation",
+        "path": "Measure.group.extension",
+        "sliceName": "improvementNotation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier",
+        "path": "Measure.group.stratifier",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier.extension:appliesTo",
+        "path": "Measure.group.stratifier.extension",
+        "sliceName": "appliesTo",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo"
+            ]
+          }
+        ],
+        "mustSupport": false
+      }
+    ]
+  }
+}

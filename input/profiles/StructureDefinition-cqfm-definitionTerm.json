@@ -1,0 +1,136 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-definitionTerm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-definitionTerm",
+  "version": "2.0.0",
+  "name": "CQFMDefinitionTerm",
+  "title": "CQFM Definition Term",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Specifies a term and its associated definition.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "A measure specification must be able to provide definitions for terms that are used to help communicate the measure intent.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Measure.definition"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Defined term",
+        "definition": "Specifies a term and its associated definition.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:term",
+        "path": "Extension.extension",
+        "sliceName": "term",
+        "short": "Term being defined",
+        "definition": "Specifies the term used in measure guidance.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:term.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "term"
+      },
+      {
+        "id": "Extension.extension:term.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:definition",
+        "path": "Extension.extension",
+        "sliceName": "definition",
+        "short": "Definition of the term",
+        "definition": "Specifies the definition of the term used in measure guidance.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:definition.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "definition"
+      },
+      {
+        "id": "Extension.extension:definition.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "markdown"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-definitionTerm"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

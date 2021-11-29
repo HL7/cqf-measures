@@ -1,0 +1,309 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "measure-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm",
+  "version": "2.1.0",
+  "name": "CQFMMeasure",
+  "title": "CQFM Measure",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM Measure Profile describes minimum expectations for defining an electronic Clinical Quality Measure (eCQM)",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Measure",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/shareablemeasure",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Measure",
+        "path": "Measure",
+        "mustSupport": false
+      },
+      {
+        "id": "Measure.meta",
+        "path": "Measure.meta",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.meta.profile",
+        "path": "Measure.meta.profile",
+        "requirements": "A measure must declare its profile.",
+        "min": 1,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.extension:comment",
+        "path": "Measure.extension",
+        "sliceName": "comment",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.extension:allocation",
+        "path": "Measure.extension",
+        "sliceName": "allocation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-allocation"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.extension:softwaresystem",
+        "path": "Measure.extension",
+        "sliceName": "softwaresystem",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.library",
+        "path": "Measure.library",
+        "short": "CQFMMeasures are not required to use a Library, but if they do, it SHALL be a CQFMLibrary.",
+        "requirements": "A measure MUST provide one primary library reference containing population criteria definitions for the measure.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "canonical",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm"
+            ]
+          }
+        ],
+        "condition": [
+          "cqm-2"
+        ],
+        "constraint": [
+          {
+            "key": "cqm-2",
+            "severity": "warning",
+            "human": "Measures utilizing CQL SHALL reference one and only one CQL library (and that referenced library MUST be the primary library for the measure)",
+            "expression": "exists()",
+            "xpath": "exists(f)"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.scoring",
+        "path": "Measure.scoring",
+        "requirements": "A measure must indicate the scoring method used for the measure.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.type",
+        "path": "Measure.type",
+        "requirements": "A measure must indicate the type of the measure.",
+        "min": 1,
+        "max": "*",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "description": "The type of measure",
+          "valueSet": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/cqfm-measure-type"
+        }
+      },
+      {
+        "id": "Measure.improvementNotation",
+        "path": "Measure.improvementNotation",
+        "short": "increase | decrease",
+        "definition": "Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range).",
+        "requirements": "A measure must indicate the improvement notation used for the measure.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group",
+        "path": "Measure.group",
+        "requirements": "A measure must specify at least one population group.",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.id",
+        "path": "Measure.group.id",
+        "condition": [
+          "cqm-3"
+        ],
+        "constraint": [
+          {
+            "key": "cqm-3",
+            "severity": "warning",
+            "human": "Group identifiers SHOULD use the convention: \"group-[group number]\", where [group number] corresponds with the group naming convention for the criteria within the group",
+            "expression": "value.startsWith('group-')",
+            "xpath": "exists(f:value)"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.population",
+        "path": "Measure.group.population",
+        "requirements": "A measure must specify at least one population for each population group.",
+        "min": 1,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.population.id",
+        "path": "Measure.group.population.id",
+        "requirements": "A measure must specify at least one population for each population group.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.population.code",
+        "path": "Measure.group.population.code",
+        "requirements": "A measure must specify the type of population criteria.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.population.criteria",
+        "path": "Measure.group.population.criteria",
+        "definition": "The name of a valid referenced CQL expression (MUST NOT be namespaced) that defines this population criteria.",
+        "constraint": [
+          {
+            "key": "cqm-4",
+            "severity": "warning",
+            "human": "Group population criteria SHOULD be simple expression names found within the primary library for the measure. The criteria SHOULD NOT include a namespace.",
+            "expression": "value.startsWith(library).not()",
+            "xpath": "exists(f:value)"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier",
+        "path": "Measure.group.stratifier",
+        "requirements": "A measure should provide stratification information if appropriate for the measure content.",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier.id",
+        "path": "Measure.group.stratifier.id",
+        "requirements": "A measure should provide stratification information if appropriate for the measure content.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier.criteria",
+        "path": "Measure.group.stratifier.criteria",
+        "definition": "The name of a valid referenced CQL expression (MUST NOT be namespaced) that defines this stratifier criteria.",
+        "constraint": [
+          {
+            "key": "cqm-5",
+            "severity": "warning",
+            "human": "Group stratifier criteria SHOULD be simple expression names found within the primary library for the measure. The criteria SHOULD NOT include a namespace.",
+            "expression": "value.startsWith(library).not()",
+            "xpath": "exists(f:value)"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.supplementalData",
+        "path": "Measure.supplementalData",
+        "requirements": "A measure should provide supplemental data appropriate for the measure content.",
+        "constraint": [
+          {
+            "key": "cqm-6",
+            "severity": "warning",
+            "human": "Supplemental data SHALL use either criteria or path",
+            "expression": "criteria.exists() or path.exists()",
+            "xpath": "exists(f:value)"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.supplementalData.id",
+        "path": "Measure.supplementalData.id",
+        "requirements": "A measure should provide supplemental data appropriate for the measure content.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      }
+    ]
+  }
+}

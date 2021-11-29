@@ -1,0 +1,143 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "device-softwaresystem-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm",
+  "version": "2.1.0",
+  "name": "CQFMDevice",
+  "title": "CQFM Device",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The SoftwareSystem device profile is used to capture software details about the various systems used in authoring, testing, packaging, or evaluation of a knowledge artifact",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "udi",
+      "uri": "http://fda.gov/UDI",
+      "name": "UDI Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Device",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Device",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Device",
+        "path": "Device",
+        "mustSupport": false
+      },
+      {
+        "id": "Device.manufacturer",
+        "path": "Device.manufacturer",
+        "short": "The developers of the Software System",
+        "mustSupport": false
+      },
+      {
+        "id": "Device.deviceName",
+        "path": "Device.deviceName",
+        "short": "The name of the software",
+        "min": 1,
+        "max": "1",
+        "mustSupport": false
+      },
+      {
+        "id": "Device.deviceName.name",
+        "path": "Device.deviceName.name",
+        "min": 1,
+        "max": "1",
+        "mustSupport": false
+      },
+      {
+        "id": "Device.deviceName.type",
+        "path": "Device.deviceName.type",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "fixedCode": "manufacturer-name",
+        "mustSupport": false
+      },
+      {
+        "id": "Device.type",
+        "path": "Device.type",
+        "short": "authoring | testing | tooling | evaluation | reporting | data-capture",
+        "min": 0,
+        "max": "1",
+        "mustSupport": false,
+        "binding": {
+          "strength": "extensible",
+          "description": "The software system type",
+          "valueSet": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/software-system-type"
+        }
+      },
+      {
+        "id": "Device.version",
+        "path": "Device.version",
+        "min": 0,
+        "max": "1",
+        "mustSupport": false
+      },
+      {
+        "id": "Device.version.type",
+        "path": "Device.version.type",
+        "min": 0,
+        "max": "0",
+        "mustSupport": false
+      },
+      {
+        "id": "Device.version.component",
+        "path": "Device.version.component",
+        "min": 0,
+        "max": "0",
+        "mustSupport": false
+      },
+      {
+        "id": "Device.version.value",
+        "path": "Device.version.value",
+        "mustSupport": false
+      },
+      {
+        "id": "Device.url",
+        "path": "Device.url",
+        "mustSupport": false
+      }
+    ]
+  }
+}

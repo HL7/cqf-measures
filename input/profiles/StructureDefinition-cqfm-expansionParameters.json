@@ -1,0 +1,91 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-expansionParameters",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionParameters",
+  "version": "2.1.0",
+  "name": "CQFMexpansionParameters",
+  "title": "CQFM Expansion Parameters",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-11-27T13:31:32-07:00",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Specifies the expansion parameters that should be used to expand the ValueSet, or any ValueSets in the Library (or referenced by components of the Library).",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Library"
+    },
+    {
+      "type": "element",
+      "expression": "RelatedArtifact"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "What expansion rules",
+        "definition": "Specifies the expansion parameters that should be used to expand the ValueSet, or any ValueSets in the Library (or referenced by components of the Library).",
+        "comment": "For a complete description of how these expansion rules impact the behavior of the expansion operation, see the [Expansion Rules](measure-terminology-service.html#expansion-rules) topic.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionParameters"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Parameters"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

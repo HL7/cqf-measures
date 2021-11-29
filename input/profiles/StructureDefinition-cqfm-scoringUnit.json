@@ -1,0 +1,88 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-scoringUnit",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit",
+  "version": "2.1.0",
+  "name": "CQFMScoringUnit",
+  "title": "CQFM Scoring Unit",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Defines the expected units of measure for the measure score.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "A computable measure must be able to specify the expected units of measure of the result. In many cases the units are directly inferred from the types of the expressions involved in the calculation. However, because the final calculation is generally performed on the results of aggregate operations, if the calculated result does not match the expected units defined by this element, a unit conversion SHALL be performed to provide the correct result.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Measure"
+    },
+    {
+      "type": "element",
+      "expression": "Measure.group"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "What units?",
+        "definition": "Defines the expected units of measure for the measure score.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      }
+    ]
+  }
+}

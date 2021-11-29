@@ -1,0 +1,222 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "module-definition-library-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/module-definition-library-cqfm",
+  "version": "2.1.0",
+  "name": "CQFMModuleDefinitionLibrary",
+  "title": "CQFM Module Definition Library",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-11-27T13:31:32-07:00",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM Module Definition Library profile defines the must support elements for a library that communicates the effective data requirements and dependencies of an artifact (or set of artifacts). This is most commonly used as the result of a $data-requirements operation, but could also be persisted statically as a way to persist the calculation of effective data requirements for a specific artifact and input parameters",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Library",
+  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Library",
+        "path": "Library",
+        "mustSupport": false
+      },
+      {
+        "id": "Library.extension:directReferenceCode",
+        "path": "Library.extension",
+        "sliceName": "directReferenceCode",
+        "requirements": "A module definition library must describe the direct-reference codes it uses.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.extension:inputParameters",
+        "path": "Library.extension",
+        "sliceName": "inputParameters",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.type",
+        "path": "Library.type",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/library-type",
+              "code": "module-definition"
+            }
+          ]
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Library.subject[x]",
+        "path": "Library.subject[x]",
+        "requirements": "A module definition library must report the subject it operates on.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact",
+        "path": "Library.relatedArtifact",
+        "short": "Dependencies used by the artifact",
+        "definition": "Any referenced dependencies including other logic libraries, model definitions, or terminologies.",
+        "requirements": "A module definition library must describe the dependencies it requires.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.parameter",
+        "path": "Library.parameter",
+        "requirements": "A module definition library must define any input and output parameters.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.parameter.extension:defaultValue",
+        "path": "Library.parameter.extension",
+        "sliceName": "defaultValue",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-defaultValue"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement",
+        "path": "Library.dataRequirement",
+        "requirements": "A module definition library must declare any data requirements.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement.extension:isSelective",
+        "path": "Library.dataRequirement.extension",
+        "sliceName": "isSelective",
+        "short": "specifies whether a given DataRequirement is \"selective\"",
+        "definition": "specifies whether a given DataRequirement is \"selective\", meaning that it can be used, along with other selective requirements, to determine whether an artifact is applicable to a particular subject.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isSelective"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement.extension:valueFilter",
+        "path": "Library.dataRequirement.extension",
+        "sliceName": "valueFilter",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-valueFilter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement.extension:fhirQueryPattern",
+        "path": "Library.dataRequirement.extension",
+        "sliceName": "fhirQueryPattern",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern"
+            ]
+          }
+        ],
+        "mustSupport": false
+      },
+      {
+        "id": "Library.content",
+        "path": "Library.content",
+        "min": 0,
+        "max": "0",
+        "mustSupport": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "capability-statement-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/capability-statement-cqfm",
+  "version": "2.1.0",
+  "name": "CQFMCapabilityStatement",
+  "title": "CQFM Capability Statement",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-08-30",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM Capability Statement Profile allows systems to express their capabilities for handling CQFM profiles.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "CapabilityStatement",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/CapabilityStatement",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CapabilityStatement",
+        "path": "CapabilityStatement",
+        "mustSupport": false
+      },
+      {
+        "id": "CapabilityStatement.extension:supportedCqlVersion",
+        "path": "CapabilityStatement.extension",
+        "sliceName": "supportedCqlVersion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supportedCqlVersion"
+            ]
+          }
+        ],
+        "mustSupport": false
+      }
+    ]
+  }
+}

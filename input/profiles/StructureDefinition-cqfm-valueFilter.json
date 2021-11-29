@@ -1,0 +1,202 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-valueFilter",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-valueFilter",
+  "version": "2.0.0",
+  "name": "CQFMValueFilter",
+  "title": "CQFM Value Filter",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-11-27T13:31:32-07:00",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Allows additional value-based filters to be specified as part of a data requirement.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Library.dataRequirement"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "definition": "Allows additional value-based filters to be specified as part of a data requirement.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Extension.extension:path",
+        "path": "Extension.extension",
+        "sliceName": "path",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:path.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "path"
+      },
+      {
+        "id": "Extension.extension:path.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:searchParam",
+        "path": "Extension.extension",
+        "sliceName": "searchParam",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:searchParam.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "searchParam"
+      },
+      {
+        "id": "Extension.extension:searchParam.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:comparator",
+        "path": "Extension.extension",
+        "sliceName": "comparator",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:comparator.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "comparator"
+      },
+      {
+        "id": "Extension.extension:comparator.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "description": "The comparator operator to use",
+          "valueSet": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/value-filter-comparator"
+        }
+      },
+      {
+        "id": "Extension.extension:value",
+        "path": "Extension.extension",
+        "sliceName": "value",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:value.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "value"
+      },
+      {
+        "id": "Extension.extension:value.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          },
+          {
+            "code": "string"
+          },
+          {
+            "code": "integer"
+          },
+          {
+            "code": "Quantity"
+          },
+          {
+            "code": "Ratio"
+          },
+          {
+            "code": "Range"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-valueFilter"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "test-case-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm",
+  "version": "2.1.0",
+  "name": "CQFMTestCase",
+  "title": "CQFM Test Case",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM Test Case Profile describes expectations for the definition and exchange of a measure test case, including input data and parameters, as well as expected outcome",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "Measure authors must be able to define and communicate test cases that include expected outcomes to allow for validation of measure behavior.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "MeasureReport",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/MeasureReport",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MeasureReport",
+        "path": "MeasureReport",
+        "definition": "The Measure Test Case profile defines a test case for a specific measure, including input data and parameters, as well as expected outcome in the form of a measure report.",
+        "mustSupport": false
+      },
+      {
+        "id": "MeasureReport.extension:isTestCase",
+        "path": "MeasureReport.extension",
+        "sliceName": "isTestCase",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.extension:testCaseDescription",
+        "path": "MeasureReport.extension",
+        "sliceName": "testCaseDescription",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.extension:inputParameters",
+        "path": "MeasureReport.extension",
+        "sliceName": "inputParameters",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.extension:softwaresystem",
+        "path": "MeasureReport.extension",
+        "sliceName": "softwaresystem",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.identifier",
+        "path": "MeasureReport.identifier",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.status",
+        "path": "MeasureReport.status",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.type",
+        "path": "MeasureReport.type",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.measure",
+        "path": "MeasureReport.measure",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group",
+        "path": "MeasureReport.group",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.population",
+        "path": "MeasureReport.group.population",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.population.code",
+        "path": "MeasureReport.group.population.code",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.population.count",
+        "path": "MeasureReport.group.population.count",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.measureScore",
+        "path": "MeasureReport.group.measureScore",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier",
+        "path": "MeasureReport.group.stratifier",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier.code",
+        "path": "MeasureReport.group.stratifier.code",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier.stratum",
+        "path": "MeasureReport.group.stratifier.stratum",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier.stratum.value",
+        "path": "MeasureReport.group.stratifier.stratum.value",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier.stratum.component",
+        "path": "MeasureReport.group.stratifier.stratum.component",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier.stratum.component.code",
+        "path": "MeasureReport.group.stratifier.stratum.component.code",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier.stratum.component.value",
+        "path": "MeasureReport.group.stratifier.stratum.component.value",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier.stratum.population",
+        "path": "MeasureReport.group.stratifier.stratum.population",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier.stratum.population.code",
+        "path": "MeasureReport.group.stratifier.stratum.population.code",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier.stratum.population.count",
+        "path": "MeasureReport.group.stratifier.stratum.population.count",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.group.stratifier.stratum.measureScore",
+        "path": "MeasureReport.group.stratifier.stratum.measureScore",
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.evaluatedResource",
+        "path": "MeasureReport.evaluatedResource",
+        "mustSupport": true
+      }
+    ]
+  }
+}
