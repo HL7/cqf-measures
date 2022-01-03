@@ -2,6 +2,7 @@
 
 The following sequence diagram depicts a data element submission scenario. The roles depicted are:
 
+* Data Repository - The clinical data repository for the submitting system. This is typically a FHIR server endpoint for the submitting system's electronic health record (EHR) or system of record, but could also be an HIE or other aggregated data source, depending on the particular submission and reporting requirements.
 * Submitting System - This would be either a hospital, physician practice, or any organization that wants to submit the relevant eCQM data to a receiving system
 * Knowledge Repository - This would be a FHIR server that has the eCQMs loaded and is the source of truth for those eCQMS and can provide the required data elements for each measure
 * Terminology Service - This can be any valid FHIR terminology service that has the appropriate valuesets used in the eCQMs and can provide the expansion of those valuesets

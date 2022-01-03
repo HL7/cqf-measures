@@ -1,5 +1,6 @@
 @startuml Data_Element_Submission_Scenario
 title Data Element Submission Scenario
+participant "Data Repository" as DR
 participant "Submitting System" as Submitter
 participant "Knowledge Repository" as KR
 participant "Terminology Service" as TS
@@ -9,7 +10,7 @@ participant "Receiving System" as Receiver
 loop per measure
     Submitter -> KR: $data-requirements
     KR -> KR: Process data requirements
-    note right: 1. Include date-based filtering\n2. Map filters to search parameters\n3.   Prune data elements based on measure usage (incl attr)\n4. Eliminate duplicates
+    note right: 1. Include date-based filtering\n2. Map filters to search parameters\n3. Prune data elements based on measure usage (incl attr)\n4. Eliminate duplicates
     KR -> Submitter: Library.dataRequirement (0..*)
 end
 note right: Measure selection
@@ -23,7 +24,15 @@ TS -> Submitter: ValueSet(s)
 loop per measure
     Submitter -> Submitter: Determine attribution
     note right: DaVinci Attribution use case
-    Submitter -> Submitter: Determine initial population
+    loop per patient
+        loop per selective data element
+            Submitter -> DR: GET data element
+            note right: Use fhirQueryPattern
+            DR -> Submitter: Bundle
+            Submitter -> Submitter: Determine applicable population
+            note right: If the bundle has data, patient is potentially a member of the IP
+        end
+    end
     note right: Subset attributed patients by initial population applicability
 end
 note right: Measure selection
@@ -32,7 +41,9 @@ note right: Measure selection
 loop per patient
     loop per measure
         loop per data element
-            Submitter -> Submitter: GET data element
+            Submitter -> DR: GET data element
+            note right: Use fhirQueryPattern
+            DR -> Submitter: Bundle
         end
         Submitter -> Receiver: $submit-data
         note right: Return errors encountered
