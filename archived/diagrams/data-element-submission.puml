@@ -29,9 +29,9 @@ loop per measure
             Submitter -> DR: GET data element
             note right: Use fhirQueryPattern
             DR -> Submitter: Bundle
-            Submitter -> Submitter: Determine applicable population
-            note right: If the bundle has data, patient is potentially a member of the IP
         end
+        Submitter -> Submitter: Determine applicable population
+        note right: If all bundles have data, patient is potentially a member of the IP
     end
     note right: Subset attributed patients by initial population applicability
 end
@@ -40,13 +40,13 @@ note right: Measure selection
 == 3. Submission ==
 loop per patient
     loop per measure
-        loop per data element
+        loop per non-selective data element
             Submitter -> DR: GET data element
             note right: Use fhirQueryPattern
             DR -> Submitter: Bundle
         end
         Submitter -> Receiver: $submit-data
-        note right: Return errors encountered
+        note right: Submitter constructs a bundle with all data retrieved from the repository\nReturn errors encountered
         Receiver -> Submitter: OperationOutcome
     end
 end
