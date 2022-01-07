@@ -33,7 +33,7 @@ loop per measure
         Submitter -> Submitter: Determine applicable population
         note right: If all bundles have data, patient is potentially a member of the IP
     end
-    note right: Subset attributed patients by initial population applicability
+    note right: Subset attributed patients by\ninitial population applicability
 end
 note right: Measure selection
 
@@ -46,7 +46,7 @@ loop per patient
             DR -> Submitter: Bundle
         end
         Submitter -> Receiver: $submit-data
-        note right: Submitter constructs a bundle with all data retrieved from the repository\nReturn errors encountered
+        note right: Submitter constructs a bundle with all\n data retrieved from the repository\nReturn errors encountered
         Receiver -> Submitter: OperationOutcome
     end
 end
