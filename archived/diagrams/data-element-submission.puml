@@ -40,7 +40,7 @@ note right: Measure selection
 == 3. Submission ==
 loop per patient
     loop per measure
-        loop per non-selective data element
+        loop per data element not marked selective
             Submitter -> DR: GET data element
             note right: Use fhirQueryPattern
             DR -> Submitter: Bundle
