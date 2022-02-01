@@ -2,12 +2,19 @@
    <id value="BCSComponent"/>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem">
       <valueReference>
-         <reference value="cqf-tooling"/>
+         <reference value="Device/software-system-example"/>
       </valueReference>
    </extension>
    <url value="http://hl7.org/fhir/us/cqfmeasures/Library/BCSComponent"/>
    <version value="0.0.001"/>
    <name value="BCSComponent"/>
+   <title value="BCS Component"/>
+   <type>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
+         <code value="logic-library"/>
+      </coding>
+   </type>
    <relatedArtifact>
       <type value="depends-on"/>
       <display value="FHIR model information"/>

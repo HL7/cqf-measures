@@ -3,12 +3,12 @@
   "id": "supplementaldata-summary-example",
   "contained": [
     {
-      "@comment": "1 contained observation per supplemental data value per supplmental data definition in the measure",
+      "fhir_comments": "1 contained observation per supplemental data value per supplmental data definition in the measure",
       "resourceType": "Observation",
       "id": "supplementaldata-summary-example-observation",
       "extension": [
         {
-          "@comment": "link to the supplemental data definition",
+          "fhir_comments": "link to the supplemental data definition",
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
           "extension": [
             {
@@ -34,5 +34,123 @@
       "valueInteger": 12
     }
   ],
-  "@comment": "rest of the measure report"
+  "status": "complete",
+  "type": "individual",
+  "measure": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm",
+  "period": {
+    "start": "2020-01-01",
+    "end": "2020-12-31"
+  },
+  "fhir_comments": "rest of the measure report",
+  "group": [
+    {
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population"
+              }
+            ],
+            "text": "Initial Population"
+          },
+          "count": 1
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator"
+              }
+            ],
+            "text": "Denominator"
+          },
+          "count": 1
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator"
+              }
+            ],
+            "text": "Numerator"
+          },
+          "count": 1
+        }
+      ],
+      "measureScore": {
+        "value": 1.0
+      },
+      "stratifier": [
+        {
+          "id": "stratifier-1",
+          "code": [ {
+            "text": "Stratifier 1"
+          } ],
+          "stratum": [
+            {
+              "value": {
+                "text": "true"
+              },
+              "measureScore": {
+                "value": 1.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "stratifier-2",
+          "code": [ {
+            "text": "Stratifier 2"
+          } ],
+          "stratum": [
+            {
+              "value": {
+                "text": "true"
+              },
+              "measureScore": {
+                "value": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "stratifier-3",
+          "code": [ {
+            "text": "Stratifier 3"
+          } ],
+          "stratum": [
+            {
+              "value": {
+                "text": "true"
+              },
+              "measureScore": {
+                "value": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "stratifier-4",
+          "code": [ {
+            "text": "Stratifier 4"
+          } ],
+          "stratum": [
+            {
+              "value": {
+                "text": "true"
+              },
+              "measureScore": {
+                "value": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

@@ -4,12 +4,19 @@
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
-      "reference": "cqf-tooling"
+      "reference": "Device/software-system-example"
     }
   } ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/Library/AdvancedIllnessandFrailtyExclusion",
   "version": "5.12.000",
   "name": "AdvancedIllnessandFrailtyExclusion",
+  "title": "Advanced Illness and Frailty Exclusion",
+  "type": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/library-type",
+      "code": "logic-library"
+    } ]
+  },
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "FHIR model information",
