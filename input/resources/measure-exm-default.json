@@ -239,7 +239,7 @@
       "valueInteger": 6
     } ]
   } ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm55-FHIR",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm-default",
   "identifier": [ {
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
@@ -420,6 +420,25 @@
         "language": "text/cql.identifier",
         "expression": "Stratification 3"
       }
+	}, {
+	   "extension": [{
+		   "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo",
+		   "valueCodeableConcept": {
+			   "coding": [{
+					"system": "http://terminology.hl7.org/CodeSystem/measure-population",
+					"code": "initial-population"
+				},{
+					"system": "http://terminology.hl7.org/CodeSystem/measure-population",
+					"code": "numerator"
+				},{
+					"system": "http://terminology.hl7.org/CodeSystem/measure-population",
+					"code": "denominator"
+				},{
+					"system": "http://terminology.hl7.org/CodeSystem/measure-population",
+					"code": "measure-population"
+			   }]
+			}
+	   }]
     } ]
   } ]
 }

@@ -2,12 +2,19 @@
    <id value="CCSComponent"/>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem">
       <valueReference>
-         <reference value="cqf-tooling"/>
+         <reference value="Device/software-system-example"/>
       </valueReference>
    </extension>
-   <url value="http://ecqi.healthit.gov/ecqms/Library/CCSComponent"/>
+   <url value="http://hl7.org/fhir/us/cqfmeasures/Library/CCSComponent"/>
    <version value="0.0.001"/>
    <name value="CCSComponent"/>
+   <title value="CCS Component"/>
+   <type>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
+         <code value="logic-library"/>
+      </coding>
+   </type>
    <relatedArtifact>
       <type value="depends-on"/>
       <display value="FHIR model information"/>
