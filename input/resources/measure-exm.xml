@@ -475,6 +475,14 @@
             <language value="text/cql.identifier"/>
             <expression value="Stratifier 1"/>
          </criteria>
+		 <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo">
+			 <valueCodeableConcept>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+				</coding>
+				<text value="initial-population"/>
+			 </valueCodeableConcept>
+		</extension>
       </stratifier>
       <stratifier id="stratifier-2">
         <code><text value="Stratifier 2"/></code>
@@ -482,6 +490,14 @@
             <language value="text/cql.identifier"/>
             <expression value="Stratifier 2"/>
          </criteria>
+		 <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo">
+			 <valueCodeableConcept>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+				</coding>
+				<text value="initial-population"/>
+			 </valueCodeableConcept>
+		</extension>
       </stratifier>
       <stratifier id="stratifier-3">
         <code><text value="Stratifier 3"/></code>
@@ -489,6 +505,14 @@
             <language value="text/cql.identifier"/>
             <expression value="Stratifier 3"/>
          </criteria>
+		 <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo">
+			 <valueCodeableConcept>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+				</coding>
+				<text value="initial-population"/>
+			 </valueCodeableConcept>
+		</extension>
       </stratifier>
       <stratifier id="stratifier-4">
         <code><text value="Stratifier 4"/></code>
@@ -496,6 +520,14 @@
             <language value="text/cql.identifier"/>
             <expression value="Stratifier 4"/>
          </criteria>
+		<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo">
+			 <valueCodeableConcept>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+				</coding>
+				<text value="initial-population"/>
+			 </valueCodeableConcept>
+		</extension>
       </stratifier>
    </group>
    <supplementalData id="sde-ethnicity">

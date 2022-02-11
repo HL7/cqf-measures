@@ -632,8 +632,20 @@
   "url": "http://ecqi.healthit.gov/ecqms/Measure/BreastCancerScreeningFHIR",
   "identifier": [ {
     "use": "official",
-    "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid",
-    "value": "80366f35-e0a0-4ba7-a746-ad5760b79e01"
+    "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
+    "value": "55",
+	"versionIndependentIdentifier": [{
+		"use": "official",
+		"type": "version-independent"
+	}],
+	"versionSpecificIdentifier": [{
+		"use": "official",
+		"type": "version-specific"
+	}],
+	"shortName": [{
+		"use": "usual",
+		"type": "short-name"
+	}]
   } ],
   "version": "2.0.003",
   "name": "BreastCancerScreeningFHIR",
@@ -890,5 +902,20 @@
         "expression": "Numerator"
       }
     } ]
+  } ],
+  "approvalDate": "2019-03-08",
+  "lastReviewDate": "2019-03-08",
+  "useContext": [ {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "program"
+    },
+    "valueCodeableConcept": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
+        "code": "eh-cah",
+        "display": "EH/CAH"
+      } ]
+    }
   } ]
 }
