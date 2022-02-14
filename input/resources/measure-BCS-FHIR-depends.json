@@ -631,22 +631,46 @@
   } ],
   "url": "http://ecqi.healthit.gov/ecqms/Measure/BreastCancerScreeningFHIR",
   "identifier": [ {
-    "use": "official",
-    "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
-    "value": "55",
-	"versionIndependentIdentifier": [{
 		"use": "official",
-		"type": "version-independent"
-	}],
-	"versionSpecificIdentifier": [{
+		"system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
+		"value": "55"},
+	{ 
 		"use": "official",
-		"type": "version-specific"
-	}],
-	"shortName": [{
+		"type" : {
+			"coding" : [
+			  {
+				"system" : "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
+				"code" : "version-independent"
+			  }
+			]
+		 },
+		"system" : "urn:ietf:rfc:3986",
+		"value" : "urn:uuid:11873bc9-ca0a-4cf3-b8f2-605a950aac74"
+	}, {
+		"use": "official",
+		"type" : {
+			"coding" : [
+			  {
+				"system" : "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
+				"code" : "version-specific"
+			  }
+			]
+		},
+		"system" : "urn:ietf:rfc:3986",
+		"value" : "urn:uuid:b366f29b-347f-464e-8064-c83842d825c7"
+	}, {
 		"use": "usual",
-		"type": "short-name"
-	}]
-  } ],
+		"type" : {
+			"coding" : [
+			  {
+				"system" : "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
+				"code" : "short-name"
+			  }
+			]
+		},
+		"value": "BCS-FHIR"
+	}
+  ],
   "version": "2.0.003",
   "name": "BreastCancerScreeningFHIR",
   "title": "Breast Cancer Screening FHIR",
