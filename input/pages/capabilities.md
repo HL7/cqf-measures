@@ -29,6 +29,12 @@ This implementation guide defines capability statements, use cases, and conforma
 * [**Measure Terminology Service**](measure-terminology-service.html)
 * [**Measure Repository**](measure-repository-service.html)
 
+In addition, the following example capability statement illustrates the use of the [cqfm-supportedCqlVersion](StructureDefinition-cqfm-supportedCqlVersion.html) extension to support advertising the version of CQL supported by the service:
+
+* [**Example Measure Calculation Service**](CapabilityStatement-measure-calculation-service-example.html)
+
+See the capability statements defined in the [Data Exchange for Quality Measures](https://hl7.org/fhir/us/davinci-deqm/) implementation guide for the Submitting and Receiving System roles.
+
 ## Operations
 
 * [**Library/$package**](OperationDefinition-Library-package.html)

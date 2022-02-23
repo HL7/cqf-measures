@@ -4,272 +4,270 @@
   "meta": {
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
-  "extension": [ {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
-    "valueCode": "Encounter"
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
-    "valueParameterDefinition": {
+  "contained": [ {
+    "resourceType": "Library",
+    "id": "effective-data-requirements",
+    "extension": [ {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146"
+      }, {
+        "url": "name",
+        "valueString": "Is Between 2 and 17 Years of Age at Start of Measurement Period"
+      }, {
+        "url": "statement",
+        "valueString": "// Region: Initial Population\ndefine \"Is Between 2 and 17 Years of Age at Start of Measurement Period\":\n   AgeInYearsAt(start of \"Measurement Period\") >= 2\n      and AgeInYearsAt(start of \"Measurement Period\") <= 17"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 0
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146"
+      }, {
+        "url": "name",
+        "valueString": "Measurement Period Encounters"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Measurement Period Encounters\":\n   [Encounter: \"Ambulatory/ED Visit\"] Encounter\n      where Encounter.period during \"Measurement Period\"\n        and Encounter.status = 'finished'\n        and \"Is Between 2 and 17 Years of Age at Start of Measurement Period\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 1
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146"
+      }, {
+        "url": "name",
+        "valueString": "Pharyngitis"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Pharyngitis\":\n   ([Condition: code in \"Acute Pharyngitis\"]\n     union [Condition: code in \"Acute Tonsillitis\"]) Pharyngitis\n     where Pharyngitis.clinicalStatus ~ Global.active\n       and Pharyngitis.verificationStatus ~ Global.confirmed"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 2
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146"
+      }, {
+        "url": "name",
+        "valueString": "Antibiotics"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Antibiotics\":\n   [MedicationRequest: medication in \"Antibiotic Medications\"] Prescription\n     where Prescription.status = 'active'\n       and Prescription.intent = 'order'"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 3
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146"
+      }, {
+        "url": "name",
+        "valueString": "Pharyngitis Encounters With Antibiotics"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Pharyngitis Encounters With Antibiotics\":\n   \"Measurement Period Encounters\" Encounters\n      with \"Pharyngitis\" Pharyngitis such that\n         Common.\"Includes Or Starts During\"(Pharyngitis, Encounters)\n      with \"Antibiotics\" Antibiotics such that Antibiotics.authoredOn\n         3 days or less after FHIRHelpers.ToInterval(Encounters.period)"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 4
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146"
+      }, {
+        "url": "name",
+        "valueString": "Strep Test Encounters"
+      }, {
+        "url": "statement",
+        "valueString": "// EndRegion: Denominator Exclusions\n\n// Region: Denominator Exceptions\n\n// None\n\n// EndRegion: Denominator Exceptions\n\n// Region: Numerator\ndefine \"Strep Test Encounters\":\n   \"Pharyngitis Encounters With Antibiotics\" Encounters\n      with [Observation: code in \"Group A Streptococcus Test\"] Tests\n         such that Tests.value is not null\n            and Tests.effective starts during\n               Interval[start of FHIRHelpers.ToInterval(Encounters.period) - 3 days,\n                 end of FHIRHelpers.ToInterval(Encounters.period) + 3 days]"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 5
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146"
+      }, {
+        "url": "name",
+        "valueString": "Numerator"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Numerator\":\n   \"Strep Test Encounters\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 6
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146"
+      }, {
+        "url": "name",
+        "valueString": "Initial Population"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Initial Population\":\n   \"Pharyngitis Encounters With Antibiotics\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 7
+      } ]
+    } ],
+    "name": "EffectiveDataRequirements",
+    "status": "active",
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "module-definition"
+      } ]
+    },
+    "date": "2022-02-22T10:37:03-07:00",
+    "relatedArtifact": [ {
+      "type": "depends-on",
+      "display": "Library FHIRHelpers",
+      "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
+    }, {
+      "type": "depends-on",
+      "display": "Library Global",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"
+    }, {
+      "type": "depends-on",
+      "display": "Library Common",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/Common|2.0.0"
+    }, {
+      "type": "depends-on",
+      "display": "Code system ConditionClinicalStatusCodes",
+      "resource": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+    }, {
+      "type": "depends-on",
+      "display": "Code system ConditionVerificationStatusCodes",
+      "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Ambulatory/ED Visit",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Acute Pharyngitis",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Acute Tonsillitis",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Antibiotic Medications",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Group A Streptococcus Test",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
+    } ],
+    "parameter": [ {
       "name": "Measurement Period",
       "use": "in",
       "min": 0,
       "max": "1",
       "type": "Period"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
-    "valueParameterDefinition": {
+    }, {
       "name": "Numerator",
       "use": "out",
       "min": 0,
       "max": "*",
       "type": "Encounter"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
-    "valueParameterDefinition": {
-      "name": "Strep Test Encounters",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Encounter"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
-    "valueParameterDefinition": {
-      "name": "Pharyngitis Encounters With Antibiotics",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Encounter"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
-    "valueParameterDefinition": {
-      "name": "Measurement Period Encounters",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Encounter"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
-    "valueParameterDefinition": {
-      "name": "Is Between 2 and 17 Years of Age at Start of Measurement Period",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "boolean"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
-    "valueParameterDefinition": {
-      "name": "Pharyngitis",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "Condition"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
-    "valueParameterDefinition": {
-      "name": "Antibiotics",
-      "use": "out",
-      "min": 0,
-      "max": "*",
-      "type": "MedicationRequest"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
-    "valueParameterDefinition": {
+    }, {
       "name": "Initial Population",
       "use": "out",
       "min": 0,
       "max": "*",
       "type": "Encounter"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
-      "type": "Encounter",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-      "codeFilter": [ {
-        "path": "type",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
-      } ]
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
+    } ],
+    "dataRequirement": [ {
       "type": "Condition",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "code" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
       } ]
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
+    }, {
       "type": "Condition",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "code" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
       } ]
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "codeFilter": [ {
-        "path": "medication",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
-      } ]
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement",
-    "valueDataRequirement": {
+    }, {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "effective", "code", "value" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
       } ]
+    }, {
+      "type": "Patient",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+    }, {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "period", "type", "status" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
+      } ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "authoredOn", "medication", "intent", "status" ],
+      "codeFilter": [ {
+        "path": "medication",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
+      } ]
+    } ]
+  } ],
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+    "valueCode": "Encounter"
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/software-system-example"
     }
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-    "valueCoding": {
-      "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-      "code": "active"
+    "id": "effective-data-requirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
     }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-    "valueCoding": {
-      "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-      "code": "confirmed"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "EXM146"
-    }, {
-      "url": "name",
-      "valueString": "Numerator"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Numerator\":\n   \"Strep Test Encounters\""
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 0
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "EXM146"
-    }, {
-      "url": "name",
-      "valueString": "Strep Test Encounters"
-    }, {
-      "url": "statement",
-      "valueString": "// EndRegion: Denominator Exclusions\n\n// Region: Denominator Exceptions\n\n// None\n\n// EndRegion: Denominator Exceptions\n\n// Region: Numeratordefine \"Strep Test Encounters\":\n   \"Pharyngitis Encounters With Antibiotics\" Encounters\n      with [Observation: code in \"Group A Streptococcus Test\"] Tests\n         such that Tests.value is not null\n            and Tests.effective starts during\n               Interval[start of FHIRHelpers.ToInterval(Encounters.period) - 3 days,\n                 end of FHIRHelpers.ToInterval(Encounters.period) + 3 days]"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 1
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "EXM146"
-    }, {
-      "url": "name",
-      "valueString": "Pharyngitis Encounters With Antibiotics"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Pharyngitis Encounters With Antibiotics\":\n   \"Measurement Period Encounters\" Encounters\n      with \"Pharyngitis\" Pharyngitis such that\n         Common.\"Includes Or Starts During\"(Pharyngitis, Encounters)\n      with \"Antibiotics\" Antibiotics such that Antibiotics.authoredOn\n         3 days or less after FHIRHelpers.ToInterval(Encounters.period)"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 2
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "EXM146"
-    }, {
-      "url": "name",
-      "valueString": "Measurement Period Encounters"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Measurement Period Encounters\":\n   [Encounter: \"Ambulatory/ED Visit\"] Encounter\n      where Encounter.period during \"Measurement Period\"\n        and Encounter.status = 'finished'\n        and \"Is Between 2 and 17 Years of Age at Start of Measurement Period\""
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 3
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "EXM146"
-    }, {
-      "url": "name",
-      "valueString": "Is Between 2 and 17 Years of Age at Start of Measurement Period"
-    }, {
-      "url": "statement",
-      "valueString": "// Region: Initial Populationdefine \"Is Between 2 and 17 Years of Age at Start of Measurement Period\":\n   AgeInYearsAt(start of \"Measurement Period\") >= 2\n      and AgeInYearsAt(start of \"Measurement Period\") <= 17"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 4
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "EXM146"
-    }, {
-      "url": "name",
-      "valueString": "Pharyngitis"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Pharyngitis\":\n   ([Condition: code in \"Acute Pharyngitis\"]\n     union [Condition: code in \"Acute Tonsillitis\"]) Pharyngitis\n     where Pharyngitis.clinicalStatus ~ Global.active\n       and Pharyngitis.verificationStatus ~ Global.confirmed"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 5
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "EXM146"
-    }, {
-      "url": "name",
-      "valueString": "Antibiotics"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Antibiotics\":\n   [MedicationRequest: medication in \"Antibiotic Medications\"] Prescription\n     where Prescription.status = 'active'\n       and Prescription.intent = 'order'"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 6
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "EXM146"
-    }, {
-      "url": "name",
-      "valueString": "Initial Population"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Initial Population\":\n   \"Pharyngitis Encounters With Antibiotics\""
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 7
-    } ]
   } ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm146-FHIR",
   "identifier": [ {
@@ -282,7 +280,7 @@
   "title": "Appropriate Testing for Children with Pharyngitis",
   "status": "active",
   "experimental": true,
-  "date": "2021-04-03",
+  "date": "2022-02-22",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
@@ -325,47 +323,6 @@
       "display": "Health Quality Measure Document"
     } ]
   } ],
-  "relatedArtifact": [ {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
-  }, {
-    "type": "depends-on",
-    "display": "Library Global",
-    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"
-  }, {
-    "type": "depends-on",
-    "display": "Library Common",
-    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/Common|2.0.0"
-  }, {
-    "type": "depends-on",
-    "display": "Code system ConditionClinicalStatusCodes",
-    "resource": "http://terminology.hl7.org/CodeSystem/condition-clinical"
-  }, {
-    "type": "depends-on",
-    "display": "Code system ConditionVerificationStatusCodes",
-    "resource": "http://terminology.hl7.org/CodeSystem/condition-verification"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Ambulatory/ED Visit",
-    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Acute Pharyngitis",
-    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Acute Tonsillitis",
-    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Antibiotic Medications",
-    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Group A Streptococcus Test",
-    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
-  } ],
   "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/EXM146" ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. \n Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
@@ -401,7 +358,7 @@
         } ]
       },
       "criteria": {
-        "language": "text/cql.identifier",
+        "language": "text/cql-identifier",
         "expression": "Initial Population"
       }
     }, {
@@ -413,7 +370,7 @@
         } ]
       },
       "criteria": {
-        "language": "text/cql.identifier",
+        "language": "text/cql-identifier",
         "expression": "Numerator"
       }
     }, {
@@ -425,7 +382,7 @@
         } ]
       },
       "criteria": {
-        "language": "text/cql.identifier",
+        "language": "text/cql-identifier",
         "expression": "Denominator"
       }
     }, {
@@ -437,7 +394,7 @@
         } ]
       },
       "criteria": {
-        "language": "text/cql.identifier",
+        "language": "text/cql-identifier",
         "expression": "Denominator Exclusion"
       }
     } ]

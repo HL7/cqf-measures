@@ -15,6 +15,8 @@
          <code value="logic-library"/>
       </coding>
    </type>
+   <publisher value="National Committee for Quality Assurance"></publisher>
+   <description value="This library is the primary measure library for the Breast Cancer Screening component of the composite measure examples in this implementation guide."/>
    <relatedArtifact>
       <type value="depends-on"/>
       <display value="FHIR model information"/>
@@ -23,12 +25,12 @@
    <relatedArtifact>
       <type value="depends-on"/>
       <display value="Library FHIRHelpers"/>
-      <resource value="http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.1"/>
+      <resource value="http://fhir.org/guides/common/Library/FHIRHelpers|4.0.1"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="depends-on"/>
       <display value="Library SDE"/>
-      <resource value="http://ecqi.healthit.gov/ecqms/Library/SupplementalDataElements|2.0.000"/>
+      <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.000"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="depends-on"/>
@@ -53,17 +55,17 @@
    <relatedArtifact>
       <type value="depends-on"/>
       <display value="Library FHIRHelpers"/>
-      <resource value="http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.1"/>
+      <resource value="http://fhir.org/guides/common/Library/FHIRHelpers|4.0.1"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="depends-on"/>
       <display value="Library FHIRHelpers"/>
-      <resource value="http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.1"/>
+      <resource value="http://fhir.org/guides/common/Library/FHIRHelpers|4.0.1"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="depends-on"/>
       <display value="Library FHIRHelpers"/>
-      <resource value="http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers|4.0.1"/>
+      <resource value="http://fhir.org/guides/common/Library/FHIRHelpers|4.0.1"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="depends-on"/>
@@ -392,6 +394,7 @@
       <codeFilter>
          <path value="url"/>
          <code>
+            <system value="urn:ietf:rfc:3986"/>
             <code value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"/>
          </code>
       </codeFilter>
@@ -402,6 +405,7 @@
       <codeFilter>
          <path value="url"/>
          <code>
+            <system value="urn:ietf:rfc:3986"/>
             <code value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"/>
          </code>
       </codeFilter>
@@ -424,7 +428,7 @@
       <codeFilter>
          <path value="status"/>
          <code>
-			<system value="http://hl7.org/fhir/report-status-codes"/>
+		        <system value="http://hl7.org/fhir/report-status-codes"/>
             <code value="completed"/>
          </code>
       </codeFilter>
@@ -439,7 +443,7 @@
       <codeFilter>
          <path value="status"/>
          <code>
-			<system value="http://hl7.org/fhir/report-status-codes"/>
+		        <system value="http://hl7.org/fhir/report-status-codes"/>
             <code value="completed"/>
          </code>
       </codeFilter>
@@ -462,7 +466,7 @@
       <codeFilter>
          <path value="status"/>
          <code>
-			<system value="http://hl7.org/fhir/report-status-codes"/>
+		        <system value="http://hl7.org/fhir/report-status-codes"/>
             <code value="completed"/>
          </code>
       </codeFilter>

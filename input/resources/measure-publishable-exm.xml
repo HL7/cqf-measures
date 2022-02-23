@@ -1,307 +1,507 @@
 <Measure xmlns="http://hl7.org/fhir">
-    <id value="measure-publishable-exm"/>
-    <meta>
-        <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"/>
-    </meta>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
-        <valueCode value="Encounter"/>
-    </extension>
-<!-- Canonical URL for the measure. This is a globally unique, version-independent identifier for the eCQM. -->
-<url value="http://example.org/fhir/measures/publishable-measure-exm"/>
-<!-- A business identifier for the measure. This is typically a short, user-friendly identifier assigned for a particular
-  set of eCQMs such as HEDIS or CMS eCQM identifiers. A measure may have any number of business identifiers. -->
-  <identifier>
-    <use value="usual"/>
-    <type>
+   <id value="measure-publishable-exm"></id>
+   <meta>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
+   </meta>
+   <contained>
+      <Library xmlns="http://hl7.org/fhir">
+         <id value="effective-data-requirements"></id>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMPublishableLibrary"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Sex"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Sex&quot;:
+  case
+    when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }
+    when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }
+    else null
+  end"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="0"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMPublishableLibrary"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Payer"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Payer&quot;:
+    [Coverage: type in &quot;Payer&quot;] Payer
+      return {
+        code: Payer.type,
+        period: Payer.period
+      }"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="1"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMPublishableLibrary"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Inpatient Encounter"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Inpatient Encounter&quot; :
+  [&quot;Encounter&quot;] Encounter
+    where LengthInDays(Encounter.period) &lt;= 120
+      and Encounter.period ends during &quot;Measurement Period&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="2"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMPublishableLibrary"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Initial Population"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Initial Population&quot; :
+  &quot;Inpatient Encounter&quot; Encounter"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="3"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMPublishableLibrary"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Ethnicity"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Ethnicity&quot;:
+  (flatten (
+    Patient.extension Extension
+      where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
+        return Extension.extension
+  )) E
+    where E.url = 'ombCategory'
+      or E.url = 'detailed'
+    return E.value as Coding"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="4"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMPublishableLibrary"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Race"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Race&quot;:
+  (flatten (
+    Patient.extension Extension
+      where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
+        return Extension.extension
+  )) E
+    where E.url = 'ombCategory'
+      or E.url = 'detailed'
+    return E.value as Coding"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="5"></valueInteger>
+            </extension>
+         </extension>
+         <name value="EffectiveDataRequirements"/>
+         <status value="active"></status>
+         <type>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/library-type"></system>
+               <code value="module-definition"></code>
+            </coding>
+         </type>
+         <date value="2022-02-22T10:37:03-07:00"></date>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Library FHIRHelpers"></display>
+            <resource value="http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Payer"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"></resource>
+         </relatedArtifact>
+         <parameter>
+            <name value="Measurement Period"></name>
+            <use value="in"></use>
+            <min value="0"></min>
+            <max value="1"></max>
+            <type value="Period"></type>
+         </parameter>
+         <parameter>
+            <name value="SDE Sex"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="1"></max>
+            <type value="Coding"></type>
+         </parameter>
+         <parameter>
+            <name value="SDE Payer"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Any"></type>
+         </parameter>
+         <parameter>
+            <name value="Initial Population"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <parameter>
+            <name value="SDE Ethnicity"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Coding"></type>
+         </parameter>
+         <parameter>
+            <name value="SDE Race"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Coding"></type>
+         </parameter>
+         <dataRequirement>
+            <type value="Patient"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Patient"></profile>
+            <mustSupport value="extension"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <mustSupport value="url"></mustSupport>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Encounter"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Encounter"></profile>
+            <mustSupport value="period"></mustSupport>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Coverage"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Coverage"></profile>
+            <mustSupport value="period"></mustSupport>
+            <mustSupport value="type"></mustSupport>
+            <codeFilter>
+               <path value="type"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+      </Library>
+   </contained>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+      <valueCode value="Encounter"></valueCode>
+   </extension>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem">
+      <valueReference>
+         <reference value="Device/software-system-example"></reference>
+      </valueReference>
+   </extension>
+   <extension id="effective-data-requirements" url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements">
+      <valueReference>
+         <reference value="#effective-data-requirements"></reference>
+      </valueReference>
+   </extension>
+   <url value="http://example.org/fhir/measures/publishable-measure-exm"></url>
+   <identifier>
+      <use value="usual"></use>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"></system>
+            <code value="short-name"></code>
+         </coding>
+      </type>
+      <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm"></system>
+      <value value="EXM-123"></value>
+   </identifier>
+   <identifier>
+      <use value="official"></use>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"></system>
+            <code value="version-independent"></code>
+         </coding>
+      </type>
+      <system value="urn:ietf:rfc:3986"></system>
+      <value value="urn:uuid:11873bc9-ca0a-4cf3-b8f2-605a950aac74"></value>
+   </identifier>
+   <identifier>
+      <use value="official"></use>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"></system>
+            <code value="version-specific"></code>
+         </coding>
+      </type>
+      <system value="urn:ietf:rfc:3986"></system>
+      <value value="urn:uuid:b366f29b-347f-464e-8064-c83842d825c7"></value>
+   </identifier>
+   <identifier>
+      <use value="official"></use>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"></system>
+            <code value="endorser"></code>
+         </coding>
+      </type>
+      <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/nqf"></system>
+      <value value="NQF-123"></value>
+      <assigner>
+         <display value="NQF"></display>
+      </assigner>
+   </identifier>
+   <identifier>
+      <use value="official"></use>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"></system>
+            <code value="publisher"></code>
+         </coding>
+      </type>
+      <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/cms"></system>
+      <value value="CMS-123"></value>
+      <assigner>
+         <display value="CMS"></display>
+      </assigner>
+   </identifier>
+   <version value="2.0.0"></version>
+   <name value="PublishableMeasureEXM"></name>
+   <title value="EXM Publishable Measure"></title>
+   <status value="active"></status>
+   <experimental value="true"></experimental>
+   <date value="2022-02-22"></date>
+   <publisher value="Example Measure Publisher"></publisher>
+   <contact>
+      <telecom>
+         <system value="url"></system>
+         <value value="http://www.example.org/"></value>
+      </telecom>
+   </contact>
+   <description value="An example FHIR-based publishable measure"></description>
+   <useContext>
+      <code>
+         <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"></system>
+         <code value="program"></code>
+      </code>
+      <valueCodeableConcept>
+         <coding>
+            <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs"></system>
+            <code value="ep-ec"></code>
+         </coding>
+         <text value="eligible-provider"></text>
+      </valueCodeableConcept>
+   </useContext>
+   <jurisdiction>
       <coding>
-        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"/>
-        <code value="short-name"/>
+         <system value="urn:iso:std:iso:3166"></system>
+         <code value="US"></code>
       </coding>
-    </type>
-    <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm"/>
-    <value value="EXM-123"/>
-  </identifier>
-  <identifier>
-    <use value="official"/>
-    <type>
-      <coding>
-        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"/>
-        <code value="version-independent"/>
-      </coding>
-    </type>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:uuid:11873bc9-ca0a-4cf3-b8f2-605a950aac74"/>
-  </identifier>
-  <identifier>
-    <use value="official"/>
-    <type>
-      <coding>
-        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"/>
-        <code value="version-specific"/>
-      </coding>
-    </type>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:uuid:b366f29b-347f-464e-8064-c83842d825c7"/>
-  </identifier>
-  <identifier>
-    <use value="official"/>
-    <type>
-      <coding>
-        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"/>
-        <code value="endorser"/>
-      </coding>
-    </type>
-    <!-- This should be a system established by the endorser -->
-    <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/nqf"/>
-    <value value="NQF-123"/>
-    <assigner>
-      <display value="NQF"/>
-    </assigner>
-  </identifier>
-  <identifier>
-    <use value="official"/>
-    <type>
-      <coding>
-        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type"/>
-        <code value="publisher"/>
-      </coding>
-    </type>
-    <!-- This should be a system established by the publisher -->
-    <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/cms"/>
-    <value value="CMS-123"/>
-    <assigner>
-      <display value="CMS"/>
-    </assigner>
-  </identifier>
-  <!-- The business version of the measure. This value is incremented as part of managing changes to the measure content. -->
-  <version value="2.0.0"/>
-  <!-- The name of the measure. This is a machine-friendly identifier for the measure -->
-  <name value="PublishableMeasureEXM"/>
-  <!-- The title of the measure. This is a user-friendly identifier for the measure -->
-  <title value="EXM Publishable Measure"/>
-  <status value="active"/>
-  <experimental value="true"/>
-  <!-- The publication date of the measure -->
-  <date value="2019-02-17"/>
-  <!-- The publisher of the measure -->
-  <publisher value="Example Measure Publisher"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.example.org/"/>
-    </telecom>
-  </contact>
-  <!-- The description of the measure -->
-  <description value="An example FHIR-based publishable measure"/>
-  <useContext>
-    <code>
-      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-      <code value="program"/>
-    </code>
-    <valueCodeableConcept>
-      <coding>
-        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs"/>
-        <code value="ep-ec"/>
-      </coding>
-      <text value="eligible-provider"/>
-    </valueCodeableConcept>
-  </useContext>
-  <jurisdiction>
-    <coding>
-      <system value="urn:iso:std:iso:3166"/>
-      <code value="US"/>
-    </coding>
-  </jurisdiction>
-  <purpose value="The purpose of this measure is to..."/>
-  <usage value="Users of this measure should be aware of..."/>
-  <copyright value="Example Copyright Statement"/>
-  <approvalDate value="2019-02-17"/>
-  <lastReviewDate value="2019-02-17"/>
-  <effectivePeriod>
-		<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor">
-			<valueDateTime value="2018-01-01"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration">
-			<valueDuration>
-				<value value="1"/>
-				<code value="a"/>
-        <system value="http://unitsofmeasure.org"/>
-			</valueDuration>
-		</extension>
-    <start value="2018-01-01"/>
-    <end value="2018-12-31"/>
-  </effectivePeriod>
-  <topic>
-    <coding>
-        <system value="http://loinc.org"/>
-        <code value="57024-2"/>
-    </coding>
-    <text value="Health Quality Measure Document"/>
-  </topic>
-  <author>
-    <name value="Example Measure Content Developer"/>
-  </author>
-  <relatedArtifact>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
-        <valueBoolean value="true"/>
-    </extension>
-    <type value="citation"/>
-    <citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. &quot;Antibiotic treatment       of children with sore throat.&quot; JAMA 294(18):2315-2322."/>
-    <url value="https://pubmed.ncbi.nlm.nih.gov/16278359/"/>
-</relatedArtifact>
-<relatedArtifact>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
-        <valueBoolean value="true"/>
-    </extension>
-    <type value="citation"/>
-    <citation value="Infectious Diseases Society of America. 2012. &quot;Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update.&quot;"/>
-    <url value="https://pubmed.ncbi.nlm.nih.gov/23091044/"/>
-</relatedArtifact>
-<relatedArtifact>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
-        <valueBoolean value="true"/>
-    </extension>
-    <type value="citation"/>
-    <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot; Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
-    <url value="https://pubmed.ncbi.nlm.nih.gov/19739972/"/>
-  </relatedArtifact>
-  <relatedArtifact>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationStatus">
-        <valueCode value="draft"/>
-    </extension>
-    <type value="composed-of"/>
-</relatedArtifact>
-<relatedArtifact>
-  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationDate">
-      <valueDate value="2019-01-01"/>
-  </extension>
-  <type value="composed-of"/>
-</relatedArtifact>
-<library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMPublishableLibrary"/>
-  <disclaimer value="Example disclaimer"/>
-  <scoring>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
-      <code value="proportion"/>
-      <display value="Proportion"/>
-    </coding>
-</scoring>
-<type>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
-      <code value="process"/>
-    </coding>
-  </type>
-  <riskAdjustment value="Risk adjustment for this measure is performed by..."/>
-  <rateAggregation value="Rate aggregation for this measure is performed by..."/>
-  <rationale value="Rationale for this measure is..."/>
-  <clinicalRecommendationStatement value="The clinical recommendation statement for this measure is..."/>
-  <improvementNotation>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
-      <code value="increase"/>
-      <display value="Increased score indicates improvement"/>
-    </coding>
-  </improvementNotation>
-  <!-- NOTE: When using the extension, do not provide the definition in the element, or the extension may end up associated with an arbitrary definition -->
-  <definition>
-    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-definitionTerm">
-      <extension url="term">
-        <valueString value="Term"/>
+   </jurisdiction>
+   <purpose value="The purpose of this measure is to..."></purpose>
+   <usage value="Users of this measure should be aware of..."></usage>
+   <copyright value="Example Copyright Statement"></copyright>
+   <approvalDate value="2019-02-17"></approvalDate>
+   <lastReviewDate value="2019-02-17"></lastReviewDate>
+   <effectivePeriod>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor">
+         <valueDateTime value="2018-01-01"></valueDateTime>
       </extension>
-      <extension url="definition">
-        <valueMarkdown value="A term used in the measure that bears clearly definition to communicate the measure intent"/>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration">
+         <valueDuration>
+            <value value="1"></value>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="a"></code>
+         </valueDuration>
       </extension>
-    </extension>
-  </definition>
-  <guidance value="Additional guidance provided to help communicate the intent of the measure"/>
-  <group id="group-1">
-    <population id="initial-population">
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="initial-population"/>
-          <display value="Initial Population"/>
-        </coding>
-      </code>
+      <start value="2018-01-01"></start>
+      <end value="2018-12-31"></end>
+   </effectivePeriod>
+   <topic>
+      <coding>
+         <system value="http://loinc.org"></system>
+         <code value="57024-2"></code>
+      </coding>
+      <text value="Health Quality Measure Document"></text>
+   </topic>
+   <author>
+      <name value="Example Measure Content Developer"></name>
+   </author>
+   <relatedArtifact>
+       <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
+         <valueBoolean value="true"/>
+       </extension>
+       <type value="citation"/>
+       <citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. &quot;Antibiotic treatment       of children with sore throat.&quot; JAMA 294(18):2315-2322."/>
+       <url value="https://pubmed.ncbi.nlm.nih.gov/16278359/"/>
+     </relatedArtifact>
+     <relatedArtifact>
+       <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
+         <valueBoolean value="true"/>
+       </extension>
+       <type value="citation"/>
+       <citation value="Infectious Diseases Society of America. 2012. &quot;Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update.&quot;"/>
+       <url value="https://pubmed.ncbi.nlm.nih.gov/23091044/"/>
+     </relatedArtifact>
+     <relatedArtifact>
+       <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation">
+         <valueBoolean value="true"/>
+       </extension>
+       <type value="citation"/>
+       <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot; Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
+       <url value="https://pubmed.ncbi.nlm.nih.gov/19739972/"/>
+     </relatedArtifact>
+     <relatedArtifact>
+       <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationStatus">
+         <valueCode value="draft"/>
+       </extension>
+       <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationDate">
+         <valueDate value="2019-01-01"/>
+       </extension>
+       <type value="citation"/>
+       <citation value="Example citation to draft publication"/>
+       <url value="http://example.org/publications/1234"/>
+     </relatedArtifact>
+   <library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMPublishableLibrary"></library>
+   <disclaimer value="Example disclaimer"></disclaimer>
+   <scoring>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"></system>
+         <code value="proportion"></code>
+         <display value="Proportion"></display>
+      </coding>
+   </scoring>
+   <type>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-type"></system>
+         <code value="process"></code>
+      </coding>
+   </type>
+   <riskAdjustment value="Risk adjustment for this measure is performed by..."></riskAdjustment>
+   <rateAggregation value="Rate aggregation for this measure is performed by..."></rateAggregation>
+   <rationale value="Rationale for this measure is..."></rationale>
+   <clinicalRecommendationStatement value="The clinical recommendation statement for this measure is..."></clinicalRecommendationStatement>
+   <improvementNotation>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"></system>
+         <code value="increase"></code>
+         <display value="Increased score indicates improvement"></display>
+      </coding>
+   </improvementNotation>
+   <definition>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-definitionTerm">
+         <extension url="term">
+            <valueString value="Term"></valueString>
+         </extension>
+         <extension url="definition">
+            <valueMarkdown value="A term used in the measure that bears clearly definition to communicate the measure intent"></valueMarkdown>
+         </extension>
+      </extension>
+   </definition>
+   <guidance value="Additional guidance provided to help communicate the intent of the measure"></guidance>
+   <group id="group-1">
+      <population id="initial-population">
+         <code>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="initial-population"></code>
+               <display value="Initial Population"></display>
+            </coding>
+         </code>
+         <criteria>
+            <language value="text/cql-identifier"></language>
+            <expression value="Initial Population"></expression>
+         </criteria>
+      </population>
+      <population id="numerator">
+         <code>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="numerator"></code>
+               <display value="Numerator"></display>
+            </coding>
+         </code>
+         <criteria>
+            <language value="text/cql-identifier"></language>
+            <expression value="Numerator"></expression>
+         </criteria>
+      </population>
+      <population id="denominator">
+         <code>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="denominator"></code>
+               <display value="Denominator"></display>
+            </coding>
+         </code>
+         <criteria>
+            <language value="text/cql-identifier"></language>
+            <expression value="Denominator"></expression>
+         </criteria>
+      </population>
+   </group>
+   <supplementalData id="sde-ethnicity">
+      <usage>
+         <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"></system>
+            <code value="supplemental-data"></code>
+         </coding>
+      </usage>
       <criteria>
-        <language value="text/cql.identifier"/>
-        <expression value="Initial Population"/>
+         <language value="text/cql-identifier"></language>
+         <expression value="SDE Ethnicity"></expression>
       </criteria>
-    </population>
-    <population id="numerator">
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="numerator"/>
-          <display value="Numerator"/>
-        </coding>
-      </code>
+   </supplementalData>
+   <supplementalData id="sde-race">
+      <usage>
+         <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"></system>
+            <code value="supplemental-data"></code>
+         </coding>
+      </usage>
       <criteria>
-        <language value="text/cql.identifier"/>
-        <expression value="Numerator"/>
+         <language value="text/cql-identifier"></language>
+         <expression value="SDE Race"></expression>
       </criteria>
-    </population>
-    <population id="denominator">
-      <code>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-          <code value="denominator"/>
-          <display value="Denominator"/>
-        </coding>
-      </code>
+   </supplementalData>
+   <supplementalData id="sde-payer">
+      <usage>
+         <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"></system>
+            <code value="supplemental-data"></code>
+         </coding>
+      </usage>
       <criteria>
-        <language value="text/cql.identifier"/>
-        <expression value="Denominator"/>
+         <language value="text/cql-identifier"></language>
+         <expression value="SDE Payer"></expression>
       </criteria>
-    </population>
-  </group>
-  <supplementalData id="sde-ethnicity">
-    <usage>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
-    </usage>
-    <criteria>
-      <language value="text/cql.identifier"/>
-      <expression value="SDE Ethnicity"/>
-    </criteria>
-  </supplementalData>
-  <supplementalData id="sde-race">
-    <usage>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
-    </usage>
-    <criteria>
-      <language value="text/cql.identifier"/>
-      <expression value="SDE Race"/>
-    </criteria>
-  </supplementalData>
-  <supplementalData id="sde-payer">
-    <usage>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
-    </usage>
-    <criteria>
-      <language value="text/cql.identifier"/>
-      <expression value="SDE Payer"/>
-    </criteria>
-  </supplementalData>
-  <supplementalData id="sde-sex">
-    <usage>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-        <code value="supplemental-data"/>
-      </coding>
-    </usage>
-    <criteria>
-      <language value="text/cql.identifier"/>
-      <expression value="SDE Sex"/>
-    </criteria>
-  </supplementalData>
+   </supplementalData>
+   <supplementalData id="sde-sex">
+      <usage>
+         <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"></system>
+            <code value="supplemental-data"></code>
+         </coding>
+      </usage>
+      <criteria>
+         <language value="text/cql-identifier"></language>
+         <expression value="SDE Sex"></expression>
+      </criteria>
+   </supplementalData>
 </Measure>

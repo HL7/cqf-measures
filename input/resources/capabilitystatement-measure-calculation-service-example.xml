@@ -1,11 +1,23 @@
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-  <id value="measure-calculation-service"/>
-  <text>
-    <status value="generated"/>
-  </text>
-  <url value="http://hl7.org/fhir/us/cqfmeasures/CapabilityStatement/measure-calculation-service"/>
-  <name value="MeasureCalculationServiceConformanceStatement"/>
-  <title value="Measure Calculation Service Conformance Statement"/>
+  <id value="measure-calculation-service-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/capability-statement-cqfm"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supportedCqlVersion">
+    <valueCoding>
+      <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/cql-version"/>
+      <code value="1.5"/>
+    </valueCoding>
+  </extension>
+  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supportedCqlVersion">
+    <valueCoding>
+      <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/cql-version"/>
+      <code value="1.4"/>
+    </valueCoding>
+  </extension>
+  <url value="http://hl7.org/fhir/us/cqfmeasures/CapabilityStatement/measure-calculation-service-example"/>
+  <name value="MeasureCalculationServiceCapabilityStatementExample"/>
+  <title value="Measure Calculation Service Capability Statement Example"/>
   <status value="draft"/>
   <date value="2016-09-16"/>
   <publisher value="HL7, Inc"/>
@@ -18,10 +30,15 @@
   </contact>
   <description value="Basic conformance statement for a Measure Calculation Service. A server can support more fucntionality
    than defined here, but this is the minimum amount"/>
-  <kind value="capability"/>
+  <kind value="instance"/>
+  <instantiates value="http://hl7.org/fhir/knowledge-repository"/>
   <software>
     <name value="ACME Measure Calculation Service"/>
   </software>
+  <implementation>
+    <description value="This service supports basic measure repository features as well as measure calculation using the $evaluate-measure operation."/>
+    <url value="https://example.org/fhir"/>
+  </implementation>
   <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
