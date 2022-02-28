@@ -1,306 +1,304 @@
 <Measure xmlns="http://hl7.org/fhir">
-   <id value="measure-ratio-exm"/>
+   <id value="measure-ratio-exm"></id>
    <meta>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm"/>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"/>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
    </meta>
+   <contained>
+      <Library xmlns="http://hl7.org/fhir">
+         <id value="effective-data-requirements"></id>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMRatio"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Qualifying Encounters"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Qualifying Encounters&quot;:
+  [&quot;Encounter&quot;: &quot;Inpatient&quot;]"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="0"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMRatio"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Initial Population"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Initial Population&quot;:
+  &quot;Qualifying Encounters&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="1"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMRatio"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Numerator"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Numerator&quot;:
+  &quot;Initial Population&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="2"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMRatio"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Denominator"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Denominator&quot;:
+  &quot;Initial Population&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="3"></valueInteger>
+            </extension>
+         </extension>
+         <name value="EffectiveDataRequirements"/>
+         <status value="active"></status>
+         <type>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/library-type"></system>
+               <code value="module-definition"></code>
+            </coding>
+         </type>
+         <date value="2022-02-22T10:37:04-07:00"></date>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Inpatient"></display>
+            <resource value="http://example.org/fhir/ValueSet/inpatient"></resource>
+         </relatedArtifact>
+         <parameter>
+            <name value="Numerator"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <parameter>
+            <name value="Denominator"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <parameter>
+            <name value="Initial Population"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <dataRequirement>
+            <type value="Encounter"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Encounter"></profile>
+            <mustSupport value="type"></mustSupport>
+            <codeFilter>
+               <path value="type"></path>
+               <valueSet value="http://example.org/fhir/ValueSet/inpatient"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+      </Library>
+   </contained>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
-      <valueCode value="Encounter"/>
+      <valueCode value="Encounter"></valueCode>
    </extension>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit">
-     <valueCodeableConcept>
-       <coding>
-         <system value="http://unitsofmeasure.org"/>
-         <code value="/1000.d"/>
-       </coding>
-     </valueCodeableConcept>
+      <valueCodeableConcept>
+         <coding>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="/1000.d"></code>
+         </coding>
+      </valueCodeableConcept>
    </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Numerator"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem">
+      <valueReference>
+         <reference value="Device/software-system-example"></reference>
+      </valueReference>
    </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Initial Population"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
+   <extension id="effective-data-requirements" url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements">
+      <valueReference>
+         <reference value="#effective-data-requirements"></reference>
+      </valueReference>
    </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Qualifying Encounters"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Denominator"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Encounter"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-         <codeFilter>
-            <path value="type"/>
-            <valueSet value="http://example.org/fhir/ValueSet/TBD"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="EXMRatio"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Numerator"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Numerator&quot;:&#xa;  &quot;Initial Population&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="0"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="EXMRatio"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Initial Population"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Initial Population&quot;:&#xa;  &quot;Qualifying Encounters&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="1"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="EXMRatio"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Qualifying Encounters"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Qualifying Encounters&quot;:&#xa;  [&quot;Encounter&quot;: &quot;Inpatient&quot;]"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="2"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="EXMRatio"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Denominator"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Denominator&quot;:&#xa;  &quot;Initial Population&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="3"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="EXMRatio"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Initial Population"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Initial Population&quot;:&#xa;  &quot;Qualifying Encounters&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="4"/>
-      </extension>
-   </extension>
-   <url value="http://example.org/fhir/measures/measure-ratio-exm"/>
+   <url value="http://example.org/fhir/measures/measure-ratio-exm"></url>
    <identifier>
-      <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm"/>
-      <value value="EXMRatio"/>
+      <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm"></system>
+      <value value="EXMRatio"></value>
    </identifier>
-   <version value="2.0.0"/>
-   <name value="EXMRatioMeasure"/>
-   <title value="EXM Ratio Measure"/>
-   <status value="active"/>
-   <experimental value="true"/>
-   <date value="2021-04-03"/>
-   <publisher value="Example Measure Publisher"/>
+   <version value="2.0.0"></version>
+   <name value="EXMRatioMeasure"></name>
+   <title value="EXM Ratio Measure"></title>
+   <status value="active"></status>
+   <experimental value="true"></experimental>
+   <date value="2022-02-22"></date>
+   <publisher value="Example Measure Publisher"></publisher>
    <contact>
       <telecom>
-         <system value="url"/>
-         <value value="http://www.example.org/"/>
+         <system value="url"></system>
+         <value value="http://www.example.org/"></value>
       </telecom>
    </contact>
-   <description value="An example FHIR-based publishable measure"/>
+   <description value="An example FHIR-based publishable measure"></description>
    <useContext>
       <code>
-         <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-         <code value="program"/>
+         <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"></system>
+         <code value="program"></code>
       </code>
       <valueCodeableConcept>
          <coding>
-            <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs"/>
-            <code value="ep-ec"/>
+            <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs"></system>
+            <code value="ep-ec"></code>
          </coding>
-         <text value="eligible-provider"/>
+         <text value="eligible-provider"></text>
       </valueCodeableConcept>
    </useContext>
    <jurisdiction>
       <coding>
-         <system value="urn:iso:std:iso:3166"/>
-         <code value="US"/>
+         <system value="urn:iso:std:iso:3166"></system>
+         <code value="US"></code>
       </coding>
    </jurisdiction>
-   <purpose value="The purpose of this measure is to..."/>
-   <usage value="Users of this measure should be aware of..."/>
-   <copyright value="Example Copyright Statement"/>
-   <approvalDate value="2019-02-17"/>
-   <lastReviewDate value="2019-02-17"/>
+   <purpose value="The purpose of this measure is to..."></purpose>
+   <usage value="Users of this measure should be aware of..."></usage>
+   <copyright value="Example Copyright Statement"></copyright>
+   <approvalDate value="2019-02-17"></approvalDate>
+   <lastReviewDate value="2019-02-17"></lastReviewDate>
    <effectivePeriod>
       <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor">
-         <valueDateTime value="2018-01-01"/>
+         <valueDateTime value="2018-01-01"></valueDateTime>
       </extension>
       <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration">
          <valueDuration>
-            <value value="1"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="a"/>
+            <value value="1"></value>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="a"></code>
          </valueDuration>
       </extension>
-      <start value="2018-01-01"/>
-      <end value="2018-12-31"/>
+      <start value="2018-01-01"></start>
+      <end value="2018-12-31"></end>
    </effectivePeriod>
    <topic>
       <coding>
-         <system value="http://loinc.org"/>
-         <code value="57024-2"/>
+         <system value="http://loinc.org"></system>
+         <code value="57024-2"></code>
       </coding>
-      <text value="Health Quality Measure Document"/>
+      <text value="Health Quality Measure Document"></text>
    </topic>
    <author>
-      <name value="Example Measure Content Developer"/>
+      <name value="Example Measure Content Developer"></name>
    </author>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Inpatient"/>
-      <resource value="http://example.org/fhir/ValueSet/TBD"/>
-   </relatedArtifact>
-   <library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMRatio"/>
-   <disclaimer value="Example disclaimer"/>
+   <library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMRatio"></library>
+   <disclaimer value="Example disclaimer"></disclaimer>
    <scoring>
       <coding>
-         <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
-         <code value="ratio"/>
-         <display value="Ratio"/>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"></system>
+         <code value="ratio"></code>
+         <display value="Ratio"></display>
       </coding>
    </scoring>
    <type>
       <coding>
-         <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
-         <code value="process"/>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-type"></system>
+         <code value="process"></code>
       </coding>
    </type>
    <improvementNotation>
       <coding>
-         <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
-         <code value="decrease"/>
-         <display value="Decreased score indicates improvement"/>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"></system>
+         <code value="decrease"></code>
+         <display value="Decreased score indicates improvement"></display>
       </coding>
    </improvementNotation>
    <group id="group-1">
       <population id="initial-population">
          <code>
             <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-               <code value="initial-population"/>
-               <display value="Initial Population"/>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="initial-population"></code>
+               <display value="Initial Population"></display>
             </coding>
          </code>
          <criteria>
-            <language value="text/cql.identifier"/>
-            <expression value="Initial Population"/>
+            <language value="text/cql-identifier"></language>
+            <expression value="Initial Population"></expression>
          </criteria>
       </population>
       <population id="numerator">
          <code>
             <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-               <code value="numerator"/>
-               <display value="Numerator"/>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="numerator"></code>
+               <display value="Numerator"></display>
             </coding>
          </code>
          <criteria>
-            <language value="text/cql.identifier"/>
-            <expression value="Numerator"/>
+            <language value="text/cql-identifier"></language>
+            <expression value="Numerator"></expression>
          </criteria>
       </population>
       <population id="denominator">
          <code>
             <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-               <code value="denominator"/>
-               <display value="Denominator"/>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="denominator"></code>
+               <display value="Denominator"></display>
             </coding>
          </code>
          <criteria>
-            <language value="text/cql.identifier"/>
-            <expression value="Denominator"/>
+            <language value="text/cql-identifier"></language>
+            <expression value="Denominator"></expression>
          </criteria>
       </population>
       <population id="denominator-observation">
          <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference">
-            <valueString value="denominator"/>
+            <valueString value="denominator"></valueString>
          </extension>
          <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod">
-            <valueCode value="sum"/>
+            <valueCode value="sum"></valueCode>
          </extension>
          <code>
             <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-               <code value="measure-observation"/>
-               <display value="Measure Observation"/>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="measure-observation"></code>
+               <display value="Measure Observation"></display>
             </coding>
          </code>
          <criteria>
-            <language value="text/cql.identifier"/>
-            <expression value="Measure Denominator Observation"/>
+            <language value="text/cql-identifier"></language>
+            <expression value="Measure Denominator Observation"></expression>
          </criteria>
       </population>
       <population id="numerator-observation">
          <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference">
-            <valueString value="numerator"/>
+            <valueString value="numerator"></valueString>
          </extension>
          <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod">
-            <valueCode value="sum"/>
+            <valueCode value="sum"></valueCode>
          </extension>
          <code>
             <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-               <code value="measure-observation"/>
-               <display value="Measure Observation"/>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="measure-observation"></code>
+               <display value="Measure Observation"></display>
             </coding>
          </code>
          <criteria>
-            <language value="text/cql.identifier"/>
-            <expression value="Measure Numerator Observation"/>
+            <language value="text/cql-identifier"></language>
+            <expression value="Measure Numerator Observation"></expression>
          </criteria>
       </population>
    </group>

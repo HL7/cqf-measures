@@ -26,6 +26,13 @@
   <packageId value="hl7.fhir.us.cqfmeasures"/>
   <license value="CC0-1.0"/>
   <fhirVersion value="4.0.1"/>
+  <!-- Note this dependency is only included to support references to the FHIR-ModelInfo and FHIRCommon libraries used by examples in this IG -->
+  <dependsOn id="cqf">
+    <uri value="http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common"/>
+    <packageId value="fhir.cqf.common"/>
+    <version value="4.0.1"/>
+  </dependsOn>
+  <!-- Note this dependency is only included to support references to the extensions used by example content in this IG -->
   <dependsOn id="qicore">
     <uri value="http://hl7.org/fhir/us/qicore/ImplementationGuide/hl7.fhir.us.qicore"/>
     <packageId value="hl7.fhir.us.qicore"/>
@@ -80,20 +87,6 @@
         <reference value="StructureDefinition/cqfm-softwaresystem"/>
       </reference>
       <name value="Software System"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/cqfm-parameter"/>
-      </reference>
-      <name value="Parameter"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/cqfm-dataRequirement"/>
-      </reference>
-      <name value="Data Requirement"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -398,16 +391,6 @@
     <page>
       <nameUrl value="StructureDefinition-cqfm-improvementNotation.html"/>
       <title value="Measure Improvement Notation Extension"/>
-      <generation value="generated"/>
-    </page>
-    <page>
-      <nameUrl value="StructureDefinition-cqfm-parameter.html"/>
-      <title value="Measure Parameter Extension"/>
-      <generation value="generated"/>
-    </page>
-    <page>
-      <nameUrl value="StructureDefinition-cqfm-dataRequirement.html"/>
-      <title value="Measure Data Requirement Extension"/>
       <generation value="generated"/>
     </page>
     <page>

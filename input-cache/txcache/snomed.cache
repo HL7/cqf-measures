@@ -54,26 +54,24 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/version/201709",
   "code" : "428361000124107",
   "display" : "Discharge to home for hospice care (procedure)"
 }, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "severity" : "error",
-  "error" : "Version 'http://snomed.info/sct/version/201709' of the code system 'http://snomed.info/sct' is not known (encountered paired with code = '428361000124107'). ValidVersions = [http://snomed.info/sct/11000146104/version/20210930,http://snomed.info/sct/11000172109/version/20210915,http://snomed.info/sct/20611000087101/version/20210930,http://snomed.info/sct/32506021000036107/version/20210630,http://snomed.info/sct/45991000052106/version/20210531,http://snomed.info/sct/554471000005108/version/20210930,http://snomed.info/sct/731000124108/version/20210901,http://snomed.info/sct/900000000000207008/version/20190731,http://snomed.info/sct/900000000000207008/version/20200131,http://snomed.info/sct/900000000000207008/version/20200731,http://snomed.info/sct/900000000000207008/version/20210731]; The code provided (http://snomed.info/sct#428361000124107) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
-  "class" : "CODESYSTEM_UNSUPPORTED"
+  "display" : "Discharge to home for hospice care (procedure)",
+  "code" : "428361000124107",
+  "system" : "http://snomed.info/sct"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/version/201709",
   "code" : "428371000124100",
   "display" : "Discharge to healthcare facility for hospice care (procedure)"
 }, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "severity" : "error",
-  "error" : "Version 'http://snomed.info/sct/version/201709' of the code system 'http://snomed.info/sct' is not known (encountered paired with code = '428371000124100'). ValidVersions = [http://snomed.info/sct/11000146104/version/20210930,http://snomed.info/sct/11000172109/version/20210915,http://snomed.info/sct/20611000087101/version/20210930,http://snomed.info/sct/32506021000036107/version/20210630,http://snomed.info/sct/45991000052106/version/20210531,http://snomed.info/sct/554471000005108/version/20210930,http://snomed.info/sct/731000124108/version/20210901,http://snomed.info/sct/900000000000207008/version/20190731,http://snomed.info/sct/900000000000207008/version/20200131,http://snomed.info/sct/900000000000207008/version/20200731,http://snomed.info/sct/900000000000207008/version/20210731]; The code provided (http://snomed.info/sct#428371000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
-  "class" : "CODESYSTEM_UNSUPPORTED"
+  "display" : "Discharge to healthcare facility for hospice care (procedure)",
+  "code" : "428371000124100",
+  "system" : "http://snomed.info/sct"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -151,8 +149,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:84eaa5cd-58b6-4e74-86ce-21c92c2438f5",
-    "timestamp" : "2021-11-23T20:40:25.463Z",
+    "identifier" : "urn:uuid:cb7dc3b8-68bd-47d2-8e26-ec24a7635374",
+    "timestamp" : "2022-02-22T03:11:48.412Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -5192,8 +5190,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:03b8cd89-4e62-4193-8bcd-1d80d8261b00",
-    "timestamp" : "2021-11-23T20:40:46.088Z",
+    "identifier" : "urn:uuid:3d8854a2-7b3a-4fa4-9eea-253ca36187ee",
+    "timestamp" : "2022-02-22T03:12:49.943Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -5205,12 +5203,12 @@ e: {
     "contains" : [{
       "system" : "http://snomed.info/sct",
       "code" : "1116000",
-      "display" : "Chronic aggressive type B viral hepatitis"
+      "display" : "Chronic aggressive type B viral hepatitis (disorder)"
     },
     {
       "system" : "http://snomed.info/sct",
       "code" : "10295004",
-      "display" : "Chronic viral hepatitis"
+      "display" : "Chronic viral hepatitis (disorder)"
     }]
   }
 },
@@ -5234,30 +5232,7 @@ e: {
   "error" : "Error from server: Unable to provide support for code system http://snomed.info/sct"
 }
 -------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "1116000",
-        "display" : "Chronic aggressive type B viral hepatitis (disorder)"
-      },
-      {
-        "code" : "10295004",
-        "display" : "Chronic viral hepatitis (disorder)"
-      }]
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20150301",
-      "concept" : [{
-        "code" : "111370006",
-        "display" : "Cirrhosis of liver not due to alcohol (disorder)"
-      }]
-    }]
-  }
-}}####
+{"hierarchical" : true, "url": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example", "version": "2020-05"}####
 e: {
   "error" : "Error from server: Unable to provide support for code system http://snomed.info/sct"
 }

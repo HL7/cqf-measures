@@ -1,1567 +1,1413 @@
 <Measure xmlns="http://hl7.org/fhir">
-   <id value="HBPComponent"/>
+   <id value="HBPComponent"></id>
    <meta>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"/>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"/>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
    </meta>
-   <language value="en"/>
+   <language value="en"></language>
+   <contained>
+      <Library xmlns="http://hl7.org/fhir">
+         <id value="effective-data-requirements"></id>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
+            <valueCoding>
+               <system value="http://loinc.org"></system>
+               <code value="8480-6"></code>
+               <display value="Systolic blood pressure"></display>
+            </valueCoding>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
+            <valueCoding>
+               <system value="http://loinc.org"></system>
+               <code value="8462-4"></code>
+               <display value="Diastolic blood pressure"></display>
+            </valueCoding>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
+            <valueCoding>
+               <system value="http://loinc.org"></system>
+               <code value="34534-8"></code>
+               <display value="EKG 12 channel panel"></display>
+            </valueCoding>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
+            <valueCoding>
+               <system value="http://loinc.org"></system>
+               <code value="11524-6"></code>
+               <display value="EKG study"></display>
+            </valueCoding>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="SupplementalDataElements"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Sex"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Sex&quot;:
+  case
+      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }
+      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }
+      else null
+    end"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="0"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Sex"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Sex&quot;:
+  SDE.&quot;SDE Sex&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="1"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Qualifying Encounter During Measurement Period"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Qualifying Encounter During Measurement Period&quot;:
+  [Encounter: &quot;Encounter to Screen for Blood Pressure&quot;] ValidEncounter
+      where ValidEncounter.period during &quot;Measurement Period&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="2"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Normal Blood Pressure Reading"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Normal Blood Pressure Reading&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP
+          where SystolicBP.effective during QualifyingEncounter.period
+          sort by effective
+      ),
+      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP
+          where DiastolicBP.effective during QualifyingEncounter.period
+          sort by effective
+      )
+      where EncounterLastSystolicBP.value included in Interval[1 'mm[Hg]', 120 'mm[Hg]' )
+        and EncounterLastDiastolicBP.value included in Interval[1 'mm[Hg]', 80 'mm[Hg]' )"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="3"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Prehypertensive Blood Pressure Reading"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Prehypertensive Blood Pressure Reading&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP
+          where SystolicBP.effective during QualifyingEncounter.period
+          sort by effective
+      ),
+      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP
+          where DiastolicBP.effective during QualifyingEncounter.period
+          sort by effective
+      )
+      where EncounterLastSystolicBP.value included in Interval[1 'mm[Hg]', 140 'mm[Hg]' )
+        and EncounterLastDiastolicBP.value included in Interval[1 'mm[Hg]', 90 'mm[Hg]' )
+        and ( EncounterLastSystolicBP.value &gt;= 120 'mm[Hg]'
+            or EncounterLastDiastolicBP.value &gt;= 80 'mm[Hg]'
+        )"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="4"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Order for Intervention for Hypertension"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Order for Intervention for Hypertension&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with ( [ServiceRequest: &quot;Lifestyle Recommendation&quot;]
+        union [ServiceRequest: &quot;Weight Reduction Recommended&quot;]
+        union [ServiceRequest: &quot;Dietary Recommendations&quot;]
+        union [ServiceRequest: &quot;Recommendation to Increase Physical Activity&quot;]
+        union [ServiceRequest: &quot;Referral or Counseling for Alcohol Consumption&quot;] ) HighBloodPressureIntervention
+        such that HighBloodPressureIntervention.authoredOn same day as start of QualifyingEncounter.period"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="5"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Order for Follow Up Within One Year"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Order for Follow Up Within One Year&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with [ServiceRequest: &quot;Follow Up Within One Year&quot;] FollowupOneYear
+        such that FollowupOneYear.authoredOn same day as start of QualifyingEncounter.period"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="6"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Referral to Alternate Provider for High Blood Pressure Reading"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with [ServiceRequest: &quot;Referral to Primary Care or Alternate Provider&quot;] Referral
+        such that Referral.authoredOn same day as start of QualifyingEncounter.period
+          and Referral.reasonCode in &quot;Finding of Elevated Blood Pressure or Hypertension&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="7"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with High Blood Pressure Reading"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with High Blood Pressure Reading&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP
+          where SystolicBP.effective during QualifyingEncounter.period
+          sort by effective
+      ),
+      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP
+          where DiastolicBP.effective during QualifyingEncounter.period
+          sort by effective
+      )
+      where EncounterLastSystolicBP.value &gt; 0 'mm[Hg]'
+        and EncounterLastDiastolicBP.value &gt; 0 'mm[Hg]'
+        and ( EncounterLastSystolicBP.value &gt;= 140 'mm[Hg]'
+            or EncounterLastDiastolicBP.value &gt;= 90 'mm[Hg]'
+        )"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="8"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with High Blood Pressure Reading Within Year Prior"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with High Blood Pressure Reading Within Year Prior&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP
+          where SystolicBP.effective 1 year or less before start of QualifyingEncounter.period
+          sort by effective
+      ),
+      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP
+          where DiastolicBP.effective 1 year or less before start of QualifyingEncounter.period
+          sort by effective
+      )
+      where EncounterLastSystolicBP.value &gt; 0 'mm[Hg]'
+        and EncounterLastDiastolicBP.value &gt; 0 'mm[Hg]'
+        and ( EncounterLastSystolicBP.value &gt;= 140 'mm[Hg]'
+            or EncounterLastDiastolicBP.value &gt;= 90 'mm[Hg]'
+        )"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="9"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with First Hypertensive Reading"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with First Hypertensive Reading&quot;:
+  &quot;Encounter with High Blood Pressure Reading&quot;
+      except &quot;Encounter with High Blood Pressure Reading Within Year Prior&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="10"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Order for Follow Up Within 4 Weeks"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Order for Follow Up Within 4 Weeks&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with [ServiceRequest: &quot;Follow Up Within 4 Weeks&quot;] Followup4Weeks
+        such that Followup4Weeks.authoredOn same day as start of QualifyingEncounter.period"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="11"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Second Hypertensive Reading"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Second Hypertensive Reading&quot;:
+  &quot;Encounter with High Blood Pressure Reading&quot;
+      intersect &quot;Encounter with High Blood Pressure Reading Within Year Prior&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="12"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Order for Laboratory Test for Hypertension"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Order for Laboratory Test for Hypertension&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with [ServiceRequest: &quot;Laboratory Tests for Hypertension&quot;] HypertensionLabs
+        such that HypertensionLabs.authoredOn same day as start of QualifyingEncounter.period"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="13"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Order for Electrocardiogram for Hypertension"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Order for Electrocardiogram for Hypertension&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with ( [ServiceRequest: &quot;EKG 12 channel panel&quot;]
+        union [ServiceRequest: &quot;EKG study&quot;] ) ECG
+        such that ECG.authoredOn same day as start of QualifyingEncounter.period"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="14"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Order for Hypertension Medication"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Order for Hypertension Medication&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with [MedicationRequest: &quot;Pharmacologic Therapy for Hypertension&quot;] AntihypertensiveMedication
+        such that AntihypertensiveMedication.authoredOn same day as start of QualifyingEncounter.period"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="15"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Numerator"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Numerator&quot;:
+  &quot;Encounter with Normal Blood Pressure Reading&quot;
+      union ( &quot;Encounter with Prehypertensive Blood Pressure Reading&quot;
+          intersect ( ( &quot;Encounter with Order for Intervention for Hypertension&quot;
+                intersect &quot;Encounter with Order for Follow Up Within One Year&quot;
+            )
+              union &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;
+          )
+      )
+      union ( &quot;Encounter with First Hypertensive Reading&quot;
+          intersect ( ( &quot;Encounter with Order for Intervention for Hypertension&quot;
+                intersect &quot;Encounter with Order for Follow Up Within 4 Weeks&quot;
+            )
+              union &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;
+          )
+      )
+      union ( &quot;Encounter with Second Hypertensive Reading&quot;
+          intersect ( ( &quot;Encounter with Order for Intervention for Hypertension&quot;
+                intersect ( &quot;Encounter with Order for Laboratory Test for Hypertension&quot;
+                    union &quot;Encounter with Order for Electrocardiogram for Hypertension&quot;
+                    union &quot;Encounter with Order for Hypertension Medication&quot;
+                )
+            )
+              union &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;
+          )
+      )"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="16"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Initial Population"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Initial Population&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with [Patient] BirthDate
+        such that Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( BirthDate.birthDate ), start of &quot;Measurement Period&quot; ) &gt;= 18"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="17"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Denominator"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Denominator&quot;:
+  &quot;Initial Population&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="18"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="SupplementalDataElements"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Payer"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Payer&quot;:
+  [Coverage: type in &quot;Payer&quot;] Payer
+        return {
+          code: Payer.type,
+          period: Payer.period
+        }"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="19"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Payer"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Payer&quot;:
+  SDE.&quot;SDE Payer&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="20"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="SupplementalDataElements"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Ethnicity"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Ethnicity&quot;:
+  (flatten (
+      Patient.extension Extension
+        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
+          return Extension.extension
+    )) E
+      where E.url = 'ombCategory'
+        or E.url = 'detailed'
+      return E.value as Coding"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="21"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Ethnicity"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Ethnicity&quot;:
+  SDE.&quot;SDE Ethnicity&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="22"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Denominator Exclusions"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Denominator Exclusions&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with [Condition: &quot;Diagnosis of Hypertension&quot;] Hypertension
+        such that Global.&quot;Prevalence Period&quot; ( Hypertension ) overlaps before QualifyingEncounter.period"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="23"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="SupplementalDataElements"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Race"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Race&quot;:
+  (flatten (
+      Patient.extension Extension
+        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
+          return Extension.extension
+    )) E
+      where E.url = 'ombCategory'
+        or E.url = 'detailed'
+      return E.value as Coding"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="24"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="SDE Race"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;SDE Race&quot;:
+  SDE.&quot;SDE Race&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="25"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with ( [Observation: &quot;Systolic blood pressure&quot;]
+        union [Observation: &quot;Diastolic blood pressure&quot;] ) NoBPScreen
+        such that ( NoBPScreen.code in &quot;Medical Reason&quot;
+            or NoBPScreen.code in &quot;Patient Declined&quot;
+        )
+          and NoBPScreen.effective same day as start of QualifyingEncounter.period
+          and &quot;Not Done&quot;(NoBPScreen)
+          and NoBPScreen.status = 'final'"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="26"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Encounter with Order for Hypertension Follow Up Declined by Patient"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Encounter with Order for Hypertension Follow Up Declined by Patient&quot;:
+  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
+      with ( [ServiceRequest: &quot;EKG 12 channel panel&quot;]
+        union [ServiceRequest: &quot;EKG study&quot;]
+        union [ServiceRequest: &quot;Follow Up Within One Year&quot;]
+        union [ServiceRequest: &quot;Follow Up Within 4 Weeks&quot;]
+        union [ServiceRequest: &quot;Referral to Primary Care or Alternate Provider&quot;]
+        union [ServiceRequest: &quot;Lifestyle Recommendation&quot;]
+        union [ServiceRequest: &quot;Weight Reduction Recommended&quot;]
+        union [ServiceRequest: &quot;Dietary Recommendations&quot;]
+        union [ServiceRequest: &quot;Recommendation to Increase Physical Activity&quot;]
+        union [ServiceRequest: &quot;Referral or Counseling for Alcohol Consumption&quot;]
+        union [ServiceRequest: &quot;Laboratory Tests for Hypertension&quot;]
+        union [MedicationRequest: &quot;Pharmacologic Therapy for Hypertension&quot;] ) NoFollowUpOrdered
+        such that NoFollowUpOrdered.doNotPerform is true
+          and NoFollowUpOrdered.code in &quot;Patient Declined&quot;
+          and NoFollowUpOrdered.authoredOn same day as start of QualifyingEncounter.period"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="27"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="HBPComponent"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Denominator Exceptions"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Denominator Exceptions&quot;:
+  &quot;Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement&quot;
+      union &quot;Encounter with Order for Hypertension Follow Up Declined by Patient&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="28"></valueInteger>
+            </extension>
+         </extension>
+         <name value="EffectiveDataRequirements"/>
+         <status value="active"></status>
+         <type>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/library-type"></system>
+               <code value="module-definition"></code>
+            </coding>
+         </type>
+         <date value="2022-02-22T10:37:03-07:00"></date>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Library SDE"></display>
+            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.000"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Library FHIRHelpers"></display>
+            <resource value="http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Library Global"></display>
+            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Code system LOINC"></display>
+            <resource value="http://loinc.org"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Encounter to Screen for Blood Pressure"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1920"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Lifestyle Recommendation"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1581"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Weight Reduction Recommended"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1510"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Dietary Recommendations"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1515"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Recommendation to Increase Physical Activity"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Referral or Counseling for Alcohol Consumption"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1583"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Follow Up Within One Year"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1579"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Referral to Primary Care or Alternate Provider"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1580"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Finding of Elevated Blood Pressure or Hypertension"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.514"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Follow Up Within 4 Weeks"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1578"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Laboratory Tests for Hypertension"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Pharmacologic Therapy for Hypertension"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Payer"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Diagnosis of Hypertension"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.263"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Medical Reason"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1007"></resource>
+         </relatedArtifact>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Patient Declined"></display>
+            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1582"></resource>
+         </relatedArtifact>
+         <parameter>
+            <name value="Measurement Period"></name>
+            <use value="in"></use>
+            <min value="0"></min>
+            <max value="1"></max>
+            <type value="Period"></type>
+         </parameter>
+         <parameter>
+            <name value="SDE Sex"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="1"></max>
+            <type value="Coding"></type>
+         </parameter>
+         <parameter>
+            <name value="Numerator"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <parameter>
+            <name value="Denominator"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <parameter>
+            <name value="SDE Payer"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Any"></type>
+         </parameter>
+         <parameter>
+            <name value="Initial Population"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <parameter>
+            <name value="SDE Ethnicity"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Coding"></type>
+         </parameter>
+         <parameter>
+            <name value="Denominator Exclusions"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <parameter>
+            <name value="SDE Race"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Coding"></type>
+         </parameter>
+         <parameter>
+            <name value="Denominator Exceptions"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8480-6"></code>
+                  <display value="Systolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8462-4"></code>
+                  <display value="Diastolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8480-6"></code>
+                  <display value="Systolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8462-4"></code>
+                  <display value="Diastolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8480-6"></code>
+                  <display value="Systolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8462-4"></code>
+                  <display value="Diastolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8480-6"></code>
+                  <display value="Systolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8462-4"></code>
+                  <display value="Diastolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8462-4"></code>
+                  <display value="Diastolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8480-6"></code>
+                  <display value="Systolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8462-4"></code>
+                  <display value="Diastolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8480-6"></code>
+                  <display value="Systolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8480-6"></code>
+                  <display value="Systolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8462-4"></code>
+                  <display value="Diastolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8480-6"></code>
+                  <display value="Systolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8462-4"></code>
+                  <display value="Diastolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8462-4"></code>
+                  <display value="Diastolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Observation"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+            <mustSupport value="effective"></mustSupport>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="8480-6"></code>
+                  <display value="Systolic blood pressure"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Coverage"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Coverage"></profile>
+            <mustSupport value="period"></mustSupport>
+            <mustSupport value="type"></mustSupport>
+            <codeFilter>
+               <path value="type"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Patient"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Patient"></profile>
+            <mustSupport value="extension"></mustSupport>
+            <mustSupport value="birthDate"></mustSupport>
+            <mustSupport value="value"></mustSupport>
+            <mustSupport value="url"></mustSupport>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="MedicationRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"></profile>
+            <mustSupport value="authoredOn"></mustSupport>
+            <mustSupport value="medication"></mustSupport>
+            <codeFilter>
+               <path value="medication"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Encounter"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Encounter"></profile>
+            <mustSupport value="period"></mustSupport>
+            <mustSupport value="type"></mustSupport>
+            <codeFilter>
+               <path value="type"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1920"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="34534-8"></code>
+                  <display value="EKG 12 channel panel"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="11524-6"></code>
+                  <display value="EKG study"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="34534-8"></code>
+                  <display value="EKG 12 channel panel"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <code>
+                  <system value="http://loinc.org"></system>
+                  <code value="11524-6"></code>
+                  <display value="EKG study"></display>
+               </code>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1581"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1510"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1515"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1583"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="authoredOn"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="authoredOn"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1579"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="authoredOn"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1578"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="ServiceRequest"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></profile>
+            <mustSupport value="code"></mustSupport>
+            <mustSupport value="authoredOn"></mustSupport>
+            <mustSupport value="reasonCode"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1580"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+         <dataRequirement>
+            <type value="Condition"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Condition"></profile>
+            <mustSupport value="code"></mustSupport>
+            <codeFilter>
+               <path value="code"></path>
+               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.263"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+      </Library>
+   </contained>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
-      <valueCode value="Encounter"/>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Measurement Period"/>
-         <use value="in"/>
-         <min value="0"/>
-         <max value="1"/>
-         <type value="Period"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="SDE Sex"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="1"/>
-         <type value="Coding"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Numerator"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Normal Blood Pressure Reading"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Qualifying Encounter During Measurement Period"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Prehypertensive Blood Pressure Reading"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Order for Intervention for Hypertension"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Order for Follow Up Within One Year"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Referral to Alternate Provider for High Blood Pressure Reading"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with First Hypertensive Reading"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with High Blood Pressure Reading"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with High Blood Pressure Reading Within Year Prior"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Order for Follow Up Within 4 Weeks"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Second Hypertensive Reading"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Order for Laboratory Test for Hypertension"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Order for Electrocardiogram for Hypertension"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Order for Hypertension Medication"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Denominator"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Initial Population"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="SDE Payer"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Any"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="SDE Ethnicity"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Coding"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Patient"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="1"/>
-         <type value="Patient"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Denominator Exclusions"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="SDE Race"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Coding"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Denominator Exceptions"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter">
-      <valueParameterDefinition>
-         <name value="Encounter with Order for Hypertension Follow Up Declined by Patient"/>
-         <use value="out"/>
-         <min value="0"/>
-         <max value="*"/>
-         <type value="Encounter"/>
-      </valueParameterDefinition>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Encounter"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-         <codeFilter>
-            <path value="type"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1920"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Observation"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="8480-6"/>
-               <display value="Systolic blood pressure"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Observation"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="8462-4"/>
-               <display value="Diastolic blood pressure"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Observation"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="8480-6"/>
-               <display value="Systolic blood pressure"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Observation"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="8462-4"/>
-               <display value="Diastolic blood pressure"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1581"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1510"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1515"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1583"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1579"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1580"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Observation"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="8480-6"/>
-               <display value="Systolic blood pressure"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Observation"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="8462-4"/>
-               <display value="Diastolic blood pressure"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Observation"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="8480-6"/>
-               <display value="Systolic blood pressure"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Observation"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="8462-4"/>
-               <display value="Diastolic blood pressure"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1578"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="34534-8"/>
-               <display value="EKG 12 channel panel"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="11524-6"/>
-               <display value="EKG study"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="MedicationRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-         <codeFilter>
-            <path value="medication"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Patient"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Coverage"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Coverage"/>
-         <codeFilter>
-            <path value="type"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Patient"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Patient"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Condition"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.263"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Observation"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="8480-6"/>
-               <display value="Systolic blood pressure"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="Observation"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="8462-4"/>
-               <display value="Diastolic blood pressure"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="34534-8"/>
-               <display value="EKG 12 channel panel"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="11524-6"/>
-               <display value="EKG study"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1579"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1578"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1580"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1581"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1510"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1515"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1583"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="34534-8"/>
-               <display value="EKG 12 channel panel"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <code>
-               <system value="http://loinc.org"/>
-               <code value="11524-6"/>
-               <display value="EKG study"/>
-            </code>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1579"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1578"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1580"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1581"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1510"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1515"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1583"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="MedicationRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-         <codeFilter>
-            <path value="medication"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="MedicationRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-         <codeFilter>
-            <path value="medication"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="ServiceRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-         <codeFilter>
-            <path value="code"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="MedicationRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-         <codeFilter>
-            <path value="medication"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-dataRequirement">
-      <valueDataRequirement>
-         <type value="MedicationRequest"/>
-         <profile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-         <codeFilter>
-            <path value="medication"/>
-            <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577"/>
-         </codeFilter>
-      </valueDataRequirement>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
-      <valueCoding>
-         <system value="http://loinc.org"/>
-         <code value="8480-6"/>
-         <display value="Systolic blood pressure"/>
-      </valueCoding>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
-      <valueCoding>
-         <system value="http://loinc.org"/>
-         <code value="8462-4"/>
-         <display value="Diastolic blood pressure"/>
-      </valueCoding>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
-      <valueCoding>
-         <system value="http://loinc.org"/>
-         <code value="34534-8"/>
-         <display value="EKG 12 channel panel"/>
-      </valueCoding>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
-      <valueCoding>
-         <system value="http://loinc.org"/>
-         <code value="11524-6"/>
-         <display value="EKG study"/>
-      </valueCoding>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="SDE Sex"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;SDE Sex&quot;:&#xa;  SDE.&quot;SDE Sex&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="0"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="SupplementalDataElements"/>
-      </extension>
-      <extension url="name">
-         <valueString value="SDE Sex"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;SDE Sex&quot;:&#xa;  case&#xa;      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }&#xa;      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }&#xa;      else null&#xa;    end"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="1"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Numerator"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Numerator&quot;:&#xa;  &quot;Encounter with Normal Blood Pressure Reading&quot;&#xa;      union ( &quot;Encounter with Prehypertensive Blood Pressure Reading&quot;&#xa;          intersect ( ( &quot;Encounter with Order for Intervention for Hypertension&quot;&#xa;                intersect &quot;Encounter with Order for Follow Up Within One Year&quot;&#xa;            )&#xa;              union &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;&#xa;          )&#xa;      )&#xa;      union ( &quot;Encounter with First Hypertensive Reading&quot;&#xa;          intersect ( ( &quot;Encounter with Order for Intervention for Hypertension&quot;&#xa;                intersect &quot;Encounter with Order for Follow Up Within 4 Weeks&quot;&#xa;            )&#xa;              union &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;&#xa;          )&#xa;      )&#xa;      union ( &quot;Encounter with Second Hypertensive Reading&quot;&#xa;          intersect ( ( &quot;Encounter with Order for Intervention for Hypertension&quot;&#xa;                intersect ( &quot;Encounter with Order for Laboratory Test for Hypertension&quot;&#xa;                    union &quot;Encounter with Order for Electrocardiogram for Hypertension&quot;&#xa;                    union &quot;Encounter with Order for Hypertension Medication&quot;&#xa;                )&#xa;            )&#xa;              union &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;&#xa;          )&#xa;      )"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="2"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Normal Blood Pressure Reading"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Normal Blood Pressure Reading&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP&#xa;          where SystolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      ),&#xa;      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP&#xa;          where DiastolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      )&#xa;      where EncounterLastSystolicBP.value included in Interval[1 'mm[Hg]', 120 'mm[Hg]' )&#xa;        and EncounterLastDiastolicBP.value included in Interval[1 'mm[Hg]', 80 'mm[Hg]' )"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="3"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Qualifying Encounter During Measurement Period"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Qualifying Encounter During Measurement Period&quot;:&#xa;  [Encounter: &quot;Encounter to Screen for Blood Pressure&quot;] ValidEncounter&#xa;      where ValidEncounter.period during &quot;Measurement Period&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="4"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Prehypertensive Blood Pressure Reading"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Prehypertensive Blood Pressure Reading&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP&#xa;          where SystolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      ),&#xa;      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP&#xa;          where DiastolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      )&#xa;      where EncounterLastSystolicBP.value included in Interval[1 'mm[Hg]', 140 'mm[Hg]' )&#xa;        and EncounterLastDiastolicBP.value included in Interval[1 'mm[Hg]', 90 'mm[Hg]' )&#xa;        and ( EncounterLastSystolicBP.value >= 120 'mm[Hg]'&#xa;            or EncounterLastDiastolicBP.value >= 80 'mm[Hg]'&#xa;        )"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="5"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Order for Intervention for Hypertension"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Order for Intervention for Hypertension&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with ( [ServiceRequest: &quot;Lifestyle Recommendation&quot;]&#xa;        union [ServiceRequest: &quot;Weight Reduction Recommended&quot;]&#xa;        union [ServiceRequest: &quot;Dietary Recommendations&quot;]&#xa;        union [ServiceRequest: &quot;Recommendation to Increase Physical Activity&quot;]&#xa;        union [ServiceRequest: &quot;Referral or Counseling for Alcohol Consumption&quot;] ) HighBloodPressureIntervention&#xa;        such that HighBloodPressureIntervention.authoredOn same day as start of QualifyingEncounter.period"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="6"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Order for Follow Up Within One Year"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Order for Follow Up Within One Year&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [ServiceRequest: &quot;Follow Up Within One Year&quot;] FollowupOneYear&#xa;        such that FollowupOneYear.authoredOn same day as start of QualifyingEncounter.period"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="7"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Referral to Alternate Provider for High Blood Pressure Reading"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Referral to Alternate Provider for High Blood Pressure Reading&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [ServiceRequest: &quot;Referral to Primary Care or Alternate Provider&quot;] Referral&#xa;        such that Referral.authoredOn same day as start of QualifyingEncounter.period&#xa;          and Referral.reasonCode in &quot;Finding of Elevated Blood Pressure or Hypertension&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="8"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with First Hypertensive Reading"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with First Hypertensive Reading&quot;:&#xa;  &quot;Encounter with High Blood Pressure Reading&quot;&#xa;      except &quot;Encounter with High Blood Pressure Reading Within Year Prior&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="9"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with High Blood Pressure Reading"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with High Blood Pressure Reading&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP&#xa;          where SystolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      ),&#xa;      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP&#xa;          where DiastolicBP.effective during QualifyingEncounter.period&#xa;          sort by effective&#xa;      )&#xa;      where EncounterLastSystolicBP.value > 0 'mm[Hg]'&#xa;        and EncounterLastDiastolicBP.value > 0 'mm[Hg]'&#xa;        and ( EncounterLastSystolicBP.value >= 140 'mm[Hg]'&#xa;            or EncounterLastDiastolicBP.value >= 90 'mm[Hg]'&#xa;        )"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="10"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with High Blood Pressure Reading Within Year Prior"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with High Blood Pressure Reading Within Year Prior&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      let EncounterLastSystolicBP: Last([Observation: &quot;Systolic blood pressure&quot;] SystolicBP&#xa;          where SystolicBP.effective 1 year or less before start of QualifyingEncounter.period&#xa;          sort by effective&#xa;      ),&#xa;      EncounterLastDiastolicBP: Last([Observation: &quot;Diastolic blood pressure&quot;] DiastolicBP&#xa;          where DiastolicBP.effective 1 year or less before start of QualifyingEncounter.period&#xa;          sort by effective&#xa;      )&#xa;      where EncounterLastSystolicBP.value > 0 'mm[Hg]'&#xa;        and EncounterLastDiastolicBP.value > 0 'mm[Hg]'&#xa;        and ( EncounterLastSystolicBP.value >= 140 'mm[Hg]'&#xa;            or EncounterLastDiastolicBP.value >= 90 'mm[Hg]'&#xa;        )"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="11"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Order for Follow Up Within 4 Weeks"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Order for Follow Up Within 4 Weeks&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [ServiceRequest: &quot;Follow Up Within 4 Weeks&quot;] Followup4Weeks&#xa;        such that Followup4Weeks.authoredOn same day as start of QualifyingEncounter.period"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="12"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Second Hypertensive Reading"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Second Hypertensive Reading&quot;:&#xa;  &quot;Encounter with High Blood Pressure Reading&quot;&#xa;      intersect &quot;Encounter with High Blood Pressure Reading Within Year Prior&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="13"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Order for Laboratory Test for Hypertension"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Order for Laboratory Test for Hypertension&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [ServiceRequest: &quot;Laboratory Tests for Hypertension&quot;] HypertensionLabs&#xa;        such that HypertensionLabs.authoredOn same day as start of QualifyingEncounter.period"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="14"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Order for Electrocardiogram for Hypertension"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Order for Electrocardiogram for Hypertension&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with ( [ServiceRequest: &quot;EKG 12 channel panel&quot;]&#xa;        union [ServiceRequest: &quot;EKG study&quot;] ) ECG&#xa;        such that ECG.authoredOn same day as start of QualifyingEncounter.period"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="15"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Order for Hypertension Medication"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Order for Hypertension Medication&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [MedicationRequest: &quot;Pharmacologic Therapy for Hypertension&quot;] AntihypertensiveMedication&#xa;        such that AntihypertensiveMedication.authoredOn same day as start of QualifyingEncounter.period"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="16"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Denominator"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Denominator&quot;:&#xa;  &quot;Initial Population&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="17"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Initial Population"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Initial Population&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [Patient] BirthDate&#xa;        such that Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( BirthDate.birthDate ), start of &quot;Measurement Period&quot; ) >= 18"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="18"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="SDE Payer"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;SDE Payer&quot;:&#xa;  SDE.&quot;SDE Payer&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="19"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="SupplementalDataElements"/>
-      </extension>
-      <extension url="name">
-         <valueString value="SDE Payer"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;SDE Payer&quot;:&#xa;  [Coverage: type in &quot;Payer&quot;] Payer&#xa;        return {&#xa;          code: Payer.type,&#xa;          period: Payer.period&#xa;        }"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="20"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Initial Population"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Initial Population&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [Patient] BirthDate&#xa;        such that Global.&quot;CalendarAgeInYearsAt&quot; ( FHIRHelpers.ToDate ( BirthDate.birthDate ), start of &quot;Measurement Period&quot; ) >= 18"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="21"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="SDE Ethnicity"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;SDE Ethnicity&quot;:&#xa;  SDE.&quot;SDE Ethnicity&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="22"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="SupplementalDataElements"/>
-      </extension>
-      <extension url="name">
-         <valueString value="SDE Ethnicity"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;SDE Ethnicity&quot;:&#xa;  (flatten (&#xa;      Patient.extension Extension&#xa;        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'&#xa;          return Extension.extension&#xa;    )) E&#xa;      where E.url = 'ombCategory'&#xa;        or E.url = 'detailed'&#xa;      return E.value as Coding"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="23"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Denominator Exclusions"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Denominator Exclusions&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with [Condition: &quot;Diagnosis of Hypertension&quot;] Hypertension&#xa;        such that Global.&quot;Prevalence Period&quot; ( Hypertension ) overlaps before QualifyingEncounter.period"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="24"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="SDE Race"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;SDE Race&quot;:&#xa;  SDE.&quot;SDE Race&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="25"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="SupplementalDataElements"/>
-      </extension>
-      <extension url="name">
-         <valueString value="SDE Race"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;SDE Race&quot;:&#xa;  (flatten (&#xa;      Patient.extension Extension&#xa;        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'&#xa;          return Extension.extension&#xa;    )) E&#xa;      where E.url = 'ombCategory'&#xa;        or E.url = 'detailed'&#xa;      return E.value as Coding"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="26"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Denominator Exceptions"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Denominator Exceptions&quot;:&#xa;  &quot;Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement&quot;&#xa;      union &quot;Encounter with Order for Hypertension Follow Up Declined by Patient&quot;"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="27"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Medical Reason for Not Obtaining or Patient Declined Blood Pressure Measurement&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with ( [Observation: &quot;Systolic blood pressure&quot;]&#xa;        union [Observation: &quot;Diastolic blood pressure&quot;] ) NoBPScreen&#xa;        such that ( NoBPScreen.code in &quot;Medical Reason&quot;&#xa;            or NoBPScreen.code in &quot;Patient Declined&quot;&#xa;        )&#xa;          and NoBPScreen.effective same day as start of QualifyingEncounter.period&#xa;          and &quot;Not Done&quot;(NoBPScreen)&#xa;          and NoBPScreen.status = 'final'"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="28"/>
-      </extension>
-   </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-      <extension url="libraryName">
-         <valueString value="HBPComponent"/>
-      </extension>
-      <extension url="name">
-         <valueString value="Encounter with Order for Hypertension Follow Up Declined by Patient"/>
-      </extension>
-      <extension url="statement">
-         <valueString value="define &quot;Encounter with Order for Hypertension Follow Up Declined by Patient&quot;:&#xa;  &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter&#xa;      with ( [ServiceRequest: &quot;EKG 12 channel panel&quot;]&#xa;        union [ServiceRequest: &quot;EKG study&quot;]&#xa;        union [ServiceRequest: &quot;Follow Up Within One Year&quot;]&#xa;        union [ServiceRequest: &quot;Follow Up Within 4 Weeks&quot;]&#xa;        union [ServiceRequest: &quot;Referral to Primary Care or Alternate Provider&quot;]&#xa;        union [ServiceRequest: &quot;Lifestyle Recommendation&quot;]&#xa;        union [ServiceRequest: &quot;Weight Reduction Recommended&quot;]&#xa;        union [ServiceRequest: &quot;Dietary Recommendations&quot;]&#xa;        union [ServiceRequest: &quot;Recommendation to Increase Physical Activity&quot;]&#xa;        union [ServiceRequest: &quot;Referral or Counseling for Alcohol Consumption&quot;]&#xa;        union [ServiceRequest: &quot;Laboratory Tests for Hypertension&quot;]&#xa;        union [MedicationRequest: &quot;Pharmacologic Therapy for Hypertension&quot;] ) NoFollowUpOrdered&#xa;        such that NoFollowUpOrdered.doNotPerform is true&#xa;          and NoFollowUpOrdered.code in &quot;Patient Declined&quot;&#xa;          and NoFollowUpOrdered.authoredOn same day as start of QualifyingEncounter.period"/>
-      </extension>
-      <extension url="displaySequence">
-         <valueInteger value="29"/>
-      </extension>
-   </extension>
-   <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/HBPComponent"/>
-   <version value="0.0.001"/>
-   <name value="HBPComponent"/>
-   <title value="Preventive Care and Screening: Screening for High Blood Pressure and Follow-Up Documented"/>
-   <status value="draft"/>
-   <experimental value="true"/>
-   <date value="2021-04-03T13:00:06-06:00"/>
-   <publisher value="Centers for Medicare &amp; Medicaid Services (CMS)"/>
-   <description value="This is an example only."/>
+      <valueCode value="Encounter"></valueCode>
+   </extension>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem">
+      <valueReference>
+         <reference value="Device/software-system-example"></reference>
+      </valueReference>
+   </extension>
+   <extension id="effective-data-requirements" url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements">
+      <valueReference>
+         <reference value="#effective-data-requirements"></reference>
+      </valueReference>
+   </extension>
+   <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/HBPComponent"></url>
+   <version value="0.0.001"></version>
+   <name value="HBPComponent"></name>
+   <title value="Preventive Care and Screening: Screening for High Blood Pressure and Follow-Up Documented"></title>
+   <status value="draft"></status>
+   <experimental value="true"></experimental>
+   <date value="2022-02-22T11:37:03-06:00"></date>
+   <publisher value="Centers for Medicare &amp; Medicaid Services (CMS)"></publisher>
+   <description value="This is an example only."></description>
    <effectivePeriod>
-      <start value="2022-01-01"/>
-      <end value="2022-12-31"/>
+      <start value="2022-01-01"></start>
+      <end value="2022-12-31"></end>
    </effectivePeriod>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Library SDE"/>
-      <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.000"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Library FHIRHelpers"/>
-      <resource value="http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Library Global"/>
-      <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Library FHIRHelpers"/>
-      <resource value="http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Code system LOINC"/>
-      <resource value="http://loinc.org"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Encounter to Screen for Blood Pressure"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1920"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Lifestyle Recommendation"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1581"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Weight Reduction Recommended"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1510"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Dietary Recommendations"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1515"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Recommendation to Increase Physical Activity"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1518"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Referral or Counseling for Alcohol Consumption"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1583"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Follow Up Within One Year"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1579"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Referral to Primary Care or Alternate Provider"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1580"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Finding of Elevated Blood Pressure or Hypertension"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.514"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Follow Up Within 4 Weeks"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1578"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Laboratory Tests for Hypertension"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1482"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Pharmacologic Therapy for Hypertension"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.1577"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Payer"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Diagnosis of Hypertension"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.263"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Medical Reason"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1007"/>
-   </relatedArtifact>
-   <relatedArtifact>
-      <type value="depends-on"/>
-      <display value="Value set Patient Declined"/>
-      <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1582"/>
-   </relatedArtifact>
-   <library value="http://hl7.org/fhir/us/cqfmeasures/Library/HBPComponent"/>
+   <library value="http://hl7.org/fhir/us/cqfmeasures/Library/HBPComponent"></library>
    <scoring>
       <coding>
-         <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
-         <code value="proportion"/>
-         <display value="Proportion"/>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"></system>
+         <code value="proportion"></code>
+         <display value="Proportion"></display>
       </coding>
    </scoring>
    <type>
       <coding>
-         <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
-         <code value="process"/>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-type"></system>
+         <code value="process"></code>
       </coding>
    </type>
    <improvementNotation>
       <coding>
-         <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
-         <code value="increase"/>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"></system>
+         <code value="increase"></code>
       </coding>
    </improvementNotation>
    <group>
       <population id="53248B01-E1CF-4C67-AE39-8483F8114CAE">
          <code>
             <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-               <code value="initial-population"/>
-               <display value="Initial Population"/>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="initial-population"></code>
+               <display value="Initial Population"></display>
             </coding>
          </code>
          <criteria>
-            <language value="text/cql.identifier"/>
-            <expression value="Initial Population"/>
+            <language value="text/cql-identifier"></language>
+            <expression value="Initial Population"></expression>
          </criteria>
       </population>
       <population id="9D2AB719-A4D5-41D3-8785-7DBE8CA10FD3">
          <code>
             <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-               <code value="denominator"/>
-               <display value="Denominator"/>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="denominator"></code>
+               <display value="Denominator"></display>
             </coding>
          </code>
          <criteria>
-            <language value="text/cql.identifier"/>
-            <expression value="Denominator"/>
+            <language value="text/cql-identifier"></language>
+            <expression value="Denominator"></expression>
          </criteria>
       </population>
       <population id="165DEA75-8DF1-4F2C-9F8A-BBEE1A02A5D6">
          <code>
             <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-               <code value="denominator-exclusion"/>
-               <display value="Denominator Exclusion"/>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="denominator-exclusion"></code>
+               <display value="Denominator Exclusion"></display>
             </coding>
          </code>
          <criteria>
-            <language value="text/cql.identifier"/>
-            <expression value="Denominator Exclusions"/>
+            <language value="text/cql-identifier"></language>
+            <expression value="Denominator Exclusions"></expression>
          </criteria>
       </population>
       <population id="BF70F2AC-568C-4587-AF54-E4F54E6FCC83">
          <code>
             <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-               <code value="denominator-exception"/>
-               <display value="Denominator Exception"/>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="denominator-exception"></code>
+               <display value="Denominator Exception"></display>
             </coding>
          </code>
          <criteria>
-            <language value="text/cql.identifier"/>
-            <expression value="Denominator Exceptions"/>
+            <language value="text/cql-identifier"></language>
+            <expression value="Denominator Exceptions"></expression>
          </criteria>
       </population>
       <population id="7B0319A6-913B-4F39-8D3C-04FA0A6B5C3A">
          <code>
             <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
-               <code value="numerator"/>
-               <display value="Numerator"/>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="numerator"></code>
+               <display value="Numerator"></display>
             </coding>
          </code>
          <criteria>
-            <language value="text/cql.identifier"/>
-            <expression value="Numerator"/>
+            <language value="text/cql-identifier"></language>
+            <expression value="Numerator"></expression>
          </criteria>
       </population>
    </group>
    <supplementalData id="cd02ebb6-a0bf-4196-90f9-80f2a8a79bbf">
       <usage>
          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-            <code value="supplemental-data"/>
+            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"></system>
+            <code value="supplemental-data"></code>
          </coding>
       </usage>
       <criteria>
-         <language value="text/cql.identifier"/>
-         <expression value="SDE Ethnicity"/>
+         <language value="text/cql-identifier"></language>
+         <expression value="SDE Ethnicity"></expression>
       </criteria>
    </supplementalData>
    <supplementalData id="a67a3fc7-cedd-4d78-b7b0-4718fa7f3e2b">
       <usage>
          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-            <code value="supplemental-data"/>
+            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"></system>
+            <code value="supplemental-data"></code>
          </coding>
       </usage>
       <criteria>
-         <language value="text/cql.identifier"/>
-         <expression value="SDE Payer"/>
+         <language value="text/cql-identifier"></language>
+         <expression value="SDE Payer"></expression>
       </criteria>
    </supplementalData>
    <supplementalData id="3dc8840d-cc30-44af-a233-3b2b6c602060">
       <usage>
          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-            <code value="supplemental-data"/>
+            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"></system>
+            <code value="supplemental-data"></code>
          </coding>
       </usage>
       <criteria>
-         <language value="text/cql.identifier"/>
-         <expression value="SDE Race"/>
+         <language value="text/cql-identifier"></language>
+         <expression value="SDE Race"></expression>
       </criteria>
    </supplementalData>
    <supplementalData id="5a4e95aa-f8b3-400f-89b3-02555a361251">
       <usage>
          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
-            <code value="supplemental-data"/>
+            <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"></system>
+            <code value="supplemental-data"></code>
          </coding>
       </usage>
       <criteria>
-         <language value="text/cql.identifier"/>
-         <expression value="SDE Sex"/>
+         <language value="text/cql-identifier"></language>
+         <expression value="SDE Sex"></expression>
       </criteria>
    </supplementalData>
 </Measure>

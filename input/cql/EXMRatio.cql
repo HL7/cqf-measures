@@ -44,8 +44,8 @@ include FHIRHelpers version '4.0.1'
 
 include MATGlobalCommonFunctions version '5.0.000' called Global
 
-valueset "Inpatient": 'TBD'
-valueset "Fall": 'TBD'
+valueset "Inpatient": 'http://example.org/fhir/ValueSet/inpatient'
+valueset "Fall": 'http://example.org/fhir/ValueSet/fall'
 
 context Patient
 
