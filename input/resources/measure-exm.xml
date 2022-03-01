@@ -5,323 +5,334 @@
       <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
    </meta>
    <contained>
-      <Library xmlns="http://hl7.org/fhir">
-         <id value="effective-data-requirements"></id>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
-            <valueCoding>
-               <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role"></system>
-               <code value="billing"></code>
-               <display value="Billing"></display>
-            </valueCoding>
-         </extension>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-            <extension url="libraryName">
-               <valueString value="EXMLogic"></valueString>
-            </extension>
-            <extension url="name">
-               <valueString value="SDE Sex"></valueString>
-            </extension>
-            <extension url="statement">
-               <valueString value="define &quot;SDE Sex&quot;:
-  case
-    when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }
-    when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }
-    else null
-  end"></valueString>
-            </extension>
-            <extension url="displaySequence">
-               <valueInteger value="0"></valueInteger>
-            </extension>
-         </extension>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-            <extension url="libraryName">
-               <valueString value="EXMLogic"></valueString>
-            </extension>
-            <extension url="name">
-               <valueString value="Inpatient Encounter"></valueString>
-            </extension>
-            <extension url="statement">
-               <valueString value="define &quot;Inpatient Encounter&quot; :
-  [&quot;Encounter&quot;] Encounter
-    where LengthInDays(Encounter.period) &lt;= 120
-      and Encounter.period ends during &quot;Measurement Period&quot;"></valueString>
-            </extension>
-            <extension url="displaySequence">
-               <valueInteger value="1"></valueInteger>
-            </extension>
-         </extension>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-            <extension url="libraryName">
-               <valueString value="EXMLogic"></valueString>
-            </extension>
-            <extension url="name">
-               <valueString value="Stratifier 3"></valueString>
-            </extension>
-            <extension url="statement">
-               <valueString value="define &quot;Stratifier 3&quot; :
-  &quot;Inpatient Encounter&quot; Encounter
-    where PrincipalDiagnosis(Encounter) is null"></valueString>
-            </extension>
-            <extension url="displaySequence">
-               <valueInteger value="2"></valueInteger>
-            </extension>
-         </extension>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-            <extension url="libraryName">
-               <valueString value="EXMLogic"></valueString>
-            </extension>
-            <extension url="name">
-               <valueString value="Stratifier 4"></valueString>
-            </extension>
-            <extension url="statement">
-               <valueString value="define &quot;Stratifier 4&quot; :
-  &quot;Inpatient Encounter&quot; Encounter
-    where PrincipalDiagnosis(Encounter) is null"></valueString>
-            </extension>
-            <extension url="displaySequence">
-               <valueInteger value="3"></valueInteger>
-            </extension>
-         </extension>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-            <extension url="libraryName">
-               <valueString value="EXMLogic"></valueString>
-            </extension>
-            <extension url="name">
-               <valueString value="SDE Payer"></valueString>
-            </extension>
-            <extension url="statement">
-               <valueString value="define &quot;SDE Payer&quot;:
-    [Coverage: type in &quot;Payer&quot;] Payer
-      return {
-        code: Payer.type,
-        period: Payer.period
-      }"></valueString>
-            </extension>
-            <extension url="displaySequence">
-               <valueInteger value="4"></valueInteger>
-            </extension>
-         </extension>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-            <extension url="libraryName">
-               <valueString value="EXMLogic"></valueString>
-            </extension>
-            <extension url="name">
-               <valueString value="Initial Population"></valueString>
-            </extension>
-            <extension url="statement">
-               <valueString value="define &quot;Initial Population&quot; :
-  &quot;Inpatient Encounter&quot; Encounter"></valueString>
-            </extension>
-            <extension url="displaySequence">
-               <valueInteger value="5"></valueInteger>
-            </extension>
-         </extension>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-            <extension url="libraryName">
-               <valueString value="EXMLogic"></valueString>
-            </extension>
-            <extension url="name">
-               <valueString value="SDE Ethnicity"></valueString>
-            </extension>
-            <extension url="statement">
-               <valueString value="define &quot;SDE Ethnicity&quot;:
-  (flatten (
-    Patient.extension Extension
-      where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
-        return Extension.extension
-  )) E
-    where E.url = 'ombCategory'
-      or E.url = 'detailed'
-    return E.value as Coding"></valueString>
-            </extension>
-            <extension url="displaySequence">
-               <valueInteger value="6"></valueInteger>
-            </extension>
-         </extension>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-            <extension url="libraryName">
-               <valueString value="EXMLogic"></valueString>
-            </extension>
-            <extension url="name">
-               <valueString value="SDE Race"></valueString>
-            </extension>
-            <extension url="statement">
-               <valueString value="define &quot;SDE Race&quot;:
-  (flatten (
-    Patient.extension Extension
-      where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'
-        return Extension.extension
-  )) E
-    where E.url = 'ombCategory'
-      or E.url = 'detailed'
-    return E.value as Coding"></valueString>
-            </extension>
-            <extension url="displaySequence">
-               <valueInteger value="7"></valueInteger>
-            </extension>
-         </extension>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-            <extension url="libraryName">
-               <valueString value="EXMLogic"></valueString>
-            </extension>
-            <extension url="name">
-               <valueString value="Stratifier 1"></valueString>
-            </extension>
-            <extension url="statement">
-               <valueString value="define &quot;Stratifier 1&quot; :
-  &quot;Inpatient Encounter&quot; Encounter
-    where not (PrincipalDiagnosis(Encounter).code in &quot;Psychiatric/Mental Health Patient&quot;)"></valueString>
-            </extension>
-            <extension url="displaySequence">
-               <valueInteger value="8"></valueInteger>
-            </extension>
-         </extension>
-         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
-            <extension url="libraryName">
-               <valueString value="EXMLogic"></valueString>
-            </extension>
-            <extension url="name">
-               <valueString value="Stratifier 2"></valueString>
-            </extension>
-            <extension url="statement">
-               <valueString value="define &quot;Stratifier 2&quot; :
-  &quot;Inpatient Encounter&quot; Encounter
-    where PrincipalDiagnosis(Encounter).code in &quot;Psychiatric/Mental Health Patient&quot;"></valueString>
-            </extension>
-            <extension url="displaySequence">
-               <valueInteger value="9"></valueInteger>
-            </extension>
-         </extension>
-         <name value="EffectiveDataRequirements"/>
-         <status value="active"></status>
-         <type>
-            <coding>
-               <system value="http://terminology.hl7.org/CodeSystem/library-type"></system>
-               <code value="module-definition"></code>
-            </coding>
-         </type>
-         <date value="2022-02-22T10:37:03-07:00"></date>
-         <relatedArtifact>
-            <type value="depends-on"></type>
-            <display value="Library FHIRHelpers"></display>
-            <resource value="http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"></resource>
-         </relatedArtifact>
-         <relatedArtifact>
-            <type value="depends-on"></type>
-            <display value="Code system Diagnosis Role"></display>
-            <resource value="http://terminology.hl7.org/CodeSystem/diagnosis-role"></resource>
-         </relatedArtifact>
-         <relatedArtifact>
-            <type value="depends-on"></type>
-            <display value="Value set Payer"></display>
-            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"></resource>
-         </relatedArtifact>
-         <relatedArtifact>
-            <type value="depends-on"></type>
-            <display value="Value set Psychiatric/Mental Health Patient"></display>
-            <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299"></resource>
-         </relatedArtifact>
-         <parameter>
-            <name value="Measurement Period"></name>
-            <use value="in"></use>
-            <min value="0"></min>
-            <max value="1"></max>
-            <type value="Period"></type>
-         </parameter>
-         <parameter>
-            <name value="SDE Sex"></name>
-            <use value="out"></use>
-            <min value="0"></min>
-            <max value="1"></max>
-            <type value="Coding"></type>
-         </parameter>
-         <parameter>
-            <name value="Stratifier 3"></name>
-            <use value="out"></use>
-            <min value="0"></min>
-            <max value="*"></max>
-            <type value="Encounter"></type>
-         </parameter>
-         <parameter>
-            <name value="Stratifier 4"></name>
-            <use value="out"></use>
-            <min value="0"></min>
-            <max value="*"></max>
-            <type value="Encounter"></type>
-         </parameter>
-         <parameter>
-            <name value="SDE Payer"></name>
-            <use value="out"></use>
-            <min value="0"></min>
-            <max value="*"></max>
-            <type value="Any"></type>
-         </parameter>
-         <parameter>
-            <name value="Initial Population"></name>
-            <use value="out"></use>
-            <min value="0"></min>
-            <max value="*"></max>
-            <type value="Encounter"></type>
-         </parameter>
-         <parameter>
-            <name value="SDE Ethnicity"></name>
-            <use value="out"></use>
-            <min value="0"></min>
-            <max value="*"></max>
-            <type value="Coding"></type>
-         </parameter>
-         <parameter>
-            <name value="SDE Race"></name>
-            <use value="out"></use>
-            <min value="0"></min>
-            <max value="*"></max>
-            <type value="Coding"></type>
-         </parameter>
-         <parameter>
-            <name value="Stratifier 1"></name>
-            <use value="out"></use>
-            <min value="0"></min>
-            <max value="*"></max>
-            <type value="Encounter"></type>
-         </parameter>
-         <parameter>
-            <name value="Stratifier 2"></name>
-            <use value="out"></use>
-            <min value="0"></min>
-            <max value="*"></max>
-            <type value="Encounter"></type>
-         </parameter>
-         <dataRequirement>
-            <type value="Coverage"></type>
-            <profile value="http://hl7.org/fhir/StructureDefinition/Coverage"></profile>
-            <mustSupport value="period"></mustSupport>
-            <mustSupport value="type"></mustSupport>
-            <codeFilter>
-               <path value="type"></path>
-               <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"></valueSet>
-            </codeFilter>
-         </dataRequirement>
-         <dataRequirement>
-            <type value="Encounter"></type>
-            <profile value="http://hl7.org/fhir/StructureDefinition/Encounter"></profile>
-            <mustSupport value="period"></mustSupport>
-         </dataRequirement>
-         <dataRequirement>
-            <type value="Condition"></type>
-            <profile value="http://hl7.org/fhir/StructureDefinition/Condition"></profile>
-            <mustSupport value="id"></mustSupport>
-            <codeFilter>
-               <path value="id"></path>
-            </codeFilter>
-         </dataRequirement>
-         <dataRequirement>
-            <type value="Patient"></type>
-            <profile value="http://hl7.org/fhir/StructureDefinition/Patient"></profile>
-            <mustSupport value="extension"></mustSupport>
-            <mustSupport value="value"></mustSupport>
-            <mustSupport value="url"></mustSupport>
-         </dataRequirement>
-      </Library>
+     <Library>
+        <id value="effective-data-requirements"/>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
+           <valueCoding>
+              <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role" />
+              <code value="billing" />
+              <display value="Billing" />
+           </valueCoding>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+           <extension url="libraryName">
+              <valueString value="EXMLogic" />
+           </extension>
+           <extension url="name">
+              <valueString value="SDE Sex" />
+           </extension>
+           <extension url="statement">
+              <valueString value="define &quot;SDE Sex&quot;:&#xA;  case&#xA;    when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }&#xA;    when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }&#xA;    else null&#xA;  end" />
+           </extension>
+           <extension url="displaySequence">
+              <valueInteger value="0" />
+           </extension>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+           <extension url="libraryName">
+              <valueString value="EXMLogic" />
+           </extension>
+           <extension url="name">
+              <valueString value="Inpatient Encounter" />
+           </extension>
+           <extension url="statement">
+              <valueString value="define &quot;Inpatient Encounter&quot; :&#xA;  [&quot;Encounter&quot;] Encounter&#xA;    where LengthInDays(Encounter.period) &lt;= 120&#xA;      and Encounter.period ends during &quot;Measurement Period&quot;" />
+           </extension>
+           <extension url="displaySequence">
+              <valueInteger value="1" />
+           </extension>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+           <extension url="libraryName">
+              <valueString value="EXMLogic" />
+           </extension>
+           <extension url="name">
+              <valueString value="Stratifier 3" />
+           </extension>
+           <extension url="statement">
+              <valueString value="define &quot;Stratifier 3&quot; :&#xA;  &quot;Inpatient Encounter&quot; Encounter&#xA;    where PrincipalDiagnosis(Encounter) is null" />
+           </extension>
+           <extension url="displaySequence">
+              <valueInteger value="2" />
+           </extension>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+           <extension url="libraryName">
+              <valueString value="EXMLogic" />
+           </extension>
+           <extension url="name">
+              <valueString value="Stratifier 4" />
+           </extension>
+           <extension url="statement">
+              <valueString value="define &quot;Stratifier 4&quot; :&#xA;  &quot;Inpatient Encounter&quot; Encounter&#xA;    where PrincipalDiagnosis(Encounter) is null" />
+           </extension>
+           <extension url="displaySequence">
+              <valueInteger value="3" />
+           </extension>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+           <extension url="libraryName">
+              <valueString value="EXMLogic" />
+           </extension>
+           <extension url="name">
+              <valueString value="SDE Payer" />
+           </extension>
+           <extension url="statement">
+              <valueString value="define &quot;SDE Payer&quot;:&#xA;    [Coverage: type in &quot;Payer&quot;] Payer&#xA;      return {&#xA;        code: Payer.type,&#xA;        period: Payer.period&#xA;      }" />
+           </extension>
+           <extension url="displaySequence">
+              <valueInteger value="4" />
+           </extension>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+           <extension url="libraryName">
+              <valueString value="EXMLogic" />
+           </extension>
+           <extension url="name">
+              <valueString value="Initial Population" />
+           </extension>
+           <extension url="statement">
+              <valueString value="define &quot;Initial Population&quot; :&#xA;  &quot;Inpatient Encounter&quot; Encounter" />
+           </extension>
+           <extension url="displaySequence">
+              <valueInteger value="5" />
+           </extension>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+           <extension url="libraryName">
+              <valueString value="EXMLogic" />
+           </extension>
+           <extension url="name">
+              <valueString value="SDE Ethnicity" />
+           </extension>
+           <extension url="statement">
+              <valueString value="define &quot;SDE Ethnicity&quot;:&#xA;  (flatten (&#xA;    Patient.extension Extension&#xA;      where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'&#xA;        return Extension.extension&#xA;  )) E&#xA;    where E.url = 'ombCategory'&#xA;      or E.url = 'detailed'&#xA;    return E.value as Coding" />
+           </extension>
+           <extension url="displaySequence">
+              <valueInteger value="6" />
+           </extension>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+           <extension url="libraryName">
+              <valueString value="EXMLogic" />
+           </extension>
+           <extension url="name">
+              <valueString value="SDE Race" />
+           </extension>
+           <extension url="statement">
+              <valueString value="define &quot;SDE Race&quot;:&#xA;  (flatten (&#xA;    Patient.extension Extension&#xA;      where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'&#xA;        return Extension.extension&#xA;  )) E&#xA;    where E.url = 'ombCategory'&#xA;      or E.url = 'detailed'&#xA;    return E.value as Coding" />
+           </extension>
+           <extension url="displaySequence">
+              <valueInteger value="7" />
+           </extension>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+           <extension url="libraryName">
+              <valueString value="EXMLogic" />
+           </extension>
+           <extension url="name">
+              <valueString value="Stratifier 1" />
+           </extension>
+           <extension url="statement">
+              <valueString value="define &quot;Stratifier 1&quot; :&#xA;  &quot;Inpatient Encounter&quot; Encounter&#xA;    where not (PrincipalDiagnosis(Encounter).code in &quot;Psychiatric/Mental Health Patient&quot;)" />
+           </extension>
+           <extension url="displaySequence">
+              <valueInteger value="8" />
+           </extension>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+           <extension url="libraryName">
+              <valueString value="EXMLogic" />
+           </extension>
+           <extension url="name">
+              <valueString value="Stratifier 2" />
+           </extension>
+           <extension url="statement">
+              <valueString value="define &quot;Stratifier 2&quot; :&#xA;  &quot;Inpatient Encounter&quot; Encounter&#xA;    where PrincipalDiagnosis(Encounter).code in &quot;Psychiatric/Mental Health Patient&quot;" />
+           </extension>
+           <extension url="displaySequence">
+              <valueInteger value="9" />
+           </extension>
+        </extension>
+        <name value="EffectiveDataRequirements"/>
+        <status value="active" />
+        <type>
+           <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/library-type" />
+              <code value="module-definition" />
+           </coding>
+        </type>
+        <relatedArtifact>
+           <type value="depends-on" />
+           <display value="Library FHIRHelpers" />
+           <resource value="http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1" />
+        </relatedArtifact>
+        <relatedArtifact>
+           <type value="depends-on" />
+           <display value="Code system Diagnosis Role" />
+           <resource value="http://terminology.hl7.org/CodeSystem/diagnosis-role" />
+        </relatedArtifact>
+        <relatedArtifact>
+           <type value="depends-on" />
+           <display value="Value set Payer" />
+           <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" />
+        </relatedArtifact>
+        <relatedArtifact>
+           <type value="depends-on" />
+           <display value="Value set Psychiatric/Mental Health Patient" />
+           <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299" />
+        </relatedArtifact>
+        <parameter>
+           <name value="Measurement Period" />
+           <use value="in" />
+           <min value="0" />
+           <max value="1" />
+           <type value="Period" />
+        </parameter>
+        <parameter>
+           <name value="SDE Sex" />
+           <use value="out" />
+           <min value="0" />
+           <max value="1" />
+           <type value="Coding" />
+        </parameter>
+        <parameter>
+           <name value="Stratifier 3" />
+           <use value="out" />
+           <min value="0" />
+           <max value="*" />
+           <type value="Encounter" />
+        </parameter>
+        <parameter>
+           <name value="Stratifier 4" />
+           <use value="out" />
+           <min value="0" />
+           <max value="*" />
+           <type value="Encounter" />
+        </parameter>
+        <parameter>
+           <name value="SDE Payer" />
+           <use value="out" />
+           <min value="0" />
+           <max value="*" />
+           <type value="Any" />
+        </parameter>
+        <parameter>
+           <name value="Initial Population" />
+           <use value="out" />
+           <min value="0" />
+           <max value="*" />
+           <type value="Encounter" />
+        </parameter>
+        <parameter>
+           <name value="SDE Ethnicity" />
+           <use value="out" />
+           <min value="0" />
+           <max value="*" />
+           <type value="Coding" />
+        </parameter>
+        <parameter>
+           <name value="SDE Race" />
+           <use value="out" />
+           <min value="0" />
+           <max value="*" />
+           <type value="Coding" />
+        </parameter>
+        <parameter>
+           <name value="Stratifier 1" />
+           <use value="out" />
+           <min value="0" />
+           <max value="*" />
+           <type value="Encounter" />
+        </parameter>
+        <parameter>
+           <name value="Stratifier 2" />
+           <use value="out" />
+           <min value="0" />
+           <max value="*" />
+           <type value="Encounter" />
+        </parameter>
+        <dataRequirement>
+           <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern">
+              <valueString value="Patient?_id={{context.patientId}}" />
+           </extension>
+           <type value="Patient" />
+           <profile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+        </dataRequirement>
+        <dataRequirement>
+           <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern">
+              <valueString value="Patient?_id={{context.patientId}}" />
+           </extension>
+           <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-valueFilter">
+             <extension url="path">
+               <valueString value="url"/>
+             </extension>
+             <extension url="comparator">
+               <valueCode value="eq"/>
+             </extension>
+             <extension url="value">
+               <valueString value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"/>
+             </extension>
+           </extension>
+           <type value="Patient" />
+           <profile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+           <mustSupport value="url" />
+           <mustSupport value="extension" />
+           <mustSupport value="value" />
+        </dataRequirement>
+        <dataRequirement>
+           <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern">
+              <valueString value="Patient?_id={{context.patientId}}" />
+           </extension>
+           <type value="Patient" />
+           <profile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+           <mustSupport value="url" />
+           <mustSupport value="extension" />
+           <mustSupport value="value" />
+           <codeFilter>
+              <path value="url" />
+              <code>
+                 <system value="urn:ietf:rfc:3986"/>
+                 <code value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race" />
+              </code>
+           </codeFilter>
+        </dataRequirement>
+        <dataRequirement>
+           <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern">
+              <valueString value="Encounter?subject=Patient/{{context.patientId}}" />
+           </extension>
+           <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isSelective">
+             <valueBoolean value="true"/>
+           </extension>
+           <type value="Encounter" />
+           <profile value="http://hl7.org/fhir/StructureDefinition/Encounter" />
+           <mustSupport value="period" />
+           <dateFilter>
+              <path value="period" />
+              <valuePeriod>
+                 <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+                    <valueExpression>
+                       <language value="text/cql-identifier" />
+                       <expression value="Measurement Period" />
+                    </valueExpression>
+                 </extension>
+              </valuePeriod>
+           </dateFilter>
+        </dataRequirement>
+        <dataRequirement>
+           <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern">
+              <valueString value="Coverage?policy-holder=Patient/{{context.patientId}}&amp;type:in=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" />
+           </extension>
+           <type value="Coverage" />
+           <profile value="http://hl7.org/fhir/StructureDefinition/Coverage" />
+           <mustSupport value="type" />
+           <mustSupport value="period" />
+           <codeFilter>
+              <path value="type" />
+              <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" />
+           </codeFilter>
+        </dataRequirement>
+     </Library>
    </contained>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment">
       <extension url="type">
