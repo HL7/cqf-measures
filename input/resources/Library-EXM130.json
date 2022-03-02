@@ -169,6 +169,15 @@
     "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
   } ],
   "parameter": [ {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-defaultValue",
+        "valuePeriod": {
+          "start": "2019-01-01T00:00:00.0Z",
+          "end": "2019-12-31T23:59:59.999Z"
+        }
+      }
+    ],
     "name": "Measurement Period",
     "use": "in",
     "min": 0,

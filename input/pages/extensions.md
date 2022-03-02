@@ -14,7 +14,6 @@
 - [Effective Period Anchor](StructureDefinition-cqfm-effectivePeriodAnchor.html)
 - [Effective Period Duration](StructureDefinition-cqfm-effectivePeriodDuration.html)
 - [Expansion Parameters](StructureDefinition-cqfm-expansionParameters.html)
-- [Expansion URI](StructureDefinition-cqfm-expansionUri.html)
 - [FHIR Query Pattern](StructureDefinition-cqfm-fhirQueryPattern.html)
 - [Group Id](StructureDefinition-cqfm-groupId.html)
 - [Improvement Notation](StructureDefinition-cqfm-improvementNotation.html)
