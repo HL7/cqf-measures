@@ -115,39 +115,43 @@ Note that when a code system authority has not established a versioning system, 
 
 7. SHOULD support ValueSet searches by:
     1. expansion: Used in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
-    2. codesystem: Returning any valueset that directly references the given codesystem url (optionally versioned)
-    3. valueset: Returning any valueset that references or is referenced by the given valueset url (optionally versioned)
-    4. library: Returning any valueset that is referenced by the given library url (optionally versioned)
-    5. measure: Returning any valueset that directly references the given measure url (optionally versioned)
-    6. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
+    2. context: Returning all artifacts with a use context value matching the given context
+    3. context-type: Returning all artifacts with a use context type matching the given context type
+    4. context-type-quantity: Returning all artifacts with a use context quantity or range matching the given quantity
+    5. context-type-value: Returning all artifacts with a given use context type and value
+    6. codesystem: Returning any valueset that directly references the given codesystem url (optionally versioned)
+    7. valueset: Returning any valueset that references or is referenced by the given valueset url (optionally versioned)
+    8. library: Returning any valueset that is referenced by the given library url (optionally versioned)
+    9. measure: Returning any valueset that directly references the given measure url (optionally versioned)
+    10. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
 
 7. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. SHALL support the url parameter
     2. SHALL support the valueSetVersion parameter
     3. SHALL support the activeOnly parameter
-    5. SHALL support the displayLanguage parameter
-    3. SHALL support the code parameter
-    4. SHALL support the system parameter
-    8. SHALL support the systemVersion parameter
-    9. SHALL support the coding parameter
-    10. SHALL support the codeableConcept parameter
+    4. SHALL support the displayLanguage parameter
+    5. SHALL support the code parameter
+    6. SHALL support the system parameter
+    7. SHALL support the systemVersion parameter
+    8. SHALL support the coding parameter
+    9. SHALL support the codeableConcept parameter
 
 8. Support [ValueSet/$expand](http://hl7.org/fhir/R4/valueset-operation-expand.html)
     1. SHALL support the url parameter
     2. SHALL support the valueSetVersion parameter
     3. SHALL support the activeOnly parameter
-    5. SHALL support the displayLanguage parameter
-    6. SHALL support the limitedExpansion parameter
-    7. SHALL support the default-to-latest-version parameter
-    4. SHALL support the system-version parameter
-    5. SHALL support the check-system-version parameter
-    6. SHALL support the force-system-version parameter
-    11. SHOULD support includeDesignation parameter
-    12. SHOULD support designation parameter
-    7. SHOULD support paging parameters
-    8. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    9. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    10. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    4. SHALL support the displayLanguage parameter
+    5. SHALL support the limitedExpansion parameter
+    6. SHALL support the default-to-latest-version parameter
+    7. SHALL support the system-version parameter
+    8. SHALL support the check-system-version parameter
+    9. SHALL support the force-system-version parameter
+    10. SHOULD support includeDesignation parameter
+    11. SHOULD support designation parameter
+    12. SHOULD support paging parameters
+    13. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    14. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    15. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
 
 ### Quality Programs (Artifact Collections)
 
