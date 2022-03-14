@@ -132,7 +132,7 @@
         "id": "Measure.library",
         "path": "Measure.library",
         "short": "CQFMMeasures are not required to use a Library, but if they do, it SHALL be a CQFMLibrary.",
-        "requirements": "A measure MUST provide one primary library reference containing population criteria definitions for the measure.",
+        "requirements": "A computable measure MUST provide one primary library reference containing population criteria definitions for the measure.",
         "min": 0,
         "max": "1",
         "type": [
@@ -158,18 +158,10 @@
         "mustSupport": true
       },
       {
-        "id": "Measure.scoring",
-        "path": "Measure.scoring",
-        "requirements": "A measure must indicate the scoring method used for the measure.",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
         "id": "Measure.type",
         "path": "Measure.type",
         "requirements": "A measure must indicate the type of the measure.",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "mustSupport": true,
         "binding": {
@@ -179,21 +171,8 @@
         }
       },
       {
-        "id": "Measure.improvementNotation",
-        "path": "Measure.improvementNotation",
-        "short": "increase | decrease",
-        "definition": "Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range).",
-        "requirements": "A measure must indicate the improvement notation used for the measure.",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
         "id": "Measure.group",
         "path": "Measure.group",
-        "requirements": "A measure must specify at least one population group.",
-        "min": 0,
-        "max": "*",
         "mustSupport": true
       },
       {

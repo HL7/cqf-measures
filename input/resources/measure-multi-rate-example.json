@@ -223,24 +223,12 @@
   "date": "2022-02-22T10:37:03-07:00",
   "description": "This measure example illustrates the use of the group-level computation extensions to describe a multi-rate measure with mixed population bases",
   "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/MultiRateExample" ],
-  "scoring": {
-    "coding": [ {
-      "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
-      "code": "continuous-variable"
-    } ]
-  },
   "type": [ {
       "coding": [ {
         "system": "http://terminology.hl7.org/CodeSystem/measure-type",
         "code": "structure"
       } ]
   } ],
-  "improvementNotation": {
-    "coding": [ {
-      "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
-      "code": "increase"
-    } ]
-  },
   "group": [ {
     "id": "group-1",
     "extension": [ {
