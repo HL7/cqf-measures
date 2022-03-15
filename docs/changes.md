@@ -49,7 +49,6 @@ These changes will be published as part of the STU3 release (v3.0.0)
 
 * Required CQFMMeasure Library reference to be a CQFMLibrary
 * Relaxed scoring, type, and improvementNotation cardinality
-* Changed Measure.type binding to use V3 codes
 
 ### Changes to the CQFMComputableMeasure profile:
 
@@ -90,7 +89,6 @@ These changes will be published as part of the STU3 release (v3.0.0)
 * [**FHIR-32748**](https://jira.hl7.org/browse/FHIR-32748): Changed cardinality of group to 0..*
 * [**FHIR-32594**](https://jira.hl7.org/browse/FHIR-32594): Changed the representation of expansion parameters to use a contained parameters resource rather than specific extensions per parameter
 * [**FHIR-32593**](https://jira.hl7.org/browse/FHIR-32593): Changed the representation of effective data requirements on a measure to use a contained module definition library, rather than extensions in the measure
-* [**FHIR-32046**](https://jira.hl7.org/browse/FHIR-32046): Changed Measure.type binding to use V3 codes
 * [**FHIR-30079**](https://jira.hl7.org/browse/FHIR-30079): Removed the bundle-based packaging profiles in favor of artifact-based profiles to ensure that artifact packaging can use paging when artifact packages contain a large number of components
 
 ### Compatible, Substantive Changes

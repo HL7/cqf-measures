@@ -19,7 +19,6 @@
 -  [Aggregate Method](ValueSet-aggregate-method.html)
 -  [CQL Version](ValueSet-cql-version.html)
 -  [Identifier Type](ValueSet-identifier-type.html)
--  [Measure Type](ValueSet-cqfm-measure-type.html)
 -  [Quality Programs](ValueSet-quality-programs.html)
 -  [Software System Type](ValueSet-software-system-type.html)
 -  [Value Filter Comparator](ValueSet-value-filter-comparator.html)
