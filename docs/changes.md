@@ -48,6 +48,7 @@ These changes will be published as part of the STU3 release (v3.0.0)
 ### Changes to the CQFMMeasure profile:
 
 * Required CQFMMeasure Library reference to be a CQFMLibrary
+* Relaxed scoring, type, and improvementNotation cardinality
 * Changed Measure.type binding to use V3 codes
 
 ### Changes to the CQFMComputableMeasure profile:
@@ -57,6 +58,13 @@ These changes will be published as part of the STU3 release (v3.0.0)
 * Added fhirQueryPattern extension to communicate FHIR queries
 * Added isSelective extension to dataRequirement
 * Added valueFilter extension to support additional filtering in dataRequirement
+* Added constraints to enforce scoring, populationBasis, and improvementNotation be specified at the root or all groups, but not both
+* Added constraints to enforce population criteria in groups based on the group scoring extension
+* Required Library to be a CQFMComputableLibrary and all expressions to be text/cql-expression or -identifier
+
+### Added CQFMExecutableMeasure
+
+* Required Library to be a CQFMExecutableLibrary and all expressions to be text/cql-identifier
 
 ### Changes to measure repository service:
 
@@ -75,6 +83,7 @@ These changes will be published as part of the STU3 release (v3.0.0)
 
 ### Non-Compatible Changes
 
+* [**FHIR-36156**](https://jira.hl7.org/browse/FHIR-36156): Required scoring, populationBasis, and improvementNotation to be specified at the root or on all groups, but not both
 * [**FHIR-33975**](https://jira.hl7.org/browse/FHIR-33975): Changed executable value set to use the warning extension from the base specification
 * [**FHIR-33971**](https://jira.hl7.org/browse/FHIR-33971): Restricted the use of the content element in a quality program
 * [**FHIR-33178**](https://jira.hl7.org/browse/FHIR-33178): Required CQFMMeasure library reference to be a CQFMLibrary
@@ -86,6 +95,7 @@ These changes will be published as part of the STU3 release (v3.0.0)
 
 ### Compatible, Substantive Changes
 
+* [**FHIR-36304**](https://jira.hl7.org/browse/FHIR-36304): Added CQFMExecutableMeasure profile to separate computable/executable concerns of a measure
 * [**FHIR-34290**](https://jira.hl7.org/browse/FHIR-34290): Added capabilities to the measure terminology service to align with publishing terminology service capabilities
 * [**FHIR-33970**](https://jira.hl7.org/browse/FHIR-33970): Added searching by useContext
 * [**FHIR-33968**](https://jira.hl7.org/browse/FHIR-33968): Added searching for valuesets by artifacts that reference the value set

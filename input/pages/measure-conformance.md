@@ -71,11 +71,11 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 
 1. FHIR-based eCQMs SHALL consist of a FHIR Measure resource conforming to at least the CQFMMeasure profile. In particular, FHIR-based eCQMs SHALL contain a narrative containing a human-readable representation of the measure content.
 2. FHIR-based eCQM Measure and Library resource instances SHALL declare their profile.
-3. Proportion Measures SHALL conform to the CQFMProportionMeasure profile.
-4. Ratio Measures SHALL conform to the CQFMRatioMeasure profile.
-5. Composite Measures SHALL conform to the CQFMCompositeMeasure profile.
-6. Continuous Variable Measures SHALL conform to the CQFMContinuousVariableMeasure profile.
-7. Cohort Measures SHALL conform to the CQFMCohortMeasure profile.
+3. Proportion Measures SHALL conform to the CQFMProportionMeasure profile or satisfy the proportion scoring constraints in the CQFMComputableMeasure profile.
+4. Ratio Measures SHALL conform to the CQFMRatioMeasure profile or satisfy the ratio scoring constraints in the CQFMComputableMeasure profile.
+5. Composite Measures SHALL conform to the CQFMCompositeMeasure profile or satisfy the composite scoring constraints in the CQFMComputableMeasure profile.
+6. Continuous Variable Measures SHALL conform to the CQFMContinuousVariableMeasure profile or satisfy the continuous variable scoring constraints in the CQFMComputableMeasure profile.
+7. Cohort Measures SHALL conform to the CQFMCohortMeasure profile or satisfy the cohort scoring constraints in the CQFMComputableMeasure profile.
 8. Libraries used with FHIR-based eCQMs SHALL consist of a FHIR Library resource conforming to at least the CQFMLibrary profile.
 9. CQFMMeasures utilizing CQL libraries SHALL include exactly 1 CQFMLibrary per CQL library referenced in the Measure.
 10. CQL Libraries implicitly referenced through nesting of libraries MAY be included.

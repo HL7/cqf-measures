@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "The CQFM Computable Measure Profile describes minimum expectations for a computable electronic Clinical Quality Measure (eCQM)",
+  "description": "The CQFM Computable Measure Profile describes minimum expectations for a computable electronic Clinical Quality Measure (eCQM), including the use of a computable library, and the use of expressions or identifiers for all criteria.",
   "jurisdiction": [
     {
       "coding": [
@@ -162,6 +162,14 @@
       {
         "id": "Measure.library",
         "path": "Measure.library",
+        "type": [
+          {
+            "code": "canonical",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -501,12 +509,29 @@
       {
         "id": "Measure.group.population",
         "path": "Measure.group.population",
-        "condition": [ "cmp-10", "cmp-11", "cmp-12", "cmp-13", "cmp-14", "cmp-15", "cmp-16", "cmp-17", "cmp-18", "cmp-19", "cmp-20", "cmp-21", "cmp-22", "cmp-23", "cmp-24", "cmp-25", "cmp-26", "cmp-27", "cmp-28", "cmp-29", "cmp-30" ],
+        "constraint": [
+          {
+            "key": "cmp-32",
+            "severity": "error",
+            "human": "Computable measures must use text/cql-expression or text/cql-identifier for all criteria",
+            "expression": "criteria.language in ('text/cql-expression' | 'text/cql-identifier')"
+          }
+        ],
+        "condition": [ "cmp-10", "cmp-11", "cmp-12", "cmp-13", "cmp-14", "cmp-15", "cmp-16", "cmp-17", "cmp-18", "cmp-19", "cmp-20", "cmp-21", "cmp-22", "cmp-23", "cmp-24", "cmp-25", "cmp-26", "cmp-27", "cmp-28", "cmp-29", "cmp-30", "cmp-32" ],
         "mustSupport": true
       },
       {
         "id": "Measure.group.stratifier",
         "path": "Measure.group.stratifier",
+        "constraint": [
+          {
+            "key": "cmp-33",
+            "severity": "error",
+            "human": "Computable measures must use text/cql-expression, text/cql-identifier, or text/fhirpath for all stratifier criteria",
+            "expression": "criteria.language in ('text/cql-expression' | 'text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "condition": [ "cmp-33" ],
         "mustSupport": true
       },
       {
@@ -524,6 +549,34 @@
           }
         ],
         "mustSupport": false
+      },
+      {
+        "id": "Measure.group.stratifier.component",
+        "path": "Measure.group.stratifier.component",
+        "constraint": [
+          {
+            "key": "cmp-34",
+            "severity": "error",
+            "human": "Computable measures must use text/cql-expression, text/cql-identifier, or text/fhirpath for all stratifier component criteria",
+            "expression": "criteria.language in ('text/cql-expression' | 'text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "condition": [ "cmp-34" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.supplementalData",
+        "path": "Measure.supplementalData",
+        "constraint": [
+          {
+            "key": "cmp-35",
+            "severity": "error",
+            "human": "Computable measures must use text/cql-expression, text/cql-identifier, or text/fhirpath for all supplemental data criteria",
+            "expression": "criteria.language in ('text/cql-expression' | 'text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "condition": [ "cmp-34" ],
+        "mustSupport": true
       }
     ]
   }

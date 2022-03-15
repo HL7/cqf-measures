@@ -1,3 +1,11 @@
+/*
+@author: Bryn Rhodes
+@description: This library defines functions to convert between FHIR
+ data types and CQL system-defined types, as well as functions to support
+ FHIRPath implementation. For more information, the FHIRHelpers wiki page:
+ https://github.com/cqframework/clinical_quality_language/wiki/FHIRHelpers
+@allowFluent: true
+*/
 library FHIRHelpers version '4.0.1'
 
 using FHIR version '4.0.1'
@@ -6,13 +14,80 @@ define function ToInterval(period FHIR.Period):
     if period is null then
         null
     else
-        Interval[period."start".value, period."end".value]
+        if period."start" is null then
+            Interval(period."start".value, period."end".value]
+        else
+            Interval[period."start".value, period."end".value]
+
+define function ToCalendarUnit(unit System.String):
+    case unit
+        when 'ms' then 'millisecond'
+        when 's' then 'second'
+        when 'min' then 'minute'
+        when 'h' then 'hour'
+        when 'd' then 'day'
+        when 'wk' then 'week'
+        when 'mo' then 'month'
+        when 'a' then 'year'
+        else unit
+    end
 
 define function ToQuantity(quantity FHIR.Quantity):
-    if quantity is null then
+    case
+        when quantity is null then null
+        when quantity.value is null then null
+        when quantity.comparator is not null then
+            Message(null, true, 'FHIRHelpers.ToQuantity.ComparatorQuantityNotSupported', 'Error', 'FHIR Quantity value has a comparator and cannot be converted to a System.Quantity value.')
+        when quantity.system is null or quantity.system.value = 'http://unitsofmeasure.org'
+              or quantity.system.value = 'http://hl7.org/fhirpath/CodeSystem/calendar-units' then
+            System.Quantity { value: quantity.value.value, unit: ToCalendarUnit(Coalesce(quantity.code.value, quantity.unit.value, '1')) }
+        else
+            Message(null, true, 'FHIRHelpers.ToQuantity.InvalidFHIRQuantity', 'Error', 'Invalid FHIR Quantity code: ' & quantity.unit.value & ' (' & quantity.system.value & '|' & quantity.code.value & ')')
+    end
+
+define function ToQuantityIgnoringComparator(quantity FHIR.Quantity):
+    case
+        when quantity is null then null
+        when quantity.value is null then null
+        when quantity.system is null or quantity.system.value = 'http://unitsofmeasure.org'
+              or quantity.system.value = 'http://hl7.org/fhirpath/CodeSystem/calendar-units' then
+            System.Quantity { value: quantity.value.value, unit: ToCalendarUnit(Coalesce(quantity.code.value, quantity.unit.value, '1')) }
+        else
+            Message(null, true, 'FHIRHelpers.ToQuantity.InvalidFHIRQuantity', 'Error', 'Invalid FHIR Quantity code: ' & quantity.unit.value & ' (' & quantity.system.value & '|' & quantity.code.value & ')')
+    end
+
+define function ToInterval(quantity FHIR.Quantity):
+    if quantity is null then null else
+        case quantity.comparator.value
+            when '<' then
+                Interval[
+                    null,
+                    ToQuantityIgnoringComparator(quantity)
+                )
+            when '<=' then
+                Interval[
+                    null,
+                    ToQuantityIgnoringComparator(quantity)
+                ]
+            when '>=' then
+                Interval[
+                    ToQuantityIgnoringComparator(quantity),
+                    null
+                ]
+            when '>' then
+                Interval(
+                    ToQuantityIgnoringComparator(quantity),
+                    null
+                ]
+            else
+                Interval[ToQuantity(quantity), ToQuantity(quantity)]
+        end
+
+define function ToRatio(ratio FHIR.Ratio):
+    if ratio is null then
         null
     else
-        System.Quantity { value: quantity.value.value, unit: quantity.unit.value }
+        System.Ratio { numerator: ToQuantity(ratio.numerator), denominator: ToQuantity(ratio.denominator) }
 
 define function ToInterval(range FHIR.Range):
     if range is null then
@@ -40,6 +115,37 @@ define function ToConcept(concept FHIR.CodeableConcept):
             display: concept.text.value
         }
 
+define function reference(reference String):
+    if reference is null then
+        null
+    else
+        Reference { reference: string { value: reference } }
+
+define function resolve(reference String) returns Resource: external
+define function resolve(reference Reference) returns Resource: external
+define function reference(resource Resource) returns Reference: external
+define function extension(element Element, url String) returns List<Extension>: external
+define function extension(resource Resource, url String) returns List<Extension>: external
+define function hasValue(element Element) returns Boolean: external
+define function getValue(element Element) returns Any: external
+define function ofType(identifier String) returns List<Any>: external
+define function is(identifier String) returns Boolean: external
+define function as(identifier String) returns Any: external
+define function elementDefinition(element Element) returns ElementDefinition: external
+define function slice(element Element, url String, name String) returns List<Element>: external
+define function checkModifiers(resource Resource) returns Resource: external
+define function checkModifiers(resource Resource, modifier String) returns Resource: external
+define function checkModifiers(element Element) returns Element: external
+define function checkModifiers(element Element, modifier String) returns Element: external
+define function conformsTo(resource Resource, structure String) returns Boolean: external
+define function memberOf(code code, valueSet String) returns Boolean: external
+define function memberOf(coding Coding, valueSet String) returns Boolean: external
+define function memberOf(concept CodeableConcept, valueSet String) returns Boolean: external
+define function subsumes(coding Coding, subsumedCoding Coding) returns Boolean: external
+define function subsumes(concept CodeableConcept, subsumedConcept CodeableConcept) returns Boolean: external
+define function subsumedBy(coding Coding, subsumingCoding Coding) returns Boolean: external
+define function subsumedBy(concept CodeableConcept, subsumingConcept CodeableConcept) returns Boolean: external
+define function htmlChecks(element Element) returns Boolean: external
 
 define function ToString(value AccountStatus): value.value
 define function ToString(value ActionCardinalityBehavior): value.value
@@ -121,9 +227,7 @@ define function ToString(value DeviceMetricColor): value.value
 define function ToString(value DeviceMetricOperationalStatus): value.value
 define function ToString(value DeviceNameType): value.value
 define function ToString(value DeviceRequestStatus): value.value
-// DeviceUseStatement has a known issue with the publication tooling
-// so it is removed to allow this IG to publish until that is fixed
-//define function ToString(value DeviceUseStatementStatus): value.value
+define function ToString(value DeviceUseStatementStatus): value.value
 define function ToString(value DiagnosticReportStatus): value.value
 define function ToString(value DiscriminatorType): value.value
 define function ToString(value DocumentConfidentiality): value.value

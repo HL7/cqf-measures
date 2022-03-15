@@ -1,0 +1,143 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "executable-measure-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-measure-cqfm",
+  "version": "2.1.0",
+  "name": "CQFMExecutableMeasure",
+  "title": "CQFM Executable Measure",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM Executable Measure Profile describes minimum expectations for an executable electronic Clinical Quality Measure (eCQM), including a reference to an executable library, and restricted to the use of identifier-based expressions only for all criteria.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Measure",
+  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Measure",
+        "path": "Measure",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.library",
+        "path": "Measure.library",
+        "type": [
+          {
+            "code": "canonical",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-library-cqfm"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group",
+        "path": "Measure.group",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.population",
+        "path": "Measure.group.population",
+        "constraint": [
+          {
+            "key": "exc-1",
+            "severity": "error",
+            "human": "Executable measures must use text/cql-identifier for all population criteria",
+            "expression": "criteria.language = 'text/cql-identifier'"
+          }
+        ],
+        "condition": [ "exc-1" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier",
+        "path": "Measure.group.stratifier",
+        "constraint": [
+          {
+            "key": "exc-2",
+            "severity": "error",
+            "human": "Executable measures must use text/cql-identifier or text/fhirpath for all stratifier criteria",
+            "expression": "criteria.language in ('text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "condition": [ "exc-2" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier.component",
+        "path": "Measure.group.stratifier.component",
+        "constraint": [
+          {
+            "key": "exc-3",
+            "severity": "error",
+            "human": "Executable measures must use text/cql-identifier or text/fhirpath for all stratifier component criteria",
+            "expression": "criteria.language in ('text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "condition": [ "exc-3" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.supplementalData",
+        "path": "Measure.supplementalData",
+        "constraint": [
+          {
+            "key": "exc-3",
+            "severity": "error",
+            "human": "Executable measures must use text/cql-identifier or text/fhirpath for all supplemental data criteria",
+            "expression": "criteria.language in ('text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}
