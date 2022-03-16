@@ -58,22 +58,6 @@
         "mustSupport": false
       },
       {
-        "id": "MeasureReport.extension:isTestCase",
-        "path": "MeasureReport.extension",
-        "sliceName": "isTestCase",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
         "id": "MeasureReport.extension:testCaseDescription",
         "path": "MeasureReport.extension",
         "sliceName": "testCaseDescription",
@@ -116,6 +100,22 @@
             "code": "Extension",
             "profile": [
               "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MeasureReport.modifierExtension:isTestCase",
+        "path": "MeasureReport.modifierExtension",
+        "sliceName": "isTestCase",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase"
             ]
           }
         ],

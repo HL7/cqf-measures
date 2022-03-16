@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ciUrl="http://build.fhir.org/ig/HL7/cqf-measures" defaultVersion="current" defaultWorkgroup="" gitUrl="https://github.com/HL7/cqf-measures" url="http://hl7.org/fhir/us/cqfmeasures">
 <version code="current" url="http://build.fhir.org/ig/HL7/cqf-measures"/>
+<version code="2.1.0" deprecated="true"/>
+<version code="2.0.0" deprecated="true"/>
 <version code="1.1.0" deprecated="true"/>
+<version code="1.0.0" deprecated="true"/>
 <version code="0.1.0" deprecated="true"/>
 <version code="0.1" deprecated="true"/>
 <artifactPageExtension value="-definitions"/>
@@ -90,8 +93,8 @@
 <artifact id="StructureDefinition/cqfm-weight" key="StructureDefinition-cqfm-weight" name="CQFM Weight"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-activeOnly" key="StructureDefinition-cqfm-activeOnly" name="CQFMActiveOnly"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-expansionUri" key="StructureDefinition-cqfm-expansionUri" name="CQFMExpansionUri"/>
-<artifact id="CodeSystem/cql-version" key="CodeSystem-cql-version" name="CQL Version"/>
-<artifact id="ValueSet/cql-version" key="ValueSet-cql-version" name="CQL Version"/>
+<artifact id="CodeSystem/cql-version" key="ValueSet-cql-version" name="CQL Version (ValueSet)"/>
+<artifact id="ValueSet/cql-version" key="ValueSet-cql-version" name="CQL Version (ValueSet)"/>
 <artifact id="Library/EXM124" key="Measure-measure-exm124-FHIR" name="Cervical Cancer Screening (Measure)"/>
 <artifact id="Measure/measure-exm124-FHIR" key="Measure-measure-exm124-FHIR" name="Cervical Cancer Screening (Measure)"/>
 <artifact id="ValueSet/chronic-liver-disease-legacy-example" key="ValueSet-chronic-liver-disease-legacy-example" name="Chronic Liver Disease Legacy Example"/>
@@ -120,10 +123,9 @@
 <artifact id="Library/EXMLogic" key="Library-EXMLogic" name="Example Logic Library"/>
 <artifact id="Library/EXMLogic-ModuleDefinition" key="Library-EXMLogic-ModuleDefinition" name="Example Logic Library - Module Definition"/>
 <artifact id="Library/EXMPublishableLibrary" key="Library-EXMPublishableLibrary" name="Example Publishable Library"/>
-<artifact id="ValueSet/executable-example" key="ValueSet-executable-example" name="Executable Example"/>
 <artifact deprecated="true" id="Library/FHIRHelpers" key="Library-FHIRHelpers" name="FHIR Helpers"/>
 <artifact id="Library/fhir-helpers-FHIR2" key="Library-fhir-helpers-FHIR2" name="FHIR Helpers DSTU2"/>
-<artifact id="Library/fhir-model-definition-FHIR2" key="Library-FHIR-ModelInfo" name="FHIR Model Definition"/>
+<artifact deprecated="true" id="Library/fhir-model-definition-FHIR2" key="Library-fhir-model-definition-FHIR2" name="FHIR Model Definition (DSTU2)"/>
 <artifact id="Library/Hospice" key="Library-Hospice" name="Hospice FHIR"/>
 <artifact deprecated="true" key="ImplementationGuide" name="ImplementationGuide"/>
 <artifact id="OperationDefinition/Library-data-requirements" key="OperationDefinition-Library-data-requirements" name="Library Data Requirements"/>
