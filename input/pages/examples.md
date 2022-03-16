@@ -23,6 +23,10 @@ These examples illustrate patient-based screening measures
 
 * [**EXM108**](Measure-measure-vte-1-FHIR.html) Venous Thromboembolism Prophylaxis - [Library](Library-EXM108.html)
 
+### Multiple-Rate Measures
+
+* [**Multirate Example**](Measure-multi-rate-example.html) Example measure illustrating multiple rates in a single Measure resource
+
 ### Composite Measures
 
 This section provides examples of all four composite measure scoring methods described by this implementation guide. Each composite is constructed using the same five component measures:

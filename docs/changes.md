@@ -77,6 +77,7 @@ These changes will be published as part of the STU3 release (v3.0.0)
 * Added support for mixed-basis ratio measure
 * Added ability to associated stratifiers with specific populations
 * Added the ability to specify scoringUnit for a measure
+* Added composite scoring code
 
 ## Detailed Change Lists by Impact
 
@@ -117,6 +118,7 @@ These changes will be published as part of the STU3 release (v3.0.0)
 * [**FHIR-30874**](https://jira.hl7.org/browse/FHIR-30874): Added measure terminology service capability statement and description
 * [**FHIR-30873**](https://jira.hl7.org/browse/FHIR-30873): Added support for composite measures both within and across FHIR Measure resources
 * [**FHIR-30770**](https://jira.hl7.org/browse/FHIR-30770): Added a ModelDefinition profile to support the use of FHIR Library resources containing CQL ModelInfo content
+* [**FHIR-30763**](https://jira.hl7.org/browse/FHIR-30763): Added composite code to the scoring code system
 * [**FHIR-30569**](https://jira.hl7.org/browse/FHIR-30569): Added conformance requirements for the use of FHIR Library resources containing CQL content
 * [**FHIR-30506**](https://jira.hl7.org/browse/FHIR-30506): Added the ability to specify the scoringUnit of a measure
 * [**FHIR-30395**](https://jira.hl7.org/browse/FHIR-30395): Added slices for version-independent, version-specific, short-name, publisher, and endorser identifiers for measures

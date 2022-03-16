@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Tue, Mar 15, 2022 22:18+0000 for FHIR v4.6.0 
+  Generated on Wed, Mar 16, 2022 13:59+0000 for FHIR v4.6.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -23227,9 +23227,9 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">The status of the device itself - whether it is switched on, or activated, etc.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="associationStatus" type="Device.AssociationStatus" minOccurs="0" maxOccurs="1">
+          <xs:element name="associationState" type="Device.AssociationState" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The state of the usage or application of the device - whether the device is implanted, or explanted, or attached to the patient.</xs:documentation>
+              <xs:documentation xml:lang="en">The details about the device when it is affixed or inside of a patient.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="owner" minOccurs="0" maxOccurs="1" type="Reference">
@@ -23428,21 +23428,26 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Device.AssociationStatus">
+  <xs:complexType name="Device.AssociationState">
     <xs:annotation>
       <xs:documentation xml:lang="en">A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="value" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">implanted|explanted|attached.</xs:documentation>
+              <xs:documentation xml:lang="en">The state of the usage or application of the device.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="reason" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+          <xs:element name="statusReason" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The reasons given for the current association status - i.e. why is the device explanted, or attached to the patient, etc.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="humanSubject" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The individual to whom the device is affixed or inserted in their body.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -52282,12 +52287,12 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
         <xs:sequence>
           <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Identifier for the TestScript assigned for external purposes outside the context of FHIR.</xs:documentation>
+              <xs:documentation xml:lang="en">Identifier for the TestReport assigned for external purposes outside the context of FHIR.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="name" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A free text natural language name identifying the executed TestScript.</xs:documentation>
+              <xs:documentation xml:lang="en">A free text natural language name identifying the executed TestReport.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="TestReportStatus">

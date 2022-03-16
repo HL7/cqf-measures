@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-  <id value="us-cqfmeasures-2.1.0"/>
-  <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/us-cqfmeasures-2.1.0"/>
-  <version value="2.1.0"/>
+  <id value="us-cqfmeasures-3.0.0"/>
+  <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/us-cqfmeasures-3.0.0"/>
+  <version value="3.0.0"/>
   <name value="CQFMeasures"/>
-  <title value="Quality Measure Implementation Guide (STU3 Ballot)"/>
+  <title value="Quality Measure Implementation Guide (STU3)"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2018-11-01T00:00:00-06:00"/>
@@ -33,10 +33,11 @@
     <version value="4.0.1"/>
   </dependsOn>
   <!-- Note this dependency is only included to support references to the extensions used by example content in this IG -->
+  <!-- TODO: Prior to STU3 Publication, update this to QICore 4.1.1, pending publication -->
   <dependsOn id="qicore">
     <uri value="http://hl7.org/fhir/us/qicore/ImplementationGuide/hl7.fhir.us.qicore"/>
     <packageId value="hl7.fhir.us.qicore"/>
-    <version value="4.0.0"/>
+    <version value="4.1.0"/>
   </dependsOn>
   <definition>
     <!--
