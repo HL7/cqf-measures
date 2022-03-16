@@ -56,10 +56,11 @@
         "path": "Extension",
         "short": "Test Case?",
         "definition": "Indicates whether this instance represents the definition of a test case.",
+        "meaningWhenMissing": "If this extension is not specified, the MeasureReport is _not_ a test case",
         "min": 0,
         "max": "1",
         "isModifier": true,
-        "isModifierReason": "Not known why this is labelled a modifier"
+        "isModifierReason": "This extension is a modifier because it changes whether the MeasureReport is an actual measure report, or if it is a test case describing expected results"
       },
       {
         "id": "Extension.url",
