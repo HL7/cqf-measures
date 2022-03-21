@@ -1,0 +1,55 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "improvement-notations",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/ConceptMap/improvement-notations",
+  "version": "1.0.0",
+  "name": "ImprovementNotationMapping",
+  "title": "Improvement Notation Mapping",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-02-18",
+  "publisher": "Clinical Quality Information Workgroup",
+  "description": "The mapping of FHIR improvement notation codes to the corresponding HL7 V3 code used in HQMF for each of the improvement notations",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "sourceCanonical": "http://terminology.hl7.org/ValueSet/measure-improvement-notation",
+  "group": [
+    {
+      "source": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+      "target": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+      "element": [
+        {
+          "code": "increase",
+          "display": "Increased score indicates improvement",
+          "target": [
+            {
+              "code": "IncrIsImp",
+              "display": "Increased score indicates improvement",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "decrease",
+          "display": "Decreased score indicates improvement",
+          "target": [
+            {
+              "code": "DecrIsImp",
+              "display": "Decreased score indicates improvement",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -176,7 +176,11 @@
         "id": "Measure.scoring",
         "path": "Measure.scoring",
         "condition": [ "cmp-2", "cmp-3", "cmp-4" ],
-        "mustSupport": true
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://terminology.hl7.org/ValueSet/measure-scoring"
+        }
       },
       {
         "id": "Measure.type",
@@ -200,7 +204,11 @@
         "id": "Measure.improvementNotation",
         "path": "Measure.improvementNotation",
         "condition": [ "cmp-4" ],
-        "mustSupport": true
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://terminology.hl7.org/ValueSet/measure-improvement-notation"
+        }
       },
       {
         "id": "Measure.group",

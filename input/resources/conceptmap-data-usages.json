@@ -1,0 +1,55 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "data-usages",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/ConceptMap/data-usages",
+  "version": "1.0.0",
+  "name": "DataUsageMapping",
+  "title": "Data Usage Mapping",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-02-18",
+  "publisher": "Clinical Quality Information Workgroup",
+  "description": "The mapping of FHIR measure data usage codes to the corresponding HL7 V3 code used in HQMF for each of the measure data usages",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "sourceCanonical": "http://hl7.org/fhir/ValueSet/measure-data-usage",
+  "group": [
+    {
+      "source": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+      "target": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "element": [
+        {
+          "code": "supplemental-data",
+          "display": "Supplemental Data",
+          "target": [
+            {
+              "code": "SDE",
+              "display": "supplemental data elements",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "risk-adjustment-factor",
+          "display": "Risk Adjustment Factor",
+          "target": [
+            {
+              "code": "MSRADJ",
+              "display": "risk adjustment",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

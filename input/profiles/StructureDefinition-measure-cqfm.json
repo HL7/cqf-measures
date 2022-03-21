@@ -161,7 +161,11 @@
         "id": "Measure.type",
         "path": "Measure.type",
         "requirements": "A measure must indicate the type of the measure.",
-        "mustSupport": true
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://terminology.hl7.org/ValueSet/measure-type"
+        }
       },
       {
         "id": "Measure.group",
@@ -207,7 +211,11 @@
         "requirements": "A measure must specify the type of population criteria.",
         "min": 1,
         "max": "1",
-        "mustSupport": true
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://terminology.hl7.org/ValueSet/measure-population"
+        }
       },
       {
         "id": "Measure.group.population.criteria",
@@ -275,6 +283,15 @@
         "min": 1,
         "max": "1",
         "mustSupport": true
+      },
+      {
+        "id": "Measure.supplementalData.code",
+        "path": "Measure.supplementalData.code",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://terminology.hl7.org/ValueSet/measure-data-usage"
+        }
       }
     ]
   }

@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Mar 16, 2022 13:59+0000 for FHIR v4.6.0 
+  Generated on Sat, Mar 19, 2022 20:10+0000 for FHIR v4.6.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -25300,7 +25300,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">Describes the clinical encounter or type of care that the document content is associated with.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="event" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+          <xs:element name="event" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
             <xs:annotation>
               <xs:documentation xml:lang="en">This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the type Code, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act.</xs:documentation>
            </xs:annotation>
@@ -25332,7 +25332,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="attester" type="DocumentReference.Attester" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A participant who has attested to the accuracy of the composition/document.</xs:documentation>
+              <xs:documentation xml:lang="en">A participant who has attested to the accuracy of the document.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="custodian" minOccurs="0" maxOccurs="1" type="Reference">
@@ -25388,12 +25388,12 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="time" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">When the composition was attested by the party.</xs:documentation>
+              <xs:documentation xml:lang="en">When the document was attested by the party.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="party" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Who attested the composition in the specified way.</xs:documentation>
+              <xs:documentation xml:lang="en">Who attested the document in the specified way.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -25433,9 +25433,9 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">The document or URL of the document along with critical metadata to prove content has integrity.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="format" minOccurs="0" maxOccurs="1" type="Coding">
+          <xs:element name="profile" type="DocumentReference.Profile" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.</xs:documentation>
+              <xs:documentation xml:lang="en">An identifier of the document constraints, encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="Identifier">
@@ -25443,6 +25443,25 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.</xs:documentation>
            </xs:annotation>
           </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DocumentReference.Profile">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:choice minOccurs="1" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Code|uri|canonical.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="valueCoding" type="Coding"/>
+            <xs:element name="valueUri" type="uri"/>
+            <xs:element name="valueCanonical" type="canonical"/>
+          </xs:choice>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -32011,7 +32030,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">The human-readable title to display for the package of resources when rendering the implementation guide.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
               <xs:documentation xml:lang="en">Human readable text describing the package.</xs:documentation>
            </xs:annotation>
