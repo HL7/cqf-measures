@@ -1,37 +1,13 @@
 == Suppressed Messages ==
 
-# The build still produces this warning, but the spec file it suggests is wrong because it does not include an artifact key that needs to be present and marked deprecated
-
 # This device profile is intended to model software systems as devices, not implantable devices like what the US Core profile is describing. Approved by US Realm on 6/30/2020.
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile
-
-# These warnings are all caused by the use of the new text/cql-identifier media type. This has been addressed in the current R5 build and are expected to resolve once the core package updates. Note that this issue is persisting for the supplemental data and stratifier criteria elements only, it isn't happening anymore for the population criteria expressions
-ValueSet http://www.rfc-editor.org/bcp/bcp13.txt not found by validator
-WARNING: Measure/measure-exm: Measure.group[0].stratifier[0].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm: Measure.group[0].stratifier[1].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm: Measure.group[0].stratifier[2].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm: Measure.group[0].stratifier[3].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm-default: Measure.group[0].stratifier[0].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm-default: Measure.group[0].stratifier[1].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm-default: Measure.group[0].stratifier[2].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm55-FHIR: Measure.group[0].stratifier[0].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm55-FHIR: Measure.group[0].stratifier[1].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm55-FHIR: Measure.group[0].stratifier[2].criteria: The expression language text/cql-identifier is not supported, so can't be validated
 
 # CPT Code System Not Supported, the content containing these codes is from measure developers, built with VSAC-enabled tooling, we are confident the CPT codes referenced here are correct
 Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 
 # Not clear why SNOMED is not valid here, I've double-checked the URL and everything seems okay?
 WARNING: ValueSet.where(id = 'chronic-liver-disease-legacy-example'): Error from server: Unable to provide support for code system http://snomed.info/sct
-
-# This is a composite measure, which is defined in terms of other measures so does not require a group element
-WARNING: Measure/PreventiveCareandWellnessAllOrNothingComposite: Measure: A measure should contain at least one group
-WARNING: Measure/PreventiveCareandWellnessOpportunityComposite: Measure: A measure should contain at least one group
-WARNING: Measure/PreventiveCareandWellnessPatientLevelLinearComposite: Measure: A measure should contain at least one group
-WARNING: Measure/PreventiveCareandWellnessWeightedComposite: Measure: A measure should contain at least one group
-
-# This group is a composite measure, which is defined in terms of other measures, so does not require populations
-WARNING: Measure/multi-rate-example: Measure.group[5]: Measure Groups should have at least one population
 
 # This error appears to be inherited from the base capability statement
 WARNING: StructureDefinition/capability-statement-cqfm: StructureDefinition.snapshot.element[0].constraint[6].xpath: value should not start or finish with whitespace ' not(f:kind/@value='instance')...exists(f:software))'

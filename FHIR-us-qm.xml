@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ciUrl="http://build.fhir.org/ig/HL7/cqf-measures" defaultVersion="current" defaultWorkgroup="cqi" gitUrl="https://github.com/HL7/cqf-measures" url="http://hl7.org/fhir/us/cqfmeasures">
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/cqfmeasures/2021May" ciUrl="http://build.fhir.org/ig/HL7/cqf-measures" defaultVersion="3.0.0" defaultWorkgroup="cqi" gitUrl="https://github.com/HL7/cqf-measures" url="http://hl7.org/fhir/us/cqfmeasures">
 <version code="current" url="http://build.fhir.org/ig/HL7/cqf-measures"/>
-<version code="2.1.0" deprecated="true"/>
-<version code="2.0.0" deprecated="true"/>
-<version code="1.1.0" deprecated="true"/>
-<version code="1.0.0" deprecated="true"/>
-<version code="0.1.0" deprecated="true"/>
+<version code="3.0.0" url="http://hl7.org/fhir/us/cqfmeasures/STU3"/>
+<version code="2.1.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/2021May"/>
+<version code="2.0.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/STU2"/>
+<version code="1.1.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/2020Feb"/>
+<version code="1.0.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/STU1"/>
+<version code="0.1.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/2019May"/>
 <version code="0.1" deprecated="true"/>
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
@@ -13,10 +14,10 @@
 <artifact id="Library/AdultOutpatientEncounters" key="Library-AdultOutpatientEncounters" name="Adult Outpatient Encounters Common Library"/>
 <artifact id="Library/AdvancedIllnessandFrailtyExclusion" key="Library-AdvancedIllnessandFrailtyExclusion" name="Advanced Illness and Frailty Exclusion Library"/>
 <artifact id="ConceptMap/aggregate-method" key="ConceptMap-aggregate-method" name="Aggregate Method mapping"/>
-<artifact id="ValueSet/artifact-comment-type" key="ValueSet-artifact-comment-type" name="Artifact Comment Type (ValueSet)"/>
+<artifact id="ValueSet/artifact-comment-type" key="ValueSet-artifact-comment-type" name="Artifact Comment Type"/>
 <artifact id="CodeSystem/artifact-comment-type" key="CodeSystem-artifact-comment-type" name="Artifact Comment Type Codes"/>
 <artifact id="Library/BCSComponent" key="Library-BCSComponent" name="BCS Component Library"/>
-<artifact id="Measure/BCSComponent" key="Measure-BCSComponent" name="Breast Cancer Screening (Measure)"/>
+<artifact id="Measure/BCSComponent" key="Measure-BCSComponent" name="Breast Cancer Screening"/>
 <artifact id="Measure/BreastCancerScreeningFHIR" key="Measure-BreastCancerScreeningFHIR" name="Breast Cancer Screening FHIR Measure"/>
 <artifact id="Library/CCSComponent" key="Library-CCSComponent" name="CCS Component Library"/>
 <artifact id="Library/ecqm-quality-program" key="Library-ecqm-quality-program" name="CMS eCQM and Hybrid Measures"/>
@@ -90,9 +91,9 @@
 <artifact id="StructureDefinition/cqfm-weight" key="StructureDefinition-cqfm-weight" name="CQFM Weight"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-activeOnly" key="StructureDefinition-cqfm-activeOnly" name="CQFMActiveOnly"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-expansionUri" key="StructureDefinition-cqfm-expansionUri" name="CQFMExpansionUri"/>
-<artifact id="ValueSet/cql-version" key="ValueSet-cql-version" name="CQL Version (ValueSet)"/>
+<artifact id="ValueSet/cql-version" key="ValueSet-cql-version" name="CQL Version"/>
 <artifact id="CodeSystem/cql-version" key="CodeSystem-cql-version" name="CQL Version Codes"/>
-<artifact id="Measure/CCSComponent" key="Measure-CCSComponent" name="Cervical Cancer Screening (Measure)"/>
+<artifact id="Measure/CCSComponent" key="Measure-CCSComponent" name="Cervical Cancer Screening"/>
 <artifact id="ValueSet/chronic-liver-disease-legacy-example" key="ValueSet-chronic-liver-disease-legacy-example" name="Chronic Liver Disease Legacy Example"/>
 <artifact id="ValueSet/chronic-liver-disease-legacy-example-2019-09" key="ValueSet-chronic-liver-disease-legacy-example-2019-09" name="Chronic Liver Disease Legacy Example 2019-09"/>
 <artifact id="ValueSet/chronic-liver-disease-legacy-example-current" key="ValueSet-chronic-liver-disease-legacy-example-current" name="Chronic Liver Disease Legacy Example Current"/>
@@ -126,7 +127,8 @@
 <artifact id="ValueSet/executable-example" key="ValueSet-executable-example" name="Executable Example"/>
 <artifact deprecated="true" id="Library/FHIRHelpers" key="Library-FHIRHelpers" name="FHIR Helpers"/>
 <artifact id="Library/fhir-helpers-FHIR2" key="Library-fhir-helpers-FHIR2" name="FHIR Helpers DSTU2"/>
-<artifact deprecated="true" id="Library/fhir-model-definition-FHIR2" key="Library-fhir-model-definition-FHIR2" name="FHIR Model Definition (DSTU2)"/>
+<artifact deprecated="true" id="Library/fhir-model-definition-FHIR2" key="Library-fhir-model-definition-FHIR2" name="FHIR Model Definition"/>
+<artifact deprecated="true" id="Library/FHIR-ModelInfo" key="Library-FHIR-ModelInfo" name="FHIR Model Definition"/>
 <artifact id="Library/HBPComponent" key="Library-HBPComponent" name="HBP Component Library"/>
 <artifact id="Library/Hospice" key="Library-Hospice" name="Hospice FHIR Library"/>
 <artifact deprecated="true" key="ImplementationGuide" name="ImplementationGuide"/>
@@ -135,12 +137,12 @@
 <artifact id="OperationDefinition/Library-package" key="OperationDefinition-Library-package" name="Library Packaging"/>
 <artifact id="Library/MATGlobalCommonFunctions" key="Library-MATGlobalCommonFunctions" name="MAT Global Common Functions FHIR Library"/>
 <artifact deprecated="true" key="Measure" name="Measure"/>
-<artifact id="ValueSet/aggregate-method" key="ValueSet-aggregate-method" name="Measure Aggregate Method (ValueSet)"/>
+<artifact id="ValueSet/aggregate-method" key="ValueSet-aggregate-method" name="Measure Aggregate Method"/>
 <artifact id="CodeSystem/aggregate-method" key="CodeSystem-aggregate-method" name="Measure Aggregate Method Codes"/>
 <artifact id="CapabilityStatement/measure-calculation-service-example" key="CapabilityStatement-measure-calculation-service-example" name="Measure Calculation Service Capability Statement Example"/>
 <artifact deprecated="true" id="CapabilityStatement/measure-calculation-service" key="CapabilityStatement-measure-calculation-service" name="Measure Calculation Service Conformance Statement"/>
 <artifact id="OperationDefinition/Measure-data-requirements" key="OperationDefinition-Measure-data-requirements" name="Measure Data Requirements"/>
-<artifact id="ValueSet/identifier-type" key="ValueSet-identifier-type" name="Measure Identifier Type (ValueSet)"/>
+<artifact id="ValueSet/identifier-type" key="ValueSet-identifier-type" name="Measure Identifier Type"/>
 <artifact id="CodeSystem/identifier-type" key="CodeSystem-identifier-type" name="Measure Identifier Type Codes"/>
 <artifact id="OperationDefinition/Measure-package" key="OperationDefinition-Measure-package" name="Measure Packaging"/>
 <artifact id="ConceptMap/measure-populations" key="ConceptMap-measure-populations" name="Measure Population criteria mapping"/>
@@ -164,12 +166,12 @@
 <artifact id="Library/quality-program-cqlOptions-example" key="Library-quality-program-cqlOptions-example" name="Quality Program CQL Options Example"/>
 <artifact id="Library/quality-program-example" key="Library-quality-program-example" name="Quality Program Example"/>
 <artifact id="Library/quality-program-example-2020-05" key="Library-quality-program-example-2020-05" name="Quality Program Example - 2020-05"/>
-<artifact id="ValueSet/quality-programs" key="ValueSet-quality-programs" name="Quality Programs (ValueSet)"/>
+<artifact id="ValueSet/quality-programs" key="ValueSet-quality-programs" name="Quality Programs"/>
 <artifact id="CodeSystem/quality-programs" key="CodeSystem-quality-programs" name="Quality Programs Codes"/>
 <artifact id="Measure/measure-risk-adjustment-FHIR2" key="Measure-measure-risk-adjustment-FHIR2" name="Risk Adjustment FHIR DSTU2"/>
 <artifact id="Library/risk-adjustment-FHIR2" key="Library-risk-adjustment-FHIR2" name="RiskAdjustment_FHIR2"/>
 <artifact id="CodeSystem/publishable-example" key="CodeSystem-publishable-example" name="SNOMED CT International Edition"/>
-<artifact id="ValueSet/software-system-type" key="ValueSet-software-system-type" name="Software System Type (ValueSet)"/>
+<artifact id="ValueSet/software-system-type" key="ValueSet-software-system-type" name="Software System Type"/>
 <artifact id="CodeSystem/software-system-type" key="CodeSystem-software-system-type" name="Software System Type Codes"/>
 <artifact deprecated="true" key="StructureDefinition" name="StructureDefinition"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-dataRequirement" key="StructureDefinition-cqfm-dataRequirement" name="StructureDefinition - Measure data requirement extension"/>
@@ -182,7 +184,7 @@
 <artifact id="Library/USCore-ModelInfo" key="Library-USCore-ModelInfo" name="USCore Model Definition"/>
 <artifact id="Library/VTEICU" key="Library-VTEICU" name="VTE ICU Library"/>
 <artifact id="ValueSet/value-filter-comparator" key="ValueSet-value-filter-comparator" name="Value Filter Comparator"/>
-<artifact id="Measure/measure-vte-1-FHIR" key="Measure-measure-vte-1-FHIR" name="Venous Thromboembolism Prophylaxis (Measure)"/>
+<artifact id="Measure/measure-vte-1-FHIR" key="Measure-measure-vte-1-FHIR" name="Venous Thromboembolism Prophylaxis"/>
 <artifact id="Library/ecqm-update-2020" key="Library-ecqm-update-2020" name="eCQM Annual Update 2020"/>
 <artifact id="Library/ecqm-update-2020-05-07" key="Library-ecqm-update-2020-05-07" name="eCQM Update 2020-05-07"/>
 <page key="NA" name="(NA)"/>
@@ -191,6 +193,7 @@
 <page key="artifacts" name="Artifacts Summary"/>
 <page deprecated="true" key="cql-basics" name="CQL Basics"/>
 <page key="capabilities" name="Capabilities"/>
+<page key="changes" name="Changes"/>
 <page key="composite-measures" name="Composites"/>
 <page key="downloads" name="Downloads"/>
 <page key="examples" name="Examples"/>

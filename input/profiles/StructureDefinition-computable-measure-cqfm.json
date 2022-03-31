@@ -97,8 +97,8 @@
           {
             "key": "cmp-6",
             "severity": "error",
-            "human": "If rateAdjustment is specified at the root, it may not be specified on any group",
-            "expression": "rateAdjustment.exists() implies group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-rateAdjustment').exists()).allFalse()"
+            "human": "If riskAdjustment is specified at the root, it may not be specified on any group",
+            "expression": "riskAdjustment.exists() implies group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-riskAdjustment').exists()).allFalse()"
           },
           {
             "key": "cmp-7",
