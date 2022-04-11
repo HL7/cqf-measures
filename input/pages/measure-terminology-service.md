@@ -122,7 +122,7 @@ Note that when a code system authority has not established a versioning system, 
     6. codesystem: Returning any valueset that directly references the given codesystem url (optionally versioned)
     7. valueset: Returning any valueset that references or is referenced by the given valueset url (optionally versioned)
     8. library: Returning any valueset that is referenced by the given library url (optionally versioned)
-    9. measure: Returning any valueset that directly references the given measure url (optionally versioned)
+    9. measure: Returning any valueset that is referenced by the given measure url (optionally versioned)
     10. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
 
 7. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
