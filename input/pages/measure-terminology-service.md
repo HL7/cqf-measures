@@ -40,6 +40,10 @@ Because this capability results in the potential for parameter values to be supp
 #### Quality Programs
 To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-cqfm-partOf.html) extension.
 
+#### Hosted Content
+Terminology services may act as a repository for content that is managed and created elsewhere (i.e. hosted content AKA a convenience copy), or they may provide features to author and manage content directly, or any combination. When hosting content that is managed elsewhere, the service must ensure that the content of the resource is materially the same (i.e. the values for all elements are the same where those elements are specified in the Shareable and Publishable profiles) as the source of truth.
+In particular, for systems that provide both management and hosting of externally managed content, the status element for hosted content SHALL be the same as the status of the content in the source of truth.
+
 ### Code Systems
 
 1. SHALL Represent basic CodeSystem information, as specified by the [ShareableCodeSystem](http://hl7.org/fhir/shareablecodesystem.html) profile, which includes url, version, name, status, experimental, publisher, description, caseSensitive, content, and concept.
