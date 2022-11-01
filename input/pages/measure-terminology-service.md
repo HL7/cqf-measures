@@ -50,11 +50,13 @@ In particular, for systems that provide both management and hosting of externall
 
 2. For published CodeSystems, SHALL represent publishable CodeSystem information, as specified by the [CQFMPublishableCodeSystem](StructureDefinition-publishable-codesystem-cqfm.html) profile.
 
-3. CodeSystem resources returned by the repository SHALL use the meta.profile element to indicate which profiles the CodeSystem resource conforms to, Shareable, Publishable
+3. For hosted content, the [data-absent-reason](https://hl7.org/fhir/extension-data-absent-reason.html) extension with a value of [unknown](https://hl7.org/fhir/codesystem-data-absent-reason.html#data-absent-reason-unknown) MAY be used to satisfy required cardinality constraints of the ShareableCodeSystem and PublishableCodeSystem profiles when an element is not present in the source of truth for the content.
 
-4. SHALL support CodeSystem read by the server-defined id for the CodeSystem
+4. CodeSystem resources returned by the repository SHALL use the meta.profile element to indicate which profiles the CodeSystem resource conforms to, Shareable, Publishable
 
-5. SHALL support CodeSystem searches by:
+5. SHALL support CodeSystem read by the server-defined id for the CodeSystem
+
+6. SHALL support CodeSystem searches by:
     1. url: Returning all versions of the codesystem matching that url
     2. version: Returning the codesystem matching that version (can appear only in combination with a url search)
     3. identifier: Returning any codesystem matching the identifier
@@ -63,16 +65,16 @@ In particular, for systems that provide both management and hosting of externall
     6. description: Returning any codesystem matching the search description, according to string-matching semantics in FHIR
     7. code: Returning any codesystem with the given code
 
-6. SHOULD support CodeSystem searches by:
+7. SHOULD support CodeSystem searches by:
     1. status: Returning codesystems that match the given status
     2. valueset: Returning any codesystem that is referenced by the given value set url (optionally versioned)
     3. measure: Returning any codesystem that is referenced by the given measure url (optionally versioned)
     4. library: Returning any codesystem that is referenced by the given library url (optionally versioned)
     4. artifact: Returning any codesystem that is referenced by the given artifact url (optionally versioned)
 
-7. SHALL support [CodeSystem/$lookup](http://hl7.org/fhir/codesystem-operation-lookup.html)
+8. SHALL support [CodeSystem/$lookup](http://hl7.org/fhir/codesystem-operation-lookup.html)
 
-8. SHALL support [CodeSystem/$validate-code](http://hl7.org/fhir/codesystem-operation-validate-code.html)
+9. SHALL support [CodeSystem/$validate-code](http://hl7.org/fhir/codesystem-operation-validate-code.html)
 
 When determining the URI for a code system, the [HL7 Universal Terminology Governance (UTG)](http://terminology.hl7.org)
 site is the source of truth. If a code system is not identified there, submit a request with the
@@ -103,15 +105,17 @@ Note that when a code system authority has not established a versioning system, 
 
 2. SHALL Represent computable ValueSet information, as specified by the [CQFMComputableValueSet](StructureDefinition-computable-valueset-cqfm.html) profile, which specifies the definition of a value set using established extensions, or with the `compose` element, including in particular the ability to use the `inactive` element of the `include` to indicate that a specific code is inactive in the code system but should still be included in the expansion.
 
-3. ValueSet resources returned by the repository SHALL use the meta.profile element to indicate which profiles the ValueSet resource conforms to, Shareable, Publishable, Computable, Executable.
+3. For hosted content, the [data-absent-reason](https://hl7.org/fhir/extension-data-absent-reason.html) extension with a value of [unknown](https://hl7.org/fhir/codesystem-data-absent-reason.html#data-absent-reason-unknown) MAY be used to satisfy required cardinality constraints of the ShareableValueSet and PublishableValueSet profiles when an element is not present in the source of truth for the content.
 
-4. SHALL Represent executable ValueSet information, as specified by the [CQFMExecutableValueSet](StructureDefinition-executable-valueset-cqfm.html) profile, which specifies the complete content of a value set using the `expansion` element, including inactive codes specified in the compose.
+4. ValueSet resources returned by the repository SHALL use the meta.profile element to indicate which profiles the ValueSet resource conforms to, Shareable, Publishable, Computable, Executable.
 
-5. For published ValueSets, SHALL represent publishable ValueSet information, as specified by the [CQFMPublishableValueSet](StructureDefinition-publishable-valueset-cqfm.html) profile.
+5. SHALL Represent executable ValueSet information, as specified by the [CQFMExecutableValueSet](StructureDefinition-executable-valueset-cqfm.html) profile, which specifies the complete content of a value set using the `expansion` element, including inactive codes specified in the compose.
 
-6. SHALL support ValueSet read, by the server-defined id for the ValueSet
+6. For published ValueSets, SHALL represent publishable ValueSet information, as specified by the [CQFMPublishableValueSet](StructureDefinition-publishable-valueset-cqfm.html) profile.
 
-7. SHALL support ValueSet searches by:
+7. SHALL support ValueSet read, by the server-defined id for the ValueSet
+
+8. SHALL support ValueSet searches by:
     1. url: Returning all versions of the valueset matching that url
     2. version: Returning the valueset matching that version (can appear only in combination with a url search)
     3. identifier: Returning any valueset matching the identifier
@@ -121,7 +125,7 @@ Note that when a code system authority has not established a versioning system, 
     7. description: Returning any valueset matching the search description, according to string-matching semantics in FHIR
     8. code: Returning any valueset with the given code
 
-8. SHOULD support ValueSet searches by:
+9. SHOULD support ValueSet searches by:
     1. expansion: Used in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
     2. context: Returning all artifacts with a use context value matching the given context
     3. context-type: Returning all artifacts with a use context type matching the given context type
@@ -133,7 +137,7 @@ Note that when a code system authority has not established a versioning system, 
     9. measure: Returning any valueset that is referenced by the given measure url (optionally versioned)
     10. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
 
-9. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
+10. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. SHALL support the url parameter
     2. SHALL support the valueSetVersion parameter
     3. SHALL support the activeOnly parameter
@@ -144,7 +148,7 @@ Note that when a code system authority has not established a versioning system, 
     8. SHALL support the coding parameter
     9. SHALL support the codeableConcept parameter
 
-10. Support [ValueSet/$expand](http://hl7.org/fhir/R4/valueset-operation-expand.html)
+11. Support [ValueSet/$expand](http://hl7.org/fhir/R4/valueset-operation-expand.html)
     1. SHALL support the url parameter
     2. SHALL support the valueSetVersion parameter
     3. SHALL support the activeOnly parameter
