@@ -1390,7 +1390,7 @@ define "SDE Ethnicity":
 Snippet 3-27: Example Supplemental Data Element from [EXM146.cql](Library-EXM146.html#cql-content)
 
 With CQL, supplemental data elements are specified using the same mechanism as any other population criteria, by defining an expression that returns the appropriate data element, and then identifying that expression within the Measure resource. Examples of the Measure resource and CQL are given in Snippet 3-20 and Snippet 3-21, respectively.
-By convention, the name of each supplemental data element expression would start with "SDE". The supplemental data element expressions are normally expected to return a single value when evaluated in the context of a member of the population. For example, patient-based measures would return the value of a supplemental data element for a given patient. However, there are cases where returning multiple elements for supplemental data would be useful. For example, collecting observations related to a particular condition. The intent of this conformance requirement is to simplify implementation of supplemental data collection, so care should be taken when using supplemental data elements that return multiple elements.
+By convention, the name of each supplemental data element expression would start with "SDE". The supplemental data element expressions can return a single value or list of values when evaluated in the context of a member of the population. For example, patient-based measures would return the value of a supplemental data element for a given patient. However, there are cases where returning multiple elements for supplemental data would be useful. For example, collecting observations related to a particular condition. 
 
 #### Risk Adjustment
 {: #risk-adjustment}
