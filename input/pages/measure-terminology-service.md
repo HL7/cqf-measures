@@ -112,6 +112,7 @@ Note that when a code system authority has not established a versioning system, 
     6. status: Returning valuesets that match the given status
     7. description: Returning any valueset matching the search description, according to string-matching semantics in FHIR
     8. code: Returning any valueset with the given code
+    9. keyword: Returning any valueset that has a valueset-keyword extension  matching the given keyword
 
 7. SHOULD support ValueSet searches by:
     1. expansion: Used in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
