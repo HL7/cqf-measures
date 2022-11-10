@@ -1388,12 +1388,19 @@ Snippet 3-26: Sample Supplemental Data Elements from [measure-exm146-FHIR.json](
 
 ```cql
 define "SDE Ethnicity":
-  ["Patient Characteristic Ethnicity": "Ethnicity"]
+  (flatten (
+      Patient.extension Extension
+        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
+          return Extension.extension
+    )) E
+      where E.url = 'ombCategory'
+        or E.url = 'detailed'
+      return E.value as Coding
  ```
 
-Snippet 3-27: Example Supplemental Data Element from [EXM146.cql](Library-EXM146.html#cql-content)
+Snippet 3-27: Example Supplemental Data Element from [Library-SupplementalDataElements](Library-SupplementalDataElements.html)
 
-With CQL, supplemental data elements are specified using the same mechanism as any other population criteria, by defining an expression that returns the appropriate data element, and then identifying that expression within the Measure resource. Examples of the Measure resource and CQL are given in Snippet 3-20 and Snippet 3-21, respectively.
+With CQL, supplemental data elements are specified using the same mechanism as any other population criteria, by defining an expression that returns the appropriate data element, and then identifying that expression within the Measure resource. Examples of the Measure resource and CQL are given in Snippet 3-26 and Snippet 3-27, respectively.
 By convention, the name of each supplemental data element expression would start with "SDE". The supplemental data element expressions are normally expected to return a single value when evaluated in the context of a member of the population. For example, patient-based measures would return the value of a supplemental data element for a given patient. However, there are cases where returning multiple elements for supplemental data would be useful. For example, collecting observations related to a particular condition. The intent of this conformance requirement is to simplify implementation of supplemental data collection, so care should be taken when using supplemental data elements that return multiple elements.
 
 #### Risk Adjustment
