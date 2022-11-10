@@ -214,8 +214,12 @@ Note that when a code system authority has not established a versioning system, 
 1. SHALL support the `metadata?mode=terminology`, returning a list of all supported code systems, whether they are explicitly made available as CodeSystem resources or not
 
 2. To ensure performant operations with large code systems and value sets, a measure terminology service SHALL support [batch](https://hl7.org/fhir/http.html#transaction) operations for at least the following:
-    1. CodeSystem/$validate-code
-    2. ValueSet/$validate-code
+    1. CodeSystem read
+    2. CodeSystem search
+    3. CodeSystem/$validate-code
+    4. ValueSet read
+    5. ValueSet search
+    6. ValueSet/$validate-code
 
 3. Services MAY require authentication. If authentication is required, it SHALL be in the form of an authentication header (usually a bearer token) that the user can determine in advance and provide to their FHIR tooling in some configuration.
 
