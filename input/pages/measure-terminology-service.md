@@ -173,7 +173,7 @@ Note that when a code system authority has not established a versioning system, 
     9. depends-on: Returning any quality program that references the given code system or value set canonical
     10. part-of: Returning any version manifest or release that is part of the given quality program
 
-4. SHALL support specifying expansion rules for the following $expand parameters
+5. SHALL support specifying expansion rules for the following $expand parameters
     1. SHALL support the activeOnly parameter
     2. SHALL support the system-version parameter
     3. SHALL support the check-system-version parameter
@@ -182,13 +182,13 @@ Note that when a code system authority has not established a versioning system, 
     6. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
     7. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
 
-5. Because this capability results in the potential for parameter values to be supplied in multiple places, the following rules apply:
+6. Because this capability results in the potential for parameter values to be supplied in multiple places, the following rules apply:
     1. If a parameter is specified as part of the $expand operation directly, it takes precedence
     2. If a ValueSet dependency is specified as part of the version manifest (and no version for the value set is specified in the artifact reference), the version has the same meaning as the `valueSetVersion` parameter to the $expand
     3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
     4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
-6. SHALL support version manifest and release value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
+7. SHALL support version manifest and release value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
@@ -196,6 +196,14 @@ Note that when a code system authority has not established a versioning system, 
     5. SHOULD support system-version parameter (overrides code system versions specified in the quality program release)
     6. SHOULD support check-system-version parameter (overrides code system versions specified in the quality program release)
     7. SHOULD support force-system-version parameter (overrides code system versions specified in the quality program release)
+
+8. SHALL support operations to enable maintenance of release specifications for quality programs for Library resources that conform to the Quality Program profile:
+    1. SHALL support creating a Library in "draft" status (using POST)
+    2. SHALL support updating a Library in "draft" status (using PUT)
+    3. SHALL support updating the status of a Library in "draft" status to "active" using (PUT)
+    4. SHALL support updating the status of a Library in "active" status to "retired" using (PUT)
+    5. SHALL reject attempts to update elements of a Library other than status if the Library is not in "draft" status
+    6. SHALL reject attempts to create Libraries that have the same "url" and "version" as another Library
 
 ### Server Operations
 
