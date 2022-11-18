@@ -455,20 +455,24 @@ This section describes how to use codes and valuesets from codesystems like LOIN
 
 When terminology artifacts are defined and distributed as part of quality measure content, guidance provided as part of the [Clinical Practice Guideline (CPG) IG](http://build.fhir.org/ig/HL7/cqf-recommendations/documentation-terminology.html) should be followed. Note that the guidance does not apply for content that only references terminology distributed through other means.
 
-Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [Terminology.cql](Library-Terminology.html#cql-content).
+Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [CommonTerminologies.cql](Library-CommonTerminologies.html#cql-content) and [Terminology.cql](Library-Terminology.html#cql-content).
 
 
 ```cql
 codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct'
   version 'http://snomed.info/sct/731000124108/version/201709'
+```
 
+Snippet 3-8: CQL declaration of a codesystem (from [CommonTerminologies.cql](Library-CommonTerminologies.html))
+
+```cql
 valueset "Encounter Inpatient SNOMEDCT Value Set":
    'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
 
 code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT:2017-09"
 ```
 
-Snippet 3-8: CQL declaration of codesystem, valueset, and code (from [Terminology.cql](Library-Terminology.html))
+Snippet 3-9: CQL declaration of a valueset and a code (from [Terminology.cql](Library-Terminology.html))
 
 Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html) of this IG, sections [4.3](using-cql.html#code-systems), [4.4](using-cql.html#value-sets), and [4.5](using-cql.html#codes).
 
@@ -974,7 +978,7 @@ In addition, it may also include one or more measure-observation elements. The s
 3. The CQL expression for patient-based measures SHALL return a Boolean to indicate whether a patient matches the population criteria (true) or not (false).
 4. The CQL expression for non-patient-based measures SHALL return a List of events of the same type, such as an Encounter or Procedure.
 
-For ratio measures that include a Measure Observation, the measure observation is specified in the same way as it is for continuous variable measures. In particular, the Measure Observation is defined as a function that takes a single argument of the same type as the elements returned by all the population criteria, and the aggregation method is specified in the Measure resource.
+For ratio measures that include a Measure Observation, the measure observation is specified in the same way as it is for continuous variable measures. In particular, for non-patient based ratio measures the Measure Observation is defined as a function that takes a single argument of the same type as the elements returned by all the population criteria, and the aggregation method is specified in the Measure resource. For patient based ratio measures the Measure Observation is defined as a function that takes no parameters.
 
 ##### Ratio measure scoring
 {: #ratio-measure-scoring}
@@ -1205,7 +1209,9 @@ for the measure-observation
          referenced from the criteriaReference extension of the measure-observation criteria<br/>
       c. return either an Integer, a Decimal, or a Quantity
 
-For continuous variable measures, the measure observation is defined as a function that takes a single parameter of the type of elements returned by the population criteria. The Initial Population, Measure Population, and Measure Population Exclusion criteria expressions must all return a list of elements of the same type.
+For non-patient based continuous variable measures, the measure observation is defined as a function that takes a single parameter of the type of elements returned by the population criteria. The Initial Population, Measure Population, and Measure Population Exclusion criteria expressions must all return a list of elements of the same type.
+
+For patient based continuous variable measures, the measure observation is defined as a function that takes no parameters.
 
 Note that the criteria reference in the measure observation definition is present to resolve which measure population should be used in the case of multiple populations, but the actual input to the measure observation definition needs to account for population membership (i.e. account for exclusions). In the case of a continuous variable measure with multiple populations, the identifier of the population criteria in the Measure resource is used to ensure that the measure observation definition refers to a unique population criteria.
 
@@ -1385,13 +1391,20 @@ Snippet 3-26: Sample Supplemental Data Elements from [measure-exm146-FHIR.json](
 
 ```cql
 define "SDE Ethnicity":
-  ["Patient Characteristic Ethnicity": "Ethnicity"]
+  (flatten (
+      Patient.extension Extension
+        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'
+          return Extension.extension
+    )) E
+      where E.url = 'ombCategory'
+        or E.url = 'detailed'
+      return E.value as Coding
  ```
 
-Snippet 3-27: Example Supplemental Data Element from [EXM146.cql](Library-EXM146.html#cql-content)
+Snippet 3-27: Example Supplemental Data Element from [Library-SupplementalDataElements](Library-SupplementalDataElements.html)
 
-With CQL, supplemental data elements are specified using the same mechanism as any other population criteria, by defining an expression that returns the appropriate data element, and then identifying that expression within the Measure resource. Examples of the Measure resource and CQL are given in Snippet 3-20 and Snippet 3-21, respectively.
-By convention, the name of each supplemental data element expression would start with "SDE". The supplemental data element expressions can return a single value or list of values when evaluated in the context of a member of the population. For example, patient-based measures would return the value of a supplemental data element for a given patient. However, there are cases where returning multiple elements for supplemental data would be useful. For example, collecting observations related to a particular condition. 
+With CQL, supplemental data elements are specified using the same mechanism as any other population criteria, by defining an expression that returns the appropriate data element, and then identifying that expression within the Measure resource. Examples of the Measure resource and CQL are given in Snippet 3-26 and Snippet 3-27, respectively.
+By convention, the name of each supplemental data element expression would start with "SDE". The supplemental data element expressions are normally expected to return a single value when evaluated in the context of a member of the population. For example, patient-based measures would return the value of a supplemental data element for a given patient. However, there are cases where returning multiple elements for supplemental data would be useful. For example, collecting observations related to a particular condition. The intent of this conformance requirement is to simplify implementation of supplemental data collection, so care should be taken when using supplemental data elements that return multiple elements.
 
 #### Risk Adjustment
 {: #risk-adjustment}

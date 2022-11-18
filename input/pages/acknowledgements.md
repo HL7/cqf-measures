@@ -15,3 +15,5 @@ This Implementation Guide was made possible by the thoughtful contributions of t
 * Chris Schuler, Dynamic Content Group - Contributor
 * Raman Srinivasan, IBM - Contributor
 * Matthew Tiller, ESAC - Contributor
+* Michael Holck, ICF - Contributor
+* Abdullah Rafiqi, ICF - Contributor

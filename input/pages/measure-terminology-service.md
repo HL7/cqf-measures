@@ -40,15 +40,23 @@ Because this capability results in the potential for parameter values to be supp
 #### Quality Programs
 To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-cqfm-partOf.html) extension.
 
+#### Hosted Content
+Terminology services may act as a repository for content that is managed and created elsewhere (i.e. hosted content AKA a convenience copy), or they may provide features to author and manage content directly, or any combination. When hosting content that is managed elsewhere, the service must ensure that the content of the resource is materially the same (i.e. the values for all elements are the same where those elements are specified in the Shareable and Publishable profiles) as the source of truth.
+In particular, for systems that provide both management and hosting of externally managed content, the status element for hosted content SHALL be the same as the status of the content in the source of truth.
+
 ### Code Systems
 
 1. SHALL Represent basic CodeSystem information, as specified by the [ShareableCodeSystem](http://hl7.org/fhir/shareablecodesystem.html) profile, which includes url, version, name, status, experimental, publisher, description, caseSensitive, content, and concept.
 
 2. For published CodeSystems, SHALL represent publishable CodeSystem information, as specified by the [CQFMPublishableCodeSystem](StructureDefinition-publishable-codesystem-cqfm.html) profile.
 
-3. SHALL support CodeSystem read by the server-defined id for the CodeSystem
+3. For hosted content, the [data-absent-reason](https://hl7.org/fhir/extension-data-absent-reason.html) extension with a value of [unknown](https://hl7.org/fhir/codesystem-data-absent-reason.html#data-absent-reason-unknown) MAY be used to satisfy required cardinality constraints of the ShareableCodeSystem and PublishableCodeSystem profiles when an element is not present in the source of truth for the content.
 
-4. SHALL support CodeSystem searches by:
+4. CodeSystem resources returned by the repository SHALL use the meta.profile element to indicate which profiles the CodeSystem resource conforms to, Shareable, Publishable
+
+5. SHALL support CodeSystem read by the server-defined id for the CodeSystem
+
+6. SHALL support CodeSystem searches by:
     1. url: Returning all versions of the codesystem matching that url
     2. version: Returning the codesystem matching that version (can appear only in combination with a url search)
     3. identifier: Returning any codesystem matching the identifier
@@ -57,16 +65,16 @@ To support organization of releases, the Quality Program profile can also be use
     6. description: Returning any codesystem matching the search description, according to string-matching semantics in FHIR
     7. code: Returning any codesystem with the given code
 
-5. SHOULD support CodeSystem searches by:
+7. SHOULD support CodeSystem searches by:
     1. status: Returning codesystems that match the given status
     2. valueset: Returning any codesystem that is referenced by the given value set url (optionally versioned)
     3. measure: Returning any codesystem that is referenced by the given measure url (optionally versioned)
     4. library: Returning any codesystem that is referenced by the given library url (optionally versioned)
     4. artifact: Returning any codesystem that is referenced by the given artifact url (optionally versioned)
 
-6. SHALL support [CodeSystem/$lookup](http://hl7.org/fhir/codesystem-operation-lookup.html)
+8. SHALL support [CodeSystem/$lookup](http://hl7.org/fhir/codesystem-operation-lookup.html)
 
-7. SHALL support [CodeSystem/$validate-code](http://hl7.org/fhir/codesystem-operation-validate-code.html)
+9. SHALL support [CodeSystem/$validate-code](http://hl7.org/fhir/codesystem-operation-validate-code.html)
 
 When determining the URI for a code system, the [HL7 Universal Terminology Governance (UTG)](http://terminology.hl7.org)
 site is the source of truth. If a code system is not identified there, submit a request with the
@@ -97,13 +105,17 @@ Note that when a code system authority has not established a versioning system, 
 
 2. SHALL Represent computable ValueSet information, as specified by the [CQFMComputableValueSet](StructureDefinition-computable-valueset-cqfm.html) profile, which specifies the definition of a value set using established extensions, or with the `compose` element, including in particular the ability to use the `inactive` element of the `include` to indicate that a specific code is inactive in the code system but should still be included in the expansion.
 
-3. SHALL Represent executable ValueSet information, as specified by the [CQFMExecutableValueSet](StructureDefinition-executable-valueset-cqfm.html) profile, which specifies the complete content of a value set using the `expansion` element, including inactive codes specified in the compose.
+3. For hosted content, the [data-absent-reason](https://hl7.org/fhir/extension-data-absent-reason.html) extension with a value of [unknown](https://hl7.org/fhir/codesystem-data-absent-reason.html#data-absent-reason-unknown) MAY be used to satisfy required cardinality constraints of the ShareableValueSet and PublishableValueSet profiles when an element is not present in the source of truth for the content.
 
-4. For published ValueSets, SHALL represent publishable ValueSet information, as specified by the [CQFMPublishableValueSet](StructureDefinition-publishable-valueset-cqfm.html) profile.
+4. ValueSet resources returned by the repository SHALL use the meta.profile element to indicate which profiles the ValueSet resource conforms to, Shareable, Publishable, Computable, Executable.
 
-5. SHALL support ValueSet read, by the server-defined id for the ValueSet
+5. SHALL Represent executable ValueSet information, as specified by the [CQFMExecutableValueSet](StructureDefinition-executable-valueset-cqfm.html) profile, which specifies the complete content of a value set using the `expansion` element, including inactive codes specified in the compose.
 
-6. SHALL support ValueSet searches by:
+6. For published ValueSets, SHALL represent publishable ValueSet information, as specified by the [CQFMPublishableValueSet](StructureDefinition-publishable-valueset-cqfm.html) profile.
+
+7. SHALL support ValueSet read, by the server-defined id for the ValueSet
+
+8. SHALL support ValueSet searches by:
     1. url: Returning all versions of the valueset matching that url
     2. version: Returning the valueset matching that version (can appear only in combination with a url search)
     3. identifier: Returning any valueset matching the identifier
@@ -114,7 +126,7 @@ Note that when a code system authority has not established a versioning system, 
     8. code: Returning any valueset with the given code
     9. keyword: Returning any valueset that has a valueset-keyword extension  matching the given keyword
 
-7. SHOULD support ValueSet searches by:
+9. SHOULD support ValueSet searches by:
     1. expansion: Used in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
     2. context: Returning all artifacts with a use context value matching the given context
     3. context-type: Returning all artifacts with a use context type matching the given context type
@@ -126,7 +138,7 @@ Note that when a code system authority has not established a versioning system, 
     9. measure: Returning any valueset that is referenced by the given measure url (optionally versioned)
     10. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
 
-7. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
+10. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. SHALL support the url parameter
     2. SHALL support the valueSetVersion parameter
     3. SHALL support the activeOnly parameter
@@ -137,7 +149,7 @@ Note that when a code system authority has not established a versioning system, 
     8. SHALL support the coding parameter
     9. SHALL support the codeableConcept parameter
 
-8. Support [ValueSet/$expand](http://hl7.org/fhir/R4/valueset-operation-expand.html)
+11. Support [ValueSet/$expand](http://hl7.org/fhir/R4/valueset-operation-expand.html)
     1. SHALL support the url parameter
     2. SHALL support the valueSetVersion parameter
     3. SHALL support the activeOnly parameter
@@ -211,8 +223,12 @@ Note that when a code system authority has not established a versioning system, 
 1. SHALL support the `metadata?mode=terminology`, returning a list of all supported code systems, whether they are explicitly made available as CodeSystem resources or not
 
 2. To ensure performant operations with large code systems and value sets, a measure terminology service SHALL support [batch](https://hl7.org/fhir/http.html#transaction) operations for at least the following:
-    1. CodeSystem/$validate-code
-    2. ValueSet/$validate-code
+    1. CodeSystem read
+    2. CodeSystem search
+    3. CodeSystem/$validate-code
+    4. ValueSet read
+    5. ValueSet search
+    6. ValueSet/$validate-code
 
 3. Services MAY require authentication. If authentication is required, it SHALL be in the form of an authentication header (usually a bearer token) that the user can determine in advance and provide to their FHIR tooling in some configuration.
 

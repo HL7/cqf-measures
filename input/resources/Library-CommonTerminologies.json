@@ -1,0 +1,43 @@
+{
+  "resourceType": "Library",
+  "id": "CommonTerminologies",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/software-system-example"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
+  } ],
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/CommonTerminologies",
+  "version": "1.0.0",
+  "name": "CommonTerminologies",
+  "title": "Common Terminology Library",
+  "type": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/library-type",
+      "code": "logic-library"
+    } ]
+  },
+  "description": "This library is the common library for the terminology example measure",
+  "relatedArtifact": [ {
+    "type": "depends-on",
+    "display": "FHIR model information",
+    "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "http://fhir.org/guides/common/Library/FHIRHelpers|4.0.1"
+  }, {
+    "type": "depends-on",
+    "display": "Code system SNOMED CT:2017-09",
+    "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/201709"
+  } ],
+  "content": [ {
+    "contentType": "text/cql",
+    "data": "LyoKVGhpcyBleGFtcGxlIGlzIHB1cmVseSBmb3IgaWxsdXN0cmF0aW9uIHB1cnBvc2VzIHRvIHNob3cgaG93IGFsbCB0aGUgZWxlbWVudHMgb2YgYQpGSElSLWJhc2VkIHF1YWxpdHkgbWVhc3VyZSBhcmUgcmVwcmVzZW50ZWQuIEl0IGlzIGludGVudGlvbmFsbHkgc2ltcGxpZmllZCB0byBzaG93CnNwZWNpZmljIGFzcGVjdHMgb2YgYSBtZWFzdXJlLCBhbmQgaXMgbm90IGludGVuZGVkIGFzIGFuIGV4YW1wbGUgb2YgYSBjbGluaWNhbGx5Cm1lYW5pbmdmdWwgbWVhc3VyZS4KKi8KbGlicmFyeSBDb21tb25UZXJtaW5vbG9naWVzIHZlcnNpb24gJzEuMC4wJwoKdXNpbmcgRkhJUiB2ZXJzaW9uICc0LjAuMScKCmluY2x1ZGUgRkhJUkhlbHBlcnMgdmVyc2lvbiAnNC4wLjEnIGNhbGxlZCBGSElSSGVscGVycwoKLy8gTk9URTogVmVyc2lvbmluZyBpcyB1c2VkIGluIHRoaXMgZXhhbXBsZSB0byBpbGx1c3RyYXRlIGNvbXBsZXRlbHkgaG93IHZlcnNpb25pbmcgaXMgYXBwbGllZAovLyBSZWZlcmVuY2VzIHRvIHNwZWNpZmljIHZlcnNpb25zIG9mIGNvZGUgc3lzdGVtcyBhbmQgdmFsdWUgc2V0cyBzaG91bGQgYmUgdXNlZCBvbmx5IHdoZW4gbmVjZXNzYXJ5Cgpjb2Rlc3lzdGVtICJTTk9NRUQgQ1Q6MjAxNy0wOSI6ICdodHRwOi8vc25vbWVkLmluZm8vc2N0JwogIHZlcnNpb24gJ2h0dHA6Ly9zbm9tZWQuaW5mby9zY3QvNzMxMDAwMTI0MTA4L3ZlcnNpb24vMjAxNzA5Jwo="
+  } ]
+}
