@@ -1355,6 +1355,7 @@ Snippet 3-25: Example Stratifier from [EXM55.cql](Library-EXM55.html#cql-content
 {: #conformance-requirement-3-16}
 1. Supplemental Data Elements SHALL be included within the supplementalData element using a usage element of supplemental-data.
 2. Supplemental Data Elements SHOULD reference a single CQL expression definition, with a name beginning with SDE.
+3. Supplemental data element criteria expressions MAY be of any type, including lists
 
 Part of the definition of a quality measure involves the ability to specify additional information to be returned for each member of a population. Within a FHIR-based eCQM, these supplemental data elements are specified using expressions, typically involving patient characteristics (such as Race, Ethnicity, Payer, and Administrative Sex) and then marking them with an SDE code within the FHIR Measure resource. Snippet 3-26 demonstrates an example supplemental data definition using the cql-ext:supplementalDataElement.
 
