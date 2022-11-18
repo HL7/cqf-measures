@@ -145,15 +145,6 @@ where possible, QI-Core profiles are based on US Core to ensure alignment with
 and support for quality improvement data within healthcare systems in the US
 Realm.
 
-> Note that QI-Core is intended to be a FHIR-based rendering of a
-quality-focused _logical model_ called QUICK (Quality Information and
-Clinical Knowledge). However, the QUICK model is still in development, so the
-QI-Core profiles are currently built directly as a FHIR Implementation Guide. To
-support the goals of the QUICK logical model, the QI-Core implementation guide
-includes an author-focused _view_ of QUICK, the QUICK _logical
-view_. See the [Relationship Between QUICK, the QI-Core Profiles, and FHIR](http://hl7.org/fhir/us/qicore/index.html#relationships)
-discussion in the QI-Core implementation guide for more information.
-
 ##### Data Exchange for Quality Measures (DEQM)
 {: #data-exchange-for-quality-measures-(deqm)}
 
