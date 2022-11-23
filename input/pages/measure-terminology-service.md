@@ -137,8 +137,7 @@ Note that when a code system authority has not established a versioning system, 
     8. library: Returning any valueset that is referenced by the given library url (optionally versioned)
     9. measure: Returning any valueset that is referenced by the given measure url (optionally versioned)
     10. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
-    11. servers SHOULD support the _text,
-        servers SHOULD support _content search parameters (as described in the base spec here https://hl7.org/fhir/search.html#text) 
+    11. servers SHOULD support the _text and _content search parameters (as described in the base spec here https://hl7.org/fhir/search.html#text) 
 
 10. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. SHALL support the url parameter
@@ -233,13 +232,16 @@ Note that when a code system authority has not established a versioning system, 
     6. ValueSet/$validate-code
 
 3. Services MAY require authentication. If authentication is required, it SHALL be in the form of an authentication header (usually a bearer token) that the user can determine in advance and provide to their FHIR tooling in some configuration.
+
 4. For all string search parameters, servers SHALL support the following modifiers:
     1. contains
     2. exact
 
     servers SHOULD support
     1. text
-5. Document that servers SHALL support the expression of AND and OR search parameters for all search parameters, as defined in the composite search parameter topic: https://hl7.org/fhir/search.html#combining
+
+5. Servers SHALL support the expression of AND and OR search parameters for all search parameters, as defined in the composite search parameter topic: https://hl7.org/fhir/search.html#combining
+
 ### Capability Statement
 
 The above capabilities are formally captured in the following capability statement:
