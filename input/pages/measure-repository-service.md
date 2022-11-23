@@ -80,6 +80,8 @@ To support content authoring, searching, publication, and distribution, the foll
 * [**Package**](#package): Package an artifact for a particular environment (regardless of status)
 * [**Requirements**](#requirements): Determine the data requirements and dependencies for a particular artifact (regardless of status)
 * [**Submit**](#submit): Post a new artifact in _draft_ status
+* [**Draft**](#draft): Draft a new version of an existing artifact in _active_ status
+* [**Clone**](#clone): Clone a new artifact based on an existing artifact (regardless of status)
 * [**Revise**](#revise): Update an existing artifact in _draft_ status
 * [**Withdraw**](#withdraw): Delete a _draft_ artifact
 * [**Review**](#review): Review and provide comments on an existing artifact (regardless of status)
@@ -177,15 +179,23 @@ The result of the requirements operation is a _module-definition_ Library that r
 
 ##### Submit
 
-The _submit_ operation supports posting a new artifact in _draft_ status. This operation is defined as a `POST` (or `PUT` if the server supports client-defined ids) of the artifact resource, but the status of the posted resource is required to be _draft_.
+The _submit_ operation supports posting a new artifact in _draft_ status. This operation is defined as a `POST` (or `PUT` if the server supports client-defined ids) of the artifact resource, but the status of the posted resource is required to be _draft_. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are expected to be present in the server, or may be submitted as part of a transaction or collection batch.
+
+##### Draft
+
+The _draft_ operation supports creating a new draft version of an existing artifact in _active_ status. This operation creates a new resource with the same contents as the existing artifact, but with a status of _draft_ and no version. It is an error to create multiple drafts of the same artifact by URL. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are also drafted, recursively. Note that although it should be the case that all child artifacts of an _active_ artifact are also _active_, in the case that a child artifact is already _draft_, the operation simply copies the reference to the draft artifact.
+
+##### Clone
+
+The _clone_ operation supports creating a new _draft_ artifact based on the contents of an existing artifact, regardless of status, with a new URL. This operation creates a new resource with the same contets as the existing artifact, but with a status of _draft_, no version, and the new URL. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are also cloned, recursively, by constructing a new URL for each child artifact that is cloned (as opposed to dependencies, for which the refernces are just copied).
 
 ##### Revise
 
-The _revise_ operation supports updating an existing artifact in _draft_ status. This operation is defined as a `PUT` of the artifact resource, but the status of both the existing and updated resources is required to be _draft_.
+The _revise_ operation supports updating an existing artifact in _draft_ status. This operation is defined as a `PUT` of the artifact resource, but the status of both the existing and updated resources is required to be _draft_. Updates to child artifacts (i.e. artifacts that _compose_ the artifact) are expected to be performed via separate _revise_ operations, or may be revised as part of a transaction or collection batch.
 
 ##### Withdraw
 
-The _withdraw_ operation supports deleting an existing artifact in _draft_ status. This operation is defined as a `DELETE` of the artifact resource, but the status of the deleted resource is required to be _draft_.
+The _withdraw_ operation supports deleting an existing artifact in _draft_ status. This operation is defined as a `DELETE` of the artifact resource, but the status of the deleted resource is required to be _draft_. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are expected to be withdrawn via separate _withdraw_ operations, or may be withdrawn as part of a transaction or collection batch.
 
 ##### Review
 
@@ -193,25 +203,23 @@ The _review_ operation supports applying a review to an existing artifact, regar
 
 ##### Approve
 
-The _approve_ operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to add _artifactComment_ elements to the artifact, and to add or update an _endorser_.
+The _approve_ operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to add _artifactComment_ elements to the artifact, and to add or update an _endorser_. Child artifacts (i.e. artifacts that _compose_ the artifact) are expected to be approved via separate operations, or may be approved as part of a transaction or collection batch.
 
 ##### Publish
 
-The _publish_ operation supports posting a new artifact with _active_ status. The operation is defined as a `POST` (or `PUT` if the server supports client-defined ids) of the artifact resource, but the status of the posted resource is required to be _active_.
+The _publish_ operation supports posting a new artifact with _active_ status. The operation is defined as a `POST` (or `PUT` if the server supports client-defined ids) of the artifact resource, but the status of the posted resource is required to be _active_. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are expected to be present in the server, or may be published as part of a transaction or collection batch.
 
 ##### Release
 
-The _release_ operation supports updating the status of an existing _draft_ artifact to _active_. The operation sets the _date_ element of the resource, but is otherwise not allowed to change any other elements of the artifact.
+The _release_ operation supports updating the status of an existing _draft_ artifact to _active_. The operation sets the _date_ and _status_ elements of the artifact, but is otherwise not allowed to change any other elements of the artifact. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are also released, recursively. To be released, an artifact is required to have a version specified.
 
 ##### Retire
 
-The _retire_ operation supports updating the status of an existing _active_ artifact to _retired_. The operation sets the _date_ element of the resource, but is otherwise not allowed to change any other elements of the artifact.
-
-* [**Archive**](#archive): Delete a _retired_ artifact
+The _retire_ operation supports updating the status of an existing _active_ artifact to _retired_. The operation sets the _date_ element of the resource, but is otherwise not allowed to change any other elements of the artifact. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are expected to retired via separate _retire_ operations, or may be retired as part of a transaction or collection batch.
 
 ##### Archive
 
-The _archive_ operation supports removing an existing _retired_ artifact from the repository. The operation is defined as a `DELETE` but the status of the deleted resource is required to be _retired_.
+The _archive_ operation supports removing an existing _retired_ artifact from the repository. The operation is defined as a `DELETE` but the status of the deleted resource is required to be _retired_. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are expected to archived via separate _archive_ operations, or may be archived as part of a transaction or collection batch.
 
 ### Shareable Measure Repository
 
@@ -361,6 +369,16 @@ A PublishableMeasureRepository:
     4. successor: Returning all measures that have the given artifact as a successor
     5. predecessor: Returning all measures that have the given artifact as a predecessor
 
+5. SHOULD support measure management operations:
+    6. [**Publish**](#publish): Post a new measure with _active_ status
+    8. [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ measure
+    9. [**Archive**](#archive): Delete a _retired_ measure
+
+5. MAY support library management operations:
+    6. [**Publish**](#publish): Post a new library with _active_ status
+    8. [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ library
+    9. [**Archive**](#archive): Delete a _retired_ library
+
 #### MeasureReports
 
 A PublishableMeasureRepository:
@@ -383,17 +401,16 @@ The [CQFMAuthoringMeasureRepository](CapabilityStatement-authoring-measure-repos
 
 #### Libraries
 
-An AuthoringMeasureRepository:
+An AuthoringLibraryRepository:
 
 1. SHALL support [**Submit**](#submit): Post a new library in _draft_ status
 2. SHALL support [**Revise**](#revise): Update an existing library in _draft_ status
+3. SHALL support [**Draft**](#draft): Draft a new version of an existing library in _active_ status
+4. SHOULD support [**Clone**](#clone): Clone a new library based on the contents of an existing library (regardless of status)
 3. SHOULD support [**Withdraw**](#withdraw): Delete a _draft_ library
 4. SHOULD support [**Review**](#review): Review and provide comments on an existing library (regardless of status)
 5. SHOULD support [**Approve**](#approve): Approve and provide comments on an existing library (regardless of status)
-6. SHALL support [**Publish**](#publish): Post a new library with _active_ status
 7. SHALL support [**Release**](#release): Update an existing _draft_ library to _active_
-8. SHOULD support [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ library
-9. SHOULD support [**Archive**](#archive): Delete a _retired_ library
 
 #### Measures
 
@@ -401,10 +418,9 @@ An AuthoringMeasureRepository:
 
 1. SHALL support [**Submit**](#submit): Post a new measure in _draft_ status
 2. SHALL support [**Revise**](#revise): Update an existing measure in _draft_ status
+3. SHALL support [**Draft**](#draft): Draft a new version of an existing measure in _active_ status
+4. SHOULD support [**Clone**](#clone): Clone a new measure based on the contents of an existing measure (regardless of status)
 3. SHOULD support [**Withdraw**](#withdraw): Delete a _draft_ measure
 4. SHOULD support [**Review**](#review): Review and provide comments on an existing measure (regardless of status)
 5. SHOULD support [**Approve**](#approve): Approve and provide comments on an existing measure (regardless of status)
-6. SHALL support [**Publish**](#publish): Post a new measure with _active_ status
 7. SHALL support [**Release**](#release): Update an existing _draft_ measure to _active_
-8. SHOULD support [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ measure
-9. SHOULD support [**Archive**](#archive): Delete a _retired_ measure
