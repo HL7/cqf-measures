@@ -23,6 +23,10 @@ These examples illustrate patient-based screening measures
 
 * [**EXM108**](Measure-measure-vte-1-FHIR.html) Venous Thromboembolism Prophylaxis - [Library](Library-EXM108.html)
 
+### Additional Supplemental Data Elements Measures
+
+* [**NHSN Glycemic Control: Hyperglycemic Initial Population**](Bundle-sde-example-artifact-bundle.html) Example illustrating the use of supplemental data to gather additional information about a cohort. See the Data Exchange for Quality Measures IG for an example of the MeasureReport that results from this measure.
+
 ### Multiple-Rate Measures
 
 * [**Multirate Example**](Measure-multi-rate-example.html) Example measure illustrating multiple rates in a single Measure resource
