@@ -24,6 +24,7 @@
 - [Logic Definition](StructureDefinition-cqfm-logicDefinition.html)
 - [Meaningful Measure Area](StructureDefinition-cqfm-meaningfulMeasureArea.html)
 - [Part Of](StructureDefinition-cqfm-partOf.html)
+- [Pertinence](StructureDefinition-cqfm-pertinence.html)
 - [Population Basis](StructureDefinition-cqfm-populationBasis.html)
 - [Program Identifier](StructureDefinition-cqfm-programIdentifier.html)
 - [Publication Date](StructureDefinition-cqfm-publicationDate.html)
