@@ -2,7 +2,6 @@
 
 {:toc}
 
-<!-- Ballot content markers
 Where possible, new and updated content will be highlighted with green text and background.
 {:.new-content}
 
@@ -11,7 +10,6 @@ Where possible, new and updated content will be highlighted with green text and 
 {{ site.data.package-list.list[0].desc }}
 
 </div>
--->
 
 ## Quality Measure Implementation Guide
 {: #quality-measure-implementation-guide}

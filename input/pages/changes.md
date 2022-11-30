@@ -5,9 +5,30 @@
 
 This page details changes made in each version of the Quality Measure IG
 
+### STU4 Ballot for FHIR R4 (v4.0.0-ballot)
+
+* **Applied**: Add a pertinence extension([FHIR-37826](https://jira.hl7.org/browse/FHIR-37826))
+* **Applied**: Allow the fhirQueryPattern extension to be a superset of the data requirement([FHIR-39399](https://jira.hl7.org/browse/FHIR-39399))
+* **Applied**: Characterize text search capabilities for a terminology service and repository service([FHIR-37528](https://jira.hl7.org/browse/FHIR-37528))
+* **Applied**: Clarify guidance on SDE expression results([FHIR-38051](https://jira.hl7.org/browse/FHIR-38051))
+* **Applied**: Use new template-based publishing mechanism([FHIR-25694](https://jira.hl7.org/browse/FHIR-25694))
+* **Applied**: Update Cardinality for Composite Measure Profile's Stratification Applies To Extension([FHIR-39353](https://jira.hl7.org/browse/FHIR-39353))
+* **Applied**: Clarify conformance related to patient-based CV measures([FHIR-39169](https://jira.hl7.org/browse/FHIR-39169))
+* **Applied**: Support batch searches([FHIR-37537](https://jira.hl7.org/browse/FHIR-37537))
+* **Applied**: Remove requirement related to code system order([FHIR-37681](https://jira.hl7.org/browse/FHIR-37681))
+* **Applied**: Support missing information for hosted content([FHIR-38827](https://jira.hl7.org/browse/FHIR-38827))
+* **Applied**: Provide guidance for hosted vs managed content([FHIR-38829](https://jira.hl7.org/browse/FHIR-38829))
+* **Applied**: Measure terminology service must mark profile tags([FHIR-38830](https://jira.hl7.org/browse/FHIR-38830))
+* **Applied**: PopulationBasis extension can be used on a population([FHIR-39311](https://jira.hl7.org/browse/FHIR-39311))
+* **Applied**: QUICK Reference([FHIR-37542](https://jira.hl7.org/browse/FHIR-37542))
+* **Applied**: Support keyword search for value sets([FHIR-37530](https://jira.hl7.org/browse/FHIR-37530))
+* **Applied**: Add requirements to support maintenance of a quality program([FHIR-37506](https://jira.hl7.org/browse/FHIR-37506))
+* **Applied**: Fix incorrect reference to text/cql.identifier([FHIR-38787](https://jira.hl7.org/browse/FHIR-38787))
+* **Applied**: Snippet and link mismatch related to Supplemental Data Elements([FHIR-37548](https://jira.hl7.org/browse/FHIR-37548))
+
 ### STU3 Release for FHIR R4 (v3.0.0)
 
-This release includes changes due to ballot reconciliation and connectathon testing. The following sections summarize the changes from the balloted version (v2.1.0), followed by a detailed changes list of all changes applied.
+This release includes changes due to ballot reconciliation and connectathon testing. The following sections summarize the changes from the balloted version (v2.*0), followed by a detailed changes list of all changes applied.
 
 #### Terminology Services Change Summary
 
@@ -192,7 +213,7 @@ This release includes changes due to ballot reconciliation and connectathon test
 * [**FHIR-26331**](https://jira.hl7.org/browse/FHIR-26331): Corrected breadcrumbs display throughout the IG
 * [**FHIR-26329**](https://jira.hl7.org/browse/FHIR-26329): Updated the IG to use the standard HL7 FHIR IG template
 
-### STU3 Ballot for FHIR R4 (v2.1.0)
+### STU3 Ballot for FHIR R4 (v2.*0)
 
 This ballot release introduces support for composite measures, and adds descriptions of a Measure Terminology Service and a Measure Repository in support of authoring, distributing, and evaluating quality measures.
 
@@ -255,33 +276,33 @@ This release includes changes applied as a result of ballot feedback as well as 
 #### Non-substantive
 * Numerous clarifications and corrections throughout
 
-### STU2 Ballot for FHIR R4 (v1.1.0)
+### STU2 Ballot for FHIR R4 (v**0)
 
 This ballot is a minimal update to the STU1 ballot to address the following items:
 * Updated to use FHIR R4
 * Added artifact packaging guidance and conformance requirements
 
-### STU1 Release for FHIR STU3 (v1.0.0)
+### STU1 Release for FHIR STU3 (v*0.0)
 
 * Clarifications and fixes throughout
 
 #### Compatible, substantive
-* 21181	1..1 relationships
+* 21181	*.1 relationships
 * 21684	Risk adjustment naming conventions? - QM #15
 * 21156	Clarify where the risk adjustment variables are stored in the fhir document.
 * 21155	Inconsistent conformance requirements (16 and 17).
 * 21986	Denominator exceptions in differential table? - QM #136
 * 21988	Supporting measurement period without specifying year? - QM #137
-* 21145	conformance requirement 13 states that a continuous variable measure SHALL have a criteriaReference extension but the profile has this extension as 0..1 rather than 1..1. Should the profile have 1..1?
+* 21145	conformance requirement 13 states that a continuous variable measure SHALL have a criteriaReference extension but the profile has this extension as 0..1 rather than *.* Should the profile have *.1?
 * 21187	consider for all slices that are not "measure observation" to make cqfm-criteriaReference and cqfm-aggregateMethod 0..0
-* 21183	initial population slice for proportion measure is 1..2. Should be 1..1. (1..2 is for ratio measure).
+* 21183	initial population slice for proportion measure is *.2. Should be *.* (*.2 is for ratio measure).
 * 21192	EXM55 library references
 * 21178	Does it make sense for the profile itself to specify usage for criteriaReference and aggregateMethod (measure observations)
 * 21191	consider slicing content and including the required contentType (text/cql) and optional ones (application/elm+xml, application/elm+json)
 * 21984	Require use of specific model? - QM #135
 * 21158	Should this be a conformance requirement?
-* 21188	consider making cqfm-criteriaReference and cqfm-aggregateMethod 1..1 for "measure observation" slice.
-* 21186	measure population exclusion slice should be 0..1. population.code for this slice should still be required (1..1)
+* 21188	consider making cqfm-criteriaReference and cqfm-aggregateMethod *.1 for "measure observation" slice.
+* 21186	measure population exclusion slice should be 0..* population.code for this slice should still be required (*.1)
 * 21182	should population.identifier, supplementalData.identifier and stratification.identifier be required?
 * 21185	missing denominator exception slice
 * 21173	This statement uses SHOULD NOT language but the conformance requirement is SHALL NOT. Recommend rewording for clarity.
@@ -294,6 +315,6 @@ This ballot is a minimal update to the STU1 ballot to address the following item
 * 21056	Disallow the use of strings for membership testing in value sets and code systems
 * 21996	Library alias guidance - QM #141
 
-### STU1 Ballot for FHIR STU3 (v0.1.0)
+### STU1 Ballot for FHIR STU3 (v0.*0)
 
 STU1 Ballot for FHIR STU3 Version
