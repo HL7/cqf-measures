@@ -21,7 +21,7 @@ include TJCOverall version '4.0.000' called TJC
 codesystem "SNOMEDCT": 'http://snomed.info/sct'
 codesystem "LOINC": 'http://loinc.org'
 // NOTE: R4 code system URLs changed to be based on terminology.hl7.org...
-codesystem "RequestIntent": 'http://terminology.hl7.org/CodeSystem/request-intent'
+codesystem "RequestIntent": 'http://hl7.org/fhir/request-intent'
 //NOTE: Created for ActPriority for Encounter.category which is codeableConcept
 codesystem "ActPriority": 'http://terminology.hl7.org/ValueSet/v3-ActPriority'
 

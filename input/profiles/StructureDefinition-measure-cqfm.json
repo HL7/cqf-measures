@@ -226,7 +226,7 @@
             "key": "cqm-4",
             "severity": "warning",
             "human": "Group population criteria SHOULD be simple expression names found within the primary library for the measure. The criteria SHOULD NOT include a namespace.",
-            "expression": "value.startsWith(library).not()",
+            "expression": "expression.contains('.').not()",
             "xpath": "exists(f:value)"
           }
         ],
@@ -255,7 +255,7 @@
             "key": "cqm-5",
             "severity": "warning",
             "human": "Group stratifier criteria SHOULD be simple expression names found within the primary library for the measure. The criteria SHOULD NOT include a namespace.",
-            "expression": "value.startsWith(library).not()",
+            "expression": "expression.contains('.').not()",
             "xpath": "exists(f:value)"
           }
         ],

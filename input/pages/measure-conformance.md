@@ -453,7 +453,7 @@ Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-cq
 
 This section describes how to use codes and valuesets from codesystems like LOINC, SNOMED-CT, and others within the CQL and FHIR-based eCQM files of a measure package.
 
-When terminology artifacts are defined and distributed as part of quality measure content, guidance provided as part of the [Clinical Practice Guideline (CPG) IG](http://build.fhir.org/ig/HL7/cqf-recommendations/documentation-terminology.html) should be followed. Note that the guidance does not apply for content that only references terminology distributed through other means.
+When terminology artifacts are defined and distributed as part of quality measure content, guidance provided as part of the [Clinical Practice Guideline (CPG) IG](http://hl7.org/fhir/uv/cpg/documentation-terminology.html) should be followed. Note that the guidance does not apply for content that only references terminology distributed through other means.
 
 Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [CommonTerminologies.cql](Library-CommonTerminologies.html#cql-content) and [Terminology.cql](Library-Terminology.html#cql-content).
 
@@ -1461,7 +1461,7 @@ Refer to the [ConceptMap Resources section](terminology.html#conceptmap-resource
 
 Member Attribution (ATR) lists are used between Payers and Providers for implementing risk-based contracts, value based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. The [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) is a library profile used to establish a set of related quality improvement artifacts such as a measure program and can be used to establish a "release" of a quality program.
 
-Referring to the [Member Attribution Lists Workflows and Definitions](http://build.fhir.org/ig/HL7/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinvi - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
+Referring to the [Member Attribution Lists Workflows and Definitions](http://hl7.org/fhir/us/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinvi - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
 
 ### Must Support
 {: #must-support}

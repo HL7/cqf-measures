@@ -68,3 +68,19 @@ Centers for medicare &amp; medicaid. Clinical Quality Measures Basics. [Online].
 Centers for disease control and prevention. Adapting Clinical Guidelines for the Digital Age. [Online]. Available from: [https://www.cdc.gov/ddphss/clinical-guidelines/index.html](https://www.cdc.gov/ddphss/clinical-guidelines/index.html) [Accessed 11 October 2019].
 
 Health level seven. Clinical Quality Framework - HL7 Clinical Quality Information Work Group Confluence Page. [Online]. Available from: [https://confluence.hl7.org/display/CQIWC/Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical%20Quality%20Framework) [Accessed 11 October 2019].
+
+### Dependencies
+
+{% include dependency-table.xhtml %}
+
+### Cross Version Analysis
+
+{% include cross-version-analysis.xhtml %}
+
+### Global Profiles
+
+{% include globals-table.xhtml %}
+
+### IP Statements
+
+{% include ip-statements.xhtml %}

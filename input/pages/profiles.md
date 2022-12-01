@@ -2,7 +2,7 @@
 
 ## Capability Profiles
 
-To support flexible representation and packaging of measure and library artifacts for different use cases, this implementation guide uses four general categories of profiles, aligned with the [knowledge capabilities](http://build.fhir.org/ig/HL7/cqf-recommendations/CodeSystem-cpg-knowledge-capability.html) established by the [CPG-on-FHIR](http://build.fhir.org/ig/HL7/cqf-recommendations) implementation guide:
+To support flexible representation and packaging of measure and library artifacts for different use cases, this implementation guide uses four general categories of profiles, aligned with the [knowledge capabilities](http://hl7.org/fhir/uv/cpg/CodeSystem-cpg-knowledge-capability.html) established by the [CPG-on-FHIR](http://hl7.org/fhir/uv/cpg) implementation guide:
 
 <table>
   <tr><th>Artifact</th><th>Shareable</th><th>Computable</th><th>Publishable</th><th>Executable</th></tr>
