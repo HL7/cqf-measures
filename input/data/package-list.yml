@@ -7,6 +7,12 @@ introduction: >-
 list:
   - version: current
     desc: |-
+      Note to balloters:
+
+      In addition to general feedback and ballot review, the sponsoring work group is specifically seeking feedback on the following areas of the specification:
+
+      Whether the IG should elaborate on an alternative approach to measure scoring where the CQL retrieves MeasureReport resources and the CQL logic computes a score from the list of MeasureReport.group.measureScore(s). Assumes that populationBasis is a MeasureReport.
+      
       The following resolutions have been voted on by the members of the sponsoring work group [HL7 International Clinical Quality Information](http://www.hl7.org/Special/committees/cqi/index.cfm).
 
       **Comments and their resolutions**
@@ -14,21 +20,22 @@ list:
       Listed below are the resolved trackers for this version:
 
       **Status**: **Summary**:(**Jira Issue**)
-      1. **Applied**: Add a pertinence extension([FHIR-37826](https://jira.hl7.org/browse/FHIR-37826))
-      1. **Applied**: Allow the fhirQueryPattern extension to be a superset of the data requirement([FHIR-39399](https://jira.hl7.org/browse/FHIR-39399))
-      1. **Applied**: Characterize text search capabilities for a terminology service and repository service([FHIR-37528](https://jira.hl7.org/browse/FHIR-37528))
-      1. **Applied**: Clarify guidance on SDE expression results([FHIR-38051](https://jira.hl7.org/browse/FHIR-38051))
-      1. **Applied**: Use new template-based publishing mechanism([FHIR-25694](https://jira.hl7.org/browse/FHIR-25694))
-      1. **Applied**: Update Cardinality for Composite Measure Profile's Stratification Applies To Extension([FHIR-39353](https://jira.hl7.org/browse/FHIR-39353))
-      1. **Applied**: Clarify conformance related to patient-based CV measures([FHIR-39169](https://jira.hl7.org/browse/FHIR-39169))
-      1. **Applied**: Support batch searches([FHIR-37537](https://jira.hl7.org/browse/FHIR-37537))
-      1. **Applied**: Remove requirement related to code system order([FHIR-37681](https://jira.hl7.org/browse/FHIR-37681))
-      1. **Applied**: Support missing information for hosted content([FHIR-38827](https://jira.hl7.org/browse/FHIR-38827))
-      1. **Applied**: Provide guidance for hosted vs managed content([FHIR-38829](https://jira.hl7.org/browse/FHIR-38829))
-      1. **Applied**: Measure terminology service must mark profile tags([FHIR-38830](https://jira.hl7.org/browse/FHIR-38830))
-      1. **Applied**: PopulationBasis extension can be used on a population([FHIR-39311](https://jira.hl7.org/browse/FHIR-39311))
-      1. **Applied**: QUICK Reference([FHIR-37542](https://jira.hl7.org/browse/FHIR-37542))
-      1. **Applied**: Support keyword search for value sets([FHIR-37530](https://jira.hl7.org/browse/FHIR-37530))
-      1. **Applied**: Add requirements to support maintenance of a quality program([FHIR-37506](https://jira.hl7.org/browse/FHIR-37506))
-      1. **Applied**: Fix incorrect reference to text/cql.identifier([FHIR-38787](https://jira.hl7.org/browse/FHIR-38787))
-      1. **Applied**: Snippet and link mismatch related to Supplemental Data Elements([FHIR-37548](https://jira.hl7.org/browse/FHIR-37548))
+      1. **Applied**: Allow the fhirQueryPattern extension to be a superset of the data requirement ([FHIR-39399](https://jira.hl7.org/browse/FHIR-39399))
+      1. **Applied**: Characterize text search capabilities for a terminology service and repository service ([FHIR-37528](https://jira.hl7.org/browse/FHIR-37528))
+      1. **Applied**: Clarify guidance on SDE expression results ([FHIR-38051](https://jira.hl7.org/browse/FHIR-38051))
+      1. **Applied**: Use new template-based publishing mechanism ([FHIR-25694](https://jira.hl7.org/browse/FHIR-25694))
+      1. **Applied**: Update Cardinality for Composite Measure Profile's Stratification Applies To Extension ([FHIR-39353](https://jira.hl7.org/browse/FHIR-39353))
+      1. **Applied**: Clarify conformance related to patient-based CV measures ([FHIR-39169](https://jira.hl7.org/browse/FHIR-39169))
+      1. **Applied**: Support batch searches ([FHIR-37537](https://jira.hl7.org/browse/FHIR-37537))
+      1. **Applied**: Remove requirement related to code system order ([FHIR-37681](https://jira.hl7.org/browse/FHIR-37681))
+      1. **Applied**: Support missing information for hosted content ([FHIR-38827](https://jira.hl7.org/browse/FHIR-38827))
+      1. **Applied**: Provide guidance for hosted vs managed content ([FHIR-38829](https://jira.hl7.org/browse/FHIR-38829))
+      1. **Applied**: Measure terminology service must mark profile tags ([FHIR-38830](https://jira.hl7.org/browse/FHIR-38830))
+      1. **Applied**: PopulationBasis extension can be used on a population ([FHIR-39311](https://jira.hl7.org/browse/FHIR-39311))
+      1. **Applied**: QUICK Reference ([FHIR-37542](https://jira.hl7.org/browse/FHIR-37542))
+      1. **Applied**: Support keyword search for value sets ([FHIR-37530](https://jira.hl7.org/browse/FHIR-37530))
+      1. **Applied**: Add requirements to support maintenance of a quality program ([FHIR-37506](https://jira.hl7.org/browse/FHIR-37506))
+      1. **Applied**: Fix incorrect reference to text/cql.identifier ([FHIR-38787](https://jira.hl7.org/browse/FHIR-38787))
+      1. **Applied**: Snippet and link mismatch related to Supplemental Data Elements ([FHIR-37548](https://jira.hl7.org/browse/FHIR-37548))
+      1. **Applied**: Add ballot note to consider alternative approach to composite measure calculation ([FHIR-32599](https://jira.hl7.org/browse/FHIR-32599))
+      1. **Applied**: Added a draft operation and clarified behavior of child artifacts in repository operations ([FHIR-39489](https://jira.hl7.org/browse/FHIR-32599))
