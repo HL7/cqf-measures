@@ -712,9 +712,10 @@
           "display": "Initial Population"
         } ]
       },
+      "description": "Females between 51 and 74 years of age who have a qualifying outpatient visit.",
       "criteria": {
         "language": "text/cql-identifier",
-        "expression": "Initial Population"
+        "expression": "Patient.gender = 'female'\n\t\t\t\tand Global.\"CalendarAgeInYearsAt\"(FHIRHelpers.ToDate(Patient.birthDate), start of \"Measurement Period\") in Interval[51, 74]\n\t\t\t\tand exists AdultOutpatientEncounters.\"Qualifying Encounters\""
       }
     }, {
       "code": {
@@ -724,9 +725,10 @@
           "display": "Numerator"
         } ]
       },
+      "description": "A mammogram exists within the last 27 months and the status of that was in 'final', 'amended', 'corrected', or 'appended'",
       "criteria": {
         "language": "text/cql-identifier",
-        "expression": "Numerator"
+        "expression": "exists (\n\t\t\t\t[DiagnosticReport: \"Mammography\"] Mammogram\n\t\t\t\t\t\twhere ( Global.\"Normalize Interval\"(Mammogram.effective) ends 27 months or less before day of end of \"Measurement Period\" )\n\t\t\t\t\t\t\t\tand Mammogram.status in { 'final', 'amended', 'corrected', 'appended' }\n\t\t)"
       }
     }, {
       "code": {
@@ -736,9 +738,10 @@
           "display": "Denominator"
         } ]
       },
+      "description": "Females between 51 and 74 years of age who have a qualifying outpatient visit.",
       "criteria": {
         "language": "text/cql-identifier",
-        "expression": "Denominator"
+        "expression": "\"Initial Population\""
       }
     }, {
       "code": {
@@ -748,9 +751,10 @@
           "display": "Denominator Exclusion"
         } ]
       },
+      "description": "Patient is in Hospice care or has bilateral Mastectomies",
       "criteria": {
         "language": "text/cql-identifier",
-        "expression": "Denominator Exclusion"
+        "expression": "Hospice.\"Has Hospice\"\n\t\t\t\tor ( Count(\"Unilateral Mastectomy Procedure\") = 2 )\n\t\t\t\tor ( exists \"Right Mastectomy\" and exists \"Left Mastectomy\" )\n\t\t\t\tor exists \"History Bilateral Mastectomy\"\n\t\t\t\tor exists \"Bilateral Mastectomy Procedure\""
       }
     } ]
   } ],

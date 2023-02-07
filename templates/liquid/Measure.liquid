@@ -296,6 +296,56 @@
           </td>
         </tr>
         {% endif %}
+        {% if Measure.group.exists() %}
+            <tr>
+                <th scope="row"><b>Populations: </b></th>
+                <td style="padding-left: 4px;">
+                    <table class="grid-dict">
+                        <tr><th><b>Group</b></th><th><b>Population</b></th><th><b>Description</b></th></tr>
+                        {% for group in Measure.group %}
+                        <tr>
+                            <td>{{group.id}}</td>
+                            {% for population in group.population %}
+                                <tr>
+                                    <td/>
+                                    <td>{{(population.code.first() as CodeableConcept).coding.first().display}}</td>
+                                    <td>
+                                        {% if population.description %}
+                                            {{(population.description)}}
+                                        {% endif %}
+                                    </td>
+                                 </tr>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><b>Population Criteria: </b></th>
+                <td style="padding-left: 4px;">
+                    <table class="grid-dict">
+                        <tr><th><b>Group</b></th><th><b>Population Criteria</b></th><th><b>Expression</b></th></tr>
+                        {% for group in Measure.group %}
+                        <tr>
+                            <td>{{group.id}}</td>
+                            {% for population in group.population %}
+                                <tr>
+                                    <td/>
+                                    <td>{{(population.code.first() as CodeableConcept).coding.first().display}}</td>
+                                    <td>
+                                        {% if population.criteria.expression%}
+                                            {{(population.criteria.expression)}}
+                                        {% endif %}
+                                    </td>
+                                 </tr>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+        {% endif %}
         {% if Measure.supplementalData.exists() %}
             <tr>
                 <th scope="row"><b>Supplemental Data: </b></th>
