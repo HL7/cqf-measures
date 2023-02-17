@@ -601,7 +601,7 @@
                                             <td>{{ (population.code.first() as CodeableConcept).coding.first().display }}</td>
                                             <td>
                                                 {% if population.criteria.expression %}
-                                                    {{ (population.criteria.expression) }}
+                                                <pre><code class="language-cql">{{ (population.criteria.expression.escape('html')) }}</code></pre>
                                                 {% endif %}
                                             </td>
                                         </tr>
