@@ -125,7 +125,6 @@ Additional variables required for risk adjustment or other purposes of data aggr
 | QDM |	--- |Quality Data Model |
 | QI Core |	--- | Quality Improvement Core |
 | QRDA |	--- | Quality Reporting Document Architecture |
-| QUICK |	--- | Quality Information and Clinical Knowledge logical model |
 | R4 |	--- | FHIR Release 4 |
 | REST | --- |	Representational State Transfer |
 | SNOMED-CT |	--- | Systematized Nomenclature of Medicine -- Clinical Terms |
