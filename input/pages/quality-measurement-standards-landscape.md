@@ -63,7 +63,7 @@ rectangles in the foreground of the above diagram, fall into three broad
 categories:
 
 1.  **Data Producers** in the diagram represent the various stakeholders
-involved in the de novo creation of healthcare data. Date Producers can include
+involved in the de novo creation of healthcare data. Data Producers can include
 providers and provider systems; patients, care teams, caregivers, and patient
 engagement systems; and other related clinical systems such as laboratory,
 clinic, and hospital information systems that are primary producers of patient
