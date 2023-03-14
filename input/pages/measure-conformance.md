@@ -80,7 +80,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 9. CQFMMeasures utilizing CQL libraries SHALL include exactly 1 CQFMLibrary per CQL library referenced in the Measure.
 10. CQL Libraries implicitly referenced through nesting of libraries MAY be included.
 11. CQFMLibraries SHALL include a content element for CQL.
-12. The CQFMLibrary content element SHALL include a sub-element with a mediaType of `text/cql`.
+12. The CQFMLibrary content element SHALL include a sub-element with a contentType of `text/cql`.
 13. CQFMLibraries SHALL specify CQL content as a base-64-encoded string in the content sub-element as content.data.
 14. Any referenced CQL library SHALL contain a library declaration line.
 15. The library declaration line SHALL be the first line in the library.
@@ -455,7 +455,7 @@ This section describes how to use codes and valuesets from codesystems like LOIN
 
 When terminology artifacts are defined and distributed as part of quality measure content, guidance provided as part of the [Clinical Practice Guideline (CPG) IG](http://hl7.org/fhir/uv/cpg/terminology.html) should be followed. Note that the guidance does not apply for content that only references terminology distributed through other means.
 
-Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. In the case of direct referenced codes, a codesystem declaration must precede the code declaration (per CQL v1.3 specification). Examples of valueset and code declarations can be seen in the accompanying [CommonTerminologies.cql](Library-CommonTerminologies.html#cql-content) and [Terminology.cql](Library-Terminology.html#cql-content).
+Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. Examples of valueset and code declarations can be seen in the accompanying [CommonTerminologies.cql](Library-CommonTerminologies.html#cql-content) and [Terminology.cql](Library-Terminology.html#cql-content).
 
 
 ```cql
