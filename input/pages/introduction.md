@@ -9,7 +9,7 @@
 
 * [Fast Healthcare Interoperability Resources (FHIR) R4](https://www.hl7.org/fhir/r4b/)
 * [Clinical Quality Language (CQL) R1.4](https://cql.hl7.org/)
-* [QI-Core Implementation Guide (QI-Core) R3.3](http://hl7.org/fhir/us/qicore/)
+* [QI-Core Implementation Guide (QI-Core) R4.1](http://hl7.org/fhir/us/qicore/)
 
 To avoid variation in the use of FHIR Resources and metadata across eCQMs and clinical decision support (CDS), a quality-related implementation guide based on a logical data model is essential. In the US Realm, eCQMs SHALL use [FHIR Quality Improvement Core (QICore)](http://hl7.org/fhir/us/qicore) profiles as the data model to maintain consistency.
 
@@ -23,6 +23,11 @@ As features and functionality are identified by this implementation guide that a
 {: #audience}
 
 The audience for this IG includes software developers of measure authoring tools such as the US Centers for Medicare and Medicaid Services (CMS) [Measure Authoring Tool (MAT)](<https://www.emeasuretool.cms.gov/>) and [Measure Authoring development Integrated Environment (MADIE)](<https://www.emeasuretool.cms.gov/madie-mvp/>); measure developers who will specify clinical quality measures using FHIR and CQL; software developers and implementers who will implement the quality measures specified in FHIR and CQL in their institutions or in their vendor products; institutions and organizations who wish to use FHIR and CQL to express and implement quality measures within their health systems; and local, regional, and national quality reporting agencies who wish to receive and process quality reporting documents that are based on measures specified in FHIR and CQL.
+
+### Approach
+{: #approach}
+
+The approach taken here is consistent with balloted IGs for FHIR. These publications view the ultimate implementation specification as a set of formal artifacts, including profiles, extensions, and terminologies. The base FHIR specification provides for the representation of quality measures using the Measure resource, as well as guidance on quality reporting within the Clinical Reasoning module. IGs such as this add constraints to the base resources and guidance through profiles and conformance requirements that further define and restrict the sequence and cardinality of elements in the FHIR resources and the vocabulary sets for coded elements.
 
 ### Scope
 {: #scope}
