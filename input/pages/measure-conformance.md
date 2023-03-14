@@ -80,7 +80,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 9. CQFMMeasures utilizing CQL libraries SHALL include exactly 1 CQFMLibrary per CQL library referenced in the Measure.
 10. CQL Libraries implicitly referenced through nesting of libraries MAY be included.
 11. CQFMLibraries SHALL include a content element for CQL.
-12. The CQFMLibrary content element SHALL include a sub-element with a mediaType of `text/cql`.
+12. The CQFMLibrary content element SHALL include a sub-element with a contentType of `text/cql`.
 13. CQFMLibraries SHALL specify CQL content as a base-64-encoded string in the content sub-element as content.data.
 14. Any referenced CQL library SHALL contain a library declaration line.
 15. The library declaration line SHALL be the first line in the library.
