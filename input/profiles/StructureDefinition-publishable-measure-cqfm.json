@@ -90,6 +90,22 @@
         "mustSupport": true
       },
       {
+        "id": "Measure.extension:supplementalDataGuidance",
+        "path": "Measure.extension",
+        "sliceName": "supplementalDataGuidance",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "Measure.identifier",
         "path": "Measure.identifier",
         "slicing": {
