@@ -25,8 +25,9 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Add requirements to support maintenance of a quality program([FHIR-37506](https://jira.hl7.org/browse/FHIR-37506))
 * **Applied**: Fix incorrect reference to text/cql.identifier([FHIR-38787](https://jira.hl7.org/browse/FHIR-38787))
 * **Applied**: Snippet and link mismatch related to Supplemental Data Elements([FHIR-37548](https://jira.hl7.org/browse/FHIR-37548))
-* **Applied**: Relaxed cardinality in extension for 'cqfm-type' to 0..* from 0..1.  ([FHIR-40697](https://jira.hl7.org/browse/FHIR-40697))
-* **Applied**: Relaxed introduction statement about QI Core  ([FHIR-40684]{https://jira.hl7.org/browse/FHIR-40684))
+* **Applied**: Relaxed cardinality in Computable measure cqfm extension for 'cqfm-type' to 0..* from 0..1.  ([FHIR-40697](https://jira.hl7.org/browse/FHIR-40697))
+* **Applied**: Relaxed introduction statement about QI Core  ([FHIR-40684](https://jira.hl7.org/browse/FHIR-40684))
+* **Applied**: Fixed link for Colorectal Cancer Screening example  ([FHIR-39726](https://jira.hl7.org/browse/FHIR-39726))
 
 ### STU3 Release for FHIR R4 (v3.0.0)
 
