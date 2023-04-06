@@ -28,6 +28,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Relaxed cardinality in Computable measure cqfm extension for 'cqfm-type' to 0..* from 0..1.  ([FHIR-40697](https://jira.hl7.org/browse/FHIR-40697))
 * **Applied**: Relaxed introduction statement about QI Core  ([FHIR-40684](https://jira.hl7.org/browse/FHIR-40684))
 * **Applied**: Fixed link for Colorectal Cancer Screening example  ([FHIR-39726](https://jira.hl7.org/browse/FHIR-39726))
+* **Applied**: Clarified definition wording for usage element of Publishable Measure CQFM  ([FHIR-40241](https://jira.hl7.org/browse/FHIR-40241))
 
 ### STU3 Release for FHIR R4 (v3.0.0)
 
