@@ -1,0 +1,140 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-supplementalDataGuidance",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance",
+  "version": "2.0.0",
+  "name": "CQFMSupplementalDataGuidance",
+  "title": "CQFM Supplemental Data Guidance",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Provides additional guidance on the meaning and reporting of supplemental data elements included in the measure overall.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "A measure specification must be able to provide additional guidance related to the collection and reporting of supplemental data elements defined in the measure.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Measure"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Supplemental data guidance",
+        "definition": "Specifies additional guidance related to the collection and reporting of supplemental data elements defined in the measure.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Extension.extension:usage",
+        "path": "Extension.extension",
+        "sliceName": "usage",
+        "short": "Kind of supplemental data",
+        "definition": "Specifies what kind of supplemental data elements this additional guidance is for (e.g. Supplemental Data Elements, Risk Adjustment Factors, etc.).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:usage.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "usage"
+      },
+      {
+        "id": "Extension.extension:usage.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://terminology.hl7.org/ValueSet/measure-data-usage"
+        }
+      },
+      {
+        "id": "Extension.extension:guidance",
+        "path": "Extension.extension",
+        "sliceName": "guidance",
+        "short": "Additional guidance",
+        "definition": "Additional guidance related to the collection and reporting of this type of supplemental data defined on the measure.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:guidance.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "guidance"
+      },
+      {
+        "id": "Extension.extension:guidance.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [
+          {
+            "code": "markdown"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}
