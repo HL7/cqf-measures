@@ -176,30 +176,6 @@
                 <td style="padding-left: 4px;">{{Measure.description}}</td>
             </tr>
         {% endif %}
-        {% if Measure.group.exists() %}
-            {% if Measure.group[0].population.description.exists() %}
-                <tr>
-                    <th scope="row"><b>Population Criteria: </b></th>
-                    <td style="padding-left: 4px;">
-                        {% for group in Measure.group %}
-                            <table class="grid-dict">
-                                {% if group.id.exists() %}
-                                    <tr>
-                                        <th><b>{{group.id}}</b></th>
-                                    </tr>
-                                {% endif %}
-                                {% for population in group.population %}
-                                    <tr>
-                                        <td>{{population.code.coding[0].display}}: </td>
-                                        <td>{{population.description}}</td>
-                                    </tr>
-                                {% endfor %}
-                            </table>
-                        {% endfor %}
-                    </td>
-                </tr>
-            {% endif %}
-        {% endif %}
         {% if Measure.extension.where(url = 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability').exists() %}
             <tr>
                 <th scope="row"><b>Knowledge Capability: </b></th>
@@ -252,7 +228,7 @@
         {% endif %}
         {% if Measure.usage.exists() %}
             <tr>
-                <th scope="row"><b>Usage: </b></th>
+                <th scope="row"><b>Guidance (Usage): </b></th>
                 <td style="padding-left: 4px;">{{Measure.usage}}</td>
             </tr>
         {% endif %}
@@ -285,6 +261,30 @@
                 <th scope="row"><b>Effective Period: </b></th>
                 <td style="padding-left: 4px;">{{Measure.effectivePeriod.start}}..{{Measure.effectivePeriod.end}}</td>
             </tr>
+        {% endif %}
+        {% if Measure.group.exists() %}
+            {% if Measure.group[0].population.description.exists() %}
+                <tr>
+                    <th scope="row"><b>Population Criteria: </b></th>
+                    <td style="padding-left: 4px;">
+                        {% for group in Measure.group %}
+                            <table class="grid-dict">
+                                {% if group.id.exists() %}
+                                    <tr>
+                                        <th><b>{{group.id}}</b></th>
+                                    </tr>
+                                {% endif %}
+                                {% for population in group.population %}
+                                    <tr>
+                                        <td>{{population.code.coding[0].display}}: </td>
+                                        <td>{{population.description}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endif %}
         {% endif %}
         {% if Measure.relatedArtifact.exists() %}
             <tr>
@@ -657,6 +657,12 @@
                 {% endif %}
             {% endif %}
         {% endif %}
+        {% for extension in Measure.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance') %}
+            <tr>
+                <th scope="row"><b> {{iif(extension.extension.where(url = 'usage').value.text.exists(), extension.extension.where(url = 'usage').value.text, iif(extension.extension.where(url = 'usage').coding.first().display.exists(), extension.extension.where(url = 'usage').coding.first().display, extension.extension.where(url = 'usage').coding.first().code))}}: </b></th>
+                <td style="padding-left: 4px;"> {{extension.extension.where(url = 'guidance').value}} </td>
+            </tr>
+        {% endfor %}
         {% if Measure.supplementalData.usage.coding.where(code = 'supplemental-data').exists() %}
             <tr>
                 <th scope="row"><b> Supplemental Data Elements: </b></th>
