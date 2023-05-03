@@ -163,7 +163,7 @@ The base FHIR specification defines canonical URLs for most common code systems
 The local identifier for the codesystem ("SNOMED CT:2017-09" in this case) should include the friendly name of the code system
 and optionally, an indication of the version, separated with a colon.
 
-Version information for code systems is not required to be included in eCQMs; terminology versioning information may be
+Version information for code systems is not required to be included in QMs; terminology versioning information may be
 specified externally. However, if versioning information is included, it must be done in accordance with the terminology
 usage specified by FHIR.
 
@@ -220,7 +220,7 @@ GET fhir/ValueSet?url=http%3A%2F%2Fcts.nlm.nih.gov%2Ffhir%2FValueSet%2F2.16.840.
 #### Value Set Version
 {: #value-set-version}
 
-Version information for value sets is not required to be included in eCQMs; terminology versioning information may be
+Version information for value sets is not required to be included in QMs; terminology versioning information may be
 specified externally. However, if versioning information is included, it must be done in accordance with the terminology
 usage specified by FHIR.
 
@@ -318,7 +318,7 @@ CQL supports both version-specific and version-independent specification of and 
 #### Representation in a Library
 {: #representation-in-a-library}
 
-When direct-reference codes are used within eCQMs, they will be represented in the narrative (Human-readable) as:
+When direct-reference codes are used within QMs, they will be represented in the narrative (Human-readable) as:
 
 ```html
 "Assessment, Performed: Assessment of breastfeeding"
@@ -362,7 +362,7 @@ define "BMI in Measurement Period":
 
 In addition to codes, CQL supports a concept construct, which is defined as a set of codes that are all semantically
 equivalent. CQL Concepts are not currently used within measure development and SHALL NOT be used within FHIR-based
-eCQMs, except to the extent that individual codes will be implicitly converted to concepts for the purposes of
+QMs, except to the extent that individual codes will be implicitly converted to concepts for the purposes of
 comparison with the Concept-value elements in FHIR resources.
 
 **Conformance Requirement 4.12 (Concepts):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-12)
@@ -402,7 +402,7 @@ Snippet 4-8: Function definition from [Common.cql](Library-Common.html#cql-conte
 
 A "data type" in CQL refers to any named type used within CQL expressions. They may be primitive types, such as the
 system-defined "Integer" and "DateTime", or they may be model-defined types such as "Encounter" or "Medication". For
-FHIR-based eCQMs using the QI-Core profiles, these will be the author-friendly identifiers for the QI-Core profile. Data
+FHIR-based QMs using the QI-Core profiles, these will be the author-friendly identifiers for the QI-Core profile. Data
 types referenced in CQL libraries to be included in a Measure must conform to Conformance Requirement 4.14.
 
 **Conformance Requirement 4.14 (Data Type Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-14)
@@ -435,7 +435,7 @@ For the purposes of quality measurement, when looking for documentation that a p
 be documented with a reason in order to meet the intent. If a reason is not part of the intent, then the absence of
 evidence pattern should be used, rather than documentation of an event not occurring.
 
-To address the reason an action did not occur (negation rationale), the eCQM must define the event it expects to occur
+To address the reason an action did not occur (negation rationale), the QM must define the event it expects to occur
 using appropriate terminology to identify the kind of event (using a value set or direct-reference code), and then use
 additional criteria to indicate that the event did not occur, as well as identifying a reason.
 
@@ -473,7 +473,7 @@ define "No Antithrombotic Therapy":
 {: #negation-rationale}
 
 Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as
-defined by a value set referenced by the eCQM (i.e., negation rationale):
+defined by a value set referenced by the QM (i.e., negation rationale):
 
 ```cql
 define "Antithrombotic Not Administered":
@@ -705,7 +705,7 @@ See the definition of the [Quantity](https://cql.hl7.org/2020May/02-authorsguide
 {: #translation-to-elm}
 
 Tooling exists to support translation of CQL to ELM for distribution in XML or JSON formats. These distributions are
-included with eCQMs to facilitate implementation. [The existing translator tooling](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md) applies to both measure and decision
+included with QMs to facilitate implementation. [The existing translator tooling](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md) applies to both measure and decision
 support development, and has several options available to make use of different data models in different environments.
 For measure development with FHIR, the following options are recommended:
 

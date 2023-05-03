@@ -11,7 +11,7 @@ This implementation guide is not prescriptive about authentication or authorizat
 
 ### Knowledge Artifact Management
 
-Quality measures (eCQMs) are a specific type of knowledge artifact, and share common attributes with other knowledge artifact types. This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of _status_, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
+Quality measures (QMs) are a specific type of knowledge artifact, and share common attributes with other knowledge artifact types. This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of _status_, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
 
 #### Artifact Lifecycle
 
