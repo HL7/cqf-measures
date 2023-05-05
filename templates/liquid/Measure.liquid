@@ -350,6 +350,58 @@
                 </td>
             </tr>
         {% endif %}
+        {% for extension in Measure.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance') %}
+            <tr>
+                <th scope="row"><b> {{iif(extension.extension.where(url = 'usage').value.text.exists(), extension.extension.where(url = 'usage').value.text, iif(extension.extension.where(url = 'usage').coding.first().display.exists(), extension.extension.where(url = 'usage').coding.first().display, extension.extension.where(url = 'usage').coding.first().code))}}: </b></th>
+                <td style="padding-left: 4px;"> {{extension.extension.where(url = 'guidance').value}} </td>
+            </tr>
+        {% endfor %}
+        {% if Measure.supplementalData.usage.coding.where(code = 'supplemental-data').exists() %}
+            <tr>
+                <th scope="row"><b> Supplemental Data Elements: </b></th>
+                <td style="padding-left: 4px;">
+                    {% for supplementalData in Measure.supplementalData.where(usage.coding.where(code = 'supplemental-data').exists()) %}
+                        {% if supplementalData.code.exists() %}
+                            {{iif(supplementalData.code.text.exists(), supplementalData.code.text, iif(supplementalData.code.coding.first().display.exists(), supplementalData.code.coding.first().display, supplementalData.code.coding.first().code))}}
+                        {% else %}
+                            {%if supplementalData.description.exists() %}
+                                {{supplementalData.description}}
+                            {% else %}
+                                {%if supplementalData.criteria.description.exists() %}
+                                    {{supplementalData.criteria.description}}
+                                {% else %}
+                                    {{supplementalData.criteria.expression}}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endif %}
+        {% if Measure.supplementalData.usage.coding.where(code = 'risk-adjustment-factor').exists() %}
+            {% for supplementalData in Measure.supplementalData.where(usage.coding.where(code = 'risk-adjustment-factor').exists()) %}
+            <tr>
+                <th scope="row"><b> Risk Adjustment Factor: </b></th>
+                <td style="padding-left: 4px;">
+                    <p>
+                        {% if supplementalData.code.exists() %}
+                            {{iif(supplementalData.code.text.exists(), supplementalData.code.text, iif(supplementalData.code.coding.first().display.exists(), supplementalData.code.coding.first().display, supplementalData.code.coding.first().code))}}
+                        {% else %}
+                            {%if supplementalData.description.exists() %}
+                                {{supplementalData.description}}
+                            {% else %}
+                                {%if supplementalData.criteria.description.exists() %}
+                                    {{supplementalData.criteria.description}}
+                                {% else %}
+                                    {{supplementalData.criteria.expression}}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    </p>
+                </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
         {% if Measure.library.exists() %}
             <tr>
                 <th scope="row"><b>Libraries: </b></th>
@@ -656,58 +708,6 @@
                     </tr>
                 {% endif %}
             {% endif %}
-        {% endif %}
-        {% for extension in Measure.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance') %}
-            <tr>
-                <th scope="row"><b> {{iif(extension.extension.where(url = 'usage').value.text.exists(), extension.extension.where(url = 'usage').value.text, iif(extension.extension.where(url = 'usage').coding.first().display.exists(), extension.extension.where(url = 'usage').coding.first().display, extension.extension.where(url = 'usage').coding.first().code))}}: </b></th>
-                <td style="padding-left: 4px;"> {{extension.extension.where(url = 'guidance').value}} </td>
-            </tr>
-        {% endfor %}
-        {% if Measure.supplementalData.usage.coding.where(code = 'supplemental-data').exists() %}
-            <tr>
-                <th scope="row"><b> Supplemental Data Elements: </b></th>
-                <td style="padding-left: 4px;">
-                    {% for supplementalData in Measure.supplementalData.where(usage.coding.where(code = 'supplemental-data').exists()) %}
-                        {% if supplementalData.code.exists() %}
-                            {{iif(supplementalData.code.text.exists(), supplementalData.code.text, iif(supplementalData.code.coding.first().display.exists(), supplementalData.code.coding.first().display, supplementalData.code.coding.first().code))}}
-                        {% else %}
-                            {%if supplementalData.description.exists() %}
-                                {{supplementalData.description}}
-                            {% else %}
-                                {%if supplementalData.criteria.description.exists() %}
-                                    {{supplementalData.criteria.description}}
-                                {% else %}
-                                    {{supplementalData.criteria.expression}}
-                                {% endif %}
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                </td>
-            </tr>
-        {% endif %}
-        {% if Measure.supplementalData.usage.coding.where(code = 'risk-adjustment-factor').exists() %}
-            {% for supplementalData in Measure.supplementalData.where(usage.coding.where(code = 'risk-adjustment-factor').exists()) %}
-            <tr>
-                <th scope="row"><b> Risk Adjustment Factor: </b></th>
-                <td style="padding-left: 4px;">
-                    <p>
-                        {% if supplementalData.code.exists() %}
-                            {{iif(supplementalData.code.text.exists(), supplementalData.code.text, iif(supplementalData.code.coding.first().display.exists(), supplementalData.code.coding.first().display, supplementalData.code.coding.first().code))}}
-                        {% else %}
-                            {%if supplementalData.description.exists() %}
-                                {{supplementalData.description}}
-                            {% else %}
-                                {%if supplementalData.criteria.description.exists() %}
-                                    {{supplementalData.criteria.description}}
-                                {% else %}
-                                    {{supplementalData.criteria.expression}}
-                                {% endif %}
-                            {% endif %}
-                        {% endif %}
-                    </p>
-                </td>
-            </tr>
-            {% endfor %}
         {% endif %}
     </table>
 </div>
