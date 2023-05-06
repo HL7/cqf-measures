@@ -998,7 +998,7 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 <img src="OutcomeFlow__Ratio_Denominator.png">
 </div>
 
-✧ The ratio diagrams depict the rate-based ratio measure. Ratio measures may also include continuous variable calculations for the numerator and denominator (continuous variable ratio measures) but the diagrams do not depict the continuous variable ratio measures.
+✧ The ratio diagrams depict a ratio measure. Ratio measures may also include continuous variable calculations for the numerator and denominator (continuous variable ratio measures) but the diagrams do not depict the continuous variable ratio measures.
 
 **Table 3-4: Population Criteria Definitions for Ratio Measures**
 
