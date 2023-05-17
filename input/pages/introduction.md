@@ -9,7 +9,7 @@
 
 * [Fast Healthcare Interoperability Resources (FHIR) R4](https://www.hl7.org/fhir/r4b/)
 * [Clinical Quality Language (CQL) R1.4](https://cql.hl7.org/)
-* [QI-Core Implementation Guide (QI-Core) R4.1](http://hl7.org/fhir/us/qicore/)
+* [QI-Core Implementation Guide (QI-Core) STU5](http://hl7.org/fhir/us/qicore/2022Sep/)
 
 To avoid variation in the use of FHIR Resources and metadata across QMs and clinical decision support (CDS), a quality-related implementation guide based on a logical data model is essential. In the US Realm, QMs should use [FHIR Quality Improvement Core (QICore)](http://hl7.org/fhir/us/qicore) profiles as the data model to maintain consistency. Other FHIR based data models are also acceptable for use.
 
