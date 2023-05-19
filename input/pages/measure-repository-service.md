@@ -154,6 +154,16 @@ The package operation supports the ability of a repository to package an artifac
 
 The result of the packaging operation is a Bundle (or Bundles if there is a need to partition based on size) containing the artifact, tailored for content based on the requested capabilities, and any components/dependencies as specified in the parameters.
 
+For the $package operation, when combinations of "in" parameters specify more than one measure to package, the operation SHOULD return an OperationOutcome error. These combinations include the following:
+
+* The "id" input (in) parameter and Measure/{id}/$package have different values for the id
+* More than one of "id", "url" or "identifier" input parameters are specified
+* If Measure/{id}/$package is used to specify the measure, then url and identifier "in" parameters must not be present in the Parameters resource or as a URL parameter
+
+Implementations are not required to support mixing of "in" parameters in the URL and inside a POSTed Parameters resource; it is acceptable to return an OperationOutcome if mixing is not supported. Implementation MAY support such mixing of input parameters.
+
+These constraints are applicable even if if some or all of the in parameters are specified in the URL
+
 ##### Requirements
 
 The requirements operation supports the ability of a repository to determine the effective requirements of an artifact, including:
