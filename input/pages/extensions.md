@@ -17,6 +17,7 @@
 - [FHIR Query Pattern](StructureDefinition-cqfm-fhirQueryPattern.html)
 - [Group Id](StructureDefinition-cqfm-groupId.html)
 - [Improvement Notation](StructureDefinition-cqfm-improvementNotation.html)
+- [Include In Report Type](StructureDefinition-cqfm-includeInReportType.html)
 - [Input Parameters](StructureDefinition-cqfm-inputParameters.html)
 - [Is Primary Citation](StructureDefinition-cqfm-isPrimaryCitation.html)
 - [Is Selective](StructureDefinition-cqfm-isSelective.html)

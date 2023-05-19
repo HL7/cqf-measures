@@ -456,11 +456,11 @@ This section describes how to use codes and valuesets from codesystems like LOIN
 
 When terminology artifacts are defined and distributed as part of quality measure content, guidance provided as part of the [Clinical Practice Guideline (CPG) IG](http://hl7.org/fhir/uv/cpg/terminology.html) should be followed. Note that the guidance does not apply for content that only references terminology distributed through other means.
 
-Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. Examples of valueset and code declarations can be seen in the accompanying [CommonTerminologies.cql](Library-CommonTerminologies.html#cql-content) and [Terminology.cql](Library-Terminology.html#cql-content).
+Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. Examples of code system, valueset, and code declarations can be seen in the accompanying [CommonTerminologies.cql](Library-CommonTerminologies.html#cql-content) and [Terminology.cql](Library-Terminology.html#cql-content).
 
 
 ```cql
-codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct'
+codesystem 'SNOMEDCT:2017-09': 'http://snomed.info/sct'
   version 'http://snomed.info/sct/731000124108/version/201709'
 ```
 
@@ -999,7 +999,7 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 <img src="OutcomeFlow__Ratio_Denominator.png">
 </div>
 
-✧ The ratio diagrams depict the rate-based ratio measure. Ratio measures may also include continuous variable calculations for the numerator and denominator (continuous variable ratio measures) but the diagrams do not depict the continuous variable ratio measures.
+✧ The ratio diagrams depict a ratio measure. Ratio measures may also include continuous variable calculations for the numerator and denominator (continuous variable ratio measures) but the diagrams do not depict the continuous variable ratio measures.
 
 **Table 3-4: Population Criteria Definitions for Ratio Measures**
 
