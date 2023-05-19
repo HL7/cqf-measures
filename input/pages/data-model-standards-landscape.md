@@ -18,7 +18,8 @@ are derived from US Core and provide this additional functionality.
 There are occasional instances where additional specificity or functionality
 is required explicitly for quality measurement, or a particular component within
 a quality measure. In these cases, additional profiles are defined within the
-DEQM, or by stakeholders such as measure developers or implementers. A general example of this could be the development of profiles for specific measures, such as the ones that reference the Healthcare Effectiveness Data and Information Set (HEDIS) Implementation Guide (currently no link available).
+changes DEQM, or by stakeholders such as measure developers or implementers. A general example of this could be the development of profiles for specific measures, such as the ones that reference the Healthcare Effectiveness Data and Information Set (HEDIS) Implementation Guide (currently no link available).
+
 
 The following diagram depicts this data model standards landscape:
 

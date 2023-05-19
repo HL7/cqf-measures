@@ -8,8 +8,8 @@
 [The National Academy of Medicine, formerly called the Institute of Medicine (IOM),](https://www.nationalacademies.org/) defines quality as: “The degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge.” For care quality to be evaluated, standard quality metrics need to be developed and communicated to the appropriate organizations. To that end, the FHIR Quality Measure Implementation Guide (this IG) has been written to provide guidance for authoring electronic clinical quality measures ([eCQMs](https://ecqi.healthit.gov/glossary/ecqms)), clinical quality measures specified in a standard electronic format and designed to use structured, encoded data present in the electronic health record. This implementation guide references the following standards for creating eCQMs:
 
 * [Fast Healthcare Interoperability Resources (FHIR) R4](https://www.hl7.org/fhir/r4b/)
-* [Clinical Quality Language (CQL) R1.4](https://cql.hl7.org/)
-* [QI-Core Implementation Guide (QI-Core) R4.1](http://hl7.org/fhir/us/qicore/)
+* [Clinical Quality Language (CQL) R1.5.2](http://cql.hl7.org/N1/)
+* [QI-Core Implementation Guide (QI-Core) STU5](http://hl7.org/fhir/us/qicore/)
 
 To avoid variation in the use of FHIR Resources and metadata across eCQMs and clinical decision support (CDS), a quality-related implementation guide based on a logical data model is essential. In the US Realm, eCQMs should use [FHIR Quality Improvement Core (QICore)](http://hl7.org/fhir/us/qicore) profiles as the data model to maintain consistency. Other FHIR based data models are also acceptable for use.
 
@@ -22,7 +22,7 @@ As features and functionality are identified by this implementation guide that a
 ### Audience
 {: #audience}
 
-The audience for this IG includes software developers of measure authoring tools such as the US Centers for Medicare and Medicaid Services (CMS) [Measure Authoring Tool (MAT)](<https://www.emeasuretool.cms.gov/>) and [Measure Authoring development Integrated Environment (MADIE)](<https://www.emeasuretool.cms.gov/madie-mvp/>); measure developers who will specify clinical quality measures using FHIR and CQL; software developers and implementers who will implement the quality measures specified in FHIR and CQL in their institutions or in their vendor products; institutions and organizations who wish to use FHIR and CQL to express and implement quality measures within their health systems; and local, regional, and national quality reporting agencies who wish to receive and process quality reporting documents that are based on measures specified in FHIR and CQL.
+The audience for this IG includes software developers of measure authoring tools such as the US Centers for Medicare & Medicaid Services (CMS) [Measure Authoring Tool (MAT)](<https://www.emeasuretool.cms.gov/>) and [Measure Authoring Development Integrated Environment (MADiE)](<https://www.emeasuretool.cms.gov/madie-mvp/>); measure developers who will specify clinical quality measures using FHIR and CQL; software developers and implementers who will implement the quality measures specified in FHIR and CQL in their institutions or in their vendor products; institutions and organizations who wish to use FHIR and CQL to express and implement quality measures within their health systems; and local, regional, and national quality reporting agencies who wish to receive and process quality reporting documents that are based on measures specified in FHIR and CQL.
 
 ### Approach
 {: #approach}
