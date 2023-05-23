@@ -261,10 +261,7 @@ results of an expansion.
 **Conformance Requirement 4.9 (Value Set Expansion):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-9)
 {: #conformance-requirement-4-9}
 
-1. Expressions that require implementations to perform the complete expansion of a value set SHOULD NOT be used. The use of the terminology membership operator is preferred.
-
-For example, rather than combining multiple value sets using a "union", separate membership tests in each value set should be used. For more information, see the [Value Set Expansion](http://hl7.org/fhir/valueset.html#expansion) topic in the
-base FHIR specification.
+1. Valueset membership testing SHOULD use the terminology membership operation in CQL (`in(ValueSet)`), as opposed to requiring computation on the lists of codes in a value set.  Please reference [here](http://cql.hl7.org/02-authorsguide.html#terminology-operators) for more information.
 
 #### Representation in a Library
 {: #representation-in-a-library}

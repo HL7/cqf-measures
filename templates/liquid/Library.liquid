@@ -374,7 +374,18 @@
           <td colspan="2">
             <table>
               <tr><th><a id="cql-content"><b>Content: </b></a> {{c.contentType}}</th></tr>
-              <tr><td><pre><code class="language-cql">{{c.data.decode('base64').escape('html')}}</code></pre></td></tr>
+              <tr><td><pre><code class="language-cql" id="code-block">
+              
+              <script>  
+                document.addEventListener('DOMContentLoaded', function() {
+                var element = document.getElementById('code-block');
+                  var decodedString = atob('{{c.data}}');
+                  element.innerHTML = decodedString;
+                });
+
+              </script>
+
+              </code></pre></td></tr>
             </table>
           </td>
         </tr>
@@ -392,3 +403,4 @@
         {% endfor %}
     </table>
 </div>
+                

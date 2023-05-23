@@ -285,6 +285,21 @@
         "mustSupport": true
       },
       {
+        "id": "Measure.supplementalData.extension:includeInReportType",
+        "path": "Measure.supplementalData.extension",
+        "sliceName": "includeInReportType",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType"
+            ]
+          }
+        ]
+      },
+      {
         "id": "Measure.supplementalData.code",
         "path": "Measure.supplementalData.code",
         "mustSupport": true,

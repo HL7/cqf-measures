@@ -1,0 +1,1782 @@
+[
+  {
+    "_id": "dc4bc81c-7348-4491-8a84-a5c5824dcfbf",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "fe654ec7-e330-4912-84fb-1aa8c977d76d",
+    "name": "FHIRValidateReturnedCode",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/$validate-code?system=http://terminology.hl7.org/CodeSystem/v3-LivingArrangement&version=2022-02&code=N",
+    "method": "GET",
+    "sortNum": 5000,
+    "created": "2023-05-05T18:22:42.723Z",
+    "modified": "2023-05-05T18:22:42.723Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "system",
+        "value": "http://terminology.hl7.org/CodeSystem/v3-LivingArrangement",
+        "isPath": false
+      },
+      {
+        "name": "version",
+        "value": "2022-02",
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "N",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].name",
+        "action": "equal",
+        "value": "result"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "true"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].name",
+        "action": "equal",
+        "value": "message"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].valueString",
+        "action": "equal",
+        "value": "The code(N) is valid in code system LivingArrangement"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].name",
+        "action": "equal",
+        "value": "display"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].valueString",
+        "action": "equal",
+        "value": "Nursing Home"
+      }
+    ]
+  },
+  {
+    "_id": "9c2eb223-b1cf-41f2-9e28-748db2233afe",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "fe654ec7-e330-4912-84fb-1aa8c977d76d",
+    "name": "THOValidateReturnedCode",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/$validate-code?system=http://terminology.hl7.org/CodeSystem/v2-0092&version=2.1.0&code=R",
+    "method": "GET",
+    "sortNum": 7500,
+    "created": "2023-05-05T18:22:42.725Z",
+    "modified": "2023-05-05T18:22:42.725Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "system",
+        "value": "http://terminology.hl7.org/CodeSystem/v2-0092",
+        "isPath": false
+      },
+      {
+        "name": "version",
+        "value": "2.1.0",
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "R",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].name",
+        "action": "equal",
+        "value": "result"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "true"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].name",
+        "action": "equal",
+        "value": "message"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].valueString",
+        "action": "equal",
+        "value": "The code(R) is valid in code system ReAdmissionIndicator"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].name",
+        "action": "equal",
+        "value": "display"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].valueString",
+        "action": "equal",
+        "value": "Nursing Home"
+      }
+    ]
+  },
+  {
+    "_id": "9cfb72ca-c197-409e-bf48-c5c8c74ad6d2",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "fe654ec7-e330-4912-84fb-1aa8c977d76d",
+    "name": "QICoreValidateReturnedCode",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/$validate-code?system=http://snomed.info/sct&version=20230301&code=277406006",
+    "method": "GET",
+    "sortNum": 8750,
+    "created": "2023-05-05T18:22:42.726Z",
+    "modified": "2023-05-05T18:22:42.726Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "system",
+        "value": "http://snomed.info/sct",
+        "isPath": false
+      },
+      {
+        "name": "version",
+        "value": "20230301",
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "277406006",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].name",
+        "action": "equal",
+        "value": "result"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "true"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].name",
+        "action": "equal",
+        "value": "message"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].valueString",
+        "action": "equal",
+        "value": "The code(277406006) is valid in code system SNOMED"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].name",
+        "action": "equal",
+        "value": "display"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].valueString",
+        "action": "equal",
+        "value": "Nursing Home"
+      }
+    ]
+  },
+  {
+    "_id": "0c284bb7-500a-451f-955d-76b4af4df986",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "c64996f0-6960-429d-b686-fada4e56adf5",
+    "name": "HasFHIRBallotBoundCodeSystem",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=http://hl7.org/fhir/observation-status",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-05-05T18:22:42.727Z",
+    "modified": "2023-05-06T01:19:46.679Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "http://hl7.org/fhir/observation-status",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.url",
+        "action": "equal",
+        "value": "http://hl7.org/fhir/observation-status"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.version",
+        "action": "equal",
+        "value": "4.0.1"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.name",
+        "action": "equal",
+        "value": "ObservationStatus"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.status",
+        "action": "equal",
+        "value": "active"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.experimental",
+        "action": "equal",
+        "value": "false"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.publisher",
+        "action": "equal",
+        "value": "HL7 (FHIR Project)"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.description",
+        "action": "equal",
+        "value": "Codes providing the status of an observation."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.caseSensitive",
+        "action": "equal",
+        "value": "true"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.content",
+        "action": "equal",
+        "value": "complete"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.concept[0].code",
+        "action": "equal",
+        "value": "registered"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.date",
+        "action": "equal",
+        "value": "2019-11-01T09:29:23+11:00"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.identifier[0].system[0].",
+        "action": "equal",
+        "value": "urn:ietf:rfc:3986"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.title",
+        "action": "equal",
+        "value": "ObservationStatus"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.type",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.jurisdiction",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.useContext",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.topic",
+        "action": "equal",
+        "value": "?"
+      }
+    ]
+  },
+  {
+    "_id": "f31166c8-c5bb-4cbf-8e12-b84cd2c63c00",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "fe654ec7-e330-4912-84fb-1aa8c977d76d",
+    "name": "FHIRValidateCodeNotFound",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/$validate-code?system=http://terminology.hl7.org/CodeSystem/v3-LivingArrangement&version=2022-02&code=B ",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-05-05T18:22:42.728Z",
+    "modified": "2023-05-05T18:22:42.728Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "system",
+        "value": "http://terminology.hl7.org/CodeSystem/v3-LivingArrangement",
+        "isPath": false
+      },
+      {
+        "name": "version",
+        "value": "2022-02",
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "B ",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].name",
+        "action": "equal",
+        "value": "result"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "false"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].name",
+        "action": "equal",
+        "value": "message"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].valueString",
+        "action": "equal",
+        "value": "Unable to find code B in http://terminology.hl7.org/CodeSystem/v3-LivingArrangement version(2022-02)"
+      }
+    ]
+  },
+  {
+    "_id": "c3cbd7ad-a706-4a02-a397-3e38711eb173",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "c64996f0-6960-429d-b686-fada4e56adf5",
+    "name": "HasTHOCodeSystem",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=http://terminology.hl7.org/CodeSystem/adverse-event-category",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-05-05T18:22:42.729Z",
+    "modified": "2023-05-06T01:29:47.345Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "http://terminology.hl7.org/CodeSystem/adverse-event-category",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.url",
+        "action": "equal",
+        "value": "http://terminology.hl7.org/CodeSystem/adverse-event-category"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.version",
+        "action": "equal",
+        "value": "0.1.0"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.name",
+        "action": "equal",
+        "value": "AdverseEventCategory"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.status",
+        "action": "equal",
+        "value": "draft"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.experimental",
+        "action": "equal",
+        "value": "false"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.publisher",
+        "action": "equal",
+        "value": "HL7 (FHIR Project)"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.description",
+        "action": "equal",
+        "value": "Overall categorization of the event, e.g. product-related or situational."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.caseSensitive",
+        "action": "equal",
+        "value": "true"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.content",
+        "action": "equal",
+        "value": "complete"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.concept[0].code",
+        "action": "equal",
+        "value": "wrong-patient"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.date",
+        "action": "equal",
+        "value": "2020-04-09T21:10:28+00:00"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.identifier[0].system[0].",
+        "action": "equal",
+        "value": "urn:ietf:rfc:3986"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.title",
+        "action": "equal",
+        "value": "AdverseEventCategory"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.type",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.jurisdiction",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.useContext",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.topic",
+        "action": "equal",
+        "value": "?"
+      }
+    ]
+  },
+  {
+    "_id": "4840d3e4-3002-4e08-befb-869b62d395e8",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "fe654ec7-e330-4912-84fb-1aa8c977d76d",
+    "name": "THOValidateCodeNotFound",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/$validate-code?system=http://terminology.hl7.org/CodeSystem/v2-0092&version=2.1.0&code=N",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-05-05T18:22:42.730Z",
+    "modified": "2023-05-05T18:22:42.730Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "system",
+        "value": "http://terminology.hl7.org/CodeSystem/v2-0092",
+        "isPath": false
+      },
+      {
+        "name": "version",
+        "value": "2.1.0",
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "N",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].name",
+        "action": "equal",
+        "value": "result"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "false"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].name",
+        "action": "equal",
+        "value": "message"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].valueString",
+        "action": "equal",
+        "value": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0092"
+      }
+    ]
+  },
+  {
+    "_id": "bdb0a444-d6fb-48e9-83af-0a5d6a16b70d",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "fe654ec7-e330-4912-84fb-1aa8c977d76d",
+    "name": "QICoreValidateCodeNotFound",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/$validate-code?system=http://snomed.info/sct&version=2022-03-01&code=123456789",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-05-05T18:22:42.731Z",
+    "modified": "2023-05-05T18:22:42.731Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "system",
+        "value": "http://snomed.info/sct",
+        "isPath": false
+      },
+      {
+        "name": "version",
+        "value": "2022-03-01",
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "123456789",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].name",
+        "action": "equal",
+        "value": "result"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "false"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].name",
+        "action": "equal",
+        "value": "message"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].valueString",
+        "action": "equal",
+        "value": "Unable to provide support for code system http://snomed.info/sct version(2022-03-01)"
+      }
+    ]
+  },
+  {
+    "_id": "f6c5c90a-d2d5-4239-8e24-86d4da0e5fba",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "c64996f0-6960-429d-b686-fada4e56adf5",
+    "name": "HasUsCoreCodeSystem",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=urn:oid:2.16.840.1.113883.6.238",
+    "method": "GET",
+    "sortNum": 35000,
+    "created": "2023-05-05T18:22:42.732Z",
+    "modified": "2023-05-06T01:33:07.438Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "urn:oid:2.16.840.1.113883.6.238",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.url",
+        "action": "equal",
+        "value": "http://hl7.org/fhir/us/core/ValueSet/us-core-narrative-status"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.version",
+        "action": "equal",
+        "value": "3.1.0"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.name",
+        "action": "equal",
+        "value": "NarrativeStatus"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.status",
+        "action": "equal",
+        "value": "active"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.experimental",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.publisher",
+        "action": "equal",
+        "value": "HL7 US Realm Steering Committee"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.description",
+        "action": "equal",
+        "value": "The US Core Narrative Status Value Set limits the text status for the resource narrative."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.caseSensitive",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.content",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.concept[0].code",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.date",
+        "action": "equal",
+        "value": "2019-11-06T12:37:38+11:00"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.identifier[0].system[0]",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.title",
+        "action": "equal",
+        "value": "US Core Narrative Status"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.type",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.jurisdiction[0].coding[0].code",
+        "action": "equal",
+        "value": "US"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.useContext",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.topic",
+        "action": "equal",
+        "value": "?"
+      }
+    ]
+  },
+  {
+    "_id": "56e668f8-f985-4d47-be78-5c03ef97e243",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "c64996f0-6960-429d-b686-fada4e56adf5",
+    "name": "HasQICoreCodeSystem",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-05-05T18:22:42.733Z",
+    "modified": "2023-05-06T01:34:20.553Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.url",
+        "action": "equal",
+        "value": "http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.version",
+        "action": "equal",
+        "value": "4.1.1"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.name",
+        "action": "equal",
+        "value": "AppropriatenessScore"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.status",
+        "action": "equal",
+        "value": "draft"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.experimental",
+        "action": "equal",
+        "value": "false"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.publisher",
+        "action": "equal",
+        "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.description",
+        "action": "equal",
+        "value": "The RAND scoring for appropriateness of the procedure."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.caseSensitive",
+        "action": "equal",
+        "value": "true"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.content",
+        "action": "equal",
+        "value": "complete"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.concept[0].code",
+        "action": "equal",
+        "value": "extremely-inappropriate"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.date",
+        "action": "equal",
+        "value": "2018-08-22"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.identifier[0].system[0].",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.title",
+        "action": "equal",
+        "value": "RAND Appropriateness Score Codes"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.type",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.jurisdiction[0].coding[0].code",
+        "action": "equal",
+        "value": "US"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.useContext",
+        "action": "equal",
+        "value": "?"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.topic",
+        "action": "equal",
+        "value": "?"
+      }
+    ]
+  },
+  {
+    "_id": "b5570f92-f951-447d-b523-7d580821dd54",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "FHIRAllergyIntoleranceByUrl",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+    "method": "GET",
+    "sortNum": 80000,
+    "created": "2023-05-05T18:22:42.734Z",
+    "modified": "2023-05-05T18:22:42.734Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.url",
+        "action": "equal",
+        "value": ""
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.version",
+        "action": "equal",
+        "value": ""
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.name",
+        "action": "equal",
+        "value": ""
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.status",
+        "action": "equal",
+        "value": ""
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.experimental",
+        "action": "equal",
+        "value": ""
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.publisher",
+        "action": "equal",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "_id": "a6077e33-5706-4b0e-9a9e-5e132d14bdad",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "FHIRAllergyIntoleranceByVersion",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?version=4.3.0",
+    "method": "GET",
+    "sortNum": 85000,
+    "created": "2023-05-05T18:22:42.735Z",
+    "modified": "2023-05-05T18:22:42.735Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "version",
+        "value": "4.3.0",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "f6922171-e4b6-4684-969d-0cefc228e097",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "FHIRAllergyIntoleranceByIdentifier",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?identifier=urn:oid:2.16.840.1.113883.4.642.1.1373",
+    "method": "GET",
+    "sortNum": 87500,
+    "created": "2023-05-05T18:22:42.736Z",
+    "modified": "2023-05-05T18:22:42.736Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "identifier",
+        "value": "urn:oid:2.16.840.1.113883.4.642.1.1373",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "add922db-5955-4dfc-acee-d86b6733c812",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "FHIRAllergyIntoleranceByName",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?name=AllergyIntoleranceClinicalStatusCodes",
+    "method": "GET",
+    "sortNum": 88750,
+    "created": "2023-05-05T18:22:42.737Z",
+    "modified": "2023-05-05T18:22:42.737Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "name",
+        "value": "AllergyIntoleranceClinicalStatusCodes",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "0b5e41b8-142f-45c5-8f0d-6dd8f40115c6",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "FHIRAllergyIntoleranceByTitle",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?title=AllergyIntolerance%20Clinical%20Status%20Codes",
+    "method": "GET",
+    "sortNum": 89375,
+    "created": "2023-05-05T18:22:42.738Z",
+    "modified": "2023-05-05T18:22:42.738Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "title",
+        "value": "AllergyIntolerance%20Clinical%20Status%20Codes",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "7a9df064-dd34-42f5-a0bc-3e2fd9d49bab",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "FHIRAllergyIntoleranceByDescription",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?descriptions=Preferred%20value%20set%20for%20AllergyIntolerance%20Clinical%20Status.",
+    "method": "GET",
+    "sortNum": 89687.5,
+    "created": "2023-05-05T18:22:42.739Z",
+    "modified": "2023-05-05T18:22:42.739Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "descriptions",
+        "value": "Preferred%20value%20set%20for%20AllergyIntolerance%20Clinical%20Status.",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "399888ce-fa35-456e-9efd-f287fb658b5e",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "FHIRAllergyIntoleranceByCode",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?code=inactive",
+    "method": "GET",
+    "sortNum": 89843.8,
+    "created": "2023-05-05T18:22:42.740Z",
+    "modified": "2023-05-05T18:22:42.740Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "code",
+        "value": "inactive",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "90a8c1be-1f20-4455-92b2-f751ef81a2c5",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "THOParticipationModeByUrl",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=http://terminology.hl7.org/CodeSystem/v3-ParticipationMode",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2023-05-05T18:22:42.741Z",
+    "modified": "2023-05-05T18:22:42.741Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.entry[0].resource.url",
+        "action": "equal",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "_id": "7965df1a-d22b-442c-a6cb-b8b682fa6164",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "d8568e72-9912-401f-b0cd-dc7df8db8f06",
+    "name": "FHIRCodeLookup",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/$lookup?system=http://hl7.org/fhir/care-team-status&code=proposed",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2023-05-05T18:22:42.742Z",
+    "modified": "2023-05-05T18:22:42.742Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "system",
+        "value": "http://hl7.org/fhir/care-team-status",
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "proposed",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueString",
+        "action": "equal",
+        "value": "CareTeamStatus"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].valueString",
+        "action": "equal",
+        "value": "4.3.0"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].valueString",
+        "action": "equal",
+        "value": "Proposed"
+      }
+    ]
+  },
+  {
+    "_id": "f0196409-ccbe-4ecb-91f9-7d7191c7f8e0",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "THOParticipationModeByVersion",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?version=3.1.0",
+    "method": "GET",
+    "sortNum": 95000,
+    "created": "2023-05-05T18:22:42.743Z",
+    "modified": "2023-05-05T18:22:42.743Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "version",
+        "value": "3.1.0",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "b4a165ce-b7fd-43bb-912d-d71d4fe6c0d2",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "THOParticipationModeByIdentifier",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?identifier=urn:oid:2.16.840.1.113883.5.1064",
+    "method": "GET",
+    "sortNum": 97500,
+    "created": "2023-05-05T18:22:42.744Z",
+    "modified": "2023-05-05T18:22:42.744Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "identifier",
+        "value": "urn:oid:2.16.840.1.113883.5.1064",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "6a75684c-a88e-4b95-9566-811d9d053c5d",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "THOParticipationModeByName",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?name=ParticipationMode",
+    "method": "GET",
+    "sortNum": 98125,
+    "created": "2023-05-05T18:22:42.745Z",
+    "modified": "2023-05-05T18:22:42.745Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "name",
+        "value": "ParticipationMode",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "1ffa0177-e97e-4885-a8f7-ed3ca6f9b739",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "THOParticipationModeByTitle",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?title=ParticipationMode",
+    "method": "GET",
+    "sortNum": 98750,
+    "created": "2023-05-05T18:22:42.746Z",
+    "modified": "2023-05-05T18:22:42.746Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "title",
+        "value": "ParticipationMode",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "3a2f841a-3ee4-428f-85a0-fa7b245daf49",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "THOParticipationModeByDescription",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?description=A%20set%20of%20codes%20specifying%20the%20modality%20by%20which%20the%20Entity%20playing%20the%20Role%20is%20participating%20in%20the%20Act.%5Cr%5Cn%5Cr%5Cn%2AExamples%3A%2A%20Physically%20present%2C%20over%20the%20telephone%2C%20written%20communication.%5Cr%5Cn%5Cr%5Cn%2ARationale%3A%2A%20Particularly%20for%20author%20%28originator%29%20participants%20this%20is%20used%20to%20specify%20whether%20the%20information%20represented%20by%20the%20act%20was%20initially%20provided%20verbally%2C%20%28hand-%29written%2C%20or%20electronically.%5Cr%5Cn%5Cr%5Cn%2AOpen%20Issue%3A%2A%20There%20needs%20to%20be%20a%20reexamination%20of%20the%20hierarchies%20as%20there%20seems%20to%20be%20some%20muddling%20between%20ELECTRONIC%20and%20other%20concepts%20that%20involve%20electronic%20communication%20that%20are%20in%20other%20hierarchies.",
+    "method": "GET",
+    "sortNum": 99375,
+    "created": "2023-05-05T18:22:42.747Z",
+    "modified": "2023-05-05T18:22:42.747Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "description",
+        "value": "A%20set%20of%20codes%20specifying%20the%20modality%20by%20which%20the%20Entity%20playing%20the%20Role%20is%20participating%20in%20the%20Act.%5Cr%5Cn%5Cr%5Cn%2AExamples%3A%2A%20Physically%20present%2C%20over%20the%20telephone%2C%20written%20communication.%5Cr%5Cn%5Cr%5Cn%2ARationale%3A%2A%20Particularly%20for%20author%20%28originator%29%20participants%20this%20is%20used%20to%20specify%20whether%20the%20information%20represented%20by%20the%20act%20was%20initially%20provided%20verbally%2C%20%28hand-%29written%2C%20or%20electronically.%5Cr%5Cn%5Cr%5Cn%2AOpen%20Issue%3A%2A%20There%20needs%20to%20be%20a%20reexamination%20of%20the%20hierarchies%20as%20there%20seems%20to%20be%20some%20muddling%20between%20ELECTRONIC%20and%20other%20concepts%20that%20involve%20electronic%20communication%20that%20are%20in%20other%20hierarchies.",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "a5d047b0-d25d-4a7a-8815-19a8c5db2da9",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "THOParticipationModeByCode",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?code=ELECTRONIC",
+    "method": "GET",
+    "sortNum": 99687.5,
+    "created": "2023-05-05T18:22:42.748Z",
+    "modified": "2023-05-05T18:22:42.748Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "code",
+        "value": "ELECTRONIC",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "5c95112f-6c1c-4307-9ff7-39c44cbaa9e4",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "QICoreAppropriatenessScoreByUrl",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-05-05T18:22:42.749Z",
+    "modified": "2023-05-05T18:22:42.749Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "87ebb5e7-f60c-45c6-a889-9b6a81489720",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "d8568e72-9912-401f-b0cd-dc7df8db8f06",
+    "name": "THOCodeLookup",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/$lookup?system=http://terminology.hl7.org/CodeSystem/goal-category&code=dietary",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-05-05T18:22:42.750Z",
+    "modified": "2023-05-05T18:22:42.750Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "system",
+        "value": "http://terminology.hl7.org/CodeSystem/goal-category",
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "dietary",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueString",
+        "action": "equal",
+        "value": "GoalCategory"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].valueString",
+        "action": "equal",
+        "value": "0.1.0"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].valueString",
+        "action": "equal",
+        "value": "Dietary"
+      }
+    ]
+  },
+  {
+    "_id": "47dfccbf-b67b-4495-9e85-4f4b7764bb03",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "d8568e72-9912-401f-b0cd-dc7df8db8f06",
+    "name": "LivingArrangementCodeLookup",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/$lookup?system=http://terminology.hl7.org/CodeSystem/v3-LivingArrangement&version=2022-02&code=N",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-05-05T18:22:42.751Z",
+    "modified": "2023-05-05T18:22:42.751Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "system",
+        "value": "http://terminology.hl7.org/CodeSystem/v3-LivingArrangement",
+        "isPath": false
+      },
+      {
+        "name": "version",
+        "value": "2022-02",
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "N",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].name",
+        "action": "equal",
+        "value": "name"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueString",
+        "action": "equal",
+        "value": "LivingArrangement"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].name",
+        "action": "equal",
+        "value": "version"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].valueString",
+        "action": "equal",
+        "value": "2022-02-01"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].name",
+        "action": "equal",
+        "value": "display"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].valueString",
+        "action": "equal",
+        "value": "Nursing Home"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[3].name",
+        "action": "equal",
+        "value": "Oid"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[3].valueString",
+        "action": "equal",
+        "value": "2.16.840.1.113883.5.63"
+      }
+    ]
+  },
+  {
+    "_id": "61ce2c8c-097f-4568-87a5-d6be03361159",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "d8568e72-9912-401f-b0cd-dc7df8db8f06",
+    "name": "QICoreCodeLookup",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/$lookup?system=http://snomed.info/sct&code=277406006",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-05-05T18:22:42.752Z",
+    "modified": "2023-05-05T18:22:42.752Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "system",
+        "value": "http://snomed.info/sct",
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "277406006",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].name",
+        "action": "equal",
+        "value": "name"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueString",
+        "action": "equal",
+        "value": "SNOMEDCT"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].name",
+        "action": "equal",
+        "value": "version"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[1].valueString",
+        "action": "equal",
+        "value": "http://snomed.info/sct/731000124108/version/20230301"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].name",
+        "action": "equal",
+        "value": "display"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[2].valueString",
+        "action": "equal",
+        "value": "Dosages (qualifier value)"
+      }
+    ]
+  },
+  {
+    "_id": "70c1a3de-b01b-45fe-91a5-da9d0fdd04e0",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "QICoreAppropriatenessScoreByVersion",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?version=4.1.1",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-05-05T18:22:42.753Z",
+    "modified": "2023-05-05T18:22:42.753Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "version",
+        "value": "4.1.1",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "57b9fd95-d129-45cf-94d1-9cf0c087be23",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "QICoreAppropriatenessScoreByIdentifier",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?identifier=?",
+    "method": "GET",
+    "sortNum": 120000,
+    "created": "2023-05-05T18:22:42.754Z",
+    "modified": "2023-05-05T18:22:42.754Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "identifier",
+        "value": "?",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "b33a01a8-bf08-48c6-8485-12a429c571d7",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "QICoreAppropriatenessScoreByName",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?name=AppropriatenessScore",
+    "method": "GET",
+    "sortNum": 130000,
+    "created": "2023-05-05T18:22:42.755Z",
+    "modified": "2023-05-05T18:22:42.755Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "name",
+        "value": "AppropriatenessScore",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "023d3e2d-8af8-4afe-b019-68f78d950e76",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "QICoreAppropriatenessScoreByTitle",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?title=RAND%20Appropriateness%20Score%20Codes",
+    "method": "GET",
+    "sortNum": 140000,
+    "created": "2023-05-05T18:22:42.756Z",
+    "modified": "2023-05-05T18:22:42.756Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "title",
+        "value": "RAND%20Appropriateness%20Score%20Codes",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "bc6d0ba7-143e-473b-87dc-41cf80420a39",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "QICoreAppropriatenessScoreByDescription",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?description=The%20RAND%20scoring%20for%20appropriateness%20of%20the%20procedure.",
+    "method": "GET",
+    "sortNum": 150000,
+    "created": "2023-05-05T18:22:42.757Z",
+    "modified": "2023-05-05T18:22:42.757Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "description",
+        "value": "The%20RAND%20scoring%20for%20appropriateness%20of%20the%20procedure.",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "6cab732b-3c8d-4eb8-9742-e30adc9cd56b",
+    "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
+    "containerId": "02e5038c-b29c-4089-81de-4de45dcfa239",
+    "name": "QICoreAppropriatenessScoreByCode",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?code=inappropriate",
+    "method": "GET",
+    "sortNum": 160000,
+    "created": "2023-05-05T18:22:42.758Z",
+    "modified": "2023-05-05T18:22:42.758Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "code",
+        "value": "inappropriate",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  }
+]
