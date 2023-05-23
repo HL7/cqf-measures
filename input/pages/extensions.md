@@ -1,6 +1,5 @@
 
 - [Aggregate Method](StructureDefinition-cqfm-aggregateMethod.html)
-- [Allocation](StructureDefinition-cqfm-allocation.html)
 - [Applies To](StructureDefinition-cqfm-appliesTo.html)
 - [Artifact Comment](StructureDefinition-cqfm-artifactComment.html)
 - [Component](StructureDefinition-cqfm-component.html)
