@@ -97,22 +97,6 @@
         "mustSupport": true
       },
       {
-        "id": "Measure.extension:allocation",
-        "path": "Measure.extension",
-        "sliceName": "allocation",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-allocation"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
         "id": "Measure.extension:softwaresystem",
         "path": "Measure.extension",
         "sliceName": "softwaresystem",
@@ -283,6 +267,21 @@
         "min": 1,
         "max": "1",
         "mustSupport": true
+      },
+      {
+        "id": "Measure.supplementalData.extension:includeInReportType",
+        "path": "Measure.supplementalData.extension",
+        "sliceName": "includeInReportType",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType"
+            ]
+          }
+        ]
       },
       {
         "id": "Measure.supplementalData.code",

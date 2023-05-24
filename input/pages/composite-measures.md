@@ -500,9 +500,9 @@ For individual-based composite scoring methods, additional data elements are col
         a. A composite measure MAY point to a group in the same Measure resource
         b. If the component measure contains multiple groups, the [groupId] extension SHALL be used to reference a specific group
         c. Multiple groups within the same measure may be referenced as different components of the same composite
-    3. A composite eCQM SHALL have at least two components
+    3. A composite QM SHALL have at least two components
 
-Regardless of the scoring method, a composite eCQM will include any number of component measures to be included in the composite calculations. Each component results in the appearance of a relatedArtifact element referencing a Measure by _url_, possibly including the _version_ and, if necessary, specifying the particular _group_ that should be used as the component, and the _weight_ of that component's contribution to the composite score (for weighted composite scoring methods). The following example illustrates a simple composite:
+Regardless of the scoring method, a composite QM will include any number of component measures to be included in the composite calculations. Each component results in the appearance of a relatedArtifact element referencing a Measure by _url_, possibly including the _version_ and, if necessary, specifying the particular _group_ that should be used as the component, and the _weight_ of that component's contribution to the composite score (for weighted composite scoring methods). The following example illustrates a simple composite:
 
 ```xml
 <relatedArtifact>

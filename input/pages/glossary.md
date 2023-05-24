@@ -33,7 +33,11 @@ Denominator exclusion criteria define patients, subjects, or events that should 
 
 #### Direct Reference Code
 
-A direct reference code (DRC) is a specific code that is referenced directly in the eCQM logic to describe a data element or one of its attributes. Direct reference code metadata include the description of the code, the code system from which the code is derived, and the version of that code system.
+A direct reference code (DRC) is a specific code that is referenced directly in the QM logic to describe a data element or one of its attributes. Direct reference code metadata include the description of the code, the code system from which the code is derived, and the version of that code system.
+
+#### Digital Quality Measure (dQM)
+
+A clinical quality measure that is expressed and formatted to use data from electronic health records (EHR) and/or health information technology systems to measure healthcare quality, specifically data captured in structured form during the process of patient care. Synonymous with eCQM
 
 #### Electronic Clinical Quality Measure (eCQM)
 
@@ -110,6 +114,7 @@ Additional variables required for risk adjustment or other purposes of data aggr
 | CQFM | --- |	Clinical Quality Framework Measures |
 | CQL |	--- | Clinical Quality Language |
 | CQM |	--- | Clinical Quality Measures |
+| dQM | --- | Digital Quality Measure |
 | eCQM | --- | 	electronic Clinical Quality Measures |
 | DEQM | --- |	Data Exchange For Quality Measures |
 | EHR |	--- | Electronic Health Record |

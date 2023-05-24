@@ -1,6 +1,5 @@
 
 - [Aggregate Method](StructureDefinition-cqfm-aggregateMethod.html)
-- [Allocation](StructureDefinition-cqfm-allocation.html)
 - [Applies To](StructureDefinition-cqfm-appliesTo.html)
 - [Artifact Comment](StructureDefinition-cqfm-artifactComment.html)
 - [Component](StructureDefinition-cqfm-component.html)
@@ -17,6 +16,7 @@
 - [FHIR Query Pattern](StructureDefinition-cqfm-fhirQueryPattern.html)
 - [Group Id](StructureDefinition-cqfm-groupId.html)
 - [Improvement Notation](StructureDefinition-cqfm-improvementNotation.html)
+- [Include In Report Type](StructureDefinition-cqfm-includeInReportType.html)
 - [Input Parameters](StructureDefinition-cqfm-inputParameters.html)
 - [Is Primary Citation](StructureDefinition-cqfm-isPrimaryCitation.html)
 - [Is Selective](StructureDefinition-cqfm-isSelective.html)
