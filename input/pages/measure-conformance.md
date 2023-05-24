@@ -2,10 +2,10 @@
 {:toc}
 
 
-## Specifying eCQMs
-{: #specifying-ecqms}
+## Specifying QMs
+{: #specifying-qms}
 
-In FHIR, an eCQM is represented as a FHIR Measure resource containing metadata ([Section 3.1](#metadata)) and terminology ([Section 3.2](#terminology)), a population criteria section ([Section 3.4](#population-criteria)), and at least one FHIR Library resource containing a data criteria section ([Section 3.3](#data-criteria)) as well as the logic used to define the population criteria. The population criteria section typically contains initial population criteria, denominator criteria, and numerator criteria sub-components, among others. Snippet 1 shows the structure of a FHIR Measure.
+In FHIR, an QM is represented as a FHIR Measure resource containing metadata ([Section 3.1](#metadata)) and terminology ([Section 3.2](#terminology)), a population criteria section ([Section 3.4](#population-criteria)), and at least one FHIR Library resource containing a data criteria section ([Section 3.3](#data-criteria)) as well as the logic used to define the population criteria. The population criteria section typically contains initial population criteria, denominator criteria, and numerator criteria sub-components, among others. Snippet 1 shows the structure of a FHIR Measure.
 
 ```xml
 <Measure>
@@ -38,14 +38,14 @@ Snippet 3-1: FHIR Measure structure - abridged for clarity (from sample [Measure
 ### Metadata
 {: #metadata}
 
-The header of an eCQM document identifies and classifies the document and provides important metadata about the measure. [The CMS Measures Management System Blueprint](https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html) includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base [Measure]({{site.data.fhir.path}}measure.html) resource by including the Blueprint header requirements.
+The header of a QM document identifies and classifies the document and provides important metadata about the measure. [The CMS Measures Management System Blueprint](https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html) includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base [Measure]({{site.data.fhir.path}}measure.html) resource by including the Blueprint header requirements.
 
 The rest of this section describes some of the more important components to the header, such as “Related Documents” ([Section 3.1.1](#related-documents)), “Measurement Period” ([Section 3.1.2](#measurement-period)), and “Data Criteria” ([Section 3.3](#data-criteria)).
 
 #### Related Documents
 {: #related-documents}
 
-[Clinical Quality Language R1.4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) can be used in conjunction with the FHIR Measure resource to construct CQL-based quality measures. CQL is a domain specific language used in the Clinical Quality Measurement and Clinical Decision Support domains. Measures written in CQL leverage the expressivity and computability of CQL to define the population criteria used in the eCQM.
+[Clinical Quality Language R1.4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) can be used in conjunction with the FHIR Measure resource to construct CQL-based quality measures. CQL is a domain specific language used in the Clinical Quality Measurement and Clinical Decision Support domains. Measures written in CQL leverage the expressivity and computability of CQL to define the population criteria used in the QM.
 
 Any included CQL library must contain a library declaration line as its first line as in Snippet 3-2.
 
@@ -57,7 +57,7 @@ Snippet 3-2: Library declaration line from [EXM146.cql](Library-EXM146.html#cql-
 
 When using multiple CQL libraries to define a measure, refer to the [Nested Libraries](using-cql.html#nested-libraries) section of the [Using CQL](using-cql.html) topic of this guide.
 
-Inclusion of CQL into a FHIR eCQM is accomplished through the use of a FHIR Library resource as shown in Snippet 3-4. These libraries are then incorporated into the FHIR eCQM using the `library` element of the Measure (Snippet 3). CQL library content is encoded as `base64` and included as the `content` element of the Library resource.
+Inclusion of CQL into a FHIR QM is accomplished through the use of a FHIR Library resource as shown in Snippet 3-4. These libraries are then incorporated into the FHIR QM using the `library` element of the Measure (Snippet 3). CQL library content is encoded as `base64` and included as the `content` element of the Library resource.
 
 ```xml
 <library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic"/>
@@ -70,23 +70,24 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 {: #conformance-requirement-3-1}
 
 1. FHIR-based eCQMs SHALL consist of a FHIR Measure resource conforming to at least the CQFMMeasure profile. In particular, FHIR-based eCQMs SHALL contain a narrative containing a human-readable representation of the measure content.
-2. FHIR-based eCQM Measure and Library resource instances SHALL declare their profile.
-3. Proportion Measures SHALL conform to the CQFMProportionMeasure profile or satisfy the proportion scoring constraints in the CQFMComputableMeasure profile.
-4. Ratio Measures SHALL conform to the CQFMRatioMeasure profile or satisfy the ratio scoring constraints in the CQFMComputableMeasure profile.
-5. Composite Measures SHALL conform to the CQFMCompositeMeasure profile or satisfy the composite scoring constraints in the CQFMComputableMeasure profile.
-6. Continuous Variable Measures SHALL conform to the CQFMContinuousVariableMeasure profile or satisfy the continuous variable scoring constraints in the CQFMComputableMeasure profile.
-7. Cohort Measures SHALL conform to the CQFMCohortMeasure profile or satisfy the cohort scoring constraints in the CQFMComputableMeasure profile.
-8. Libraries used with FHIR-based eCQMs SHALL consist of a FHIR Library resource conforming to at least the CQFMLibrary profile.
-9. CQFMMeasures utilizing CQL libraries SHALL include exactly 1 CQFMLibrary per CQL library referenced in the Measure.
-10. CQL Libraries implicitly referenced through nesting of libraries MAY be included.
-11. CQFMLibraries SHALL include a content element for CQL.
-12. The CQFMLibrary content element SHALL include a sub-element with a contentType of `text/cql`.
-13. CQFMLibraries SHALL specify CQL content as a base-64-encoded string in the content sub-element as content.data.
-14. Any referenced CQL library SHALL contain a library declaration line.
-15. The library declaration line SHALL be the first line in the library.
-16. The name of the Library resource SHALL be the same as the name of the CQL library.
-17. The version of the Library resource SHALL be the same as the version of the CQL library.
-18. The canonical URL of the Library resource SHALL end in the name of the Library resource.
+2. Narrative should be consistent with the narratives in this IG.  Liquid templates are provided as informative resources to facilitate consistency across measures. [Measure.liquid](https://github.com/cqframework/sample-content-ig/blob/master/templates/liquid/Measure.liquid)
+3. FHIR-based QM Measure and Library resource instances SHALL declare their profile.
+4. Proportion Measures SHALL conform to the CQFMProportionMeasure profile or satisfy the proportion scoring constraints in the CQFMComputableMeasure profile.
+5. Ratio Measures SHALL conform to the CQFMRatioMeasure profile or satisfy the ratio scoring constraints in the CQFMComputableMeasure profile.
+6. Composite Measures SHALL conform to the CQFMCompositeMeasure profile or satisfy the composite scoring constraints in the CQFMComputableMeasure profile.
+7. Continuous Variable Measures SHALL conform to the CQFMContinuousVariableMeasure profile or satisfy the continuous variable scoring constraints in the CQFMComputableMeasure profile.
+8. Cohort Measures SHALL conform to the CQFMCohortMeasure profile or satisfy the cohort scoring constraints in the CQFMComputableMeasure profile.
+9. Libraries used with FHIR-based QMs SHALL consist of a FHIR Library resource conforming to at least the CQFMLibrary profile.
+10. CQFMMeasures utilizing CQL libraries SHALL include exactly 1 CQFMLibrary per CQL library referenced in the Measure.
+11. CQL Libraries implicitly referenced through nesting of libraries MAY be included.
+12. CQFMLibraries SHALL include a content element for CQL.
+13. The CQFMLibrary content element SHALL include a sub-element with a contentType of `text/cql`.
+14. CQFMLibraries SHALL specify CQL content as a base-64-encoded string in the content sub-element as content.data.
+15. Any referenced CQL library SHALL contain a library declaration line.
+16. The library declaration line SHALL be the first line in the library.
+17. The name of the Library resource SHALL be the same as the name of the CQL library.
+18. The version of the Library resource SHALL be the same as the version of the CQL library.
+19. The canonical URL of the Library resource SHALL end in the name of the Library resource.
 
 ```json
 {
@@ -372,7 +373,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 
 Snippet 3-4: Example CQL Library (from [library-EXM146.json](Library-EXM146.html#cql-content))
 
-Inclusion of CQL libraries within the FHIR-based eCQM framework must conform to [Conformance Requirement 3.1](#conformance-requirement-3-1).
+Inclusion of CQL libraries within the FHIR-based QM framework must conform to [Conformance Requirement 3.1](#conformance-requirement-3-1).
 
 ##### Including ELM
 {: #including-elm}
@@ -444,14 +445,14 @@ Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-cq
 
 **Conformance Requirement 3.3 (Measurement Period):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-3)
 {: #conformance-requirement-3-3}
-1. FHIR-based eCQMs SHALL provide either an `effectivePeriod` element, or an `cqfm-effectivePeriodAnchor` and `cqfm-effectivePeriodDuration` extension
+1. FHIR-based QMs SHALL provide either an `effectivePeriod` element, or an `cqfm-effectivePeriodAnchor` and `cqfm-effectivePeriodDuration` extension
 2. Measurement Period SHALL be either the `effectivePeriod` as specified, or an appropriate interval of length duration, starting at the specified anchor
 
 
 ### Terminology
 {: #terminology}
 
-This section describes how to use codes and valuesets from codesystems like LOINC, SNOMED-CT, and others within the CQL and FHIR-based eCQM files of a measure package.
+This section describes how to use codes and valuesets from codesystems like LOINC, SNOMED-CT, and others within the CQL and FHIR-based QM files of a measure package.
 
 When terminology artifacts are defined and distributed as part of quality measure content, guidance provided as part of the [Clinical Practice Guideline (CPG) IG](http://hl7.org/fhir/uv/cpg/terminology.html) should be followed. Note that the guidance does not apply for content that only references terminology distributed through other means.
 
@@ -550,7 +551,7 @@ Snippet 3-10: Example data criteria (from [library-Terminology.json](Library-Ter
 
 Note that CQL defines its own method for referencing data and that there is no direct link between the data criteria included in the measure and the data used by the CQL expressions. The Library data criteria are surfaced by this implementation guide to promote structured review of the data criteria for a Library (and by examining Libraries referenced by a Measure, for a Measure or set of Measures) for the following use cases:
 
-* Determining the set of data used by a particular eCQM.
+* Determining the set of data used by a particular QM.
 * Limited “scoop-and-filter” for creation of quality reports. Implementations desiring or required to comply with privacy policies that mandate or recommend fine-grained filtering should examine the CQL or ELM to determine additional data constraints necessary for adherence to those policies.
 
 Section 3.3.1 describes a means for deriving data requirements from CQL data references.
@@ -721,7 +722,7 @@ Snippet 3-15: CQL definition of the "Initial Population" criteria (from [EXM146.
 
 To encourage consistency among measures, the following guidelines for specifying population criteria within a measure are proposed. The measure population criteria names used here are defined by the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification.
 
-The codes within the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification are explicitly spelled out, where as the measure population code [based on HQMF](http://terminology.hl7.org/ValueSet/v3-ActCode) are abbreviated. In order to make the development of eCQMs straightforward and clear, [this concept map](ConceptMap-measure-populations.html) provides mapping from HQMF codes to FHIR codes for each of the measure component code.
+The codes within the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification are explicitly spelled out, where as the measure population code [based on HQMF](http://terminology.hl7.org/ValueSet/v3-ActCode) are abbreviated. In order to make the development of QMs straightforward and clear, [this concept map](ConceptMap-measure-populations.html) provides mapping from HQMF codes to FHIR codes for each of the measure component code.
 
 **Conformance Requirement 3.8 (Criteria Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-8)
 {: #conformance-requirement-3-8}
@@ -798,7 +799,7 @@ The base FHIR Measure resource defines a set of measure population components th
 {: #conformance-requirement-3-10}
 1. CQL expressions used as measure population criteria SHALL be evaluated taking relevant dependencies into account, as specified by the membership determination formulas defined for each scoring type.
 2. CQL expressions MAY include explicit dependencies that duplicate the
-implicit FHIR-based eCQM population dependencies.
+implicit FHIR-based QM population dependencies.
 
 For example, Snippet 3-16 defines the "Initial Population" and "Denominator" for a measure.
 
@@ -1008,7 +1009,7 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 | Denominator | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure. |
 | Denominator Exclusion | Entities that should be removed from the Denominator before determining if Numerator criteria are met. Denominator exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
 | Numerator | The outcomes expected for each entity defined in the Denominator of a Proportion or Ratio measure. |
-| Numerator Exclusion | Entities that should be removed from the eCQM's Numerator before determining if Numerator criteria are met. Numerator Exclusions are used in Proportion and Ratio measures to help narrow the Numerator. |
+| Numerator Exclusion | Entities that should be removed from the QM's Numerator before determining if Numerator criteria are met. Numerator Exclusions are used in Proportion and Ratio measures to help narrow the Numerator. |
 {: .grid}
 
 * Initial population : Identify those cases that meet the Initial Population criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
@@ -1054,7 +1055,6 @@ define "Denominator Membership":
 
 define "Numerator Membership":
   "Initial Population"
-    and "Denominator"
     and "Numerator"
     and not "Numerator Exclusion"
 
@@ -1074,8 +1074,6 @@ The following snippet provides precise semantics for the measure score calculati
 ```cql
 define "Numerator Membership":
   "Initial Population"
-    intersect "Denominator"
-    except "Denominator Exclusion"
     intersect "Numerator"
     except "Numerator Exclusion"
 
@@ -1230,9 +1228,9 @@ The population types for a Continuous Variable measure are "Initial Population",
 
 | Population | Definition |
 |:----|:----:|
-| Initial Population | All entities to be evaluated by an eCQM which may but are not required to share a common set of specified characteristics within a named measurement set to which the eCQM belongs. |
-| Measure Population | Continuous Variable measures do not have a Denominator, but instead define a Measure Population, as shown in the figure above. Rather than reporting a Numerator and Denominator, a Continuous Variable measure defines variables that are computed across the Measure Population (e.g., average wait time in the emergency department). A Measure Population may be the same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the eCQM. |
-| Measure Population Exclusion | Patients who should be removed from the eCQM's Initial Population and Measure Population before determining the outcome of one or more continuous variables defined within a Measure Observation. Measure Population Exclusions are used in Continuous Variable measures to help narrow the Measure Population. |
+| Initial Population | All entities to be evaluated by a QM which may but are not required to share a common set of specified characteristics within a named measurement set to which the QM belongs. |
+| Measure Population | Continuous Variable measures do not have a Denominator, but instead define a Measure Population, as shown in the figure above. Rather than reporting a Numerator and Denominator, a Continuous Variable measure defines variables that are computed across the Measure Population (e.g., average wait time in the emergency department). A Measure Population may be the same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the QM. |
+| Measure Population Exclusion | Patients who should be removed from the QM's Initial Population and Measure Population before determining the outcome of one or more continuous variables defined within a Measure Observation. Measure Population Exclusions are used in Continuous Variable measures to help narrow the Measure Population. |
 {: .grid}
 
 * Initial Population : Identify those cases that meet the Initial Population criteria.
@@ -1291,7 +1289,7 @@ In a cohort measure, a population is identified from the population of all items
 
 | Population | Definition |
 |:----|:----:|
-| Initial Population | All entities to be evaluated by an eCQM which may but are not required to share a common set of specified characteristics within a named measurement set to which the eCQM belongs. (Also known as a Cohort Population) |
+| Initial Population | All entities to be evaluated by a QM which may but are not required to share a common set of specified characteristics within a named measurement set to which the QM belongs. (Also known as a Cohort Population) |
 {: .grid}
 
 * Initial population : Identify those cases that meet the Initial Population criteria.
@@ -1363,7 +1361,7 @@ Snippet 3-25: Example Stratifier from [EXM55.cql](Library-EXM55.html#cql-content
 2. Supplemental Data Elements SHOULD reference a single CQL expression definition, with a name beginning with SDE.
 3. Supplemental data element criteria expressions MAY be of any type, including lists
 
-Part of the definition of a quality measure involves the ability to specify additional information to be returned for each member of a population. Within a FHIR-based eCQM, these supplemental data elements are specified using expressions, typically involving patient characteristics (such as Race, Ethnicity, Payer, and Administrative Sex) and then marking them with an SDE code within the FHIR Measure resource. Snippet 3-26 demonstrates an example supplemental data definition using the cql-ext:supplementalDataElement.
+Part of the definition of a quality measure involves the ability to specify additional information to be returned for each member of a population. Within a FHIR-based QM, these supplemental data elements are specified using expressions, typically involving patient characteristics (such as Race, Ethnicity, Payer, and Administrative Sex) and then marking them with an SDE code within the FHIR Measure resource. Snippet 3-26 demonstrates an example supplemental data definition using the cql-ext:supplementalDataElement.
 
 ```json
 "supplementalData": [
@@ -1453,7 +1451,7 @@ An example of risk adjustment can be found in the included [examples](Measure-me
 
 ### HQMF Mapping
 
-HQMF is a normative HL7 V3 based standard that defines a header for classification and management of the quality measure, a document body that carries the content of the quality measure as well as important metadata. It standardizes a measure’s structure, metadata, definitions, and logic, the HQMF ensures measure consistency and unambiguous interpretation. The approach of representing electronic Clinical Quality Measures (eCQMs) using FHIR and specifically the FHIR Clinical Reasoning Module have generated code systems and value sets based on the FHIR R4 specification.
+HQMF is a normative HL7 V3 based standard that defines a header for classification and management of the quality measure, a document body that carries the content of the quality measure as well as important metadata. It standardizes a measure’s structure, metadata, definitions, and logic, the HQMF ensures measure consistency and unambiguous interpretation. The approach of representing Quality Measures (QMs) using FHIR and specifically the FHIR Clinical Reasoning Module have generated code systems and value sets based on the FHIR R4 specification.
 
 Refer to the [ConceptMap Resources section](terminology.html#conceptmap-resources) under "Terminology" for the concept mapping of code systems and value sets between HL7 V3 to FHIR R4.
 

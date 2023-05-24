@@ -21,6 +21,8 @@ dependencies and associated artifacts as subsequent entries as follows:
 
 *Note that if an artifact package is large enough to require segmentation in multiple bundles, use of `transaction` bundles may not be feasible.
 
+When paging is used for the result of the package operation, the total element in the resulting bundle(s) is used to communicate the total number of entries in the package, not the number of entries in the bundle, similar to the way bundles are used to page search sets in the FHIR API. In addition, the initial artifact entry is only expected to be present in the first bundle (i.e. the partitioning of entries across the bundles does not change what entries are communicated overall).
+
 ### Packaging Libraries
 {: #packaging-libraries}
 

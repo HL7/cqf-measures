@@ -3,10 +3,10 @@
 The following sequence diagram depicts overall processing for quality improvement data use scenarios. The roles depicted are:
 
 * Data Repository - The clinical data repository for the submitting system. This is typically a FHIR server endpoint for the submitting system's electronic health record (EHR) or system of record, but could also be an HIE or other aggregated data source, depending on the particular submission and reporting requirements.
-* Submitting System - This would be either a hospital, physician practice, or any organization that wants to submit the relevant eCQM data to a receiving system
-* Knowledge Repository - This would be a FHIR server that has the eCQMs loaded and is the source of truth for those eCQMS and can provide the required data elements for each measure
-* Terminology Service - This can be any valid FHIR terminology service that has the appropriate valuesets used in the eCQMs and can provide the expansion of those valuesets
-* Receiving System - This would be the system that will receive all of the relevant clinical data for a given eCQM and be able to perform the evaluation of that measure
+* Submitting System - This would be either a hospital, physician practice, or any organization that wants to submit the relevant QM data to a receiving system
+* Knowledge Repository - This would be a FHIR server that has the QMs loaded and is the source of truth for those QMs and can provide the required data elements for each measure
+* Terminology Service - This can be any valid FHIR terminology service that has the appropriate valuesets used in the QMs and can provide the expansion of those valuesets
+* Receiving System - This would be the system that will receive all of the relevant clinical data for a given QM and be able to perform the evaluation of that measure
 
 There are 5 workflows depicted using the swimlanes.
 
