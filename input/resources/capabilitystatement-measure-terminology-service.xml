@@ -245,6 +245,14 @@
         <definition value="http://hl7.org/fhir/SearchParameter/conformance-context-type-value"/>
         <type value="composite"/>
       </searchParam>
+      <searchParam>
+				<extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+					<valueCode value="SHALL" />
+				</extension>
+				<name value="expansion" />
+				<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-expansion" />
+				<type value="uri" />
+			</searchParam>
     </resource>
     <resource>
       <type value="Library"/>
@@ -342,6 +350,22 @@
         <name value="depends-on"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-composed-of"/>
         <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="contained-parameter-name"/>
+        <definition value="http://hl7.org/fhir/us/cqfmeasures/SearchParameter/Library-contained-parameter-name"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="expansion-name"/>
+        <definition value="http://hl7.org/fhir/us/cqfmeasures/SearchParameter/Library-expansion-name"/>
+        <type value="string"/>
       </searchParam>
     </resource>
     <operation>

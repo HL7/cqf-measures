@@ -1,0 +1,37 @@
+{
+  "base": [
+     "Library"
+  ],
+  "code": "name",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    },
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "date": "2023-05-25T13:00:00-05:00",
+  "description": "Parameters.parameter.valueUri within Library.contained",
+  "experimental": false,
+  "expression": "Library.contained.parameter.valueUri",
+  "id": "Library-expansion-identifier",
+  "name": "expansion-identifier",
+  "publisher": "Health Level Seven International (Clinical Quality Information)",
+  "resourceType": "SearchParameter",
+  "status": "draft",
+  "type": "string",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/SearchParameter/Library-expansion-identifier",
+  "xpath": "f:Library/f:contained/f:parameter/f:valueUri",
+  "xpathUsage": "normal"
+}
