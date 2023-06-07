@@ -40,6 +40,22 @@ Because this capability results in the potential for parameter values to be supp
 #### Quality Programs
 To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-cqfm-partOf.html) extension.
 
+#### Discovery of Expansion Identifiers
+
+To discover what values of the $expand `expansion` parameter are supported by the Measure Terminology Service, start with a Library search using the `_profile` parameter to limit the search to CQFM Quality Programs, and the `contained-parameter-name` search parameter with the value `expansion`.
+
+If Library.contained.parameter.name matches the contained-parameter-name search parameter, then return this Library in the searchset.
+
+For example, [base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&contained-parameter-name=expansion
+
+That example searches for CQFM Quality Program Library resources that have Library.contained.parameter.name equal to the string "expansion". The corresponding Library.contained.parameter.valueUri is the expansion identifier, which can be substituted for "xxx" in [base]/Valueset/[id]/$expand?expansion=xxx .
+
+To discover what value sets are associated with an expansion named "xxx", you need to search for a Library with the CQF Quality Program profile and expansion-identifier equal to "xxx"
+
+[base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&expansion-name=xxx
+
+The Library resource(s) that match have the canonical for the value sets listed in Library.relatedArtifact.resource with relatedArtifact.type equal to "depends-on".
+
 #### Hosted Content
 Terminology services may act as a repository for content that is managed and created elsewhere (i.e. hosted content AKA a convenience copy), or they may provide features to author and manage content directly, or any combination. When hosting content that is managed elsewhere, the service must ensure that the content of the resource is materially the same (i.e. the values for all elements are the same where those elements are specified in the Shareable and Publishable profiles) as the source of truth.
 In particular, for systems that provide both management and hosting of externally managed content, the status element for hosted content SHALL be the same as the status of the content in the source of truth.
