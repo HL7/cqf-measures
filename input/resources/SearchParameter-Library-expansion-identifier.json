@@ -24,7 +24,7 @@
   "date": "2023-05-25T13:00:00-05:00",
   "description": "Parameters.parameter.valueUri within Library.contained",
   "experimental": false,
-  "expression": "Library.contained.parameter.valueUri",
+  "expression": "Library.contained.where(resourceType='Parameters').parameter.where(name='expansion').valueUri",
   "id": "Library-expansion-identifier",
   "name": "expansion-identifier",
   "publisher": "Health Level Seven International (Clinical Quality Information)",
@@ -32,6 +32,6 @@
   "status": "draft",
   "type": "string",
   "url": "http://hl7.org/fhir/us/cqfmeasures/SearchParameter/Library-expansion-identifier",
-  "xpath": "f:Library/f:contained/f:parameter/f:valueUri",
+  "xpath": "f:Library/f:contained[f:resourceType='Parameters']/f:parameter[f:name='expansion']/f:valueUri",
   "xpathUsage": "normal"
 }

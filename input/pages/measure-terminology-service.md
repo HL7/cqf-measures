@@ -40,21 +40,8 @@ Because this capability results in the potential for parameter values to be supp
 #### Quality Programs
 To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-cqfm-partOf.html) extension.
 
-#### Discovery of Expansion Identifiers
 
-To discover what values of the $expand `expansion` parameter are supported by the Measure Terminology Service, start with a Library search using the `_profile` parameter to limit the search to CQFM Quality Programs, and the `contained-parameter-name` search parameter with the value `expansion`.
 
-If Library.contained.parameter.name matches the contained-parameter-name search parameter, then return this Library in the searchset.
-
-For example, [base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&contained-parameter-name=expansion
-
-That example searches for CQFM Quality Program Library resources that have Library.contained.parameter.name equal to the string "expansion". The corresponding Library.contained.parameter.valueUri is the expansion identifier, which can be substituted for "xxx" in [base]/Valueset/[id]/$expand?expansion=xxx .
-
-To discover what value sets are associated with an expansion named "xxx", you need to search for a Library with the CQF Quality Program profile and expansion-identifier equal to "xxx"
-
-[base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&expansion-name=xxx
-
-The Library resource(s) that match have the canonical for the value sets listed in Library.relatedArtifact.resource with relatedArtifact.type equal to "depends-on".
 
 #### Hosted Content
 Terminology services may act as a repository for content that is managed and created elsewhere (i.e. hosted content AKA a convenience copy), or they may provide features to author and manage content directly, or any combination. When hosting content that is managed elsewhere, the service must ensure that the content of the resource is materially the same (i.e. the values for all elements are the same where those elements are specified in the Shareable and Publishable profiles) as the source of truth.
@@ -202,6 +189,8 @@ Note that when a code system authority has not established a versioning system, 
     8. composed-of: Returning any quality program that includes the given measure canonical or quality program version manifest or release
     9. depends-on: Returning any quality program that references the given code system or value set canonical
     10. part-of: Returning any version manifest or release that is part of the given quality program
+    11. contained-parameter-name: Returning any quality program having the given value in the Library.contained.parameter.name
+    12. expansion-identifier: Returning any quality program having the the given value in the Library.contained.parameter.valueUri 
 
 5. SHALL support specifying expansion rules for the following $expand parameters
     1. SHALL support the activeOnly parameter
@@ -510,10 +499,22 @@ The following example illustrates a program release that is an _active_ instance
 Specifically, the program release uses the `expansion` parameter in the contained expansion parameters at the artifact collection level to indicate that all value sets used with artifacts in the program should expand using this expansion identifier:
 
 ```
-{
-  "name": "expansion",
-  "valueUri": "eCQM%20Update%202020-05-07"
-}
+"contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "exp-params",
+      "parameter": [
+        {
+          "name" : "system-version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+        },
+        {
+          "name": "expansion",
+          "valueUri": "eCQM%20Update%202020-05-07"
+        }
+      ]
+    }
+  ]
 ```
 
 In addition, the program release specifies versions of code systems, value sets, and measures included in the release:
@@ -554,6 +555,26 @@ In addition, the program release specifies versions of code systems, value sets,
 The full example is available here:
 
 * [eCQM Release, 2020-05-07](Library-ecqm-update-2020-05-07.html)
+
+#### Discovery of Expansion Identifiers
+
+To discover what values of the $expand `expansion` parameter are supported by the Measure Terminology Service, start with a Library search using the `_profile` parameter to limit the search to [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html), and the `contained-parameter-name` search parameter with the value `expansion`.
+
+If Library.contained.parameter.name matches the contained-parameter-name search parameter, then return this Library in the searchset.
+
+For example, [base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&contained-parameter-name=expansion
+
+That example searches for CQFM Quality Program Library resources that have Library.contained.parameter.name equal to the string `expansion`. The corresponding Library.contained.parameter.valueUri is the expansion identifier, which can be used in a ValueSet $expand. If the previous Library search found a ValurUri with "eCQM%20Update%202020-05-07", then use it in the `expansion` parameter:  [base]/Valueset/[id]/$expand?expansion=eCQM%20Update%202020-05-07 
+
+To discover what value sets are associated with an expansion named "xxx", you can search for a Library with the [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) profile and `expansion-identifier` equal to "eCQM%20Update%202020-05-07"
+
+[base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&expansion-name=eCQM%20Update%202020-05-07
+
+The Library resource(s) that match have the canonical for the value sets listed in Library.relatedArtifact.resource with relatedArtifact.type equal to "depends-on".
+
+Another way is to use the expansion identifier (`eCQM%20Update%202020-05-07` in this example) in a ValueSet search
+
+[base]/ValueSet?expansion=eCQM%20Update%202020-05-07
 
 ##### Expansion with manifests and releases:
 
