@@ -183,7 +183,7 @@ Note that when a code system authority has not established a versioning system, 
     2. version: Returning the quality program matching that version (can appear only in combination with a url search)
     3. identifier: Returning any quality program matching the identifier
     4. name: Returning any quality program matching the name, according to the string-matching semantics in FHIR
-    5. title: Returning any quality program matching the title, according to the string-matching semantics in FHIR
+    5. title: Returning any quality program matching the title, according to the string-matching semantics in FHIReCQM%20Update%202020-05-07
     6. status: Returning quality programs that match the given status
     7. description: Returning any quality programs matching the search description, according to string-matching semantics in FHIR
     8. composed-of: Returning any quality program that includes the given measure canonical or quality program version manifest or release
@@ -562,19 +562,29 @@ To discover what values of the $expand `expansion` parameter are supported by th
 
 If Library.contained.parameter.name matches the contained-parameter-name search parameter, then return this Library in the searchset.
 
-For example, [base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&contained-parameter-name=expansion
+For example, 
+```
+[base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&contained-parameter-name=expansion
+```
 
-That example searches for CQFM Quality Program Library resources that have Library.contained.parameter.name equal to the string `expansion`. The corresponding Library.contained.parameter.valueUri is the expansion identifier, which can be used in a ValueSet $expand. If the previous Library search found a ValurUri with "eCQM%20Update%202020-05-07", then use it in the `expansion` parameter:  [base]/Valueset/[id]/$expand?expansion=eCQM%20Update%202020-05-07 
+That example searches for CQFM Quality Program Library resources that have Library.contained.parameter.name equal to the string `expansion`. The corresponding Library.contained.parameter.valueUri is the expansion identifier, which can be used in a ValueSet $expand. If the previous Library search found a ValurUri with "eCQM%20Update%202020-05-07", then use it in the `expansion` parameter:  
+```
+[base]/Valueset/[id]/$expand?expansion=eCQM%20Update%202020-05-07
+```
 
-To discover what value sets are associated with an expansion named "xxx", you can search for a Library with the [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) profile and `expansion-identifier` equal to "eCQM%20Update%202020-05-07"
+To discover what value sets are associated with an expansion named `eCQM%20Update%202020-05-07`, you can search for a Library with the [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) profile and `expansion-identifier` equal to `eCQM%20Update%202020-05-07`
 
+```
 [base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&expansion-name=eCQM%20Update%202020-05-07
+```
 
 The Library resource(s) that match have the canonical for the value sets listed in Library.relatedArtifact.resource with relatedArtifact.type equal to "depends-on".
 
 Another way is to use the expansion identifier (`eCQM%20Update%202020-05-07` in this example) in a ValueSet search
 
+```
 [base]/ValueSet?expansion=eCQM%20Update%202020-05-07
+```
 
 ##### Expansion with manifests and releases:
 
