@@ -183,7 +183,7 @@ Note that when a code system authority has not established a versioning system, 
     2. version: Returning the quality program matching that version (can appear only in combination with a url search)
     3. identifier: Returning any quality program matching the identifier
     4. name: Returning any quality program matching the name, according to the string-matching semantics in FHIR
-    5. title: Returning any quality program matching the title, according to the string-matching semantics in FHIReCQM%20Update%202020-05-07
+    5. title: Returning any quality program matching the title, according to the string-matching semantics in FHIR
     6. status: Returning quality programs that match the given status
     7. description: Returning any quality programs matching the search description, according to string-matching semantics in FHIR
     8. composed-of: Returning any quality program that includes the given measure canonical or quality program version manifest or release
