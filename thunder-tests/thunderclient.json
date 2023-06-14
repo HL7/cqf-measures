@@ -223,13 +223,19 @@
     "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
     "containerId": "d3e98ac7-b90e-4bff-b52e-6e4b12ed3cc7",
     "name": "HasFHIRBallotBoundCodeSystem",
-    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/ObservationStatus",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=http://hl7.org/fhir/observation-status",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-05-05T18:22:42.727Z",
     "modified": "2023-06-09T19:54:28.673Z",
     "headers": [],
-    "params": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "http://hl7.org/fhir/observation-status",
+        "isPath": false
+      }
+    ],
     "tests": [
       {
         "type": "res-code",
@@ -407,13 +413,19 @@
     "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
     "containerId": "5e575387-867a-45fa-bfc6-8cacd5ba638a",
     "name": "HasTHOCodeSystem",
-    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/AdverseEventCategory",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=http://terminology.hl7.org/CodeSystem/adverse-event-category",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-05-05T18:22:42.729Z",
     "modified": "2023-06-14T23:09:32.155Z",
     "headers": [],
-    "params": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "http://terminology.hl7.org/CodeSystem/adverse-event-category",
+        "isPath": false
+      }
+    ],
     "tests": [
       {
         "type": "res-code",
@@ -598,13 +610,19 @@
     "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
     "containerId": "5e575387-867a-45fa-bfc6-8cacd5ba638a",
     "name": "HasUsCoreCodeSystem",
-    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/NarrativeStatus",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=urn:oid:2.16.840.1.113883.6.238",
     "method": "GET",
     "sortNum": 15000,
     "created": "2023-05-05T18:22:42.732Z",
     "modified": "2023-06-14T23:09:31.313Z",
     "headers": [],
-    "params": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "urn:oid:2.16.840.1.113883.6.238",
+        "isPath": false
+      }
+    ],
     "tests": [
       {
         "type": "res-code",
@@ -667,13 +685,19 @@
     "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
     "containerId": "5e575387-867a-45fa-bfc6-8cacd5ba638a",
     "name": "HasQICoreCodeSystem",
-    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/AppropriatenessScore",
+    "url": "https://uat-cts.nlm.nih.gov/fhir/CodeSystem/?url=http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-05-05T18:22:42.733Z",
     "modified": "2023-06-14T23:09:33.005Z",
     "headers": [],
-    "params": [],
+    "params": [
+      {
+        "name": "url",
+        "value": "http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score",
+        "isPath": false
+      }
+    ],
     "tests": [
       {
         "type": "res-code",

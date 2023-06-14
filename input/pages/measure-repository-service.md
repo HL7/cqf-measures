@@ -11,7 +11,7 @@ This implementation guide is not prescriptive about authentication or authorizat
 
 ### Knowledge Artifact Management
 
-Quality measures (eCQMs) are a specific type of knowledge artifact, and share common attributes with other knowledge artifact types. This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of _status_, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
+Quality measures (QMs) are a specific type of knowledge artifact, and share common attributes with other knowledge artifact types. This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of _status_, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
 
 #### Artifact Lifecycle
 
@@ -153,6 +153,16 @@ The package operation supports the ability of a repository to package an artifac
 * **include-components**: Specifies whether to include components of the artifact in the resulting package, recursively (default = true)
 
 The result of the packaging operation is a Bundle (or Bundles if there is a need to partition based on size) containing the artifact, tailored for content based on the requested capabilities, and any components/dependencies as specified in the parameters.
+
+For the $package operation, when combinations of "in" parameters specify more than one measure to package, the operation SHOULD return an OperationOutcome error. These combinations include the following:
+
+* The "id" input (in) parameter and Measure/{id}/$package have different values for the id
+* More than one of "id", "url" or "identifier" input parameters are specified
+* If Measure/{id}/$package is used to specify the measure, then url and identifier "in" parameters must not be present in the Parameters resource or as a URL parameter
+
+Implementations are not required to support mixing of "in" parameters in the URL and inside a POSTed Parameters resource; it is acceptable to return an OperationOutcome if mixing is not supported. Implementation MAY support such mixing of input parameters.
+
+These constraints are applicable even if if some or all of the in parameters are specified in the URL
 
 ##### Requirements
 
