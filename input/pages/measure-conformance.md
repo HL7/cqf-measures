@@ -1335,7 +1335,7 @@ Stratification is represented using the stratifier element. The semantics of thi
       "value": "stratifier-1-identifier"
     },
     "criteria": {
-      "language": "text/cql.identifier",
+      "language": "text/cql-identifier",
       "expression": "Stratification 1"
     }
   }
@@ -1378,7 +1378,7 @@ Part of the definition of a quality measure involves the ability to specify addi
       "text": "Supplemental Data"
     },
     "criteria": {
-      "language": "text/cql.identifier",
+      "language": "text/cql-identifier",
       "expression": "SDE Ethnicity"
     }
   }
@@ -1429,7 +1429,7 @@ Some measures may define variables used to adjust scores based on a measure of â
       "text": "Risk Adjustment Variable"
     },
     "criteria": {
-      "language": "text/cql.identifier",
+      "language": "text/cql-identifier",
       "expression": "Hepatic Failure"
     }
   }
