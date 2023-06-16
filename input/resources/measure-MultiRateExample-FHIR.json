@@ -1,6 +1,6 @@
 {
   "resourceType": "Measure",
-  "id": "multi-rate-example",
+  "id": "MultiRateExample-FHIR",
   "meta": {
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
@@ -11,7 +11,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "MultiRateExample"
+        "valueString": "MultiRateExample-FHIR"
       }, {
         "url": "name",
         "valueString": "Practitioners"
@@ -26,7 +26,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "MultiRateExample"
+        "valueString": "MultiRateExample-FHIR"
       }, {
         "url": "name",
         "valueString": "Patients"
@@ -41,7 +41,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "MultiRateExample"
+        "valueString": "MultiRateExample-FHIR"
       }, {
         "url": "name",
         "valueString": "Screening Procedures"
@@ -56,7 +56,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "MultiRateExample"
+        "valueString": "MultiRateExample-FHIR"
       }, {
         "url": "name",
         "valueString": "Numerator"
@@ -71,7 +71,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "MultiRateExample"
+        "valueString": "MultiRateExample-FHIR"
       }, {
         "url": "name",
         "valueString": "Denominator"
@@ -86,7 +86,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "MultiRateExample"
+        "valueString": "MultiRateExample-FHIR"
       }, {
         "url": "name",
         "valueString": "Initial Population"
@@ -101,7 +101,7 @@
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
       "extension": [ {
         "url": "libraryName",
-        "valueString": "MultiRateExample"
+        "valueString": "MultiRateExample-FHIR"
       }, {
         "url": "name",
         "valueString": "Beds"
@@ -208,7 +208,7 @@
       "reference": "#effective-data-requirements"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/multi-rate-example",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/MultiRateExample-FHIR",
   "version": "0.1.0",
   "name": "MultiRateExample",
   "title": "Multi-Rate Example Measure",
@@ -222,7 +222,7 @@
   },
   "date": "2022-02-22T10:37:03-07:00",
   "description": "This measure example illustrates the use of the group-level computation extensions to describe a multi-rate measure with mixed population bases",
-  "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/MultiRateExample" ],
+  "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/MultiRateExample-FHIR" ],
   "type": [ {
       "coding": [ {
         "system": "http://terminology.hl7.org/CodeSystem/measure-type",
@@ -676,7 +676,7 @@
           "valueDecimal": 1.0
         } ],
         "type": "composed-of",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/multi-rate-example"
+        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/MultiRateExample-FHIR"
       }
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component",
@@ -689,7 +689,7 @@
           "valueDecimal": 5.0
         } ],
         "type": "composed-of",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/multi-rate-example"
+        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/MultiRateExample-FHIR"
       }
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component",
@@ -702,7 +702,7 @@
           "valueDecimal": 2.5
         } ],
         "type": "composed-of",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/multi-rate-example"
+        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/MultiRateExample-FHIR"
       }
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component",
@@ -715,7 +715,7 @@
           "valueDecimal": 1.0
         } ],
         "type": "composed-of",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/multi-rate-example"
+        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/MultiRateExample-FHIR"
       }
     } ],
     "code": {

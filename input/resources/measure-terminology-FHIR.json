@@ -1,6 +1,6 @@
 {
   "resourceType": "Measure",
-  "id": "measure-terminology-FHIR",
+  "id": "Terminology-FHIR",
   "meta": {
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cohort-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
@@ -32,7 +32,7 @@
       "reference": "#effective-data-requirements"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-terminology-FHIR",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/Terminology-FHIR",
   "identifier": [ {
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
@@ -65,7 +65,7 @@
       "display": "Health Quality Measure Document"
     } ]
   } ],
-  "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/Terminology" ],
+  "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/Terminology-FHIR" ],
   "scoring": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
