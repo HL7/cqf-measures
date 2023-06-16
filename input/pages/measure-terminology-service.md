@@ -36,6 +36,7 @@ Because this capability results in the potential for parameter values to be supp
 2. If a ValueSet dependency is specified as part of the version manifest (and no version for the value set is specified in the artifact reference), the version has the same meaning as the `valueSetVersion` parameter to the $expand
 3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
 4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
+5. When processing an expand (or any artifact operation that will encounter canonical references), when an un-versioned canonical reference is encountered, the manifest is consulted to determine a version of the artifact to be used for that reference.
 
 #### Quality Programs
 To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-cqfm-partOf.html) extension.
@@ -130,17 +131,18 @@ Note that when a code system authority has not established a versioning system, 
     9. keyword: Returning any valueset that has a valueset-keyword extension  matching the given keyword
 
 9. SHOULD support ValueSet searches by:
-    1. expansion: Used in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
-    2. context: Returning all artifacts with a use context value matching the given context
-    3. context-type: Returning all artifacts with a use context type matching the given context type
-    4. context-type-quantity: Returning all artifacts with a use context quantity or range matching the given quantity
-    5. context-type-value: Returning all artifacts with a given use context type and value
-    6. codesystem: Returning any valueset that directly references the given codesystem url (optionally versioned)
-    7. valueset: Returning any valueset that references or is referenced by the given valueset url (optionally versioned)
-    8. library: Returning any valueset that is referenced by the given library url (optionally versioned)
-    9. measure: Returning any valueset that is referenced by the given measure url (optionally versioned)
-    10. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
-    11. servers SHOULD support the _text and _content search parameters (as described in the base spec here https://hl7.org/fhir/search.html#text) 
+    1. context: Returning all artifacts with a use context value matching the given context
+    2. context-type: Returning all artifacts with a use context type matching the given context type
+    3. context-type-quantity: Returning all artifacts with a use context quantity or range matching the given quantity
+    4. context-type-value: Returning all artifacts with a given use context type and value
+    5. codesystem: Returning any valueset that directly references the given codesystem url (optionally versioned)
+    6. valueset: Returning any valueset that references or is referenced by the given valueset url (optionally versioned)
+    7. library: Returning any valueset that is referenced by the given library url (optionally versioned)
+    8. measure: Returning any valueset that is referenced by the given measure url (optionally versioned)
+    9. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
+    10. servers SHOULD support the _text and _content search parameters (as described in the base spec here https://hl7.org/fhir/search.html#text) 
+    11. expansion: MAY support returning any ValueSet instance with the given expansion identifier. May be used in combination with url or identifier
+
 
 10. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. SHALL support the url parameter
@@ -163,12 +165,15 @@ Note that when a code system authority has not established a versioning system, 
     7. SHALL support the system-version parameter
     8. SHALL support the check-system-version parameter
     9. SHALL support the force-system-version parameter
-    10. SHOULD support includeDesignation parameter
-    11. SHOULD support designation parameter
-    12. SHOULD support paging parameters
-    13. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    14. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    15. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    10. SHALL support the canonicalVersion parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    11. SHALL support the forceCanonicalVersion parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    12. SHALL support the checkCanonicalVersion parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    13. MAY support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    14. SHOULD support includeDesignation parameter
+    15. SHOULD support designation parameter
+    16. SHOULD support paging parameters
+    17. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    18. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
 
 ### Quality Programs (Artifact Collections)
 
@@ -189,17 +194,18 @@ Note that when a code system authority has not established a versioning system, 
     8. composed-of: Returning any quality program that includes the given measure canonical or quality program version manifest or release
     9. depends-on: Returning any quality program that references the given code system or value set canonical
     10. part-of: Returning any version manifest or release that is part of the given quality program
-    11. contained-parameter-name: Returning any quality program having the given value in the Library.contained.parameter.name
-    12. expansion-identifier: Returning any quality program having the the given value in the Library.contained.parameter.valueUri 
+    11. contained-parameter-name: MAY support returning any quality program having the given value in the Library.contained.parameter.name
+    12. expansion-identifier: MAY support returning any quality program having the the given value in the Library.contained.parameter.valueUri 
 
 5. SHALL support specifying expansion rules for the following $expand parameters
     1. SHALL support the activeOnly parameter
     2. SHALL support the system-version parameter
     3. SHALL support the check-system-version parameter
     4. SHALL support the force-system-version parameter
-    5. SHOULD support other parameters
-    6. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    7. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    5. SHALL support the valueSetVersion parameter
+    6. MAY support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    7. SHOULD support other parameters
+    8. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
 
 6. Because this capability results in the potential for parameter values to be supplied in multiple places, the following rules apply:
     1. If a parameter is specified as part of the $expand operation directly, it takes precedence
@@ -267,6 +273,7 @@ The `compose` element of this value set is:
 
 ```
 "compose": {
+  "inactive": true,
   "include": [
     {
       "system": "http://snomed.info/sct",
@@ -372,7 +379,7 @@ The expected [result](ValueSet-chronic-liver-disease-legacy-example-current-acti
 }
 ```
 
-The result of the `activeOnly` parameter is to exclude the inactive code, even
+The result of the `activeOnly` parameter set to `true` is to exclude the inactive code, even
 though it was explicitly included in the value set definition.
 
 ##### Version-specific expand
@@ -572,15 +579,15 @@ That example searches for CQFM Quality Program Library resources that have Libra
 [base]/Valueset/[id]/$expand?expansion=eCQM%20Update%202020-05-07
 ```
 
-To discover what value sets are associated with an expansion named `eCQM%20Update%202020-05-07`, you can search for a Library with the [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) profile and `expansion-identifier` equal to `eCQM%20Update%202020-05-07`
+To discover what value sets are associated with an expansion identifier `eCQM%20Update%202020-05-07`, you can search for a Library with the [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) profile and `expansion-identifier` equal to `eCQM%20Update%202020-05-07`
 
 ```
-[base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&expansion-name=eCQM%20Update%202020-05-07
+[base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&expansion-identifier=eCQM%20Update%202020-05-07
 ```
 
-The Library resource(s) that match have the canonical for the value sets listed in Library.relatedArtifact.resource with relatedArtifact.type equal to "depends-on".
+The Library resource(s) that match will have the canonical for the value sets listed in Library.relatedArtifact.resource with relatedArtifact.type equal to "depends-on".
 
-Another way is to use the expansion identifier (`eCQM%20Update%202020-05-07` in this example) in a ValueSet search
+Another way to discover value sets associated with a given expansion identifier is to use the expansion identifier (`eCQM%20Update%202020-05-07` in this example) in a ValueSet search
 
 ```
 [base]/ValueSet?expansion=eCQM%20Update%202020-05-07

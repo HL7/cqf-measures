@@ -247,11 +247,19 @@
       </searchParam>
       <searchParam>
 				<extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-					<valueCode value="SHALL" />
+					<valueCode value="MAY" />
 				</extension>
 				<name value="expansion" />
 				<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-expansion" />
 				<type value="uri" />
+			</searchParam>
+      <searchParam>
+				<extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+					<valueCode value="SHALL" />
+				</extension>
+				<name value="keyword" />
+				<definition value="http://hl7.org/fhir/us/cqfmeasures/SearchParameter/ValueSet-keyword" />
+				<type value="string" />
 			</searchParam>
     </resource>
     <resource>
@@ -365,7 +373,7 @@
         </extension>
         <name value="expansion-identifier"/>
         <definition value="http://hl7.org/fhir/us/cqfmeasures/SearchParameter/Library-expansion-identifier"/>
-        <type value="string"/>
+        <type value="uri"/>
       </searchParam>
     </resource>
     <operation>
@@ -377,7 +385,7 @@
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHOULD"/>
+        <valueCode value="SHALL"/>
       </extension>
       <name value="expand"/>
       <definition value="http://hl7.org/fhir/us/cqfmeasures/OperationDefinition/ValueSet-expand"/>
