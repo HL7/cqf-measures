@@ -202,7 +202,7 @@ Note that when a code system authority has not established a versioning system, 
     3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
     4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
-7. SHALL support version manifest and release value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
+7. SHALL support version manifest and release value set packaging: [Library/$qm.package](OperationDefinition-qmig-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
