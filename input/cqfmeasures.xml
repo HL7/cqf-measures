@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="hl7.fhir.us.cqfmeasures"/>
   <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures"/>
-  <version value="4.0.0-ballot"/>
+  <version value="4.0.0"/>
   <name value="CQFMeasures"/>
   <title value="Quality Measure Implementation Guide (STU4)"/>
   <status value="draft"/>
@@ -36,7 +36,7 @@
   <dependsOn id="qicore">
     <uri value="http://hl7.org/fhir/us/qicore/ImplementationGuide/hl7.fhir.us.qicore"/>
     <packageId value="hl7.fhir.us.qicore"/>
-    <version value="5.0.0-ballot"/>
+    <version value="5.0.0"/>
   </dependsOn>
   <definition>
     <!--
@@ -590,7 +590,7 @@
 </page>
     <parameter>
       <code value="releaselabel"/>
-      <value value="ballot"/>
+      <value value="STU4"/>
     </parameter>
     <parameter>
       <code value="copyrightyear"/>
@@ -659,8 +659,8 @@
       <value value="templates\liquid"/>
     </parameter>
     <parameter>
-      <code value="apply"/>
-      <value value="jurisdiction"/>
+      <code value="apply-jurisdiction"/>
+      <value value="true"/>
     </parameter>
     <parameter>
       <code value="jira-code"/>
