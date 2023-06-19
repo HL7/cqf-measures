@@ -729,3 +729,98 @@ This implementation guide defines the [cqlOptions](StructureDefinition-cqfm-cqlO
 2. Translator options specified in a CQFMComputableLibrary take precedence over options defined in a CQFMQualityProgram
 3. If no translator options are provided, the recommended options above SHOULD be used
 4. If translator options are provided in a Library that is both computable and executable, the options SHALL be consistent with the translator options reported by the ELM content
+
+The `cqlOptions` extension references a contained `Parameters` resource that contains a parameter for each option specified, as well as a `translatorVersion` parameter that indicates the version of the translator used to produce the ELM. For example:
+
+```json
+{
+  "resourceType": "Library",
+  "id": "FHIRCommon",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary" ]
+  },
+  "contained": [ {
+    "resourceType": "Parameters",
+    "id": "options",
+    "parameter": [ {
+      "name": "translatorVersion",
+      "valueString": "2.9.0-SNAPSHOT"
+    }, {
+      "name": "option",
+      "valueString": "EnableAnnotations"
+    }, {
+      "name": "option",
+      "valueString": "EnableLocators"
+    }, {
+      "name": "option",
+      "valueString": "DisableListDemotion"
+    }, {
+      "name": "option",
+      "valueString": "DisableListPromotion"
+    }, {
+      "name": "format",
+      "valueString": "XML"
+    }, {
+      "name": "format",
+      "valueString": "JSON"
+    }, {
+      "name": "analyzeDataRequirements",
+      "valueBoolean": true
+    }, {
+      "name": "collapseDataRequirements",
+      "valueBoolean": true
+    }, {
+      "name": "compatibilityLevel",
+      "valueString": "1.5"
+    }, {
+      "name": "enableCqlOnly",
+      "valueBoolean": false
+    }, {
+      "name": "errorLevel",
+      "valueString": "Info"
+    }, {
+      "name": "signatureLevel",
+      "valueString": "None"
+    }, {
+      "name": "validateUnits",
+      "valueBoolean": true
+    }, {
+      "name": "verifyOnly",
+      "valueBoolean": false
+    } ]
+  } ],
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions",
+    "valueReference": {
+      "reference": "#options"
+    }
+  } ],
+  "url": "http://ecqi.healthit.gov/ecqms/Library/FHIRCommon",
+  "version": "4.1.000",
+  "name": "FHIRCommon",
+  ...
+}
+```
+
+#### ELM Suitability
+
+Because certain translator options impact language features and functionality, translated ELM may not be suitable for use in all contexts if the options used to produce the ELM are inconsistent with the options in use in the evaluating environment. To determine suitability of ELM for use in a given environment, the following guidance should be followed:
+
+**Conformance Requirement 4.23 (ELM Suitability):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-23)
+
+1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL have been translated with a SignatureLevel other than `None`
+2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment SHALL be consistent with the compatibility level used to produce the ELM
+3. If the ELM has a compatibility level set, it SHALL be consistent with the version of the translator used in the evaluation environment
+4. The translator version used to produce the ELM SHOULD be consistent with the translator version used in the evaluation environment
+5. The translator options used in the evaluation environment SHALL be consistent with the translator options used to produce the ELM for at least the following options:
+    * DisableListTraversal
+    * DisableListDemotion
+    * DisableListPromotion
+    * EnableIntervalDemotion
+    * EnableIntervalPromotion
+    * DisableMethodInvocation
+    * RequireFromKeyword
+6. For authoring environments, the following additional translator options MAY be used to determine suitability of available ELM:
+    * EnableAnnotations
+    * EnableLocators
+    * EnableResultTypes
