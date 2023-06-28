@@ -1,0 +1,260 @@
+<Measure xmlns="http://hl7.org/fhir">
+   <id value="measure-pi-exm"></id>
+   <meta>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
+   </meta>
+<!--   
+   <contained>
+      <Library xmlns="http://hl7.org/fhir">
+         <id value="effective-data-requirements"></id>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMRatio"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Qualifying Encounters"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Qualifying Encounters&quot;:
+  [&quot;Encounter&quot;: &quot;Inpatient&quot;]"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="0"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMRatio"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Initial Population"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Initial Population&quot;:
+  &quot;Qualifying Encounters&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="1"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMRatio"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Numerator"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Numerator&quot;:
+  &quot;Initial Population&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="2"></valueInteger>
+            </extension>
+         </extension>
+         <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+            <extension url="libraryName">
+               <valueString value="EXMRatio"></valueString>
+            </extension>
+            <extension url="name">
+               <valueString value="Denominator"></valueString>
+            </extension>
+            <extension url="statement">
+               <valueString value="define &quot;Denominator&quot;:
+  &quot;Initial Population&quot;"></valueString>
+            </extension>
+            <extension url="displaySequence">
+               <valueInteger value="3"></valueInteger>
+            </extension>
+         </extension>
+         <name value="EffectiveDataRequirements"/>
+         <status value="active"></status>
+         <type>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/library-type"></system>
+               <code value="module-definition"></code>
+            </coding>
+         </type>
+         <date value="2022-02-22T10:37:04-07:00"></date>
+         <relatedArtifact>
+            <type value="depends-on"></type>
+            <display value="Value set Inpatient"></display>
+            <resource value="http://example.org/fhir/ValueSet/inpatient"></resource>
+         </relatedArtifact>
+         <parameter>
+            <name value="Numerator"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <parameter>
+            <name value="Denominator"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <parameter>
+            <name value="Initial Population"></name>
+            <use value="out"></use>
+            <min value="0"></min>
+            <max value="*"></max>
+            <type value="Encounter"></type>
+         </parameter>
+         <dataRequirement>
+            <type value="Encounter"></type>
+            <profile value="http://hl7.org/fhir/StructureDefinition/Encounter"></profile>
+            <mustSupport value="type"></mustSupport>
+            <codeFilter>
+               <path value="type"></path>
+               <valueSet value="http://example.org/fhir/ValueSet/inpatient"></valueSet>
+            </codeFilter>
+         </dataRequirement>
+      </Library>
+   </contained> -->
+   <!--
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+      <valueCode value="Encounter"></valueCode>
+   </extension>
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit">
+      <valueCodeableConcept>
+         <coding>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="/1000.d"></code>
+         </coding>
+      </valueCodeableConcept>
+   </extension> -->
+   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem">
+      <valueReference>
+         <reference value="Device/software-system-example"></reference>
+      </valueReference>
+   </extension>
+   <extension id="effective-data-requirements" url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements">
+      <valueReference>
+         <reference value="#effective-data-requirements"></reference>
+      </valueReference>
+   </extension>
+   <url value="http://example.org/fhir/measures/measure-proportion-exm"></url>
+   <identifier>
+      <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm"></system>
+      <value value="EXMPI"></value>
+   </identifier>
+   <version value="1.0.0"></version>
+   <name value="EXMPromotingInteroperabilityMeasure"></name>
+   <title value="EXM Promoting Interoperability Measure"></title>
+   <status value="active"></status>
+   <experimental value="true"></experimental>
+   <date value="2023-05-31"></date>
+   <publisher value="Example Measure Publisher"></publisher>
+   <contact>
+      <telecom>
+         <system value="url"></system>
+         <value value="http://www.examplePublisher.org/"></value>
+      </telecom>
+   </contact>
+   <description value="An example FHIR-based publishable measure - Promoting Interoperability"></description>
+   <useContext>
+      <code>
+         <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"></system>
+         <code value="program"></code>
+      </code>
+      <valueCodeableConcept>
+         <coding>
+            <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs"></system>
+            <code value="ep-ec"></code>
+         </coding>
+         <text value="eligible-provider"></text>
+      </valueCodeableConcept>
+   </useContext>
+   <jurisdiction>
+      <coding>
+         <system value="urn:iso:std:iso:3166"></system>
+         <code value="US"></code>
+      </coding>
+   </jurisdiction>
+   <purpose value="The purpose of this measure is to..."></purpose>
+   <usage value="Users of this measure should be aware of..."></usage>
+   <copyright value="Example Copyright Statement"></copyright>
+   <approvalDate value="2019-02-17"></approvalDate>
+   <lastReviewDate value="2019-02-17"></lastReviewDate>
+   <effectivePeriod>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor">
+         <valueDateTime value="2018-01-01"></valueDateTime>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration">
+         <valueDuration>
+            <value value="1"></value>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="a"></code>
+         </valueDuration>
+      </extension>
+      <start value="2018-01-01"></start>
+      <end value="2018-12-31"></end>
+   </effectivePeriod>
+   <topic>
+      <coding>
+         <system value="http://loinc.org"></system>
+         <code value="57024-2"></code>
+      </coding>
+      <text value="Health Quality Measure Document"></text>
+   </topic>
+   <author>
+      <name value="Example Measure Content Developer"></name>
+   </author>
+   <disclaimer value="Example disclaimer"></disclaimer>
+   <scoring>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"></system>
+         <code value="proportion"></code>
+         <display value="proportion"></display>
+      </coding>
+   </scoring>
+<!--   
+   <type>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-type"></system>
+         <code value="process"></code>
+      </coding>
+   </type>
+   <improvementNotation>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"></system>
+         <code value="decrease"></code>
+         <display value="Decreased score indicates improvement"></display>
+      </coding>
+   </improvementNotation>
+-->
+   <group id="group-1">
+      <population id="numerator">
+         <code>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="numerator"></code>
+               <display value="Numerator"></display>
+            </coding>
+         </code>
+         <description value="The number of prescriptions in the denominator generated and transmitted electronically using CEHRT."></description>         
+         <criteria>
+            <language value="text/cql-identifier"></language>
+            <expression value="Numerator"></expression>
+         </criteria>
+      </population>
+      <population id="denominator">
+         <code>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population"></system>
+               <code value="denominator"></code>
+               <display value="Denominator"></display>
+            </coding>
+         </code>
+         <description value="Number of prescriptions written for drugs requiring a prescription in order to be dispensed other than controlled substances during the performance period; or number of
+prescriptions written for drugs requiring a prescription in order to be dispensed during the performance period."></description>         
+         <criteria>
+            <language value="text/cql-identifier"></language>
+            <expression value="Denominator"></expression>
+         </criteria>
+      </population>
+   </group>
+</Measure>
