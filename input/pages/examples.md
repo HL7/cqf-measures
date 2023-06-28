@@ -2,11 +2,11 @@
 
 ### Examples
 
-* [**Simple Example**](Measure-measure-exm.html) Usage example illustrating all the common data elements of the CQF Measure profile - [Library](Library-EXMLogic.html)
-* [**EXM146**](Measure-measure-exm146-FHIR.html) Encounter-based proportion measure example - [Library](Library-EXM146.html)
-* [**EXM55**](Measure-measure-exm55-FHIR.html) Continuous-variable measure example - [Library](Library-EXM55.html)
-* [**RatioMeasure**](Measure-measure-ratio-exm.html) Ratio measure example - [Library](Library-EXMRatio.html)
-* [**Terminology**](Measure-measure-terminology-FHIR.html) Example illustrating terminology usage - [Library](Library-Terminology.html)
+* [**Simple Example**](Measure-EXMLogic-FHIR.html) Usage example illustrating all the common data elements of the CQF Measure profile - [Library](Library-EXMLogic-FHIR.html)
+* [**EXM146**](Measure-EXM146-FHIR.html) Encounter-based proportion measure example - [Library](Library-EXM146-FHIR.html)
+* [**EXM55**](Measure-EXM55-FHIR.html) Continuous-variable measure example - [Library](Library-EXM55-FHIR.html)
+* [**RatioMeasure**](Measure-EXMRatio-FHIR.html) Ratio measure example - [Library](Library-EXMRatio-FHIR.html)
+* [**Terminology**](Measure-Terminology-FHIR.html) Example illustrating terminology usage - [Library](Library-Terminology-FHIR.html)
 * [**RiskAdjustment**](Measure-measure-risk-adjustment-FHIR2.html) Example illustrating risk adjustment usage - [Library](Library-risk-adjustment-FHIR2.html)
 * [**Common Library**](Library-Common.html) Usage example illustrating a library to share logic between measures
 * [**SupplementalDataElements**](Library-SupplementalDataElements.html) Library illustrating common supplemental data elements
@@ -15,13 +15,13 @@
 
 These examples illustrate patient-based screening measures
 
-* [**EXM124**](Measure-measure-exm124-FHIR.html) Cervical Cancer Screening - [Library](Library-EXM124.html)
-* [**EXM125**](Measure-measure-exm125-FHIR.html) Breast Cancer Screening - [Library](Library-EXM125.html)
-* [**EXM130**](Measure-measure-exm130-FHIR.html) Colorectal Cancer Screening - [Library](Library-EXM130.html)
+* [**EXM124**](Measure-EXM124-FHIR.html) Cervical Cancer Screening - [Library](Library-EXM124-FHIR.html)
+* [**EXM125**](Measure-EXM125-FHIR.html) Breast Cancer Screening - [Library](Library-EXM125-FHIR.html)
+* [**EXM130**](Measure-EXM130-FHIR.html) Colorectal Cancer Screening - [Library](Library-EXM130-FHIR.html)
 
 ### Hospital Measures
 
-* [**EXM108**](Measure-measure-vte-1-FHIR.html) Venous Thromboembolism Prophylaxis - [Library](Library-EXM108.html)
+* [**EXM108**](Measure-EXM108-FHIR.html) Venous Thromboembolism Prophylaxis - [Library](Library-EXM108-FHIR.html)
 
 ### Additional Supplemental Data Elements Measures
 
@@ -29,14 +29,14 @@ These examples illustrate patient-based screening measures
 
 ### Multiple-Rate Measures
 
-* [**Multirate Example**](Measure-multi-rate-example.html) Example measure illustrating multiple rates in a single Measure resource
+* [**Multirate Example**](Measure-MultiRateExample-FHIR.html) Example measure illustrating multiple rates in a single Measure resource - [Library](Library-MultiRateExample-FHIR.html)
 
 ### Composite Measures
 
 This section provides examples of all four composite measure scoring methods described by this implementation guide. Each composite is constructed using the same five component measures:
 
 * [Breast Cancer Screening (BCS)](Measure-BCSComponent.html) - Patient-based proportion measure
-* [Colorectal Cancer Screening (CCS)](Measure-measure-exm130-FHIR.html) - Patient-based proportion measure
+* [Colorectal Cancer Screening (CCS)](Measure-EXM130-FHIR.html) - Patient-based proportion measure
 * [High Blood Pressure Screening (HBP)](Measure-HBPComponent.html) - Encounter-based proportion measure
 * [Pneumococcal Vaccination (PVS)](Measure-PVSComponent.html) - Patient-based proportion measure
 * [Tobacco Screening (TSC)](Measure-TSCComponent.html) - Patient-based proportion measure

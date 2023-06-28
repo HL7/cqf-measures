@@ -73,7 +73,7 @@ include line as in Snippet 4-2.
 includes Common version '2.0.0' called Common
 ```
 
-Snippet 4-2: Nested library within [EXM146.cql](Library-EXM146.html#cql-content)
+Snippet 4-2: Nested library within [EXM146.cql](Library-EXM146-FHIR.html#cql-content)
 
 The set of all CQL libraries used to define a Measure must adhere to Conformance Requirement 4.3.
 
@@ -133,7 +133,7 @@ For example:
 using FHIR version '3.0.0'
 ```
 
-Snippet 4-3: Data Model line from [EXM146.cql](Library-EXM146.html#cql-content)
+Snippet 4-3: Data Model line from [EXM146.cql](Library-EXM146-FHIR.html#cql-content)
 
 ### Code Systems
 {: #code-systems}
@@ -154,7 +154,7 @@ codesystem "SNOMED CT:2017-09": 'http://snomed.info/sct'
   version 'http://snomed.info/sct/731000124108/version/201709'
 ```
 
-Snippet 4-4: codesystem definition line from [Terminology.cql](Library-Terminology.html#cql-content).
+Snippet 4-4: codesystem definition line from [Terminology.cql](Library-Terminology-FHIR.html#cql-content).
 
 The canonical URL for a code system is a globally unique, stable, version-independent identifier for the code system.
 The base FHIR specification defines canonical URLs for most common code systems
@@ -188,7 +188,7 @@ For example:
 valueset "Acute Pharyngitis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011'
 ```
 
-Snippet 4-5: Valueset reference from [EXM146.cql](Library-EXM146.html#cql-content)
+Snippet 4-5: Valueset reference from [EXM146.cql](Library-EXM146-FHIR.html#cql-content)
 
 The canonical URL for a value set is typically defined by the value set author, though it may be provided by the
 publisher as well. For example, value sets defined in the Value Set Authority Center and exposed via the VSAC FHIR
@@ -239,7 +239,7 @@ valueset "Encounter Inpatient SNOMEDCT Value Set":
    'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
 ```
 
-Snippet 4-6: valueset definition from [Terminology.cql](Library-Terminology.html#cql-content).
+Snippet 4-6: valueset definition from [Terminology.cql](Library-Terminology-FHIR.html#cql-content).
 
 This is a _version specific value set reference_, and can be resolved as a search by the `url` and `version` elements:
 
@@ -303,7 +303,7 @@ the logical identifier is the code from the code system.
 code "Venous foot pump, device (physical object)": '442023007' from "SNOMED CT"
 ```
 
-Snippet 4-7: code definition from [Terminology.cql](Library-Terminology.html#cql-content).
+Snippet 4-7: code definition from [Terminology.cql](Library-Terminology-FHIR.html#cql-content).
 
 Note that for direct-reference code usage, the local identifier (in Snippet 4-7 the local identifier is "Venous foot pump,
 device (physical object)") should be the same as the description of the code within the terminology in order to avoid
@@ -418,7 +418,7 @@ define "Flexible Sigmoidoscopy Performed":
       and FlexibleSigmoidoscopy.performed ends 5 years or less on or before end of "Measurement Period"
 ```
 
-Snippet 4-9: Expression definition from [EXM130.cql](Library-EXM130.html#cql-content)
+Snippet 4-9: Expression definition from [EXM130.cql](Library-EXM130-FHIR.html#cql-content)
 
 #### Negation in FHIR
 {: #negation-in-fhir}

@@ -209,7 +209,7 @@ The _withdraw_ operation supports deleting an existing artifact in _draft_ statu
 
 ##### Review
 
-The _review_ operation supports applying a review to an existing artifact, regardless of status. The operation sets the _date_ and _lastReviewDate_ elements of the reviewed artifact, and is otherwise only allowed to add _artifactComment_ elements to the artifact, and to add or update a _reviewer_.
+The _review_ operation supports applying a review to an existing artifact, regardless of status. The operation sets the _date_ and _lastReviewDate_ elements of the reviewed artifact, and is otherwise only allowed to add _artifactComment_ elements to the artifact.
 
 ##### Approve
 
