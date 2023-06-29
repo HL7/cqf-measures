@@ -1,0 +1,37 @@
+{
+  "base": [
+     "ValueSet"
+  ],
+  "code": "keyword",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    },
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "date": "2023-06-12T13:00:00-05:00",
+  "description": "Search within the keyword extension",
+  "experimental": false,
+  "expression": "ValueSet.extension.where(url='http://hl7.org/fhir/StructureDefinition/valueset-keyWord').valueString",
+  "id": "ValueSet-keyword",
+  "name": "keyword",
+  "publisher": "Health Level Seven International (Clinical Quality Information)",
+  "resourceType": "SearchParameter",
+  "status": "draft",
+  "type": "string",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/SearchParameter/ValueSet-keyword",
+  "xpath": "f:ValueSet/f:extension[f:url='http://hl7.org/fhir/StructureDefinition/valueset-keyWord']/f:valueString",
+  "xpathUsage": "normal"
+}

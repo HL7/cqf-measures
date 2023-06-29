@@ -9,6 +9,13 @@ The following file contains the complete, downloadable implementation guide:
 
 -  [Full IG](full-ig.zip)
 
+### IG Package
+{: #package}
+
+The following file is the FHIR IG Package [NPM Subset](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification)
+
+- [package.tgz](package.tgz)
+
 ### Definitions
 {: #definitions}
 
