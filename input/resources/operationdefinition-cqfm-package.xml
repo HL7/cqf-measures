@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OperationDefinition xmlns="http://hl7.org/fhir">
-  <id value="qmig-package"/>
-  <url value="http://hl7.org/fhir/us/cqfmeasures/OperationDefinition/qmig-package"/>
+  <id value="cqfm-package"/>
+  <url value="http://hl7.org/fhir/us/cqfmeasures/OperationDefinition/cqfm-package"/>
   <version value="1.0.0"/>
-  <name value="QMIGPackage"/>
-  <title value="QMIG Package"/>
+  <name value="CQFMPackage"/>
+  <title value="CQFM Package"/>
   <status value="draft"/>
   <kind value="operation"/>
   <date value="2019-11-01T09:29:23+11:00"/>
@@ -20,7 +20,7 @@
     </telecom>
   </contact>
   <description value="Packages a specified canonical resource with dependencies."/>
-  <code value="qm.package"/>
+  <code value="cqfm.package"/>
   <comment value="This operation is used to package the contents associated with a specific measure artifact, measure test case or library (such as a quality program, including the use of the quality program)."/>
   <resource value="Library"/>
   <resource value="Measure"/>

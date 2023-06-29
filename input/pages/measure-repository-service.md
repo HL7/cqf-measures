@@ -136,7 +136,7 @@ Artifact repositories MAY support searching for artifacts by the following param
 
 ##### Package
 
-The $qm.package operation supports the ability of a repository to package an artifact for a particular target environment, and with required components and dependencies included. The following parameters SHOULD be supported for packaging operations:
+The $cqfm.package operation supports the ability of a repository to package an artifact for a particular target environment, and with required components and dependencies included. The following parameters SHOULD be supported for packaging operations:
 
 * **id**: The server-specific id of the artifact to be packaged
 * **url**: The canonical url of the artifact to be packaged
@@ -154,7 +154,7 @@ The $qm.package operation supports the ability of a repository to package an art
 
 The result of the packaging operation is a Bundle (or Bundles if there is a need to partition based on size) containing the artifact, tailored for content based on the requested capabilities, and any components/dependencies as specified in the parameters.
 
-For the $qm.package operation, when combinations of "in" parameters specify more than one measure to package, the operation SHOULD return an OperationOutcome error. These combinations include the following:
+For the $cqfm.package operation, when combinations of "in" parameters specify more than one measure to package, the operation SHOULD return an OperationOutcome error. These combinations include the following:
 
 * The "id" input (in) parameter and Measure/{id}/$package have different values for the id
 * More than one of "id", "url" or "identifier" input parameters are specified
@@ -291,14 +291,14 @@ The [CQFMPublishableMeasureRepository](CapabilityStatement-publishable-measure-r
 
 A PublishableMeasureRepository:
 
-1. SHALL support library packaging: [Library/$qm.package](OperationDefinition-qmig-package.html) operation
+1. SHALL support library packaging: [Library/$cqfm.package](OperationDefinition-cqfm-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
     4. SHOULD support the count parameter
-    5. SHOULD support canonicalVersion parameter (overrides code system versions specified in the manifest)
-    6. SHOULD support checkCanonicalVersion parameter (overrides code system versions specified in the manifest)
-    7. SHOULD support forceCanonicalVersion parameter (overrides code system versions specified in the manifest)
+    5. SHOULD support canonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    6. SHOULD support checkCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    7. SHOULD support forceCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
     8. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
     9. SHOULD support include parameter
     10. SHOULD support contactEndpoint parameter
@@ -339,14 +339,14 @@ A PublishableMeasureRepository:
 
 A PublishableMeasureRepository:
 
-1. SHALL support measure packaging: [Measure/$qm.package](OperationDefinition-qmig-package.html) operation
+1. SHALL support measure packaging: [Measure/$cqfm.package](OperationDefinition-cqfm-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
     4. SHOULD support the count parameter
-    5. SHOULD support canonicalVersion parameter (overrides code system versions specified in the manifest)
-    6. SHOULD support checkCanonicalVersion parameter (overrides code system versions specified in the manifest)
-    7. SHOULD support forceCanonicalVersion parameter (overrides code system versions specified in the manifest)
+    5. SHOULD support canonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    6. SHOULD support checkCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    7. SHOULD support forceCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
     8. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
     9. SHOULD support include parameter
     10. SHOULD support contactEndpoint parameter
@@ -405,7 +405,7 @@ A PublishableMeasureRepository:
 
 1. MAY support including test cases in measure packages.
 
-1. MAY support test case packaging: [MeasureReport/$qm.package](OperationDefinition-qmig-package.html) operation
+1. MAY support test case packaging: [MeasureReport/$cqfm.package](OperationDefinition-cqfm-package.html) operation
 
 ### Authoring Measure Repository
 
