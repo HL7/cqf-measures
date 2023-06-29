@@ -5,10 +5,14 @@
                 <th scope="row"><b>Id: </b></th>
                 <td style="padding-left: 4px;">{{Measure.id}}</td>
             </tr>
+            
+            {% if Measure.library.exists() %}
             <tr>
                 <th scope="row"><b>Download cql: </b></th>
                 <td style="padding-left: 4px;"><a href="Library-{{Measure.id}}.cql">{{Measure.id}}.cql</a></td>
             </tr>
+            {% endif %}
+
         {% endif %}
         {% if Measure.url.exists() %}
             <tr>
