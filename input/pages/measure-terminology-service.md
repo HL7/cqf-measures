@@ -38,6 +38,28 @@ Because this capability results in the potential for parameter values to be supp
 4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 5. When processing an expand (or any artifact operation that will encounter canonical references), when an un-versioned canonical reference is encountered, the manifest is consulted to determine a version of the artifact to be used for that reference.
 
+For example, the following snippet is from a value set that includes two other value sets without specifying a version for them (an un-versioned canonical), but the manifest SHOULD contain the canonical with version for those included value sets.
+
+```
+ "compose": {
+    "include": [ {
+      "valueSet": [ "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1078" ]
+    }, {
+      "valueSet": [ "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079" ]
+    } ]
+  }
+```
+To continue with this example, the manifest `relatedArtifact.resource` would contain the version, as shown below:
+
+```
+  "relatedArtifact": [ {
+    "type": "depends-on",
+    "display": "Cancer",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1078|20220218"
+  }, ...
+  ```
+
+
 #### Quality Programs
 To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-cqfm-partOf.html) extension.
 
@@ -567,6 +589,8 @@ The full example is available here:
 
 To discover what values of the $expand `expansion` parameter are supported by the Measure Terminology Service, start with a Library search using the `_profile` parameter to limit the search to [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html), and the `contained-parameter-name` search parameter with the value `expansion`.
 
+Note that some terminology servers support the use of persisted expansions to ensure stable expansion of value sets included as part of a release. This approach provides an alternative to explicitly stating binding versions for all the unreferenced canonical references used in the artifacts included in a release. Because expansion identifiers are server-specific, the preferred approach is to make use of the version manifest to state binding versions. However, the use of expansion identifiers MAY be used as an alternative.
+
 If Library.contained.parameter.name matches the contained-parameter-name search parameter, then return this Library in the searchset.
 
 For example, 
@@ -574,7 +598,7 @@ For example,
 [base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&contained-parameter-name=expansion
 ```
 
-That example searches for CQFM Quality Program Library resources that have Library.contained.parameter.name equal to the string `expansion`. The corresponding Library.contained.parameter.valueUri is the expansion identifier, which can be used in a ValueSet $expand. If the previous Library search found a ValurUri with "eCQM%20Update%202020-05-07", then use it in the `expansion` parameter:  
+That example searches for CQFM Quality Program Library resources that have Library.contained.parameter.name equal to the string `expansion`. The corresponding Library.contained.parameter.valueUri is the expansion identifier, which can be used in a ValueSet $expand. If the previous Library search found a ValurUri with "eCQM%20Update%202020-05-07", then use it in a ValueSet search with the `expansion` parameter:  
 ```
 [base]/Valueset/[id]/$expand?expansion=eCQM%20Update%202020-05-07
 ```
