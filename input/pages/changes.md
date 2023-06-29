@@ -31,6 +31,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Clarified definition wording for usage element of Publishable Measure CQFM  ([FHIR-40241](https://jira.hl7.org/browse/FHIR-40241))
 * **Applied**: Updated Quality Programs code system, value set and Structured Definition, cardinality of program slice to 0..1, binding to 'example', updated guidance.  ([FHIR-40562](https://jira.hl7.org/browse/FHIR-40562))
 * **Applied**: Removed measure allocation extension and all references to it throughout  ([FHIR-40590](https://jira.hl7.org/browse/FHIR-40590))
+* **Applied**: Added PI Measure example (no library) [FHIR-27930](https://jira.hl7.org/browse/FHIR-27930)
 
 
 ### STU3 Release for FHIR R4 (v3.0.0)
