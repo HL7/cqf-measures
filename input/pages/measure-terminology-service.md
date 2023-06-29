@@ -202,14 +202,15 @@ Note that when a code system authority has not established a versioning system, 
     3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
     4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
-7. SHALL support version manifest and release value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
+7. SHALL support version manifest and release value set packaging: [Library/$cqfm.package](OperationDefinition-cqfm-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
     4. SHOULD support the count parameter
-    5. SHOULD support system-version parameter (overrides code system versions specified in the quality program release)
-    6. SHOULD support check-system-version parameter (overrides code system versions specified in the quality program release)
-    7. SHOULD support force-system-version parameter (overrides code system versions specified in the quality program release)
+    5. SHOULD support canonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    6. SHOULD support checkCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    7. SHOULD support forceCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    8. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
 
 8. SHALL support operations to enable maintenance of release specifications for quality programs for Library resources that conform to the Quality Program profile:
     1. SHALL support creating a Library in "draft" status (using POST)
