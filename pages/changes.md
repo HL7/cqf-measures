@@ -13,6 +13,7 @@ title: Changes
 * [FHIR-25285](https://jira.hl7.org/browse/FHIR-25285) - Changed definition term extension to preserve association of term and definition
 * [FHIR-21998](https://jira.hl7.org/browse/FHIR-21998) - Disallowed stratification of ratio measures
 * [FHIR-21996](https://jira.hl7.org/browse/FHIR-21996) - Required use of `called` clause for included libraries
+* [FHIR-27930](https://jira.hl7.org/browse/FHIR-27930) -  Added PI Measure example (no library) 
 
 #### Compatible, Substantive
 * Corrections to proportion, ratio, and continuous-variable measure profiles
