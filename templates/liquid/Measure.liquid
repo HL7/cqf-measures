@@ -460,7 +460,7 @@
                                     </td>
                                     <td>
                                         {% for relatedArtifact in contained.relatedArtifact.where(resource = dataRequirement.codeFilter.first().valueSet) %}
-                                            {%  if relatedArtifact.display.startsWith("Value set ") %}
+                                            {%  if relatedArtifact.display.startsWith('Value set ') %}
                                                 {{ relatedArtifact.display.substring(9).replace(' &', ',') }}
                                             {% else %}
                                                 {{ relatedArtifact.display.replace(' &', ',') }}
