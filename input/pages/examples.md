@@ -77,6 +77,13 @@ Interpretation: For each Eligible Clinician (EC), percentage of patients who rec
 
 [Preventive Care and Wellness (Component-level weighted)](Measure-PreventiveCareandWellnessWeightedComposite.html)
 
+### Test Case examples
+
+The sections provide examples of test cases
+
+* [Simple Test Case](MeasureReport-testcase-example.html) - Example test case illustrating expected input parameters and expected output results given those input parameters.
+* [Bundled Test Case](Bundle-bundle-example.html) - Example test case in a bundle illustrating expected input parameters and expected output results given those input parameters along with evaluatedResources.
+
 ### Quality Programs
 
 This section provides examples of all three ways to represent a Quality Program

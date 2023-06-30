@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "measure-cqfm",
   "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm",
-  "version": "4.0.0-ballot",
+  "version": "4.0.0",
   "name": "CQFMMeasure",
   "title": "CQFM Measure",
   "status": "active",
@@ -288,7 +288,15 @@
         "path": "Measure.supplementalData.code",
         "mustSupport": true,
         "binding": {
-          "strength": "extensible",
+          "strength": "preferred",
+          "valueSet": "https://terminology.hl7.org/ValueSet/measure-supplemental-data"
+        }
+      },
+      {
+        "id": "Measure.supplementalData.usage",
+        "path": "Measure.supplementalData.usage",
+        "binding": {
+          "strength": "preferred",
           "valueSet": "http://terminology.hl7.org/ValueSet/measure-data-usage"
         }
       }
