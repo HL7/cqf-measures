@@ -90,6 +90,23 @@
         "mustSupport": true
       },
       {
+        "id": "MeasureReport.extension:operation",
+        "path": "MeasureReport.extension",
+        "sliceName": "operation",
+        "short" : "If an operation is not specificed, then the test case is assumed to be for $evaluate-measure.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-operation"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "MeasureReport.extension:softwaresystem",
         "path": "MeasureReport.extension",
         "sliceName": "softwaresystem",
