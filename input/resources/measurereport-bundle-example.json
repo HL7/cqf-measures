@@ -13,6 +13,18 @@
             "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"
           ]
         },
+        "contained": [
+          {
+            "resourceType": "Parameters",
+            "id": "testcase-example-parameters",
+            "parameter": [
+              {
+                "name": "subject",
+                "valueString": "123"
+              }
+            ]
+          }
+        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters",
