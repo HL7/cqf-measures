@@ -167,7 +167,7 @@
             "key": "cqm-3",
             "severity": "warning",
             "human": "Group identifiers SHOULD use the convention: \"group-[group number]\", where [group number] corresponds with the group naming convention for the criteria within the group",
-            "expression": "trace('grp').startsWith('group-')",
+            "expression": "startsWith('group-')",
             "xpath": "exists(f:value)"
           }
         ],
