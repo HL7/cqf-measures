@@ -1,37 +1,38 @@
 {
-  "base": [
-     "Library"
-  ],
-  "code": "contained-parameter-name",
-  "contact": [
+  "resourceType" : "SearchParameter",
+  "id" : "Library-contained-parameter-name",
+  "url" : "http://hl7.org/fhir/us/cqfmeasures/SearchParameter/Library-contained-parameter-name",
+  "name" : "LibraryContainedParameterName",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2023-05-25T13:00:00-05:00",
+  "publisher" : "Clinical Quality Information WG",
+  "contact" : [
     {
-      "telecom": [
+      "telecom" : [
         {
-          "system": "url",
-          "value": "http://hl7.org/fhir"
-        }
-      ]
-    },
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
         }
       ]
     }
   ],
-  "date": "2023-05-25T13:00:00-05:00",
-  "description": "Parameters.parameter.name within Library.contained",
-  "experimental": false,
-  "expression": "Library.contained.parameter.name",
-  "id": "Library-contained-parameter-name",
-  "name": "contained-parameter-name",
-  "publisher": "Health Level Seven International (Clinical Quality Information)",
-  "resourceType": "SearchParameter",
-  "status": "draft",
-  "type": "string",
-  "url": "http://hl7.org/fhir/us/cqfmeasures/SearchParameter/Library-contained-parameter-name",
-  "xpath": "f:Library/f:contained/f:parameter/f:name",
-  "xpathUsage": "normal"
+  "description" : "Parameters.parameter.name within Library.contained",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "code" : "contained-parameter-name",
+  "base" : [
+    "Library"
+  ],
+  "type" : "string",
+  "expression" : "Library.contained.parameter.name",
+  "xpathUsage" : "normal"
 }
