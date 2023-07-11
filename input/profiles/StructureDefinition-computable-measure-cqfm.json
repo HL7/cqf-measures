@@ -230,133 +230,133 @@
             "key": "cmp-10",
             "severity": "error",
             "human": "Cohort measures have one and only one population criteria and that criteria has a code of initial-population",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'cohort' implies group.population.count() = 1 and group.population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-popuplation').code = 'initial-population').allTrue()"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'cohort' implies population.count() = 1 and population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'initial-population').allTrue()"
           },
           {
             "key": "cmp-11",
             "severity": "error",
             "human": "Proportion measures must have one and only one initial population",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'proportion' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'initial-population').count = 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'proportion' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'initial-population').count() = 1"
           },
           {
             "key": "cmp-12",
             "severity": "error",
             "human": "Proportion measures must have one and only one denominator",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'proportion' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'denominator').count = 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'proportion' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'denominator').count() = 1"
           },
           {
             "key": "cmp-13",
             "severity": "error",
             "human": "Proportion measures must have one and only one numerator",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'proportion' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'numerator').count = 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'proportion' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'numerator').count() = 1"
           },
           {
             "key": "cmp-14",
             "severity": "error",
             "human": "Proportion measures may have at most one denominator-exclusion",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'proportion' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'denominator-exclusion').count <= 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'proportion' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'denominator-exclusion').count() <= 1"
           },
           {
             "key": "cmp-15",
             "severity": "error",
             "human": "Proportion measures may have at most one denominator-exception",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'proportion' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'denominator-exception').count <= 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'proportion' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'denominator-exception').count() <= 1"
           },
           {
             "key": "cmp-16",
             "severity": "error",
             "human": "Proportion measures may have at most one numerator-exclusion",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'proportion' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'numerator-exclusion').count <= 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'proportion' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'numerator-exclusion').count() <= 1"
           },
           {
             "key": "cmp-17",
             "severity": "error",
             "human": "Proportion measures may not have other than initial population, denominator, numerator, denominator-exclusion, denominator-exception, and numerator-exclusion criteria",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'proportion' implies group.population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code in ('initial-population' | 'numerator' | 'denominator' | 'denominator-exclusion' | 'denominator-exception' | 'numerator-exclusion')).allTrue()"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'proportion' implies population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code in ('initial-population' | 'numerator' | 'denominator' | 'denominator-exclusion' | 'denominator-exception' | 'numerator-exclusion')).allTrue()"
           },
           {
             "key": "cmp-18",
             "severity": "error",
             "human": "Ratio measures must have between 1 and 2 initial population criteria",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'ratio' implies (group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'initial-population').count() in (1 | 2))"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'ratio' implies (population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'initial-population').count() in (1 | 2))"
           },
           {
             "key": "cmp-19",
             "severity": "error",
             "human": "Ratio measures must have one and only one denominator",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'ratio' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'denominator').count = 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'ratio' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'denominator').count() = 1"
           },
           {
             "key": "cmp-20",
             "severity": "error",
             "human": "Ratio measures must have one and only one numerator",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'ratio' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'numerator').count = 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'ratio' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'numerator').count() = 1"
           },
           {
             "key": "cmp-21",
             "severity": "error",
             "human": "Ratio measures may have at most one denominator-exclusion",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'ratio' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'denominator-exclusion').count <= 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'ratio' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'denominator-exclusion').count() <= 1"
           },
           {
             "key": "cmp-22",
             "severity": "error",
             "human": "Ratio measures may have at most two measure-observation criteria",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'ratio' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'measure-observation').count <= 2"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'ratio' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'measure-observation').count() <= 2"
           },
           {
             "key": "cmp-23",
             "severity": "error",
             "human": "Ratio measures may have at most one numerator-exclusion",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'ratio' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'numerator-exclusion').count <= 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'ratio' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'numerator-exclusion').count() <= 1"
           },
           {
             "key": "cmp-24",
             "severity": "error",
             "human": "Ratio measures may not have other than initial population, denominator, numerator, denominator-exclusion, numerator-exclusion, and measure-observation criteria",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'ratio' implies group.population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code in ('initial-population' | 'numerator' | 'denominator' | 'denominator-exclusion' | 'measure-observation' | 'numerator-exclusion')).allTrue()"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'ratio' implies population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code in ('initial-population' | 'numerator' | 'denominator' | 'denominator-exclusion' | 'measure-observation' | 'numerator-exclusion')).allTrue()"
           },
           {
             "key": "cmp-25",
             "severity": "error",
             "human": "Continuous variable measures must have one and only one initial population criteria",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'continuous-variable' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'initial-population').count = 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'continuous-variable' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'initial-population').count() = 1"
           },
           {
             "key": "cmp-26",
             "severity": "error",
             "human": "Continuous variable measures must have one and only one measure population",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'continuous-variable' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'measure-population').count = 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'continuous-variable' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'measure-population').count() = 1"
           },
           {
             "key": "cmp-27",
             "severity": "error",
             "human": "Continuous variable measures must have one and only one measure observation",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'continuous-variable' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'measure-observation').count = 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'continuous-variable' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'measure-observation').count() = 1"
           },
           {
             "key": "cmp-28",
             "severity": "error",
             "human": "Continuous variable measures may have at most one measure population exclusion",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'continuous-variable' implies group.population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code = 'measure-population-exclusion').count <= 1"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'continuous-variable' implies population.where(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code contains 'measure-population-exclusion').count() <= 1"
           },
           {
             "key": "cmp-29",
             "severity": "error",
             "human": "Continuous variable measures may not have other than initial population, measure-population, measure-population-exclusion, and measure-observation criteria",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'ratio' implies group.population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code in ('initial-population' | 'measure-population' | 'meausre-population-exclusion' | 'measure-observation')).allTrue()"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'continuous-variable' implies population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code in ('initial-population' | 'measure-population' | 'measure-population-exclusion' | 'measure-observation')).allTrue()"
           },
           {
             "key": "cmp-30",
             "severity": "error",
             "human": "Composite measures may not specify population criteria",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'composite' implies group.population.count() = 0"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'composite' implies population.count() = 0"
           },
           {
             "key": "cmp-31",
             "severity": "error",
             "human": "Composite measures must specify composite scoring and at least one component",
-            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value = 'composite' implies extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-compositeScoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component').exists()"
+            "expression": "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'composite' implies extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-compositeScoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component').exists()"
           }
         ],
         "mustSupport": true
@@ -451,7 +451,7 @@
         "path": "Measure.group.extension",
         "sliceName": "type",
         "min": 0,
-        "max": "*", 
+        "max": "*",
         "type": [
           {
             "code": "Extension",
