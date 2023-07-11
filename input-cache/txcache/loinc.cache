@@ -3,75 +3,133 @@
   "system" : "http://loinc.org",
   "code" : "72136-5",
   "display" : "Risk for venous thromboembolism"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "exp-params",
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
 v: {
   "display" : "Risk for venous thromboembolism",
   "code" : "72136-5",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "version" : "2.74"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://loinc.org",
   "code" : "8480-6",
   "display" : "Systolic blood pressure"
-}, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "exp-params",
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
 v: {
   "display" : "Systolic blood pressure",
   "code" : "8480-6",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "version" : "2.74"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://loinc.org",
   "code" : "8462-4",
   "display" : "Diastolic blood pressure"
-}, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "exp-params",
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
 v: {
   "display" : "Diastolic blood pressure",
   "code" : "8462-4",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "version" : "2.74"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://loinc.org",
   "code" : "34534-8",
   "display" : "EKG 12 channel panel"
-}, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "exp-params",
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
 v: {
-  "display" : "EKG 12 channel panel",
+  "display" : "12 lead EKG panel",
   "code" : "34534-8",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "version" : "2.74",
+  "severity" : "warning",
+  "error" : "Wrong Display Name 'EKG 12 channel panel' for http://loinc.org#34534-8 - should be one of 35 choices: '12 lead EKG panel, \"12 lead EKG Pnl\", \"12 道心电图组套（组合、医嘱组、套餐、套餐医嘱、医嘱套餐、组合申请、组合项目）\" (zh-CN), \"12 道 EKG 医嘱组\" (zh-CN), \"十二道心电图医嘱组\" (zh-CN), \"12 道心电图组套\" (zh-CN), \"12 道心电图组合 EKG PB 医嘱套餐 医嘱套餐类 医嘱套餐组 医嘱组 医嘱组.心脏病学\" (zh-CN), \"组套（组合、医嘱组、套餐、套餐医嘱、医嘱套餐、组合申请、组合项目）.心脏\" (zh-CN), \"医嘱组.心脏病\" (zh-CN), \"医嘱组.心脏病学检查与变量\" (zh-CN), \"心脏医嘱组 医嘱组合 医嘱组合类 医嘱组套 医嘱组套类 医嘱组类 多重\" (zh-CN), \"多重型\" (zh-CN), \"多重标尺类型\" (zh-CN), \"多重精度类型 套餐 套餐医嘱 套餐医嘱组 套餐医嘱组类 实验室医嘱套餐 实验室医嘱套餐类 实验室医嘱组 实验室医嘱组合类 实验室医嘱组套 实验室医嘱组套类 实验室套餐医嘱组 实验室套餐医嘱组类 实验室检验项目医嘱组合类 实验室检验项目组合类 心 心动电流图 心动电流图\" (zh-CN), \"心电图（Electrocardiogram，EKG）\" (zh-CN), \"心电图仪\" (zh-CN), \"心电图描记器\" (zh-CN), \"心电图机\" (zh-CN), \"心电图机（Electrocardiograph）\" (zh-CN), \"心电描记器 心动电流图描记器 心动电流描记器 心电图（Electrocardiogram，Electrocardiograph，EKG） 心电图仪 心电图描记器 心电图机 心电图机（Electrocardiograph，EKG） 心电图记录仪 心电描记器 心电机 心电记录仪 时刻\" (zh-CN), \"随机\" (zh-CN), \"随意\" (zh-CN), \"瞬间 检验医嘱组合类 检验项目医嘱组合类 检验项目组合类 组 组合 组合医嘱 组合类 组套\" (zh-CN), \"12 Channel EKG Pnl\" (pt-BR), \"Point in time\" (pt-BR), \"Random\" (pt-BR), \"Hrt\" (pt-BR), \"Electrocardiogram\" (pt-BR), \"Electrocardiograph\" (pt-BR), \"ECG\" (pt-BR), \"Pan\" (pt-BR), \"Panl\" (pt-BR), \"Elettrocardiogramma (ECG) Panel ECG 12 derivazioni Punto nel tempo (episodio) Set di prescrizione per studi cardiaci\" (it-IT), \"Точка во времени\" (ru-RU), \"Момент\" (ru-RU)' for the language(s) '--' (from Tx-Server)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://loinc.org",
   "code" : "11524-6",
   "display" : "EKG study"
-}, "valueSet" :null, "lang":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "exp-params",
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
 v: {
   "display" : "EKG study",
   "code" : "11524-6",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "57024-2"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "exp-params",
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Health Quality Measure document",
+  "code" : "57024-2",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://loinc.org",
   "code" : "57024-2",
   "display" : "Health Quality Measure Document"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "exp-params",
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
 v: {
   "display" : "Health Quality Measure document",
   "code" : "57024-2",
-  "system" : "http://loinc.org"
-}
--------------------------------------------------------------------------------------
-{"code" : {
   "system" : "http://loinc.org",
-  "code" : "57024-2"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Health Quality Measure document",
-  "code" : "57024-2",
-  "system" : "http://loinc.org"
+  "version" : "2.74"
 }
 -------------------------------------------------------------------------------------

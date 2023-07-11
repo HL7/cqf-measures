@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/cqfmeasures/2023Jan" ciUrl="http://build.fhir.org/ig/HL7/cqf-measures" defaultVersion="3.0.0" defaultWorkgroup="cqi" gitUrl="https://github.com/HL7/cqf-measures" url="http://hl7.org/fhir/us/cqfmeasures">
+<version code="current" url="http://build.fhir.org/ig/HL7/cqf-measures"/>
+<version code="4.0.0-ballot" url="http://hl7.org/fhir/us/cqfmeasures/2023Jan"/>
+<version code="3.0.0" url="http://hl7.org/fhir/us/cqfmeasures/STU3"/>
+<version code="2.1.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/2021May"/>
+<version code="2.0.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/STU2"/>
+<version code="1.1.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/2020Feb"/>
+<version code="1.0.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/STU1"/>
+<version code="0.1.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/2019May"/>
+<version code="0.1" deprecated="true"/>
+<artifactPageExtension value="-definitions"/>
+<artifactPageExtension value="-examples"/>
+<artifactPageExtension value="-mappings"/>
+<artifact id="Library/AdultOutpatientEncounters" key="Library-AdultOutpatientEncounters" name="Adult Outpatient Encounters Common Library"/>
+<artifact id="Library/AdvancedIllnessandFrailtyExclusion" key="Library-AdvancedIllnessandFrailtyExclusion" name="Advanced Illness and Frailty Exclusion Library"/>
+<artifact id="ConceptMap/aggregate-method" key="ConceptMap-aggregate-method" name="Aggregate Method mapping"/>
+<artifact id="ValueSet/artifact-comment-type" key="ValueSet-artifact-comment-type" name="Artifact Comment Type"/>
+<artifact id="CodeSystem/artifact-comment-type" key="CodeSystem-artifact-comment-type" name="Artifact Comment Type Codes"/>
+<artifact id="Library/BCSComponent" key="Library-BCSComponent" name="BCS Component Library"/>
+<artifact id="Measure/BCSComponent" key="Measure-BCSComponent" name="Breast Cancer Screening"/>
+<artifact id="Measure/BreastCancerScreeningFHIR" key="Measure-BreastCancerScreeningFHIR" name="Breast Cancer Screening FHIR Measure"/>
+<artifact id="Library/CCSComponent" key="Library-CCSComponent" name="CCS Component Library"/>
+<artifact id="Library/ecqm-quality-program" key="Library-ecqm-quality-program" name="CMS eCQM and Hybrid Measures"/>
+<artifact id="CapabilityStatement/authoring-measure-repository" key="CapabilityStatement-authoring-measure-repository" name="CQF Measures Authoring Measure Repository Capability Statement"/>
+<artifact id="OperationDefinition/ValueSet-expand" key="OperationDefinition-ValueSet-expand" name="CQF Measures Extension of Value Set Expansion"/>
+<artifact id="CapabilityStatement/publishable-measure-repository" key="CapabilityStatement-publishable-measure-repository" name="CQF Measures Publishable Measure Repository Capability Statement"/>
+<artifact id="CapabilityStatement/shareable-measure-repository" key="CapabilityStatement-shareable-measure-repository" name="CQF Measures Shareable Measure Repository Capability Statement"/>
+<artifact id="StructureDefinition/cqfm-aggregateMethod" key="StructureDefinition-cqfm-aggregateMethod" name="CQFM Aggregate Method"/>
+<artifact id="StructureDefinition/cqfm-allocation" key="StructureDefinition-cqfm-allocation" name="CQFM Allocation"/>
+<artifact id="StructureDefinition/cqfm-appliesTo" key="StructureDefinition-cqfm-appliesTo" name="CQFM Applies To"/>
+<artifact id="StructureDefinition/cqfm-artifactComment" key="StructureDefinition-cqfm-artifactComment" name="CQFM Artifact Comment"/>
+<artifact id="StructureDefinition/cqfm-cqlOptions" key="StructureDefinition-cqfm-cqlOptions" name="CQFM CQL Options"/>
+<artifact id="StructureDefinition/capability-statement-cqfm" key="StructureDefinition-capability-statement-cqfm" name="CQFM Capability Statement"/>
+<artifact id="StructureDefinition/cohort-measure-cqfm" key="StructureDefinition-cohort-measure-cqfm" name="CQFM Cohort Measure"/>
+<artifact id="StructureDefinition/cqfm-component" key="StructureDefinition-cqfm-component" name="CQFM Component"/>
+<artifact id="StructureDefinition/composite-measure-cqfm" key="StructureDefinition-composite-measure-cqfm" name="CQFM Composite Measure"/>
+<artifact id="StructureDefinition/cqfm-compositeScoring" key="StructureDefinition-cqfm-compositeScoring" name="CQFM Composite Scoring"/>
+<artifact id="StructureDefinition/computable-library-cqfm" key="StructureDefinition-computable-library-cqfm" name="CQFM Computable Library"/>
+<artifact id="StructureDefinition/computable-measure-cqfm" key="StructureDefinition-computable-measure-cqfm" name="CQFM Computable Measure"/>
+<artifact id="StructureDefinition/computable-valueset-cqfm" key="StructureDefinition-computable-valueset-cqfm" name="CQFM Computable ValueSet"/>
+<artifact id="StructureDefinition/cv-measure-cqfm" key="StructureDefinition-cv-measure-cqfm" name="CQFM Continuous Variable Measure"/>
+<artifact id="StructureDefinition/cqfm-criteriaReference" key="StructureDefinition-cqfm-criteriaReference" name="CQFM Criteria Reference"/>
+<artifact id="StructureDefinition/cqfm-defaultValue" key="StructureDefinition-cqfm-defaultValue" name="CQFM Default Value"/>
+<artifact id="StructureDefinition/cqfm-definitionTerm" key="StructureDefinition-cqfm-definitionTerm" name="CQFM Definition Term"/>
+<artifact id="StructureDefinition/device-softwaresystem-cqfm" key="StructureDefinition-device-softwaresystem-cqfm" name="CQFM Device"/>
+<artifact id="StructureDefinition/cqfm-directReferenceCode" key="StructureDefinition-cqfm-directReferenceCode" name="CQFM Direct Reference Code"/>
+<artifact id="StructureDefinition/cqfm-effectiveDataRequirements" key="StructureDefinition-cqfm-effectiveDataRequirements" name="CQFM Effective Data Requirements"/>
+<artifact id="StructureDefinition/cqfm-effectivePeriodAnchor" key="StructureDefinition-cqfm-effectivePeriodAnchor" name="CQFM Effective Period Anchor"/>
+<artifact id="StructureDefinition/cqfm-effectivePeriodDuration" key="StructureDefinition-cqfm-effectivePeriodDuration" name="CQFM Effective Period Duration"/>
+<artifact id="StructureDefinition/executable-library-cqfm" key="StructureDefinition-executable-library-cqfm" name="CQFM Executable Library"/>
+<artifact id="StructureDefinition/executable-measure-cqfm" key="StructureDefinition-executable-measure-cqfm" name="CQFM Executable Measure"/>
+<artifact id="StructureDefinition/executable-valueset-cqfm" key="StructureDefinition-executable-valueset-cqfm" name="CQFM Executable ValueSet"/>
+<artifact id="StructureDefinition/cqfm-expansionParameters" key="StructureDefinition-cqfm-expansionParameters" name="CQFM Expansion Parameters"/>
+<artifact id="StructureDefinition/cqfm-fhirQueryPattern" key="StructureDefinition-cqfm-fhirQueryPattern" name="CQFM FHIR Query Pattern"/>
+<artifact id="StructureDefinition/cqfm-groupId" key="StructureDefinition-cqfm-groupId" name="CQFM Group Id"/>
+<artifact id="StructureDefinition/cqfm-improvementNotation" key="StructureDefinition-cqfm-improvementNotation" name="CQFM Improvement Notation"/>
+<artifact id="StructureDefinition/cqfm-inputParameters" key="StructureDefinition-cqfm-inputParameters" name="CQFM Input Parameters"/>
+<artifact id="StructureDefinition/cqfm-isPrimaryCitation" key="StructureDefinition-cqfm-isPrimaryCitation" name="CQFM Is Primary Citation"/>
+<artifact id="StructureDefinition/cqfm-isSelective" key="StructureDefinition-cqfm-isSelective" name="CQFM Is Selective"/>
+<artifact id="StructureDefinition/cqfm-isTestCase" key="StructureDefinition-cqfm-isTestCase" name="CQFM Is Test Case"/>
+<artifact id="StructureDefinition/library-cqfm" key="StructureDefinition-library-cqfm" name="CQFM Library"/>
+<artifact id="StructureDefinition/cqfm-logicDefinition" key="StructureDefinition-cqfm-logicDefinition" name="CQFM Logic Definition"/>
+<artifact id="StructureDefinition/cqfm-meaningfulMeasureArea" key="StructureDefinition-cqfm-meaningfulMeasureArea" name="CQFM Meaningful Measure Area"/>
+<artifact id="StructureDefinition/measure-cqfm" key="StructureDefinition-measure-cqfm" name="CQFM Measure"/>
+<artifact id="StructureDefinition/modelinfo-library-cqfm" key="StructureDefinition-modelinfo-library-cqfm" name="CQFM Model Info Library"/>
+<artifact id="StructureDefinition/module-definition-library-cqfm" key="StructureDefinition-module-definition-library-cqfm" name="CQFM Module Definition Library"/>
+<artifact id="StructureDefinition/cqfm-partOf" key="StructureDefinition-cqfm-partOf" name="CQFM Part Of"/>
+<artifact id="StructureDefinition/cqfm-populationBasis" key="StructureDefinition-cqfm-populationBasis" name="CQFM Population Basis"/>
+<artifact id="StructureDefinition/cqfm-programIdentifier" key="StructureDefinition-cqfm-programIdentifier" name="CQFM Program Identifier"/>
+<artifact id="StructureDefinition/proportion-measure-cqfm" key="StructureDefinition-proportion-measure-cqfm" name="CQFM Proportion Measure"/>
+<artifact id="StructureDefinition/cqfm-publicationDate" key="StructureDefinition-cqfm-publicationDate" name="CQFM Publication Date"/>
+<artifact id="StructureDefinition/cqfm-publicationStatus" key="StructureDefinition-cqfm-publicationStatus" name="CQFM Publication Status"/>
+<artifact id="StructureDefinition/publishable-codesystem-cqfm" key="StructureDefinition-publishable-codesystem-cqfm" name="CQFM Publishable CodeSystem"/>
+<artifact id="StructureDefinition/publishable-library-cqfm" key="StructureDefinition-publishable-library-cqfm" name="CQFM Publishable Library"/>
+<artifact id="StructureDefinition/publishable-measure-cqfm" key="StructureDefinition-publishable-measure-cqfm" name="CQFM Publishable Measure"/>
+<artifact id="StructureDefinition/publishable-valueset-cqfm" key="StructureDefinition-publishable-valueset-cqfm" name="CQFM Publishable ValueSet"/>
+<artifact id="StructureDefinition/cqfm-qualityDomain" key="StructureDefinition-cqfm-qualityDomain" name="CQFM Quality Domain"/>
+<artifact id="StructureDefinition/quality-program-cqfm" key="StructureDefinition-quality-program-cqfm" name="CQFM Quality Program"/>
+<artifact id="StructureDefinition/cqfm-rateAggregation" key="StructureDefinition-cqfm-rateAggregation" name="CQFM Rate Aggregation"/>
+<artifact id="StructureDefinition/ratio-measure-cqfm" key="StructureDefinition-ratio-measure-cqfm" name="CQFM Ratio Measure"/>
+<artifact id="StructureDefinition/cqfm-riskAdjustment" key="StructureDefinition-cqfm-riskAdjustment" name="CQFM Risk Adjustment"/>
+<artifact id="StructureDefinition/cqfm-scoring" key="StructureDefinition-cqfm-scoring" name="CQFM Scoring"/>
+<artifact id="StructureDefinition/cqfm-scoringUnit" key="StructureDefinition-cqfm-scoringUnit" name="CQFM Scoring Unit"/>
+<artifact id="StructureDefinition/cqfm-softwaresystem" key="StructureDefinition-cqfm-softwaresystem" name="CQFM Software System"/>
+<artifact id="StructureDefinition/cqfm-supportedCqlVersion" key="StructureDefinition-cqfm-supportedCqlVersion" name="CQFM Supported CQL Version"/>
+<artifact id="StructureDefinition/test-case-cqfm" key="StructureDefinition-test-case-cqfm" name="CQFM Test Case"/>
+<artifact id="StructureDefinition/cqfm-testCaseDescription" key="StructureDefinition-cqfm-testCaseDescription" name="CQFM Test Case Description"/>
+<artifact id="StructureDefinition/cqfm-type" key="StructureDefinition-cqfm-type" name="CQFM Type"/>
+<artifact id="StructureDefinition/cqfm-usageWarning" key="StructureDefinition-cqfm-usageWarning" name="CQFM Usage Warning"/>
+<artifact id="StructureDefinition/cqfm-valueFilter" key="StructureDefinition-cqfm-valueFilter" name="CQFM Value Filter"/>
+<artifact id="StructureDefinition/cqfm-weight" key="StructureDefinition-cqfm-weight" name="CQFM Weight"/>
+<artifact deprecated="true" id="StructureDefinition/cqfm-activeOnly" key="StructureDefinition-cqfm-activeOnly" name="CQFMActiveOnly"/>
+<artifact deprecated="true" id="StructureDefinition/cqfm-expansionUri" key="StructureDefinition-cqfm-expansionUri" name="CQFMExpansionUri"/>
+<artifact id="ValueSet/cql-version" key="ValueSet-cql-version" name="CQL Version"/>
+<artifact id="CodeSystem/cql-version" key="CodeSystem-cql-version" name="CQL Version Codes"/>
+<artifact id="Measure/CCSComponent" key="Measure-CCSComponent" name="Cervical Cancer Screening"/>
+<artifact id="ValueSet/chronic-liver-disease-legacy-example" key="ValueSet-chronic-liver-disease-legacy-example" name="Chronic Liver Disease Legacy Example"/>
+<artifact id="ValueSet/chronic-liver-disease-legacy-example-2019-09" key="ValueSet-chronic-liver-disease-legacy-example-2019-09" name="Chronic Liver Disease Legacy Example 2019-09"/>
+<artifact id="ValueSet/chronic-liver-disease-legacy-example-current" key="ValueSet-chronic-liver-disease-legacy-example-current" name="Chronic Liver Disease Legacy Example Current"/>
+<artifact id="ValueSet/chronic-liver-disease-legacy-example-current-active" key="ValueSet-chronic-liver-disease-legacy-example-current-active" name="Chronic Liver Disease Legacy Example Current Active"/>
+<artifact id="Library/Common" key="Library-Common" name="Common Library"/>
+<artifact id="Library/CommonTerminologies" key="Library-CommonTerminologies" name="Common Terminology Library"/>
+<artifact id="ConceptMap/composite-measure-scoring" key="ConceptMap-composite-measure-scoring" name="Composite Measure Scoring mapping"/>
+<artifact id="ValueSet/computable-example" key="ValueSet-computable-example" name="Computable Example"/>
+<artifact id="ConceptMap/data-usages" key="ConceptMap-data-usages" name="Data Usage Mapping"/>
+<artifact id="Device/software-system-example" key="Device-software-system-example" name="Device - Software System Example"/>
+<artifact id="Library/ep-ec-quality-program" key="Library-ep-ec-quality-program" name="EP/EC Quality Program"/>
+<artifact id="Measure/measure-exm" key="Measure-measure-exm" name="EXM Measure"/>
+<artifact id="Measure/measure-publishable-exm" key="Measure-measure-publishable-exm" name="EXM Publishable Measure"/>
+<artifact id="Measure/measure-ratio-exm" key="Measure-measure-ratio-exm" name="EXM Ratio Measure"/>
+<artifact id="Library/EXM108" key="Library-EXM108" name="EXM108 - Venous Thromboembolism Prophylaxis Library"/>
+<artifact id="Measure/measure-exm124-FHIR" key="Measure-measure-exm124-FHIR" name="EXM124 - Cervical Cancer Screening"/>
+<artifact id="Library/EXM124" key="Library-EXM124" name="EXM124 - Cervical Cancer Screening Library"/>
+<artifact id="Library/EXM125" key="Library-EXM125" name="EXM125 - Breast Cancer Screening Library"/>
+<artifact id="Measure/measure-exm125-FHIR" key="Measure-measure-exm125-FHIR" name="EXM125 - Breast Cancer Screening Measure"/>
+<artifact id="Library/EXM130" key="Library-EXM130" name="EXM130 - Colorectal Cancer Screening Library"/>
+<artifact id="Measure/measure-exm130-FHIR" key="Measure-measure-exm130-FHIR" name="EXM130 - Colorectal Cancer Screening Measure"/>
+<artifact id="Measure/measure-exm146-FHIR" key="Measure-measure-exm146-FHIR" name="EXM146 - Appropriate Testing for Children with Pharyngitis"/>
+<artifact id="Library/EXM146" key="Library-EXM146" name="EXM146 - Example Proportion Measure Library"/>
+<artifact id="Library/EXM55" key="Library-EXM55" name="EXM55 - Example Continuous Variable Measure Library"/>
+<artifact id="Measure/measure-exm55-FHIR" key="Measure-measure-exm55-FHIR" name="EXM55 - Median ED Visit Duration"/>
+<artifact id="Library/EXMRatio" key="Library-EXMRatio" name="EXMRatio - Example Ratio Measure Library"/>
+<artifact id="Library/EXMComputableLibrary" key="Library-EXMComputableLibrary" name="Example Computable Library"/>
+<artifact id="Library/EXMExecutableLibrary" key="Library-EXMExecutableLibrary" name="Example Executable Library"/>
+<artifact id="Library/EXMLogic" key="Library-EXMLogic" name="Example Logic Library"/>
+<artifact id="Library/EXMLogic-ModuleDefinition" key="Library-EXMLogic-ModuleDefinition" name="Example Logic Library - Module Definition"/>
+<artifact id="Library/EXMPublishableLibrary" key="Library-EXMPublishableLibrary" name="Example Publishable Library"/>
+<artifact id="ValueSet/executable-example" key="ValueSet-executable-example" name="Executable Example"/>
+<artifact deprecated="true" id="Library/FHIRHelpers" key="Library-FHIRHelpers" name="FHIR Helpers"/>
+<artifact id="Library/fhir-helpers-FHIR2" key="Library-fhir-helpers-FHIR2" name="FHIR Helpers DSTU2"/>
+<artifact deprecated="true" id="Library/FHIR-ModelInfo" key="Library-FHIR-ModelInfo" name="FHIR Model Definition"/>
+<artifact id="Library/fhir-model-definition-FHIR2" key="Library-fhir-model-definition-FHIR2" name="FHIR Model Definition (STU2)"/>
+<artifact id="Library/HBPComponent" key="Library-HBPComponent" name="HBP Component Library"/>
+<artifact id="Library/Hospice" key="Library-Hospice" name="Hospice FHIR Library"/>
+<artifact deprecated="true" key="ImplementationGuide" name="ImplementationGuide"/>
+<artifact id="ConceptMap/improvement-notations" key="ConceptMap-improvement-notations" name="Improvement Notation Mapping"/>
+<artifact id="OperationDefinition/Library-data-requirements" key="OperationDefinition-Library-data-requirements" name="Library Data Requirements"/>
+<artifact id="OperationDefinition/Library-package" key="OperationDefinition-Library-package" name="Library Packaging"/>
+<artifact id="Library/MATGlobalCommonFunctions" key="Library-MATGlobalCommonFunctions" name="MAT Global Common Functions FHIR Library"/>
+<artifact deprecated="true" key="Measure" name="Measure"/>
+<artifact id="ValueSet/aggregate-method" key="ValueSet-aggregate-method" name="Measure Aggregate Method"/>
+<artifact id="CodeSystem/aggregate-method" key="CodeSystem-aggregate-method" name="Measure Aggregate Method Codes"/>
+<artifact id="CapabilityStatement/measure-calculation-service-example" key="CapabilityStatement-measure-calculation-service-example" name="Measure Calculation Service Capability Statement Example"/>
+<artifact deprecated="true" id="CapabilityStatement/measure-calculation-service" key="CapabilityStatement-measure-calculation-service" name="Measure Calculation Service Conformance Statement"/>
+<artifact id="Bundle/sde-example-artifact-bundle" key="Bundle-sde-example-artifact-bundle" name="Measure Content Bundle - Additional Supplemental Data Example"/>
+<artifact id="OperationDefinition/Measure-data-requirements" key="OperationDefinition-Measure-data-requirements" name="Measure Data Requirements"/>
+<artifact id="ValueSet/identifier-type" key="ValueSet-identifier-type" name="Measure Identifier Type"/>
+<artifact id="CodeSystem/identifier-type" key="CodeSystem-identifier-type" name="Measure Identifier Type Codes"/>
+<artifact id="OperationDefinition/Measure-package" key="OperationDefinition-Measure-package" name="Measure Packaging"/>
+<artifact id="ConceptMap/measure-populations" key="ConceptMap-measure-populations" name="Measure Population criteria mapping"/>
+<artifact id="ConceptMap/measure-scoring" key="ConceptMap-measure-scoring" name="Measure Scoring mapping"/>
+<artifact id="CapabilityStatement/measure-terminology-service" key="CapabilityStatement-measure-terminology-service" name="Measure Terminology Service Capability Statement"/>
+<artifact id="ConceptMap/measure-types" key="ConceptMap-measure-types" name="Measure Type mapping"/>
+<artifact id="Measure/measure-exm-default" key="Measure-measure-exm-default" name="Measure with default value measurement period"/>
+<artifact id="MeasureReport/testcase-example" key="MeasureReport-testcase-example" name="MeasureReport - Test Case Example"/>
+<artifact id="OperationDefinition/MeasureReport-package" key="OperationDefinition-MeasureReport-package" name="MeasureReport Packaging"/>
+<artifact id="Library/MultiRateExample" key="Library-MultiRateExample" name="Multi Rate Example Logic Library"/>
+<artifact id="Measure/multi-rate-example" key="Measure-multi-rate-example" name="Multi-Rate Example Measure"/>
+<artifact id="Library/PVSComponent" key="Library-PVSComponent" name="PVS Component Library"/>
+<artifact id="Measure/PVSComponent" key="Measure-PVSComponent" name="Pneumococcal Vaccination Status for Older Adults"/>
+<artifact id="Measure/HBPComponent" key="Measure-HBPComponent" name="Preventive Care and Screening: Screening for High Blood Pressure and Follow-Up Documented"/>
+<artifact id="Measure/TSCComponent" key="Measure-TSCComponent" name="Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention"/>
+<artifact id="Measure/PreventiveCareandWellnessAllOrNothingComposite" key="Measure-PreventiveCareandWellnessAllOrNothingComposite" name="Preventive Care and Wellness All-Or-Nothing Composite"/>
+<artifact id="Measure/PreventiveCareandWellnessOpportunityComposite" key="Measure-PreventiveCareandWellnessOpportunityComposite" name="Preventive Care and Wellness Opportunity Composite"/>
+<artifact id="Measure/PreventiveCareandWellnessPatientLevelLinearComposite" key="Measure-PreventiveCareandWellnessPatientLevelLinearComposite" name="Preventive Care and Wellness Patient-level Linear Composite"/>
+<artifact id="Measure/PreventiveCareandWellnessWeightedComposite" key="Measure-PreventiveCareandWellnessWeightedComposite" name="Preventive Care and Wellness Weighted Composite"/>
+<artifact deprecated="true" id="Library/QICore-ModelInfo" key="Library-QICore-ModelInfo" name="QICore Model Definition"/>
+<artifact id="Library/quality-program-cqlOptions-example" key="Library-quality-program-cqlOptions-example" name="Quality Program CQL Options Example"/>
+<artifact id="Library/quality-program-example" key="Library-quality-program-example" name="Quality Program Example"/>
+<artifact id="Library/quality-program-example-2020-05" key="Library-quality-program-example-2020-05" name="Quality Program Example - 2020-05"/>
+<artifact id="ValueSet/quality-programs" key="ValueSet-quality-programs" name="Quality Programs"/>
+<artifact id="CodeSystem/quality-programs" key="CodeSystem-quality-programs" name="Quality Programs Codes"/>
+<artifact id="Measure/measure-risk-adjustment-FHIR2" key="Measure-measure-risk-adjustment-FHIR2" name="Risk Adjustment FHIR DSTU2"/>
+<artifact id="Library/risk-adjustment-FHIR2" key="Library-risk-adjustment-FHIR2" name="RiskAdjustment_FHIR2"/>
+<artifact id="CodeSystem/publishable-example" key="CodeSystem-publishable-example" name="SNOMED CT International Edition"/>
+<artifact id="ValueSet/software-system-type" key="ValueSet-software-system-type" name="Software System Type"/>
+<artifact id="CodeSystem/software-system-type" key="CodeSystem-software-system-type" name="Software System Type Codes"/>
+<artifact deprecated="true" key="StructureDefinition" name="StructureDefinition"/>
+<artifact deprecated="true" id="StructureDefinition/cqfm-dataRequirement" key="StructureDefinition-cqfm-dataRequirement" name="StructureDefinition - Measure data requirement extension"/>
+<artifact deprecated="true" id="StructureDefinition/cqfm-parameter" key="StructureDefinition-cqfm-parameter" name="StructureDefinition - Measure parameter extension"/>
+<artifact id="Library/SupplementalDataElements" key="Library-SupplementalDataElements" name="Supplemental Data Elements Library"/>
+<artifact id="Library/TJCOverall" key="Library-TJCOverall" name="TJC Overall Library"/>
+<artifact id="Library/TSCComponent" key="Library-TSCComponent" name="TSC Component Library"/>
+<artifact id="Measure/measure-terminology-FHIR" key="Measure-measure-terminology-FHIR" name="Terminology FHIR"/>
+<artifact id="Library/Terminology" key="Library-Terminology" name="Terminology Library"/>
+<artifact id="Library/USCore-ModelInfo" key="Library-USCore-ModelInfo" name="USCore Model Definition"/>
+<artifact id="Library/VTEICU" key="Library-VTEICU" name="VTE ICU Library"/>
+<artifact id="ValueSet/value-filter-comparator" key="ValueSet-value-filter-comparator" name="Value Filter Comparator"/>
+<artifact id="Measure/measure-vte-1-FHIR" key="Measure-measure-vte-1-FHIR" name="Venous Thromboembolism Prophylaxis"/>
+<artifact id="Library/ecqm-update-2020" key="Library-ecqm-update-2020" name="eCQM Annual Update 2020"/>
+<artifact id="Library/ecqm-update-2020-05-07" key="Library-ecqm-update-2020-05-07" name="eCQM Update 2020-05-07"/>
+<page key="NA" name="(NA)"/>
+<page key="many" name="(many)"/>
+<page key="acknowledgements" name="Acknowledgements"/>
+<page key="artifacts" name="Artifacts Summary"/>
+<page deprecated="true" key="cql-basics" name="CQL Basics"/>
+<page key="capabilities" name="Capabilities"/>
+<page key="changes" name="Changes"/>
+<page key="composite-measures" name="Composites"/>
+<page key="downloads" name="Downloads"/>
+<page key="examples" name="Examples"/>
+<page key="extensions" name="Extensions"/>
+<page key="glossary" name="Glossary"/>
+<page deprecated="true" key="home" name="Home"/>
+<page key="introduction" name="Introduction"/>
+<page key="measure-repository-service" name="Measure Repository Service"/>
+<page key="measure-terminology-service" name="Measure Terminology Service"/>
+<page key="packaging" name="Packaging"/>
+<page key="profiles" name="Profiles"/>
+<page key="index" name="Quality Measure Implementation Guide Homepage"/>
+<page key="toc" name="Table of Contents"/>
+<page key="terminology" name="Terminology"/>
+<page key="using-cql" name="Using CQL"/>
+<page deprecated="true" key="ecqm-basics" name="eCQM Basics"/>
+<page key="measure-conformance" name="eCQMs"/>
+<page deprecated="true" key="history" name="history"/>
+</specification>
