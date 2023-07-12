@@ -19,7 +19,7 @@
 <artifact id="CodeSystem/artifact-comment-type" key="CodeSystem-artifact-comment-type" name="Artifact Comment Type Codes"/>
 <artifact id="Library/BCSComponent" key="Library-BCSComponent" name="BCS Component Library"/>
 <artifact id="Measure/BCSComponent" key="Measure-BCSComponent" name="Breast Cancer Screening"/>
-<artifact id="Measure/BreastCancerScreeningFHIR" key="Measure-BreastCancerScreeningFHIR" name="Breast Cancer Screening FHIR Measure"/>
+<artifact deprecated="true" id="Measure/BreastCancerScreeningFHIR" key="Measure-BreastCancerScreeningFHIR" name="Breast Cancer Screening FHIR Measure"/>
 <artifact id="Library/CCSComponent" key="Library-CCSComponent" name="CCS Component Library"/>
 <artifact id="Library/ecqm-quality-program" key="Library-ecqm-quality-program" name="CMS eCQM and Hybrid Measures"/>
 <artifact id="CapabilityStatement/authoring-measure-repository" key="CapabilityStatement-authoring-measure-repository" name="CQF Measures Authoring Measure Repository Capability Statement"/>
@@ -27,7 +27,7 @@
 <artifact id="CapabilityStatement/publishable-measure-repository" key="CapabilityStatement-publishable-measure-repository" name="CQF Measures Publishable Measure Repository Capability Statement"/>
 <artifact id="CapabilityStatement/shareable-measure-repository" key="CapabilityStatement-shareable-measure-repository" name="CQF Measures Shareable Measure Repository Capability Statement"/>
 <artifact id="StructureDefinition/cqfm-aggregateMethod" key="StructureDefinition-cqfm-aggregateMethod" name="CQFM Aggregate Method"/>
-<artifact id="StructureDefinition/cqfm-allocation" key="StructureDefinition-cqfm-allocation" name="CQFM Allocation"/>
+<artifact deprecated="true" id="StructureDefinition/cqfm-allocation" key="StructureDefinition-cqfm-allocation" name="CQFM Allocation"/>
 <artifact id="StructureDefinition/cqfm-appliesTo" key="StructureDefinition-cqfm-appliesTo" name="CQFM Applies To"/>
 <artifact id="StructureDefinition/cqfm-artifactComment" key="StructureDefinition-cqfm-artifactComment" name="CQFM Artifact Comment"/>
 <artifact id="StructureDefinition/cqfm-cqlOptions" key="StructureDefinition-cqfm-cqlOptions" name="CQFM CQL Options"/>
@@ -55,6 +55,7 @@
 <artifact id="StructureDefinition/cqfm-fhirQueryPattern" key="StructureDefinition-cqfm-fhirQueryPattern" name="CQFM FHIR Query Pattern"/>
 <artifact id="StructureDefinition/cqfm-groupId" key="StructureDefinition-cqfm-groupId" name="CQFM Group Id"/>
 <artifact id="StructureDefinition/cqfm-improvementNotation" key="StructureDefinition-cqfm-improvementNotation" name="CQFM Improvement Notation"/>
+<artifact id="StructureDefinition/cqfm-includeInReportType" key="StructureDefinition-cqfm-includeInReportType" name="CQFM Include In Report Type"/>
 <artifact id="StructureDefinition/cqfm-inputParameters" key="StructureDefinition-cqfm-inputParameters" name="CQFM Input Parameters"/>
 <artifact id="StructureDefinition/cqfm-isPrimaryCitation" key="StructureDefinition-cqfm-isPrimaryCitation" name="CQFM Is Primary Citation"/>
 <artifact id="StructureDefinition/cqfm-isSelective" key="StructureDefinition-cqfm-isSelective" name="CQFM Is Selective"/>
@@ -107,24 +108,29 @@
 <artifact id="ConceptMap/data-usages" key="ConceptMap-data-usages" name="Data Usage Mapping"/>
 <artifact id="Device/software-system-example" key="Device-software-system-example" name="Device - Software System Example"/>
 <artifact id="Library/ep-ec-quality-program" key="Library-ep-ec-quality-program" name="EP/EC Quality Program"/>
-<artifact id="Measure/measure-exm" key="Measure-measure-exm" name="EXM Measure"/>
+<artifact id="Measure/EXMLogic-FHIR" key="Measure-measure-exm" name="EXM Measure"/>
+<artifact id="Measure/measure-pi-exm" key="Measure-measure-pi-exm" name="EXM Promoting Interoperability Measure"/>
 <artifact id="Measure/measure-publishable-exm" key="Measure-measure-publishable-exm" name="EXM Publishable Measure"/>
-<artifact id="Measure/measure-ratio-exm" key="Measure-measure-ratio-exm" name="EXM Ratio Measure"/>
-<artifact id="Library/EXM108" key="Library-EXM108" name="EXM108 - Venous Thromboembolism Prophylaxis Library"/>
-<artifact id="Measure/measure-exm124-FHIR" key="Measure-measure-exm124-FHIR" name="EXM124 - Cervical Cancer Screening"/>
-<artifact id="Library/EXM124" key="Library-EXM124" name="EXM124 - Cervical Cancer Screening Library"/>
-<artifact id="Library/EXM125" key="Library-EXM125" name="EXM125 - Breast Cancer Screening Library"/>
-<artifact id="Measure/measure-exm125-FHIR" key="Measure-measure-exm125-FHIR" name="EXM125 - Breast Cancer Screening Measure"/>
-<artifact id="Library/EXM130" key="Library-EXM130" name="EXM130 - Colorectal Cancer Screening Library"/>
-<artifact id="Measure/measure-exm130-FHIR" key="Measure-measure-exm130-FHIR" name="EXM130 - Colorectal Cancer Screening Measure"/>
-<artifact id="Measure/measure-exm146-FHIR" key="Measure-measure-exm146-FHIR" name="EXM146 - Appropriate Testing for Children with Pharyngitis"/>
-<artifact id="Library/EXM146" key="Library-EXM146" name="EXM146 - Example Proportion Measure Library"/>
-<artifact id="Library/EXM55" key="Library-EXM55" name="EXM55 - Example Continuous Variable Measure Library"/>
-<artifact id="Measure/measure-exm55-FHIR" key="Measure-measure-exm55-FHIR" name="EXM55 - Median ED Visit Duration"/>
-<artifact id="Library/EXMRatio" key="Library-EXMRatio" name="EXMRatio - Example Ratio Measure Library"/>
+<artifact id="Measure/EXMRatio-FHIR" key="Measure-measure-ratio-exm" name="EXM Ratio Measure"/>
+<artifact id="Measure/EXM108-FHIR" key="Measure-EXM108-FHIR" name="EXM108 - Venous Thromboembolism Prophylaxis"/>
+<artifact id="Library/EXM108-FHIR" key="Library-EXM108" name="EXM108 - Venous Thromboembolism Prophylaxis Library"/>
+<artifact id="Measure/EXM124-FHIR" key="Measure-measure-exm124-FHIR" name="EXM124 - Cervical Cancer Screening"/>
+<artifact id="Library/EXM124-FHIR" key="Library-EXM124" name="EXM124 - Cervical Cancer Screening Library"/>
+<artifact id="Measure/EXM125-FHIR" key="Measure-EXM125-FHIR" name="EXM125 - Breast Cancer Screening"/>
+<artifact id="Library/EXM125-FHIR" key="Library-EXM125" name="EXM125 - Breast Cancer Screening Library"/>
+<artifact deprecated="true" id="Measure/measure-exm125-FHIR" key="Measure-measure-exm125-FHIR" name="EXM125 - Breast Cancer Screening Measure"/>
+<artifact id="Library/EXM130-FHIR" key="Library-EXM130" name="EXM130 - Colorectal Cancer Screening Library"/>
+<artifact id="Measure/EXM130-FHIR" key="Measure-measure-exm130-FHIR" name="EXM130 - Colorectal Cancer Screening Measure"/>
+<artifact id="Measure/EXM146-FHIR" key="Measure-measure-exm146-FHIR" name="EXM146 - Appropriate Testing for Children with Pharyngitis"/>
+<artifact id="Library/EXM146-FHIR" key="Library-EXM146" name="EXM146 - Example Proportion Measure Library"/>
+<artifact deprecated="true" id="Library/EXM55" key="Library-EXM55" name="EXM55 - Example Continuous Variable Measure Library"/>
+<artifact deprecated="true" id="Measure/measure-exm55-FHIR" key="Measure-measure-exm55-FHIR" name="EXM55 - Median ED Visit Duration"/>
+<artifact id="Measure/EXM55-FHIR" key="Measure-EXM55-FHIR" name="EXM55 - Median Emergency Department Visit Duration"/>
+<artifact id="Library/EXM55-FHIR" key="Library-EXM55-FHIR" name="EXM55 - Median Emergency Department Visit Duration (Example Continuous Variable Measure Library)"/>
+<artifact id="Library/EXMRatio-FHIR" key="Library-EXMRatio" name="EXMRatio - Example Ratio Measure Library"/>
 <artifact id="Library/EXMComputableLibrary" key="Library-EXMComputableLibrary" name="Example Computable Library"/>
 <artifact id="Library/EXMExecutableLibrary" key="Library-EXMExecutableLibrary" name="Example Executable Library"/>
-<artifact id="Library/EXMLogic" key="Library-EXMLogic" name="Example Logic Library"/>
+<artifact id="Library/EXMLogic-FHIR" key="Library-EXMLogic" name="Example Logic Library"/>
 <artifact id="Library/EXMLogic-ModuleDefinition" key="Library-EXMLogic-ModuleDefinition" name="Example Logic Library - Module Definition"/>
 <artifact id="Library/EXMPublishableLibrary" key="Library-EXMPublishableLibrary" name="Example Publishable Library"/>
 <artifact id="ValueSet/executable-example" key="ValueSet-executable-example" name="Executable Example"/>
@@ -153,11 +159,11 @@
 <artifact id="ConceptMap/measure-scoring" key="ConceptMap-measure-scoring" name="Measure Scoring mapping"/>
 <artifact id="CapabilityStatement/measure-terminology-service" key="CapabilityStatement-measure-terminology-service" name="Measure Terminology Service Capability Statement"/>
 <artifact id="ConceptMap/measure-types" key="ConceptMap-measure-types" name="Measure Type mapping"/>
-<artifact id="Measure/measure-exm-default" key="Measure-measure-exm-default" name="Measure with default value measurement period"/>
+<artifact deprecated="true" id="Measure/measure-exm-default" key="Measure-measure-exm-default" name="Measure with default value measurement period"/>
 <artifact id="MeasureReport/testcase-example" key="MeasureReport-testcase-example" name="MeasureReport - Test Case Example"/>
 <artifact id="OperationDefinition/MeasureReport-package" key="OperationDefinition-MeasureReport-package" name="MeasureReport Packaging"/>
-<artifact id="Library/MultiRateExample" key="Library-MultiRateExample" name="Multi Rate Example Logic Library"/>
-<artifact id="Measure/multi-rate-example" key="Measure-multi-rate-example" name="Multi-Rate Example Measure"/>
+<artifact id="Library/MultiRateExample-FHIR" key="Library-MultiRateExample" name="Multi Rate Example Logic Library"/>
+<artifact id="Measure/MultiRateExample-FHIR" key="Measure-multi-rate-example" name="Multi-Rate Example Measure"/>
 <artifact id="Library/PVSComponent" key="Library-PVSComponent" name="PVS Component Library"/>
 <artifact id="Measure/PVSComponent" key="Measure-PVSComponent" name="Pneumococcal Vaccination Status for Older Adults"/>
 <artifact id="Measure/HBPComponent" key="Measure-HBPComponent" name="Preventive Care and Screening: Screening for High Blood Pressure and Follow-Up Documented"/>
@@ -183,12 +189,12 @@
 <artifact id="Library/SupplementalDataElements" key="Library-SupplementalDataElements" name="Supplemental Data Elements Library"/>
 <artifact id="Library/TJCOverall" key="Library-TJCOverall" name="TJC Overall Library"/>
 <artifact id="Library/TSCComponent" key="Library-TSCComponent" name="TSC Component Library"/>
-<artifact id="Measure/measure-terminology-FHIR" key="Measure-measure-terminology-FHIR" name="Terminology FHIR"/>
-<artifact id="Library/Terminology" key="Library-Terminology" name="Terminology Library"/>
+<artifact id="Measure/Terminology-FHIR" key="Measure-measure-terminology-FHIR" name="Terminology FHIR"/>
+<artifact id="Library/Terminology-FHIR" key="Library-Terminology" name="Terminology Library"/>
 <artifact id="Library/USCore-ModelInfo" key="Library-USCore-ModelInfo" name="USCore Model Definition"/>
 <artifact id="Library/VTEICU" key="Library-VTEICU" name="VTE ICU Library"/>
 <artifact id="ValueSet/value-filter-comparator" key="ValueSet-value-filter-comparator" name="Value Filter Comparator"/>
-<artifact id="Measure/measure-vte-1-FHIR" key="Measure-measure-vte-1-FHIR" name="Venous Thromboembolism Prophylaxis"/>
+<artifact deprecated="true" id="Measure/measure-vte-1-FHIR" key="Measure-measure-vte-1-FHIR" name="Venous Thromboembolism Prophylaxis"/>
 <artifact id="Library/ecqm-update-2020" key="Library-ecqm-update-2020" name="eCQM Annual Update 2020"/>
 <artifact id="Library/ecqm-update-2020-05-07" key="Library-ecqm-update-2020-05-07" name="eCQM Update 2020-05-07"/>
 <page key="NA" name="(NA)"/>
@@ -209,11 +215,11 @@
 <page key="measure-terminology-service" name="Measure Terminology Service"/>
 <page key="packaging" name="Packaging"/>
 <page key="profiles" name="Profiles"/>
+<page key="measure-conformance" name="QMs"/>
 <page key="index" name="Quality Measure Implementation Guide Homepage"/>
 <page key="toc" name="Table of Contents"/>
 <page key="terminology" name="Terminology"/>
 <page key="using-cql" name="Using CQL"/>
 <page deprecated="true" key="ecqm-basics" name="eCQM Basics"/>
-<page key="measure-conformance" name="eCQMs"/>
 <page deprecated="true" key="history" name="history"/>
 </specification>

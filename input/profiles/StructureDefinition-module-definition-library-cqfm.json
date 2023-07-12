@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "module-definition-library-cqfm",
   "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/module-definition-library-cqfm",
-  "version": "4.0.0-ballot",
+  "version": "4.0.0",
   "name": "CQFMModuleDefinitionLibrary",
   "title": "CQFM Module Definition Library",
   "status": "active",
@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "The CQFM Module Definition Library profile defines the must support elements for a library that communicates the effective data requirements and dependencies of an artifact (or set of artifacts). This is most commonly used as the result of a $data-requirements operation, but could also be persisted statically as a way to persist the calculation of effective data requirements for a specific artifact and input parameters",
+  "description": "The CQFM Module Definition Library profile defines the must support elements for a library that communicates the effective data requirements and dependencies of an artifact (or set of artifacts). This is most commonly used as the result of a $data-requirements operation, but could also be persisted statically as a way to persist the calculation of effective data requirements for a specific artifact and input parameters. This provides a filtered view of elements, definitions, codes and value sets required for the measure.",
   "jurisdiction": [
     {
       "coding": [
@@ -77,6 +77,23 @@
             "code": "Extension",
             "profile": [
               "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.extension:logicDefintion",
+        "path": "Library.extension",
+        "sliceName": "logicDefinition",
+        "requirements": "A module definition library must specify all the definitions used by the measure.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition"
             ]
           }
         ],

@@ -23,6 +23,7 @@
 - [Is Test Case](StructureDefinition-cqfm-isTestCase.html)
 - [Logic Definition](StructureDefinition-cqfm-logicDefinition.html)
 - [Meaningful Measure Area](StructureDefinition-cqfm-meaningfulMeasureArea.html)
+- [Operation](StructureDefinition-cqfm-operation.html)
 - [Part Of](StructureDefinition-cqfm-partOf.html)
 - [Population Basis](StructureDefinition-cqfm-populationBasis.html)
 - [Program Identifier](StructureDefinition-cqfm-programIdentifier.html)

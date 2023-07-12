@@ -185,3 +185,4 @@ These changes will be published as part of the STU3 release (v3.0.0)
 * [**FHIR-28206**](https://jira.hl7.org/browse/FHIR-28206): Updated glossary terms
 * [**FHIR-26331**](https://jira.hl7.org/browse/FHIR-26331): Corrected breadcrumbs display throughout the IG
 * [**FHIR-26329**](https://jira.hl7.org/browse/FHIR-26329): Updated the IG to use the standard HL7 FHIR IG template
+* [**FHIR-27930**](https://jira.hl7.org/browse/FHIR-27930): Added PI Measure example (no library)

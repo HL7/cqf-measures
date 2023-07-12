@@ -8,6 +8,7 @@
 * [**RatioMeasure**](Measure-EXMRatio-FHIR.html) Ratio measure example - [Library](Library-EXMRatio-FHIR.html)
 * [**Terminology**](Measure-Terminology-FHIR.html) Example illustrating terminology usage - [Library](Library-Terminology-FHIR.html)
 * [**RiskAdjustment**](Measure-measure-risk-adjustment-FHIR2.html) Example illustrating risk adjustment usage - [Library](Library-risk-adjustment-FHIR2.html)
+* [**PromotingInteroperabilityMeasure**](Measure-measure-pi-exm.html) Promoting Interoperability measure example <!---  [Library](Library-EXMRatio.html) -->
 * [**Common Library**](Library-Common.html) Usage example illustrating a library to share logic between measures
 * [**SupplementalDataElements**](Library-SupplementalDataElements.html) Library illustrating common supplemental data elements
 
@@ -75,6 +76,13 @@ Interpretation: For each Eligible Clinician (EC), the percentage of completed pr
 Interpretation: For each Eligible Clinician (EC), percentage of patients who received preventive services, which gives EC partial numerator credit for meeting the criteria for some but not all components of the measure.
 
 [Preventive Care and Wellness (Component-level weighted)](Measure-PreventiveCareandWellnessWeightedComposite.html)
+
+### Test Case examples
+
+The sections provide examples of test cases
+
+* [Simple Test Case](MeasureReport-testcase-example.html) - Example test case illustrating expected input parameters and expected output results given those input parameters.
+* [Bundled Test Case](Bundle-bundle-example.html) - Example test case in a bundle illustrating expected input parameters and expected output results given those input parameters along with evaluatedResources.
 
 ### Quality Programs
 

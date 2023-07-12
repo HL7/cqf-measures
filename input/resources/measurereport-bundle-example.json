@@ -1,0 +1,419 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-example",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57904",
+      "resource": {
+        "resourceType": "MeasureReport",
+        "id": "47709cc7-b3ec-4abc-9d26-3df3d3d57904",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"
+          ]
+        },
+        "contained": [
+          {
+            "resourceType": "Parameters",
+            "id": "testcase-example-parameters",
+            "parameter": [
+              {
+                "name": "subject",
+                "valueString": "123"
+              }
+            ]
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters",
+            "valueReference": {
+              "reference": "#testcase-example-parameters"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+            "valueMarkdown": "Example test case in a bundle illustrating expected input parameters and expected output results given those input parameters along with evaluatedResources."
+          }
+        ],
+        "modifierExtension": [
+          {
+            "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+            "valueBoolean": true
+          }
+        ],
+        "status": "complete",
+        "type": "individual",
+        "measure": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM130-FHIR",
+        "subject": {
+          "reference": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57906"
+        },
+        "date": "2019-03-14",
+        "reporter": {
+          "reference": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57905"
+        },
+        "period": {
+          "end": "2019-01-01",
+          "start": "2018-12-31"
+        },
+        "improvementNotation": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+              "code": "increase",
+              "display": "Increased score indicates improvement"
+            }
+          ]
+        },
+        "group": [
+          {
+            "measureScore": {
+              "value": 1
+            },
+            "code": {
+              "coding": [
+                {
+                  "system": "http://example.org/fhir/",
+                  "code": "group-1",
+                  "display": "group-1"
+                }
+              ]
+            },
+            "population": [
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "initial-population",
+                      "display": "Initial Population"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "numerator",
+                      "display": "Numerator"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "denominator",
+                      "display": "Denominator"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "denominator-exclusion",
+                      "display": "Denominator Exclusion"
+                    }
+                  ]
+                },
+                "count": 0
+              }
+            ]
+          }
+        ],
+		"evaluatedResource": [
+			{
+				"reference": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57905"
+			},
+      {
+				"reference": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57906"
+			},
+      {
+				"reference": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57907"
+			},
+      {
+				"reference": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57908"
+			}
+		]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MeasureReport"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57905",
+      "resource": {
+        "resourceType": "Organization",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
+          ],
+          "source": "http://example.org/fhir/server"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "TAX",
+                  "display": "Tax ID number"
+                }
+              ]
+            },
+            "system": "urn:oid:2.16.840.1.113883.4.4",
+            "value": "123456789",
+            "assigner": {
+              "display": "www.irs.gov"
+            }
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "DaVinciHospital01",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(+1) 401-555-1212"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "73 Lakewood Street"
+            ],
+            "city": "Warwick",
+            "state": "RI",
+            "postalCode": "02886",
+            "country": "USA"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57906",
+      "resource": {
+        "resourceType": "Patient",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+          ],
+          "source": "http://example.org/fhir/server"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "F"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "White"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ]
+            },
+            "system": "http://hospital.davinci.org",
+            "value": "67890"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Webster",
+            "given": [
+              "Thelma"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1948-04-28",
+        "deceasedBoolean": false,
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "7496 Beaver Ridge Ave"
+            ],
+            "city": "Thornton",
+            "state": "NJ",
+            "postalCode": "07003",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "M",
+              "display": "Married"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en-US",
+                  "display": "English (Region=United States)"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57907",
+      "resource": {
+        "resourceType": "Practitioner",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"
+          ],
+          "source": "http://example.org/fhir/server"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PRN",
+                  "display": "Provider number"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "123456789"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Akers",
+            "given": [
+              "Nia"
+            ],
+            "suffix": [
+              "MD"
+            ]
+          }
+        ],
+        "gender": "female"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57908",
+      "resource": {
+        "resourceType": "Observation",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"
+          ],
+          "source": "http://example.org/fhir/server"
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77353-1",
+              "display": "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57906"
+        },
+        "effectiveDateTime": "2018-06-22",
+        "performer": [
+          {
+            "reference": "urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57907"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    }
+  ],
+  "meta": {
+    "source": "http://example.org/fhir/server"
+  }
+}
