@@ -6,24 +6,8 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/cqfmeasures/Str
 # CPT Code System Not Supported, the content containing these codes is from measure developers, built with VSAC-enabled tooling, we are confident the CPT codes referenced here are correct
 Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 
-# The value set contains an explicit reference to a 2015 version of SNOMED, which is the point of the example. Will replace with an updated example if we find one from the connectathon prior to publication
-WARNING: ValueSet.where(id = 'chronic-liver-disease-legacy-example'): Error from server: Unable to provide support for code system http://snomed.info/sct
-
 # This error appears to be inherited from the base capability statement
-WARNING: StructureDefinition/capability-statement-cqfm: StructureDefinition.snapshot.element[0].constraint[6].xpath: value should not start or finish with whitespace ' not(f:kind/@value='instance')...exists(f:software))'
-
-# These warnings are all caused by the maxBinding in the base Expression.language element to http://www.rfc-editor.org/bcp/bcp13.txt instead of to the AllMediaTypes value set. This is corrected in R5 and there is a tracker to correct it in R4B as well: https://jira.hl7.org/browse/FHIR-36705
-ValueSet http://www.rfc-editor.org/bcp/bcp13.txt not found by validator
-WARNING: Measure/measure-exm: Measure.group[0].stratifier[0].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm: Measure.group[0].stratifier[1].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm: Measure.group[0].stratifier[2].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm: Measure.group[0].stratifier[3].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm-default: Measure.group[0].stratifier[0].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm-default: Measure.group[0].stratifier[1].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm-default: Measure.group[0].stratifier[2].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm55-FHIR: Measure.group[0].stratifier[0].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm55-FHIR: Measure.group[0].stratifier[1].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-WARNING: Measure/measure-exm55-FHIR: Measure.group[0].stratifier[2].criteria: The expression language text/cql-identifier is not supported, so can't be validated
+WARNING: StructureDefinition/capability-statement-cqfm: StructureDefinition.snapshot.element[0].constraint[6].xpath: value should not start or finish with whitespace ' not(f:kind/@value='instance') or (not(exists(f:implementation)) and exists(f:software))'
 
 # This is a composite measure, which is defined in terms of other measures so does not require a group element (Tooling issue submitted: https://jira.hl7.org/browse/FHIR-36721)
 WARNING: Measure/PreventiveCareandWellnessAllOrNothingComposite: Measure: A measure should contain at least one group
@@ -31,6 +15,19 @@ WARNING: Measure/PreventiveCareandWellnessOpportunityComposite: Measure: A measu
 WARNING: Measure/PreventiveCareandWellnessPatientLevelLinearComposite: Measure: A measure should contain at least one group
 WARNING: Measure/PreventiveCareandWellnessWeightedComposite: Measure: A measure should contain at least one group
 
-# This group is a composite measure, which is defined in terms of other measures, so does not require populations (Tooling issue submitted: https://jira.hl7.org/browse/FHIR-36721)
-WARNING: Measure/multi-rate-example: Measure.group[5]: Measure Groups should have at least one population
+# Confirmed these slices match in other profiles
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-library-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-measure-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cv-measure-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cohort-measure-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm|4.0.0
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm|4.0.0
 
+# The expression language text/cql-identifier is supported at the population.criteria level but not at the stratifier.criteria level. Messages only appear at the stratifier.criteria examples
+The expression language text/cql-identifier is not supported, so can't be validated
