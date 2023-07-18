@@ -43,7 +43,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "Element"
+      "expression": "Resource"
     }
   ],
   "type": "Extension",
@@ -207,6 +207,39 @@
         ]
       },
       {
+        "id" : "Extension.extension:authoredOn",
+        "path" : "Extension.extension",
+        "sliceName" : "authoredOn",
+        "short" : "Date and time the comment was made",
+        "definition" : "Specifies the date and time the comment was authored.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [{
+          "code" : "Extension"
+        }]
+      },
+      {
+        "id" : "Extension.extension:authoredOn.extension",
+        "path" : "Extension.extension.extension",
+        "max" : "0"
+      },
+      {
+        "id" : "Extension.extension:authoredOn.url",
+        "path" : "Extension.extension.url",
+        "type" : [{
+          "code" : "uri"
+        }],
+        "fixedUri" : "authoredOn"
+      },
+      {
+        "id" : "Extension.extension:authoredOn.value[x]",
+        "path" : "Extension.extension.value[x]",
+        "min" : 1,
+        "type" : [{
+          "code" : "dateTime"
+        }]
+      },
+        {
         "id": "Extension.url",
         "path": "Extension.url",
         "type": [

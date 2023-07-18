@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "measure-cqfm",
   "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm",
-  "version": "4.0.0-ballot",
+  "version": "4.0.0",
   "name": "CQFMMeasure",
   "title": "CQFM Measure",
   "status": "active",
@@ -167,7 +167,7 @@
             "key": "cqm-3",
             "severity": "warning",
             "human": "Group identifiers SHOULD use the convention: \"group-[group number]\", where [group number] corresponds with the group naming convention for the criteria within the group",
-            "expression": "value.startsWith('group-')",
+            "expression": "startsWith('group-')",
             "xpath": "exists(f:value)"
           }
         ],
@@ -249,15 +249,6 @@
         "id": "Measure.supplementalData",
         "path": "Measure.supplementalData",
         "requirements": "A measure should provide supplemental data appropriate for the measure content.",
-        "constraint": [
-          {
-            "key": "cqm-6",
-            "severity": "warning",
-            "human": "Supplemental data SHALL use either criteria or path",
-            "expression": "criteria.exists() or path.exists()",
-            "xpath": "exists(f:value)"
-          }
-        ],
         "mustSupport": true
       },
       {
@@ -288,7 +279,15 @@
         "path": "Measure.supplementalData.code",
         "mustSupport": true,
         "binding": {
-          "strength": "extensible",
+          "strength": "preferred",
+          "valueSet": "https://terminology.hl7.org/ValueSet/measure-supplemental-data"
+        }
+      },
+      {
+        "id": "Measure.supplementalData.usage",
+        "path": "Measure.supplementalData.usage",
+        "binding": {
+          "strength": "preferred",
           "valueSet": "http://terminology.hl7.org/ValueSet/measure-data-usage"
         }
       }

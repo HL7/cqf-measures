@@ -1,0 +1,38 @@
+{
+  "resourceType" : "SearchParameter",
+  "id" : "ValueSet-keyword",
+  "url" : "http://hl7.org/fhir/us/cqfmeasures/SearchParameter/ValueSet-keyword",
+  "name" : "ValuesetKeyword",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2023-06-12T13:00:00-05:00",
+  "publisher" : "Clinical Quality Information WG",
+  "contact" : [
+    {
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Search within the keyword extension",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "code" : "keyword",
+  "base" : [
+    "ValueSet"
+  ],
+  "type" : "string",
+  "expression" : "ValueSet.extension.where(url='http://hl7.org/fhir/StructureDefinition/valueset-keyWord').valueString",
+  "xpathUsage" : "normal"
+}

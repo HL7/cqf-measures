@@ -36,9 +36,35 @@ Because this capability results in the potential for parameter values to be supp
 2. If a ValueSet dependency is specified as part of the version manifest (and no version for the value set is specified in the artifact reference), the version has the same meaning as the `valueSetVersion` parameter to the $expand
 3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
 4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
+5. When processing an expand (or any artifact operation that will encounter canonical references), when an un-versioned canonical reference is encountered, the manifest is consulted to determine a version of the artifact to be used for that reference.
+
+For example, the following snippet is from a value set that includes two other value sets without specifying a version for them (an un-versioned canonical), but the manifest SHOULD contain the canonical with version for those included value sets.
+
+```
+ "compose": {
+    "include": [ {
+      "valueSet": [ "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1078" ]
+    }, {
+      "valueSet": [ "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079" ]
+    } ]
+  }
+```
+To continue with this example, the manifest `relatedArtifact.resource` would contain the version, as shown below:
+
+```
+  "relatedArtifact": [ {
+    "type": "depends-on",
+    "display": "Cancer",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1078|20220218"
+  }, ...
+  ```
+
 
 #### Quality Programs
 To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-cqfm-partOf.html) extension.
+
+
+
 
 #### Hosted Content
 Terminology services may act as a repository for content that is managed and created elsewhere (i.e. hosted content AKA a convenience copy), or they may provide features to author and manage content directly, or any combination. When hosting content that is managed elsewhere, the service must ensure that the content of the resource is materially the same (i.e. the values for all elements are the same where those elements are specified in the Shareable and Publishable profiles) as the source of truth.
@@ -127,17 +153,18 @@ Note that when a code system authority has not established a versioning system, 
     9. keyword: Returning any valueset that has a valueset-keyword extension  matching the given keyword
 
 9. SHOULD support ValueSet searches by:
-    1. expansion: Used in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
-    2. context: Returning all artifacts with a use context value matching the given context
-    3. context-type: Returning all artifacts with a use context type matching the given context type
-    4. context-type-quantity: Returning all artifacts with a use context quantity or range matching the given quantity
-    5. context-type-value: Returning all artifacts with a given use context type and value
-    6. codesystem: Returning any valueset that directly references the given codesystem url (optionally versioned)
-    7. valueset: Returning any valueset that references or is referenced by the given valueset url (optionally versioned)
-    8. library: Returning any valueset that is referenced by the given library url (optionally versioned)
-    9. measure: Returning any valueset that is referenced by the given measure url (optionally versioned)
-    10. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
-    11. servers SHOULD support the _text and _content search parameters (as described in the base spec here https://hl7.org/fhir/search.html#text) 
+    1. context: Returning all artifacts with a use context value matching the given context
+    2. context-type: Returning all artifacts with a use context type matching the given context type
+    3. context-type-quantity: Returning all artifacts with a use context quantity or range matching the given quantity
+    4. context-type-value: Returning all artifacts with a given use context type and value
+    5. codesystem: Returning any valueset that directly references the given codesystem url (optionally versioned)
+    6. valueset: Returning any valueset that references or is referenced by the given valueset url (optionally versioned)
+    7. library: Returning any valueset that is referenced by the given library url (optionally versioned)
+    8. measure: Returning any valueset that is referenced by the given measure url (optionally versioned)
+    9. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
+    10. servers SHOULD support the _text and _content search parameters (as described in the base spec here https://hl7.org/fhir/search.html#text) 
+    11. expansion: MAY support returning any ValueSet instance with the given expansion identifier. May be used in combination with url or identifier
+
 
 10. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. SHALL support the url parameter
@@ -160,12 +187,15 @@ Note that when a code system authority has not established a versioning system, 
     7. SHALL support the system-version parameter
     8. SHALL support the check-system-version parameter
     9. SHALL support the force-system-version parameter
-    10. SHOULD support includeDesignation parameter
-    11. SHOULD support designation parameter
-    12. SHOULD support paging parameters
-    13. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    14. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    15. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    10. SHALL support the canonicalVersion parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    11. SHALL support the forceCanonicalVersion parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    12. SHALL support the checkCanonicalVersion parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    13. MAY support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    14. SHOULD support includeDesignation parameter
+    15. SHOULD support designation parameter
+    16. SHOULD support paging parameters
+    17. SHOULD support the `manifest` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    18. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
 
 ### Quality Programs (Artifact Collections)
 
@@ -186,15 +216,18 @@ Note that when a code system authority has not established a versioning system, 
     8. composed-of: Returning any quality program that includes the given measure canonical or quality program version manifest or release
     9. depends-on: Returning any quality program that references the given code system or value set canonical
     10. part-of: Returning any version manifest or release that is part of the given quality program
+    11. contained-parameter-name: MAY support returning any quality program having the given value in the Library.contained.parameter.name
+    12. expansion-identifier: MAY support returning any quality program having the the given value in the Library.contained.parameter.valueUri 
 
 5. SHALL support specifying expansion rules for the following $expand parameters
     1. SHALL support the activeOnly parameter
     2. SHALL support the system-version parameter
     3. SHALL support the check-system-version parameter
     4. SHALL support the force-system-version parameter
-    5. SHOULD support other parameters
-    6. SHOULD support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    7. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    5. SHALL support the valueSetVersion parameter
+    6. MAY support the `expansion` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    7. SHOULD support other parameters
+    8. SHOULD support the `includeDraft` parameter (defined in the [cqfm-valueset-expand](OperationDefinition-ValueSet-expand.html))
 
 6. Because this capability results in the potential for parameter values to be supplied in multiple places, the following rules apply:
     1. If a parameter is specified as part of the $expand operation directly, it takes precedence
@@ -202,14 +235,15 @@ Note that when a code system authority has not established a versioning system, 
     3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
     4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
-7. SHALL support version manifest and release value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
+7. SHALL support version manifest and release value set packaging: [Library/$cqfm.package](OperationDefinition-cqfm-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
     4. SHOULD support the count parameter
-    5. SHOULD support system-version parameter (overrides code system versions specified in the quality program release)
-    6. SHOULD support check-system-version parameter (overrides code system versions specified in the quality program release)
-    7. SHOULD support force-system-version parameter (overrides code system versions specified in the quality program release)
+    5. SHOULD support canonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    6. SHOULD support checkCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    7. SHOULD support forceCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    8. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
 
 8. SHALL support operations to enable maintenance of release specifications for quality programs for Library resources that conform to the Quality Program profile:
     1. SHALL support creating a Library in "draft" status (using POST)
@@ -262,6 +296,7 @@ The `compose` element of this value set is:
 
 ```
 "compose": {
+  "inactive": true,
   "include": [
     {
       "system": "http://snomed.info/sct",
@@ -367,7 +402,7 @@ The expected [result](ValueSet-chronic-liver-disease-legacy-example-current-acti
 }
 ```
 
-The result of the `activeOnly` parameter is to exclude the inactive code, even
+The result of the `activeOnly` parameter set to `true` is to exclude the inactive code, even
 though it was explicitly included in the value set definition.
 
 ##### Version-specific expand
@@ -494,10 +529,22 @@ The following example illustrates a program release that is an _active_ instance
 Specifically, the program release uses the `expansion` parameter in the contained expansion parameters at the artifact collection level to indicate that all value sets used with artifacts in the program should expand using this expansion identifier:
 
 ```
-{
-  "name": "expansion",
-  "valueUri": "eCQM%20Update%202020-05-07"
-}
+"contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "exp-params",
+      "parameter": [
+        {
+          "name" : "system-version",
+          "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+        },
+        {
+          "name": "expansion",
+          "valueUri": "eCQM%20Update%202020-05-07"
+        }
+      ]
+    }
+  ]
 ```
 
 In addition, the program release specifies versions of code systems, value sets, and measures included in the release:
@@ -538,6 +585,38 @@ In addition, the program release specifies versions of code systems, value sets,
 The full example is available here:
 
 * [eCQM Release, 2020-05-07](Library-ecqm-update-2020-05-07.html)
+
+#### Discovery of Expansion Identifiers
+
+To discover what values of the $expand `expansion` parameter are supported by the Measure Terminology Service, start with a Library search using the `_profile` parameter to limit the search to [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html), and the `contained-parameter-name` search parameter with the value `expansion`.
+
+Note that some terminology servers support the use of persisted expansions to ensure stable expansion of value sets included as part of a release. This approach provides an alternative to explicitly stating binding versions for all the unreferenced canonical references used in the artifacts included in a release. Because expansion identifiers are server-specific, the preferred approach is to make use of the version manifest to state binding versions. However, the use of expansion identifiers MAY be used as an alternative.
+
+If Library.contained.parameter.name matches the contained-parameter-name search parameter, then return this Library in the searchset.
+
+For example, 
+```
+[base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&contained-parameter-name=expansion
+```
+
+That example searches for CQFM Quality Program Library resources that have Library.contained.parameter.name equal to the string `expansion`. The corresponding Library.contained.parameter.valueUri is the expansion identifier, which can be used in a ValueSet $expand. If the previous Library search found a ValurUri with "eCQM%20Update%202020-05-07", then use it in a ValueSet search with the `expansion` parameter:  
+```
+[base]/Valueset/[id]/$expand?expansion=eCQM%20Update%202020-05-07
+```
+
+To discover what value sets are associated with an expansion identifier `eCQM%20Update%202020-05-07`, you can search for a Library with the [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) profile and `expansion-identifier` equal to `eCQM%20Update%202020-05-07`
+
+```
+[base]/Library?_profile=http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm&expansion-identifier=eCQM%20Update%202020-05-07
+```
+
+The Library resource(s) that match will have the canonical for the value sets listed in Library.relatedArtifact.resource with relatedArtifact.type equal to "depends-on".
+
+Another way to discover value sets associated with a given expansion identifier is to use the expansion identifier (`eCQM%20Update%202020-05-07` in this example) in a ValueSet search
+
+```
+[base]/ValueSet?expansion=eCQM%20Update%202020-05-07
+```
 
 ##### Expansion with manifests and releases:
 

@@ -245,6 +245,22 @@
         <definition value="http://hl7.org/fhir/SearchParameter/conformance-context-type-value"/>
         <type value="composite"/>
       </searchParam>
+      <searchParam>
+				<extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+					<valueCode value="MAY" />
+				</extension>
+				<name value="expansion" />
+				<definition value="http://hl7.org/fhir/SearchParameter/ValueSet-expansion" />
+				<type value="uri" />
+			</searchParam>
+      <searchParam>
+				<extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+					<valueCode value="SHALL" />
+				</extension>
+				<name value="keyword" />
+				<definition value="http://hl7.org/fhir/us/cqfmeasures/SearchParameter/ValueSet-keyword" />
+				<type value="string" />
+			</searchParam>
     </resource>
     <resource>
       <type value="Library"/>
@@ -343,6 +359,22 @@
         <definition value="http://hl7.org/fhir/SearchParameter/Library-composed-of"/>
         <type value="reference"/>
       </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="contained-parameter-name"/>
+        <definition value="http://hl7.org/fhir/us/cqfmeasures/SearchParameter/Library-contained-parameter-name"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="expansion-identifier"/>
+        <definition value="http://hl7.org/fhir/us/cqfmeasures/SearchParameter/Library-expansion-identifier"/>
+        <type value="string"/>
+      </searchParam>
     </resource>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -353,7 +385,7 @@
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHOULD"/>
+        <valueCode value="SHALL"/>
       </extension>
       <name value="expand"/>
       <definition value="http://hl7.org/fhir/us/cqfmeasures/OperationDefinition/ValueSet-expand"/>
@@ -377,7 +409,7 @@
         <valueCode value="SHALL"/>
       </extension>
       <name value="translate"/>
-      <definition value="http://hl7.org/fhir/us/cqfmeasures/OperationDefinition/Library-package"/>
+      <definition value="http://hl7.org/fhir/us/cqfmeasures/OperationDefinition/cqfm-package"/>
     </operation>
   </rest>
 </CapabilityStatement>

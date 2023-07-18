@@ -26,7 +26,7 @@
             <valueCoding>
                <system value="http://loinc.org"></system>
                <code value="34534-8"></code>
-               <display value="EKG 12 channel panel"></display>
+               <display value="12 lead EKG panel"></display>
             </valueCoding>
          </extension>
          <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode">
@@ -327,7 +327,7 @@
             <extension url="statement">
                <valueString value="define &quot;Encounter with Order for Electrocardiogram for Hypertension&quot;:
   &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
-      with ( [ServiceRequest: &quot;EKG 12 channel panel&quot;]
+      with ( [ServiceRequest: &quot;12 lead EKG panel&quot;]
         union [ServiceRequest: &quot;EKG study&quot;] ) ECG
         such that ECG.authoredOn same day as start of QualifyingEncounter.period"></valueString>
             </extension>
@@ -581,7 +581,7 @@
             <extension url="statement">
                <valueString value="define &quot;Encounter with Order for Hypertension Follow Up Declined by Patient&quot;:
   &quot;Qualifying Encounter During Measurement Period&quot; QualifyingEncounter
-      with ( [ServiceRequest: &quot;EKG 12 channel panel&quot;]
+      with ( [ServiceRequest: &quot;12 lead EKG panel&quot;]
         union [ServiceRequest: &quot;EKG study&quot;]
         union [ServiceRequest: &quot;Follow Up Within One Year&quot;]
         union [ServiceRequest: &quot;Follow Up Within 4 Weeks&quot;]
@@ -1109,7 +1109,7 @@
                <code>
                   <system value="http://loinc.org"></system>
                   <code value="34534-8"></code>
-                  <display value="EKG 12 channel panel"></display>
+                  <display value="12 lead EKG panel"></display>
                </code>
             </codeFilter>
          </dataRequirement>
@@ -1135,7 +1135,7 @@
                <code>
                   <system value="http://loinc.org"></system>
                   <code value="34534-8"></code>
-                  <display value="EKG 12 channel panel"></display>
+                  <display value="12 lead EKG panel"></display>
                </code>
             </codeFilter>
          </dataRequirement>

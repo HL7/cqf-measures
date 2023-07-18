@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "publishable-measure-cqfm",
   "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm",
-  "version": "4.0.0-ballot",
+  "version": "4.0.0",
   "name": "CQFMPublishableMeasure",
   "title": "CQFM Publishable Measure",
   "status": "active",
@@ -102,7 +102,7 @@
           "rules": "open"
         },
         "requirements": "A published measure must be able to specify additional identifiers such as endorser and publisher identifiers for the measure.",
-        "min": 0,
+        "min": 3,
         "max": "*",
         "type": [
           {
@@ -499,7 +499,7 @@
         "id": "Measure.useContext:qualityProgram",
         "path": "Measure.useContext",
         "sliceName": "qualityProgram",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "mustSupport": true
       },
@@ -560,26 +560,12 @@
         "id": "Measure.approvalDate",
         "path": "Measure.approvalDate",
         "requirements": "A published measure must indicate the date the measure content was approved by the publisher.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "date"
-          }
-        ],
         "mustSupport": true
       },
       {
         "id": "Measure.lastReviewDate",
         "path": "Measure.lastReviewDate",
         "requirements": "A published measure must indicate when the measure content was last reviewed.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "date"
-          }
-        ],
         "mustSupport": true
       },
       {

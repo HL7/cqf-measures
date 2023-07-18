@@ -1,13 +1,13 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqfm-type",
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type",
-  "version": "4.0.0",
-  "name": "CQFMType",
-  "title": "CQFM Type",
+  "id": "cqfm-operation",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-operation",
+  "version": "1.0.0",
+  "name": "CQFMOperation",
+  "title": "CQFM Operation",
   "status": "active",
   "experimental": false,
-  "date": "2019-02-13",
+  "date": "2023-06-29",
   "publisher": "Clinical Quality Information WG",
   "contact": [
     {
@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization.",
+  "description": "Specifies the operation definition",
   "jurisdiction": [
     {
       "coding": [
@@ -30,6 +30,7 @@
       ]
     }
   ],
+  "purpose": "This extension specificies the operation definition for a test case. Default to $evaluate-measure if extension is not defined in the test case.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -43,7 +44,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "Measure.group"
+      "expression": "MeasureReport"
     }
   ],
   "type": "Extension",
@@ -54,8 +55,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "process | outcome | structure | patient-reported-outcome",
-        "definition": "Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization.",
+        "short": "References the operation definition for a test case.",
+        "definition": "References the operation definition for a test case.",
         "min": 0,
         "max": "1"
       },
@@ -67,21 +68,19 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type"
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-operation"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "CodeableConcept"
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/OperationDefinition"
+            ]
           }
-        ],
-        "binding": {
-          "strength": "extensible",
-          "description": "Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization.",
-          "valueSet": "http://terminology.hl7.org/ValueSet/measure-type"
-        }
+        ]
       }
     ]
   }
