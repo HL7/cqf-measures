@@ -164,12 +164,19 @@
         "auth": {
             "type": "basic",
             "basic": {
-                "username": "jreyno77",
-                "password": "505813bd-0d58-4df4-b959-3f5c7532d587"
+                "username": "{{basicUser}}",
+                "password": "{{basicPass}}"
             }
         },
+        "docs": "The Base URL and Basic Authentication are setup to use environment variables.\n\nThe Base URL has a default *Global* environment variable that you can edit under the Environment tab\n\n[![GlobalEnvSnippet](GlobalEnvSnip.png)](https://github.com/jreyno77/cqf-measures/tree/master/thunder-tests/img/GlobalEnvSnip.png)\n\nBasic Auth is setup using the *Local* environment.  In order to setup your Local Env click on the three lines under your Env tab of Thunder Client\n\nThen choose Local Environment to enable it:\n\n[![EnvTabSnippet](EnvTabSnippet.png)](https://github.com/jreyno77/cqf-measures/tree/master/thunder-tests/img/EnvTabSnippet.png)\n\nOnce you have enabled your Local Env you can add your *basicUser* and *basicPass* variables and those will be used for you basic Authentication within this Collection:\n\n[![LocalEnvSnippet](LocalEnvSnippet.png)](https://github.com/jreyno77/cqf-measures/tree/master/thunder-tests/img/LocalEnvSnippet.png)\n\n\n\n[![CollectionAuthSnippet](CollectionAuthSnippet.png)](https://github.com/jreyno77/cqf-measures/tree/master/thunder-tests/img/CollectionAuthSnippet.png)",
         "options": {
-            "baseUrl": "https://uat-cts.nlm.nih.gov/fhir/"
+            "baseUrl": "{{baseUrl}}"
+        },
+        "runOptions": {
+            "delay": 0,
+            "iterations": 1,
+            "stopOnFail": true,
+            "dataFilePath": ""
         }
     },
     "requests": [
