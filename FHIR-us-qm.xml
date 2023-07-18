@@ -20,6 +20,7 @@
 <artifact id="Library/BCSComponent" key="Library-BCSComponent" name="BCS Component Library"/>
 <artifact id="Measure/BCSComponent" key="Measure-BCSComponent" name="Breast Cancer Screening"/>
 <artifact deprecated="true" id="Measure/BreastCancerScreeningFHIR" key="Measure-BreastCancerScreeningFHIR" name="Breast Cancer Screening FHIR Measure"/>
+<artifact id="Bundle/bundle-example" key="Bundle-bundle-example" name="Bundle example"/>
 <artifact id="Library/CCSComponent" key="Library-CCSComponent" name="CCS Component Library"/>
 <artifact id="Library/ecqm-quality-program" key="Library-ecqm-quality-program" name="CMS eCQM and Hybrid Measures"/>
 <artifact id="CapabilityStatement/authoring-measure-repository" key="CapabilityStatement-authoring-measure-repository" name="CQF Measures Authoring Measure Repository Capability Statement"/>
@@ -66,6 +67,8 @@
 <artifact id="StructureDefinition/measure-cqfm" key="StructureDefinition-measure-cqfm" name="CQFM Measure"/>
 <artifact id="StructureDefinition/modelinfo-library-cqfm" key="StructureDefinition-modelinfo-library-cqfm" name="CQFM Model Info Library"/>
 <artifact id="StructureDefinition/module-definition-library-cqfm" key="StructureDefinition-module-definition-library-cqfm" name="CQFM Module Definition Library"/>
+<artifact id="StructureDefinition/cqfm-operation" key="StructureDefinition-cqfm-operation" name="CQFM Operation"/>
+<artifact id="OperationDefinition/cqfm-package" key="OperationDefinition-cqfm-package" name="CQFM Package"/>
 <artifact id="StructureDefinition/cqfm-partOf" key="StructureDefinition-cqfm-partOf" name="CQFM Part Of"/>
 <artifact id="StructureDefinition/cqfm-populationBasis" key="StructureDefinition-cqfm-populationBasis" name="CQFM Population Basis"/>
 <artifact id="StructureDefinition/cqfm-programIdentifier" key="StructureDefinition-cqfm-programIdentifier" name="CQFM Program Identifier"/>
@@ -132,6 +135,7 @@
 <artifact id="Library/EXMExecutableLibrary" key="Library-EXMExecutableLibrary" name="Example Executable Library"/>
 <artifact id="Library/EXMLogic-FHIR" key="Library-EXMLogic" name="Example Logic Library"/>
 <artifact id="Library/EXMLogic-ModuleDefinition" key="Library-EXMLogic-ModuleDefinition" name="Example Logic Library - Module Definition"/>
+<artifact id="Library/EXMLogic-ModuleDefinitionDirectReference" key="Library-EXMLogic-ModuleDefinitionDirectReference" name="Example Logic Library - Module Definition Direct Reference"/>
 <artifact id="Library/EXMPublishableLibrary" key="Library-EXMPublishableLibrary" name="Example Publishable Library"/>
 <artifact id="ValueSet/executable-example" key="ValueSet-executable-example" name="Executable Example"/>
 <artifact deprecated="true" id="Library/FHIRHelpers" key="Library-FHIRHelpers" name="FHIR Helpers"/>
@@ -143,7 +147,7 @@
 <artifact deprecated="true" key="ImplementationGuide" name="ImplementationGuide"/>
 <artifact id="ConceptMap/improvement-notations" key="ConceptMap-improvement-notations" name="Improvement Notation Mapping"/>
 <artifact id="OperationDefinition/Library-data-requirements" key="OperationDefinition-Library-data-requirements" name="Library Data Requirements"/>
-<artifact id="OperationDefinition/Library-package" key="OperationDefinition-Library-package" name="Library Packaging"/>
+<artifact deprecated="true" id="OperationDefinition/Library-package" key="OperationDefinition-Library-package" name="Library Packaging"/>
 <artifact id="Library/MATGlobalCommonFunctions" key="Library-MATGlobalCommonFunctions" name="MAT Global Common Functions FHIR Library"/>
 <artifact deprecated="true" key="Measure" name="Measure"/>
 <artifact id="ValueSet/aggregate-method" key="ValueSet-aggregate-method" name="Measure Aggregate Method"/>
@@ -154,14 +158,14 @@
 <artifact id="OperationDefinition/Measure-data-requirements" key="OperationDefinition-Measure-data-requirements" name="Measure Data Requirements"/>
 <artifact id="ValueSet/identifier-type" key="ValueSet-identifier-type" name="Measure Identifier Type"/>
 <artifact id="CodeSystem/identifier-type" key="CodeSystem-identifier-type" name="Measure Identifier Type Codes"/>
-<artifact id="OperationDefinition/Measure-package" key="OperationDefinition-Measure-package" name="Measure Packaging"/>
+<artifact deprecated="true" id="OperationDefinition/Measure-package" key="OperationDefinition-Measure-package" name="Measure Packaging"/>
 <artifact id="ConceptMap/measure-populations" key="ConceptMap-measure-populations" name="Measure Population criteria mapping"/>
 <artifact id="ConceptMap/measure-scoring" key="ConceptMap-measure-scoring" name="Measure Scoring mapping"/>
 <artifact id="CapabilityStatement/measure-terminology-service" key="CapabilityStatement-measure-terminology-service" name="Measure Terminology Service Capability Statement"/>
 <artifact id="ConceptMap/measure-types" key="ConceptMap-measure-types" name="Measure Type mapping"/>
 <artifact deprecated="true" id="Measure/measure-exm-default" key="Measure-measure-exm-default" name="Measure with default value measurement period"/>
 <artifact id="MeasureReport/testcase-example" key="MeasureReport-testcase-example" name="MeasureReport - Test Case Example"/>
-<artifact id="OperationDefinition/MeasureReport-package" key="OperationDefinition-MeasureReport-package" name="MeasureReport Packaging"/>
+<artifact deprecated="true" id="OperationDefinition/MeasureReport-package" key="OperationDefinition-MeasureReport-package" name="MeasureReport Packaging"/>
 <artifact id="Library/MultiRateExample-FHIR" key="Library-MultiRateExample" name="Multi Rate Example Logic Library"/>
 <artifact id="Measure/MultiRateExample-FHIR" key="Measure-multi-rate-example" name="Multi-Rate Example Measure"/>
 <artifact id="Library/PVSComponent" key="Library-PVSComponent" name="PVS Component Library"/>
@@ -181,6 +185,9 @@
 <artifact id="Measure/measure-risk-adjustment-FHIR2" key="Measure-measure-risk-adjustment-FHIR2" name="Risk Adjustment FHIR DSTU2"/>
 <artifact id="Library/risk-adjustment-FHIR2" key="Library-risk-adjustment-FHIR2" name="RiskAdjustment_FHIR2"/>
 <artifact id="CodeSystem/publishable-example" key="CodeSystem-publishable-example" name="SNOMED CT International Edition"/>
+<artifact id="SearchParameter/Library-contained-parameter-name" key="SearchParameter-Library-contained-parameter-name" name="Search Parameter - Library contained parameter name"/>
+<artifact id="SearchParameter/Library-expansion-identifier" key="SearchParameter-Library-expansion-identifier" name="Search Parameter - Library expansion identifier"/>
+<artifact id="SearchParameter/ValueSet-keyword" key="SearchParameter-ValueSet-keyword" name="Search Parameter - Valuset Keyowrd"/>
 <artifact id="ValueSet/software-system-type" key="ValueSet-software-system-type" name="Software System Type"/>
 <artifact id="CodeSystem/software-system-type" key="CodeSystem-software-system-type" name="Software System Type Codes"/>
 <artifact deprecated="true" key="StructureDefinition" name="StructureDefinition"/>
