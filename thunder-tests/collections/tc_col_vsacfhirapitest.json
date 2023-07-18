@@ -1425,7 +1425,7 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-06-09T20:18:33.548Z",
-            "modified": "2023-07-18T11:34:53.997Z",
+            "modified": "2023-07-18T21:17:23.490Z",
             "headers": [],
             "params": [
                 {
@@ -1443,73 +1443,73 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.url",
+                    "custom": "json.entry[0].resource.url",
                     "action": "equal",
                     "value": "http://terminology.hl7.org/CodeSystem/condition-clinical"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.version",
+                    "custom": "json.entry[0].resource.version",
                     "action": "equal",
                     "value": "2.0.0"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.name",
+                    "custom": "json.entry[0].resource.name",
                     "action": "equal",
                     "value": "ConditionClinicalStatusCodes"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.status",
+                    "custom": "json.entry[0].resource.status",
                     "action": "equal",
                     "value": "active"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.experimental",
+                    "custom": "json.entry[0].resource.experimental",
                     "action": "equal",
                     "value": "false"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.publisher",
+                    "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
                     "value": "HL7 International"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.description",
+                    "custom": "json.entry[0].resource.description",
                     "action": "equal",
                     "value": "Preferred value set for Condition Clinical Status."
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.caseSensitive",
+                    "custom": "json.entry[0].resource.caseSensitive",
                     "action": "equal",
                     "value": "true"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.content",
+                    "custom": "json.entry[0].resource.content",
                     "action": "equal",
                     "value": "complete"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.concept[0].code",
+                    "custom": "json.entry[0].resource.concept[0].code",
                     "action": "equal",
                     "value": "active"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.date",
+                    "custom": "json.entry[0].resource.date",
                     "action": "equal",
                     "value": "2022-09-14T03:23:03-06:00"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.title",
+                    "custom": "json.entry[0].resource.title",
                     "action": "equal",
                     "value": "Condition Clinical Status Codes"
                 }
@@ -6189,7 +6189,7 @@
             "method": "GET",
             "sortNum": 22500,
             "created": "2023-07-17T15:17:41.363Z",
-            "modified": "2023-07-18T11:43:58.171Z",
+            "modified": "2023-07-18T21:18:02.703Z",
             "headers": [],
             "params": [
                 {
@@ -6207,67 +6207,67 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.url",
+                    "custom": "json.entry[0].resource.url",
                     "action": "equal",
                     "value": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.version",
+                    "custom": "json.entry[0].resource.version",
                     "action": "equal",
                     "value": "6.1.0"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.name",
+                    "custom": "json.entry[0].resource.name",
                     "action": "equal",
                     "value": "ActCode"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.status",
+                    "custom": "json.entry[0].resource.status",
                     "action": "equal",
                     "value": "active"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.publisher",
+                    "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
                     "value": "Health Level 7"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.description",
+                    "custom": "json.entry[0].resource.description",
                     "action": "equal",
                     "value": "A code specifying the particular kind of Act that the Act-instance represents within its class.\\r\\n\\r\\n*Constraints:* The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\\r\\n\\r\\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\\r\\n\\r\\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \\\"potassium\\\" together with and Act.classCode for \\\"laboratory observation\\\" to somehow mean \\\"potassium laboratory observation\\\" and then use the same Act.code for \\\"potassium\\\" together with Act.classCode for \\\"medication\\\" to mean \\\"substitution of potassium\\\". This mutually modifying use of Act.code and Act.classCode is not permitted."
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.caseSensitive",
+                    "custom": "json.entry[0].resource.caseSensitive",
                     "action": "equal",
                     "value": "true"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.content",
+                    "custom": "json.entry[0].resource.content",
                     "action": "equal",
                     "value": "complete"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.concept[0].code",
+                    "custom": "json.entry[0].resource.concept[0].code",
                     "action": "equal",
                     "value": "_ActAccountCode"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.date",
+                    "custom": "json.entry[0].resource.date",
                     "action": "equal",
                     "value": "2019-12-15"
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.title",
+                    "custom": "json.entry[0].resource.title",
                     "action": "equal",
                     "value": "ActCode"
                 }
