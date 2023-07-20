@@ -161,6 +161,12 @@
         }
     ],
     "settings": {
+        "headers": [
+            {
+                "name": "Accept",
+                "value": "application/fhir+json"
+            }
+        ],
         "auth": {
             "type": "basic",
             "basic": {
@@ -331,16 +337,26 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "d3e98ac7-b90e-4bff-b52e-6e4b12ed3cc7",
             "name": "HasFHIRBallotBoundCodeSystem",
-            "url": "CodeSystem/?url=http://hl7.org/fhir/request-intent",
+            "url": "CodeSystem/?url=http://hl7.org/fhir/request-intent&version=4.0.1",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-05-05T18:22:42.727Z",
-            "modified": "2023-07-18T11:37:37.820Z",
-            "headers": [],
+            "modified": "2023-07-20T15:28:26.779Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/fhir+json"
+                }
+            ],
             "params": [
                 {
                     "name": "url",
                     "value": "http://hl7.org/fhir/request-intent",
+                    "isPath": false
+                },
+                {
+                    "name": "version",
+                    "value": "4.0.1",
                     "isPath": false
                 }
             ],
@@ -1352,13 +1368,24 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "5e575387-867a-45fa-bfc6-8cacd5ba638a",
             "name": "HasFHIRBallotBoundCodeSystem",
-            "url": "CodeSystem/ObservationStatus",
+            "url": "CodeSystem?url=http://hl7.org/fhir/observation-status",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-06-09T19:54:26.324Z",
-            "modified": "2023-07-18T06:41:01.188Z",
-            "headers": [],
-            "params": [],
+            "modified": "2023-07-20T15:46:50.892Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/fhir+json"
+                }
+            ],
+            "params": [
+                {
+                    "name": "url",
+                    "value": "http://hl7.org/fhir/observation-status",
+                    "isPath": false
+                }
+            ],
             "tests": [
                 {
                     "type": "res-code",
@@ -1425,8 +1452,13 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-06-09T20:18:33.548Z",
-            "modified": "2023-07-18T21:17:23.490Z",
-            "headers": [],
+            "modified": "2023-07-20T15:40:42.662Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/fhir+json"
+                }
+            ],
             "params": [
                 {
                     "name": "url",
@@ -1451,7 +1483,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "2.0.0"
+                    "value": "0.5.0"
                 },
                 {
                     "type": "json-query",
@@ -1463,7 +1495,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.status",
                     "action": "equal",
-                    "value": "active"
+                    "value": "draft"
                 },
                 {
                     "type": "json-query",
@@ -1475,7 +1507,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
-                    "value": "HL7 International"
+                    "value": "FHIR Project team"
                 },
                 {
                     "type": "json-query",
@@ -1505,7 +1537,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.date",
                     "action": "equal",
-                    "value": "2022-09-14T03:23:03-06:00"
+                    "value": "2022-02-23T19:42:18-07:00"
                 },
                 {
                     "type": "json-query",
@@ -1623,8 +1655,13 @@
             "method": "GET",
             "sortNum": 25000,
             "created": "2023-06-09T20:18:56.562Z",
-            "modified": "2023-07-18T11:54:44.568Z",
-            "headers": [],
+            "modified": "2023-07-20T15:43:41.659Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/fhir+json"
+                }
+            ],
             "params": [
                 {
                     "name": "url",
@@ -6189,8 +6226,13 @@
             "method": "GET",
             "sortNum": 22500,
             "created": "2023-07-17T15:17:41.363Z",
-            "modified": "2023-07-18T21:18:02.703Z",
-            "headers": [],
+            "modified": "2023-07-20T15:29:29.498Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/fhir+json"
+                }
+            ],
             "params": [
                 {
                     "name": "url",
