@@ -507,11 +507,11 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "5e575387-867a-45fa-bfc6-8cacd5ba638a",
             "name": "HasTHOCodeSystem",
-            "url": "CodeSystem/AdverseEventCategory",
+            "url": "CodeSystem/url=http://terminology.hl7.org/CodeSystem/condition-clinical",
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-05-05T18:22:42.729Z",
-            "modified": "2023-07-18T06:41:23.723Z",
+            "modified": "2023-07-22T01:18:20.438Z",
             "headers": [],
             "params": [],
             "tests": [
@@ -637,13 +637,19 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "5e575387-867a-45fa-bfc6-8cacd5ba638a",
             "name": "HasUsCoreCodeSystem",
-            "url": "CodeSystem/NarrativeStatus",
+            "url": "CodeSystem/?url=http://hl7.org/fhir/us/core/CodeSystem/condition-category",
             "method": "GET",
             "sortNum": 15000,
             "created": "2023-05-05T18:22:42.732Z",
-            "modified": "2023-07-18T06:41:11.227Z",
+            "modified": "2023-07-22T01:18:02.967Z",
             "headers": [],
-            "params": [],
+            "params": [
+                {
+                    "name": "url",
+                    "value": "http://hl7.org/fhir/us/core/CodeSystem/condition-category",
+                    "isPath": false
+                }
+            ],
             "tests": [
                 {
                     "type": "res-code",
@@ -706,13 +712,19 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "5e575387-867a-45fa-bfc6-8cacd5ba638a",
             "name": "HasQICoreCodeSystem",
-            "url": "CodeSystem/AppropriatenessScore",
+            "url": "CodeSystem/?url=http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score",
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-05-05T18:22:42.733Z",
-            "modified": "2023-07-18T06:41:31.544Z",
+            "modified": "2023-07-22T01:18:37.425Z",
             "headers": [],
-            "params": [],
+            "params": [
+                {
+                    "name": "url",
+                    "value": "http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score",
+                    "isPath": false
+                }
+            ],
             "tests": [
                 {
                     "type": "res-code",
@@ -1368,22 +1380,23 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "5e575387-867a-45fa-bfc6-8cacd5ba638a",
             "name": "HasFHIRBallotBoundCodeSystem",
-            "url": "CodeSystem?url=http://hl7.org/fhir/observation-status",
+            "url": "CodeSystem/?url=http://hl7.org/fhir/request-intent",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-06-09T19:54:26.324Z",
-            "modified": "2023-07-20T15:46:50.892Z",
+            "modified": "2023-07-22T01:17:42.013Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "url",
+                    "value": "http://hl7.org/fhir/request-intent",
+                    "isPath": false
+                }
+            ],
             "headers": [
                 {
                     "name": "Accept",
                     "value": "application/fhir+json"
-                }
-            ],
-            "params": [
-                {
-                    "name": "url",
-                    "value": "http://hl7.org/fhir/observation-status",
-                    "isPath": false
                 }
             ],
             "tests": [
@@ -1431,7 +1444,7 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.entry[0].resource.jurisdiction",
+                    "custom": "json.entry[0].resource.jurisdiction[0].coding[0].code",
                     "action": "equal",
                     "value": ""
                 },
