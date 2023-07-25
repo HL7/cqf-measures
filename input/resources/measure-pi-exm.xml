@@ -114,7 +114,6 @@
          </dataRequirement>
       </Library>
    </contained> -->
-   <!--
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
       <valueCode value="Encounter"></valueCode>
    </extension>
@@ -125,7 +124,7 @@
             <code value="/1000.d"></code>
          </coding>
       </valueCodeableConcept>
-   </extension> -->
+   </extension>
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem">
       <valueReference>
          <reference value="Device/software-system-example"></reference>
@@ -133,7 +132,7 @@
    </extension>
    <extension id="effective-data-requirements" url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements">
       <valueReference>
-         <reference value="#effective-data-requirements"></reference>
+         <reference value="Library/EXMLogic-ModuleDefinition"></reference>
       </valueReference>
    </extension>
    <url value="http://example.org/fhir/measures/measure-proportion-exm"></url>
@@ -227,6 +226,19 @@
    </improvementNotation>
 -->
    <group id="group-1">
+    <population id="initial-population">
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="initial-population"/>
+          <display value="Initial Population"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Initial Population"/>
+      </criteria>
+    </population>
       <population id="numerator">
          <code>
             <coding>
