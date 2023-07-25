@@ -11,7 +11,9 @@ WARNING: StructureDefinition/capability-statement-cqfm: StructureDefinition.snap
 
 # The value set contains an explicit reference to a 2015 version of SNOMED, which is the point of the example. Will replace with an updated example if we find one from the connectathon prior to publication
 WARNING: ValueSet.where(id = 'chronic-liver-disease-legacy-example'): Error from server: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/731000124108/version/20150301 (known versions = http://snomed.info/sct/2011000195101/version/20221207,http://snomed.info/sct/32506021000036107/version/20220731,http://snomed.info/sct/900000000000207008/version/20190731,http://snomed.info/sct/11000146104/version/20220930,http://snomed.info/sct/731000124108/version/20230301,http://snomed.info/sct/554471000005108/version/20210930,http://snomed.info/sct/45991000052106/version/20210531,http://snomed.info/sct/20611000087101/version/20220930,http://snomed.info/sct/900000000000207008/version/20230131,http://snomed.info/sct/900000000000207008/version/20200731,http://snomed.info/sct/11000172109/version/20221115,http://snomed.info/sct/900000000000207008/version/20210731)
- 
+
+# The MultiRateExample is a composite measure and thus does not contain a population
+WARNING: Measure/MultiRateExample-FHIR: Measure.group[5]: Measure Groups should have at least one population 
 
 # This is a composite measure, which is defined in terms of other measures so does not require a group element (Tooling issue submitted: https://jira.hl7.org/browse/FHIR-36721)
 WARNING: Measure/PreventiveCareandWellnessAllOrNothingComposite: Measure: A measure should contain at least one group
