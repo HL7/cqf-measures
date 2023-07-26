@@ -38,6 +38,12 @@
     <packageId value="hl7.fhir.us.qicore"/>
     <version value="5.0.0"/>
   </dependsOn>
+  <!-- Note this dependency is included to support references to the lastest THO artifacts in this IG -->
+  <dependsOn id="terminology">
+    <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
+    <packageId value="hl7.terminology"/>
+    <version value="5.2.0"/>
+  </dependsOn>
   <definition>
     <!--
     <resource>
