@@ -38,6 +38,5 @@
 - [Supported CQL Version](StructureDefinition-cqfm-supportedCqlVersion.html)
 - [Test Case Description](StructureDefinition-cqfm-testCaseDescription.html)
 - [Type](StructureDefinition-cqfm-type.html)
-- [Usage Warning](StructureDefinition-cqfm-usageWarning.html)
 - [Value Filter](StructureDefinition-cqfm-valueFilter.html)
 - [Weight](StructureDefinition-cqfm-weight.html)
