@@ -18,6 +18,14 @@ WARNING: Measure/PreventiveCareandWellnessOpportunityComposite: Measure: A measu
 WARNING: Measure/PreventiveCareandWellnessPatientLevelLinearComposite: Measure: A measure should contain at least one group
 WARNING: Measure/PreventiveCareandWellnessWeightedComposite: Measure: A measure should contain at least one group
 
+# The following messages are expected since the elements in the following examples do not match the slice in the computable library profile but valid contentType of application/elm+xml and application/elm+json:
+INFORMATION: Library/HBPComponent: Library.content[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm|4.0.0
+INFORMATION: Library/HBPComponent: Library.content[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm|4.0.0
+INFORMATION: Library/PVSComponent: Library.content[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm|4.0.0
+INFORMATION: Library/PVSComponent: Library.content[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm|4.0.0
+INFORMATION: Library/TSCComponent: Library.content[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm|4.0.0
+INFORMATION: Library/TSCComponent: Library.content[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm|4.0.0
+
 # The following messages are expected since the elements in the following examples do not match the slices in the proportion measure profile, but they do match in the computable measures profile referenced: 
 INFORMATION: Measure/BCSComponent: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
 INFORMATION: Measure/BCSComponent: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
