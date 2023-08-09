@@ -18,20 +18,73 @@ WARNING: Measure/PreventiveCareandWellnessOpportunityComposite: Measure: A measu
 WARNING: Measure/PreventiveCareandWellnessPatientLevelLinearComposite: Measure: A measure should contain at least one group
 WARNING: Measure/PreventiveCareandWellnessWeightedComposite: Measure: A measure should contain at least one group
 
-# Confirmed these slices in the following examples align/match with the profile(s) referenced 
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm|4.0.0
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm|4.0.0
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-measure-cqfm|4.0.0
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm|4.0.0
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cv-measure-cqfm|4.0.0
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm|4.0.0
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cohort-measure-cqfm|4.0.0
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm|4.0.0
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm|4.0.0
+# The following messages are expected since the elements in the following examples do not match the slices in the proportion measure profile, but they do match in the computable measures profile referenced: 
+INFORMATION: Measure/BCSComponent: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/BCSComponent: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/CCSComponent: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/CCSComponent: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/HBPComponent: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/HBPComponent: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/PVSComponent: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/PVSComponent: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/TSCComponent: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/TSCComponent: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM124-FHIR: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM124-FHIR: Measure.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM124-FHIR: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM125-FHIR: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM125-FHIR: Measure.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM130-FHIR: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM130-FHIR: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM146-FHIR: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM146-FHIR: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXMLogic-FHIR: Measure.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/EXMLogic-FHIR: Measure.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/measure-pi-exm: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/measure-pi-exm: Measure.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
+INFORMATION: Measure/measure-pi-exm: Measure.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0
 
+# The following messages are expected since the elements in the following example do not match the slices in the measure profile, but they do match in the computable measures profile referenced: 
+INFORMATION: Measure/EXM108-FHIR: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm|4.0.0
+INFORMATION: Measure/EXM108-FHIR: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm|4.0.0
 
+# The following messages are expected since the elements in the following example do not match the slices in the publishable and computable profile, but they do match in the proportion measures profile referenced: 
+INFORMATION: Measure/EXM124-FHIR: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM124-FHIR: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM124-FHIR: Measure.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM124-FHIR: Measure.identifier[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM124-FHIR: Measure.identifier[4]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0
+
+# The following messages are expected since the elements in the following example do not match the slices in the cv measure profile, but they do match in the computable measures profile referenced: 
+INFORMATION: Measure/EXM55-FHIR: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cv-measure-cqfm|4.0.0
+INFORMATION: Measure/EXM55-FHIR: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cv-measure-cqfm|4.0.0
+
+# The following messages are expected since the elements in the following example do not match the slices in the executable measure profile, but they do match in the computable measures profile referenced: 
+INFORMATION: Measure/EXMLogic-FHIR: Measure.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-measure-cqfm|4.0.0
+INFORMATION: Measure/EXMLogic-FHIR: Measure.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-measure-cqfm|4.0.0
+
+# The following messages are expected since the elements in the following example do not match the slices in the ratio measure profile, but they do match in the computable measures profile referenced: 
+INFORMATION: Measure/EXMRatio-FHIR: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm|4.0.0
+INFORMATION: Measure/EXMRatio-FHIR: Measure.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm|4.0.0
+INFORMATION: Measure/EXMRatio-FHIR: Measure.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm|4.0.0
+
+# The following messages are expected since the elements in the following example do not match the slices in the publishable measure profile, but they do match in the computable measures profile referenced: 
+INFORMATION: Measure/measure-publishable-exm: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0
+INFORMATION: Measure/measure-publishable-exm: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0
+
+# The following messages are expected since the elements in the following example do not match the slices in the cohort measure profile, but they do match in the computable measures profile referenced: 
+INFORMATION: Measure/Terminology-FHIR: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cohort-measure-cqfm|4.0.0
+INFORMATION: Measure/Terminology-FHIR: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cohort-measure-cqfm|4.0.0
+
+# The following messages are expected since the element in the following examples do not match the slices in the computable valueset and publishable valueset profiles, but they do match in the executable valueset profile referenced:
+INFORMATION: ValueSet/chronic-liver-disease-legacy-example: ValueSet.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm|4.0.0
+INFORMATION: ValueSet/chronic-liver-disease-legacy-example: ValueSet.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm|4.0.0
+INFORMATION: ValueSet/chronic-liver-disease-legacy-example-2019-09: ValueSet.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm|4.0.0
+INFORMATION: ValueSet/chronic-liver-disease-legacy-example-2019-09: ValueSet.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm|4.0.0
+INFORMATION: ValueSet/chronic-liver-disease-legacy-example-current: ValueSet.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm|4.0.0
+INFORMATION: ValueSet/chronic-liver-disease-legacy-example-current: ValueSet.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm|4.0.0
+INFORMATION: ValueSet/chronic-liver-disease-legacy-example-current-active: ValueSet.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm|4.0.0
+INFORMATION: ValueSet/chronic-liver-disease-legacy-example-current-active: ValueSet.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm|4.0.0
 
 # The expression language text/cql-identifier is supported at the population.criteria level but not at the stratifier.criteria level. Messages only appear at the stratifier.criteria examples
 The expression language text/cql-identifier is not supported, so can't be validated
