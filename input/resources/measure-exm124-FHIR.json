@@ -2,7 +2,7 @@
   "resourceType": "Measure",
   "id": "EXM124-FHIR",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
+    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm","http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm" ]
   },
   "contained": [ {
     "resourceType": "Library",
@@ -568,7 +568,43 @@
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/cms",
     "value": "124"
-  }, {
+  },
+  {
+    "use":"official",
+    "type": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
+        "code": "version-independent",
+        "display": "Version Independent"
+      } ]
+    },
+    "system": "urn:ietf:rfc:3986",
+    "value": "http://example.org/fhir/us/cqfmeasures/Measure/EXM124-FHIR"
+  },
+  {
+    "use":"official",
+    "type": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
+        "code": "version-specific",
+        "display": "Version Specific"
+      } ]
+    },
+    "system": "urn:ietf:rfc:3986",
+    "value": "http://example.org/fhir/us/cqfmeasures/Measure/CMS124v7"
+  },
+  {
+    "use":"usual",
+    "type": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
+        "code": "short-name",
+        "display": "Short Name"
+      } ]
+    },
+    "value": "Cervical Cancer Screening"
+  },
+  {
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/mips",
     "value": "309"
