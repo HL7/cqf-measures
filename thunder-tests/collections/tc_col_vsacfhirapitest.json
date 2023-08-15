@@ -176,13 +176,7 @@
         },
         "docs": "The Base URL and Basic Authentication are setup to use environment variables.\n\nThe Base URL has a default **Global** environment variable that you can edit under the Environment tab\n\n[![GlobalEnvSnippet](GlobalEnvSnip.png)](https://github.com/jreyno77/cqf-measures/tree/master/thunder-tests/img/GlobalEnvSnip.png)\n\nBasic Auth is setup using the **Local** environment.  In order to setup your Local Env click on the three lines under your Env tab of Thunder Client\n\nThen choose Local Environment to enable it:\n\n[![EnvTabSnippet](EnvTabSnippet.png)](https://github.com/jreyno77/cqf-measures/tree/master/thunder-tests/img/EnvTabSnippet.png)\n\nOnce you have enabled your Local Env you can add your *basicUser* and *basicPass* variables and those will be used for you basic Authentication within this Collection:\n\n[![LocalEnvSnippet](LocalEnvSnippet.png)](https://github.com/jreyno77/cqf-measures/tree/master/thunder-tests/img/LocalEnvSnippet.png)\n\n\n\n[![CollectionAuthSnippet](CollectionAuthSnippet.png)](https://github.com/jreyno77/cqf-measures/tree/master/thunder-tests/img/CollectionAuthSnippet.png)\n\n\n\n### Images are broken for now, but image links are included",
         "options": {
-            "baseUrl": "{{baseUrl}}"
-        },
-        "runOptions": {
-            "delay": 0,
-            "iterations": 1,
-            "stopOnFail": true,
-            "dataFilePath": ""
+            "baseUrl": "{{VSACUrl}}"
         }
     },
     "requests": [
@@ -270,11 +264,11 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "fe654ec7-e330-4912-84fb-1aa8c977d76d",
             "name": "QICoreValidateReturnedCode",
-            "url": "CodeSystem/$validate-code?system=http://snomed.info/sct&version=20230301&code=277406006",
+            "url": "CodeSystem/$validate-code?system=http://snomed.info/sct&version=http://snomed.info/sct/731000124108/version/20230301&code=277406006",
             "method": "GET",
             "sortNum": 8750,
             "created": "2023-05-05T18:22:42.726Z",
-            "modified": "2023-07-22T01:39:52.881Z",
+            "modified": "2023-08-10T20:52:51.908Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -290,7 +284,7 @@
                 },
                 {
                     "name": "version",
-                    "value": "20230301",
+                    "value": "http://snomed.info/sct/731000124108/version/20230301",
                     "isPath": false
                 },
                 {
@@ -328,7 +322,7 @@
                     "type": "json-query",
                     "custom": "json.parameter[1].valueString",
                     "action": "equal",
-                    "value": "The code(277406006) is valid in code system SNOMED"
+                    "value": "The code(277406006) is valid in code system SNOMEDCT"
                 },
                 {
                     "type": "json-query",
@@ -340,7 +334,7 @@
                     "type": "json-query",
                     "custom": "json.parameter[2].valueString",
                     "action": "equal",
-                    "value": "Nursing Home"
+                    "value": "Dosages (qualifier value)"
                 }
             ]
         },
@@ -353,7 +347,7 @@
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-05-05T18:22:42.727Z",
-            "modified": "2023-07-22T01:34:24.311Z",
+            "modified": "2023-08-02T06:16:21.900Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -433,18 +427,6 @@
                     "custom": "json.entry[0].resource.content",
                     "action": "equal",
                     "value": "complete"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.concept[0].code",
-                    "action": "equal",
-                    "value": "proposal"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.date",
-                    "action": "equal",
-                    "value": "2019-11-01T09:29:23+11:00"
                 },
                 {
                     "type": "json-query",
@@ -605,7 +587,7 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-05-05T18:22:42.730Z",
-            "modified": "2023-07-22T01:40:01.973Z",
+            "modified": "2023-08-10T20:53:47.984Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -659,7 +641,7 @@
                     "type": "json-query",
                     "custom": "json.parameter[1].valueString",
                     "action": "equal",
-                    "value": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0092"
+                    "value": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0092 version(2.1.0)"
                 }
             ]
         },
@@ -834,7 +816,7 @@
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-05-05T18:22:42.734Z",
-            "modified": "2023-07-22T01:38:35.189Z",
+            "modified": "2023-08-11T13:13:48.244Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -900,12 +882,6 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.entry[0].resource.date",
-                    "action": "equal",
-                    "value": "2023-02-01T00:00:00-05:00"
-                },
-                {
-                    "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
                     "value": "ActPriority"
@@ -962,11 +938,11 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "d1001738-8268-4b90-a471-331ff93ab96e",
             "name": "V3ActPriorityByIdentifier",
-            "url": "CodeSystem/?identifier=urn%3Aietf%3Arfc%3A3986",
+            "url": "CodeSystem/?identifier=urn:oid:2.16.840.1.113883.5.7",
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-05-05T18:22:42.736Z",
-            "modified": "2023-07-22T01:38:44.226Z",
+            "modified": "2023-08-11T13:10:57.171Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -977,7 +953,7 @@
             "params": [
                 {
                     "name": "identifier",
-                    "value": "urn%3Aietf%3Arfc%3A3986",
+                    "value": "urn:oid:2.16.840.1.113883.5.7",
                     "isPath": false
                 }
             ],
@@ -1040,7 +1016,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.identifier[0].system[0]",
                     "action": "equal",
-                    "value": "urn%3Aietf%3Arfc%3A3986"
+                    "value": "urn:oid:2.16.840.1.113883.5.7"
                 },
                 {
                     "type": "json-query",
@@ -1059,7 +1035,7 @@
             "method": "GET",
             "sortNum": 40000,
             "created": "2023-05-05T18:22:42.737Z",
-            "modified": "2023-07-22T01:38:48.670Z",
+            "modified": "2023-08-11T13:13:56.053Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -1125,12 +1101,6 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.entry[0].resource.date",
-                    "action": "equal",
-                    "value": "2023-02-01T00:00:00-05:00"
-                },
-                {
-                    "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
                     "value": "ActPriority"
@@ -1146,7 +1116,7 @@
             "method": "GET",
             "sortNum": 50000,
             "created": "2023-05-05T18:22:42.738Z",
-            "modified": "2023-07-22T01:38:53.071Z",
+            "modified": "2023-08-11T13:14:00.504Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -1212,12 +1182,6 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.entry[0].resource.date",
-                    "action": "equal",
-                    "value": "2023-02-01T00:00:00-05:00"
-                },
-                {
-                    "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
                     "value": "ActPriority"
@@ -1233,7 +1197,7 @@
             "method": "GET",
             "sortNum": 60000,
             "created": "2023-05-05T18:22:42.739Z",
-            "modified": "2023-07-22T01:38:57.142Z",
+            "modified": "2023-08-02T06:42:58.330Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -1265,7 +1229,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "0.1.0"
+                    "value": "V1"
                 },
                 {
                     "type": "json-query",
@@ -1277,19 +1241,13 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.status",
                     "action": "equal",
-                    "value": "active"
+                    "value": "draft"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.experimental",
                     "action": "equal",
                     "value": "false"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.description",
-                    "action": "equal",
-                    "value": "Used%20to%20specify%20why%20the%20normally%20expected%20content%20of%20the%20data%20element%20is%20missing."
                 },
                 {
                     "type": "json-query",
@@ -1305,21 +1263,9 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.entry[0].resource.concept[0].code",
-                    "action": "equal",
-                    "value": "unknown"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.date",
-                    "action": "equal",
-                    "value": "2019-11-01T09:29:23+11:00"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.identifier[0].system[0]",
-                    "action": "equal",
-                    "value": "urn:ietf:rfc:3986"
+                    "custom": "json.entry[0].resource.concept[0]",
+                    "action": "isjson",
+                    "value": "true"
                 },
                 {
                     "type": "json-query",
@@ -1333,12 +1279,12 @@
             "_id": "399888ce-fa35-456e-9efd-f287fb658b5e",
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "d1001738-8268-4b90-a471-331ff93ab96e",
-            "name": "V3ActPriorityByCode",
+            "name": "DataAbsentReasonByCode",
             "url": "CodeSystem/?code=not-applicable",
             "method": "GET",
             "sortNum": 70000,
             "created": "2023-05-05T18:22:42.740Z",
-            "modified": "2023-07-22T01:39:01.004Z",
+            "modified": "2023-08-02T06:05:12.631Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -1370,7 +1316,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "0.1.0"
+                    "value": "V1"
                 },
                 {
                     "type": "json-query",
@@ -1382,7 +1328,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.status",
                     "action": "equal",
-                    "value": "active"
+                    "value": "draft"
                 },
                 {
                     "type": "json-query",
@@ -1395,18 +1341,6 @@
                     "custom": "json.entry[0].resource.content",
                     "action": "equal",
                     "value": "complete"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.concept[0].code",
-                    "action": "equal",
-                    "value": "unknown"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.date",
-                    "action": "equal",
-                    "value": "2019-11-01T09:29:23+11:00"
                 },
                 {
                     "type": "json-query",
@@ -1425,7 +1359,7 @@
             "method": "GET",
             "sortNum": 90000,
             "created": "2023-05-05T18:22:42.742Z",
-            "modified": "2023-07-22T01:39:30.159Z",
+            "modified": "2023-08-10T20:52:46.479Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -1450,13 +1384,13 @@
                     "type": "json-query",
                     "custom": "json.parameter[0].valueString",
                     "action": "equal",
-                    "value": "ParticipationMode"
+                    "value": "v3.ParticipationMode"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.parameter[1].valueString",
                     "action": "equal",
-                    "value": "2023-02-01"
+                    "value": "2018-08-12"
                 },
                 {
                     "type": "json-query",
@@ -1556,7 +1490,7 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-06-09T20:18:33.548Z",
-            "modified": "2023-07-22T01:34:33.917Z",
+            "modified": "2023-08-02T06:16:36.252Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -1635,14 +1569,8 @@
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.concept[0].code",
-                    "action": "equal",
+                    "action": "contains",
                     "value": "active"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.date",
-                    "action": "equal",
-                    "value": "2022-02-23T19:42:18-07:00"
                 },
                 {
                     "type": "json-query",
@@ -1766,7 +1694,7 @@
             "method": "GET",
             "sortNum": 25000,
             "created": "2023-06-09T20:18:56.562Z",
-            "modified": "2023-07-22T01:36:15.255Z",
+            "modified": "2023-08-07T21:37:35.017Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -1829,12 +1757,6 @@
                     "custom": "json.entry[0].resource.description",
                     "action": "equal",
                     "value": "The RAND scoring for appropriateness of the procedure."
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.date",
-                    "action": "equal",
-                    "value": "2018-08-22"
                 },
                 {
                     "type": "json-query",
@@ -2426,7 +2348,7 @@
             "method": "POST",
             "sortNum": 95000,
             "created": "2023-06-12T20:02:17.795Z",
-            "modified": "2023-07-22T01:39:34.954Z",
+            "modified": "2023-08-10T20:44:13.173Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -2445,13 +2367,13 @@
                     "type": "json-query",
                     "custom": "json.parameter[0].valueString",
                     "action": "equal",
-                    "value": "ParticipationMode"
+                    "value": "v3.ParticipationMode"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.parameter[1].valueString",
                     "action": "equal",
-                    "value": "2023-02-01"
+                    "value": "2018-08-12"
                 },
                 {
                     "type": "json-query",
@@ -3740,7 +3662,7 @@
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-06-13T12:24:39.427Z",
-            "modified": "2023-07-22T01:41:44.593Z",
+            "modified": "2023-08-11T12:45:16.383Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -3772,7 +3694,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "5.0.0"
+                    "value": "4.0.1"
                 },
                 {
                     "type": "json-query",
@@ -3796,37 +3718,25 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
-                    "value": "HL7%20(FHIR%20Project)"
+                    "value": "HL7 (FHIR Project)"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.description",
                     "action": "equal",
-                    "value": "Indicates%20whether%20the%20location%20is%20still%20in%20use."
+                    "value": "Indicates whether the location is still in use."
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.date",
                     "action": "equal",
-                    "value": "2020-12-28T16:55:11+11:00"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.identifier[0].system[0]",
-                    "action": "equal",
-                    "value": "urn:ietf:rfc:3986"
+                    "value": "2019-11-01T09:29:23+11:00"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
-                    "value": "Location%20Status"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.jurisdiction[0].coding[0].code",
-                    "action": "equal",
-                    "value": "001"
+                    "value": "LocationStatus"
                 }
             ]
         },
@@ -3835,11 +3745,11 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "32c29b97-feb5-47e3-adc3-f1a20ee28ec5",
             "name": "FHIRLocationStatusByVersion",
-            "url": "ValueSet/?version=5.0.0",
+            "url": "ValueSet/?url=http://hl7.org/fhir/ValueSet/location-status&&version=4.0.1",
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-06-13T12:26:34.631Z",
-            "modified": "2023-07-22T01:41:51.341Z",
+            "modified": "2023-08-11T12:56:12.656Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -3849,8 +3759,13 @@
             ],
             "params": [
                 {
+                    "name": "url",
+                    "value": "http://hl7.org/fhir/ValueSet/location-status",
+                    "isPath": false
+                },
+                {
                     "name": "version",
-                    "value": "5.0.0",
+                    "value": "4.0.1",
                     "isPath": false
                 }
             ],
@@ -3871,7 +3786,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "5.0.0"
+                    "value": "4.0.1"
                 },
                 {
                     "type": "json-query",
@@ -3895,37 +3810,25 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
-                    "value": "HL7%20(FHIR%20Project)"
+                    "value": "HL7 (FHIR Project)"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.description",
                     "action": "equal",
-                    "value": "Indicates%20whether%20the%20location%20is%20still%20in%20use."
+                    "value": "Indicates whether the location is still in use."
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.date",
                     "action": "equal",
-                    "value": "2020-12-28T16:55:11+11:00"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.identifier[0].system[0]",
-                    "action": "equal",
-                    "value": "urn:ietf:rfc:3986"
+                    "value": "2019-11-01T09:29:23+11:00"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
-                    "value": "Location%20Status"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.jurisdiction",
-                    "action": "equal",
-                    "value": "001"
+                    "value": "LocationStatus"
                 }
             ]
         },
@@ -3938,7 +3841,7 @@
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-06-13T12:26:37.243Z",
-            "modified": "2023-07-22T01:41:55.797Z",
+            "modified": "2023-08-10T21:16:57.906Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -3970,7 +3873,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "5.0.0"
+                    "value": "4.0.1"
                 },
                 {
                     "type": "json-query",
@@ -3994,37 +3897,25 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
-                    "value": "HL7%20(FHIR%20Project)"
+                    "value": "HL7 (FHIR Project)"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.description",
                     "action": "equal",
-                    "value": "Indicates%20whether%20the%20location%20is%20still%20in%20use."
+                    "value": "Indicates whether the location is still in use."
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.date",
                     "action": "equal",
-                    "value": "2020-12-28T16:55:11+11:00"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.identifier[0].system[0]",
-                    "action": "equal",
-                    "value": "urn:ietf:rfc:3986"
+                    "value": "2019-11-01T09:29:23+11:00"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
-                    "value": "Location%20Status"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.jurisdiction",
-                    "action": "equal",
-                    "value": "001"
+                    "value": "LocationStatus"
                 }
             ]
         },
@@ -4037,7 +3928,7 @@
             "method": "GET",
             "sortNum": 40000,
             "created": "2023-06-13T12:26:39.987Z",
-            "modified": "2023-07-22T01:42:00.405Z",
+            "modified": "2023-08-11T12:46:32.797Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -4069,7 +3960,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "5.0.0"
+                    "value": "4.0.1"
                 },
                 {
                     "type": "json-query",
@@ -4093,37 +3984,25 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
-                    "value": "HL7%20(FHIR%20Project)"
+                    "value": "HL7 (FHIR Project)"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.description",
                     "action": "equal",
-                    "value": "Indicates%20whether%20the%20location%20is%20still%20in%20use."
+                    "value": "Indicates whether the location is still in use."
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.date",
                     "action": "equal",
-                    "value": "2020-12-28T16:55:11+11:00"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.identifier[0].system[0]",
-                    "action": "equal",
-                    "value": "urn:ietf:rfc:3986"
+                    "value": "2019-11-01T09:29:23+11:00"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
-                    "value": "Location%20Status"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.jurisdiction",
-                    "action": "equal",
-                    "value": "001"
+                    "value": "LocationStatus"
                 }
             ]
         },
@@ -4132,11 +4011,11 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "32c29b97-feb5-47e3-adc3-f1a20ee28ec5",
             "name": "FHIRLocationStatusByTitle",
-            "url": "ValueSet/?title=Location%20Status",
+            "url": "ValueSet/?title=LocationStatus",
             "method": "GET",
             "sortNum": 50000,
             "created": "2023-06-13T12:26:42.484Z",
-            "modified": "2023-07-22T01:42:06.110Z",
+            "modified": "2023-08-11T12:52:53.155Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -4147,7 +4026,7 @@
             "params": [
                 {
                     "name": "title",
-                    "value": "Location%20Status",
+                    "value": "LocationStatus",
                     "isPath": false
                 }
             ],
@@ -4168,7 +4047,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "5.0.0"
+                    "value": "4.0.1"
                 },
                 {
                     "type": "json-query",
@@ -4192,37 +4071,25 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
-                    "value": "HL7%20(FHIR%20Project)"
+                    "value": "HL7 (FHIR Project)"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.description",
                     "action": "equal",
-                    "value": "Indicates%20whether%20the%20location%20is%20still%20in%20use."
+                    "value": "Indicates whether the location is still in use."
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.date",
                     "action": "equal",
-                    "value": "2020-12-28T16:55:11+11:00"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.identifier[0].system[0]",
-                    "action": "equal",
-                    "value": "urn:ietf:rfc:3986"
+                    "value": "2019-11-01T09:29:23+11:00"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
-                    "value": "Location%20Status"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.jurisdiction",
-                    "action": "equal",
-                    "value": "001"
+                    "value": "LocationStatus"
                 }
             ]
         },
@@ -4235,7 +4102,7 @@
             "method": "GET",
             "sortNum": 60000,
             "created": "2023-06-13T12:26:45.358Z",
-            "modified": "2023-07-22T01:42:13.245Z",
+            "modified": "2023-08-11T12:48:49.323Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -4259,69 +4126,9 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.entry[0].resource.url",
+                    "custom": "json.entry[0].resource.resourceType",
                     "action": "equal",
-                    "value": "http://hl7.org/fhir/ValueSet/location-status"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.version",
-                    "action": "equal",
-                    "value": "5.0.0"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.name",
-                    "action": "equal",
-                    "value": "LocationStatus"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.status",
-                    "action": "equal",
-                    "value": "draft"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.experimental",
-                    "action": "equal",
-                    "value": "false"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.publisher",
-                    "action": "equal",
-                    "value": "HL7%20(FHIR%20Project)"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.description",
-                    "action": "equal",
-                    "value": "Indicates%20whether%20the%20location%20is%20still%20in%20use."
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.date",
-                    "action": "equal",
-                    "value": "2020-12-28T16:55:11+11:00"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.identifier[0].system[0]",
-                    "action": "equal",
-                    "value": "urn:ietf:rfc:3986"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.title",
-                    "action": "equal",
-                    "value": "Location%20Status"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.jurisdiction",
-                    "action": "equal",
-                    "value": "001"
+                    "value": "ValueSet"
                 }
             ]
         },
@@ -4334,7 +4141,7 @@
             "method": "GET",
             "sortNum": 70000,
             "created": "2023-06-13T12:26:47.931Z",
-            "modified": "2023-07-22T01:42:18.214Z",
+            "modified": "2023-08-11T12:50:44.398Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -4366,7 +4173,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "5.0.0"
+                    "value": "4.0.1"
                 },
                 {
                     "type": "json-query",
@@ -4390,37 +4197,25 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
-                    "value": "HL7%20(FHIR%20Project)"
+                    "value": "HL7 (FHIR Project)"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.description",
                     "action": "equal",
-                    "value": "Indicates%20whether%20the%20location%20is%20still%20in%20use."
+                    "value": "Indicates whether the location is still in use."
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.date",
                     "action": "equal",
-                    "value": "2020-12-28T16:55:11+11:00"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.identifier[0].system[0]",
-                    "action": "equal",
-                    "value": "urn:ietf:rfc:3986"
+                    "value": "2019-11-01T09:29:23+11:00"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
-                    "value": "Location%20Status"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.jurisdiction",
-                    "action": "equal",
-                    "value": "001"
+                    "value": "LocationStatus"
                 }
             ]
         },
@@ -4433,7 +4228,7 @@
             "method": "GET",
             "sortNum": 80000,
             "created": "2023-06-13T12:26:51.259Z",
-            "modified": "2023-07-22T01:42:22.721Z",
+            "modified": "2023-08-11T12:52:03.084Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -4465,7 +4260,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "5.0.0"
+                    "value": "4.0.1"
                 },
                 {
                     "type": "json-query",
@@ -4489,37 +4284,25 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
-                    "value": "HL7%20(FHIR%20Project)"
+                    "value": "HL7 (FHIR Project)"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.description",
                     "action": "equal",
-                    "value": "Indicates%20whether%20the%20location%20is%20still%20in%20use."
+                    "value": "Indicates whether the location is still in use."
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.date",
                     "action": "equal",
-                    "value": "2020-12-28T16:55:11+11:00"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.identifier[0].system[0]",
-                    "action": "equal",
-                    "value": "urn:ietf:rfc:3986"
+                    "value": "2019-11-01T09:29:23+11:00"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
-                    "value": "Location%20Status"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.jurisdiction",
-                    "action": "equal",
-                    "value": "001"
+                    "value": "LocationStatus"
                 }
             ]
         },
@@ -4528,11 +4311,11 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "32c29b97-feb5-47e3-adc3-f1a20ee28ec5",
             "name": "FHIRLocationStatusByKeyword",
-            "url": "ValueSet/?keyword=?",
+            "url": "ValueSet/?keyword=Location",
             "method": "GET",
             "sortNum": 90000,
             "created": "2023-06-13T12:26:53.435Z",
-            "modified": "2023-07-22T01:42:27.781Z",
+            "modified": "2023-08-11T12:55:00.570Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -4543,7 +4326,7 @@
             "params": [
                 {
                     "name": "keyword",
-                    "value": "",
+                    "value": "Location",
                     "isPath": false
                 }
             ],
@@ -4564,7 +4347,7 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.version",
                     "action": "equal",
-                    "value": "5.0.0"
+                    "value": "4.0.1"
                 },
                 {
                     "type": "json-query",
@@ -4588,37 +4371,25 @@
                     "type": "json-query",
                     "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
-                    "value": "HL7%20(FHIR%20Project)"
+                    "value": "HL7 (FHIR Project)"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.description",
                     "action": "equal",
-                    "value": "Indicates%20whether%20the%20location%20is%20still%20in%20use."
+                    "value": "Indicates whether the location is still in use."
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.date",
                     "action": "equal",
-                    "value": "2020-12-28T16:55:11+11:00"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.identifier[0].system[0]",
-                    "action": "equal",
-                    "value": "urn:ietf:rfc:3986"
+                    "value": "2019-11-01T09:29:23+11:00"
                 },
                 {
                     "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
-                    "value": "Location%20Status"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.jurisdiction",
-                    "action": "equal",
-                    "value": "001"
+                    "value": "LocationStatus"
                 }
             ]
         },
@@ -6716,7 +6487,7 @@
             "method": "GET",
             "sortNum": 22500,
             "created": "2023-07-17T15:17:41.363Z",
-            "modified": "2023-07-20T15:29:29.498Z",
+            "modified": "2023-08-02T06:39:56.584Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -6769,12 +6540,6 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.entry[0].resource.description",
-                    "action": "equal",
-                    "value": "A code specifying the particular kind of Act that the Act-instance represents within its class.\\r\\n\\r\\n*Constraints:* The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\\r\\n\\r\\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\\r\\n\\r\\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \\\"potassium\\\" together with and Act.classCode for \\\"laboratory observation\\\" to somehow mean \\\"potassium laboratory observation\\\" and then use the same Act.code for \\\"potassium\\\" together with Act.classCode for \\\"medication\\\" to mean \\\"substitution of potassium\\\". This mutually modifying use of Act.code and Act.classCode is not permitted."
-                },
-                {
-                    "type": "json-query",
                     "custom": "json.entry[0].resource.caseSensitive",
                     "action": "equal",
                     "value": "true"
@@ -6793,12 +6558,6 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.entry[0].resource.date",
-                    "action": "equal",
-                    "value": "2019-12-15"
-                },
-                {
-                    "type": "json-query",
                     "custom": "json.entry[0].resource.title",
                     "action": "equal",
                     "value": "ActCode"
@@ -6814,7 +6573,7 @@
             "method": "GET",
             "sortNum": 200000,
             "created": "2023-07-17T15:34:19.323Z",
-            "modified": "2023-07-22T01:40:36.008Z",
+            "modified": "2023-08-11T13:01:41.166Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -6868,18 +6627,6 @@
                 },
                 {
                     "type": "json-query",
-                    "custom": "json.entry[0].resource.description",
-                    "action": "equal",
-                    "value": "The US Core Condition Category Codes support the separate concepts of problems and health concerns in Condition.category in order for API consumers to be able to separate health concerns and problems. However this is not mandatory for 2015 certification"
-                },
-                {
-                    "type": "json-query",
-                    "custom": "json.entry[0].resource.meta.profile[0]",
-                    "action": "equal",
-                    "value": "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
-                },
-                {
-                    "type": "json-query",
                     "custom": "json.entry[0].resource.publisher",
                     "action": "equal",
                     "value": "HL7 International"
@@ -6891,11 +6638,11 @@
             "colId": "79afa09e-3da0-4ee4-87ac-69cbd4467d93",
             "containerId": "684750d4-5645-4762-bd5a-8bf8c12c9732",
             "name": "HasTHOValueSetConditionClinical",
-            "url": "ValueSet/?url=http://terminology.hl7.org/ValueSet/v3-ActEncounterCode",
+            "url": "ValueSet/?url=http://terminology.hl7.org/ValueSet/condition-clinical",
             "method": "GET",
             "sortNum": 175000,
             "created": "2023-07-18T11:54:57.396Z",
-            "modified": "2023-07-22T01:40:17.339Z",
+            "modified": "2023-08-02T06:10:46.548Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -6906,7 +6653,7 @@
             "params": [
                 {
                     "name": "url",
-                    "value": "http://terminology.hl7.org/ValueSet/v3-ActEncounterCode",
+                    "value": "http://terminology.hl7.org/ValueSet/condition-clinical",
                     "isPath": false
                 }
             ],
