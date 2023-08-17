@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/cqfmeasures/2023Jan" ciUrl="http://build.fhir.org/ig/HL7/cqf-measures" defaultVersion="3.0.0" defaultWorkgroup="cqi" gitUrl="https://github.com/HL7/cqf-measures" url="http://hl7.org/fhir/us/cqfmeasures">
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/cqfmeasures/2023Jan" ciUrl="http://build.fhir.org/ig/HL7/cqf-measures" defaultVersion="4.0.0" defaultWorkgroup="cqi" gitUrl="https://github.com/HL7/cqf-measures" url="http://hl7.org/fhir/us/cqfmeasures">
 <version code="current" url="http://build.fhir.org/ig/HL7/cqf-measures"/>
+<version code="4.0.0" url="http://hl7.org/fhir/us/cqfmeasures/STU4"/>
 <version code="4.0.0-ballot" url="http://hl7.org/fhir/us/cqfmeasures/2023Jan"/>
 <version code="3.0.0" url="http://hl7.org/fhir/us/cqfmeasures/STU3"/>
 <version code="2.1.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/2021May"/>
@@ -92,7 +93,7 @@
 <artifact id="StructureDefinition/test-case-cqfm" key="StructureDefinition-test-case-cqfm" name="CQFM Test Case"/>
 <artifact id="StructureDefinition/cqfm-testCaseDescription" key="StructureDefinition-cqfm-testCaseDescription" name="CQFM Test Case Description"/>
 <artifact id="StructureDefinition/cqfm-type" key="StructureDefinition-cqfm-type" name="CQFM Type"/>
-<artifact id="StructureDefinition/cqfm-usageWarning" key="StructureDefinition-cqfm-usageWarning" name="CQFM Usage Warning"/>
+<artifact deprecated="true" id="StructureDefinition/cqfm-usageWarning" key="StructureDefinition-cqfm-usageWarning" name="CQFM Usage Warning"/>
 <artifact id="StructureDefinition/cqfm-valueFilter" key="StructureDefinition-cqfm-valueFilter" name="CQFM Value Filter"/>
 <artifact id="StructureDefinition/cqfm-weight" key="StructureDefinition-cqfm-weight" name="CQFM Weight"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-activeOnly" key="StructureDefinition-cqfm-activeOnly" name="CQFMActiveOnly"/>
@@ -187,7 +188,7 @@
 <artifact id="CodeSystem/publishable-example" key="CodeSystem-publishable-example" name="SNOMED CT International Edition"/>
 <artifact id="SearchParameter/Library-contained-parameter-name" key="SearchParameter-Library-contained-parameter-name" name="Search Parameter - Library contained parameter name"/>
 <artifact id="SearchParameter/Library-expansion-identifier" key="SearchParameter-Library-expansion-identifier" name="Search Parameter - Library expansion identifier"/>
-<artifact id="SearchParameter/ValueSet-keyword" key="SearchParameter-ValueSet-keyword" name="Search Parameter - Valuset Keyowrd"/>
+<artifact id="SearchParameter/ValueSet-keyword" key="SearchParameter-ValueSet-keyword" name="Search Parameter - Valuset Keyword"/>
 <artifact id="ValueSet/software-system-type" key="ValueSet-software-system-type" name="Software System Type"/>
 <artifact id="CodeSystem/software-system-type" key="CodeSystem-software-system-type" name="Software System Type Codes"/>
 <artifact deprecated="true" key="StructureDefinition" name="StructureDefinition"/>

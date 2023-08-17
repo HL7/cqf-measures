@@ -43,7 +43,19 @@
   "context": [
     {
       "type": "element",
-      "expression": "Resource"
+      "expression": "Measure"
+    },
+    {
+      "type": "element",
+      "expression": "Library"
+    },
+    {
+      "expression": "Measure.descendants().ofType(Element)",
+      "type": "fhirpath"
+    },
+    {
+      "expression": "Library.descendants().ofType(Element)",
+      "type": "fhirpath"
     }
   ],
   "type": "Extension",

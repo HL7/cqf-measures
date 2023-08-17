@@ -33,6 +33,6 @@
     "Library"
   ],
   "type" : "string",
-  "expression" : "Library.contained.where(resourceType='Parameters').parameter.where(name='expansion').valueUri",
+  "expression" : "contained.ofType(Parameters).parameter.where(name='expansion').value",
   "xpathUsage" : "normal"
 }
