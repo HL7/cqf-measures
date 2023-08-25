@@ -6,6 +6,9 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/cqfmeasures/Str
 # CPT Code System cannot be validated, the content containing these codes is from measure developers, built with VSAC-enabled tooling, we are confident the CPT codes referenced here are correct
 The definition for the Code System with URI 'http://www.ama-assn.org/go/cpt' doesnt provide any codes so the code cannot be validated
 
+# The following information message in the example is related to terminology referenced in profiles with the status of draft . Will address these in future profiles
+INFORMATION: Measure/EXMLogic-FHIR: Measure.contained[0]/*Library/effective-data-requirements*/.dataRequirement[1].extension[1].extension[1].value.ofType(code): Reference to draft item http://hl7.org/fhir/search-comparator|4.0.1
+
 # This error appears to be inherited from the base capability statement
 WARNING: StructureDefinition/capability-statement-cqfm: StructureDefinition.snapshot.element[0].constraint[6].xpath: value should not start or finish with whitespace ' not(f:kind/@value='instance') or (not(exists(f:implementation)) and exists(f:software))'
 
