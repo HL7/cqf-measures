@@ -1,0 +1,1 @@
+Instructions and setup for these tests are described in the Documentation of the Thunder Client plugin, in the settingsd for Collections. To get there, select the Thunder Client plugin link. Select Collections. Select a Collection. To the right of that Collection, select the "..." menu and select "Settings"
