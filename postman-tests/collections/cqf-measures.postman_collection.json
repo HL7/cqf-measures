@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8b838a00-3e7d-4a4f-8ad9-87f60eea7a87",
+		"_postman_id": "aa857301-c8cd-4781-8354-12585a8e8dfe",
 		"name": "cqf-measures",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "9369978"
@@ -298,7 +298,12 @@
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "CapabilityStatement",
+			"item": [
 				{
 					"name": "GET Capability Statement",
 					"event": [
@@ -369,6 +374,231 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "CodeSystem",
+			"item": [
+				{
+					"name": "Shareable",
+					"item": [
+						{
+							"name": "HasFHIRBallotBoundCodeSystem",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Resource url equal to request-intent\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.url).equal(\"http://hl7.org/fhir/request-intent\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Test that version is 4.0.1\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Name is reuestIntent\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.name).to.equal(\"RequestIntent\");",
+											"});",
+											"",
+											"pm.test(\"Status is draft\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.status).to.equal(\"draft\");",
+											"});",
+											"",
+											"pm.test(\"Experimental is false\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.experimental).to.equal(\"false\");",
+											"});",
+											"",
+											"pm.test(\"Publisher is HL7\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.publisher).to.equal(\"HL7 (FHIR Project)\");",
+											"});",
+											"",
+											"pm.test(\"Description is correct\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.description).contains(\"Codes indicating the degree of authority/intentionality associated with a request.\");",
+											"});",
+											"",
+											"pm.test(\"CaseSensitive is true\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.caseSensitive).to.equal(\"true\");",
+											"});",
+											"",
+											"pm.test(\"Content is complete\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.content).to.equal(\"complete\");",
+											"});",
+											"",
+											"pm.test(\"Title is RequestIntent\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.title).to.equal(\"RequestIntent\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{VSAC_URL}}/CodeSystem/?url=http://hl7.org/fhir/request-intent&version=4.0.1",
+									"host": [
+										"{{VSAC_URL}}"
+									],
+									"path": [
+										"CodeSystem",
+										""
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "http://hl7.org/fhir/request-intent"
+										},
+										{
+											"key": "version",
+											"value": "4.0.1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "HasTHOCodeSystemConditionClinical",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Resource url equal to condition-clinical\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.url).equal(\"http://terminology.hl7.org/CodeSystem/condition-clinical\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Test that version is 4.0.1\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Name is ConditionClinicalStatusCode\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.name).to.equal(\"ConditionClinicalStatusCode\");",
+											"});",
+											"",
+											"pm.test(\"Status is draft\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.status).to.equal(\"draft\");",
+											"});",
+											"",
+											"pm.test(\"Experimental is false\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.experimental).to.equal(\"false\");",
+											"});",
+											"",
+											"pm.test(\"Publisher is FHIR Project team\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.publisher).to.equal(\"FHIR Project team\");",
+											"});",
+											"",
+											"pm.test(\"Description is correct\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.description).contains(\"Preferred value set for Condition Clinical Status.\");",
+											"});",
+											"",
+											"pm.test(\"CaseSensitive is true\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.caseSensitive).to.equal(\"true\");",
+											"});",
+											"",
+											"pm.test(\"Content is complete\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.content).to.equal(\"complete\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Concept code is active is complete\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.concept[0].code).to.equal(\"complete\");",
+											"});",
+											"pm.test(\"Title is RequestIntent\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.title).to.equal(\"Condition Clinical Status Codes\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{VSAC_URL}}CodeSystem/?url=http://terminology.hl7.org/CodeSystem/condition-clinical",
+									"host": [
+										"{{VSAC_URL}}CodeSystem"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}

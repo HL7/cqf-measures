@@ -1,5 +1,25 @@
  # Postman Testing
- ## Install Newman
+ ## Running the collection from within Postman
+ ### Environment Variables
+ In Postman setup the following environment variables. They are used in the queries in this collection.
+
+ basicUser:  your UserName for the VSAC server
+
+ basicPass:  your password for the VSAC server
+
+ VSAC_URL:   which should be https://uat-cts.nlm.nih.gov/fhir/
+
+ ### Running the tests
+
+ Import the collection in Postman. 
+
+ After setting up the variables, double click the query you want to run from the collection. Check the results. Edit as desired and rerun. Rinse and repeat. 
+ 
+ 
+ 
+ 
+### Running the collection from CLI
+ ### Install Newman
  
  Following the directions to install newman and newman-reporter-html
 
@@ -12,17 +32,8 @@
  npm install -g newman-reporter-htmlextra
 
 
- ## Environment Variables
- In Postman setup the following environment variables. They are used in the queries in this collection.
+### Running the tests
 
- basicUser:  your UserName for the VSAC server
+newman run cqf-measures.postman_collection.json -e workspace.postman_globals.json    
 
- basicPass:  your password for the VSAC server
-
- VSAC_URL:   which should be https://uat-cts.nlm.nih.gov/fhir/
-
- ## Running the tests
-
- Import the collection in Postman. 
-
- After setting up the variables, double click the query you want to run from the collection. Check the results. Edit as desired and rerun. Rinse and repeat.
+newman run cqf-measures.postman_collection.json -e workspace.postman_globals.json --reporters cli,json --reporter-json-export output.json
