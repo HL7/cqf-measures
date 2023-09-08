@@ -1,0 +1,2436 @@
+{
+	"info": {
+		"_postman_id": "aa857301-c8cd-4781-8354-12585a8e8dfe",
+		"name": "cqf-measures",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9369978"
+	},
+	"item": [
+		{
+			"name": "GET-PUT",
+			"item": [
+				{
+					"name": "GET CodeSystem test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Resource Type should not be empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Test that id is not empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"url is http://terminology.hl7.org/CodeSystem/v3-ActCode\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.url).to.equal(\"http://terminology.hl7.org/CodeSystem/v3-ActCode\", \"Invalid url\");",
+									"});",
+									"",
+									"pm.test(\"Title is ActCode\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.title).to.equal(\"ActCode\", \"Title error\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{basicPass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{basicUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{VSAC_URL}}CodeSystem/ActCode",
+							"host": [
+								"{{VSAC_URL}}CodeSystem"
+							],
+							"path": [
+								"ActCode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Library",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200 or 201\", function () {",
+									"    pm.expect(pm.response.code).to.oneOf([200, 201]);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Resource Type should not be empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"pm.test(\"Resource Type should be transaction-response\", function (){",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.type).to.exist.and.to.not.be.empty;",
+									"})",
+									"",
+									"",
+									"pm.test(\"Test that id is not empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{basicPass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{basicUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"resourceType\": \"Bundle\",\n    \"id\": \"POST-library-test\",\n    \"type\": \"transaction\",\n    \"entry\": [\n        {\n            \"resource\": {\n                \"resourceType\": \"Library\",\n                \"id\": \"postLibraryTest\",\n                \"title\": \"Post Library Test\",\n                \"status\": \"draft\",\n                \"version\": \"0.0.1\",\n                \"url\": \"postLibraryTest\",\n                \"type\": {\n                    \"coding\": [\n                        {\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/library-type\",\n                            \"code\": \"logic-library\",\n                            \"display\": \"Logic Library\"\n                        }\n                    ],\n                    \"text\": \"Test Logic Library\"\n                }\n            },\n      \"request\": {\n        \"method\": \"PUT\",\n            \"url\": \"Library/postLibraryTest\"\n      }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{VSAC_URL}}Library",
+							"host": [
+								"{{VSAC_URL}}Library"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Library duplicating url and version",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"resourceType\": \"Bundle\",\n    \"id\": \"POST-library-test-duplicate\",\n    \"type\": \"transaction\",\n    \"entry\": [\n        {\n            \"resource\": {\n                \"resourceType\": \"Library\",\n                \"id\": \"postLibraryTest\",\n                \"title\": \"Post Library Test\",\n                \"status\": \"draft\",\n                \"version\": \"0.0.1\",\n                \"url\": \"postLibraryTest\",\n                \"type\": {\n                    \"coding\": [\n                        {\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/library-type\",\n                            \"code\": \"logic-library\",\n                            \"display\": \"Logic Library\"\n                        }\n                    ],\n                    \"text\": \"Test Logic Library that should be rejected due to duplicate url and version\"\n                }\n            },\n      \"request\": {\n        \"method\": \"PUT\",\n            \"url\": \"Library/postLibraryTest\"\n      }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{VSAC_URL}}Library",
+							"host": [
+								"{{VSAC_URL}}Library"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Library",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200 or 201\", function () {",
+									"    pm.expect(pm.response.code).to.oneOf([200, 201]);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Resource Type should not be empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"pm.test(\"Resource Type should be transaction-response\", function (){",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.type).to.exist.and.to.not.be.empty;",
+									"})",
+									"",
+									"",
+									"pm.test(\"Test that id is not empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{basicPass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{basicUser}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"resourceType\": \"Library\",\n    \"id\": \"postLibraryTest\",\n    \"title\": \"Post Library Test\",\n    \"status\": \"draft\",\n    \"version\": \"0.0.1\",\n    \"url\": \"postLibraryTest\",\n    \"type\": {\n        \"coding\": [\n            {\n                \"system\": \"http://terminology.hl7.org/CodeSystem/library-type\",\n                \"code\": \"logic-library\",\n                \"display\": \"Logic Library\"\n            }\n        ],\n        \"text\": \"Test Logic Library, test using PUT to update\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{VSAC_URL}}Library/postLibraryTest",
+							"host": [
+								"{{VSAC_URL}}Library"
+							],
+							"path": [
+								"postLibraryTest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Library draft to active",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).equals(\"200\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Resource Type should not be empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"pm.test(\"Resource Type should be transaction-response\", function (){",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.type).to.exist.and.to.not.be.empty;",
+									"})",
+									"",
+									"pm.test(\"Test that id is not empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"pm.test(\"Status is active\", function (){",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.status).equals(\"active\");",
+									"})",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"resourceType\": \"Library\",\n    \"id\": \"postLibraryTest\",\n    \"title\": \"Post Library Test\",\n    \"status\": \"active\",\n    \"version\": \"0.0.1\",\n    \"url\": \"postLibraryTest\",\n    \"type\": {\n        \"coding\": [\n            {\n                \"system\": \"http://terminology.hl7.org/CodeSystem/library-type\",\n                \"code\": \"logic-library\",\n                \"display\": \"Logic Library\"\n            }\n        ],\n        \"text\": \"Test Logic Library, test using PUT to update\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{VSAC_URL}}Library/postLibraryTest",
+							"host": [
+								"{{VSAC_URL}}Library"
+							],
+							"path": [
+								"postLibraryTest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Library test reject of update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is NOT 200\", function () {",
+									"    pm.expect(pm.response.code).not.equals(\"200\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"resourceType\": \"Library\",\n    \"id\": \"postLibraryTest\",\n    \"title\": \"Post Library Test\",\n    \"status\": \"active\",\n    \"version\": \"0.0.1\",\n    \"url\": \"postLibraryTest\",\n    \"type\": {\n        \"coding\": [\n            {\n                \"system\": \"http://terminology.hl7.org/CodeSystem/library-type\",\n                \"code\": \"logic-library\",\n                \"display\": \"Logic Library\"\n            }\n        ],\n        \"text\": \"test logic library should be rejected, because library is not in draft mode\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{VSAC_URL}}Library/postLibraryTest",
+							"host": [
+								"{{VSAC_URL}}Library"
+							],
+							"path": [
+								"postLibraryTest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Library active to retired",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).equals(\"200\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Resource Type should not be empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"pm.test(\"Resource Type should be transaction-response\", function (){",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.type).to.exist.and.to.not.be.empty;",
+									"})",
+									"",
+									"pm.test(\"Test that id is not empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"pm.test(\"Status is retired\", function (){",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.status).equals(\"retired\");",
+									"})",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"resourceType\": \"Library\",\n    \"id\": \"postLibraryTest\",\n    \"title\": \"Post Library Test\",\n    \"status\": \"retired\",\n    \"version\": \"0.0.1\",\n    \"url\": \"postLibraryTest\",\n    \"type\": {\n        \"coding\": [\n            {\n                \"system\": \"http://terminology.hl7.org/CodeSystem/library-type\",\n                \"code\": \"logic-library\",\n                \"display\": \"Logic Library\"\n            }\n        ],\n        \"text\": \"Test Logic Library, test using PUT to update\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{VSAC_URL}}Library/postLibraryTest",
+							"host": [
+								"{{VSAC_URL}}Library"
+							],
+							"path": [
+								"postLibraryTest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Library to server PASS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200 or 201\", function () {",
+									"    pm.expect(pm.response.code).to.oneOf([200, 201]);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Resource Type should not be empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"pm.test(\"Resource Type should be transaction-response\", function (){",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.type).to.exist.and.to.not.be.empty;",
+									"})",
+									"",
+									"",
+									"pm.test(\"Test that id is not empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"resourceType\": \"Bundle\",\n    \"id\": \"POST-library-test\",\n    \"type\": \"transaction\",\n    \"entry\": [\n        {\n            \"resource\": {\n                \"resourceType\": \"Library\",\n                \"id\": \"postLibraryTest\",\n                \"title\": \"Post Library Test\",\n                \"status\": \"draft\",\n                \"version\": \"0.0.1\",\n                \"url\": \"postLibraryTest\",\n                \"type\": {\n                    \"coding\": [\n                        {\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/library-type\",\n                            \"code\": \"logic-library\",\n                            \"display\": \"Logic Library\"\n                        }\n                    ],\n                    \"text\": \"Test Logic Library\"\n                }\n            },\n            \"request\": {\n                \"method\": \"PUT\",\n                \"url\": \"Library/postLibraryTest\"\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://r4.smarthealthit.org",
+							"protocol": "https",
+							"host": [
+								"r4",
+								"smarthealthit",
+								"org"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CapabilityStatement",
+			"item": [
+				{
+					"name": "GET Capability Statement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Resource Type should not be empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Test that id is not empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Test that codeSystem is not empty\", function (){",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.codeSystem).to.exist.and.to.not.be.empty;",
+									"",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{VSAC_URL}}metadata?mode=terminology",
+							"host": [
+								"{{VSAC_URL}}metadata"
+							],
+							"query": [
+								{
+									"key": "mode",
+									"value": "terminology"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CodeSystem",
+			"item": [
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Shareable",
+							"item": [
+								{
+									"name": "HasFHIRBallotBoundCodeSystem",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"",
+													"pm.test(\"Resource url equal to request-intent\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"http://hl7.org/fhir/request-intent\");",
+													"});",
+													"",
+													"",
+													"pm.test(\"Test that version is 4.0.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+													"});",
+													"",
+													"pm.test(\"Status is draft\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).to.equal(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"Experimental is false\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.experimental).to.equal(\"false\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?url=http://hl7.org/fhir/request-intent&version=4.0.1",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://hl7.org/fhir/request-intent"
+												},
+												{
+													"key": "version",
+													"value": "4.0.1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasTHOCodeSystemConditionClinical",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to condition-clinical\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"http://terminology.hl7.org/CodeSystem/condition-clinical\");",
+													"});",
+													"",
+													"pm.test(\"Test that version is 4.0.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+													"});",
+													"",
+													"pm.test(\"Name is ConditionClinicalStatusCode\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).to.equal(\"ConditionClinicalStatusCode\");",
+													"});",
+													"",
+													"pm.test(\"Status is draft\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).to.equal(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"Experimental is false\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.experimental).to.equal(\"false\");",
+													"});",
+													"",
+													"pm.test(\"Publisher is FHIR Project team\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).to.equal(\"FHIR Project team\");",
+													"});",
+													"",
+													"pm.test(\"Description is correct\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.description).contains(\"Preferred value set for Condition Clinical Status.\");",
+													"});",
+													"",
+													"pm.test(\"CaseSensitive is true\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.caseSensitive).to.equal(\"true\");",
+													"});",
+													"",
+													"pm.test(\"Content is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).to.equal(\"complete\");",
+													"});",
+													"",
+													"pm.test(\"Concept code is active is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.concept[0].code).to.equal(\"complete\");",
+													"});",
+													"pm.test(\"Title is Condition Clinical Status Codes\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.title).to.equal(\"Condition Clinical Status Codes\");",
+													"});",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?url=http://terminology.hl7.org/CodeSystem/condition-clinical",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasTHOCodeSystemV3ACTCode",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"",
+													"pm.test(\"Resource url equal to v3-ActCode\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"http://terminology.hl7.org/CodeSystem/v3-ActCode\");",
+													"});",
+													"",
+													"pm.test(\"Version is 4.0.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"4.0.1\");",
+													"});",
+													"",
+													"pm.test(\"Resource name equal to v3.ActCode\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).equal(\"v3.ActCode\");",
+													"});",
+													"",
+													"pm.test(\"Status is active\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).equal(\"active\");",
+													"});",
+													"",
+													"pm.test(\"Publisher equal to HL7, Inc\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).equal(\"HL7, Inc\");",
+													"});",
+													"",
+													"pm.test(\"CaseSensitive is true\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.caseSensitive).equal(\"true\");",
+													"});",
+													"",
+													"pm.test(\"Content is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).equal(\"Complete\");",
+													"});",
+													"",
+													"pm.test(\"code is _ActAccountCode\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.concept[0].code).equal(\"_ActAccountCode\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is v3 Code System ActCode\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).equal(\"v3 Code System ActCode\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?url=http://terminology.hl7.org/CodeSystem/v3-ActCode",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasQICoreCodeSystem",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to appropriateness-score\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score\");",
+													"});",
+													"",
+													"pm.test(\"Version is 4.1.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"4.1.1\");",
+													"});",
+													"",
+													"pm.test(\"Resource name equal to AppropriatenessScore\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).equal(\"AppropriatenessScore\");",
+													"});",
+													"",
+													"pm.test(\"Status is draft\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).equal(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"experimental is false\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.experimental).equal(\"false\");",
+													"});",
+													"",
+													"pm.test(\"Publisher equal to Health Level Seven, Inc. - CQI WG\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).equal(\"Health Level Seven, Inc. - CQI WG\");",
+													"});",
+													"",
+													"pm.test(\"Description is present\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.description).contains(\"The RAND scoring for appropriateness of the procedure.\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is RAND Appropriateness Scores\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).equal(\"RAND Appropriateness Scores\");",
+													"});",
+													"",
+													"pm.test(\"Jurisdiction code is US\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.jurisdiction[0].coding[0].code).equal(\"US\");",
+													"});",
+													"",
+													"pm.test(\"CaseSensitive is true\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.caseSensitive).equal(\"true\");",
+													"});",
+													"",
+													"pm.test(\"Content is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).equal(\"Complete\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?url=http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasUsCoreCodeSystem",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to condition-category\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).contains(\"http://hl7.org/fhir/us/core/CodeSystem/condition-category\");",
+													"});",
+													"",
+													"pm.test(\"version is equal to 3.1.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.version).equal(\"3.1.1\");",
+													"});",
+													"",
+													"pm.test(\"name is equal to USCoreConditionCategoryExtensionCodes\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).equal(\"USCoreConditionCategoryExtensionCodes\");",
+													"});",
+													"",
+													"pm.test(\"status is equal to active\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).equal(\"active\");",
+													"});",
+													"",
+													"pm.test(\"publisher is equal to HL7 US Realm Steering Committee\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).equal(\"HL7 US Realm Steering Committee\");",
+													"});",
+													"",
+													"pm.test(\"Description contains Set of codes that are needed for implementation of the US-Core profiles\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.description).contains(\"Set of codes that are needed for implementation of the US-Core profiles\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?url=http://hl7.org/fhir/us/core/CodeSystem/condition-category",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://hl7.org/fhir/us/core/CodeSystem/condition-category"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Publishable",
+							"item": [
+								{
+									"name": "HasUsCoreCodeSystem",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to condition-category\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).contains(\"http://hl7.org/fhir/us/core/CodeSystem/condition-category\");",
+													"});",
+													"",
+													"pm.test(\"version is equal to 3.1.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.version).equal(\"3.1.1\");",
+													"});",
+													"",
+													"pm.test(\"name is equal to USCoreConditionCategoryExtensionCodes\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).equal(\"USCoreConditionCategoryExtensionCodes\");",
+													"});",
+													"",
+													"pm.test(\"status is equal to active\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).equal(\"active\");",
+													"});",
+													"",
+													"pm.test(\"publisher is equal to HL7 US Realm Steering Committee\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).equal(\"HL7 US Realm Steering Committee\");",
+													"});",
+													"",
+													"pm.test(\"Description contains Set of codes that are needed for implementation of the US-Core profiles\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.description).contains(\"Set of codes that are needed for implementation of the US-Core profiles\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?url=http://hl7.org/fhir/us/core/CodeSystem/condition-category",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://hl7.org/fhir/us/core/CodeSystem/condition-category"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasTHOCodeSystem",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to condition-clinical\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"http://terminology.hl7.org/CodeSystem/condition-clinical\");",
+													"});",
+													"",
+													"pm.test(\"Test that version is 4.0.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+													"});",
+													"",
+													"pm.test(\"Name is ConditionClinicalStatusCode\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).to.equal(\"ConditionClinicalStatusCode\");",
+													"});",
+													"",
+													"pm.test(\"Status is draft\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).to.equal(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"Experimental is false\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.experimental).to.equal(\"false\");",
+													"});",
+													"",
+													"pm.test(\"Publisher is FHIR Project team\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).to.equal(\"FHIR Project team\");",
+													"});",
+													"",
+													"pm.test(\"Description is correct\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.description).contains(\"Preferred value set for Condition Clinical Status.\");",
+													"});",
+													"",
+													"pm.test(\"CaseSensitive is true\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.caseSensitive).to.equal(\"true\");",
+													"});",
+													"",
+													"pm.test(\"Content is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).to.equal(\"complete\");",
+													"});",
+													"",
+													"pm.test(\"Concept code is active is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.concept[0].code).to.equal(\"complete\");",
+													"});",
+													"pm.test(\"Title is Condition Clinical Status Codes\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.title).to.equal(\"Condition Clinical Status Codes\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?url=http://terminology.hl7.org/CodeSystem/condition-clinical",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasQiCoreCodeSystem",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to appropriateness-score\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score\");",
+													"});",
+													"",
+													"pm.test(\"Version is 4.1.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"4.1.1\");",
+													"});",
+													"",
+													"pm.test(\"Resource name equal to AppropriatenessScore\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).equal(\"AppropriatenessScore\");",
+													"});",
+													"",
+													"pm.test(\"Status is draft\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).equal(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"experimental is false\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.experimental).equal(\"false\");",
+													"});",
+													"",
+													"pm.test(\"Publisher equal to Health Level Seven, Inc. - CQI WG\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).equal(\"Health Level Seven, Inc. - CQI WG\");",
+													"});",
+													"",
+													"pm.test(\"Description is present\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.description).contains(\"The RAND scoring for appropriateness of the procedure.\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is RAND Appropriateness Scores\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).equal(\"RAND Appropriateness Scores\");",
+													"});",
+													"",
+													"pm.test(\"Jurisdiction code is US\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.jurisdiction[0].coding[0].code).equal(\"US\");",
+													"});",
+													"",
+													"pm.test(\"CaseSensitive is true\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.caseSensitive).equal(\"true\");",
+													"});",
+													"",
+													"pm.test(\"Content is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).equal(\"Complete\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?url=http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "SearchBy",
+					"item": [
+						{
+							"name": "SHALL",
+							"item": [
+								{
+									"name": "V3ActPriorityByUrl",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url is http://terminology.hl7.org/CodeSystem/v3-ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/CodeSystem/v3-ActPriority\");",
+													"});",
+													"",
+													"pm.test(\"Resource version is 2023-02-01\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).contains(\"2023-02-01\");",
+													"});",
+													"",
+													"pm.test(\"Resource name is ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"ActPriority\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is active\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"active\");",
+													"});",
+													"",
+													"pm.test(\"Resource experimental is false\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.experimental).is.false;",
+													"});",
+													"",
+													"pm.test(\"Resource content is complete\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.content).equals(\"complete\");",
+													"});",
+													"",
+													"pm.test(\"Resource concept code is A\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.concept[0].code).equals(\"A\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).equals(\"ActPriority\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?url=http://terminology.hl7.org/CodeSystem/v3-ActPriority",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://terminology.hl7.org/CodeSystem/v3-ActPriority"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "V3ActPriorityByVersion",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"",
+													"pm.test(\"ResourceType is CodeSystem\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"CodeSystem\");",
+													"",
+													"});",
+													"",
+													"pm.test(\"Resource version is 2023-02-01\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).contains(\"2023-02-01\");",
+													"",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?version=2023-02-01",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "2023-02-01"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "V3ActPriorityByIdentifier",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url is http://terminology.hl7.org/CodeSystem/v3-ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/CodeSystem/v3-ActPriority\");",
+													"});",
+													"",
+													"pm.test(\"Resource version is 2023-02-01\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).contains(\"2023-02-01\");",
+													"",
+													"});",
+													"",
+													"pm.test(\"Resource name is ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"ActPriority\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is active\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"active\");",
+													"});",
+													"",
+													"pm.test(\"Resource experimental is false\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.experimental).is.false;",
+													"});",
+													"",
+													"pm.test(\"Resource content is complete\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.content).equals(\"complete\");",
+													"});",
+													"",
+													"pm.test(\"Resource concept code is A\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.concept[0].code).equals(\"A\");",
+													"});",
+													"",
+													"pm.test(\"Resource Date contains 2023-02-01\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.date).contains(\"2023-02-01\");",
+													"});",
+													"",
+													"pm.test(\"Resource identifier system is urn:ietf:rfc:3986\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.identifier[0].system).equals(\"urn:ietf:rfc:3986\");",
+													"});",
+													"",
+													"pm.test(\"Resource identifier value is urn:oid:2.16.840.1.113883.5.7\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.identifier[0].value).equals(\"urn:oid:2.16.840.1.113883.5.7\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).equals(\"ActPriority\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?identifier=urn:oid:2.16.840.1.113883.5.7",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "identifier",
+													"value": "urn:oid:2.16.840.1.113883.5.7"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "V3ACTPriorityByName",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url is http://terminology.hl7.org/CodeSystem/v3-ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/CodeSystem/v3-ActPriority\");",
+													"});",
+													"",
+													"pm.test(\"Resource version is 2023-02-01\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).contains(\"2023-02-01\");",
+													"});",
+													"",
+													"pm.test(\"Resource name is ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"ActPriority\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is active\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"active\");",
+													"});",
+													"",
+													"pm.test(\"Resource experimental is false\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.experimental).is.false;",
+													"});",
+													"",
+													"pm.test(\"Resource content is complete\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.content).equals(\"complete\");",
+													"});",
+													"",
+													"pm.test(\"Resource concept code is A\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.concept[0].code).equals(\"A\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).equals(\"ActPriority\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?name=ActPriority",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "ActPriority"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "V3ActPriorityByTitle",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url is http://terminology.hl7.org/CodeSystem/v3-ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/CodeSystem/v3-ActPriority\");",
+													"});",
+													"",
+													"pm.test(\"Resource version is 2023-02-01\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).contains(\"2023-02-01\");",
+													"});",
+													"",
+													"pm.test(\"Resource name is ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"ActPriority\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is active\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"active\");",
+													"});",
+													"",
+													"pm.test(\"Resource experimental is false\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.experimental).is.false;",
+													"});",
+													"",
+													"pm.test(\"Resource content is complete\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.content).equals(\"complete\");",
+													"});",
+													"",
+													"pm.test(\"Resource concept code is A\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.concept[0].code).equals(\"A\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is ActPriority\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).equals(\"ActPriority\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?title=ActPriority",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "ActPriority"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "DataAbsentByReason",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url is http://terminology.hl7.org/CodeSystem/data-absent-reason\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/CodeSystem/data-absent-reason\");",
+													"});",
+													"",
+													"pm.test(\"Resource version is 0.1.0\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).contains(\"0.1.0\");",
+													"});",
+													"",
+													"pm.test(\"Resource name is DataAbsentReason\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"DataAbsentReason\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is active\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"active\");",
+													"});",
+													"",
+													"pm.test(\"Resource experimental is false\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.experimental).is.false;",
+													"});",
+													"",
+													"pm.test(\"Resource caseSensitive is true\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.caseSensitive).is.true;",
+													"});",
+													"",
+													"pm.test(\"Resource content is complete\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.content).equals(\"complete\");",
+													"});",
+													"",
+													"pm.test(\"Resource concept [0] is true\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.concept[0]).is.not.empty;",
+													"});",
+													"",
+													"pm.test(\"Resource title is DataAbsentReason\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).equals(\"DataAbsentReason\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?description=Used%20to%20specify%20why%20the%20normally%20expected%20content%20of%20the%20data%20element%20is%20missing.",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "description",
+													"value": "Used%20to%20specify%20why%20the%20normally%20expected%20content%20of%20the%20data%20element%20is%20missing."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "DataAbsentReasonByCode",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url is http://terminology.hl7.org/CodeSystem/data-absent-reason\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/CodeSystem/data-absent-reason\");",
+													"});",
+													"",
+													"pm.test(\"Resource version is 0.1.0\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).contains(\"0.1.0\");",
+													"});",
+													"",
+													"pm.test(\"Resource name is DataAbsentReason\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"DataAbsentReason\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is active\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"active\");",
+													"});",
+													"",
+													"pm.test(\"Resource experimental is false\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.experimental).is.false;",
+													"});",
+													"",
+													"pm.test(\"Resource caseSensitive is true\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.caseSensitive).is.true;",
+													"});",
+													"",
+													"pm.test(\"Resource content is complete\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.content).equals(\"complete\");",
+													"});",
+													"",
+													"pm.test(\"Resource concept [0] is not empty\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.concept[0]).is.not.empty;",
+													"});",
+													"",
+													"pm.test(\"Resource title is DataAbsentReason\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).equals(\"DataAbsentReason\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?code=not-applicable",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "code",
+													"value": "not-applicable"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "SHOULD",
+							"item": [
+								{
+									"name": "SearchByStatus",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource Type is CodeSystem\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"CodeSystem\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is active\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"active\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?status=active",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "status",
+													"value": "active"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "**** doesn't work**FHIRAllergyIntoleranceByValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url is http://terminology.hl7.org/ValueSet/allergyintolerance-clinical\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/ValueSet/allergyintolerance-clinical\");",
+													"});",
+													"",
+													"pm.test(\"Resource version is 4.0.1\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+													"});",
+													"",
+													"pm.test(\"Resource name is AllergyIntoleranceClinicalStatusCodes\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"AllergyIntoleranceClinicalStatusCodes\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is draft\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"Resource experimental is false\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.experimental).is.false;",
+													"});",
+													"",
+													"pm.test(\"Resource publisher is FHIR Project team\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.publisher).equals(\"FHIR Project team\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is AllergyIntolerance Clinical Status Codes\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).equals(\"AllergyIntolerance Clinical Status Codes\");",
+													"});",
+													"",
+													"pm.test(\"Resource type is ValueSet\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.type).equals(\"ValueSet\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?ValueSet=http://terminology.hl7.org/ValueSet/allergyintolerance-clinical",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "ValueSet",
+													"value": "http://terminology.hl7.org/ValueSet/allergyintolerance-clinical"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "FHIRAllergyIntoleranceByMeasure",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url is http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical\");",
+													"});",
+													"",
+													"pm.test(\"Resource version is 4.0.1\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+													"});",
+													"",
+													"pm.test(\"Resource name is AllergyIntoleranceClinicalStatusCodes\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"AllergyIntoleranceClinicalStatusCodes\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is draft\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"Resource experimental is false\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.experimental).is.false;",
+													"});",
+													"",
+													"pm.test(\"Resource publisher is FHIR Project team\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.publisher).equals(\"FHIR Project team\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is AllergyIntolerance Clinical Status Codes\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).equals(\"AllergyIntolerance Clinical Status Codes\");",
+													"});",
+													"",
+													"pm.test(\"Resource type is Measure\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.type).equals(\"Measure\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?Measure=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "Measure",
+													"value": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "FHIRAllergyIntoleranceByLibrary",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url is http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical\");",
+													"});",
+													"",
+													"pm.test(\"Resource version is 4.0.1\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+													"});",
+													"",
+													"pm.test(\"Resource name is AllergyIntoleranceClinicalStatusCodes\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"AllergyIntoleranceClinicalStatusCodes\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is draft\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"Resource experimental is false\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.experimental).is.false;",
+													"});",
+													"",
+													"pm.test(\"Resource publisher is FHIR Project team\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.publisher).equals(\"FHIR Project team\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is AllergyIntolerance Clinical Status Codes\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).equals(\"AllergyIntolerance Clinical Status Codes\");",
+													"});",
+													"",
+													"pm.test(\"Resource type is Library\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.type).equals(\"Library\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?Library=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "Library",
+													"value": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "FHIRAllergyIntoleranceByArtifact",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url is http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical\");",
+													"});",
+													"",
+													"pm.test(\"Resource version is 4.0.1\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+													"});",
+													"",
+													"pm.test(\"Resource name is AllergyIntoleranceClinicalStatusCodes\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"AllergyIntoleranceClinicalStatusCodes\");",
+													"});",
+													"",
+													"pm.test(\"Resource status is draft\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.status).equals(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"Resource experimental is false\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.experimental).is.false;",
+													"});",
+													"",
+													"pm.test(\"Resource publisher is FHIR Project team\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.publisher).equals(\"FHIR Project team\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is AllergyIntolerance Clinical Status Codes\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).equals(\"AllergyIntolerance Clinical Status Codes\");",
+													"});",
+													"",
+													"pm.test(\"Resource type is Artifact\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.type).equals(\"Artifact\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}CodeSystem/?Artifact=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+											"host": [
+												"{{VSAC_URL}}CodeSystem"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "Artifact",
+													"value": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Lookup",
+					"item": [
+						{
+							"name": "V3ParticipationModelLookupByCode",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a value ParticipationMode\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"name\");",
+											"    pm.expect(parameterEntry.valueString).to.equal(\"ParticipationMode\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{VSAC_URL}}CodeSystem/$lookup?system=http://terminology.hl7.org/CodeSystem/v3-ParticipationMode&code=ELECTRONIC",
+									"host": [
+										"{{VSAC_URL}}CodeSystem"
+									],
+									"path": [
+										"$lookup"
+									],
+									"query": [
+										{
+											"key": "system",
+											"value": "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"
+										},
+										{
+											"key": "code",
+											"value": "ELECTRONIC"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ValidateCode",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "ValueSet",
+			"item": [
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Shareable",
+							"item": [
+								{
+									"name": "HasFHIRBallotBoundValueSet",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}/ValueSet/?url=http://hl7.org/fhir/valueset-request-intent",
+											"host": [
+												"{{VSAC_URL}}"
+											],
+											"path": [
+												"ValueSet",
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://hl7.org/fhir/valueset-request-intent"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Computable",
+							"item": []
+						},
+						{
+							"name": "Executable",
+							"item": []
+						},
+						{
+							"name": "Publishable",
+							"item": []
+						}
+					]
+				},
+				{
+					"name": "SearchBy",
+					"item": [
+						{
+							"name": "SHALL",
+							"item": []
+						},
+						{
+							"name": "SHOULD",
+							"item": []
+						}
+					]
+				},
+				{
+					"name": "ValidateCode",
+					"item": []
+				},
+				{
+					"name": "Expand",
+					"item": []
+				}
+			]
+		}
+	]
+}
