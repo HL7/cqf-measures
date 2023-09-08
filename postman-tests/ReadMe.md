@@ -31,6 +31,9 @@
 
  npm install -g newman-reporter-htmlextra
 
+### Setting up the environment variables
+
+Open the file workspace.postman_globals.json. Edit the values for basicUser and basicPass so they have the actual username and password for the VSAC uat-cts server. 
 
 ### Running the tests
 
