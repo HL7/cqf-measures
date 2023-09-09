@@ -56,21 +56,6 @@
 						}
 					],
 					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "{{basicPass}}",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "{{basicUser}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -123,21 +108,6 @@
 						}
 					],
 					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "{{basicPass}}",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "{{basicUser}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -219,21 +189,6 @@
 						}
 					],
 					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "{{basicPass}}",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "{{basicUser}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -672,7 +627,7 @@
 													"pm.test(\"Name is ConditionClinicalStatusCode\", function () {",
 													"    const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.name).to.equal(\"ConditionClinicalStatusCode\");",
+													"    pm.expect(responseData.name).to.equal(\"ConditionClinicalStatusCodes\");",
 													"});",
 													"",
 													"pm.test(\"Status is draft\", function () {",
@@ -2351,12 +2306,456 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "V3ParticipationModeLookupByCoding",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a value ParticipationMode\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"name\");",
+											"    pm.expect(parameterEntry.valueString).to.equal(\"ParticipationMode\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"resourceType\" : \"Parameters\",\n  \"parameter\" : [\n    {\n    \"name\" : \"coding\",\n    \"valueCoding\": {\n      \"code\": \"ELECTRONIC\",\n      \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationMode\"\n    }\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{VSAC_URL}}CodeSystem/$lookup",
+									"host": [
+										"{{VSAC_URL}}CodeSystem"
+									],
+									"path": [
+										"$lookup"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
 				{
 					"name": "ValidateCode",
-					"item": []
+					"item": [
+						{
+							"name": "LivingArrangementValidateReturnedCode",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a message of code validity\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"message\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"The code(N) is valid in code system LivingArrangement\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a display of Nursing Home\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Nursing Home\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{VSAC_URL}}CodeSystem/$validate-code?system=http://terminology.hl7.org/CodeSystem/v3-LivingArrangement&version=2022-02&code=N",
+									"host": [
+										"{{VSAC_URL}}CodeSystem"
+									],
+									"path": [
+										"$validate-code"
+									],
+									"query": [
+										{
+											"key": "system",
+											"value": "http://terminology.hl7.org/CodeSystem/v3-LivingArrangement"
+										},
+										{
+											"key": "version",
+											"value": "2022-02"
+										},
+										{
+											"key": "code",
+											"value": "N"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LivingArrangementValidateReturnedCoding",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a message of code validity\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"message\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"The code(N) is valid in code system LivingArrangement\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a display of Nursing Home\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Nursing Home\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"resourceType\" : \"Parameters\",\n  \"parameter\" : [\n    {\n    \"name\" : \"coding\",\n    \"valueCoding\": {\n      \"code\": \"N\",\n      \"system\": \"http://terminology.hl7.org/CodeSystem/v3-LivingArrangement\",\n      \"version\": \"2022-02\"\n    }\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{VSAC_URL}}CodeSystem/$validate-code",
+									"host": [
+										"{{VSAC_URL}}CodeSystem"
+									],
+									"path": [
+										"$validate-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LivingArrangementValidateReturnedCodeableConcept",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a message of code validity\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"message\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"The code(N) is valid in code system LivingArrangement\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a display of Nursing Home\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Nursing Home\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"resourceType\" : \"Parameters\",\n  \"parameter\" : [\n    {\n    \"name\" : \"codeableConcept\",\n    \"valueCodeableConcept\": {\n        \"coding\": [{\n          \"code\": \"N\",\n          \"system\": \"http://terminology.hl7.org/CodeSystem/v3-LivingArrangement\",\n          \"version\": \"2022-02\"\n        }]\n    }\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{VSAC_URL}}CodeSystem/$validate-code",
+									"host": [
+										"{{VSAC_URL}}CodeSystem"
+									],
+									"path": [
+										"$validate-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "QICoreValidateReturnedCode",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a message of code validity\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"message\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"The code(277406006) is valid in code system SNOMEDCT\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a display of dosage\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Dosages (qualifier value)\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{VSAC_URL}}CodeSystem/$validate-code?system=http://snomed.info/sct&version=http://snomed.info/sct/731000124108/version/20230301&code=277406006",
+									"host": [
+										"{{VSAC_URL}}CodeSystem"
+									],
+									"path": [
+										"$validate-code"
+									],
+									"query": [
+										{
+											"key": "system",
+											"value": "http://snomed.info/sct"
+										},
+										{
+											"key": "version",
+											"value": "http://snomed.info/sct/731000124108/version/20230301"
+										},
+										{
+											"key": "code",
+											"value": "277406006"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FHIRValidateCodeNotFound",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of false\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.false;",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a message of Unable to find code B in http://terminology.hl7.org/CodeSystem/v3-LivingArrangement version(2022-02)\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"message\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Unable to find code B in http://terminology.hl7.org/CodeSystem/v3-LivingArrangement version(2022-02)\");",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{VSAC_URL}}CodeSystem/$validate-code?system=http://terminology.hl7.org/CodeSystem/v3-LivingArrangement&version=2022-02&code=B",
+									"host": [
+										"{{VSAC_URL}}CodeSystem"
+									],
+									"path": [
+										"$validate-code"
+									],
+									"query": [
+										{
+											"key": "system",
+											"value": "http://terminology.hl7.org/CodeSystem/v3-LivingArrangement"
+										},
+										{
+											"key": "version",
+											"value": "2022-02"
+										},
+										{
+											"key": "code",
+											"value": "B"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "THOValidateCodeNotFound",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of false\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.false;",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a message of Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0092\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"message\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0092\");",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{VSAC_URL}}CodeSystem/$validate-code?system=http://terminology.hl7.org/CodeSystem/v2-0092&version=2.1.0&code=N",
+									"host": [
+										"{{VSAC_URL}}CodeSystem"
+									],
+									"path": [
+										"$validate-code"
+									],
+									"query": [
+										{
+											"key": "system",
+											"value": "http://terminology.hl7.org/CodeSystem/v2-0092"
+										},
+										{
+											"key": "version",
+											"value": "2.1.0"
+										},
+										{
+											"key": "code",
+											"value": "N"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -2371,6 +2770,47 @@
 							"item": [
 								{
 									"name": "HasFHIRBallotBoundValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"",
+													"pm.test(\"Resource url equal to request-intent\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"http://hl7.org/fhir/ValueSet/request-intent\");",
+													"});",
+													"",
+													"",
+													"pm.test(\"Test that version is 4.0.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+													"});",
+													"",
+													"pm.test(\"Status is draft\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).to.equal(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"Experimental is false\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.experimental).to.equal(\"false\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"method": "GET",
 										"header": [],
@@ -2392,45 +2832,1656 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "HasTHOValueSetConditionClinical",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to condition-clinical\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"http://terminology.hl7.org/fhir/ValueSet/condition-clinical\");",
+													"});",
+													"",
+													"pm.test(\"Test that version is 4.0.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).equals(\"4.0.1\");",
+													"});",
+													"",
+													"pm.test(\"Name is ConditionClinicalStatusCodes\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).to.equal(\"ConditionClinicalStatusCodes\");",
+													"});",
+													"",
+													"pm.test(\"Status is draft\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).to.equal(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"Experimental is false\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.experimental).to.equal(\"false\");",
+													"});",
+													"",
+													"pm.test(\"Publisher is FHIR Project team\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).to.equal(\"FHIR Project team\");",
+													"});",
+													"",
+													"pm.test(\"Description is correct\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.description).contains(\"Preferred value set for Condition Clinical Status.\");",
+													"});",
+													"",
+													"pm.test(\"CaseSensitive is true\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.caseSensitive).to.equal(\"true\");",
+													"});",
+													"",
+													"pm.test(\"Content is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).to.equal(\"complete\");",
+													"});",
+													"",
+													"pm.test(\"Concept code is active is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.concept[0].code).to.equal(\"complete\");",
+													"});",
+													"pm.test(\"Title is Condition Clinical Status Codes\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.title).to.equal(\"Condition Clinical Status Codes\");",
+													"});",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?url=http://hl7.org/fhir/ValueSet/request-intent",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://hl7.org/fhir/ValueSet/request-intent"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasTHOValueSetV3ACTCode",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"",
+													"pm.test(\"Resource url equal to v3-ActCode\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"http://terminology.hl7.org/ValueSet/v3-ActEncounterCode\");",
+													"});",
+													"",
+													"pm.test(\"Version is 2014-03-26\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"2014-03-26\");",
+													"});",
+													"",
+													"pm.test(\"Resource name equal to v3.ActCode\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).equal(\"v3.ActCode\");",
+													"});",
+													"",
+													"pm.test(\"Status is active\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).equal(\"active\");",
+													"});",
+													"",
+													"pm.test(\"Publisher equal to HL7, Inc\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).equal(\"HL7, Inc\");",
+													"});",
+													"",
+													"pm.test(\"CaseSensitive is true\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.caseSensitive).equal(\"true\");",
+													"});",
+													"",
+													"pm.test(\"Content is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).equal(\"Complete\");",
+													"});",
+													"",
+													"pm.test(\"code is _ActAccountCode\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.concept[0].code).equal(\"_ActAccountCode\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is v3 Code System ActCode\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).equal(\"v3 Code System ActCode\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?url=http://terminology.hl7.org/ValueSet/v3-ActEncounterCode",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasQICoreValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to qicore-appropriateness-score\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score\");",
+													"});",
+													"",
+													"pm.test(\"Version is 4.1.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"4.1.1\");",
+													"});",
+													"",
+													"pm.test(\"Resource name equal to QICoreAppropriatenessScore\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).equal(\"QICoreAppropriatenessScore\");",
+													"});",
+													"",
+													"pm.test(\"Status is draft\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).equal(\"draft\");",
+													"});",
+													"",
+													"pm.test(\"experimental is false\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.experimental).equal(\"false\");",
+													"});",
+													"",
+													"pm.test(\"Publisher equal to Health Level Seven, Inc. - CQI WG\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).equal(\"Health Level Seven, Inc. - CQI WG\");",
+													"});",
+													"",
+													"pm.test(\"Description is present\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.description).contains(\"The RAND scoring for appropriateness of the procedure.\");",
+													"});",
+													"",
+													"pm.test(\"Resource title is RAND Appropriateness Scores\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).equal(\"RAND Appropriateness Scores\");",
+													"});",
+													"",
+													"pm.test(\"Jurisdiction code is US\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.jurisdiction[0].coding[0].code).equal(\"US\");",
+													"});",
+													"",
+													"pm.test(\"CaseSensitive is true\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.caseSensitive).equal(\"true\");",
+													"});",
+													"",
+													"pm.test(\"Content is complete\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.content).equal(\"Complete\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?url=http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasUSCoreValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to condition-category\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).contains(\"http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category\");",
+													"});",
+													"",
+													"pm.test(\"version is equal to 3.1.1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.version).equal(\"3.1.1\");",
+													"});",
+													"",
+													"pm.test(\"name is equal to USCoreConditionCategoryCodes\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.name).equal(\"USCoreConditionCategoryCodes\");",
+													"});",
+													"",
+													"pm.test(\"status is equal to active\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.status).equal(\"active\");",
+													"});",
+													"",
+													"pm.test(\"publisher is equal to HL7 US Realm Steering Committee\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.publisher).equal(\"HL7 US Realm Steering Committee\");",
+													"});",
+													"",
+													"pm.test(\"Description contains Set of codes that are needed for implementation of the US-Core profiles\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.description).contains(\"Set of codes that are needed for implementation of the US-Core profiles\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?url=http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						},
 						{
 							"name": "Computable",
-							"item": []
+							"item": [
+								{
+									"name": "HasFHIRBallotBoundValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to \", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/MedicationStatus",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												"MedicationStatus"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasTHOValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to \", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/ActEncounterCode",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												"ActEncounterCode"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasQICoreValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to \", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/MedicationStatus",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												"MedicationStatus"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						},
 						{
 							"name": "Executable",
-							"item": []
+							"item": [
+								{
+									"name": "HasFHIRBallotBoundValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to \", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/MedicationStatus",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												"MedicationStatus"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasTHOValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to \", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/ActEncounterCode",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												"ActEncounterCode"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasQICoreValeSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to \", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/MedicationStatus",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												"MedicationStatus"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						},
 						{
 							"name": "Publishable",
-							"item": []
+							"item": [
+								{
+									"name": "HasFHIRBallotBoundValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to \", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/MedicationStatus",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												"MedicationStatus"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasTHOValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to \", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/ActEncounterCode",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												"ActEncounterCode"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "HasQICoreValueSet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource url equal to \", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.url).equal(\"\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/MedicationStatus",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												"MedicationStatus"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
-					]
+					],
+					"description": "As of now 2023-09-08, I am not able to find any of these ValueSets. I am not sure what these should be and how they are different from the ones in SearchBy."
 				},
 				{
 					"name": "SearchBy",
 					"item": [
 						{
 							"name": "SHALL",
-							"item": []
+							"item": [
+								{
+									"name": "ByUrl",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource is a ValueSet\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
+													"});",
+													"",
+													"pm.test(\"Name is 3 Mirror Goldmann exam\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"3 Mirror Goldmann exam\");",
+													"});",
+													"",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ByVersion",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Version is 20170801\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).equals(\"20170801\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82&&version=20170801",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82"
+												},
+												{
+													"key": null,
+													"value": null
+												},
+												{
+													"key": "version",
+													"value": "20170801"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ByIdentifier",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Name is (Inactive) Interventions Related to Medication Management, Medication Action Plan\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"(Inactive) Interventions Related to Medication Management, Medication Action Plan\");",
+													"});",
+													"",
+													"pm.test(\"Publisher is PharmacyHIT\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.publisher).equals(\"PharmacyHIT\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?identifier=urn:oid:2.16.840.1.113762.1.4.1096.82",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "identifier",
+													"value": "urn:oid:2.16.840.1.113762.1.4.1096.82"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ByName",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource is a ValueSet\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
+													"});",
+													"",
+													"pm.test(\"Name is 3 Mirror Goldmann exam\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"3 Mirror Goldmann exam\");",
+													"});",
+													"",
+													"pm.test(\"url is http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\");",
+													"});",
+													"",
+													"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611",
+													"",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?name=3 Mirror Goldmann exam",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "3 Mirror Goldmann exam"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ByTitle",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"name is ACEis and ARBs\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"ACEis and ARBs\");",
+													"});",
+													"",
+													"pm.test(\"resourceType is ValueSet\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
+													"});",
+													"",
+													"pm.test(\"id is 2.16.840.1.113762.1.4.1213.11-20190917\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.id).equals(\"2.16.840.1.113762.1.4.1213.11-20190917\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?title=ACEis and ARBs",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "ACEis and ARBs"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ByStatus",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Total is greater than 0\", function () {",
+													"        const responseData = pm.response.json();",
+													"// ",
+													"    pm.expect(responseData.total).is.greaterThan(0);",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?status=draft",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "status",
+													"value": "draft"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ByDescription",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"name is ACE Inhibitor or ARB or ARNI Ingredient\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"ACE Inhibitor or ARB or ARNI Ingredient\");",
+													"});",
+													"",
+													"pm.test(\"resourceType is ValueSet\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
+													"});",
+													"",
+													"pm.test(\"id is 2.16.840.1.113883.3.526.3.1489-20230217\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.id).equals(\"2.16.840.1.113883.3.526.3.1489-20230217\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?description=Value%20Set%20Title%20Changed%20--%20from%20Allergen%20to%20Ingredient%20--%20to%20reflect%20true%20value%20set%20content.",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "description",
+													"value": "Value%20Set%20Title%20Changed%20--%20from%20Allergen%20to%20Ingredient%20--%20to%20reflect%20true%20value%20set%20content."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ByCode",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource is a ValueSet\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
+													"});",
+													"",
+													"pm.test(\"Name is 3 Mirror Goldmann exam\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"3 Mirror Goldmann exam\");",
+													"});",
+													"",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?code=420523002",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "code",
+													"value": "420523002"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ByKeyword",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource is a ValueSet\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
+													"});",
+													"",
+													"pm.test(\"\", function () {",
+													"    const responseData = pm.response.json();",
+													"    const extensionEntry = responseData.extension.find(m => m.url === \"http://hl7.org/fhir/StructureDefinition/valueset-keyWord\");",
+													"    pm.expect(extensionEntry.valueString).to.equal(\"PC-01\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?valueset-keyWord=PC-01",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "valueset-keyWord",
+													"value": "PC-01"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						},
 						{
 							"name": "SHOULD",
-							"item": []
+							"item": [
+								{
+									"name": "ByExpansion",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{VSAC_URL}}ValueSet/?expansion",
+											"host": [
+												"{{VSAC_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "expansion",
+													"value": null
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "None of the results from the GET ByStatus have an expansion extension in them. Nor do they have BY\n\nContext, ContextType, ContextTypeQuantity, ContextTypeValue, CodeSystem, Measure, Artifact. After looking at results I am not sure if there are valuesets that reference or are referenced by other valueset. There must be, but....."
 						}
 					]
 				},
 				{
 					"name": "ValidateCode",
-					"item": []
+					"item": [
+						{
+							"name": "ValidateByUrl",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.true;",
+											"});",
+											"",
+											"/*",
+											"pm.test(\"Parameters contain a message of code validity\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"message\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"The code(N) is valid in code system LivingArrangement\");",
+											"});",
+											"*/",
+											"pm.test(\"Parameters contain a display of Goldmann three-mirror contact lens (physical object)\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Goldmann three-mirror contact lens (physical object)\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"resourceType\" : \"Parameters\",\n  \"parameter\" : [\n    {\n    \"name\" : \"url\",\n    \"valueString\" : \"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\"\n    },\n    {\n      \"name\" : \"code\",\n      \"valueString\" : \"420523002\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{VSAC_URL}}ValueSet/2.16.840.1.113762.1.4.1047.611-20200319/$validate-code",
+									"host": [
+										"{{VSAC_URL}}ValueSet"
+									],
+									"path": [
+										"2.16.840.1.113762.1.4.1047.611-20200319",
+										"$validate-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ValidateByVersion",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a display of Goldmann three-mirror contact lens (physical object)\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Goldmann three-mirror contact lens (physical object)\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"resourceType\" : \"Parameters\",\n  \"parameter\" : [\n    {\n    \"name\" : \"url\",\n    \"valueString\" : \"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\"\n    },\n    {\n        \"name\": \"valueSetVersion\",\n        \"valueString\": \"20200319\"\n    },\n    {\n      \"name\" : \"code\",\n      \"valueString\" : \"420523002\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{VSAC_URL}}ValueSet/2.16.840.1.113762.1.4.1047.611-20200319/$validate-code",
+									"host": [
+										"{{VSAC_URL}}ValueSet"
+									],
+									"path": [
+										"2.16.840.1.113762.1.4.1047.611-20200319",
+										"$validate-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ValidateByActiveOnly",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a display of Goldmann three-mirror contact lens (physical object)\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Goldmann three-mirror contact lens (physical object)\");",
+											"});",
+											"",
+											"pm.test(\"inactive contain a result of false\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"inactive\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.false;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"resourceType\" : \"Parameters\",\n  \"parameter\" : [\n    {\n    \"name\" : \"url\",\n    \"valueString\" : \"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\"\n    },\n    {\n    \"name\" : \"activeOnly\",\n    \"valueString\" : \"true\"\n    },\n    {\n      \"name\" : \"code\",\n      \"valueString\" : \"420523002\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{VSAC_URL}}ValueSet/2.16.840.1.113762.1.4.1047.611-20200319/$validate-code",
+									"host": [
+										"{{VSAC_URL}}ValueSet"
+									],
+									"path": [
+										"2.16.840.1.113762.1.4.1047.611-20200319",
+										"$validate-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ValidateWithDisplayLanguage",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a display of Goldmann three-mirror contact lens (physical object)\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Goldmann three-mirror contact lens (physical object)\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"resourceType\": \"Parameters\",\n    \"parameter\": [\n        {\n            \"name\": \"url\",\n            \"valueString\": \"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\"\n        },\n        {\n            \"name\": \"displayLanguage\",\n            \"valueString\": \"english\"\n        },\n        {\n            \"name\": \"code\",\n            \"valueString\": \"420523002\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{VSAC_URL}}ValueSet/2.16.840.1.113762.1.4.1047.611-20200319/$validate-code",
+									"host": [
+										"{{VSAC_URL}}ValueSet"
+									],
+									"path": [
+										"2.16.840.1.113762.1.4.1047.611-20200319",
+										"$validate-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ValidateCodeWithCode",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a display of Goldmann three-mirror contact lens (physical object)\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
+											"    pm.expect(parameterEntry.valueString).equals(\"Goldmann three-mirror contact lens (physical object)\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"resourceType\": \"Parameters\",\n    \"parameter\": [\n        {\n            \"name\": \"valueset\",\n            \"resource\": {\n                \"resourceType\": \"ValueSet\",\n                \"id\": \"2.16.840.1.113762.1.4.1047.611-20200319\",\n                \"meta\": {\n                    \"versionId\": \"8\",\n                    \"lastUpdated\": \"2020-06-30T19:27:46.000-04:00\",\n                    \"profile\": [\n                        \"http://hl7.org/fhir/StructureDefinition/shareablevalueset\",\n                        \"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm\"\n                    ],\n                    \"tag\": [\n                        {\n                            \"code\": \"SUBSETTED\",\n                            \"display\": \"subsetted\"\n                        }\n                    ]\n                },\n                \"extension\": [\n                    {\n                        \"url\": \"http://hl7.org/fhir/StructureDefinition/valueset-author\",\n                        \"valueString\": \"ASRS Quality Measure Development Author\"\n                    },\n                    {\n                        \"url\": \"http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate\",\n                        \"valueDate\": \"2022-12-15\"\n                    },\n                    {\n                        \"url\": \"http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate\",\n                        \"valueDate\": \"2020-06-30\"\n                    }\n                ],\n                \"url\": \"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\",\n                \"identifier\": [\n                    {\n                        \"system\": \"urn:ietf:rfc:3986\",\n                        \"value\": \"urn:oid:2.16.840.1.113762.1.4.1047.611\"\n                    }\n                ],\n                \"version\": \"20200319\",\n                \"name\": \"3 Mirror Goldmann exam\",\n                \"title\": \"3 Mirror Goldmann exam\",\n                \"status\": \"active\",\n                \"experimental\": false,\n                \"date\": \"2020-03-19T01:00:18-04:00\",\n                \"publisher\": \"ASRS Quality Measure Development Steward\",\n                \"jurisdiction\": [\n                    {\n                        \"extension\": [\n                            {\n                                \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\",\n                                \"valueString\": \"UNKNOWN\"\n                            }\n                        ]\n                    }\n                ],\n                \"purpose\": \"(Clinical Focus: The intent of this set of values is to capture that an eye exam was performed using Goldman contact lens procedure.),(Data Element Scope: Method or attribute related to procedure performed.),(Inclusion Criteria: The 3 mirror Goldman contact lens is included.),(Exclusion Criteria: All other values that do not meet inclusion criteria are excluded.)\"\n            }\n        },\n        {\n            \"name\": \"code\",\n            \"valueString\": \"420523002\"\n        },\n        {\n            \"name\": \"displayLanguage\",\n            \"valueString\": \"english\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{VSAC_URL}}ValueSet/2.16.840.1.113762.1.4.1047.611-20200319/$validate-code",
+									"host": [
+										"{{VSAC_URL}}ValueSet"
+									],
+									"path": [
+										"2.16.840.1.113762.1.4.1047.611-20200319",
+										"$validate-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ValidateCodeWithSystem",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"pm.test(\"Resource type is Parameters\", function () {",
+											"        const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.resourceType).equals(\"Parameters\");",
+											"});",
+											"",
+											"pm.test(\"Parameters contain a result of true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
+											"    pm.expect(parameterEntry.valueBoolean).to.be.true;",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"resourceType\" : \"Parameters\",\n  \"parameter\" : [\n    {\n    \"name\" : \"url\",\n    \"valueString\" : \"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\"\n    },\n    {\n      \"name\" : \"code\",\n      \"valueString\" : \"420523002\"\n    },\n    {\n      \"name\" : \"system\",\n      \"valueString\" : \"urn:oid:2.16.840.1.113762.1.4.1047.611\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{VSAC_URL}}ValueSet/2.16.840.1.113762.1.4.1047.611-20200319/$validate-code",
+									"host": [
+										"{{VSAC_URL}}ValueSet"
+									],
+									"path": [
+										"2.16.840.1.113762.1.4.1047.611-20200319",
+										"$validate-code"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				},
 				{
 					"name": "Expand",
 					"item": []
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{basicPass}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{basicUser}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
