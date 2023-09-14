@@ -1,132 +1,132 @@
 {
-	"info": {
-		"_postman_id": "aa857301-c8cd-4781-8354-12585a8e8dfe",
-		"name": "cqf-measures",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "9369978"
-	},
-	"item": [
-		{
-			"name": "GET-PUT",
-			"item": [
-				{
-					"name": "GET CodeSystem test",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"",
-									"pm.test(\"Response status code is 200\", function () {",
-									"    pm.expect(pm.response.code).to.equal(200);",
-									"});",
-									"",
-									"",
-									"pm.test(\"Resource Type should not be empty\", function () {",
-									"    const responseData = pm.response.json();",
-									"",
-									"    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
-									"});",
-									"",
-									"",
-									"pm.test(\"Test that id is not empty\", function () {",
-									"    const responseData = pm.response.json();",
-									"",
-									"    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
-									"});",
-									"",
-									"",
-									"pm.test(\"url is http://terminology.hl7.org/CodeSystem/v3-ActCode\", function () {",
-									"    const responseData = pm.response.json();",
-									"",
-									"    pm.expect(responseData).to.be.an('object');",
-									"    pm.expect(responseData.url).to.equal(\"http://terminology.hl7.org/CodeSystem/v3-ActCode\", \"Invalid url\");",
-									"});",
-									"",
-									"pm.test(\"Title is ActCode\", function () {",
-									"    const responseData = pm.response.json();",
-									"",
-									"    pm.expect(responseData.title).to.equal(\"ActCode\", \"Title error\");",
-									"});",
-									"",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{VSAC_URL}}CodeSystem/ActCode",
-							"host": [
-								"{{VSAC_URL}}CodeSystem"
-							],
-							"path": [
-								"ActCode"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Library",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"",
-									"pm.test(\"Response status code is 200 or 201\", function () {",
-									"    pm.expect(pm.response.code).to.oneOf([200, 201]);",
-									"});",
-									"",
-									"",
-									"pm.test(\"Resource Type should not be empty\", function () {",
-									"    const responseData = pm.response.json();",
-									"",
-									"    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
-									"});",
-									"",
-									"pm.test(\"Resource Type should be transaction-response\", function (){",
-									"    const responseData = pm.response.json();",
-									"",
-									"    pm.expect(responseData.type).to.exist.and.to.not.be.empty;",
-									"})",
-									"",
-									"",
-									"pm.test(\"Test that id is not empty\", function () {",
-									"    const responseData = pm.response.json();",
-									"",
-									"    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
-									"});",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"resourceType\": \"Bundle\",\n    \"id\": \"POST-library-test\",\n    \"type\": \"transaction\",\n    \"entry\": [\n        {\n            \"resource\": {\n                \"resourceType\": \"Library\",\n                \"id\": \"postLibraryTest\",\n                \"title\": \"Post Library Test\",\n                \"status\": \"draft\",\n                \"version\": \"0.0.1\",\n                \"url\": \"postLibraryTest\",\n                \"type\": {\n                    \"coding\": [\n                        {\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/library-type\",\n                            \"code\": \"logic-library\",\n                            \"display\": \"Logic Library\"\n                        }\n                    ],\n                    \"text\": \"Test Logic Library\"\n                }\n            },\n      \"request\": {\n        \"method\": \"PUT\",\n            \"url\": \"Library/postLibraryTest\"\n      }\n        }\n    ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{VSAC_URL}}Library",
-							"host": [
-								"{{VSAC_URL}}Library"
-							]
-						}
-					},
-					"response": []
+  "info": {
+    "_postman_id": "aa857301-c8cd-4781-8354-12585a8e8dfe",
+    "name": "cqf-measures",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9369978"
+  },
+  "item": [
+    {
+      "name": "GET-PUT",
+      "item": [
+        {
+          "name": "GET CodeSystem test",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "",
+                  "pm.test(\"Response status code is 200\", function () {",
+                  "    pm.expect(pm.response.code).to.equal(200);",
+                  "});",
+                  "",
+                  "",
+                  "pm.test(\"Resource Type should not be empty\", function () {",
+                  "    const responseData = pm.response.json();",
+                  "",
+                  "    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
+                  "});",
+                  "",
+                  "",
+                  "pm.test(\"Test that id is not empty\", function () {",
+                  "    const responseData = pm.response.json();",
+                  "",
+                  "    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
+                  "});",
+                  "",
+                  "",
+                  "pm.test(\"url is http://terminology.hl7.org/CodeSystem/v3-ActCode\", function () {",
+                  "    const responseData = pm.response.json();",
+                  "",
+                  "    pm.expect(responseData).to.be.an('object');",
+                  "    pm.expect(responseData.url).to.equal(\"http://terminology.hl7.org/CodeSystem/v3-ActCode\", \"Invalid url\");",
+                  "});",
+                  "",
+                  "pm.test(\"Title is ActCode\", function () {",
+                  "    const responseData = pm.response.json();",
+                  "",
+                  "    pm.expect(responseData.title).to.equal(\"ActCode\", \"Title error\");",
+                  "});",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{VSAC_URL}}CodeSystem/ActCode",
+              "host": [
+                "{{VSAC_URL}}CodeSystem"
+              ],
+              "path": [
+                "ActCode"
+              ]
+            }
+          },
+          "response": []
+    },
+    {
+      "name": "POST Library",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "",
+              "pm.test(\"Response status code is 200 or 201\", function () {",
+              "    pm.expect(pm.response.code).to.oneOf([200, 201]);",
+              "});",
+              "",
+              "",
+              "pm.test(\"Resource Type should not be empty\", function () {",
+              "    const responseData = pm.response.json();",
+              "",
+              "    pm.expect(responseData.resourceType).to.exist.and.to.not.be.empty;",
+              "});",
+              "",
+              "pm.test(\"Resource Type should be transaction-response\", function (){",
+              "    const responseData = pm.response.json();",
+              "",
+              "    pm.expect(responseData.type).to.exist.and.to.not.be.empty;",
+              "})",
+              "",
+              "",
+              "pm.test(\"Test that id is not empty\", function () {",
+              "    const responseData = pm.response.json();",
+              "",
+              "    pm.expect(responseData.id).to.exist.and.to.not.be.empty;",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"resourceType\": \"Bundle\",\n    \"id\": \"POST-library-test\",\n    \"type\": \"transaction\",\n    \"entry\": [\n        {\n            \"resource\": {\n                \"resourceType\": \"Library\",\n                \"id\": \"postLibraryTest\",\n                \"title\": \"Post Library Test\",\n                \"status\": \"draft\",\n                \"version\": \"0.0.1\",\n                \"url\": \"postLibraryTest\",\n                \"type\": {\n                    \"coding\": [\n                        {\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/library-type\",\n                            \"code\": \"logic-library\",\n                            \"display\": \"Logic Library\"\n                        }\n                    ],\n                    \"text\": \"Test Logic Library\"\n                }\n            },\n      \"request\": {\n        \"method\": \"PUT\",\n            \"url\": \"Library/postLibraryTest\"\n      }\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{VSAC_URL}}Library",
+          "host": [
+            "{{VSAC_URL}}Library"
+          ]
+        }
+      },
+      "response": []
 				},
 				{
 					"name": "Create Library duplicating url and version",
@@ -3831,50 +3831,6 @@
 									"response": []
 								},
 								{
-									"name": "ByStatus",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"",
-													"pm.test(\"Response status code is 200\", function () {",
-													"    pm.expect(pm.response.code).to.equal(200);",
-													"});",
-													"",
-													"pm.test(\"Total is greater than 0\", function () {",
-													"        const responseData = pm.response.json();",
-													"// ",
-													"    pm.expect(responseData.total).is.greaterThan(0);",
-													"});",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{VSAC_URL}}ValueSet/?status=draft",
-											"host": [
-												"{{VSAC_URL}}ValueSet"
-											],
-											"path": [
-												""
-											],
-											"query": [
-												{
-													"key": "status",
-													"value": "draft"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
 									"name": "ByDescription",
 									"event": [
 										{
@@ -4447,41 +4403,41 @@
 					"item": []
 				}
 			]
-		}
-	],
-	"auth": {
-		"type": "basic",
-		"basic": [
-			{
-				"key": "password",
-				"value": "{{basicPass}}",
-				"type": "string"
-			},
-			{
-				"key": "username",
-				"value": "{{basicUser}}",
-				"type": "string"
-			}
-		]
-	},
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	]
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "{{basicPass}}",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "{{basicUser}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
 }
