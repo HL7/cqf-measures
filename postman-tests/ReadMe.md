@@ -50,6 +50,7 @@ Run  npm install -g date-fns --save
 You may have to run npm install after this to make sure the package is there for node to use it.
 
 There are default parameters in the program that can be set on the commandline.
+    
     Output directory: './' (current directory).
     The path and file name of the Postman collection file: '../collections/cqf-measures.postman_collection.json'
     The path and file name of the environment file where the username and password are set: '../collections/workspace.postman_globals.json';
