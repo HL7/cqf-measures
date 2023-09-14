@@ -139,7 +139,7 @@ newman.run({
 }
 
     var  filePath = path.join(directory, fileName);
-    fs.writeFile(filePath, JSON.stringify(jsonData), (error)=>{
+    fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), (error)=>{
         if(error) throw error;
     });
 });
