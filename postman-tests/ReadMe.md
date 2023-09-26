@@ -1,13 +1,15 @@
- # Postman Testing
+
+# CQF Measure Terminology Service Postman Test Collection
  ## Running the collection from within Postman
+
  ### Environment Variables
  In Postman setup the following environment variables. They are used in the queries in this collection.
 
- basicUser:  your UserName for the VSAC server
+ basicUser:  your UserName for the target server
 
- basicPass:  your password for the VSAC server
+ basicPass:  your password for the target server
 
- VSAC_URL:   which should be https://uat-cts.nlm.nih.gov/fhir/
+ SERVER_URL:   The url of the server being tested for compliance to the [CQF Measure Terminology Service](https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html) compliance to the IG specification.
 
  ### Running the tests
 
@@ -21,22 +23,21 @@
 ### Running the collection from CLI
  ### Install Newman
  
- Following the directions to install newman and newman-reporter-html
+ Following the directions to install [Newman](https://learning.postman.com/docs/collections/using-newman-cli/command-line-integration-with-newman/)
 
-[Newman](https://learning.postman.com/docs/collections/using-newman-cli/command-line-integration-with-newman/)
 
- npm install -g newman
 
- [newman-reporter-html](https://www.npmjs.com/package/newman-reporter-html)
+ npm i -g newman
 
- npm install -g newman-reporter-htmlextra
+Additional [third party newman reporters](https://www.npmjs.com/search?q=newman-reporter) are available to install. This list is maintained by npm.
+
 
 ### Setting up the environment variables
 
-Open the file workspace.postman_globals.json. Edit the values for basicUser and basicPass so they have the actual username and password for the VSAC uat-cts server. 
+Open the file workspace.postman_globals.json. Edit the values for basicUser, basicPass, SERVER_URL so they have the actual username, password, and server url for the target server. 
 
 ### Running the tests
 
-newman run cqf-measures.postman_collection.json -e workspace.postman_globals.json    
+To run using newman use the command below after changing to the collections directory.
 
-newman run cqf-measures.postman_collection.json -e workspace.postman_globals.json --reporters cli,json --reporter-json-export output.json
+    newman run cqf-measures.postman_collection.json -e ../workspace.postman_globals.json    
