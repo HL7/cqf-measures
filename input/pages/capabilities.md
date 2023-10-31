@@ -35,13 +35,4 @@ In addition, the following example capability statement illustrates the use of t
 
 See the capability statements defined in the [Data Exchange for Quality Measures](https://hl7.org/fhir/us/davinci-deqm/) implementation guide for the Submitting and Receiving System roles.
 
-## Operations
-* [**[base]/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**Library/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**Library/[id]/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**Library/$data-requirements**](OperationDefinition-Library-data-requirements.html)
-* [**Measure/[id]/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**Measure/$data-requirements**](OperationDefinition-Measure-data-requirements.html)
-* [**MeasureReport/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**MeasureReport/[id]/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**ValueSet/$expand**](OperationDefinition-ValueSet-expand.html)
+

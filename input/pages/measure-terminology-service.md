@@ -253,9 +253,7 @@ Note that when a code system authority has not established a versioning system, 
     5. SHALL reject attempts to update elements of a Library other than status if the Library is not in "draft" status
     6. SHALL reject attempts to create Libraries that have the same "url" and "version" as another Library
 
-### Server Operations
 
-1. SHALL support the `metadata?mode=terminology`, returning a list of all supported code systems, whether they are explicitly made available as CodeSystem resources or not
 
 2. To ensure performant operations with large code systems and value sets, a measure terminology service SHALL support [batch](https://hl7.org/fhir/http.html#transaction) operations for at least the following:
     1. CodeSystem read
