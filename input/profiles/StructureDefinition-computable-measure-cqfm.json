@@ -183,6 +183,21 @@
         }
       },
       {
+        "id": "Measure.extension:scoringPrecision",
+        "path": "Measure.extension",
+        "sliceName": "scoringPrecision",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringPrecision"
+            ]
+          }
+        ]
+      },
+      {
         "id": "Measure.type",
         "path": "Measure.type",
         "condition": [ "cmp-5" ],
@@ -411,6 +426,21 @@
         ],
         "condition": [ "cmp-8" ],
         "mustSupport": true
+      },
+      {
+        "id": "Measure.group.extension:scoringPrecision",
+        "path": "Measure.group.extension",
+        "sliceName": "scoringPrecision",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringPrecision"
+            ]
+          }
+        ]
       },
       {
         "id": "Measure.group.extension:compositeScoring",
