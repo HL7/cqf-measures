@@ -36,7 +36,7 @@ Broadly speaking, composite measure scoring methods fall into two categories:
 1. Individual-Based: Scoring methods that operate at the individual level by combining members of component populations and then calculating the measure score using standard measure scoring techniques on the combined populations.
 2. Component-Based: Scoring methods that operate at the population level by combining the summary scores of component measures.
 
-Architecturally, environments that are already capable of calculating measures using the measure scoring methods already described in this implementation guide can readily consume composite measure specifications that use the first approach (individual-based) but would require additional support in order to calculate component-based measures. Specifically, completely generic support for component-based calculation methods would require that an environment be able to evaluate CQL logic in the Population context. However, by restricting composite calculation support to those methods specified by this implementation guide, environments can calculate composites by operating on the results of individual-level scores.
+Architecturally, environments that are already capable of calculating measures using the measure scoring methods already described in this implementation guide can readily consume composite measure specifications that use the first approach (individual-based) but would require additional support in order to calculate component-based measures. Specifically, completely generic support for component-based calculation methods would require that an environment be able to evaluate CQL logic in the Population context. However, by restricting composite calculation support to those methods specified by this implementation guide, environments can calculate composites by operating on the results of individual-level scores. It is important to note that each scoring method should work for any subject for which the measure is developed - e.g patient or encounter.
 
 To illustrate the different composite scoring methods, an example Annual Wellness assessment measure for Eligible Clinicians (EC) is used. Note that although the scoring methods are described in terms applicable to ECs, the concepts apply in general to composites that could be built for any setting.
 
@@ -233,20 +233,20 @@ The populations in an opportunity composite are then lists of “services” the
 
 Note that this approach is using component measures where the improvement notation for the component is that an increase in the score represents an improvement. If the improvement notation is decreasing for a component, its population criteria would be negated (i.e. the absence of a patient in the component numerator would represent fulfillment).
 
-### Patient-level Linear Combination Scoring
-{: patient-level-linear-combination-scoring}
+### Subject-level Linear Combination Scoring
+{: subject-level-linear-combination-scoring}
 
-**Conformance Requirement 5.4 (Patient-level Linear Combination Scoring):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-4)
+**Conformance Requirement 5.4 (Subject-level Linear Combination Scoring):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-4)
 {: #conformance-requirement-5-4}
-    1. Calculation logic for patient-level linear combination composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
-    2. Calculation logic for patient-level linear combination composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
-    3. Narrative descriptions of population criteria for patient-level linear combination composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
+    1. Calculation logic for subject-level linear combination composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
+    2. Calculation logic for subject-level linear combination composite measures SHOULD be written in the same way as the calculation formulas defined in this section.
+    3. Narrative descriptions of population criteria for subject-level linear combination composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
 
-Patient-level linear combination scoring is modeled as a continuous variable measure that gives numerator credit for the proportion of patients in the numerators of composite measures.
+Subject-level linear combination scoring is modeled as a continuous variable measure that gives numerator credit for the proportion of patients in the numerators of composite measures.
 
 <details open>
 <summary>
-<b>Figure 5-3. Patient-level linear combination method</b>
+<b>Figure 5-3. Subject-level linear combination method</b>
 </summary>
 
 <em>Interpretation:</em> For each Eligible Clinician (EC), the percentage of completed preventive services, which gives EC partial numerator credit for meeting the criteria for some but not all components of the measure.<br>
@@ -427,7 +427,7 @@ Snippet 29: Weighted composite measure relatedArtifact elements
     2. For composite measures using All-or-nothing scoring
         a. The measure scoring method SHALL be Composite
         b. All component measures SHALL use Proportion or Ratio scoring
-    3. For composite measures using Patient-level linear scoring
+    3. For composite measures using Subject-level linear scoring
         a. The measure scoring method SHALL be Composite
         b. All component measures SHALL use Proportion, Ratio, or Continuous Variable Scoring
     4. For composite measures using Component-level scoring
@@ -442,7 +442,7 @@ The following table summarizes the allowable measure scoring for each of the com
 |:----:|:----:|:----:|
 | Opportunity | Composite | Proportion/Ratio |
 | All-or-nothing | Composite | Proportion/Ratio |
-| Patient-level Linear | Composite | Proportion/Ratio/Continuous Variable |
+| Subject-level Linear | Composite | Proportion/Ratio/Continuous Variable |
 | Component-level | Composite | Proportion/Ratio/Continuous Variable |
 
 Note that these requirements are about ensuring that the population criteria expressions among the components use similar sets of population criteria. This means that all the components of a given composite measure don’t necessarily have to use the same scoring type, just that they have to have similar population criteria. For example, a Proportion composite may use a Proportion component and a Ratio component.

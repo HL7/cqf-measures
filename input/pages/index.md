@@ -2,6 +2,15 @@
 
 {:toc}
 
+<div class="new-content" markdown="1">
+<div class="note-to-balloters" markdown="1">
+#### Note To Balloters
+
+1.) If you have any examples of composite measures that use a subject other than patient please provide those so we can add them to this IG
+
+</div>
+</div>
+
 ## Quality Measure Implementation Guide
 {: #quality-measure-implementation-guide}
 
