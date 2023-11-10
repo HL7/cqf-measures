@@ -344,9 +344,8 @@
           {
             "code": "canonical",
             "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Measure",
-              "http://hl7.org/fhir/StructureDefinition/Library",
-              "http://hl7.org/fhir/StructureDefinition/ValueSet"
+              "http://hl7.org/fhir/StructureDefinition/shareablemeasure",
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"
             ]
           }
         ],
@@ -396,6 +395,98 @@
               "http://hl7.org/fhir/StructureDefinition/CodeSystem",
               "http://hl7.org/fhir/StructureDefinition/Library",
               "http://hl7.org/fhir/StructureDefinition/ValueSet"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:valueset",
+        "path": "Library.relatedArtifact",
+        "sliceName": "valueset",
+        "short": "ValueSet (and version)",
+        "definition": "A valueset included in the quality program release.",
+        "requirements": "The version of the valueset used SHALL be specified in the canonical URL of the valueset.",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:valueset.type",
+        "path": "Library.relatedArtifact.type",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "fixedCode": "composed-of",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:valueset.display",
+        "path": "Library.relatedArtifact.display",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:valueset.resource",
+        "path": "Library.relatedArtifact.resource",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "canonical",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:library",
+        "path": "Library.relatedArtifact",
+        "sliceName": "library",
+        "short": "Library (and version)",
+        "definition": "A Llibrary included in the quality program release.",
+        "requirements": "The version of the Library used SHALL be specified in the canonical URL of the Library.",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:library.type",
+        "path": "Library.relatedArtifact.type",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "fixedCode": "composed-of",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:library.display",
+        "path": "Library.relatedArtifact.display",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:library.resource",
+        "path": "Library.relatedArtifact.resource",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "canonical",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/shareablelibrary"
             ]
           }
         ],
