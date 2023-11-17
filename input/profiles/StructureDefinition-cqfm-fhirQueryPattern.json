@@ -7,7 +7,6 @@
   "title": "CQFM FHIR Query Pattern",
   "status": "active",
   "experimental": false,
-  "date": "2021-11-27T13:31:32-07:00",
   "publisher": "Clinical Quality Information WG",
   "contact": [
     {
@@ -20,7 +19,7 @@
     }
   ],
   "description": "A FHIR Query URL pattern that corresponds to at least the data specified by the data requirement. If multiple FHIR Query URLs are present, they each contribute to the data specified by the data requirement (i.e. the union of the results of the FHIR Queries represents at least the complete data for the data requirement). In other words, the FHIR Query (or queries, taken together) MAY omit filters that are specified in the data requirement, such that the query would be expected to return more data than required, but it (or they, taken together) SHALL NOT return less data.                                                                                                This is not a resolveable URL, in that it will contain 1) No base canonical (i.e. it’s a relative query), and 2) Parameters using tokens that are delimited using double-braces and the context parameters are dependent solely on the subjectType, according to the following: Patient: context.patientId, Practitioner: context.practitionerId, Organization: context.organizationId, Location: context.locationId, Device: context.deviceId.
-    
+
     ",
   "jurisdiction": [
     {
