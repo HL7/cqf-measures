@@ -6,7 +6,7 @@
 <div class="note-to-balloters" markdown="1">
 #### Note To Balloters
 
-1.) If you have any examples of composite measures that use a subject other than patient please provide those so we can add them to this IG
+1. We are seeking examples of non-patient subject composite measures for inclusion as examples in this implementation guide.
 
 </div>
 </div>
