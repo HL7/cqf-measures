@@ -253,6 +253,29 @@ Note that when a code system authority has not established a versioning system, 
     5. SHALL reject attempts to update elements of a Library other than status if the Library is not in "draft" status
     6. SHALL reject attempts to create Libraries that have the same "url" and "version" as another Library
 
+### Server Operations
+
+1. SHALL support the `metadata?mode=terminology`, returning a list of all supported code systems, whether they are explicitly made available as CodeSystem resources or not
+
+2. To ensure performant operations with large code systems and value sets, a measure terminology service SHALL support [batch](https://hl7.org/fhir/http.html#transaction) operations for at least the following:
+    1. CodeSystem read
+    2. CodeSystem search
+    3. CodeSystem/$validate-code
+    4. ValueSet read
+    5. ValueSet search
+    6. ValueSet/$validate-code
+
+3. Services MAY require authentication. If authentication is required, it SHALL be in the form of an authentication header (usually a bearer token) that the user can determine in advance and provide to their FHIR tooling in some configuration.
+
+4. For all string search parameters, servers SHALL support the following modifiers:
+    1. contains
+    2. exact
+
+    servers SHOULD support
+    1. text
+
+5. Servers SHALL support the expression of AND and OR search parameters for all search parameters, as defined in the composite search parameter topic: https://hl7.org/fhir/search.html#combining
+
 ### Capability Statement
 
 The above capabilities are formally captured in the following capability statement:
