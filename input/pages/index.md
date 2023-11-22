@@ -8,7 +8,7 @@
 
 1. We are seeking examples of non-patient subject composite measures for inclusion as examples in this implementation guide.
 
-2. We are requesting additional guidance on the improvementNotation valueset:
+2. We are requesting additional guidance on the improvementNotation:
 
     Reviewers: CQI will be adding the code:
 
