@@ -5,6 +5,13 @@
 ## Quality Measure Implementation Guide
 {: #quality-measure-implementation-guide}
 
+{:.stu-note}
+> This STU 5.0.0-ballot is currently dependent on the QI-Core STU 6.0.0-ballot, but will update to QI-Core STU6 once published
+
+
+Where possible, new and updated content are highlighted with green text and background
+{: .new-content}
+
 ### Summary
 {: #summary}
 
