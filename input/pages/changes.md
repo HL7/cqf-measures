@@ -2,8 +2,16 @@
 {: toc}
 
 {: #changes}
-
+{:.new-content}
 This page details changes made in each version of the Quality Measure IG
+
+### STU5 Ballot for FHIR R4 (v5.0.0-ballot)
+
+* **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))([Applied here](StructureDefinition-cqfm-fhirQueryPattern.html))
+* **Applied**: Enable QMIG to Handle Population-based Measures ([FHIR-42898](https://jira.hl7.org/browse/FHIR-42898))([Applied here](measure-conformance.html))
+* **Applied**: Consider requiring the use of a SignatureLevel higher than none ([FHIR-42922](https://jira.hl7.org/browse/FHIR-42922))([Applied here](using-cql.html))
+  
+  
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
