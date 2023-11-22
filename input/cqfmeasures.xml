@@ -2,13 +2,16 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="hl7.fhir.us.cqfmeasures"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cqi"/>
+  </extension>
   <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures"/>
-  <version value="4.0.0"/>
+  <version value="5.0.0-ballot"/>
   <name value="CQFMeasures"/>
-  <title value="Quality Measure Implementation Guide (STU4)"/>
+  <title value="Quality Measure Implementation Guide (STU5)"/>
   <status value="active"/>
   <experimental value="false"/>
-  <publisher value="Clinical Quality Information WG"/>
+  <publisher value="HL7 International / Clinical Quality Information"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -35,13 +38,13 @@
   <dependsOn id="qicore">
     <uri value="http://hl7.org/fhir/us/qicore/ImplementationGuide/hl7.fhir.us.qicore"/>
     <packageId value="hl7.fhir.us.qicore"/>
-    <version value="5.0.0"/>
+    <version value="6.0.0-ballot"/>
   </dependsOn>
   <!-- Note this dependency is included to support references to the lastest THO artifacts in this IG -->
   <dependsOn id="terminology">
     <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
     <packageId value="hl7.terminology"/>
-    <version value="5.2.0"/>
+    <version value="5.4.0"/>
   </dependsOn>
   <definition>
     <!--
@@ -632,7 +635,7 @@
 </page>
     <parameter>
       <code value="releaselabel"/>
-      <value value="STU4"/>
+      <value value="ballot"/>
     </parameter>
     <parameter>
       <code value="copyrightyear"/>

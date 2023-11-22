@@ -1,6 +1,7 @@
 {: #operations}
 
-## Operations
+<div class="new-content" markdown="1">
+
 * [**[base]/$cqfm.package**](OperationDefinition-cqfm-package.html)
 * [**Library/$cqfm.package**](OperationDefinition-cqfm-package.html)
 * [**Library/[id]/$cqfm.package**](OperationDefinition-cqfm-package.html)
@@ -10,3 +11,5 @@
 * [**MeasureReport/$cqfm.package**](OperationDefinition-cqfm-package.html)
 * [**MeasureReport/[id]/$cqfm.package**](OperationDefinition-cqfm-package.html)
 * [**ValueSet/$expand**](OperationDefinition-ValueSet-expand.html)
+
+</div>
