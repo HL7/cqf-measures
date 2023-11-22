@@ -758,7 +758,7 @@ R=Required. O=Optional. NP=Not Permitted.
 
 ‡‡ Some ratio measures will require multiple Initial Populations, one for the numerator and one for the denominator.
 
-In addition, the formula for calculating the measure score is implied by the scoring type of the measure. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
+In addition, the formula for calculating the measure score is implied by the scoring of the measure. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
 
 <span style="color:red">The context of a measure is indicated using the subject element of the FHIR resource.  The subject element will be a reference to a FHIR resource type, specifically including Patient, Location, Organization, Practitioner, and Device as currently specified in the extensible SubjectType binding.  It is important to note that other resource types may be used, but it must be a FHIR resource type. We should also note that although the discussion is focused on Patient as the subject, the discussion applies to other subject types as well.</span>
 
