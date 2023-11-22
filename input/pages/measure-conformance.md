@@ -512,8 +512,14 @@ Snippet 3-9: Example Library terminology definitions (from [library-Terminology.
 {: #conformance-requirement-3-4}
 
 Measures using valueset and/or direct-reference codes must conform to the requirements of Conformance Requirement 3.4.
-1. All valuesets and codes referenced in the CQL SHALL be included in the Library using dataRequirement elements.
-2. If a valueset or code is referenced outside the context of a retrieve, the dataRequirement SHALL have the type 'CodeableConcept'
+1. All valuesets referenced in the CQL SHALL be included in the Library using relatedArtifact elements: <br/>
+  a. The code element of the relatedArtifact SHALL be depends-on <br/>
+  b. The resource element of the relatedArtifact SHALL be the canonical URL of the referenced value set.<br/>
+  c. If the library valueset declaration includes a version, the canonical URL SHALL include the version specified in the declaration using canonical URL version syntax (i.e. `|version`) <br/>
+  d. The display element of the relatedArtifact SHALL be the identifier of the valueset declaration
+2. All direct-reference codes referenced in the CQL SHALL be included using the cqfm-directReferenceCode extension: <br/>
+  a. The code and system elements of the Coding SHALL be set to the code and system of the declaration <br/>
+  b. If the code declaration includes a display, it SHALL be used as the display of the Coding, otherwise, the identifier of the code declaration SHALL be used as the display
 
 For example, in the following CQL, the reference to the code `"Venous foot pump, device (physical object)"` occurs in the `"DeviceUseStatement"` retrieve, while the reference to the code `"Right foot"` occurs outside the context of the retrieve:
 
