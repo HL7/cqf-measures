@@ -51,7 +51,7 @@ By exposing version numbers that identify all three types of changes, artifacts 
 Version numbers for artifacts can then be represented as:
 
 ```
-<major>.<minor>.<path>
+<major>.<minor>.<patch>
 ```
 
 For example:

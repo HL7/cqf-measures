@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqfm-partOf",
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-partOf",
+  "id": "cqfm-scoringPrecision",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringPrecision",
   "version": "4.0.0",
-  "name": "CQFMPartOf",
-  "title": "CQFM Part Of",
+  "name": "CQFMScoringPrecision",
+  "title": "CQFM Scoring Precision",
   "status": "active",
   "experimental": false,
   "publisher": "Clinical Quality Information WG",
@@ -18,7 +18,7 @@
       ]
     }
   ],
-  "description": "Specifies an overall quality program that this manifest or release is part of.",
+  "description": "The number of decimal places to include in the score when the score is a decimal-valued result.",
   "jurisdiction": [
     {
       "coding": [
@@ -29,7 +29,7 @@
       ]
     }
   ],
-  "purpose": "Need to be able to build manifests that are part of quality programs.",
+  "purpose": "A computable measure must be able to specify the number of decimal places of the result when it is a decimal value.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -43,7 +43,11 @@
   "context": [
     {
       "type": "element",
-      "expression": "Library"
+      "expression": "Measure"
+    },
+    {
+      "type": "element",
+      "expression": "Measure.group"
     }
   ],
   "type": "Extension",
@@ -54,8 +58,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "What program this is part of",
-        "definition": "Specifies an overall quality program that this manifest or release is part of.",
+        "short": "Number of decimal places",
+        "definition": "Defines the precision of the measure score when it is a decimal value.",
         "min": 0,
         "max": "1"
       },
@@ -67,14 +71,14 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-partOf"
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringPrecision"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "canonical"
+            "code": "positiveInt"
           }
         ]
       }

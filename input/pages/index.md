@@ -2,6 +2,15 @@
 
 {:toc}
 
+<div class="new-content" markdown="1">
+<div class="note-to-balloters" markdown="1">
+#### Note To Balloters
+
+1. We are seeking examples of non-patient subject composite measures for inclusion as examples in this implementation guide.
+
+</div>
+</div>
+
 ## Quality Measure Implementation Guide
 {: #quality-measure-implementation-guide}
 
@@ -34,6 +43,7 @@ Measures IG
 -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by QMs
 -  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
 -  **[Capabilities](capabilities.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
+-  **[Operations](operations.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
 -  **[Examples](examples.html)**: This page provides examples used in the other pages, as well as by the Data Exchange for Quality
 -  **[Glossary](glossary.html)** This page defines terms related to quality measurement.
 -  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.

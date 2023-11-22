@@ -7,7 +7,6 @@
   "title": "CQFM Measure",
   "status": "active",
   "experimental": false,
-  "date": "2019-02-13",
   "publisher": "Clinical Quality Information WG",
   "contact": [
     {
@@ -204,7 +203,8 @@
       {
         "id": "Measure.group.population.criteria",
         "path": "Measure.group.population.criteria",
-        "definition": "The name of a valid referenced CQL expression (MUST NOT be namespaced) that defines this population criteria.",
+        "short": "The criteria that defines this population. The alternativeExpression extension may be used to provide alternative formulations of the expression",
+        "definition": "The name of a valid referenced CQL expression (MUST NOT be namespaced) that defines this population criteria. The alternativeExpression extension may be used to provide alternative formulations of the expression but the expressions must yield the same count for the population.",
         "constraint": [
           {
             "key": "cqm-4",
@@ -214,6 +214,8 @@
             "xpath": "exists(f:value)"
           }
         ],
+        "min" : 1,
+        "max" : "*",
         "mustSupport": true
       },
       {
@@ -233,7 +235,8 @@
       {
         "id": "Measure.group.stratifier.criteria",
         "path": "Measure.group.stratifier.criteria",
-        "definition": "The name of a valid referenced CQL expression (MUST NOT be namespaced) that defines this stratifier criteria.",
+        "short": "How the measure should be stratified. The alternativeExpression extension may be used to provide alternative formulations of the expression",
+        "definition": "The name of a valid referenced CQL expression (MUST NOT be namespaced) that defines this population criteria. The alternativeExpression extension may be used to provide alternative formulations of the expression but the expressions must yield the same count for the population.",
         "constraint": [
           {
             "key": "cqm-5",
@@ -243,6 +246,8 @@
             "xpath": "exists(f:value)"
           }
         ],
+        "min" : 1,
+        "max" : "*",
         "mustSupport": true
       },
       {
