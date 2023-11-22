@@ -2,6 +2,15 @@
 
 {:toc}
 
+<div class="new-content" markdown="1">
+<div class="note-to-balloters" markdown="1">
+#### Note To Balloters
+
+1. We are seeking examples of non-patient subject composite measures for inclusion as examples in this implementation guide.
+
+</div>
+</div>
+
 ## Quality Measure Implementation Guide
 {: #quality-measure-implementation-guide}
 
