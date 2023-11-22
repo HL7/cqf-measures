@@ -510,6 +510,7 @@ Snippet 3-9: Example Library terminology definitions (from [library-Terminology.
 
 **Conformance Requirement 3.4 (Terminology Inclusion):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-4)
 {: #conformance-requirement-3-4}
+<div class="new-content" markdown="1">
 
 Measures using valueset and/or direct-reference codes must conform to the requirements of Conformance Requirement 3.4.
 1. All valuesets referenced in the CQL SHALL be included in the Library using relatedArtifact elements: <br/>
@@ -520,6 +521,7 @@ Measures using valueset and/or direct-reference codes must conform to the requir
 2. All direct-reference codes referenced in the CQL SHALL be included using the cqfm-directReferenceCode extension: <br/>
   a. The code and system elements of the Coding SHALL be set to the code and system of the declaration <br/>
   b. If the code declaration includes a display, it SHALL be used as the display of the Coding, otherwise, the identifier of the code declaration SHALL be used as the display
+</div>
 
 For example, in the following CQL, the reference to the code `"Venous foot pump, device (physical object)"` occurs in the `"DeviceUseStatement"` retrieve, while the reference to the code `"Right foot"` occurs outside the context of the retrieve:
 

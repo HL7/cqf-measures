@@ -62,8 +62,10 @@ Measure Population Exclusions are used in Continuous Variable Measures to define
 #### Numerator
 
 Numerator criteria define the patients, subjects, or events that should be included in the upper portion of a fraction used to calculate a rate, proportion, or ratio. Also called the measure focus, it is the target process, condition, event, or outcome.
+{: .new-content}
 
 Numerator criteria are the processes or outcomes expected for each patient, subject, or event defined in the denominator (for rate and proportion measures) or initial population (for ratio measures). A numerator statement describes the clinical action that satisfies the conditions of the measure.
+{: .new-content}
 
 #### Numerator Exclusion
 
