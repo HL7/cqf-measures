@@ -2,14 +2,29 @@
 
 {:toc}
 
-<div class="new-content" markdown="1">
+{:.stu-note}
+> This STU 5.0.0-ballot is currently dependent on the QI-Core STU 6.0.0-ballot, but will update to QI-Core STU6 once published
+
+Where possible, new and updated content are highlighted with green text and background
+{: .new-content}
+
 <div class="note-to-balloters" markdown="1">
 #### Note To Balloters
 
 1. We are seeking examples of non-patient subject composite measures for inclusion as examples in this implementation guide.
 
+2. We are requesting additional guidance on MeasureImprovementNotation:
+
+    Reviewers: CQI will be adding the code:
+
+    `Reference range` with definition of score within a defined interval (or a “passing score” over or under a certain threshold) indicates better quality to the improvement notation value set. Please provide comments on this additional code and if there are other codes needed in this value set.
+
+    If an additional code is added to the improvement notation (like normative reference range as suggested), where is guidance about the reference range best included in the specification for implementer use?  Some suggestions include: the guidance field, the rate aggregation field or adding an extension to improvementNotation to add text.
+
+    [valueset: MeasureImprovementNotation](https://terminology.hl7.org/5.2.0/ValueSet-measure-improvement-notation.html)
+
 </div>
-</div>
+
 
 ## Quality Measure Implementation Guide
 {: #quality-measure-implementation-guide}
@@ -43,7 +58,11 @@ Measures IG
 -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by QMs
 -  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
 -  **[Capabilities](capabilities.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
+<div class="new-content" markdown="1">
+
 -  **[Operations](operations.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
+</div>
+
 -  **[Examples](examples.html)**: This page provides examples used in the other pages, as well as by the Data Exchange for Quality
 -  **[Glossary](glossary.html)** This page defines terms related to quality measurement.
 -  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.
