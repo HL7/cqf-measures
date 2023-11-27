@@ -810,7 +810,7 @@ Because certain translator options impact language features and functionality, t
 **Conformance Requirement 4.23 (ELM Suitability):** [<img src="conformance.png" width="20" class="self-link" height="20"/>]
 {: #conformance-requirement-4-23}
 
-1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL <span class="bg-success">be</span> translated with a SignatureLevel other than `None` (recommend OVERLOADS)</span>
+1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL <span class="bg-success">be</span> translated with a SignatureLevel other than `None` <span class="bg-success">(recommend OVERLOADS)</span>
 2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment SHALL be consistent with the compatibility level used to produce the ELM
 3. If the ELM has a compatibility level set, it SHALL be consistent with the version of the translator used in the evaluation environment
 4. The translator version used to produce the ELM SHOULD be consistent with the translator version used in the evaluation environment
