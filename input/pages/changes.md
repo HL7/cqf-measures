@@ -10,6 +10,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))([Applied here](StructureDefinition-cqfm-fhirQueryPattern.html))
 * **Applied**: Enable QMIG to Handle Population-based Measures ([FHIR-42898](https://jira.hl7.org/browse/FHIR-42898))([Applied here](measure-conformance.html#conformance-requirement-3-8)), ([here](measure-conformance.html#proportion-measures)), and ([here](measure-conformance.html#conformance-requirement-3-13))
 * **Applied**: Consider requiring the use of a SignatureLevel higher than none ([FHIR-42922](https://jira.hl7.org/browse/FHIR-42922))([Applied here](using-cql.html#translation-to-elm)), ([here](using-cql.html#specifying-options)), and ([here](using-cql.html#elm-suitability))
+* **Applied**: Does improvementNotation field need to allow for additional guidance? ([FHIR-42976]())([Applied here](index.html))and ([here](StructureDefinition-cqfm-improvementNotation.json))
   
   
 
