@@ -33,6 +33,11 @@
 - [Rate Aggregation](StructureDefinition-cqfm-rateAggregation.html)
 - [Risk Adjustment](StructureDefinition-cqfm-riskAdjustment.html)
 - [Scoring](StructureDefinition-cqfm-scoring.html)
+<div class="new-content" markdown="1">
+
+- [Scoring Precision](StructureDefinition-cqfm-scoringPrecision.html)
+</div>
+
 - [Scoring Unit](StructureDefinition-cqfm-scoringUnit.html)
 - [Software System](StructureDefinition-cqfm-softwaresystem.html)
 - [Supported CQL Version](StructureDefinition-cqfm-supportedCqlVersion.html)
