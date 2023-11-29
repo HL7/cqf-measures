@@ -10,18 +10,19 @@ Where possible, new and updated content are highlighted with green text and back
 
 <div class="note-to-balloters" markdown="1">
 #### Note To Balloters
+   <div class="new-content" markdown="2">
+1. We are seeking examples of non-patient subject composite measures for inclusion as examples in this implementation guide.
 
-1. <span class="bg-success">We are seeking examples of non-patient subject composite measures for inclusion as examples in this implementation guide.</span>
+2. We are requesting additional guidance on MeasureImprovementNotation:
 
-2. <span class="bg-success">We are requesting additional guidance on MeasureImprovementNotation:</span>
+    Reviewers: CQI will be adding the code:
 
-   <span class="bg-success">Reviewers: CQI will be adding the code:</span>
+    `Reference range` with definition of score within a defined interval (or a “passing score” over or under a certain threshold) indicates better quality to the improvement notation value set. Please provide comments on this additional code and if there are other codes needed in this value set.
 
-   <span class="bg-success">`Reference range` with definition of score within a defined interval (or a “passing score” over or under a certain threshold) indicates better quality to the improvement notation value set. Please provide comments on this additional code and if there are other codes needed in this value set.</span>
+    If an additional code is added to the improvement notation (like normative reference range as suggested), where is guidance about the reference range best included in the specification for implementer use?  Some suggestions include: the guidance field, the rate aggregation field or adding an extension to improvementNotation to add text.
 
-   <span class="bg-success">If an additional code is added to the improvement notation (like normative reference range as suggested), where is guidance about the reference range best included in the specification for implementer use?  Some suggestions include: the guidance field, the rate aggregation field or adding an extension to improvementNotation to add text.</span>
-
-   <span class="bg-success">[valueset: MeasureImprovementNotation](https://terminology.hl7.org/5.2.0/ValueSet-measure-improvement-notation.html) </span>
+    [valueset: MeasureImprovementNotation](https://terminology.hl7.org/5.2.0/ValueSet-measure-improvement-notation.html)
+   </div>
 </div>
 
 

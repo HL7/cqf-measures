@@ -720,9 +720,9 @@ For measure development with FHIR, the following options are recommended:
 | <span class="bg-success">SignatureLevel</span> | <span class="bg-success">The SignatureLevel setting controls whether the `signature` element of a FunctionRef will be populated.</span>                                                       | <span class="bg-success">The SignatureLevel should be `Overloads` or `All` {} </span>                                                                                                                                                                                   |
 
 #### Specifying Options
-
-This implementation guide defines the [cqlOptions](StructureDefinition-cqfm-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above, <span class="bg-success">including SignatureLevel,</span> SHOULD be used. When this extension is present on a [CQFComputableLibrary](StructureDefinition-computable-library-cqfm.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
-
+<div class="new-content" markdown="2">
+This implementation guide defines the [cqlOptions](StructureDefinition-cqfm-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above, including SignatureLevel, SHOULD be used. When this extension is present on a [CQFComputableLibrary](StructureDefinition-computable-library-cqfm.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
+</div>
 **Conformance Requirement 4.22 (Translator Options):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-22)
 {: #conformance-requirement-4-22}
 
@@ -810,7 +810,7 @@ Because certain translator options impact language features and functionality, t
 **Conformance Requirement 4.23 (ELM Suitability):** [<img src="conformance.png" width="20" class="self-link" height="20"/>]
 {: #conformance-requirement-4-23}
 
-1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL <span class="bg-success">be</span> translated with a SignatureLevel other than `None` <span class="bg-success">(recommend OVERLOADS)</span>
+1. <div class="new-content" markdown="1">If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL be translated with a SignatureLevel other than `None` (recommend OVERLOADS)</div>
 2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment SHALL be consistent with the compatibility level used to produce the ELM
 3. If the ELM has a compatibility level set, it SHALL be consistent with the version of the translator used in the evaluation environment
 4. The translator version used to produce the ELM SHOULD be consistent with the translator version used in the evaluation environment

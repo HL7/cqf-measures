@@ -510,10 +510,18 @@ Snippet 3-9: Example Library terminology definitions (from [library-Terminology.
 
 **Conformance Requirement 3.4 (Terminology Inclusion):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-4)
 {: #conformance-requirement-3-4}
+<div class="new-content" markdown="1">
 
 Measures using valueset and/or direct-reference codes must conform to the requirements of Conformance Requirement 3.4.
-1. All valuesets and codes referenced in the CQL SHALL be included in the Library using dataRequirement elements.
-2. If a valueset or code is referenced outside the context of a retrieve, the dataRequirement SHALL have the type 'CodeableConcept'
+1. All valuesets referenced in the CQL SHALL be included in the Library using relatedArtifact elements: <br/>
+  a. The code element of the relatedArtifact SHALL be depends-on <br/>
+  b. The resource element of the relatedArtifact SHALL be the canonical URL of the referenced value set.<br/>
+  c. If the library valueset declaration includes a version, the canonical URL SHALL include the version specified in the declaration using canonical URL version syntax (i.e. `|version`) <br/>
+  d. The display element of the relatedArtifact SHALL be the identifier of the valueset declaration
+2. All direct-reference codes referenced in the CQL SHALL be included using the cqfm-directReferenceCode extension: <br/>
+  a. The code and system elements of the Coding SHALL be set to the code and system of the declaration <br/>
+  b. If the code declaration includes a display, it SHALL be used as the display of the Coding, otherwise, the identifier of the code declaration SHALL be used as the display
+</div>
 
 For example, in the following CQL, the reference to the code `"Venous foot pump, device (physical object)"` occurs in the `"DeviceUseStatement"` retrieve, while the reference to the code `"Right foot"` occurs outside the context of the retrieve:
 
@@ -745,7 +753,6 @@ Note that the Measure Observation criteria is the name of a function used in the
 For each scoring type, the set of applicable criteria are specified in the [Quality Reporting](http://www.hl7.org/fhir/clinicalreasoning-quality-reporting.html) topic of the FHIR Clinical Reasoning module. The table is reproduced here for reference:
 
 **Table 3-1: Measure populations based on types of measure scoring.**
-
 | <span class="bg-success">      Scoring  </span> | Initial Population | Denominator | Denominator Exclusion | Denominator Exception | Numerator | Numerator Exclusion | Measure Population | Measure Population Exclusion |
 |:-----------------------------------------------------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |                      Proportion                       | R | R | O | O | R | O | NP | NP |
@@ -757,12 +764,13 @@ For each scoring type, the set of applicable criteria are specified in the [Qual
 R=Required. O=Optional. NP=Not Permitted.
 
 ‡‡ Some ratio measures will require multiple Initial Populations, one for the numerator and one for the denominator.
-
-In addition, the formula for calculating the measure score is implied by the <span class="bg-success">scoring of the measure</span>. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
+<div class="new-content" markdown="1">
+In addition, the formula for calculating the measure score is implied by the scoring of the measure. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
 
 <span style="color:red">The context of a measure is indicated using the subject element of the FHIR resource.  The subject element will be a reference to a FHIR resource type, specifically including Patient, Location, Organization, Practitioner, and Device as currently specified in the extensible SubjectType binding.  It is important to note that other resource types may be used, but it must be a FHIR resource type. We should also note that although the discussion is focused on Patient as the subject, the discussion applies to other subject types as well.</span>
 
-In addition to <span class="bg-success">the measure scoring</span>, measures generally fall into two categories, patient-based, and non-patient-based (e.g. encounter-based). In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
+In addition to the measure scoring, measures generally fall into two categories, patient-based, and non-patient-based (e.g. encounter-based). In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
+</div>
 
 **Conformance Requirement 3.9 (Population Basis):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-9)
 {: #conformance-requirement-3-9}
@@ -867,7 +875,9 @@ For complete examples of patient-based proportion measures, see the Screening Me
 
 **Conformance Requirement 3.11 (Proportion Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-11)
 {: #conformance-requirement-3-11}
-1. <span class="bg-success">The CQL expression SHALL use a FHIR resource type (e.g. Patient) as the context, and SHALL be expressed within the context of a single subject record of that type.</span>
+<div class="new-content" markdown="1">
+1. The CQL expression SHALL use a FHIR resource type (e.g. Patient) as the context, and SHALL be expressed within the context of a single subject record of that type.
+</div>
 2. The CQL expression for patient-based measures SHALL return a Boolean to indicate whether a patient matches the population criteria (true) or not (false).
 3. The CQL expression for non-patient-based measures SHALL return a List of events of the same type, such as an Encounter or Procedure.
 
@@ -1195,7 +1205,8 @@ Snippet 3-23: Definition from Snippet 3-18 (Sample CQL (from [EXM55.cql](Library
 **Conformance Requirement 3.13 (Continuous Variable Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-13)
 {: #conformance-requirement-3-13}
 1. Population criteria SHALL each reference a single CQL expression as defined by [Conformance Requirement 3.11](#conformance-requirement-3-11).
-2. <span class="bg-success">The aggregateMethod extension SHALL be used on the measureObservation criteria to indicate the aggregate method for the observations. CQL expressions referenced from measure-observation criteria elements  SHALL be consistent with the context used for the population criteria of the measure.</span>
+<div class="new-content" markdown="2">
+2. The aggregateMethod extension SHALL be used on the measureObservation criteria to indicate the aggregate method for the observations. CQL expressions referenced from measure-observation criteria elements  SHALL be consistent with the context used for the population criteria of the measure.
 3. The population element of a measure-observation criteria SHALL contain a criteriaReference extension that
 refers to the population criteria within the same population group that is the target population criteria
 for the measure-observation
@@ -1205,7 +1216,7 @@ for the measure-observation
       b. accept a single argument whose type matches the elements of the list returned by the CQL expression
          referenced from the criteriaReference extension of the measure-observation criteria<br/>
       c. return either an Integer, a Decimal, or a Quantity
-
+</div>
 For non-patient based continuous variable measures, the measure observation is defined as a function that takes a single parameter of the type of elements returned by the population criteria. The Initial Population, Measure Population, and Measure Population Exclusion criteria expressions must all return a list of elements of the same type.
 
 For patient based continuous variable measures, the measure observation is defined as a function that takes no parameters.
