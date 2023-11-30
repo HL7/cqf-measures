@@ -60,6 +60,7 @@ To support packaging, testing, and distribution of measure and library artifacts
 - [Publishable ValueSet](StructureDefinition-publishable-valueset-cqfm.html)
 - [Quality Program Specification](StructureDefinition-quality-program-cqfm.html)
 - [Ratio Measure](StructureDefinition-ratio-measure-cqfm.html)
+  {: #shareable-codesystem}
 <div class="new-content" markdown="1">
 
 - [Shareable CodeSystem](StructureDefinition-shareable-codesystem-cqfm.html)

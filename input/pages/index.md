@@ -10,7 +10,7 @@ Where possible, new and updated content are highlighted with green text and back
 
 <div class="note-to-balloters" markdown="1">
 #### Note To Balloters
-   <div class="new-content" markdown="2">
+
 1. We are seeking examples of non-patient subject composite measures for inclusion as examples in this implementation guide.
 
 2. We are requesting additional guidance on MeasureImprovementNotation:
@@ -22,7 +22,7 @@ Where possible, new and updated content are highlighted with green text and back
     If an additional code is added to the improvement notation (like normative reference range as suggested), where is guidance about the reference range best included in the specification for implementer use?  Some suggestions include: the guidance field, the rate aggregation field or adding an extension to improvementNotation to add text.
 
     [valueset: MeasureImprovementNotation](https://terminology.hl7.org/5.2.0/ValueSet-measure-improvement-notation.html)
-   </div>
+
 </div>
 
 
