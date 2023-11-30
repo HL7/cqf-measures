@@ -707,6 +707,7 @@ support development, and has several options available to make use of different 
 For measure development with FHIR, the following options are recommended:
 
 <div class="new-content" markdown="1">
+
 | Option | Description | Recommendation |
 |----|----|----|
 | EnableAnnotations | This instructs the translator to include the source CQL as an annotation within the ELM. | This option should be used to ensure that the distributed ELM could be linked back to the source CQL. |
@@ -719,6 +720,7 @@ For measure development with FHIR, the following options are recommended:
 | EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with Measures. |
 | DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With Measures, disabling this feature would prevent a useful capability. | This feature should not be used with Measures. |
 | SignatureLevel |The SignatureLevel setting controls whether the `signature` element of a FunctionRef will be populated. | The SignatureLevel should be `Overloads` or `All` {} |
+
 </div>
 
 #### Specifying Options
