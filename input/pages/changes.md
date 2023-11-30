@@ -15,6 +15,8 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Clarify or Correct Conformance Requirement 3.4 ([FHIR-42894](https://jira.hl7.org/browse/FHIR-42894))([Applied here](measure-conformance.html#conformance-requirement-3-13))
 * **Applied**: Clarify ratio measure Numerator definition ([FHIR-42826](https://jira.hl7.org/browse/FHIR-42826))([Applied here](measure-conformance.html#proportion-measure-table)), and ([here](measure-conformance.html#ratio-measure-table)) 
 * **Applied**: Draft 2018 should be Active 2023 ([FHIR-43039](https://jira.hl7.org/browse/FHIR-43039))({[Applied here](composite-measures.html#conformance-requirement-component-based)), ([here](composite-measures.html#subject-level-linear-combination-scoring)), ([here](composite-measures.html#conformance-requirement-5-5)), and ([here](profiles.html#shareable-codesystem))
+* **Applied**: Add support for measure manifests in the quality program profile ([FHIR-42920](https://jira.hl7.org/browse/FHIR-42920))([Applied here](StructureDefinition-quality-program-cqfm.html))
+* **Applied**: Make R4 CQFM Publishable CodeSystem profile compatible with R5 ([FHIR-37371](https://jira.hl7.org/browse/FHIR-37371))([Applied here](profiles.html#shareable-codesystem)), ([here](StructureDefinition-publishable-codesystem-cqfm.html)), and ([here](StructureDefinition-publishable-codesystem-cqfm.json))
   
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
