@@ -720,7 +720,8 @@ For measure development with FHIR, the following options are recommended:
 | <span class="bg-success">SignatureLevel</span> | <span class="bg-success">The SignatureLevel setting controls whether the `signature` element of a FunctionRef will be populated.</span>                                                       | <span class="bg-success">The SignatureLevel should be `Overloads` or `All` {} </span>                                                                                                                                                                                   |
 
 #### Specifying Options
-<div class="new-content" markdown="2">
+
+<div class="new-content" markdown="1">
 This implementation guide defines the [cqlOptions](StructureDefinition-cqfm-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above, including SignatureLevel, SHOULD be used. When this extension is present on a [CQFComputableLibrary](StructureDefinition-computable-library-cqfm.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
 </div>
 **Conformance Requirement 4.22 (Translator Options):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-22)
