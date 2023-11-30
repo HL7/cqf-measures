@@ -429,8 +429,7 @@ Snippet 29: Weighted composite measure relatedArtifact elements
     2. For composite measures using All-or-nothing scoring
         a. The measure scoring method SHALL be Composite
         b. All component measures SHALL use Proportion or Ratio scoring
-    <div class="new-content">
-    3. For composite measures using Subject-level linear scoring</div>
+    3. <span class="bg-success">For composite measures using Subject-level linear scoring</span>
         a. The measure scoring method SHALL be Composite
         b. All component measures SHALL use Proportion, Ratio, or Continuous Variable Scoring
     4. For composite measures using Component-level scoring
