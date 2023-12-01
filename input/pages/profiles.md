@@ -61,7 +61,6 @@ To support packaging, testing, and distribution of measure and library artifacts
 - [Quality Program Specification](StructureDefinition-quality-program-cqfm.html)
 - [Ratio Measure](StructureDefinition-ratio-measure-cqfm.html)
 <div class="new-content" markdown="1">
-
 - [Shareable CodeSystem](StructureDefinition-shareable-codesystem-cqfm.html)
-
 </div>
+{: #shareable-codesystem}

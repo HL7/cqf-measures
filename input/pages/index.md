@@ -57,7 +57,7 @@ Measures IG
 -  **[Profiles](profiles.html)**: This page lists the set of profiles defined for use by QMs
 -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by QMs
 -  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
--  **[Capabilities](capabilities.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
+-  **[Capabilities](capabilities.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs 
 <div class="new-content" markdown="1">
 
 -  **[Operations](operations.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs

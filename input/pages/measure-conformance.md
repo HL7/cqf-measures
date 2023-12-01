@@ -753,25 +753,24 @@ Note that the Measure Observation criteria is the name of a function used in the
 For each scoring type, the set of applicable criteria are specified in the [Quality Reporting](http://www.hl7.org/fhir/clinicalreasoning-quality-reporting.html) topic of the FHIR Clinical Reasoning module. The table is reproduced here for reference:
 
 **Table 3-1: Measure populations based on types of measure scoring.**
-
-|       Scoring        | Initial Population | Denominator | Denominator Exclusion | Denominator Exception | Numerator | Numerator Exclusion | Measure Population | Measure Population Exclusion |
-|:--------------------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|      Proportion      | R | R | O | O | R | O | NP | NP |
-|        Ratio         | R‡‡ | R | O | NP | R | O | NP | NP |
-| Continuous Variable  | R | NP | NP | NP | NP | NP | R | O |
-|        Cohort        | R | NP | NP | NP | NP | NP | NP | NP |
+| <span class="bg-success">      Scoring  </span> | Initial Population | Denominator | Denominator Exclusion | Denominator Exception | Numerator | Numerator Exclusion | Measure Population | Measure Population Exclusion |
+|:-----------------------------------------------------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|                      Proportion                       | R | R | O | O | R | O | NP | NP |
+|                         Ratio                         | R‡‡ | R | O | NP | R | O | NP | NP |
+|                  Continuous Variable                  | R | NP | NP | NP | NP | NP | R | O |
+|                        Cohort                         | R | NP | NP | NP | NP | NP | NP | NP |
 {: .grid}
 
 R=Required. O=Optional. NP=Not Permitted.
 
 ‡‡ Some ratio measures will require multiple Initial Populations, one for the numerator and one for the denominator.
-
+<div class="new-content" markdown="1">
 In addition, the formula for calculating the measure score is implied by the scoring of the measure. The following sections describe the expected result type for population criteria for each type of measure, as well as explicitly defining the measure score calculation formula.
 
-The context of a measure is indicated using the subject element of the FHIR resource.  The subject element will be a reference to a FHIR resource type, specifically including Patient, Location, Organization, Practitioner, and Device as currently specified in the extensible SubjectType binding.  It is important to note that other resource types may be used, but it must be a FHIR resource type. We should also note that although the discussion is focused on Patient as the subject, the discussion applies to other subject types as well.
-{: .new-content}
+<span style="color:red">The context of a measure is indicated using the subject element of the FHIR resource.  The subject element will be a reference to a FHIR resource type, specifically including Patient, Location, Organization, Practitioner, and Device as currently specified in the extensible SubjectType binding.  It is important to note that other resource types may be used, but it must be a FHIR resource type. We should also note that although the discussion is focused on Patient as the subject, the discussion applies to other subject types as well.</span>
 
 In addition to the measure scoring, measures generally fall into two categories, patient-based, and non-patient-based (e.g. encounter-based). In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
+</div>
 
 **Conformance Requirement 3.9 (Population Basis):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-9)
 {: #conformance-requirement-3-9}
@@ -893,17 +892,17 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 <img src="OutcomeFlow__Proportion_version.png">
 </div>
 <br>
-
+{: #proportion-measure-table}
 **Table 3-3: Population Criteria Definitions for Proportion Measures**
 
-| Population | Definition |
-|:----|:----|
-| Initial Population | The initial population criteria refers to all patients, subjects, or events to be evaluated by a quality measure involving patients or subjects who share a common set of specified characteristics. All patients, subjects, or events counted (for example, as numerator, as denominator) are drawn from the initial population. |
-| Denominator | Denominator criteria define the patients, subjects, or events that should be included in the lower portion of a fraction used to calculate a rate, proportion, or ratio. The denominator can be the same as the initial population, or a subset of the initial population to further constrain the population for the purpose of the measure. |
-| Denominator Exclusion | Denominator exclusion criteria define patients, subjects, or events that should be excluded from the denominator. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams. |
-| Numerator | Numerator criteria define the patients, subjects, or events that should be included in the upper portion of a fraction used to calculate a proportion measure. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, subject, or event defined in the denominator (for rate and proportion measures) or initial population (for ratio measures). A numerator statement describes the clinical action that satisfies the conditions of the measure. |
-| Numerator Exclusion | Numerator exclusion criteria define patients, subjects, or events to be excluded from the numerator. Numerator exclusions are used in proportion and ratio measures to help narrow the numerator (for inverted measures). |
-| Denominator Exception | Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures. |
+| Population                                  | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|:--------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Initial Population                          | The initial population criteria refers to all patients, subjects, or events to be evaluated by a quality measure involving patients or subjects who share a common set of specified characteristics. All patients, subjects, or events counted (for example, as numerator, as denominator) are drawn from the initial population.                                                                                                                                                                                                                                                                 |
+| Denominator                                 | Denominator criteria define the patients, subjects, or events that should be included in the lower portion of a fraction used to calculate a rate, proportion, or ratio. The denominator can be the same as the initial population, or a subset of the initial population to further constrain the population for the purpose of the measure.                                                                                                                                                                                                                                                     |
+| Denominator Exclusion                       | Denominator exclusion criteria define patients, subjects, or events that should be excluded from the denominator. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams.                                                                                                                                                                                                                                |
+| <span class="bg-success"> Numerator </span> | <span class="bg-success"> Numerator criteria define the patients, subjects, or events that should be included in the upper portion of a fraction used to calculate a proportion measure. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, subject, or event defined in the denominator (for rate and proportion measures) or initial population (for ratio measures). A numerator statement describes the clinical action that satisfies the conditions of the measure. </span> |
+| Numerator Exclusion                         | Numerator exclusion criteria define patients, subjects, or events to be excluded from the numerator. Numerator exclusions are used in proportion and ratio measures to help narrow the numerator (for inverted measures).                                                                                                                                                                                                                                                                                                                                                                         |
+| Denominator Exception                       | Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures.                                                                                                                                                                                                                                    |
 {: .grid}
 
 * Initial population : Identify those cases that meet the Initial Population criteria. <br/>
@@ -954,7 +953,6 @@ define "Measure Score":
 ```
 
 ##### Non-patient-based Calculation
-
 The following snippet provides precise semantics for the measure score calculation for a non-patient-based proportion measure:
 
 ```cql
@@ -1015,14 +1013,15 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 ✧ The ratio diagrams depict a ratio measure. Ratio measures may also include continuous variable calculations for the numerator and denominator (continuous variable ratio measures) but the diagrams do not depict the continuous variable ratio measures.
 
 **Table 3-4: Population Criteria Definitions for Ratio Measures**
+{: #ratio-measure-table}
 
-| Population | Definition |
-|:----|:----:|
-| Initial Population | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. Ratio measures are allowed to have two Initial Populations, one for Numerator and one for Denominator. In most cases, there is only 1 Initial Population |
-| Denominator | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure. |
-| Denominator Exclusion | Entities that should be removed from the Denominator before determining if Numerator criteria are met. Denominator exclusions are used in Proportion and Ratio measures to help narrow the Denominator. |
-| Numerator | The outcomes expected for each entity defined in the Initial Population of a Ratio measure. |
-| Numerator Exclusion | Entities that should be removed from the QM's Numerator before determining if Numerator criteria are met. Numerator Exclusions are used in Proportion and Ratio measures to help narrow the Numerator. |
+| Population                                 |                                                                                                                                                                    Definition                                                                                                                                                                     |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Initial Population                         | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. Ratio measures are allowed to have two Initial Populations, one for Numerator and one for Denominator. In most cases, there is only 1 Initial Population |
+| Denominator                                | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure.                                                                                                                                                                                                      |
+| Denominator Exclusion                      | Entities that should be removed from the Denominator before determining if Numerator criteria are met. Denominator exclusions are used in Proportion and Ratio measures to help narrow the Denominator.                                                                                                                                           |
+| <span class="bg-success"> Numerator </span>| <span class="bg-success"> The outcomes expected for each entity defined in the Initial Population of a Ratio measure. </span>                                                                                                                                                                                                                     |
+| Numerator Exclusion                        | Entities that should be removed from the QM's Numerator before determining if Numerator criteria are met. Numerator Exclusions are used in Proportion and Ratio measures to help narrow the Numerator.                                                                                                                                            |
 {: .grid}
 
 * Initial population : Identify those cases that meet the Initial Population criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
@@ -1207,11 +1206,8 @@ Snippet 3-23: Definition from Snippet 3-18 (Sample CQL (from [EXM55.cql](Library
 **Conformance Requirement 3.13 (Continuous Variable Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-13)
 {: #conformance-requirement-3-13}
 1. Population criteria SHALL each reference a single CQL expression as defined by [Conformance Requirement 3.11](#conformance-requirement-3-11).
-<div class="new-content" markdown="1">
-
+<div class="new-content" markdown="2">
 2. The aggregateMethod extension SHALL be used on the measureObservation criteria to indicate the aggregate method for the observations. CQL expressions referenced from measure-observation criteria elements  SHALL be consistent with the context used for the population criteria of the measure.
-</div>
-
 3. The population element of a measure-observation criteria SHALL contain a criteriaReference extension that
 refers to the population criteria within the same population group that is the target population criteria
 for the measure-observation
@@ -1221,7 +1217,7 @@ for the measure-observation
       b. accept a single argument whose type matches the elements of the list returned by the CQL expression
          referenced from the criteriaReference extension of the measure-observation criteria<br/>
       c. return either an Integer, a Decimal, or a Quantity
-
+</div>
 For non-patient based continuous variable measures, the measure observation is defined as a function that takes a single parameter of the type of elements returned by the population criteria. The Initial Population, Measure Population, and Measure Population Exclusion criteria expressions must all return a list of elements of the same type.
 
 For patient based continuous variable measures, the measure observation is defined as a function that takes no parameters.
