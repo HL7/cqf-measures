@@ -25,6 +25,13 @@ Where possible, new and updated content are highlighted with green text and back
 
 </div>
 
+<div markdown="1" class="bg-info">
+
+{{ site.data.package-list.list[0].desc }}
+
+</div>
+
+
 
 ## Quality Measure Implementation Guide
 {: #quality-measure-implementation-guide}
