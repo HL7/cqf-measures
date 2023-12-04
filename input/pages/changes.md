@@ -9,7 +9,7 @@ This page details changes made in each version of the Quality Measure IG
 
 * **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))([Applied here](StructureDefinition-cqfm-fhirQueryPattern.html))
 * **Applied**: Enable QMIG to Handle Population-based Measures ([FHIR-42898](https://jira.hl7.org/browse/FHIR-42898))([Applied here](measure-conformance.html#conformance-requirement-3-8)), and ([here](measure-conformance.html#proportion-measures))
-* **Applied**: Consider requiring the use of a SignatureLevel higher than none ([FHIR-42922](https://jira.hl7.org/browse/FHIR-42922))([Applied here](using-cql.html#translation-to-elm)), ([here](using-cql.html#specifying-options)), and ([here](using-cql.html#elm-suitability))
+* **Applied**: Consider requiring the use of a SignatureLevel higher than none ([FHIR-42922](https://jira.hl7.org/browse/FHIR-42922))([Applied here](using-cql.html#translation-to-elm)), ([here](using-cql.html#specifying-options)), and ([here](using-cql.html#conformance-requirement-4-23))
 * **Applied**: Does improvementNotation field need to allow for additional guidance? ([FHIR-42976](https://jira.hl7.org/browse/FHIR-42116))([Applied here](index.html)), and ([here](StructureDefinition-cqfm-improvementNotation.html))
 * **Applied**: ImprovementNotation Allowed Values ([FHIR-42116](https://jira.hl7.org/browse/FHIR-42116))([Applied here](index.html)), and ([here](StructureDefinition-cqfm-improvementNotation.html))
 * **Applied**: Clarify or Correct Conformance Requirement 3.4 ([FHIR-42894](https://jira.hl7.org/browse/FHIR-42894))([Applied here](measure-conformance.html#conformance-requirement-3-13))
@@ -20,7 +20,8 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Reference to composites should address content as entity and not limit to patient ([FHIR-35922](https://jira.hl7.org/browse/FHIR-35922))([Applied here](composite-measures.html#conformance-requirement-component-based)), ([here](composite-measures.html#subject-level-linear-combination-scoring)), ([here](composite-measures.html#conformance-requirement-5-5)), and ([here](index.html))
 * **Applied**: Level of Precision/Rounding and Unit of Measure ([FHIR-42908](https://jira.hl7.org/browse/FHIR-42908))([Applied here](StructureDefinition-computable-measure-cqfm.html)), and ([here](StructureDefinition-cqfm-scoringPrecision.html))
 * **Applied**: Allow for use of multiple expressions in a population ([FHIR-42907](https://jira.hl7.org/browse/FHIR-42907)) ([Applied here](StructureDefinition-measure-cqfm.html))
-* **Applied**: PLease add 'Operations' as a an options on the FHIR artifacts menu ([FHIR-42715](https://jira.hl7.org/browse/FHIR-42715))([Applied here](index.html#how-to-read-this-guide)), and ([here](operations.html))
+* **Applied**: PLease add 'Operations' as an options on the FHIR artifacts menu ([FHIR-42715](https://jira.hl7.org/browse/FHIR-42715))([Applied here](index.html#how-to-read-this-guide)), and ([here](operations.html))
+* **Applied**: Allow multiple quality programs and bind value set as example ([FHIR-43320](https://jira.hl7.org/browse/FHIR-43320))([Applied here](StructureDefinition-quality-program-cqfm.html)), ([here](StructureDefinition-publishable-library-cqfm.html)), and ([here](StructureDefinition-publishable-measure-cqfm.html))
     
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
