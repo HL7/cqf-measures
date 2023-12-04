@@ -23,6 +23,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Draft 2018 should be Active 2023 ([FHIR-43039](https://jira.hl7.org/browse/FHIR-43039)) Applied to numerous json files throughout IG in profiles and vocabulary
 * **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))([Applied here](StructureDefinition-cqfm-fhirQueryPattern.html))    
 
+
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
 * **Applied**: Provide an example of PI measure ([FHIR-27930](https://jira.hl7.org/browse/FHIR-27930))
