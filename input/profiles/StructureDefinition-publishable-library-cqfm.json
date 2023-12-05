@@ -88,23 +88,6 @@
         "mustSupport": true
       },
       {
-        "id": "Library.useContext",
-        "path": "Library.useContext",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "code"
-            }
-          ],
-          "rules": "open"
-        },
-        "min" : 0,
-        "max" : "*",
-        "requirements": "A published library should provide a clear indication of the expected contexts of use for the library content.",
-        "mustSupport": true
-      },
-      {
         "id": "Library.purpose",
         "path": "Library.purpose",
         "requirements": "A published library should provide a clear description of the purpose of the library.",
