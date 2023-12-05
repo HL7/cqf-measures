@@ -21,8 +21,8 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Consider requiring the use of a SignatureLevel higher than none ([FHIR-42922](https://jira.hl7.org/browse/FHIR-42922))([Applied here](using-cql.html#translation-to-elm)), ([here](using-cql.html#specifying-options)), and ([here](using-cql.html#elm-suitability))
 * **Applied**: Does improvementNotation field need to allow for additional guidance? ([FHIR-42976](https://jira.hl7.org/browse/FHIR-42976))([Applied here](index.html)), and ([here](StructureDefinition-cqfm-improvementNotation.html))
 * **Applied**: Draft 2018 should be Active 2023 ([FHIR-43039](https://jira.hl7.org/browse/FHIR-43039)) Applied to numerous json files throughout IG in profiles and vocabulary
-* **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))([Applied here](StructureDefinition-cqfm-fhirQueryPattern.html))    
-
+* **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))([Applied here](StructureDefinition-cqfm-fhirQueryPattern.html))
+    
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
