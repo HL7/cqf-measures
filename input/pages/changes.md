@@ -9,7 +9,9 @@ This page details changes made in each version of the Quality Measure IG
 
 * **Applied**: Reference to composites should address content as entity and not limit to patient ([FHIR-35922](https://jira.hl7.org/browse/FHIR-35922))([Applied here](composite-measures.html#conformance-requirement-component-based)), ([here](composite-measures.html#subject-level-linear-combination-scoring)), ([here](composite-measures.html#conformance-requirement-5-5)), and ([here](index.html))
 * **Applied**: Make R4 CQFM Publishable CodeSystem profile compatible with R5 ([FHIR-37371](https://jira.hl7.org/browse/FHIR-37371))([Applied here](profiles.html#shareable-codesystem)), ([here](StructureDefinition-publishable-codesystem-cqfm.html)), and ([here](StructureDefinition-publishable-codesystem-cqfm.html))
+* **Applied**: Notes to balloters improvement request ([FHIR-39893](https://jira.hl7.org/browse/FHIR-39893))([Applied here](index.html))
 * **Applied**: Update Dependency to US Core 6.0.0 ([FHIR-39894](https://jira.hl7.org/browse/FHIR-39894))([Applied here](index.html#dependencies))
+* **Applied**: Hard to tell what is new content ([FHIR-39895](https://jira.hl7.org/browse/FHIR-39895))([Applied here](index.html))
 * **Applied**: ImprovementNotation Allowed Values ([FHIR-42116](https://jira.hl7.org/browse/FHIR-42116))([Applied here](index.html)), and ([here](StructureDefinition-cqfm-improvementNotation.html))
 * **Applied**: PLease add 'Operations' as a an options on the FHIR artifacts menu ([FHIR-42715](https://jira.hl7.org/browse/FHIR-42715))([Applied here](index.html#how-to-read-this-guide)), and ([here](operations.html))
 * **Applied**: Clarify ratio measure Numerator definition ([FHIR-42826](https://jira.hl7.org/browse/FHIR-42826))([Applied here](measure-conformance.html#proportion-measure-table)), and ([here](measure-conformance.html#ratio-measure-table)) 
