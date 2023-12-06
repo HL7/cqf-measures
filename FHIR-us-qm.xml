@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/cqfmeasures/2023Jan" ciUrl="http://build.fhir.org/ig/HL7/cqf-measures" defaultVersion="4.0.0" defaultWorkgroup="cqi" gitUrl="https://github.com/HL7/cqf-measures" url="http://hl7.org/fhir/us/cqfmeasures">
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/cqfmeasures/2024Jan" ciUrl="http://build.fhir.org/ig/HL7/cqf-measures" defaultVersion="4.0.0" defaultWorkgroup="cqi" gitUrl="https://github.com/HL7/cqf-measures" url="http://hl7.org/fhir/us/cqfmeasures">
 <version code="current" url="http://build.fhir.org/ig/HL7/cqf-measures"/>
+<version code="5.0.0-ballot" url="http://hl7.org/fhir/us/cqfmeasures/2024Jan"/>
 <version code="4.0.0" url="http://hl7.org/fhir/us/cqfmeasures/STU4"/>
-<version code="4.0.0-ballot" url="http://hl7.org/fhir/us/cqfmeasures/2023Jan"/>
+<version code="4.0.0-ballot" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/2023Jan"/>
 <version code="3.0.0" url="http://hl7.org/fhir/us/cqfmeasures/STU3"/>
 <version code="2.1.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/2021May"/>
 <version code="2.0.0" deprecated="true" url="http://hl7.org/fhir/us/cqfmeasures/STU2"/>
@@ -86,7 +87,9 @@
 <artifact id="StructureDefinition/ratio-measure-cqfm" key="StructureDefinition-ratio-measure-cqfm" name="CQFM Ratio Measure"/>
 <artifact id="StructureDefinition/cqfm-riskAdjustment" key="StructureDefinition-cqfm-riskAdjustment" name="CQFM Risk Adjustment"/>
 <artifact id="StructureDefinition/cqfm-scoring" key="StructureDefinition-cqfm-scoring" name="CQFM Scoring"/>
+<artifact id="StructureDefinition/cqfm-scoringPrecision" key="StructureDefinition-cqfm-scoringPrecision" name="CQFM Scoring Precision"/>
 <artifact id="StructureDefinition/cqfm-scoringUnit" key="StructureDefinition-cqfm-scoringUnit" name="CQFM Scoring Unit"/>
+<artifact id="StructureDefinition/shareable-codesystem-cqfm" key="StructureDefinition-shareable-codesystem-cqfm" name="CQFM Shareable CodeSystem"/>
 <artifact id="StructureDefinition/cqfm-softwaresystem" key="StructureDefinition-cqfm-softwaresystem" name="CQFM Software System"/>
 <artifact id="StructureDefinition/cqfm-supplementalDataGuidance" key="StructureDefinition-cqfm-supplementalDataGuidance" name="CQFM Supplemental Data Guidance"/>
 <artifact id="StructureDefinition/cqfm-supportedCqlVersion" key="StructureDefinition-cqfm-supportedCqlVersion" name="CQFM Supported CQL Version"/>
@@ -116,7 +119,7 @@
 <artifact id="Measure/measure-pi-exm" key="Measure-measure-pi-exm" name="EXM Promoting Interoperability Measure"/>
 <artifact id="Measure/measure-publishable-exm" key="Measure-measure-publishable-exm" name="EXM Publishable Measure"/>
 <artifact id="Measure/EXMRatio-FHIR" key="Measure-measure-ratio-exm" name="EXM Ratio Measure"/>
-<artifact id="Measure/EXM108-FHIR" key="Measure-EXM108-FHIR" name="EXM108 - Venous Thromboembolism Prophylaxis"/>
+<artifact deprecated="true" id="Measure/EXM108-FHIR" key="Measure-EXM108-FHIR" name="EXM108 - Venous Thromboembolism Prophylaxis"/>
 <artifact id="Library/EXM108-FHIR" key="Library-EXM108" name="EXM108 - Venous Thromboembolism Prophylaxis Library"/>
 <artifact id="Measure/EXM124-FHIR" key="Measure-measure-exm124-FHIR" name="EXM124 - Cervical Cancer Screening"/>
 <artifact id="Library/EXM124-FHIR" key="Library-EXM124" name="EXM124 - Cervical Cancer Screening Library"/>
@@ -221,6 +224,7 @@
 <page key="introduction" name="Introduction"/>
 <page key="measure-repository-service" name="Measure Repository Service"/>
 <page key="measure-terminology-service" name="Measure Terminology Service"/>
+<page key="operations" name="Operations"/>
 <page key="packaging" name="Packaging"/>
 <page key="profiles" name="Profiles"/>
 <page key="measure-conformance" name="QMs"/>
