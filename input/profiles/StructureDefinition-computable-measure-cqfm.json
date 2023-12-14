@@ -91,7 +91,7 @@
             "key" : "cmp-5",
             "severity" : "error",
             "human" : "If type is specified at the root, it may not be specified on any group",
-            "expression" : "type.exists() implies group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-measureType').exists()).allFalse()"
+            "expression" : "type.exists() implies group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-measure').exists()).allFalse()"
           },
           {
             "key" : "cmp-6",
