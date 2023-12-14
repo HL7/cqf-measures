@@ -25,6 +25,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Draft 2018 should be Active 2023 ([FHIR-43039](https://jira.hl7.org/browse/FHIR-43039)) Applied to numerous json files throughout IG in profiles and vocabulary
 * **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))([Applied here](StructureDefinition-cqfm-fhirQueryPattern.html))
 * **Applied**: Allow multiple quality programs and bind value set as example ([FHIR-43320](https://jira.hl7.org/browse/FHIR-43320))([Applied here](StructureDefinition-publishable-library-cqfm.html)) and ([here](StructureDefinition-publishable-measure-cqfm.html))
+* **Applied**: Correct short description about appliesTo extension ([FHIR-43358](https://jira.hl7.org/browse/FHIR-43358))([Applied here](StructureDefinition-computable-measure-cqfm.html))
     
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
