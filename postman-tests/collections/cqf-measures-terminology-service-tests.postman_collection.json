@@ -1675,7 +1675,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{SERVER_URL}}CodeSystem/?measure=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+											"raw": "{{SERVER_URL}}CodeSystem/?measure=https://madie.cms.gov/Measure/HFBetaBlockerTherapyforLVSDFHIR",
 											"host": [
 												"{{SERVER_URL}}CodeSystem"
 											],
@@ -1685,7 +1685,7 @@
 											"query": [
 												{
 													"key": "measure",
-													"value": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+													"value": "https://madie.cms.gov/Measure/HFBetaBlockerTherapyforLVSDFHIR"
 												}
 											]
 										}
@@ -2023,7 +2023,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{SERVER_URL}}CodeSystem/$validate-code?system=http://terminology.hl7.org/CodeSystem/v3-LivingArrangement&version=2022-02&code=N",
+									"raw": "{{SERVER_URL}}CodeSystem/$validate-code?url=http://terminology.hl7.org/CodeSystem/v3-LivingArrangement&version=2022-02&code=N",
 									"host": [
 										"{{SERVER_URL}}CodeSystem"
 									],
@@ -2032,7 +2032,7 @@
 									],
 									"query": [
 										{
-											"key": "system",
+											"key": "url",
 											"value": "http://terminology.hl7.org/CodeSystem/v3-LivingArrangement"
 										},
 										{
@@ -2083,6 +2083,15 @@
 											"    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
 											"    pm.expect(parameterEntry.valueString).equals(\"Nursing Home\");",
 											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.request.headers.add({key: 'Content-Type', value: 'application/fhir+json' })"
 										],
 										"type": "text/javascript"
 									}
@@ -2150,6 +2159,15 @@
 										],
 										"type": "text/javascript"
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.request.headers.add({key: 'Content-Type', value: 'application/fhir+json' })"
+										],
+										"type": "text/javascript"
+									}
 								}
 							],
 							"request": {
@@ -2157,7 +2175,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"resourceType\" : \"Parameters\",\n  \"parameter\" : [\n    {\n    \"name\" : \"codeableConcept\",\n    \"valueCodeableConcept\": {\n        \"coding\": [{\n          \"code\": \"N\",\n          \"system\": \"http://terminology.hl7.org/CodeSystem/v3-LivingArrangement\",\n          \"version\": \"2022-02\"\n        }]\n    }\n    }\n  ]\n}",
+									"raw": "{\n  \"resourceType\" : \"Parameters\",\n  \"parameter\" : [\n    {\n    \"name\" : \"codeableConcept\",\n    \"valueCodeableConcept\": {\n        \"coding\": [{\n          \"code\": \"N\",\n          \"system\": \"http://terminology.hl7.org/CodeSystem/v3-LivingArrangement\",\n          \"version\": \"2022-02\"\n        }, {\n            \"code\": \"365508006\",\n            \"system\": \"http://snomed.info/sct\",\n            \"display\": \"Finding of residence and accommodation circumstances (finding)\"\n        }]\n    }\n    }\n  ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2219,7 +2237,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{SERVER_URL}}CodeSystem/$validate-code?system=http://snomed.info/sct&version=http://snomed.info/sct/731000124108/version/20230301&code=277406006",
+									"raw": "{{SERVER_URL}}CodeSystem/$validate-code?url=http://snomed.info/sct&version=http://snomed.info/sct/731000124108/version/20230301&code=277406006",
 									"host": [
 										"{{SERVER_URL}}CodeSystem"
 									],
@@ -2228,7 +2246,7 @@
 									],
 									"query": [
 										{
-											"key": "system",
+											"key": "url",
 											"value": "http://snomed.info/sct"
 										},
 										{
@@ -2282,7 +2300,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{SERVER_URL}}CodeSystem/$validate-code?system=http://terminology.hl7.org/CodeSystem/v3-LivingArrangement&version=2022-02&code=B",
+									"raw": "{{SERVER_URL}}CodeSystem/$validate-code?url=http://terminology.hl7.org/CodeSystem/v3-LivingArrangement&version=2022-02&code=B",
 									"host": [
 										"{{SERVER_URL}}CodeSystem"
 									],
@@ -2291,7 +2309,7 @@
 									],
 									"query": [
 										{
-											"key": "system",
+											"key": "url",
 											"value": "http://terminology.hl7.org/CodeSystem/v3-LivingArrangement"
 										},
 										{
@@ -2345,7 +2363,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{SERVER_URL}}CodeSystem/$validate-code?system=http://terminology.hl7.org/CodeSystem/v2-0092&version=2.1.0&code=N",
+									"raw": "{{SERVER_URL}}CodeSystem/$validate-code?url=http://terminology.hl7.org/CodeSystem/v2-0092&version=2.1.0&code=N",
 									"host": [
 										"{{SERVER_URL}}CodeSystem"
 									],
@@ -2354,7 +2372,7 @@
 									],
 									"query": [
 										{
-											"key": "system",
+											"key": "url",
 											"value": "http://terminology.hl7.org/CodeSystem/v2-0092"
 										},
 										{
@@ -2497,6 +2515,7 @@
 											"script": {
 												"exec": [
 													"// Based on source of truth: https://terminology.hl7.org/3.1.0/ValueSet-v3-ActEncounterCode.json",
+													"// NOTE: Hosted content is actually based on FHIR for this THO value set...",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -2767,10 +2786,10 @@
 													"});",
 													"",
 													"// publisher",
-													"pm.test(\"Publisher is Clinical Quality Information WG\", function () {",
+													"pm.test(\"Publisher is http://www.hl7.org/Special/committees/cqi/index.cfm\", function () {",
 													"    const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.entry[0].resource.publisher).to.equal(\"Clinical Quality Information WG\", \"Publisher error\");",
+													"    pm.expect(responseData.entry[0].resource.publisher).to.equal(\"http://www.hl7.org/Special/committees/cqi/index.cfm\", \"Publisher error\");",
 													"});",
 													"",
 													"// description",
@@ -3230,6 +3249,13 @@
 													"    pm.expect(responseData.entry[0].resource.version).to.equal(\"20190206\", \"Invalid version\");",
 													"});",
 													"",
+													"// name",
+													"pm.test(\"Name is AETNADiabetesHemoglobinA1cTestingMeasureNumerator\", function() {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).to.equal(\"AETNADiabetesHemoglobinA1cTestingMeasureNumerator\");",
+													"});",
+													"",
 													"// title",
 													"pm.test(\"Title is AETNA Diabetes Hemoglobin A1c testing measure numerator\", function () {",
 													"    const responseData = pm.response.json();",
@@ -3246,7 +3272,7 @@
 													"",
 													"// approvalDate",
 													"// effectiveDate",
-													"pm.test(\"EffectiveDate is 2022-03-02\", function() {",
+													"pm.test(\"EffectiveDate is 2019-02-06\", function() {",
 													"    const responseData = pm.response.json();",
 													"    const extensions = responseData.entry[0].resource.extension;",
 													"    let extension = null;",
@@ -3257,7 +3283,7 @@
 													"        }",
 													"    }",
 													"    pm.expect(extension).to.exist;",
-													"    pm.expect(extension.valueDate).to.equal(\"2022-03-02\", \"effectiveDate error\");",
+													"    pm.expect(extension.valueDate).to.equal(\"2019-02-06\", \"effectiveDate error\");",
 													"});",
 													"",
 													"// expirationDate",
@@ -3543,7 +3569,7 @@
 													"pm.test(\"Expansion parameter is present\", function() {\r",
 													"    const responseData = pm.response.json();\r",
 													"\r",
-													"    pm.expect(responseData.parameter).exist;\r",
+													"    pm.expect(responseData.expansion.parameter).exist;\r",
 													"})\r",
 													"\r",
 													"// expansion.contains\r",
@@ -3731,11 +3757,11 @@
 											"});\r",
 											"\r",
 											"// id\r",
-											"// NOTE: This is based on latest version as of the test date, should really just be testing that the id contains -, but that isn't working for some reason? Also, this is a pretty server-specific test for this functionality.... not sure how else to validate this though\r",
-											"pm.test(\"Resource id equal to 2.16.840.1.113883.3.464.1003.198.12.1005-20190315\", function () {\r",
+											"// NOTE: The id returned is not version-specific to ensure the id in the returned resource matches the id of the request\r",
+											"pm.test(\"Resource id equal to 2.16.840.1.113883.3.464.1003.198.12.1005\", function () {\r",
 											"    const responseData = pm.response.json();\r",
 											"\r",
-											"    pm.expect(responseData.id).equal(\"2.16.840.1.113883.3.464.1003.198.12.1005-20190315\");\r",
+											"    pm.expect(responseData.id).equal(\"2.16.840.1.113883.3.464.1003.198.12.1005\");\r",
 											"})\r",
 											"\r",
 											"// url\r",
@@ -4001,10 +4027,10 @@
 													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
 													"});",
 													"",
-													"pm.test(\"Name is 3 Mirror Goldmann exam\", function () {",
+													"pm.test(\"Name is N3MirrorGoldmannExam\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.entry[0].resource.name).equals(\"3 Mirror Goldmann exam\");",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"N3MirrorGoldmannExam\");",
 													"});",
 													"",
 													"",
@@ -4148,10 +4174,10 @@
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
 													"",
-													"pm.test(\"Name is (Inactive) Interventions Related to Medication Management, Medication Action Plan\", function () {",
+													"pm.test(\"Name is InactiveInterventionsRelatedToMedicationManagementMedicationActionPlan\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.entry[0].resource.name).equals(\"(Inactive) Interventions Related to Medication Management, Medication Action Plan\");",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"InactiveInterventionsRelatedToMedicationManagementMedicationActionPlan\");",
 													"});",
 													"",
 													"pm.test(\"Publisher is PharmacyHIT\", function () {",
@@ -4187,36 +4213,23 @@
 									"response": []
 								},
 								{
-									"name": "ByName",
+									"name": "ByNameIncorrect",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Searching by name with this value shouldn't return any results, since the value set name is not actually this, but it does...",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
 													"",
-													"pm.test(\"Resource is a ValueSet\", function () {",
+													"pm.test(\"Searchset is empty\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
+													"    pm.expect(responseData.total).equals(0);",
 													"});",
 													"",
-													"pm.test(\"Name is 3 Mirror Goldmann exam\", function () {",
-													"        const responseData = pm.response.json();",
-													"",
-													"    pm.expect(responseData.entry[0].resource.name).equals(\"3 Mirror Goldmann exam\");",
-													"});",
-													"",
-													"pm.test(\"url is http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\", function () {",
-													"        const responseData = pm.response.json();",
-													"",
-													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\");",
-													"});",
-													"",
-													"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611",
 													"",
 													"",
 													""
@@ -4247,6 +4260,66 @@
 									"response": []
 								},
 								{
+									"name": "ByName",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"pm.test(\"Resource is a ValueSet\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
+													"});",
+													"",
+													"pm.test(\"Name is N3MirrorGoldmannExam\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"N3MirrorGoldmannExam\");",
+													"});",
+													"",
+													"pm.test(\"url is http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\", function () {",
+													"        const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\");",
+													"});",
+													"",
+													"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611",
+													"",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{SERVER_URL}}ValueSet/?name=N3MirrorGoldmannExam",
+											"host": [
+												"{{SERVER_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "N3MirrorGoldmannExam"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
 									"name": "ByTitle",
 									"event": [
 										{
@@ -4257,10 +4330,10 @@
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
 													"",
-													"pm.test(\"name is ACEis and ARBs\", function () {",
+													"pm.test(\"name is ACEisAndARBs\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.entry[0].resource.name).equals(\"ACEis and ARBs\");",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"ACEisAndARBs\");",
 													"});",
 													"",
 													"pm.test(\"resourceType is ValueSet\", function () {",
@@ -4357,10 +4430,10 @@
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
 													"",
-													"pm.test(\"name is ACE Inhibitor or ARB or ARNI Ingredient\", function () {",
+													"pm.test(\"name is ACEInhibitorOrARBOrARNIIngredient\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.entry[0].resource.name).equals(\"ACE Inhibitor or ARB or ARNI Ingredient\");",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"ACEInhibitorOrARBOrARNIIngredient\");",
 													"});",
 													"",
 													"pm.test(\"resourceType is ValueSet\", function () {",
@@ -4419,10 +4492,10 @@
 													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
 													"});",
 													"",
-													"pm.test(\"Name is 3 Mirror Goldmann exam\", function () {",
+													"pm.test(\"Name is N3MirrorGoldmannExam\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.entry[0].resource.name).equals(\"3 Mirror Goldmann exam\");",
+													"    pm.expect(responseData.entry[0].resource.name).equals(\"N3MirrorGoldmannExam\");",
 													"});",
 													"",
 													"",
@@ -5210,7 +5283,7 @@
 													"pm.test(\"Manifest parameter is present\", function () {\r",
 													"    const responseData = pm.response.json();\r",
 													"\r",
-													"    pm.expect(responseData.expansion.parameter.find(function (obj) { return obj.name == \"manifest\" && obj.valueString == \"http://cts.nlm.nih.gov/fhir/Library/ecqm-update-2017-05-05\" })).exist();\r",
+													"    pm.expect(responseData.expansion.parameter.find(function (obj) { return obj.name == \"manifest\" && obj.valueString == \"http://cts.nlm.nih.gov/fhir/Library/ecqm-update-2017-05-05\" })).exist;\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Code is present\", function () {\r",
@@ -5557,7 +5630,7 @@
 													"pm.test(\"Manifest parameter is present\", function() {\r",
 													"    const responseData = pm.response.json();\r",
 													"\r",
-													"    pm.expect(responseData.expansion.parameter.find(function(obj) { obj.name == \"manifest\" && obj.valueString == \"http://cts.nlm.nih.gov/fhir/Library/ecqm-update-2017-05-05\" })).exist();\r",
+													"    pm.expect(responseData.expansion.parameter.find(function(obj) { return obj.name == \"manifest\" && obj.valueString == \"http://cts.nlm.nih.gov/fhir/Library/ecqm-update-2017-05-05\" })).exist;\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Code is present\", function() {\r",
@@ -7399,7 +7472,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{SERVER_URL}}Library/?url=http://cts.nlm.nih.gov/fhir/Library/ecqm-update-2022-05-05&status=eCQM Update 2022-05-05",
+									"raw": "{{SERVER_URL}}Library/?url=http://cts.nlm.nih.gov/fhir/Library/ecqm-update-2022-05-05&status=active",
 									"host": [
 										"{{SERVER_URL}}Library"
 									],
@@ -7413,7 +7486,7 @@
 										},
 										{
 											"key": "status",
-											"value": "eCQM Update 2022-05-05"
+											"value": "active"
 										}
 									]
 								}
@@ -8308,7 +8381,7 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.request.headers.add({key: 'Accept', value: 'application/fhir+json' })"
 				]
 			}
 		},
