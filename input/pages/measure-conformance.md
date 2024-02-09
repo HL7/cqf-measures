@@ -785,7 +785,7 @@ The following example illustrates the use of the populationBasis extension for a
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "boolean"
     }
-  ],
+  ]
 ```
 
 And the following example illustrates the use of the populationBasis extension for an encounter-based measure:
@@ -796,7 +796,7 @@ And the following example illustrates the use of the populationBasis extension f
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "Encounter"
     }
-  ],
+  ]
 ```
 
 Note that this extension is specifically bound to the FHIRAllTypes ValueSet (i.e. the set of all types in FHIR, including data types and resource types, both abstract and concrete). The FHIRAllTypes value set is appropriate for the specification since it's possible to have population criteria that result in "abstract" types. Authoring environments may wish to limit the selection of population basis based on the content implementation guides used in authoring the measure, but that would be a content-driven validation, not a restriction enforced by the specification.
