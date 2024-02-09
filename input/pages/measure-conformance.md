@@ -953,6 +953,7 @@ define "Measure Score":
 ```
 
 ##### Non-patient-based Calculation
+
 The following snippet provides precise semantics for the measure score calculation for a non-patient-based proportion measure:
 
 ```cql
@@ -968,8 +969,6 @@ define "Denominator Membership":
     intersect "Denominator"
     except "Denominator Exclusion"
     except ("Denominator Exception" except "Numerator")
-
-context Unfiltered
 
 define "Measure Score":
   Count("Numerator Membership") /
@@ -1274,8 +1273,6 @@ define "Measure Population Membership":
   "Initial Population"
     intersect "Measure Population"
     except "Measure Population Exclusion"
-
-context Unfiltered
 
 define "Measure Score":
   Avg("Measure Population Membership" PopulationMember
