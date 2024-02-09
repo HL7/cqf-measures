@@ -753,13 +753,12 @@ Note that the Measure Observation criteria is the name of a function used in the
 For each scoring type, the set of applicable criteria are specified in the [Quality Reporting](http://www.hl7.org/fhir/clinicalreasoning-quality-reporting.html) topic of the FHIR Clinical Reasoning module. The table is reproduced here for reference:
 
 **Table 3-1: Measure populations based on types of measure scoring.**
-
-| Scoring              | Initial Population | Denominator | Denominator Exclusion | Denominator Exception | Numerator | Numerator Exclusion | Measure Population | Measure Population Exclusion |
-|----------------------|:------------------:|:-----------:|:---------------------:|:----------------------:|:---------:|:---------------------:|:-------------------:|:----------------------------:|
-| Proportion           |         R          |      R      |           O           |            O           |     R     |           O           |         NP          |              NP              |
-| Ratio                |        R‡‡         |      R      |           O           |           NP           |     R     |           O           |         NP          |              NP              |
-| Continuous Variable  |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |          R          |              O               |
-| Cohort               |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |         NP          |              NP              |
+| <span class="bg-success">      Scoring  </span> | Initial Population | Denominator | Denominator Exclusion | Denominator Exception | Numerator | Numerator Exclusion | Measure Population | Measure Population Exclusion |
+|:-----------------------------------------------------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|                      Proportion                       | R | R | O | O | R | O | NP | NP |
+|                         Ratio                         | R‡‡ | R | O | NP | R | O | NP | NP |
+|                  Continuous Variable                  | R | NP | NP | NP | NP | NP | R | O |
+|                        Cohort                         | R | NP | NP | NP | NP | NP | NP | NP |
 {: .grid}
 
 R=Required. O=Optional. NP=Not Permitted.
