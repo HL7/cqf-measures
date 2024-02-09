@@ -1378,7 +1378,7 @@ Part of the definition of a quality measure involves the ability to specify addi
 "supplementalData": [
   {
     "identifier": {
-      "value": "supplemental-data-identifier-1"
+      "value": "supplemental-data-id-1"
     },
     "usage": {
       "coding": [
@@ -1420,7 +1420,7 @@ By convention, the name of each supplemental data element expression would start
 
 **Conformance Requirement 3.17 (Risk Adjustment Criteria):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-17)
 {: #conformance-requirement-3-17}
-1. Risk Adjustment Variables SHALL be included within the supplementalData element using a usage element of risk-adjustment-variable
+1. Risk Adjustment Variables SHALL be included within the supplementalData element using a usage element of risk-adjustment-factor
 2. Risk Adjustment Variables SHOULD reference a single CQL expression definition, with a name beginning with RAF
 
 Some measures may define variables used to adjust scores based on a measure of “risk” observed in the population. Such variables are referred to as risk adjustment variables. Risk adjustment variables are included in the supplementalData section and defined using CQL; such inclusions must adhere to Conformance Requirement 3.17.
@@ -1429,12 +1429,12 @@ Some measures may define variables used to adjust scores based on a measure of �
 "supplementalData": [
   {
     "identifier": {
-      "value": "supplemental-data-identifier-1"
+      "value": "supplemental-data-id-1"
     },
     "usage": {
       "coding": [
         {
-          "code": "risk-adjustment-variable"
+          "code": "risk-adjustment-factor"
         }
       ],
       "text": "Risk Adjustment Variable"
