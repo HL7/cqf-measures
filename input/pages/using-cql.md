@@ -643,9 +643,9 @@ filename = <CQL library name>.cql
 #### MIME Type version
 The version of CQL/ELM used for content in a library should be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
 
-* `text/cql; version=1.4`
-* `application/elm+xml; version=1.4`
-* `application/elm+json; version=1.4`
+* `text/cql; version=1.5.2`
+* `application/elm+xml; version=1.5.2`
+* `application/elm+json; version=1.5.2`
 
 Resource narratives for Libraries and Measures that use CQL should include the CQL version if it is specified in the MIME type as shown above.
 
