@@ -81,7 +81,7 @@ The first version of the CQL-based HQMF IG was released in September 2015 and wa
 
 A result of replacing QDM-based logic with CQL is that all QDM logic elements previously encoded in HQMF were replaced with CQL. This means that QDM data criteria specify only the data of interest (e.g. value sets, effective time, properties) for the QM, and the previous use of QDM expressions that captured interrelationships between data criteria (such as “starts after end of”) or identified subsets of data (such as min, max, last, and first) are now represented with CQL expressions. This IG documents the full approach in detail starting in Chapter 2.
 
-This implementation guide, the FHIR Quality Measure IG, covers the use of FHIR, CQL, FHIR QI-Core and QUICK, and other emerging approaches to define QMs.
+This implementation guide, the FHIR Quality Measure IG, covers the use of FHIR, CQL, FHIR QI-Core, and other emerging approaches to define QMs.
 
 #### HQMF
 {: #hqmf}
