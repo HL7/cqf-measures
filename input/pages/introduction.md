@@ -74,7 +74,7 @@ This Implementation Guide (Figure 2-1(b)) is the successor of the CQL-based HQMF
 
 [Clinical Quality Language R1.4 (CQL)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) is an HL7 standard for trial use (STU). It is part of the effort to harmonize standards between quality measures (QMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
 
-#### CQL based HQMF IG R1 STU4
+#### CQL-based HQMF IG R1 STU4.1
 {: #cql-based-hqmf-ig-r1-stu4}
 
 The first version of the CQL-based HQMF IG was released in September 2015 and was intended to be used in conjunction with the pre-existing QDM based HQMF R1 IG. Since 2015, the community and the standards evolved and the current version of QDM (v5.4) no longer contains expression logic, ceding this functionality to CQL. The CQL-based HQMF IG is the sole guide describing how to use QDM, CQL, and HQMF in combination (Figure 2-1a).
