@@ -14,7 +14,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Hard to tell what is new content ([FHIR-39895](https://jira.hl7.org/browse/FHIR-39895))([Applied here](index.html))
 * **Applied**: ImprovementNotation Allowed Values ([FHIR-42116](https://jira.hl7.org/browse/FHIR-42116))([Applied here](index.html)), and ([here](StructureDefinition-cqfm-improvementNotation.html))
 * **Applied**: PLease add 'Operations' as a an options on the FHIR artifacts menu ([FHIR-42715](https://jira.hl7.org/browse/FHIR-42715))([Applied here](index.html#how-to-read-this-guide)), and ([here](operations.html))
-* **Applied**: Clarify ratio measure Numerator definition ([FHIR-42826](https://jira.hl7.org/browse/FHIR-42826))([Applied here](measure-conformance.html#proportion-measure-table)), and ([here](measure-conformance.html#ratio-measure-table)) 
+* **Applied**: Clarify ratio measure Numerator definition ([FHIR-42826](https://jira.hl7.org/browse/FHIR-42826))([Applied here](measure-conformance.html#proportion-measure-table)), and ([here](measure-conformance.html#ratio-measure-table))
 * **Applied**: Clarify or Correct Conformance Requirement 3.4 ([FHIR-42894](https://jira.hl7.org/browse/FHIR-42894))([Applied here](measure-conformance.html#conformance-requirement-3-13))
 * **Applied**: Enable QMIG to Handle Population-based Measures ([FHIR-42898](https://jira.hl7.org/browse/FHIR-42898))([Applied here](measure-conformance.html#conformance-requirement-3-8)), and ([here](measure-conformance.html#proportion-measures))
 * **Applied**: Allow for use of multiple expressions in a population ([FHIR-42907](https://jira.hl7.org/browse/FHIR-42907)) ([Applied here](StructureDefinition-measure-cqfm.html))
@@ -26,7 +26,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))([Applied here](StructureDefinition-cqfm-fhirQueryPattern.html))
 * **Applied**: Allow multiple quality programs and bind value set as example ([FHIR-43320](https://jira.hl7.org/browse/FHIR-43320))([Applied here](StructureDefinition-publishable-library-cqfm.html)) and ([here](StructureDefinition-publishable-measure-cqfm.html))
 * **Applied**: Correct short description about appliesTo extension ([FHIR-43358](https://jira.hl7.org/browse/FHIR-43358))([Applied here](StructureDefinition-computable-measure-cqfm.html))
-    
+* **Applied**: Removed operations section from the capabilities page ([FHIR-43629](https://jira.hl7.org/browse/FHIR-43629))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/capabilities.html))
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
