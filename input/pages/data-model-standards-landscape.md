@@ -62,21 +62,6 @@ measures and decision support artifacts.
 measurement-specific level (in DEQM or HEDIS for example), steps should be taken
 to promote that profile to the broadest consensus group possible.
 
-##### 1.3.3.1 FHIR Version Support
-{: #fhir-version-support}
-
-There are three broadly used and fully published versions of the FHIR
-specification:
-
--  **FHIR DSTU2** - This version has broad support among US-based
-vendors as it is the basis for the Argonaut profiles. Most major vendors today
-support some subset of this version of FHIR
--    **FHIR STU3** - This is
-the version that US Core, QI Core, and many other implementation guides are
-based on. There is broad vendor support for this version.
--  **FHIR R4** - This is the first normative release of FHIR, including several of the
-foundational, conformance, and administrative resources going normative.
-
 In addition to _what_ data is reported, use cases frequently require the
 communication of _when_, _where_ and _how_ to report. See the
 [Electronic Case Reporting (eCR) implementation guide](http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html#fhir-design-considerations)
