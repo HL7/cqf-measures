@@ -27,6 +27,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Allow multiple quality programs and bind value set as example ([FHIR-43320](https://jira.hl7.org/browse/FHIR-43320))([Applied here](StructureDefinition-publishable-library-cqfm.html)) and ([here](StructureDefinition-publishable-measure-cqfm.html))
 * **Applied**: Correct short description about appliesTo extension ([FHIR-43358](https://jira.hl7.org/browse/FHIR-43358))([Applied here](StructureDefinition-computable-measure-cqfm.html))
 * **Applied**: Removed operations section from the capabilities page ([FHIR-43629](https://jira.hl7.org/browse/FHIR-43629))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/capabilities.html))
+* **Applied**: Updated the description of the Capabilities page on home page ([FHIR-43628](https://jira.hl7.org/browse/FHIR-43628))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#how-to-read-this-guide))
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
