@@ -197,7 +197,8 @@ define "Initial Population":
         union ("Patient Record" P
             where ComponentMeasure3."Initial Population"
                 return { service: 'Service 3' }
-
+        )
+        
 define "Denominator":
     ("Patient Record" P
         where ComponentMeasure1."Denominator"
