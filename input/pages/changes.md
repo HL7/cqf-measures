@@ -29,6 +29,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Removed operations section from the capabilities page ([FHIR-43629](https://jira.hl7.org/browse/FHIR-43629))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/capabilities.html))
 * **Applied**: Updated the description of the Capabilities page on home page ([FHIR-43628](https://jira.hl7.org/browse/FHIR-43628))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#how-to-read-this-guide))
 * **Applied**: Removed section 1.3.3.1 FHIR Version Support and updated summary to reflect the current state of the IG ([FHIR-43767](https://jira.hl7.org/browse/FHIR-43767))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan))
+* **Applied**: Updated the Quality Improvement Ecosystem paragraph to increase readability ([FHIR-44070](https://jira.hl7.org/browse/FHIR-44070))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#quality-improvement-ecosystem))
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
