@@ -33,7 +33,7 @@ Ultimately, this information may then serve as part of the evidence base shown i
 
 </details>
 
-> Practictioner organizations along with stakeholders such as public health
+> Practitioner organizations along with stakeholders such as public health
 have ongoing needs for quality improvement at the point of care. Every effort should be made to
 establish a capable distributed rule processing environment in FHIR. For
 additional information about idealized processes for moving evidence and
