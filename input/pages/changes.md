@@ -30,6 +30,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Updated the description of the Capabilities page on home page ([FHIR-43628](https://jira.hl7.org/browse/FHIR-43628))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#how-to-read-this-guide))
 * **Applied**: Removed section 1.3.3.1 FHIR Version Support and updated summary to reflect the current state of the IG ([FHIR-43767](https://jira.hl7.org/browse/FHIR-43767))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan))
 * **Applied**: Updated the Quality Improvement Ecosystem paragraph to increase readability ([FHIR-44070](https://jira.hl7.org/browse/FHIR-44070))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#quality-improvement-ecosystem))
+* **Applied**: Updated the text and image in data model standard landscape section to remove DEQM and HEDIS and replaced with Measure Content IG ([FHIR-44530](https://jira.hl7.org/browse/FHIR-44530))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#data-model-standards-landscape))
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
