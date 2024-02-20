@@ -64,9 +64,9 @@ The following are conformance requirements when packaging a Measure:
 
   1. The first entry in a Measure bundle SHALL be a Measure resource
   2. The second entry in a Measure bundle SHALL be the primary Library resource for the measure
-  3. Measures bundles MAY include any libraries referenced by the primary library
-  4. Library bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
-  5. Library bundles MAY include any test case bundles defined for the measure
+  3. Measure bundles MAY include any libraries referenced by the primary library
+  4. Measure bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
+  5. Measure bundles MAY include any test case bundles defined for the measure
 
 ### Packaging Test Cases
 {: #packaging-test-cases}
