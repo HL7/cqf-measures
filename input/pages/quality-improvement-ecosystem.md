@@ -19,7 +19,7 @@ activities as shown in Step 4.  CDS is not intended to replace clinician judgmen
 In step 5, to close the loop and enable continuous improvement, the results of such measurement
 analytics must be reported for aggregate review. Step 6, "Reporting" serves the
 purpose of evaluating clinical performance and outcomes, whether it be internally
-for health care organizations, or for third parties such as public health or for payers.
+for healthcare organizations, or for third parties such as public health or for payers.
 Ultimately, this information may then serve as part of the evidence base shown in step 1.  
 
 <details open>
@@ -33,7 +33,7 @@ Ultimately, this information may then serve as part of the evidence base shown i
 
 </details>
 
-> Practictioner organizations along with stakeholders such as public health
+>Practitioner organizations along with stakeholders such as public health
 have ongoing needs for quality improvement at the point of care. Every effort should be made to
 establish a capable distributed rule processing environment in FHIR. For
 additional information about idealized processes for moving evidence and
