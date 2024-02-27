@@ -14,7 +14,7 @@ In FHIR, an QM is represented as a FHIR Measure resource containing metadata ([S
     <start value="2018-01-01"/>
     <end value="2018-12-31"/>
   </effectivePeriod>
-  <library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic"/>
+  <library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic-FHIR"/>
   <group>
     <population>
       <code><coding><code value="initial-population"/></coding></code>
@@ -60,7 +60,7 @@ When using multiple CQL libraries to define a measure, refer to the [Nested Libr
 Inclusion of CQL into a FHIR QM is accomplished through the use of a FHIR Library resource as shown in Snippet 3-4. These libraries are then incorporated into the FHIR QM using the `library` element of the Measure (Snippet 3). CQL library content is encoded as `base64` and included as the `content` element of the Library resource.
 
 ```xml
-<library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic"/>
+<library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic-FHIR"/>
 ```
 Snippet 3-3: `library` element from Snippet 3-1
 
@@ -574,7 +574,7 @@ The canonical representation of ELM makes it straightforward to derive data requ
 1. ELM elements with type "Retrieve" are represented using the DataRequirement type defined in FHIR
 2. The Retrieve ELM element's "dataType" value is represented by the DataRequirement's "type" attribute
 3. The Retrieve ELM element's "codes" value referencing a value set or direct-reference code is represented by the DataRequirement's "codeFilter.valueSet" attribute
-4. The Retrieve ELM element's " templateId" value can be represented by the DataRequirement's "profile" attribute.
+4. The Retrieve ELM element's "templateId" value can be represented by the DataRequirement's "profile" attribute.
 5. For each ELM element identified in item (1) above, a dataRequirement should be included using the profile identified in item (4) that references the value set identified in item (3)
 
 Note that if the data model does not specify profile identifiers, the ELM retrieves will not have a templateId specified. In this case, the name of the type in the data model is used.
@@ -655,7 +655,7 @@ The Population Criteria (Snippet 3-13) includes definitions of criteria used to 
 
 Snippet 3-13: Population Criteria from Snippet 3-1 (FHIR Measure structure - abridged for clarity (from sample [Measure-EXMLogic.xml](Measure-EXMLogic-FHIR.xml.html)))
 
-CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are then referenced from the group elements of the FHIR Measure resource. Once included in the FHIR Measure, expressions defined in the CQL can be used to further refine the data criteria and to define population criteria.  Figure 2-1 illustrates the general concept.  Figure 3-1 illustrates the relationship between the FHIR Measure resource and CQL documents: The FHIR Measure resource references a CQL expression script (#1), the FHIR library resource references a particular expression from the referenced CQL file (#2), the referenced expression in-turn may include or call another expression (#3) in the same (or a different) CQL expression script. Snippet 3-13 and Snippet 3-14 demonstrate the use of the FHIR Measure resource and CQL in the definition of the "Initial-population".
+CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are then referenced from the group elements of the FHIR Measure resource. Once included in the FHIR Measure, expressions defined in the CQL can be used to further refine the data criteria and to define population criteria.  Figure 2-1 illustrates the general concept.  Figure 3-1 illustrates the relationship between the FHIR Measure resource and CQL documents: The FHIR Measure resource references a CQL expression script (#1), the FHIR library resource references a particular expression from the referenced CQL file (#2), the referenced expression in-turn may include or call another expression (#3) in the same (or a different) CQL expression script. Snippet 3-13 and Snippet 3-14 demonstrate the use of the FHIR Measure resource and CQL in the definition of the "initial-population".
 
 **Figure 3-1: Relationship between FHIR Measure and CQL Expression Script**
 
@@ -730,7 +730,7 @@ Snippet 3-15: CQL definition of the "Initial Population" criteria (from [EXM146.
 
 To encourage consistency among measures, the following guidelines for specifying population criteria within a measure are proposed. The measure population criteria names used here are defined by the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification.
 
-The codes within the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification are explicitly spelled out, where as the measure population code [based on HQMF](http://terminology.hl7.org/ValueSet/v3-ActCode) are abbreviated. In order to make the development of QMs straightforward and clear, [this concept map](ConceptMap-measure-populations.html) provides mapping from HQMF codes to FHIR codes for each of the measure component code.
+The codes within the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-measure-population.html) code system in the base FHIR specification are explicitly spelled out, whereas the measure population code [based on HQMF](http://terminology.hl7.org/ValueSet/v3-ActCode) are abbreviated. In order to make the development of QMs straightforward and clear, [this concept map](ConceptMap-measure-populations.html) provides mapping from HQMF codes to FHIR codes for each of the measure component code.
 
 **Conformance Requirement 3.8 (Criteria Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-8)
 {: #conformance-requirement-3-8}
@@ -753,13 +753,15 @@ Note that the Measure Observation criteria is the name of a function used in the
 For each scoring type, the set of applicable criteria are specified in the [Quality Reporting](http://www.hl7.org/fhir/clinicalreasoning-quality-reporting.html) topic of the FHIR Clinical Reasoning module. The table is reproduced here for reference:
 
 **Table 3-1: Measure populations based on types of measure scoring.**
-| <span class="bg-success">      Scoring  </span> | Initial Population | Denominator | Denominator Exclusion | Denominator Exception | Numerator | Numerator Exclusion | Measure Population | Measure Population Exclusion |
-|:-----------------------------------------------------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|                      Proportion                       | R | R | O | O | R | O | NP | NP |
-|                         Ratio                         | R‡‡ | R | O | NP | R | O | NP | NP |
-|                  Continuous Variable                  | R | NP | NP | NP | NP | NP | R | O |
-|                        Cohort                         | R | NP | NP | NP | NP | NP | NP | NP |
+
+| Scoring              | Initial Population | Denominator | Denominator Exclusion | Denominator Exception | Numerator | Numerator Exclusion | Measure Population | Measure Population Exclusion |
+|----------------------|:------------------:|:-----------:|:---------------------:|:----------------------:|:---------:|:---------------------:|:-------------------:|:----------------------------:|
+| Proportion           |         R          |      R      |           O           |            O           |     R     |           O           |         NP          |              NP              |
+| Ratio                |        R‡‡         |      R      |           O           |           NP           |     R     |           O           |         NP          |              NP              |
+| Continuous Variable  |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |          R          |              O               |
+| Cohort               |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |         NP          |              NP              |
 {: .grid}
+
 
 R=Required. O=Optional. NP=Not Permitted.
 
@@ -785,7 +787,7 @@ The following example illustrates the use of the populationBasis extension for a
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "boolean"
     }
-  ],
+  ]
 ```
 
 And the following example illustrates the use of the populationBasis extension for an encounter-based measure:
@@ -796,7 +798,7 @@ And the following example illustrates the use of the populationBasis extension f
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "Encounter"
     }
-  ],
+  ]
 ```
 
 Note that this extension is specifically bound to the FHIRAllTypes ValueSet (i.e. the set of all types in FHIR, including data types and resource types, both abstract and concrete). The FHIRAllTypes value set is appropriate for the specification since it's possible to have population criteria that result in "abstract" types. Authoring environments may wish to limit the selection of population basis based on the content implementation guides used in authoring the measure, but that would be a content-driven validation, not a restriction enforced by the specification.
@@ -892,25 +894,26 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 <img src="OutcomeFlow__Proportion_version.png">
 </div>
 <br>
-{: #proportion-measure-table}
-**Table 3-3: Population Criteria Definitions for Proportion Measures**
 
-| Population                                  | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|:--------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Initial Population                          | The initial population criteria refers to all patients, subjects, or events to be evaluated by a quality measure involving patients or subjects who share a common set of specified characteristics. All patients, subjects, or events counted (for example, as numerator, as denominator) are drawn from the initial population.                                                                                                                                                                                                                                                                 |
-| Denominator                                 | Denominator criteria define the patients, subjects, or events that should be included in the lower portion of a fraction used to calculate a rate, proportion, or ratio. The denominator can be the same as the initial population, or a subset of the initial population to further constrain the population for the purpose of the measure.                                                                                                                                                                                                                                                     |
-| Denominator Exclusion                       | Denominator exclusion criteria define patients, subjects, or events that should be excluded from the denominator. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams.                                                                                                                                                                                                                                |
+**Table 3-3: Population Criteria Definitions for Proportion Measures**
+{: #proportion-measure-table}
+
+| Population | Definition |
+|:----|:----:|
+| Initial Population | The initial population criteria refers to all patients, subjects, or events to be evaluated by a quality measure involving patients or subjects who share a common set of specified characteristics. All patients, subjects, or events counted (for example, as numerator, as denominator) are drawn from the initial population.                                                                                                                                                                                                                                                                 |
+| Denominator | Denominator criteria define the patients, subjects, or events that should be included in the lower portion of a fraction used to calculate a rate, proportion, or ratio. The denominator can be the same as the initial population, or a subset of the initial population to further constrain the population for the purpose of the measure.                                                                                                                                                                                                                                                     |
+| Denominator Exclusion | Denominator exclusion criteria define patients, subjects, or events that should be excluded from the denominator. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams.                                                                                                                                                                                                                                |
 | <span class="bg-success"> Numerator </span> | <span class="bg-success"> Numerator criteria define the patients, subjects, or events that should be included in the upper portion of a fraction used to calculate a proportion measure. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, subject, or event defined in the denominator (for rate and proportion measures) or initial population (for ratio measures). A numerator statement describes the clinical action that satisfies the conditions of the measure. </span> |
-| Numerator Exclusion                         | Numerator exclusion criteria define patients, subjects, or events to be excluded from the numerator. Numerator exclusions are used in proportion and ratio measures to help narrow the numerator (for inverted measures).                                                                                                                                                                                                                                                                                                                                                                         |
+| Numerator Exclusion | Numerator exclusion criteria define patients, subjects, or events to be excluded from the numerator. Numerator exclusions are used in proportion and ratio measures to help narrow the numerator (for inverted measures).                                                                                                                                                                                                                                                                                                                                                                         |
 | Denominator Exception                       | Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures.                                                                                                                                                                                                                                    |
 {: .grid}
 
-* Initial population : Identify those cases that meet the Initial Population criteria. <br/>
-* Denominator : Identify that subset of the Initial Population that meet the Denominator criteria.<br/>
-* Denominator Exclusion : Identify that subset of the Denominator that meet the Denominator Exclusion criteria. There are cases that should be removed from the Denominator as exclusion. Once these cases are removed, the subset remaining would reflect the Denominator per criteria.
-* Numerator : Identify those cases in the Denominator and NOT in the Denominator Exclusion that meet the Numerator criteria. In proportion measures, the Numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the Denominator.
-* Numerator Exclusion : Identify that subset of the Numerator that meet the Numerator Exclusion criteria. Numerator Exclusion is used only in ratio measures to define instances that should not be included in the Numerator data.
-* Denominator Exception : Identify those in the Denominator and NOT in the Denominator Exclusion and NOT in the Numerator Exclusion that meet the Denominator Exception criteria.
+* Initial population: Identify those cases that meet the Initial Population criteria. <br/>
+* Denominator: Identify that subset of the Initial Population that meet the Denominator criteria.<br/>
+* Denominator Exclusion: Identify that subset of the Denominator that meet the Denominator Exclusion criteria. There are cases that should be removed from the Denominator as exclusion. Once these cases are removed, the subset remaining would reflect the Denominator per criteria.
+* Numerator: Identify those cases in the Denominator and NOT in the Denominator Exclusion that meet the Numerator criteria. In proportion measures, the Numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the Denominator.
+* Numerator Exclusion: Identify that subset of the Numerator that meet the Numerator Exclusion criteria. Numerator Exclusion is used only in ratio measures to define instances that should not be included in the Numerator data.
+* Denominator Exception: Identify those meeting Denominator and Denominator Exception criteria and fail to meet both the Denominator Exclusion and the Numerator criteria.
 
 The “performance rate” is a ratio of patients meeting Numerator criteria, divided by patients in the Denominator (accounting for exclusion and exception). Performance rate can be calculated using this formula:
 
@@ -918,11 +921,11 @@ Performance rate = (Numerator - Numerator Exclusion) / (Denominator – Denomina
 
 Here is an example of using population types to select data on diabetes patients for a Proportion measure:
 
-* Initial Population : Patient is between the age of 16 and 74
-* Denominator : Patient has Diabetes Type II
-* Denominator Exclusion : Patient is in Hospice Care
-* Numerator : Patient is between the age of 16 and 74, has Diabetes Type II, and the most recent laboratory result has hbA1C value > 9%
-* Denominator Exception : Patient meets the Denominator criteria and does NOT meet the Numerator criteria, and is designated as having "Steroid Induced Diabetes" or "Gestational Diabetes"
+* Initial Population: Patient is between the age of 16 and 74
+* Denominator: Patient has Diabetes Type II
+* Denominator Exclusion: Patient is in Hospice Care
+* Numerator: Patient is between the age of 16 and 74, has Diabetes Type II, and the most recent laboratory result has hbA1C value > 9%
+* Denominator Exception: Patient meets the Denominator criteria and does NOT meet the Numerator criteria, and is designated as having "Steroid Induced Diabetes" or "Gestational Diabetes"
 
 
 ##### Patient-based Calculation
@@ -953,6 +956,7 @@ define "Measure Score":
 ```
 
 ##### Non-patient-based Calculation
+
 The following snippet provides precise semantics for the measure score calculation for a non-patient-based proportion measure:
 
 ```cql
@@ -968,8 +972,6 @@ define "Denominator Membership":
     intersect "Denominator"
     except "Denominator Exclusion"
     except ("Denominator Exception" except "Numerator")
-
-context Unfiltered
 
 define "Measure Score":
   Count("Numerator Membership") /
@@ -1015,28 +1017,28 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 **Table 3-4: Population Criteria Definitions for Ratio Measures**
 {: #ratio-measure-table}
 
-| Population                                 |                                                                                                                                                                    Definition                                                                                                                                                                     |
-|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| Initial Population                         | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. Ratio measures are allowed to have two Initial Populations, one for Numerator and one for Denominator. In most cases, there is only 1 Initial Population |
-| Denominator                                | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure.                                                                                                                                                                                                      |
-| Denominator Exclusion                      | Entities that should be removed from the Denominator before determining if Numerator criteria are met. Denominator exclusions are used in Proportion and Ratio measures to help narrow the Denominator.                                                                                                                                           |
-| <span class="bg-success"> Numerator </span>| <span class="bg-success"> The outcomes expected for each entity defined in the Initial Population of a Ratio measure. </span>                                                                                                                                                                                                                     |
-| Numerator Exclusion                        | Entities that should be removed from the QM's Numerator before determining if Numerator criteria are met. Numerator Exclusions are used in Proportion and Ratio measures to help narrow the Numerator.                                                                                                                                            |
+| Population | Definition |
+|:----|:----:|
+| Initial Population | All entities to be evaluated by a measure which may but are not required to share a common set of specified characteristics within a named measurement set to which the measure belongs. Ratio measures are allowed to have two Initial Populations, one for Numerator and one for Denominator. In most cases, there is only 1 Initial Population |
+| Denominator | The same as the Initial Population or a subset of the Initial Population to further constrain the population for the purpose of the measure.                                                                                                                                                                                                      |
+| Denominator Exclusion | Entities that should be removed from the Denominator before determining if Numerator criteria are met. Denominator exclusions are used in Proportion and Ratio measures to help narrow the Denominator.                                                                                                                                           |
+| <span class="bg-success"> Numerator </span>| <span class="bg-success"> The outcomes expected for each entity defined in the respective Initial Population of a Ratio measure. </span>                                                                                                                                                                                                                     |
+| Numerator Exclusion | Entities that should be removed from the QM's Numerator before determining if Numerator criteria are met. Numerator Exclusions are used in Proportion and Ratio measures to help narrow the Numerator.                                                                                                                                            |
 {: .grid}
 
-* Initial population : Identify those cases that meet the Initial Population criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
-* Denominator : Identify that subset of the Initial Population that meet the Denominator criteria.
-* Denominator Exclusion : Identify that subset of the Denominator that meet the Denominator Exclusion criteria.
-* Numerator : Identify that subset of the Initial Population that meet the Numerator criteria.
-* Numerator Exclusion : Identify that subset of the Numerator that meet the Numerator Exclusion criteria.
+* Initial population: Identify those cases that meet the Initial Population criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
+* Denominator: Identify that subset of the Initial Population that meet the Denominator criteria.
+* Denominator Exclusion: Identify that subset of the Denominator that meet the Denominator Exclusion criteria.
+* Numerator: Identify that subset of the Initial Population that meet the Numerator criteria.
+* Numerator Exclusion: Identify that subset of the Numerator that meet the Numerator Exclusion criteria.
 
 Here is an example of using the population types to select data on patients with central line catheters for a ratio measure:
 
-* Initial Population : Patient is aged 65 years or older and admitted to hospital
-* Denominator : Patient has a central line
-* Denominator Exclusion : Patient is immunosuppressed
-* Numerator : Patient has a central line blood stream infection
-* Numerator Exclusion : Patient's central line blood stream infection is deemed to be a contaminant
+* Initial Population: Patient is aged 65 years or older and admitted to hospital
+* Denominator: Patient has a central line
+* Denominator Exclusion: Patient is immunosuppressed
+* Numerator: Patient has a central line blood stream infection
+* Numerator Exclusion: Patient's central line blood stream infection is deemed to be a contaminant
 
 
 ##### Individual Observations
@@ -1244,15 +1246,15 @@ The population types for a Continuous Variable measure are "Initial Population",
 | Measure Population Exclusion | Patients who should be removed from the QM's Initial Population and Measure Population before determining the outcome of one or more continuous variables defined within a Measure Observation. Measure Population Exclusions are used in Continuous Variable measures to help narrow the Measure Population. |
 {: .grid}
 
-* Initial Population : Identify those cases that meet the Initial Population criteria.
-* Measure Population : Identify that subset of the Initial Population that meet the Measure Population criteria.
-* Measure Population Exclusion : Identify that subset of the Measure Population that meet the Measure Population Exclusion criteria.
+* Initial Population: Identify those cases that meet the Initial Population criteria.
+* Measure Population: Identify that subset of the Initial Population that meet the Measure Population criteria.
+* Measure Population Exclusion: Identify that subset of the Measure Population that meet the Measure Population Exclusion criteria.
 
 Here is an example of using the population types to select data on emergency department patients for a Continuous Variable measure:
 
-* Initial Population : Patient had an emergency department (ED) encounter
-* Measure Population : Same as Initial Population
-* Measure Population Exclusion : Patient had an inpatient encounter that was within 6 hours of the ED encounter or expired in the ED
+* Initial Population: Patient had an emergency department (ED) encounter
+* Measure Population: Same as Initial Population
+* Measure Population Exclusion: Patient had an inpatient encounter that was within 6 hours of the ED encounter or expired in the ED
 
 
 ##### Individual Observations
@@ -1274,8 +1276,6 @@ define "Measure Population Membership":
   "Initial Population"
     intersect "Measure Population"
     except "Measure Population Exclusion"
-
-context Unfiltered
 
 define "Measure Score":
   Avg("Measure Population Membership" PopulationMember
@@ -1303,11 +1303,11 @@ In a cohort measure, a population is identified from the population of all items
 | Initial Population | All entities to be evaluated by a QM which may but are not required to share a common set of specified characteristics within a named measurement set to which the QM belongs. (Also known as a Cohort Population) |
 {: .grid}
 
-* Initial population : Identify those cases that meet the Initial Population criteria.
+* Initial population: Identify those cases that meet the Initial Population criteria.
 
 Here is an example of using the population types to select data on patients who have received immunizations for a Cohort measure:
 
-* Initial Population : All patients who had an immunization
+* Initial Population: All patients who had an immunization
 
 
 
@@ -1378,7 +1378,7 @@ Part of the definition of a quality measure involves the ability to specify addi
 "supplementalData": [
   {
     "identifier": {
-      "value": "supplemental-data-identifier-1"
+      "value": "supplemental-data-id-1"
     },
     "usage": {
       "coding": [
@@ -1420,7 +1420,7 @@ By convention, the name of each supplemental data element expression would start
 
 **Conformance Requirement 3.17 (Risk Adjustment Criteria):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-17)
 {: #conformance-requirement-3-17}
-1. Risk Adjustment Variables SHALL be included within the supplementalData element using a usage element of risk-adjustment-variable
+1. Risk Adjustment Variables SHALL be included within the supplementalData element using a usage element of risk-adjustment-factor
 2. Risk Adjustment Variables SHOULD reference a single CQL expression definition, with a name beginning with RAF
 
 Some measures may define variables used to adjust scores based on a measure of “risk” observed in the population. Such variables are referred to as risk adjustment variables. Risk adjustment variables are included in the supplementalData section and defined using CQL; such inclusions must adhere to Conformance Requirement 3.17.
@@ -1429,12 +1429,12 @@ Some measures may define variables used to adjust scores based on a measure of �
 "supplementalData": [
   {
     "identifier": {
-      "value": "supplemental-data-identifier-1"
+      "value": "supplemental-data-id-1"
     },
     "usage": {
       "coding": [
         {
-          "code": "risk-adjustment-variable"
+          "code": "risk-adjustment-factor"
         }
       ],
       "text": "Risk Adjustment Variable"
@@ -1470,7 +1470,7 @@ Refer to the [ConceptMap Resources section](terminology.html#conceptmap-resource
 
 Member Attribution (ATR) lists are used between Payers and Providers for implementing risk-based contracts, value based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. The [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) is a library profile used to establish a set of related quality improvement artifacts such as a measure program and can be used to establish a "release" of a quality program.
 
-Referring to the [Member Attribution Lists Workflows and Definitions](http://hl7.org/fhir/us/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinvi - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
+Referring to the [Member Attribution Lists Workflows and Definitions](http://hl7.org/fhir/us/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinci - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
 
 ### Must Support
 {: #must-support}

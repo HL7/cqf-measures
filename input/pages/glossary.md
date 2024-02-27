@@ -49,7 +49,7 @@ An HL7 Version 3 normative standard for the representation of quality measures. 
 
 #### Initial Population
 
-The initial population criteria refers to all patients, subjects, or events to be evaluated by a quality measure involving patients or subjects who share a common set of specified characterstics. All patients, subjects, or events counted (for example, as numerator, as denominator) are drawn from the initial population.
+The initial population criteria refers to all patients, subjects, or events to be evaluated by a quality measure involving patients or subjects who share a common set of specified characteristics. All patients, subjects, or events counted (for example, as numerator, as denominator) are drawn from the initial population.
 
 #### Measure Population
 
@@ -120,7 +120,7 @@ Additional variables required for risk adjustment or other purposes of data aggr
 | CQM |	--- | Clinical Quality Measures |
 | dQM | --- | Digital Quality Measure |
 | eCQM | --- | 	electronic Clinical Quality Measures |
-| DEQM | --- |	Data Exchange For Quality Measures |
+| DEQM | --- |	Data Exchange for Quality Measures |
 | EHR |	--- | Electronic Health Record |
 | ELM |	--- | Expression Logical Model |
 | FHIR | --- |	Fast Healthcare Interoperability Resources |
