@@ -13,7 +13,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Update Dependency to US Core 6.0.0 ([FHIR-39894](https://jira.hl7.org/browse/FHIR-39894))([Applied here](index.html#dependencies))
 * **Applied**: Hard to tell what is new content ([FHIR-39895](https://jira.hl7.org/browse/FHIR-39895))([Applied here](index.html))
 * **Applied**: ImprovementNotation Allowed Values ([FHIR-42116](https://jira.hl7.org/browse/FHIR-42116))([Applied here](index.html)), and ([here](StructureDefinition-cqfm-improvementNotation.html))
-* **Applied**: PLease add 'Operations' as a an options on the FHIR artifacts menu ([FHIR-42715](https://jira.hl7.org/browse/FHIR-42715))([Applied here](index.html#how-to-read-this-guide)), and ([here](operations.html))
+* **Applied**: Please add 'Operations' as a an options on the FHIR artifacts menu ([FHIR-42715](https://jira.hl7.org/browse/FHIR-42715))([Applied here](index.html#how-to-read-this-guide)), and ([here](operations.html))
 * **Applied**: Clarify ratio measure Numerator definition ([FHIR-42826](https://jira.hl7.org/browse/FHIR-42826))([Applied here](measure-conformance.html#proportion-measure-table)), and ([here](measure-conformance.html#ratio-measure-table))
 * **Applied**: Clarify or Correct Conformance Requirement 3.4 ([FHIR-42894](https://jira.hl7.org/browse/FHIR-42894))([Applied here](measure-conformance.html#conformance-requirement-3-13))
 * **Applied**: Enable QMIG to Handle Population-based Measures ([FHIR-42898](https://jira.hl7.org/browse/FHIR-42898))([Applied here](measure-conformance.html#conformance-requirement-3-8)), and ([here](measure-conformance.html#proportion-measures))

@@ -13,7 +13,7 @@ Step 4: Clinical Care - To adequately impact clinical care for clinicians and pa
 <br>
 Step 5: Measurement and Analytics – this step closes the loop and enables continuous improvement; the results of such measurement analytics must be reported for aggregate review.<br>
 <br>
-Step 6: Reporting – this step serves the purpose of evaluating clinical performance and outcomes, whether it be internally for health care organizations, or for third parties such as public health or for payers. Ultimately, this information may then serve as part of the evidence base shown in step 1.<br>
+Step 6: Reporting – this step serves the purpose of evaluating clinical performance and outcomes, whether it be internally for healthcare organizations, or for third parties such as public health or for payers. Ultimately, this information may then serve as part of the evidence base shown in step 1.<br>
 
 <details open>
 <summary>
@@ -26,7 +26,7 @@ Step 6: Reporting – this step serves the purpose of evaluating clinical perfor
 
 </details>
 
-> Practictioner organizations along with stakeholders such as public health
+>Practitioner organizations along with stakeholders such as public health
 have ongoing needs for quality improvement at the point of care. Every effort should be made to
 establish a capable distributed rule processing environment in FHIR. For
 additional information about idealized processes for moving evidence and
