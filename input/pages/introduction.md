@@ -36,8 +36,9 @@ The approach taken here is consistent with balloted IGs for FHIR. These publicat
 
 This IG is a conformance profile, as described in the [“Conformance” section of the HL7 FHIR specification](http://hl7.org/fhir/R4/conformance-module.html). The base resource for this IG is the HL7 FHIR Measure and Library resources and associated guidance within the Clinical Reasoning module. This IG does not describe every aspect of quality reporting in FHIR. Rather, it defines profiles and constraints on the base Measure and Library resources used in a FHIR Quality Measure. Additional optional Measure and Library elements, not included here, can be included and the result will be compliant with the specifications in this guide. The FHIR Clinical Reasoning module provides resources and universally applicable guidance for reporting quality measurement results, and the [Data Exchange for Quality Measures Implementation Guide](http://hl7.org/fhir/us/davinci-deqm/) provides additional guidance and use cases related to quality reporting.
 
-Member attribution forms the framework for measuring performance of healthcare providers, reporting data and reimbursing for patient care using alternative payment models (APMs) that focus on value based management. The process of establishing and exchanging Member Attribution Lists (MAL) for risk based contracts are complex and time consuming. How to apply attribution in a measure, or how to apply attribution when implementing a measure (attribution at different levels - population, organization, practitioner, etc.) is out of scope for this IG.
-This IG uses the [Da Vinci - Risk Based Contracts Member Attribution (ATR) List IG](http://hl7.org/fhir/us/davinci-atr/2020Feb/index.html) that is currently in development using HL7 FHIR to specify standards for exchanging Member Attribution Lists (MAL) between providers and payers. Be sure to check the latest version for publication.
+Member attribution forms the framework for measure performance of healthcare providers, reporting data and reimbursing for patient care using alternative payment models (APMs) that focus on value based management. 
+The process of establishing and exchanging Member Attribution (ATR) lists for risk based contracts are complex and time consuming. How to apply attribution in a measure, or how to apply attribution when implementing a measure (attribution at different levels - population, organization, practitioner, etc.) is out of scope for this IG.
+One method, referenced in the capabilities section of this IG (https://build.fhir.org/ig/HL7/cqf-measures/capabilities.html#capabilities-1) is the [Da Vinci - Member Attribution (ATR) List](http://hl7.org/fhir/us/davinci-atr/STU2/) that is published to specify standards for exchanging of Member Attribution (ATR) Lists between providers and payers.
 
 
 ### Conventions
@@ -53,7 +54,7 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this doc
 ### Background
 {: #background}
 
-This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97), as well as the [CQL-Based HQMF IG R1 STU4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=405).
+This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/fhir/clinicalreasoning-module.html), as well as the [CQL-Based HQMF IG R1 STU4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=405).
 
 This Implementation Guide (Figure 2-1(b)) is the successor of the CQL-based HQMF IG R1 STU4 (Figure 2-1(a)).
 
@@ -81,7 +82,7 @@ The first version of the CQL-based HQMF IG was released in September 2015 and wa
 
 A result of replacing QDM-based logic with CQL is that all QDM logic elements previously encoded in HQMF were replaced with CQL. This means that QDM data criteria specify only the data of interest (e.g. value sets, effective time, properties) for the QM, and the previous use of QDM expressions that captured interrelationships between data criteria (such as “starts after end of”) or identified subsets of data (such as min, max, last, and first) are now represented with CQL expressions. This IG documents the full approach in detail starting in Chapter 2.
 
-This implementation guide, the FHIR Quality Measure IG, covers the use of FHIR, CQL, FHIR QI-Core and QUICK, and other emerging approaches to define QMs.
+This implementation guide, the FHIR Quality Measure IG, covers the use of FHIR, CQL, FHIR QI-Core, and other emerging approaches to define QMs.
 
 #### HQMF
 {: #hqmf}

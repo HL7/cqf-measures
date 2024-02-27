@@ -197,7 +197,8 @@ define "Initial Population":
         union ("Patient Record" P
             where ComponentMeasure3."Initial Population"
                 return { service: 'Service 3' }
-
+        )
+        
 define "Denominator":
     ("Patient Record" P
         where ComponentMeasure1."Denominator"
@@ -274,7 +275,7 @@ define "Is In Component 1 Denominator":
 define "Is In Component 1 Numerator":
     ComponentMeasure1."Initial Population"
         and ComponentMeasure1."Denominator"
-        and not ComponentMeasure1."Denomniator Exclusion"
+        and not ComponentMeasure1."Denominator Exclusion"
         and not ComponentMeasure1."Numerator Exclusion"
 
 define "Is In Component 2 Denominator":
