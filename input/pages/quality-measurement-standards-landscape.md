@@ -36,10 +36,10 @@ on scientific evidence about processes, outcomes, perceptions, or systems that r
 development process, a precisely specified, valid, reliable, and clinically
 significant measure specification to support accurate data representation and
 capture of quality measures. Clinical Quality Measures (CQMs) are tools that
-help measure and track the quality of health care services provided in care
+help measure and track the quality of healthcare services provided in care
 delivery environments, including eligible clinicians (ECs), eligible hospitals
 (EHs), and critical access hospitals (CAHs). Measuring and reporting CQMs helps
-to ensure that our health care system is delivering effective, safe, efficient,
+to ensure that our healthcare system is delivering effective, safe, efficient,
 patient-centered, equitable, and timely care. CQMs measure many aspects of
 patient care, including patient and family engagement, patient safety, care
 coordination, public health, population health management, efficient use of
@@ -151,6 +151,6 @@ Realm.
 The Data Exchange for Quality Measures Implementation Guide, or DEQM,
 provides a framework that defines conformance profiles and guidance to enable
 the exchange of quality information and quality measure reporting (e.g. for
-transferring quality information from a health care provider to a payer). The
+transferring quality information from a healthcare provider to a payer). The
 DEQM expects to use quality measures specified in accordance with the Quality
 Measure IG and QI-Core.

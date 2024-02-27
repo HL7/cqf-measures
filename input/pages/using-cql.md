@@ -8,7 +8,7 @@ A CQL artifact is referred to as a library.
 **Conformance Requirement 4.1 (Library Declaration):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-1)
 {: #conformance-requirement-4-1}
   1. Any CQL library referenced by a Measure must contain a library declaration line as the first line of the library.
-  2. The library identifier SHALL be a valid un-quoted identifier and SHALL NOT contain underscores
+  2. The library identifier SHALL be a valid un-quoted identifier and SHALL NOT contain underscores.
   3. The library declaration line SHALL contain a version number.
   4. The library version number SHALL follow the convention :  
        < major >.< minor >.< patch >
@@ -82,8 +82,8 @@ The set of all CQL libraries used to define a Measure must adhere to Conformance
 
 1. CQL libraries SHALL be structured such that all CQL expressions referenced by the Measure population criteria are
 contained within a single library.
-2. CQL libraries SHALL use a `called` clause for all included libraries
-3. The `called`-alias for an included library SHOULD be consistent for usages across libraries
+2. CQL libraries SHALL use a `called` clause for all included libraries.
+3. The `called`-alias for an included library SHOULD be consistent for usages across libraries.
 
 Because of this conformance statement, the primary library for a measure can always be determined by looking at the
 library referenced by the initial population criteria for the measure.
@@ -144,8 +144,8 @@ Conformance Requirement 4.6 describes how to specify a code system within a CQL 
 {: #conformance-requirement-4-6}
 
 1. Within CQL, the identifier of any code system reference SHALL be specified using a URI for the code system.
-2. The URI SHALL be the canonical URL for the code system
-3. The Code System declaration MAY include a version, consistent with the URI specification for FHIR and the code system
+2. The URI SHALL be the canonical URL for the code system.
+3. The Code System declaration MAY include a version, consistent with the URI specification for FHIR and the code system.
 
 For example:
 
@@ -179,8 +179,8 @@ Conformance Requirement 4.7 describes how to specify a valueset within a CQL lib
 {: #conformance-requirement-4-7}
 
 1. Within CQL, the identifier of any value set reference SHALL be specified using a URI for the value set.
-2. The URI SHALL be the canonical URL for the value set
-3. The URI MAY include a version, consistent with versioned canonical URL references in FHIR
+2. The URI SHALL be the canonical URL for the value set.
+3. The URI MAY include a version, consistent with versioned canonical URL references in FHIR.
 
 For example:
 
@@ -210,7 +210,7 @@ valueset "Acute Pharyngitis (1)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840
 valueset "Acute Pharyngitis (2)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011.2'
 ```
 
-Note carefully that although this URL may be resolveable for some terminology implementations, this is not necessarily the
+Note carefully that although this URL may be resolvable for some terminology implementations, this is not necessarily the
 case. This use of a canonical URL can be resolved as a search by the `url` element:
 
 ```
@@ -608,7 +608,7 @@ filename = <CQL library name>.cql
 {: #conformance-requirement-4-20}
 
 1. Parameters to CQL libraries SHALL be either CQL-defined types that map to FHIR types, or FHIR resource types, optionally with profile designations.
-2. Top level expressions in CQL libraries SHALL return either CQL-defined types that map to FHIR types, or FHIR resources types, optionally with profile designations
+2. Top level expressions in CQL libraries SHALL return either CQL-defined types that map to FHIR types, or FHIR resources types, optionally with profile designations.
 3. Tuple types are represented with Parameters that have `part` elements corresponding to the elements of the tuple. List types are represented with Parameters that have a cardinality of 0..*.
 4. Libraries used in computable guideline content SHALL use the `parameter` element to identify input parameters as well as the type of all top-level expressions as output parameters.
 5. Libraries used in computable guideline content SHALL use the `dataRequirement` element to identify any retrieves present in the CQL:
@@ -727,10 +727,10 @@ This implementation guide defines the [cqlOptions](StructureDefinition-cqfm-cqlO
 **Conformance Requirement 4.22 (Translator Options):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-22)
 {: #conformance-requirement-4-22}
 
-1. Translator options SHOULD be provided in either a CQFMComputableLibrary or a CQFMQualityProgram
-2. Translator options specified in a CQFMComputableLibrary take precedence over options defined in a CQFMQualityProgram
-3. If no translator options are provided, the recommended options above SHOULD be used
-4. If translator options are provided in a Library that is both computable and executable, the options SHALL be consistent with the translator options reported by the ELM content
+1. Translator options SHOULD be provided in either a CQFMComputableLibrary or a CQFMQualityProgram.
+2. Translator options specified in a CQFMComputableLibrary take precedence over options defined in a CQFMQualityProgram.
+3. If no translator options are provided, the recommended options above SHOULD be used.
+4. If translator options are provided in a Library that is both computable and executable, the options SHALL be consistent with the translator options reported by the ELM content.
 
 The `cqlOptions` extension references a contained `Parameters` resource that contains a parameter for each option specified, as well as a `translatorVersion` parameter that indicates the version of the translator used to produce the ELM. For example:
 
@@ -813,9 +813,9 @@ Because certain translator options impact language features and functionality, t
 
 1. <div class="new-content" markdown="1">If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL be translated with a SignatureLevel other than `None` (recommend OVERLOADS)
    
-2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment SHALL be consistent with the compatibility level used to produce the ELM
-3. If the ELM has a compatibility level set, it SHALL be consistent with the version of the translator used in the evaluation environment
-4. The translator version used to produce the ELM SHOULD be consistent with the translator version used in the evaluation environment
+2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment SHALL be consistent with the compatibility level used to produce the ELM.
+3. If the ELM has a compatibility level set, it SHALL be consistent with the version of the translator used in the evaluation environment.
+4. The translator version used to produce the ELM SHOULD be consistent with the translator version used in the evaluation environment.
 5. The translator options used in the evaluation environment SHALL be consistent with the translator options used to produce the ELM for at least the following options:
     * DisableListTraversal
     * DisableListDemotion
