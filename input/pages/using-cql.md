@@ -482,7 +482,7 @@ define "Antithrombotic Not Administered":
 In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
 value set. To report Antithrombotic Therapy Not Administered, this is done by referencing the URI of the "Antithrombotic
-Therapy" value set using the [value set extension](http://hl7.org/fhir/extension-valueset-reference.html) to indicate
+Therapy" value set using the [value set extension](https://www.hl7.org/fhir/R4/extension-valueset-reference.html)  to indicate
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
 set URI to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
 not forced to having to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
@@ -643,9 +643,9 @@ filename = <CQL library name>.cql
 #### MIME Type version
 The version of CQL/ELM used for content in a library should be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
 
-* `text/cql; version=1.4`
-* `application/elm+xml; version=1.4`
-* `application/elm+json; version=1.4`
+* `text/cql; version=1.5.2`
+* `application/elm+xml; version=1.5.2`
+* `application/elm+json; version=1.5.2`
 
 Resource narratives for Libraries and Measures that use CQL should include the CQL version if it is specified in the MIME type as shown above.
 

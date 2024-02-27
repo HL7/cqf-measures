@@ -54,23 +54,24 @@ Refer to the [QI-Core implementation guide](http://hl7.org/fhir/us/qicore) for e
 This Guide is divided into several pages which are listed at the top of each
 page in the menu bar:
 
--  **[Home](index.html)**: The home page provides the summary and background information for the FHIR Quality Measure Implementation Guide
--  **[Introduction](introduction.html)**: The introduction provides a more detailed overview of quality measurement and the background for this guide
--  **[QMs](measure-conformance.html)**: This page describes measure representation and conformance requirements for QMs
--  **[Using CQL](using-cql.html)**: This page covers using Clinical Quality Language to author QMs
--  **[Composites](composite-measures.html)**: This page covers composite measure representation and conformance requirements
--  **[Packaging](packaging.html)**: This page describes measure packaging and distribution requirements for QMs
+-  **[Home](index.html)**: The home page provides the summary and background information for the FHIR Quality Measure Implementation Guide.
+-  **[Introduction](introduction.html)**: The introduction provides a more detailed overview of quality measurement and the background for this guide.
+-  **[QMs](measure-conformance.html)**: This page describes measure representation and conformance requirements for QMs.
+-  **[Using CQL](using-cql.html)**: This page covers using Clinical Quality Language to author QMs.
+-  **[Composites](composite-measures.html)**: This page covers composite measure representation and conformance requirements.
+-  **[Packaging](packaging.html)**: This page describes measure packaging and distribution requirements for QMs.
 Measures IG
 -  **[Profiles](profiles.html)**: This page lists the set of profiles defined for use by QMs
 -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by QMs
 -  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
 -  **[Capabilities](capabilities.html)**: This page defines the workflows and roles for QMs and contains the capability statements
+
 <div class="new-content" markdown="1">
 
--  **[Operations](operations.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
+-  **[Operations](operations.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs.
 </div>
 
--  **[Examples](examples.html)**: This page provides examples used in the other pages, as well as by the Data Exchange for Quality
+-  **[Examples](examples.html)**: This page provides examples used in the other pages, as well as by the Data Exchange for Quality.
 -  **[Glossary](glossary.html)** This page defines terms related to quality measurement.
 -  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.
 -  **[Acknowledgements](acknowledgements.html)**
@@ -92,7 +93,7 @@ Measures IG
 
 Centers for Medicare &amp; Medicaid. Clinical Quality Measures Basics. [Online]. Available from: [https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html](https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html) [Accessed 11 October 2019].
 
-Centers for disease control and prevention. Adapting Clinical Guidelines for the Digital Age. [Online]. Available from: [https://www.cdc.gov/ddphss/clinical-guidelines/index.html](https://www.cdc.gov/ddphss/clinical-guidelines/index.html) [Accessed 11 October 2019].
+Centers for disease control and prevention. Adapting Clinical Guidelines for the Digital Age. [Online]. Available from: [https://www.cdc.gov/csels/phio/clinical-guidelines/index.html](https://www.cdc.gov/csels/phio/clinical-guidelines/index.html) [Accessed 11 October 2019].
 
 Health level seven. Clinical Quality Framework - HL7 Clinical Quality Information Work Group Confluence Page. [Online]. Available from: [https://confluence.hl7.org/display/CQIWC/Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical%20Quality%20Framework) [Accessed 11 October 2019].
 
