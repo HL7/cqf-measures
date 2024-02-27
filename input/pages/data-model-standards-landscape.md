@@ -15,11 +15,10 @@ although it enables a variety of interoperability use cases, the profiles do not
 represent all of the requirements for quality improvement. The QI-Core profiles
 are derived from US Core and provide this additional functionality.
 
-There are occasional instances where additional specificity or functionality
-is required explicitly for quality measurement, or a particular component within
-a quality measure. In these cases, additional profiles are defined within the
-changes DEQM, or by stakeholders such as measure developers or implementers. A general example of this could be the development of profiles for specific measures, such as the ones that reference the Healthcare Effectiveness Data and Information Set (HEDIS) Implementation Guide (currently no link available).
-
+There are occasional instances where additional specificity or functionality is
+required explicitly for quality measurement, or a particular component within a
+quality measure. In these cases, creation of measure content IG can be considered
+to facilitate measure development.
 
 The following diagram depicts this data model standards landscape:
 
@@ -59,23 +58,8 @@ to specify only terminology narrowing constraints. The FHIR Clinical Reasoning
 module and CQL enable the representation of data requirements for quality
 measures and decision support artifacts.
 4.  **Promote data-related profiles.** When it becomes necessary to define a data-related profile at the
-measurement-specific level (in DEQM or HEDIS for example), steps should be taken
+measurement-specific level (in Measure Content IG for example), steps should be taken
 to promote that profile to the broadest consensus group possible.
-
-##### 1.3.3.1 FHIR Version Support
-{: #fhir-version-support}
-
-There are three broadly used and fully published versions of the FHIR
-specification:
-
--  **FHIR DSTU2** - This version has broad support among US-based
-vendors as it is the basis for the Argonaut profiles. Most major vendors today
-support some subset of this version of FHIR
--    **FHIR STU3** - This is
-the version that US Core, QI Core, and many other implementation guides are
-based on. There is broad vendor support for this version.
--  **FHIR R4** - This is the first normative release of FHIR, including several of the
-foundational, conformance, and administrative resources going normative.
 
 In addition to _what_ data is reported, use cases frequently require the
 communication of _when_, _where_ and _how_ to report. See the

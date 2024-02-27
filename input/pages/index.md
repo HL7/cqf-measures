@@ -39,9 +39,9 @@ Where possible, new and updated content are highlighted with green text and back
 ### Summary
 {: #summary}
 
-The Fast Healthcare Interoperability Resource (FHIR) Quality Measure Implementation Guide (this IG) describes an approach to representing Quality Measures (QMs) using the FHIR Clinical Reasoning Module and Clinical Quality Language (CQL) in the US Realm. However, this Implementation Guide can be usable for multiple use cases across domains, and much of the content is likely to be usable outside the US Realm.
+The Fast Healthcare Interoperability Resource (FHIR) Quality Measure Implementation Guide (QM IG), describes an approach to representing Quality Measures (QMs) using the FHIR Clinical Reasoning Module and Clinical Quality Language (CQL) in the US Realm. However, this Implementation Guide can be usable for multiple use cases across domains, and much of the content is likely to be relevant outside the US Realm.
 
-The implementation guide is based upon the previous generation of QM representation standards, the HL7 V3-based Health Quality Measure Format (HQMF) and accompanying implementation guides. As an HL7 FHIR Implementation Guide, changes to this specification are managed by the sponsoring Clinical Quality Information Work Group and are incorporated as part of the standard balloting process.
+This IG is built upon on [FHIR Version R4](http://hl7.org/fhir/R4/index.html) and accounts for content in previous generations of QM standards, the HL7 V3-based Health Quality Measure Format (HQMF) and accompanying implementation guides using FHIR. As an HL7 FHIR Implementation Guide, changes to this specification are managed by the sponsoring Clinical Quality Information Work Group and are incorporated as part of the standard balloting process.
 
 #### Examples
 {: #examples}
@@ -64,7 +64,7 @@ Measures IG
 -  **[Profiles](profiles.html)**: This page lists the set of profiles defined for use by QMs
 -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by QMs
 -  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
--  **[Capabilities](capabilities.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs 
+-  **[Capabilities](capabilities.html)**: This page defines the workflows and roles for QMs and contains the capability statements
 <div class="new-content" markdown="1">
 
 -  **[Operations](operations.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
@@ -90,7 +90,7 @@ Measures IG
 ### References
 {: #references}
 
-Centers for medicare &amp; medicaid. Clinical Quality Measures Basics. [Online]. Available from: [https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html](https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html) [Accessed 11 October 2019].
+Centers for Medicare &amp; Medicaid. Clinical Quality Measures Basics. [Online]. Available from: [https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html](https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html) [Accessed 11 October 2019].
 
 Centers for disease control and prevention. Adapting Clinical Guidelines for the Digital Age. [Online]. Available from: [https://www.cdc.gov/ddphss/clinical-guidelines/index.html](https://www.cdc.gov/ddphss/clinical-guidelines/index.html) [Accessed 11 October 2019].
 
