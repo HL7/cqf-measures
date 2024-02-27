@@ -577,6 +577,38 @@
         "mustSupport": true
       },
       {
+        "id": "Measure.extension:improvementNotationGuidance",
+        "path": "Measure.extension",
+        "sliceName": "improvementNotationGuidance",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-improvementNotationGuidance"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.extension:improvementNotationGuidance",
+        "path": "Measure.group.extension",
+        "sliceName": "improvementNotationGuidance",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-improvementNotationGuidance"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "Measure.relatedArtifact",
         "path": "Measure.relatedArtifact",
         "slicing": {
