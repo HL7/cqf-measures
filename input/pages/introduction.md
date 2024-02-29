@@ -50,7 +50,7 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this doc
 * SHOULD/SHOULD NOT: a best practice or recommendation to be considered by implementers within the context of their particular implementation; there may be valid reasons to ignore an item, but the full implications must be understood and carefully weighed before choosing a different course
 * MAY/NEED NOT: truly optional; can be included or omitted as the implementer decides with no implications
 
-### Background
+### Previous Non-FHIR quality measurement standards [Example: HL7 v3 Based Standards]
 {: #background}
 
 This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97), as well as the [CQL-Based HQMF IG R1 STU4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=405).
