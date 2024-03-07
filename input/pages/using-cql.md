@@ -130,7 +130,7 @@ CQL can be used with any data model. In the context of a Measure, any referenced
 For example:
 
 ```cql
-using FHIR version '3.0.0'
+using FHIR version '4.0.1'
 ```
 
 Snippet 4-3: Data Model line from [EXM146.cql](Library-EXM146-FHIR.html#cql-content)
