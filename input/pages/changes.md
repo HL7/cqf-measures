@@ -32,6 +32,11 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Updated the Quality Improvement Ecosystem paragraph to increase readability ([FHIR-44070](https://jira.hl7.org/browse/FHIR-44070))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#quality-improvement-ecosystem))
 * **Applied**: Updated the text and image in data model standard landscape section to remove DEQM and HEDIS and replaced with Measure Content IG ([FHIR-44530](https://jira.hl7.org/browse/FHIR-44530))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#data-model-standards-landscape))
 * **Applied**: Created an improvementNotationGuidance extension in the FHIR extensions pack and added to Publishable Measure at root and group level. ([FHIR-43463](https://jira.hl7.org/browse/FHIR-43463))([Applied here](https://hl7.org/fhir/us/cqfmeasures/StructureDefinition-publishable-measure-cqfm.html))
+* **Applied**: Updated CQL version references from 1.4 to 1.5.2 introduction, measure-conformance and using-cql pages  ([FHIR-43635](https://jira.hl7.org/browse/FHIR-43635))([Applied here](https://hl7.org/fhir/us/cqfmeasures/introduction.html)), ([here](measure-conformance.html)), and ([here](using-cql.html))
+* **Applied**: Removed reference to QUICK  ([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594))([Applied here](introduction.html))
+* **Applied**: Updated QI-core version reference from STU5 to STU6 ([FHIR-43771](https://jira.hl7.org/browse/FHIR-43771))([Applied here](introduction.html))
+* **Applied**: Updated CQL-base HQMF IF R1 version reference from STU4 to STU4.1 ([FHIR-43637](https://jira.hl7.org/browse/FHIR-43637))([Applied here](introduction.html))
+* **Applied**: Updated paragraph in Scope section regarding Member Attribution (ATR) Lists  ([FHIR-43636](https://jira.hl7.org/browse/FHIR-43636))([Applied here](introduction.html))
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 

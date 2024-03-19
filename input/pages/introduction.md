@@ -9,11 +9,11 @@
 
 * [Fast Healthcare Interoperability Resources (FHIR) R4](https://www.hl7.org/fhir/r4b/)
 * [Clinical Quality Language (CQL) R1.5.2](http://cql.hl7.org/N1/)
-* [QI-Core Implementation Guide (QI-Core) STU5](http://hl7.org/fhir/us/qicore/)
+* [QI-Core Implementation Guide (QI-Core) STU6](http://hl7.org/fhir/us/qicore/)
 
 To avoid variation in the use of FHIR Resources and metadata across QMs and clinical decision support (CDS), a quality-related implementation guide based on a logical data model is essential. In the US Realm, QMs should use [FHIR Quality Improvement Core (QICore)](http://hl7.org/fhir/us/qicore) profiles as the data model to maintain consistency. Other FHIR based data models are also acceptable for use.
 
-Although the specification is based on the 1.4 version of CQL, backwards-compatible future versions of CQL can be used as well. In addition, if necessary, the 1.2 and 1.3 versions of CQL can be used without loss of functionality for this Implementation Guide.
+Although the specification is based on the 1.5.2 version of CQL, backwards-compatible future versions of CQL can be used as well. In addition, if necessary, the 1.2, 1.3, and 1.4 versions of CQL can be used without loss of functionality for this Implementation Guide.
 
 Except where noted, material from the base FHIR specification, and in particular the Clinical Reasoning module, is not repeated here.
 
@@ -36,9 +36,10 @@ The approach taken here is consistent with balloted IGs for FHIR. These publicat
 
 This IG is a conformance profile, as described in the [“Conformance” section of the HL7 FHIR specification](http://hl7.org/fhir/R4/conformance-module.html). The base resource for this IG is the HL7 FHIR Measure and Library resources and associated guidance within the Clinical Reasoning module. This IG does not describe every aspect of quality reporting in FHIR. Rather, it defines profiles and constraints on the base Measure and Library resources used in a FHIR Quality Measure. Additional optional Measure and Library elements, not included here, can be included and the result will be compliant with the specifications in this guide. The FHIR Clinical Reasoning module provides resources and universally applicable guidance for reporting quality measurement results, and the [Data Exchange for Quality Measures Implementation Guide](http://hl7.org/fhir/us/davinci-deqm/) provides additional guidance and use cases related to quality reporting.
 
-Member attribution forms the framework for measuring performance of healthcare providers, reporting data and reimbursing for patient care using alternative payment models (APMs) that focus on value based management. The process of establishing and exchanging Member Attribution Lists (MAL) for risk based contracts are complex and time consuming. How to apply attribution in a measure, or how to apply attribution when implementing a measure (attribution at different levels - population, organization, practitioner, etc.) is out of scope for this IG.
-This IG uses the [Da Vinci - Risk Based Contracts Member Attribution (ATR) List IG](http://hl7.org/fhir/us/davinci-atr/2020Feb/index.html) that is currently in development using HL7 FHIR to specify standards for exchanging Member Attribution Lists (MAL) between providers and payers. Be sure to check the latest version for publication.
-
+Member attribution forms the framework for measuring performance of healthcare providers, reporting data and reimbursing for patient care using alternative payment models (APMs) that focus on value based management. 
+The process of establishing and exchanging Member Attribution (ATR) Lists for risk based contracts are complex and time consuming. How to apply attribution in a measure, or how to apply attribution when implementing a measure (attribution at different levels - population, 
+organization, practitioner, etc.) is out of scope for this IG. One method, referenced in the capabilities section of this IG (https://build.fhir.org/ig/HL7/cqf-measures/capabilities.html#capabilities-1) , is the 
+Da Vinci - Member Attribution (ATR) List (http://hl7.org/fhir/us/davinci-atr/STU2/) that is published to specify standards for exchanging of Member Attribution (ATR) Lists between providers and payers.
 
 ### Conventions
 {: #conventions}
@@ -53,9 +54,9 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this doc
 ### Previous Non-FHIR quality measurement standards [Example: HL7 v3 Based Standards]
 {: #background}
 
-This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97), as well as the [CQL-Based HQMF IG R1 STU4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=405).
+This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/fhir/clinicalreasoning-module.html), as well as the [CQL-Based HQMF IG R1 STU4.1](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=405).
 
-This Implementation Guide (Figure 2-1(b)) is the successor of the CQL-based HQMF IG R1 STU4 (Figure 2-1(a)).
+This Implementation Guide (Figure 2-1(b)) is the successor of the CQL-based HQMF IG R1 STU4.1 (Figure 2-1(a)).
 
 <details open>
 
@@ -69,19 +70,19 @@ This Implementation Guide (Figure 2-1(b)) is the successor of the CQL-based HQMF
 
 </details>
 
-#### Clinical Quality Language R1.4
-{: #clinical-quality-language-r1.4}
+#### Clinical Quality Language R1.5.2
+{: #clinical-quality-language-r1.5.2}
 
-[Clinical Quality Language R1.4 (CQL)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) is an HL7 standard for trial use (STU). It is part of the effort to harmonize standards between quality measures (QMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
+[Clinical Quality Language R1.5.2 (CQL)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) is an HL7 standard for trial use (STU). It is part of the effort to harmonize standards between quality measures (QMs) and clinical decision support (CDS). CQL provides the ability to express logic that is human readable yet structured enough for processing a query electronically.
 
-#### CQL based HQMF IG R1 STU4
-{: #cql-based-hqmf-ig-r1-stu4}
+#### CQL-based HQMF IG R1 STU4.1
+{: #cql-based-hqmf-ig-r1-stu4.1}
 
 The first version of the CQL-based HQMF IG was released in September 2015 and was intended to be used in conjunction with the pre-existing QDM based HQMF R1 IG. Since 2015, the community and the standards have evolved and the current version of QDM (v5.4) no longer contains expression logic, ceding this functionality to CQL. The CQL-based HQMF IG is the sole guide describing how to use QDM, CQL, and HQMF in combination (Figure 2-1a).
 
 A result of replacing QDM-based logic with CQL is that all QDM logic elements previously encoded in HQMF were replaced with CQL. This means that QDM data criteria specify only the data of interest (e.g. value sets, effective time, properties) for the QM, and the previous use of QDM expressions that captured interrelationships between data criteria (such as “starts after end of”) or identified subsets of data (such as min, max, last, and first) are now represented with CQL expressions. This IG documents the full approach in detail starting in Chapter 2.
 
-This implementation guide, the FHIR Quality Measure IG, covers the use of FHIR, CQL, FHIR QI-Core and QUICK, and other emerging approaches to define QMs.
+This implementation guide, the FHIR Quality Measure IG, covers the use of FHIR, CQL, FHIR QI-Core, and other emerging approaches to define QMs.
 
 #### HQMF
 {: #hqmf}
