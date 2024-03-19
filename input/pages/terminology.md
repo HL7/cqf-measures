@@ -8,7 +8,7 @@
 -  [Aggregate Method](CodeSystem-aggregate-method.html)
 -  [Artifact Comment Type](CodeSystem-artifact-comment-type.html)
 -  [CQL Version](CodeSystem-cql-version.html)
--  [Identifier Type](CodeSystem-identifier-type.html)
+-  [Identifier Type](https://terminology.hl7.org/CodeSystem-artifact-identifier-type.html)
 -  [Software System Type](CodeSystem-software-system-type.html)
 -  [Quality Programs](CodeSystem-quality-programs.html)
 
