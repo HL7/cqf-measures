@@ -274,7 +274,7 @@ define "Is In Component 1 Denominator":
 define "Is In Component 1 Numerator":
     ComponentMeasure1."Initial Population"
         and ComponentMeasure1."Denominator"
-        and not ComponentMeasure1."Denomniator Exclusion"
+        and not ComponentMeasure1."Denominator Exclusion"
         and not ComponentMeasure1."Numerator Exclusion"
 
 define "Is In Component 2 Denominator":

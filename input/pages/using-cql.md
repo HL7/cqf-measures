@@ -555,7 +555,7 @@ Inclusion of CQL content used within quality measures is accomplished through th
 {: #conformance-requirement-4-18}
 
 1. The identifying elements of a library SHALL conform to the following requirements:
-* Library.url SHALL be `<CQL namepsace url>/Library/<CQL library name>`
+* Library.url SHALL be `<CQL namespace url>/Library/<CQL library name>`
 * Library.name SHALL be `<CQL library name>`
 * Library.version SHALL be `<CQL library version>`
 
