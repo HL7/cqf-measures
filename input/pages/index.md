@@ -73,7 +73,7 @@ Measures IG
 -  **[Examples](examples.html)**: This page provides examples used in the other pages, as well as by the Data Exchange for Quality
 -  **[Glossary](glossary.html)** This page defines terms related to quality measurement.
 -  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.
--  **[Acknowledgements](acknowledgements.html)**
+-  **[Changes](changes.html)**: This page details changes made in each version of the Quality Measure IG
 
 ### Background
 {: #background}
