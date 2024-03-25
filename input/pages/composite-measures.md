@@ -334,6 +334,51 @@ Snippet 28: Formal criteria for a patient-based linear combination composite mea
 
 Note that these definitions are based on component measures whose improvement notation is an increase in the measure score. If any component measure has an improvement notation of decrease in score, the denominator and numerator for that component would be reversed in the above calculations.
 
+<div class="new-content">
+Linear Combination scoring vs. Opportunity scoring
+</div>
+
+To better understand the difference between linear combination and opportunity scoring, consider the following table representing a population of 10 patients (A-J) scored against 10 measures. 
+For each patient in each measure, if the patient falls in the initial population or denominator, indicate whether the patient is in the numerator population or not (T/F). However, if  the patient did not fall in the initial population or denominator, indciate 'n/a'. 
+
+<style>
+table, th, td {
+  border: 1px solid;
+}
+th { background-color: #f5f2f0; }
+
+</style>
+| Value | Meaning                                                    |
+| ----- | ---------------------------------------------------------- |
+| T     | Patient is in numerator                                    |
+| F     | Patient is not in numerator                                |
+| n/a   | Patient is excluded from initial population or denominator |
+
+|                                | A     | B      | C     | D     | E     | F     | G      | H     | I     | J     |
+| ------------------------------ | ----- | ------ | ----- | ----- | ----- | ----- | ------ | ----- | ----- | ----- |
+| Measure 1                      | T     | T      | T     | T     | F     | T     | T      | F     | T     | T     |
+| Measure 2                      | T     | T      | T     | n/a   | F     | T     | n/a    | T     | F     | T     |
+| Measure 3                      | T     | T      | T     | n/a   | T     | T     | n/a    | F     | T     | T     |
+| Measure 4                      | F     | T      | T     | n/a   | T     | T     | n/a    | T     | n/a   | T     |
+| Measure 5                      | F     | T      | T     | n/a   | T     | n/a   | n/a    | F     | n/a   | F     |
+| Measure 6                      | T     | T      | F     | n/a   | T     | n/a   | n/a    | T     | n/a   | F     |
+| Measure 7                      | n/a   | n/a    | n/a   | T     | T     | n/a   | T      | F     | n/a   | T     |
+| Measure 8                      | F     | T      | T     | T     | T     | F     | T      | T     | n/a   | T     |
+| Measure 9                      | F     | T      | F     | F     | F     | F     | T      | T     | T     | T     |
+| Measure 10                     | T     | T      | T     | T     | F     | T     | T      | T     | T     | T     |
+|                                |       |        |       |       |       |       |        |       |       |       |
+| Patient % Score                | 55.6% | 100.0% | 77.8% | 80.0% | 60.0% | 71.4% | 100.0% | 60.0% | 80.0% | 80.0% |
+|                                |       |        |       |       |       |       |        |       |       |       |
+| <b>Overall - Subject Level Linear</b> | <b>76.5%</b> |        |       |       |       |       |        |       |       |       |
+| <b>Overall - Opportunity </b>         | <b>74.7%</b> |        |       |       |       |       |        |       |       |
+
+For each patient (i.e. each column A-J), calculate the <b>Patient % score</b> by dividing the total number of occurrences in a measure numerator by the total number of occurrences in the denominator (i.e. not 'n/a') across all measures. <br/>
+To caclulate the <b>overall subject level linear</b> score, simply calculate the average patient % score across the number of  patients (in this case, 764.8 / 10) <br/>
+To calculate the <b>overall opportunity</b> score, divide the total number of patients in the numerator (i.e. 'T' values) across all measures by the total number of instances where the patient was not excluded from the initial population or denominator (i.e not 'n/a').
+(In this case,  59 / 79) 
+
+
+
 ### Weighted Scoring
 {: weighted-scoring}
 
