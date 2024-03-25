@@ -35,7 +35,8 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Corrected spelling of 'denominator' in composite-measures page ([FHIR-44078](https://jira.hl7.org/browse/FHIR-44078))([Applied here](composite-measures.html))
 * **Applied**: Corrected spelling of 'namespace' in using-cql page ([FHIR-44078](https://jira.hl7.org/browse/FHIR-44078))([Applied here](using-cql.html))
 * **Applied**: Corrected references of Library Bundles to Measure Bundles in Packaging Measures section ([FHIR-43778](https://jira.hl7.org/browse/FHIR-43778))([Applied here](packaging.html))
-
+* **Applied**: Updated tables in composite measure page for clarity ([FHIR-43714](https://jira.hl7.org/browse/FHIR-43714))([Applied here](composite-measures.html#all-or-nothing-scoring) and subsequent sections))
+* **Applied**: Added table to composite measure page for describing linear scoring vs. opportunity scoring ([FHIR-43715](https://jira.hl7.org/browse/FHIR-43715)) ([Applied here](composite-measures.html#subject-level-linear-combination-scoring))
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
