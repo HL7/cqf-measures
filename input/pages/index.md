@@ -3,7 +3,7 @@
 {:toc}
 
 {:.stu-note}
-> This STU 5.0.0-ballot is currently dependent on the QI-Core STU 6.0.0-ballot, but will update to QI-Core STU6 once published
+> 
 
 Where possible, new and updated content are highlighted with green text and background
 {: .new-content}
@@ -65,11 +65,7 @@ Measures IG
 -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by QMs
 -  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
 -  **[Capabilities](capabilities.html)**: This page defines the workflows and roles for QMs and contains the capability statements
-<div class="new-content" markdown="1">
-
 -  **[Operations](operations.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
-</div>
-
 -  **[Examples](examples.html)**: This page provides examples used in the other pages, as well as by the Data Exchange for Quality
 -  **[Glossary](glossary.html)** This page defines terms related to quality measurement.
 -  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.
