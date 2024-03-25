@@ -1,0 +1,185 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "computable-library-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm",
+  "version": "4.0.0",
+  "name": "CQFMComputableLibrary",
+  "title": "CQFM Computable Library",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM Computable Library profile defines the must support elements for a computable library used to support eCQM logic",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Library",
+  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Library",
+        "path": "Library",
+        "mustSupport": false
+      },
+      {
+        "id": "Library.extension:directReferenceCode",
+        "path": "Library.extension",
+        "sliceName": "directReferenceCode",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.extension:cqfm-cqlOptions",
+        "path": "Library.extension",
+        "sliceName": "cqfm-cqlOptions",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-cqlOptions"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.subject[x]",
+        "path": "Library.subject[x]",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact",
+        "path": "Library.relatedArtifact",
+        "short": "Dependencies used by the artifact",
+        "definition": "Any referenced dependencies including other logic libraries, model definitions, or terminologies.",
+        "requirements": "A computable library must describe the dependencies it requires.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.parameter",
+        "path": "Library.parameter",
+        "requirements": "A computable library must define any input and output parameters.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement",
+        "path": "Library.dataRequirement",
+        "requirements": "A computable library must declare any data requirements.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement.extension:fhirQueryPattern",
+        "path": "Library.dataRequirement.extension",
+        "sliceName": "fhirQueryPattern",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern"
+            ]
+          }
+        ],
+        "mustSupport": false
+      },
+      {
+        "id": "Library.content",
+        "path": "Library.content",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "contentType"
+            }
+          ],
+          "rules": "open"
+        },
+        "mustSupport": false
+      },
+      {
+        "id": "Library.content:cqlContent",
+        "path": "Library.content",
+        "sliceName": "cqlContent",
+        "requirements": "A computable library must provide the contents of the library in a computable form.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.content:cqlContent.contentType",
+        "path": "Library.content.contentType",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "fixedCode": "text/cql",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.content:cqlContent.data",
+        "path": "Library.content.data",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      }
+    ]
+  }
+}

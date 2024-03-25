@@ -1,0 +1,104 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "shareable-codesystem-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/shareable-codesystem-cqfm",
+  "version": "4.0.0",
+  "name": "CQFMShareableCodeSystem",
+  "title": "CQFM Shareable CodeSystem",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Defines the expectations for shareable code systems used with quality measure specifications",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "CodeSystem",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/shareablecodesystem",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CodeSystem",
+        "path": "CodeSystem",
+        "condition": [
+          "scs-1",
+          "scs-2"
+        ],
+        "constraint": [
+          {
+            "key" : "scs-1",
+            "severity" : "error",
+            "human" : "If a codesystem contains nested concepts, it must specify hierarchyMeaning",
+            "expression" : "concept.concept.exists() implies hierarchyMeaning.exists()"
+          },
+          {
+            "key" : "scs-2",
+            "severity" : "error",
+            "human" : "If a codesystem contains example, fragment, or complete content, it must have at least one concept",
+            "expression" : "content in ( 'example' | 'fragment' | 'complete' ) implies concept.exists()"
+          }
+        ],
+        "mustSupport": false
+      },
+      {
+        "id": "CodeSystem.caseSensitive",
+        "path": "CodeSystem.caseSensitive",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "CodeSystem.hierarchyMeaning",
+        "path": "CodeSystem.hierarchyMeaning",
+        "mustSupport": true
+      },
+      {
+        "id": "CodeSystem.concept",
+        "path": "CodeSystem.concept",
+        "min": 1,
+        "mustSupport": true
+      }
+    ]
+  }
+}

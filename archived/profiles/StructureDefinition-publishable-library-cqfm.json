@@ -1,0 +1,210 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "publishable-library-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-library-cqfm",
+  "version": "4.0.0",
+  "name": "CQFMPublishableLibrary",
+  "title": "CQFM Publishable Library",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM Publishable Library profile defines the must support elements in a library used to support eCQM logic",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Library",
+  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Library",
+        "path": "Library",
+        "mustSupport": false
+      },
+      {
+        "id": "Library.text",
+        "path": "Library.text",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.title",
+        "path": "Library.title",
+        "requirements": "A published library must specify a human-friendly title.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.date",
+        "path": "Library.date",
+        "requirements": "A published library must specify the date the library content was last changed.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.purpose",
+        "path": "Library.purpose",
+        "requirements": "A published library should provide a clear description of the purpose of the library.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.usage",
+        "path": "Library.usage",
+        "requirements": "A published library should provide clinical usage notes for the library.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.copyright",
+        "path": "Library.copyright",
+        "requirements": "A published library should provide copyright statement relating to the library and/or its contents.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.approvalDate",
+        "path": "Library.approvalDate",
+        "requirements": "A published library must indicate the date the library content was approved by the publisher.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.lastReviewDate",
+        "path": "Library.lastReviewDate",
+        "requirements": "A published library must indicate when the library content was last reviewed.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.effectivePeriod",
+        "path": "Library.effectivePeriod",
+        "requirements": "A published library should provide an indication of the period during which the library content can be effectively applied.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.topic",
+        "path": "Library.topic",
+        "requirements": "A published library should provide relevant topics for the library content.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.author",
+        "path": "Library.author",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.editor",
+        "path": "Library.editor",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.reviewer",
+        "path": "Library.reviewer",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.endorser",
+        "path": "Library.endorser",
+        "requirements": "A published library should provide copyright information for the library content.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact",
+        "path": "Library.relatedArtifact",
+        "short": "Any referenced CQL libraries or additional documentation, citations, etc.",
+        "definition": "Any referenced CQL libraries or additional documentation, citations, etc.",
+        "requirements": "A published library should provide related information such as supporting evidence, citations, and documentation.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact.extension:publicationStatus",
+        "path": "Library.relatedArtifact.extension",
+        "sliceName": "publicationStatus",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationStatus"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact.extension:publicationDate",
+        "path": "Library.relatedArtifact.extension",
+        "sliceName": "publicationDate",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationDate"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact.display",
+        "path": "Library.relatedArtifact.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact.url",
+        "path": "Library.relatedArtifact.url",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact.resource",
+        "path": "Library.relatedArtifact.resource",
+        "mustSupport": true
+      }
+    ]
+  }
+}

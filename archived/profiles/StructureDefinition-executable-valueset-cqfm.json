@@ -1,0 +1,159 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "executable-valueset-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-valueset-cqfm",
+  "version": "4.0.0",
+  "name": "CQFMExecutableValueSet",
+  "title": "CQFM Executable ValueSet",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Defines an executable value set as one that SHALL have an expansion included, as well as a usage warning indicating the expansion is a point-in-time snapshot and must be maintained over time for production usage. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a computable definition of the value set must be obtained to compute the updated expansion.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "ValueSet",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ValueSet",
+        "path": "ValueSet",
+        "mustSupport": false
+      },
+      {
+        "id": "ValueSet.extension:usageWarning",
+        "path": "ValueSet.extension",
+        "sliceName": "usageWarning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/valueset-warning"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.extension:usageWarning.value[x]",
+        "path": "ValueSet.extension.value[x]",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "markdown"
+          }
+        ],
+        "fixedMarkdown": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated.",
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.expansion",
+        "path": "ValueSet.expansion",
+        "min": 1,
+        "max": "1",
+        "constraint": [
+          {
+            "key": "evs-1",
+            "severity": "error",
+            "human": "For contains, a version SHALL be provided unless the parameters element has a \"system-version\" parameter corresponding to the system of the entry and the version matches the system-version parameter.",
+            "expression": "contains.version.exists() xor  parameter.where(name = 'system-version').exists()",
+            "xpath": "exists(f:expansion.contains.version)"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.expansion.parameter",
+        "path": "ValueSet.expansion.parameter",
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.expansion.contains",
+        "path": "ValueSet.expansion.contains",
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.expansion.contains.system",
+        "path": "ValueSet.expansion.contains.system",
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.expansion.contains.inactive",
+        "path": "ValueSet.expansion.contains.inactive",
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.expansion.contains.version",
+        "path": "ValueSet.expansion.contains.version",
+        "condition": [
+          "evs-1"
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.expansion.contains.code",
+        "path": "ValueSet.expansion.contains.code",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.expansion.contains.display",
+        "path": "ValueSet.expansion.contains.display",
+        "mustSupport": true
+      },
+      {
+        "id": "ValueSet.expansion.contains.contains",
+        "path": "ValueSet.expansion.contains.contains",
+        "mustSupport": true
+      }
+    ]
+  }
+}
