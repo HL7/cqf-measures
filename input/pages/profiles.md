@@ -1,21 +1,39 @@
 {: #profiles}
 
 ## Capability Profiles
+{: #capability-profiles}
 
 To support flexible representation and packaging of measure and library artifacts for different use cases, this implementation guide uses four general categories of profiles, aligned with the [knowledge capabilities](http://hl7.org/fhir/uv/cpg/CodeSystem-cpg-knowledge-capability.html) established by the [CPG-on-FHIR](http://hl7.org/fhir/uv/cpg) implementation guide:
 
-<table>
-  <tr><th>Artifact</th><th>Shareable</th><th>Computable</th><th>Publishable</th><th>Executable</th></tr>
-  <tr><td>CodeSystem</td><td><a href="StructureDefinition-shareable-codesystem-cqfm.html">CQFMShareableCodeSystem</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-publishable-codesystem-cqfm.html">CQFMPublishableCodeSystem</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>Library</td><td><a href="StructureDefinition-library-cqfm.html">CQFMLibrary</a></td><td><a href="StructureDefinition-computable-library-cqfm.html">CQFMComputableLibrary</a></td><td><a href="StructureDefinition-publishable-library-cqfm.html">CQFMPublishableLibrary</a></td><td><a href="StructureDefinition-executable-library-cqfm.html">CQFMExecutableLibrary</a></td></tr>
-  <tr><td>Measure</td><td><a href="StructureDefinition-measure-cqfm.html">CQFMMeasure</a></td><td><a href="StructureDefinition-computable-measure-cqfm.html">CQFMComputableMeasure</a></td><td><a href="StructureDefinition-publishable-measure-cqfm.html">CQFMPublishableMeasure</a></td><td><a href="StructureDefinition-executable-measure-cqfm.html">CQFMExecutableMeasure</a></td></tr>
-  <tr><td>ValueSet</td><td>N/A (use base ShareableValueSet)</td><td><a href="StructureDefinition-computable-valueset-cqfm.html">CQFMComputableValueSet</a></td><td><a href="StructureDefinition-publishable-valueset-cqfm.html">CQFMPublishableValueSet</a></td><td><a href="StructureDefinition-executable-valueset-cqfm.html">CQFMExecutableValueSet</a></td></tr>
+### Measure Profiles
+{: #measure-profiles}
 
-</table>
+Measure profiles supported in this IG are defined to allow for use independently or in combination with each other to support a wide range of use cases. The diagram below is to demonstrate the variety of combinations and example use cases. 
 
-In addition, measures are required to conform to the appropriate measure profile based on their scoring type:
+<b>Figure 7-1: Measure Profiles Venn Diagram</b>
 
-<table>
+{% include img.html img="QM_IG_Profile_Diagram.jpg" %}
+
+| **Legend** | **Public Conformance** | **Example Use Cases** |
+|----|----|----|
+| S | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html)  |   | 
+| C | [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)    |   | 
+| P | [CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html)  |   | 
+| E | [CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |   | 
+| SC | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)  |   | 
+| CP | [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html) <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html)  |   | 
+| CE | [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |   | 
+| PE | [CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |   | 
+| SCE | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html) |   | 
+| SCP | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html) |   | 
+| CPE | [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html)  <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |   | 
+| SEP | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html) |   | 
+| SCPE | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html)  <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |   | 
+{: .grid }
+
+In addition to conforming to profiles to support appropriate function or representation, measures are required to conform to the appropriate measure profile based on their scoring type:
+
+<table class="grid">
   <tr><th>Scoring Type</th><th>Profile</th></tr>
   <tr><td>Cohort</td><td><a href="StructureDefinition-cohort-measure-cqfm.html">CQFMCohortMeasure</a></td></tr>
   <tr><td>Proportion</td><td><a href="StructureDefinition-proportion-measure-cqfm.html">CQFMProportionMeasure</a></td></tr>
@@ -24,43 +42,59 @@ In addition, measures are required to conform to the appropriate measure profile
   <tr><td>Composite</td><td><a href="StructureDefinition-composite-measure-cqfm.html">CQFMCompositeMeasure</a></td></tr>
 </table>
 
-To support packaging, testing, and distribution of measure and library artifacts, this implementation guide defines the following additional profiles:
+### Library Profile Usage
+{: #library-profile-usage}
 
-<table>
-  <tr><th>Profile</th><th>Description</th></tr>
-  <tr><td><a href="StructureDefinition-capability-statement-cqfm.html">CQFMCapabilityStatement</a></td><td>A system capability statement that can express which version of CQL is supported</td></tr>
-  <tr><td><a href="StructureDefinition-device-softwaresystem-cqfm.html">CQFMDevice</a></td><td>A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.</td></tr>
-  <tr><td><a href="StructureDefinition-modelinfo-library-cqfm.html">CQFMModelInfoLibrary</a></td><td>A library profile used to distribute model information libraries used in quality measurement.</td></tr>
-  <tr><td><a href="StructureDefinition-module-definition-library-cqfm.html">CQFMModuleDefinitionLibrary</a></td><td>A library profile used to define and exchange effective data requirements and usage information for an artifact (or collection of artifacts) used in quality measurement.</td></tr>
-  <tr><td><a href="StructureDefinition-test-case-cqfm.html">CQFMTestCase</a></td><td>A measure report profile that allows definition and exchange of test cases for a measure.</td></tr>
-  <tr><td><a href="StructureDefinition-quality-program-cqfm.html">CQFMQualityProgram</a></td><td>A library profile used to establish a set of related quality improvement artifacts such as a measure program and supports the definition of Quality Program. The set of identified quality programs is not exhaustive and this IG is not prescribing codes for programs.</td></tr>
-</table>
+| **Shareable** | **Computable** | **Publishable** | **Executable** |
+|----|----|----|----|
+| [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) | [CQLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-cql-library) | [CRMIPublishableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablemeasure.html) | [ELMLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-library.html)  |
+{: .grid }
+
+* CQFMComputableMeasure **SHALL** use CQLLibrary 
+* CQFMExecutableMeasure **SHALL** use ELMLibrary
+* CQFMPublishableMeasure **SHOULD** use CRMIPublishableLibrary  
+ 
+### Terminology Profile Usage
+{: #terminology-profile-usage}
+
+| **Artifact** | **Shareable** | **Computable** | **Publishable** | **Executable** |
+|----|----|----|----|----|
+| CodeSystem | [CRMIShareableCodeSystem]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablecodesystem.html) | N/A (no requirements) | [CRMIPublishableCodeSytems]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablecodesystem.html) | N/A (no requirements) |
+| ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMISComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMISExecutableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-executablevalueset.html) |
+{: .grid }
+
+* Due to varying code system capabilities, measure profiles are not restricted to use corresponding terminology profiles. 
+
+### Additional Profiles
+{: #additional-profiles}
+
+To support packaging, testing, and distribution of measure and library artifacts, this implementation guide defines the following additional profiles: 
+
+| **Profile** | **Description** | 
+|----|----|
+| CQFMCapabilityStatement | A system capability statement that can express which version of CQL is supported  |
+| CQFMDevice | A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.  |
+| CQFMModelInfoLibrary | A library profile used to distribute model information libraries used in quality measurement.  |
+| CQFMModuleDefinitionLibrary | A library profile used to define and exchange effective data requirements and usage information for an artifact (or collection of artifacts) used in quality measurement.   |
+| CQFMTestCase | A measure report profile that allows definition and exchange of test cases for a measure.  |
+{: .grid }
+
+
 
 ## Alphabetical Listing
 
 - [Capability Statement](StructureDefinition-capability-statement-cqfm.html)
 - [Cohort Measure](StructureDefinition-cohort-measure-cqfm.html)
 - [Composite Measure](StructureDefinition-composite-measure-cqfm.html)
-- [Computable Library](StructureDefinition-computable-library-cqfm.html)
 - [Computable Measure](StructureDefinition-computable-measure-cqfm.html)
-- [Computable ValueSet](StructureDefinition-computable-valueset-cqfm.html)
 - [Continuous Variable Measure](StructureDefinition-cv-measure-cqfm.html)
 - [Device](StructureDefinition-device-softwaresystem-cqfm.html)
-- [Executable Library](StructureDefinition-executable-library-cqfm.html)
-- [Executable ValueSet](StructureDefinition-executable-valueset-cqfm.html)
-- [Library](StructureDefinition-library-cqfm.html)
-- [Measure](StructureDefinition-measure-cqfm.html)
 - [Measure Test Case](StructureDefinition-test-case-cqfm.html)
 - [Model Info Library](StructureDefinition-modelinfo-library-cqfm.html)
 - [Module Definition Library](StructureDefinition-module-definition-library-cqfm.html)
 - [Proportion Measure](StructureDefinition-proportion-measure-cqfm.html)
-- [Publishable CodeSystem](StructureDefinition-publishable-codesystem-cqfm.html)
-- [Publishable Library](StructureDefinition-publishable-library-cqfm.html)
 - [Publishable Measure](StructureDefinition-publishable-measure-cqfm.html)
-- [Publishable ValueSet](StructureDefinition-publishable-valueset-cqfm.html)
-- [Quality Program Specification](StructureDefinition-quality-program-cqfm.html)
 - [Ratio Measure](StructureDefinition-ratio-measure-cqfm.html)
-<div class="new-content" markdown="1">
-- [Shareable CodeSystem](StructureDefinition-shareable-codesystem-cqfm.html)
-</div>
-{: #shareable-codesystem}
+
+
+
