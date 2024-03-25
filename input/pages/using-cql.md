@@ -717,13 +717,14 @@ For measure development with FHIR, the following options are recommended:
 | EnableResultTypes                              | This instructs the translator to include inferred result types in the output ELM.                                                                                                             | This feature may be used with Measures.                                                                                                                                                                                                        |
 | EnableDetailedErrors                           | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors.                                                               | This feature should not be used with Measures.                                                                                                                                                                                                 |
 | DisableListTraversal                           | This instructs the translator to disallow traversal of list-valued expressions. With Measures, disabling this feature would prevent a useful capability.                                      | This feature should not be used with Measures.                                                                                                                                                                                                 |
-| <span class="bg-success">SignatureLevel</span> | <span class="bg-success">The SignatureLevel setting controls whether the `signature` element of a FunctionRef will be populated.</span>                                                       | <span class="bg-success">The SignatureLevel should be `Overloads` or `All` {} </span>                                                                                                                                                                                   |
+| SignatureLevel | The SignatureLevel setting controls whether the `signature` element of a FunctionRef will be populated. | The SignatureLevel should be `Overloads` or `All` {}                                  |
+
 
 #### Specifying Options
 
-<div class="new-content" markdown="1">
+
 This implementation guide defines the [cqlOptions](StructureDefinition-cqfm-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above, including SignatureLevel, SHOULD be used. When this extension is present on a [CQFComputableLibrary](StructureDefinition-computable-library-cqfm.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
-</div>
+
 **Conformance Requirement 4.22 (Translator Options):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-22)
 {: #conformance-requirement-4-22}
 
@@ -811,8 +812,7 @@ Because certain translator options impact language features and functionality, t
 **Conformance Requirement 4.23 (ELM Suitability):** [<img src="conformance.png" width="20" class="self-link" height="20"/>]
 {: #conformance-requirement-4-23}
 
-1. <div class="new-content" markdown="1">If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL be translated with a SignatureLevel other than `None` (recommend OVERLOADS)
-   
+1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL be translated with a SignatureLevel other than `None` (recommend OVERLOADS)  
 2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment SHALL be consistent with the compatibility level used to produce the ELM.
 3. If the ELM has a compatibility level set, it SHALL be consistent with the version of the translator used in the evaluation environment.
 4. The translator version used to produce the ELM SHOULD be consistent with the translator version used in the evaluation environment.
