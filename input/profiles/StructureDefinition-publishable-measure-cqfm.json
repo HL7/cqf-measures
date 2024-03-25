@@ -55,801 +55,760 @@
   "kind": "resource",
   "abstract": false,
   "type": "Measure",
-  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm",
+  "baseDefinition": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablemeasure",
   "derivation": "constraint",
-  "differential": {
-    "element": [
-      {
-        "id": "Measure",
-        "path": "Measure",
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.text",
-        "path": "Measure.text",
-        "requirements": "A published measure must provide human-readable narrative description of the measure contents.",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.extension:supplementalDataGuidance",
-        "path": "Measure.extension",
-        "sliceName": "supplementalDataGuidance",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier",
-        "path": "Measure.identifier",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "type"
-            }
-          ],
-          "rules": "open"
-        },
-        "requirements": "A published measure must be able to specify additional identifiers such as endorser and publisher identifiers for the measure.",
-        "min": 3,
-        "max": "*",
-        "type": [
-          {
-            "code": "Identifier"
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:versionIndependentIdentifier",
-        "path": "Measure.identifier",
-        "sliceName": "versionIndependentIdentifier",
-        "short": "Measure guid",
-        "definition": "The version-independent globally unique identifier for the measure (GUID).",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:versionIndependentIdentifier.use",
-        "path": "Measure.identifier.use",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "official",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:versionIndependentIdentifier.type",
-        "path": "Measure.identifier.type",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "patternCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
-              "code": "version-independent"
-            }
-          ]
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:versionIndependentIdentifier.system",
-        "path": "Measure.identifier.system",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "uri"
-          }
-        ],
-        "fixedUri": "urn:ietf:rfc:3986",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:versionIndependentIdentifier.value",
-        "path": "Measure.identifier.value",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:versionSpecificIdentifier",
-        "path": "Measure.identifier",
-        "sliceName": "versionSpecificIdentifier",
-        "short": "Measure version guid",
-        "definition": "The version-specific globally unique identifier for the measure (GUID).",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:versionSpecificIdentifier.use",
-        "path": "Measure.identifier.use",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "official",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:versionSpecificIdentifier.type",
-        "path": "Measure.identifier.type",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "patternCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
-              "code": "version-specific"
-            }
-          ]
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:versionSpecificIdentifier.system",
-        "path": "Measure.identifier.system",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "uri"
-          }
-        ],
-        "fixedUri": "urn:ietf:rfc:3986",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:versionSpecificIdentifier.value",
-        "path": "Measure.identifier.value",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:shortName",
-        "path": "Measure.identifier",
-        "sliceName": "shortName",
-        "short": "Short name",
-        "definition": "The short name for the measure (e.g. CMS104v4).",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:shortName.use",
-        "path": "Measure.identifier.use",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "usual",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:shortName.type",
-        "path": "Measure.identifier.type",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "patternCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
-              "code": "short-name"
-            }
-          ]
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:shortName.value",
-        "path": "Measure.identifier.value",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:endorserIdentifier",
-        "path": "Measure.identifier",
-        "sliceName": "endorserIdentifier",
-        "short": "Endorser identifier",
-        "definition": "An identifier assigned by the measure endorser.",
-        "min": 0,
-        "max": "*",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:endorserIdentifier.use",
-        "path": "Measure.identifier.use",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "official",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:endorserIdentifier.type",
-        "path": "Measure.identifier.type",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "patternCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
-              "code": "endorser"
-            }
-          ]
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:endorserIdentifier.system",
-        "path": "Measure.identifier.system",
-        "min": 0,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:endorserIdentifier.value",
-        "path": "Measure.identifier.value",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:endorserIdentifier.assigner",
-        "path": "Measure.identifier.assigner",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:publisherIdentifier",
-        "path": "Measure.identifier",
-        "sliceName": "publisherIdentifier",
-        "short": "Publisher identifier",
-        "definition": "An identifier assigned by the measure publisher.",
-        "min": 0,
-        "max": "*",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:publisherIdentifier.use",
-        "path": "Measure.identifier.use",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "official",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:publisherIdentifier.type",
-        "path": "Measure.identifier.type",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "patternCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/identifier-type",
-              "code": "publisher"
-            }
-          ]
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:publisherIdentifier.system",
-        "path": "Measure.identifier.system",
-        "min": 0,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:publisherIdentifier.value",
-        "path": "Measure.identifier.value",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.identifier:publisherIdentifier.assigner",
-        "path": "Measure.identifier.assigner",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.title",
-        "path": "Measure.title",
-        "requirements": "A published measure must specify a human-friendly title.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.status",
-        "path": "Measure.status",
-        "requirements": "A published measure must have a status of active.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "active",
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.date",
-        "path": "Measure.date",
-        "requirements": "A published measure must specify the date the measure content was last changed.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "dateTime"
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.publisher",
-        "path": "Measure.publisher",
-        "requirements": "A published measure must provide publisher information.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.contact",
-        "path": "Measure.contact",
-        "requirements": "A published measure must provide contact information for the publisher.",
-        "min": 1,
-        "max": "*",
-        "type": [
-          {
-            "code": "ContactDetail"
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.purpose",
-        "path": "Measure.purpose",
-        "definition": "Explanation of why this measure is needed and why it has been designed as it has.",
-        "requirements": "A published measure should provide a clear description of the purpose of the measure.",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.usage",
-        "path": "Measure.usage",
-        "short": "Allows measure developers to provide additional guidance so that implementers can more easily interpret and implement components of the measure.",
-        "requirements": "A published measure should provide clinical usage notes for the measure.",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.copyright",
-        "path": "Measure.copyright",
-        "requirements": "A published measure should provide copyright information for the measure content.",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.approvalDate",
-        "path": "Measure.approvalDate",
-        "requirements": "A published measure must indicate the date the measure content was approved by the publisher.",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.lastReviewDate",
-        "path": "Measure.lastReviewDate",
-        "requirements": "A published measure must indicate when the measure content was last reviewed.",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.effectivePeriod",
-        "path": "Measure.effectivePeriod",
-        "requirements": "A published measure should provide an indication of the period during which the measure content can be effectively applied.",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.effectivePeriod.extension:anchor",
-        "path": "Measure.effectivePeriod.extension",
-        "sliceName": "anchor",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.effectivePeriod.extension:duration",
-        "path": "Measure.effectivePeriod.extension",
-        "sliceName": "duration",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.topic",
-        "path": "Measure.topic",
-        "requirements": "A published measure should provide relevant topics for the measure content.",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.author",
-        "path": "Measure.author",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.editor",
-        "path": "Measure.editor",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.reviewer",
-        "path": "Measure.reviewer",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.endorser",
-        "path": "Measure.endorser",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.extension:improvementNotationGuidance",
-        "path": "Measure.extension",
-        "sliceName": "improvementNotationGuidance",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/cqf-improvementNotationGuidance"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.group.extension:improvementNotationGuidance",
-        "path": "Measure.group.extension",
-        "sliceName": "improvementNotationGuidance",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/cqf-improvementNotationGuidance"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.relatedArtifact",
-        "path": "Measure.relatedArtifact",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "type"
-            }
-          ],
-          "rules": "open"
-        },
-        "requirements": "A published measure should provide related information such as supporting evidence, citations, and documentation.",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.relatedArtifact:predecessor",
-        "path": "Measure.relatedArtifact",
-        "sliceName": "predecessor",
-        "short": "Previous measure?",
-        "definition": "Reference to a predecessor measure that this measure is replacing.",
-        "requirements": "A published measure should indicate which measure it is replacing, if any.",
-        "min": 0,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.relatedArtifact:predecessor.type",
-        "path": "Measure.relatedArtifact.type",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "predecessor",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.relatedArtifact:predecessor.resource",
-        "path": "Measure.relatedArtifact.resource",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "canonical",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Measure"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.relatedArtifact:citation",
-        "path": "Measure.relatedArtifact",
-        "sliceName": "citation",
-        "short": "Reference/citation",
-        "min": 0,
-        "max": "*",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.relatedArtifact:citation.extension:isPrimaryCitation",
-        "path": "Measure.relatedArtifact.extension",
-        "sliceName": "isPrimaryCitation",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation"
-            ]
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.relatedArtifact:citation.extension:publicationStatus",
-        "path": "Measure.relatedArtifact.extension",
-        "sliceName": "publicationStatus",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationStatus"
-            ]
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.relatedArtifact:citation.extension:publicationDate",
-        "path": "Measure.relatedArtifact.extension",
-        "sliceName": "publicationDate",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationDate"
-            ]
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.relatedArtifact:citation.type",
-        "path": "Measure.relatedArtifact.type",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "citation",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.relatedArtifact:derived-from",
-        "path": "Measure.relatedArtifact",
-        "sliceName": "derived-from",
-        "short": "URL or canonical reference to other resources that a measure is derived from",
-        "min": 0,
-        "max": "*",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.relatedArtifact:derived-from.type",
-        "path": "Measure.relatedArtifact.type",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "derived-from",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.relatedArtifact:derived-from.label",
-        "path": "Measure.relatedArtifact.label",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.relatedArtifact:derived-from.display",
-        "path": "Measure.relatedArtifact.display",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "string"
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.relatedArtifact:derived-from.url",
-        "path": "Measure.relatedArtifact.url",
-        "short": "Should be permalink otherwise include an \"accessed date\"",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "url"
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.relatedArtifact:derived-from.resource",
-        "path": "Measure.relatedArtifact.resource",
-        "short": "Should be permalink otherwise include an \"accessed date\"",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "canonical",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Measure"
-            ]
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.disclaimer",
-        "path": "Measure.disclaimer",
-        "requirements": "A published measure should provide legal disclaimer relating to the use of the measure content.",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.rationale",
-        "path": "Measure.rationale",
-        "definition": "Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence.",
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.definition",
-        "path": "Measure.definition",
-        "min": 0,
-        "max": "*",
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.definition.extension:definitionTerm",
-        "path": "Measure.definition.extension",
-        "sliceName": "definitionTerm",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-definitionTerm"
-            ]
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Measure.guidance",
-        "path": "Measure.guidance",
-        "min": 0,
-        "max": "0",
-        "mustSupport": false
+  "differential" : {
+    "element" : [{
+      "id" : "Measure",
+      "path" : "Measure",
+      "constraint" : [{
+        "key" : "pmp-0",
+        "severity" : "error",
+        "human" : "The tail (meaning everything after the last slash in the URL) of the canonical URL of the Measure resource SHALL match the name of the Measure",
+        "expression" : "url.repeat(substring(indexOf('/')+1,length())).last() = id"
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.text",
+      "path" : "Measure.text",
+      "requirements" : "A published measure must provide human-readable narrative description of the measure contents.",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.extension:supplementalDataGuidance",
+      "path" : "Measure.extension",
+      "sliceName" : "supplementalDataGuidance",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.extension:comment",
+      "path" : "Measure.extension",
+      "sliceName" : "comment",
+      "short" : "Additional documentation, review, or usage guidance",
+      "definition" : "A comment containing additional documentation, a review comment, usage guidance, or other relevant information from a particular user.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment"]
+      }],
+      "mustSupport" : true,
+      "isModifier" : false
+    },
+    {
+      "id" : "Measure.extension:softwaresystem",
+      "path" : "Measure.extension",
+      "sliceName" : "softwaresystem",
+      "short" : "Extension",
+      "definition" : "Specifies the software systems used in the packaging and testing of measure and library resources. Specifically to know which version of what software was used.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DomainResource.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem"]
+      }],
+      "mustSupport" : true,
+      "isModifier" : false
+    },
+    {
+      "id" : "Measure.extension:improvementNotationGuidance",
+      "path" : "Measure.extension",
+      "sliceName" : "improvementNotationGuidance",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier",
+      "path" : "Measure.identifier",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "type"
+        }],
+        "rules" : "open"
+      },
+      "requirements" : "A published measure must be able to specify additional identifiers such as endorser and publisher identifiers for the measure.",
+      "min" : 3,
+      "max" : "*",
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:versionIndependentIdentifier",
+      "path" : "Measure.identifier",
+      "sliceName" : "versionIndependentIdentifier",
+      "short" : "Measure guid",
+      "definition" : "The version-independent globally unique identifier for the measure (GUID).",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:versionIndependentIdentifier.use",
+      "path" : "Measure.identifier.use",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "official",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:versionIndependentIdentifier.type",
+      "path" : "Measure.identifier.type",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/artifact-identifier-type",
+          "code" : "version-independent"
+        }]
+      },
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:versionIndependentIdentifier.system",
+      "path" : "Measure.identifier.system",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "urn:ietf:rfc:3986",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:versionIndependentIdentifier.value",
+      "path" : "Measure.identifier.value",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:versionSpecificIdentifier",
+      "path" : "Measure.identifier",
+      "sliceName" : "versionSpecificIdentifier",
+      "short" : "Measure version guid",
+      "definition" : "The version-specific globally unique identifier for the measure (GUID).",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:versionSpecificIdentifier.use",
+      "path" : "Measure.identifier.use",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "official",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:versionSpecificIdentifier.type",
+      "path" : "Measure.identifier.type",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/artifact-identifier-type",
+          "code" : "version-specific"
+        }]
+      },
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:versionSpecificIdentifier.system",
+      "path" : "Measure.identifier.system",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "urn:ietf:rfc:3986",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:versionSpecificIdentifier.value",
+      "path" : "Measure.identifier.value",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:shortName",
+      "path" : "Measure.identifier",
+      "sliceName" : "shortName",
+      "short" : "Short name",
+      "definition" : "The short name for the measure (e.g. CMS104v4).",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:shortName.use",
+      "path" : "Measure.identifier.use",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "usual",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:shortName.type",
+      "path" : "Measure.identifier.type",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/artifact-identifier-type",
+          "code" : "short-name"
+        }]
+      },
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:shortName.value",
+      "path" : "Measure.identifier.value",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:endorserIdentifier",
+      "path" : "Measure.identifier",
+      "sliceName" : "endorserIdentifier",
+      "short" : "Endorser identifier",
+      "definition" : "An identifier assigned by the measure endorser.",
+      "min" : 0,
+      "max" : "*",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:endorserIdentifier.use",
+      "path" : "Measure.identifier.use",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "official",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:endorserIdentifier.type",
+      "path" : "Measure.identifier.type",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/artifact-identifier-type",
+          "code" : "endorser"
+        }]
+      },
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:endorserIdentifier.system",
+      "path" : "Measure.identifier.system",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:endorserIdentifier.value",
+      "path" : "Measure.identifier.value",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:endorserIdentifier.assigner",
+      "path" : "Measure.identifier.assigner",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:publisherIdentifier",
+      "path" : "Measure.identifier",
+      "sliceName" : "publisherIdentifier",
+      "short" : "Publisher identifier",
+      "definition" : "An identifier assigned by the measure publisher.",
+      "min" : 0,
+      "max" : "*",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:publisherIdentifier.use",
+      "path" : "Measure.identifier.use",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "official",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:publisherIdentifier.type",
+      "path" : "Measure.identifier.type",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/artifact-identifier-type",
+          "code" : "publisher"
+        }]
+      },
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:publisherIdentifier.system",
+      "path" : "Measure.identifier.system",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:publisherIdentifier.value",
+      "path" : "Measure.identifier.value",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.identifier:publisherIdentifier.assigner",
+      "path" : "Measure.identifier.assigner",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.title",
+      "path" : "Measure.title",
+      "requirements" : "A published measure must specify a human-friendly title.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.status",
+      "path" : "Measure.status",
+      "requirements" : "A published measure must have a status of active.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "active",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.date",
+      "path" : "Measure.date",
+      "requirements" : "A published measure must specify the date the measure content was last changed.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.publisher",
+      "path" : "Measure.publisher",
+      "requirements" : "A published measure must provide publisher information.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.contact",
+      "path" : "Measure.contact",
+      "requirements" : "A published measure must provide contact information for the publisher.",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "ContactDetail"
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.purpose",
+      "path" : "Measure.purpose",
+      "definition" : "Explanation of why this measure is needed and why it has been designed as it has.",
+      "requirements" : "A published measure should provide a clear description of the purpose of the measure.",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.usage",
+      "path" : "Measure.usage",
+      "short" : "Allows measure developers to provide additional guidance so that implementers can more easily interpret and implement components of the measure.",
+      "requirements" : "A published measure should provide clinical usage notes for the measure.",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.copyright",
+      "path" : "Measure.copyright",
+      "requirements" : "A published measure should provide copyright information for the measure content.",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.approvalDate",
+      "path" : "Measure.approvalDate",
+      "requirements" : "A published measure must indicate the date the measure content was approved by the publisher.",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.lastReviewDate",
+      "path" : "Measure.lastReviewDate",
+      "requirements" : "A published measure must indicate when the measure content was last reviewed.",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.effectivePeriod",
+      "path" : "Measure.effectivePeriod",
+      "requirements" : "A published measure should provide an indication of the period during which the measure content can be effectively applied.",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.effectivePeriod.extension:anchor",
+      "path" : "Measure.effectivePeriod.extension",
+      "sliceName" : "anchor",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.effectivePeriod.extension:duration",
+      "path" : "Measure.effectivePeriod.extension",
+      "sliceName" : "duration",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.topic",
+      "path" : "Measure.topic",
+      "requirements" : "A published measure should provide relevant topics for the measure content.",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.author",
+      "path" : "Measure.author",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.editor",
+      "path" : "Measure.editor",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.reviewer",
+      "path" : "Measure.reviewer",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.endorser",
+      "path" : "Measure.endorser",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact",
+      "path" : "Measure.relatedArtifact",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "type"
+        }],
+        "rules" : "open"
+      },
+      "requirements" : "A published measure should provide related information such as supporting evidence, citations, and documentation.",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact:predecessor",
+      "path" : "Measure.relatedArtifact",
+      "sliceName" : "predecessor",
+      "short" : "Previous measure?",
+      "definition" : "Reference to a predecessor measure that this measure is replacing.",
+      "requirements" : "A published measure should indicate which measure it is replacing, if any.",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact:predecessor.type",
+      "path" : "Measure.relatedArtifact.type",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "predecessor",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact:predecessor.resource",
+      "path" : "Measure.relatedArtifact.resource",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "canonical",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Measure"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact:citation",
+      "path" : "Measure.relatedArtifact",
+      "sliceName" : "citation",
+      "short" : "Reference/citation",
+      "min" : 0,
+      "max" : "*",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact:citation.extension:isPrimaryCitation",
+      "path" : "Measure.relatedArtifact.extension",
+      "sliceName" : "isPrimaryCitation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isPrimaryCitation"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.relatedArtifact:citation.extension:publicationStatus",
+      "path" : "Measure.relatedArtifact.extension",
+      "sliceName" : "publicationStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationStatus"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.relatedArtifact:citation.extension:publicationDate",
+      "path" : "Measure.relatedArtifact.extension",
+      "sliceName" : "publicationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-publicationDate"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.relatedArtifact:citation.type",
+      "path" : "Measure.relatedArtifact.type",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "citation",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact:derived-from",
+      "path" : "Measure.relatedArtifact",
+      "sliceName" : "derived-from",
+      "short" : "URL or canonical reference to other resources that a measure is derived from",
+      "min" : 0,
+      "max" : "*",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact:derived-from.type",
+      "path" : "Measure.relatedArtifact.type",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "derived-from",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact:derived-from.label",
+      "path" : "Measure.relatedArtifact.label",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.relatedArtifact:derived-from.display",
+      "path" : "Measure.relatedArtifact.display",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Measure.relatedArtifact:derived-from.url",
+      "path" : "Measure.relatedArtifact.url",
+      "short" : "Should be permalink otherwise include an \"accessed date\"",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "url"
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.relatedArtifact:derived-from.resource",
+      "path" : "Measure.relatedArtifact.resource",
+      "short" : "Should be permalink otherwise include an \"accessed date\"",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "canonical",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Measure"]
+      }]
+    },
+    {
+      "id" : "Measure.disclaimer",
+      "path" : "Measure.disclaimer",
+      "requirements" : "A published measure should provide legal disclaimer relating to the use of the measure content.",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.type",
+      "path" : "Measure.type",
+      "short" : "process | outcome | structure | patient-reported-outcome | composite",
+      "definition" : "Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization.",
+      "requirements" : "A measure must indicate the type of the measure.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Measure.type",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "mustSupport" : true,
+      "isModifier" : false,
+      "isSummary" : true,
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/measure-type"
       }
-
-    ]
+    },
+    {
+      "id" : "Measure.rationale",
+      "path" : "Measure.rationale",
+      "definition" : "Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence.",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.definition",
+      "path" : "Measure.definition",
+      "min" : 0,
+      "max" : "*",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.definition.extension:definitionTerm",
+      "path" : "Measure.definition.extension",
+      "sliceName" : "definitionTerm",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-definitionTerm"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.guidance",
+      "path" : "Measure.guidance",
+      "min" : 0,
+      "max" : "0",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Measure.group.extension:improvementNotationGuidance",
+      "path" : "Measure.group.extension",
+      "sliceName" : "improvementNotationGuidance",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation"]
+      }],
+      "mustSupport" : true
+    }]
   }
 }
