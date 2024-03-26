@@ -61,19 +61,22 @@ page in the menu bar:
 -  **[Composites](composite-measures.html)**: This page covers composite measure representation and conformance requirements
 -  **[Packaging](packaging.html)**: This page describes measure packaging and distribution requirements for QMs
 Measures IG
--  **[Profiles](profiles.html)**: This page lists the set of profiles defined for use by QMs
--  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by QMs
--  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
--  **[Capabilities](capabilities.html)**: This page defines the workflows and roles for QMs and contains the capability statements
+
+- FHIR Artifacts
+  -  **[Profiles](profiles.html)**: This page lists the set of profiles defined for use by QMs
+  -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by QMs
+  -  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
+  -  **[Capabilities](capabilities.html)**: This page defines the workflows and roles for QMs and contains the capability statements
 <div class="new-content" markdown="1">
 
--  **[Operations](operations.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
+  - **[Operations](operations.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
 </div>
+
+  -  **[Artifacts Summary](artifacts.html)**: This page defines the workflows and roles for QMs and contains the capability statements
 
 -  **[Examples](examples.html)**: This page provides examples used in the other pages, as well as by the Data Exchange for Quality
 -  **[Glossary](glossary.html)** This page defines terms related to quality measurement.
 -  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.
--  **[Acknowledgements](acknowledgements.html)**: The thoughtful people and organizations this Implementation Guide was made possible by.
 -  **[Changes](changes.html)**: This page details changes made in each version of the Quality Measure IG
 
 ### Background
