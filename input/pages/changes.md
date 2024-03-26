@@ -34,6 +34,11 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Created an improvementNotationGuidance extension in the FHIR extensions pack and added to Publishable Measure at root and group level. ([FHIR-43463](https://jira.hl7.org/browse/FHIR-43463))([Applied here](https://hl7.org/fhir/us/cqfmeasures/StructureDefinition-publishable-measure-cqfm.html))
 * **Applied**: Minor edits to list items in 'How to read this guide' ([FHIR-44118](https://jira.hl7.org/browse/FHIR-44118))([Applied here](index.html))
 * **Applied**: Corrected broken links ([FHIR-43620](https://jira.hl7.org/browse/FHIR-43620))([Applied here](index.html)), and ([here](using-cql.html))
+* **Applied**: Updated CQL version references from 1.4 to 1.5.2 introduction, measure-conformance and using-cql pages  ([FHIR-43635](https://jira.hl7.org/browse/FHIR-43635))([Applied here](https://hl7.org/fhir/us/cqfmeasures/introduction.html)), ([here](measure-conformance.html)), and ([here](using-cql.html))
+* **Applied**: Removed reference to QUICK  ([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594))([Applied here](introduction.html))
+* **Applied**: Updated QI-core version reference from STU5 to STU6 ([FHIR-43771](https://jira.hl7.org/browse/FHIR-43771))([Applied here](introduction.html))
+* **Applied**: Updated CQL-base HQMF IF R1 version reference from STU4 to STU4.1 ([FHIR-43637](https://jira.hl7.org/browse/FHIR-43637))([Applied here](introduction.html))
+* **Applied**: Updated paragraph in Scope section regarding Member Attribution (ATR) Lists  ([FHIR-43636](https://jira.hl7.org/browse/FHIR-43636))([Applied here](introduction.html))
 * **Applied**: Updated tables in composite measure page for clarity ([FHIR-43714](https://jira.hl7.org/browse/FHIR-43714))([Applied here](composite-measures.html#all-or-nothing-scoring) and subsequent sections))
 * **Applied**: Added table to composite measure page for describing linear scoring vs. opportunity scoring ([FHIR-43715](https://jira.hl7.org/browse/FHIR-43715)) ([Applied here](composite-measures.html#subject-level-linear-combination-scoring))
 
