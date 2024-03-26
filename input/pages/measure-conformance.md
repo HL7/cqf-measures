@@ -45,7 +45,7 @@ The rest of this section describes some of the more important components to the 
 #### Related Documents
 {: #related-documents}
 
-[Clinical Quality Language R1.4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) can be used in conjunction with the FHIR Measure resource to construct CQL-based quality measures. CQL is a domain specific language used in the Clinical Quality Measurement and Clinical Decision Support domains. Measures written in CQL leverage the expressivity and computability of CQL to define the population criteria used in the QM.
+[Clinical Quality Language R1.5.2](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) can be used in conjunction with the FHIR Measure resource to construct CQL-based quality measures. CQL is a domain specific language used in the Clinical Quality Measurement and Clinical Decision Support domains. Measures written in CQL leverage the expressivity and computability of CQL to define the population criteria used in the QM.
 
 Any included CQL library must contain a library declaration line as its first line as in Snippet 3-2.
 
@@ -762,6 +762,7 @@ For each scoring type, the set of applicable criteria are specified in the [Qual
 | Cohort               |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |         NP          |              NP              |
 {: .grid}
 
+NOTE: Composite measures are not represented in this table as they are made up of component measures.  The component measures in the composite will be expected to conform to the information in this table.
 
 R=Required. O=Optional. NP=Not Permitted.
 
