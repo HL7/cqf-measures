@@ -762,6 +762,7 @@ For each scoring type, the set of applicable criteria are specified in the [Qual
 | Cohort               |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |         NP          |              NP              |
 {: .grid}
 
+NOTE: Composite measures are not represented in this table as they are made up of component measures.  The component measures in the composite will be expected to conform to the information in this table.
 
 R=Required. O=Optional. NP=Not Permitted.
 
