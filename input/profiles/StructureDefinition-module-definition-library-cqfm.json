@@ -64,57 +64,7 @@
         "path": "Library",
         "mustSupport": false
       },
-      {
-        "id": "Library.extension:directReferenceCode",
-        "path": "Library.extension",
-        "sliceName": "directReferenceCode",
-        "requirements": "A module definition library must describe the direct-reference codes it uses.",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Library.extension:logicDefintion",
-        "path": "Library.extension",
-        "sliceName": "logicDefinition",
-        "requirements": "A module definition library must specify all the definitions used by the measure.",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Library.extension:inputParameters",
-        "path": "Library.extension",
-        "sliceName": "inputParameters",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
+       {
         "id": "Library.type",
         "path": "Library.type",
         "min": 1,
@@ -155,76 +105,10 @@
         "mustSupport": true
       },
       {
-        "id": "Library.parameter.extension:defaultValue",
-        "path": "Library.parameter.extension",
-        "sliceName": "defaultValue",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-defaultValue"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
         "id": "Library.dataRequirement",
         "path": "Library.dataRequirement",
         "requirements": "A module definition library must declare any data requirements.",
         "mustSupport": true
-      },
-      {
-        "id": "Library.dataRequirement.extension:isSelective",
-        "path": "Library.dataRequirement.extension",
-        "sliceName": "isSelective",
-        "short": "specifies whether a given DataRequirement is \"selective\"",
-        "definition": "specifies whether a given DataRequirement is \"selective\", meaning that it can be used, along with other selective requirements, to determine whether an artifact is applicable to a particular subject.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isSelective"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Library.dataRequirement.extension:valueFilter",
-        "path": "Library.dataRequirement.extension",
-        "sliceName": "valueFilter",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-valueFilter"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Library.dataRequirement.extension:fhirQueryPattern",
-        "path": "Library.dataRequirement.extension",
-        "sliceName": "fhirQueryPattern",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern"
-            ]
-          }
-        ],
-        "mustSupport": false
       },
       {
         "id": "Library.content",

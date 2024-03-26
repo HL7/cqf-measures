@@ -505,7 +505,7 @@ Measures using valueset and/or direct-reference codes must conform to the requir
   b. The resource element of the relatedArtifact SHALL be the canonical URL of the referenced value set.<br/>
   c. If the library valueset declaration includes a version, the canonical URL SHALL include the version specified in the declaration using canonical URL version syntax (i.e. `|version`) <br/>
   d. The display element of the relatedArtifact SHALL be the identifier of the valueset declaration
-2. All direct-reference codes referenced in the CQL SHALL be included using the cqfm-directReferenceCode extension: <br/>
+2. All direct-reference codes referenced in the CQL SHALL be included using the cqf-directReferenceCode extension: <br/>
   a. The code and system elements of the Coding SHALL be set to the code and system of the declaration <br/>
   b. If the code declaration includes a display, it SHALL be used as the display of the Coding, otherwise, the identifier of the code declaration SHALL be used as the display
 
