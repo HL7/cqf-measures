@@ -53,9 +53,7 @@ The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this doc
 
 ### Previous Non-FHIR quality measurement standards [Example: HL7 v3 Based Standards]
 {: #background}
-
-This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/fhir/clinicalreasoning-module.html), as well as the [CQL-Based HQMF IG R1 STU4.1](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=405).
-
+This Implementation Guide (IG) defines an approach to using CQL with the FHIR Measure and Library resources for specifying quality measures. <span class="bg-success">The guidance here is drawn from the [FHIR Clinical Reasoning Module](http://www.hl7.org/fhir/clinicalreasoning-module.html), </span>as well as the [CQL-Based HQMF IG R1 STU4.1](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=405).
 This Implementation Guide (Figure 2-1(b)) is the successor of the CQL-based HQMF IG R1 STU4.1 (Figure 2-1(a)).
 
 <details open>
