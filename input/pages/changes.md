@@ -6,6 +6,7 @@
 This page details changes made in each version of the Quality Measure IG
 
 ### STU5 Ballot2 for FHIR R4 (v5.0.0-ballot2)
+* **Applied**: Remove code "ep-ec" from Quality Programs value set	([FHIR-43323](https://jira.hl7.org/browse/FHIR-43323)) Applied ([here](codesystem-quality-programs-example.html))
 * **Applied**: Created an improvementNotationGuidance extension in the FHIR extensions pack and added to Publishable Measure at root and group level. ([FHIR-43463](https://jira.hl7.org/browse/FHIR-43463))([Applied here](https://hl7.org/fhir/us/cqfmeasures/StructureDefinition-publishable-measure-cqfm.html))
 * **Applied**: Removed reference to QUICK  ([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594))([Applied here](introduction.html))
 * **Applied**: Corrected broken links ([FHIR-43620](https://jira.hl7.org/browse/FHIR-43620))([Applied here](index.html)), and ([here](using-cql.html))
@@ -25,9 +26,8 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Minor edits to list items in 'How to read this guide' ([FHIR-44118](https://jira.hl7.org/browse/FHIR-44118))([Applied here](index.html))
 * **Applied**: Updated the text and image in data model standard landscape section to remove DEQM and HEDIS and replaced with Measure Content IG ([FHIR-44530](https://jira.hl7.org/browse/FHIR-44530))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#data-model-standards-landscape))
 
-* **Applied**: Remove code "ep-ec" from Quality Programs value set	([FHIR-43323](https://jira.hl7.org/browse/FHIR-43323))
 * **Applied**: Change Request - ImprovementNotation	([FHIR-43463](https://jira.hl7.org/browse/FHIR-43323))
-* **Applied**: Remove QUICK reference	([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594))
+* **Applied**: Remove QUICK reference	([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594)) Applied ([here](introduction.html#cql-based-hqmf-ig-r1-stu4.1))
 * **Applied**: Broken links	([FHIR-43620](https://jira.hl7.org/browse/FHIR-43620))
 * **Applied**: Misspells, Typos and Duplicates	([FHIR-43621](https://jira.hl7.org/browse/FHIR-43621))
 * **Applied**: Three possible changes	([FHIR-43622](https://jira.hl7.org/browse/FHIR-43622))
