@@ -94,6 +94,7 @@ These changes will be published as part of the STU3 release (v3.0.0)
 
 ### Compatible, Substantive Changes
 
+* [**FHIR-43969**](https://jira.hl7.org/browse/FHIR-43969): Removed serveral CQFM extension definitions in favor of referencing equivalent CQF extensions in FHIR extension registry
 * [**FHIR-36304**](https://jira.hl7.org/browse/FHIR-36304): Added CQFMExecutableMeasure profile to separate computable/executable concerns of a measure
 * [**FHIR-34290**](https://jira.hl7.org/browse/FHIR-34290): Added capabilities to the measure terminology service to align with publishing terminology service capabilities
 * [**FHIR-33970**](https://jira.hl7.org/browse/FHIR-33970): Added searching by useContext
