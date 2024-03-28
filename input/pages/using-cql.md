@@ -129,7 +129,6 @@ In addition, please consider the following conformance statement:
 
 1. Content conforming to this implementation guide SHALL use at least the [CQFMLibrary](StructureDefinition-library-cqfm.html), [CQLLibrary](https://build.fhir.org/cqllibrary.html), and [CRMIShareableLibrary](https://build.fhir.org/ig/HL7/crmi-ig/StructureDefinition-crmi-shareablelibrary.html) profile for Library resources. If the library is active and published, conform to [CRMIPublishableLibrary](https://build.fhir.org/ig/HL7/crmi-ig/StructureDefinition-crmi-publishablelibrary.html).
 
-
 #### FHIR Type Mapping
 {: #fhir-type-mapping}
 
