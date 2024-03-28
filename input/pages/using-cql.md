@@ -482,7 +482,7 @@ define "Antithrombotic Not Administered":
 In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
 value set. To report Antithrombotic Therapy Not Administered, this is done by referencing the URI of the "Antithrombotic
-Therapy" value set using the [value set extension](https://www.hl7.org/fhir/R4/extension-valueset-reference.html)  to indicate
+Therapy" value set using the <span class="bg-success">[value set extension](https://www.hl7.org/fhir/R4/extension-valueset-reference.html) </span> to indicate
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
 set URI to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
 not forced to having to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they

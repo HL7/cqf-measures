@@ -27,8 +27,8 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Updated the text and image in data model standard landscape section to remove DEQM and HEDIS and replaced with Measure Content IG ([FHIR-44530](https://jira.hl7.org/browse/FHIR-44530))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#data-model-standards-landscape))
 
 * **Applied**: Change Request - ImprovementNotation	([FHIR-43463](https://jira.hl7.org/browse/FHIR-43323))
-* **Applied**: Remove QUICK reference	([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594)) Applied ([here](introduction.html#cql-based-hqmf-ig-r1-stu4.1))
-* **Applied**: Broken links	([FHIR-43620](https://jira.hl7.org/browse/FHIR-43620))
+* **Applied**: Remove QUICK reference	([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594)) Applied ([here](introduction.html#hqmf))
+* **Applied**: Broken links	([FHIR-43620](https://jira.hl7.org/browse/FHIR-43620)) Applied ([here](using-cql.html#negation-rationale)) and ([here](index.html))
 * **Applied**: Misspells, Typos and Duplicates	([FHIR-43621](https://jira.hl7.org/browse/FHIR-43621))
 * **Applied**: Three possible changes	([FHIR-43622](https://jira.hl7.org/browse/FHIR-43622))
 * **Applied**: Update description about the Capabilities page	([FHIR-43628](https://jira.hl7.org/browse/FHIR-43628))
