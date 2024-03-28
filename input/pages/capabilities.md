@@ -30,7 +30,7 @@ This implementation guide defines capability statements, use cases, and conforma
 
 Use cases depicted in this IG are expected to use a terminology service conformant with the [Artifact Terminology Service Capabilities as defined in CRMI.](http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-artifact-terminology-service)
 
-In addition, the following example capability statement illustrates the use of the [cqfm-supportedCqlVersion](http://hl7.org/fhir/uv/cql/StructureDefinition/cql-capabilitystatement) extension to support advertising the version of CQL supported by the service:
+In addition, the following example capability statement illustrates the use of the [cqf-supportedCqlVersion](http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion) extension to support advertising the version of CQL supported by the service:
 
 * [**Example Measure Calculation Service**](CapabilityStatement-measure-calculation-service-example.html)
 

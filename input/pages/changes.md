@@ -34,6 +34,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Created an improvementNotationGuidance extension in the FHIR extensions pack and added to Publishable Measure at root and group level. ([FHIR-43463](https://jira.hl7.org/browse/FHIR-43463))([Applied here](StructureDefinition-publishable-measure-cqfm.html))
 * **Applied**: Updated tables in composite measure page for clarity ([FHIR-43714](https://jira.hl7.org/browse/FHIR-43714))([Applied here](composite-measures.html#all-or-nothing-scoring) and subsequent sections))
 * **Applied**: Added table to composite measure page for describing linear scoring vs. opportunity scoring ([FHIR-43715](https://jira.hl7.org/browse/FHIR-43715)) ([Applied here](composite-measures.html#subject-level-linear-combination-scoring))
+* **Applied**: Removed serveral CQFM extension definitions in favor of referencing equivalent CQF extensions in FHIR extension registry ([FHIR-43969](https://jira.hl7.org/browse/FHIR-43969)) (Applied throughout)
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
