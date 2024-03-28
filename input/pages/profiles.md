@@ -14,21 +14,17 @@ Measure profiles supported in this IG are defined to allow for use independently
 
 {% include img.html img="QM_IG_Profile_Diagram.jpg" %}
 
-| **Legend** | **Public Conformance** | **Example Use Cases** |
+| **Legend** | **Profile Conformance** | **Example Use Cases** |
 |----|----|----|
-| S | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html)  |   | 
-| C | [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)    |   | 
-| P | [CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html)  |   | 
-| E | [CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |   | 
-| SC | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)  |   | 
-| CP | [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html) <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html)  |   | 
-| CE | [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |   | 
-| PE | [CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |   | 
-| SCE | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html) |   | 
-| SCP | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html) |   | 
-| CPE | [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html)  <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |   | 
-| SEP | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html) |   | 
-| SCPE | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html)  <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |   | 
+| SCPE | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html)  <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  |  Shareable, computable, executable and publishable measures would be fully published measures to support environments that are able to compile CQL or process ELM.    | 
+| SEP | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html) | Shareable, executable and publishable measures might be fully published measures expected to be used in environments that can process ELM.   |
+| SCP | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)  <br>[CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html) | Shareable, computable and publishable measures might be fully published measures expected to be used in environments that can compile CQL.     | 
+| SCE | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) <br>[CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html) |  Shareable, computable and executable measures might be draft measures shared to environments that can either compile CQL or process ELM for testing and providing feedback on its use.   | 
+| CE | [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html) <br>[CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  | Measures that conform to computable measure and executable measure are generally intended to support measure content in contained environments that can either compile CQL or process ELM. Conforming to these two profiles supports both types of environments.  | 
+| Shareable | [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html)  |  The shareable measure profile is generally intended to support a draft measure concept that does not have all associated meta data defined but can be shared for comment.  | 
+| Computable | [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html)    |  The computable measure profile is generally intended to support measure content in a contained environment that is able to compile CQL but cannot process ELM.   |
+| Executable | [CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html)  | The executable measure profile is generally intended to support measure content in a contained environment that is capable of processing ELM but cannot compile CQL.    | 
+| Publishable | [CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html)  |  The publishable measure profile is generally intended to be used in combination with other profiles, most notably shareable measure. It is used to support the addition of elements necessary for formal publication of a specification.   | 
 {: .grid }
 
 In addition to conforming to profiles to support appropriate function or representation, measures are required to conform to the appropriate measure profile based on their scoring type:
@@ -60,7 +56,7 @@ In addition to conforming to profiles to support appropriate function or represe
 | **Artifact** | **Shareable** | **Computable** | **Publishable** | **Executable** |
 |----|----|----|----|----|
 | CodeSystem | [CRMIShareableCodeSystem]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablecodesystem.html) | N/A (no requirements) | [CRMIPublishableCodeSytems]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablecodesystem.html) | N/A (no requirements) |
-| ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMISComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMISExecutableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-executablevalueset.html) |
+| ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMIComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMIExecutableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-executablevalueset.html) |
 {: .grid }
 
 * Due to varying code system capabilities, measure profiles are not restricted to use corresponding terminology profiles. 
@@ -72,10 +68,7 @@ To support packaging, testing, and distribution of measure and library artifacts
 
 | **Profile** | **Description** | 
 |----|----|
-| CQFMCapabilityStatement | A system capability statement that can express which version of CQL is supported  |
 | CQFMDevice | A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.  |
-| CQFMModelInfoLibrary | A library profile used to distribute model information libraries used in quality measurement.  |
-| CQFMModuleDefinitionLibrary | A library profile used to define and exchange effective data requirements and usage information for an artifact (or collection of artifacts) used in quality measurement.   |
 | CQFMTestCase | A measure report profile that allows definition and exchange of test cases for a measure.  |
 {: .grid }
 

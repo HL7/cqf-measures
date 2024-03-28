@@ -46,6 +46,11 @@
     <packageId value="hl7.terminology"/>
     <version value="5.5.0"/>
   </dependsOn>
+  <dependsOn id="extensions">
+    <uri value="http://hl7.org/fhir/uv/cql/ImplementationGuide/hl7.fhir.uv.extensions"/>
+     <packageId value="hl7.fhir.uv.extensions"/>
+     <version value="5.1.0-ballot1"/>
+  </dependsOn>
 
   <dependsOn id="crmi">
     <uri value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi"/>
