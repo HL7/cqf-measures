@@ -45,7 +45,7 @@ The rest of this section describes some of the more important components to the 
 #### Related Documents
 {: #related-documents}
 
-[Clinical Quality Language R1.4](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) can be used in conjunction with the FHIR Measure resource to construct CQL-based quality measures. CQL is a domain specific language used in the Clinical Quality Measurement and Clinical Decision Support domains. Measures written in CQL leverage the expressivity and computability of CQL to define the population criteria used in the QM.
+[Clinical Quality Language R1.5.2](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400) can be used in conjunction with the FHIR Measure resource to construct CQL-based quality measures. CQL is a domain specific language used in the Clinical Quality Measurement and Clinical Decision Support domains. Measures written in CQL leverage the expressivity and computability of CQL to define the population criteria used in the QM.
 
 Any included CQL library must contain a library declaration line as its first line as in Snippet 3-2.
 
@@ -368,13 +368,13 @@ Inclusion of CQL libraries within the FHIR-based QM framework must conform to [C
 
 CQL defines both a human-readable text representation and a machine-oriented representation called the Expression Logical Model (ELM), which can be represented using XML or JSON. The human-readable text representation is optimized for authoring while the ELM representation offers a canonical, simplified representation that is easier to implement in software. Any CQL expression can be directly translated to its ELM equivalent. Measure authors do not work with ELM directly; rather authoring tools convert CQL to the ELM representation for distribution.
 
-Both CQL and ELM representations may be included in the Library resource depending on the requirements of the appropriate profile. It can follow the approach of supporting human readability (in this case, the high-level CQL syntax) and a canonical representation for machine processing (in this case, CQL’s Expression Logical Model (ELM)). This approach facilitates human review of measure logic via CQL and implementation of that logic in tools via ELM.
+Both CQL and ELM representations may be included in the Library resource depending on the requirements of the appropriate profile. It can follow the approach of supporting human readability (in this case, the high-level CQL syntax) and a canonical representation for machine processing (in this case, CQL’s Expression Logical Model (ELM)). This approach facilitates human review of measure logic via CQL and implementation of that logic in tools via ELM. For implementations unable to compile CQL, ELM representations should be included.
 
 **Conformance Requirement 3.2 (Referencing ELM Documents):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-2)
 {: #conformance-requirement-3-2}
 1. CQFMLibraries SHOULD include a content element with the ELM in either XML or JSON format
 2. CQFMLibraries SHALL specify ELM content as a base-64-encoded string in the content sub-element as content.data
-3. An ELM translation SHOULD be provided, in either XML or JSON format.
+3. To support implementations that cannot compile CQL, an ELM translation SHOULD be provided, in either XML or JSON format.
 4. For executable environments, an ELM translation SHALL be provided, in either XML or JSON format.
 5. The XML representation of the ELM SHALL have a mediaType attribute
 value of `application/elm+xml`
@@ -555,13 +555,16 @@ Section 3.3.1 describes a means for deriving data requirements from CQL data ref
 
 The canonical representation of ELM makes it straightforward to derive data requirements for CQL data references to comply with Conformance Requirement 3.6:
 
-**Conformance Requirement 3.6** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-6)
-{: #conformance-requirement-3-6}
-1. ELM elements with type "Retrieve" are represented using the DataRequirement type defined in FHIR
-2. The Retrieve ELM element's "dataType" value is represented by the DataRequirement's "type" attribute
-3. The Retrieve ELM element's "codes" value referencing a value set or direct-reference code is represented by the DataRequirement's "codeFilter.valueSet" attribute
-4. The Retrieve ELM element's "templateId" value can be represented by the DataRequirement's "profile" attribute.
-5. For each ELM element identified in item (1) above, a dataRequirement should be included using the profile identified in item (4) that references the value set identified in item (3)
+
+**Conformance Requirement 3.6** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-6) 
+
+1. Systems SHOULD populate dataRequirements for each ELM Retrieve element. Each dataRequirement:
+  - SHALL have a “type” element representing the type of the retrieve
+  - SHALL have a profile element with the value of the templateId attribute of the retrieve, if present
+  - If the Retrieve element has a "codes" element referencing a ValueSet, the dataRequirement SHALL have a codeFilter.valueSet element
+  - If the Retrieve element has a "codes" element with a direct reference code, the dataRequirement SHALL have a codeFilter.code element
+
+Systems that can optimize terminology restrictions may include filters that can be inferred from the CQL in the data requirements to provide more selective data requirements.
 
 Note that if the data model does not specify profile identifiers, the ELM retrieves will not have a templateId specified. In this case, the name of the type in the data model is used.
 
@@ -709,7 +712,7 @@ Snippet 3-15: CQL definition of the "Initial Population" criteria (from [EXM146.
 1. All Measure population criteria components <br/>
      a. SHALL reference exactly one CQL expression.<br/>
      b. SHALL reference the same CQL library.
-2. References to expressions SHALL use the `text/cql-identifier` media type defined in the [CQL specification](https://cql.hl7.org/2020May/07-physicalrepresentation.html#media-types-and-namespaces).<br/>
+2. References to expressions SHALL use the `text/cql-identifier` media type defined in the [CQL specification](https://cql.hl7.org/07-physicalrepresentation.html#media-types-and-namespaces).<br/>
 
 #### Criteria Names
 {: #criteria-names}
@@ -748,6 +751,7 @@ For each scoring type, the set of applicable criteria are specified in the [Qual
 | Cohort               |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |         NP          |              NP              |
 {: .grid}
 
+NOTE: Composite measures are not represented in this table as they are made up of component measures.  The component measures in the composite will be expected to conform to the information in this table.
 
 R=Required. O=Optional. NP=Not Permitted.
 
