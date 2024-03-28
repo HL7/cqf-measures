@@ -47,7 +47,7 @@
     <version value="5.5.0"/>
   </dependsOn>
   <dependsOn id="extensions">
-    <uri value="http://hl7.org/fhir/uv/cql/ImplementationGuide/hl7.fhir.uv.extensions"/>
+    <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
      <packageId value="hl7.fhir.uv.extensions"/>
      <version value="5.1.0-ballot1"/>
   </dependsOn>
@@ -738,6 +738,10 @@
     <parameter>
       <code value="default-version"/>
       <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-version"/>
+      <value value="false"/>
     </parameter>
     <parameter>
       <code value="generate"/>
