@@ -9,7 +9,6 @@
 - [Default Value](StructureDefinition-cqfm-defaultValue.html)
 - [Definition Term](StructureDefinition-cqfm-definitionTerm.html)
 - [Direct Reference Code](StructureDefinition-cqfm-directReferenceCode.html)
-- [Effective Data Requirements](StructureDefinition-cqfm-effectiveDataRequirements.html)
 - [Effective Period Anchor](StructureDefinition-cqfm-effectivePeriodAnchor.html)
 - [Effective Period Duration](StructureDefinition-cqfm-effectivePeriodDuration.html)
 - [Expansion Parameters](StructureDefinition-cqfm-expansionParameters.html)
@@ -33,11 +32,7 @@
 - [Rate Aggregation](StructureDefinition-cqfm-rateAggregation.html)
 - [Risk Adjustment](StructureDefinition-cqfm-riskAdjustment.html)
 - [Scoring](StructureDefinition-cqfm-scoring.html)
-<div class="new-content" markdown="1">
-
 - [Scoring Precision](StructureDefinition-cqfm-scoringPrecision.html)
-</div>
-
 - [Scoring Unit](StructureDefinition-cqfm-scoringUnit.html)
 - [Software System](StructureDefinition-cqfm-softwaresystem.html)
 - [Supported CQL Version](StructureDefinition-cqfm-supportedCqlVersion.html)
