@@ -43,12 +43,13 @@ In addition to conforming to profiles to support appropriate function or represe
 
 | **Shareable** | **Computable** | **Publishable** | **Executable** |
 |----|----|----|----|
-| [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) | [CQLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-cql-library) | [CRMIPublishableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablemeasure.html) | [ELMLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-library.html)  |
+| [CRMIShareableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablelibrary.html) | [CQLLibrary](http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library) | [CRMIPublishableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablelibrary.html) | [ELMLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-library.html)  |
 {: .grid }
 
-* CQFMComputableMeasure **SHALL** use CQLLibrary 
-* CQFMExecutableMeasure **SHALL** use ELMLibrary
-* CQFMPublishableMeasure **SHOULD** use CRMIPublishableLibrary  
+* CQFMComputableMeasure  **SHALL** use CQLLibrary 
+* CQFMExecutableMeasure  **SHALL** use ELMLibrary
+* CQFMPublishableMeasure **SHOULD** use CRMIPublishableLibrary
+* CQFMShareableMeasure   **SHOULD** use CRMIShareableLibrary   
  
 ### Terminology Profile Usage
 {: #terminology-profile-usage}
@@ -56,7 +57,7 @@ In addition to conforming to profiles to support appropriate function or represe
 | **Artifact** | **Shareable** | **Computable** | **Publishable** | **Executable** |
 |----|----|----|----|----|
 | CodeSystem | [CRMIShareableCodeSystem]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablecodesystem.html) | N/A (no requirements) | [CRMIPublishableCodeSytems]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablecodesystem.html) | N/A (no requirements) |
-| ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMIComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMIExecutableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-executablevalueset.html) |
+| ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMIComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMIExecutableValueSet](http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablevalueset) |
 {: .grid }
 
 * Due to varying code system capabilities, measure profiles are not restricted to use corresponding terminology profiles. 
@@ -83,8 +84,6 @@ To support packaging, testing, and distribution of measure and library artifacts
 - [Continuous Variable Measure](StructureDefinition-cv-measure-cqfm.html)
 - [Device](StructureDefinition-device-softwaresystem-cqfm.html)
 - [Measure Test Case](StructureDefinition-test-case-cqfm.html)
-- [Model Info Library](StructureDefinition-modelinfo-library-cqfm.html)
-- [Module Definition Library](StructureDefinition-module-definition-library-cqfm.html)
 - [Proportion Measure](StructureDefinition-proportion-measure-cqfm.html)
 - [Publishable Measure](StructureDefinition-publishable-measure-cqfm.html)
 - [Ratio Measure](StructureDefinition-ratio-measure-cqfm.html)

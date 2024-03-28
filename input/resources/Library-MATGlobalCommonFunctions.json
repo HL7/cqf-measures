@@ -2,7 +2,10 @@
   "resourceType": "Library",
   "id": "MATGlobalCommonFunctions",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm" ]
+    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary",
+    "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary",
+    "http://hl7.org/fhir/uv/cql/StructureDefinition/elm-library",
+    "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library" ]
   },
   "url": "http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions",
   "identifier": [ {
@@ -47,7 +50,7 @@
   }, {
     "type": "depends-on",
     "display": "Code system SNOMEDCT",
-    "resource": "http://snomed.info/sct"
+    "resource": "http://snomed.info/sct/20240201"
   }, {
     "type": "depends-on",
     "display": "Code system RoleCode",

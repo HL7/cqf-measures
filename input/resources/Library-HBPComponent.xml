@@ -1,7 +1,10 @@
 <Library xmlns="http://hl7.org/fhir">
    <id value="HBPComponent"/>
    <meta>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"/>
+      <profile value="http://hl7.org/fhir/uv/cql/StructureDefinition/elm-library"/>
+      <profile value="http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"/>
    </meta>
    <language value="en"/>
    <url value="http://hl7.org/fhir/us/cqfmeasures/Library/HBPComponent"/>
@@ -31,7 +34,7 @@
    <relatedArtifact>
       <type value="depends-on"/>
       <display value="Library SDE"/>
-      <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.000"/>
+      <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="depends-on"/>

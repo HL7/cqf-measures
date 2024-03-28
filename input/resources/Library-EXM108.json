@@ -2,7 +2,10 @@
   "resourceType": "Library",
   "id": "EXM108-FHIR",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm" ]
+    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary",
+    "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary",
+    "http://hl7.org/fhir/uv/cql/StructureDefinition/elm-library",
+    "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library" ]
   },
   "url": "http://hl7.org/fhir/us/cqfmeasures/Library/EXM108-FHIR",
   "identifier": [ {
@@ -53,7 +56,7 @@
   }, {
     "type": "depends-on",
     "display": "Library SDE",
-    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.000"
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements"
   }, {
     "type": "depends-on",
     "display": "Library VTEICU",
@@ -61,7 +64,7 @@
   }, {
     "type": "depends-on",
     "display": "Library TJC",
-    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/TJCOverall|4.0.000"
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/TJCOverall"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
@@ -77,7 +80,7 @@
   }, {
     "type": "depends-on",
     "display": "Code system SNOMEDCT",
-    "resource": "http://snomed.info/sct"
+    "resource": "http://snomed.info/sct/20240201"
   }, {
     "type": "depends-on",
     "display": "Code system LOINC",

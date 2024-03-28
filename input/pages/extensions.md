@@ -4,6 +4,9 @@
 - [Component](StructureDefinition-cqfm-component.html)
 - [Composite Scoring](StructureDefinition-cqfm-compositeScoring.html)
 - [Criteria Reference](StructureDefinition-cqfm-criteriaReference.html)
+- [Default Value](StructureDefinition-cqfm-defaultValue.html)
+- [Definition Term](StructureDefinition-cqfm-definitionTerm.html)
+- [Direct Reference Code](StructureDefinition-cqfm-directReferenceCode.html)
 - [Effective Period Anchor](StructureDefinition-cqfm-effectivePeriodAnchor.html)
 - [Effective Period Duration](StructureDefinition-cqfm-effectivePeriodDuration.html)
 - [Group Id](StructureDefinition-cqfm-groupId.html)
@@ -18,11 +21,7 @@
 - [Rate Aggregation](StructureDefinition-cqfm-rateAggregation.html)
 - [Risk Adjustment](StructureDefinition-cqfm-riskAdjustment.html)
 - [Scoring](StructureDefinition-cqfm-scoring.html)
-<div class="new-content" markdown="1">
-
 - [Scoring Precision](StructureDefinition-cqfm-scoringPrecision.html)
-</div>
-
 - [Scoring Unit](StructureDefinition-cqfm-scoringUnit.html)
 - [Test Case Description](StructureDefinition-cqfm-testCaseDescription.html)
 - [Type](StructureDefinition-cqfm-type.html)
