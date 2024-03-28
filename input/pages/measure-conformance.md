@@ -569,13 +569,16 @@ Section 3.3.1 describes a means for deriving data requirements from CQL data ref
 
 The canonical representation of ELM makes it straightforward to derive data requirements for CQL data references to comply with Conformance Requirement 3.6:
 
-**Conformance Requirement 3.6** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-6)
-{: #conformance-requirement-3-6}
-1. ELM elements with type "Retrieve" are represented using the DataRequirement type defined in FHIR
-2. The Retrieve ELM element's "dataType" value is represented by the DataRequirement's "type" attribute
-3. The Retrieve ELM element's "codes" value referencing a value set or direct-reference code is represented by the DataRequirement's "codeFilter.valueSet" attribute
-4. The Retrieve ELM element's "templateId" value can be represented by the DataRequirement's "profile" attribute.
-5. For each ELM element identified in item (1) above, a dataRequirement should be included using the profile identified in item (4) that references the value set identified in item (3)
+
+**Conformance Requirement 3.6** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-6) 
+
+1. Systems SHOULD populate dataRequirements for each ELM Retrieve element. Each dataRequirement:
+  - SHALL have a “type” element representing the type of the retrieve
+  - SHALL have a profile element with the value of the templateId attribute of the retrieve, if present
+  - If the Retrieve element has a "codes" element referencing a ValueSet, the dataRequirement SHALL have a codeFilter.valueSet element
+  - If the Retrieve element has a "codes" element with a direct reference code, the dataRequirement SHALL have a codeFilter.code element
+
+Systems that can optimize terminology restrictions may include filters that can be inferred from the CQL in the data requirements to provide more selective data requirements.
 
 Note that if the data model does not specify profile identifiers, the ELM retrieves will not have a templateId specified. In this case, the name of the type in the data model is used.
 
