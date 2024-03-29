@@ -3,34 +3,16 @@
 {:toc}
 
 {:.stu-note}
-> This STU 5.0.0-ballot is currently dependent on the QI-Core STU 6.0.0-ballot, but will update to QI-Core STU6 once published
+>  This STU 5.0.0-ballot2 is currently dependent on CRMI IG 1.0.0-ballot2 and CQL IG 1.0.0-ballot, but will update to CRMI IG STU1 and CQL IG STU1 once published
 
 Where possible, new and updated content are highlighted with green text and background
 {: .new-content}
-
-<div class="note-to-balloters" markdown="1">
-#### Note To Balloters
-
-1. We are seeking examples of non-patient subject composite measures for inclusion as examples in this implementation guide.
-
-2. We are requesting additional guidance on MeasureImprovementNotation:
-
-    Reviewers: CQI will be adding the code:
-
-    `Reference range` with definition of score within a defined interval (or a “passing score” over or under a certain threshold) indicates better quality to the improvement notation value set. Please provide comments on this additional code and if there are other codes needed in this value set.
-
-    If an additional code is added to the improvement notation (like normative reference range as suggested), where is guidance about the reference range best included in the specification for implementer use?  Some suggestions include: the guidance field, the rate aggregation field or adding an extension to improvementNotation to add text.
-
-    [valueset: MeasureImprovementNotation](https://terminology.hl7.org/5.2.0/ValueSet-measure-improvement-notation.html)
-
-</div>
 
 <div markdown="1" class="bg-info">
 
 {{ site.data.package-list.list[0].desc }}
 
 </div>
-
 
 
 ## Quality Measure Implementation Guide
@@ -60,8 +42,6 @@ page in the menu bar:
 -  **[Using CQL](using-cql.html)**: This page covers using Clinical Quality Language to author QMs.
 -  **[Composites](composite-measures.html)**: This page covers composite measure representation and conformance requirements.
 -  **[Packaging](packaging.html)**: This page describes measure packaging and distribution requirements for QMs.
-Measures IG
-
 - **FHIR Artifacts**
   - **[Profiles](profiles.html)**: This page lists the set of profiles defined for use by QMs
   - **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by QMs
@@ -69,7 +49,6 @@ Measures IG
   - **[Capabilities](capabilities.html)**: This page defines the workflows and roles for QMs and contains the capability statements
   - **[Operations](operations.html)**: This page defines services and operations in support of authoring, publishing, and distributing QMs
   - **[Artifacts Summary](artifacts.html)**: This page defines the workflows and roles for QMs and contains the capability statements
-
 -  **[Examples](examples.html)**: This page provides examples used in the other pages, as well as by the Data Exchange for Quality.
 -  **[Glossary](glossary.html)** This page defines terms related to quality measurement.
 -  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.

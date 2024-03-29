@@ -2,14 +2,14 @@
 
 <div class="new-content" markdown="1">
 
-* [**[base]/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**Library/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**Library/[id]/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**Library/$data-requirements**](OperationDefinition-Library-data-requirements.html)
-* [**Measure/[id]/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**Measure/$data-requirements**](OperationDefinition-Measure-data-requirements.html)
+For systems that support authoring, different approaches may be used to indicate version of an artifact in draft status. 
+
+For example, when created a draft version of a Library that is currently version 1.0.0, an authoring system may produce a 2.0.0-DRAFT version to allow for multiple drafts of the same artifact to be considered at once
+
+When invoking the $data-requirements operation for a Measure, periodStart and periodEnd are provided in the parameters parameter. 
+
 * [**MeasureReport/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**MeasureReport/[id]/$cqfm.package**](OperationDefinition-cqfm-package.html)
-* [**ValueSet/$expand**](OperationDefinition-ValueSet-expand.html)
+
+
 
 </div>

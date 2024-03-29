@@ -1,5 +1,7 @@
 {:toc}
 
+<div class="new-content" markdown="1">
+
 Measure developers should review the Using CQL with FHIR IG for specific guidance on CQL use.  Please note the following exceptions that guidance listed below:
 
 ### Libraries
@@ -32,7 +34,7 @@ Please reference the [Using CQL with FHIR IG Section 2.3](https://hl7.org/fhir/u
 ### Value Sets
 {: #value-sets}
 
-For information on value sets, referecnce section 2.4 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#value-sets).
+For information on value sets, reference section 2.4 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#value-sets).
 
 #### Value Set Version
 {: #value-set-version}
@@ -163,11 +165,11 @@ Please reference section 2.16 of the [Using CQL with FHIR IG](https://hl7.org/fh
 
 Please reference section 2.17 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#translation-to-elm).
 
+
 #### Specifying Options
 
-<div class="new-content" markdown="1">
-This implementation guide defines the [cqlOptions](StructureDefinition-cqfm-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above, including SignatureLevel, SHOULD be used. When this extension is present on a [CQFComputableLibrary](StructureDefinition-computable-library-cqfm.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
-</div>
+This implementation guide references the [cqlOptions](http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above, including SignatureLevel, SHOULD be used. When this extension is present on a [CQFComputableLibrary](StructureDefinition-computable-library-cqfm.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
+
 **Conformance Requirement 4.22 (Translator Options):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-22)
 {: #conformance-requirement-4-22}
 
@@ -179,3 +181,5 @@ This implementation guide defines the [cqlOptions](StructureDefinition-cqfm-cqlO
 #### ELM Suitability
 
 Please refer to section 2.17.2 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#elm-suitability).
+
+</div>

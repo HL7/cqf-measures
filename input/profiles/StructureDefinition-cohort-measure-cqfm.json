@@ -55,14 +55,13 @@
   "kind": "resource",
   "abstract": false,
   "type": "Measure",
-  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm",
+  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
   "derivation": "constraint",
   "differential": {
     "element": [
       {
         "id": "Measure",
-        "path": "Measure",
-        "mustSupport": false
+        "path": "Measure"
       },
       {
         "id": "Measure.scoring",

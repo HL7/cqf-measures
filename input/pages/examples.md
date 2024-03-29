@@ -84,10 +84,3 @@ The sections provide examples of test cases
 * [Simple Test Case](MeasureReport-testcase-example.html) - Example test case illustrating expected input parameters and expected output results given those input parameters.
 * [Bundled Test Case](Bundle-bundle-example.html) - Example test case in a bundle illustrating expected input parameters and expected output results given those input parameters along with evaluatedResources.
 
-### Quality Programs
-
-This section provides examples of all three ways to represent a Quality Program
-
-* [eCQM Quality Program Example](Library-ecqm-quality-program.html) an overall quality program that contains multiple version manifests and releases over time
-* [eCQM Version Manifest (Expansion Profile), 2020](Library-ecqm-update-2020.html) a version manifest (or expansion profile) that is a draft of a quality program release used to provide expansion rules while the artifacts for a program are being authored
-* [eCQM Release, 2020-05-07](Library-ecqm-update-2020-05-07.html) a program release that is an active instance of a quality program release used to provide stable extensions for the released artifacts in a quality program
