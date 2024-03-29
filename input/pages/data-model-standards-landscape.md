@@ -63,7 +63,7 @@ to promote that profile to the broadest consensus group possible.
 
 In addition to _what_ data is reported, use cases frequently require the
 communication of _when_, _where_ and _how_ to report. See the
-[Electronic Case Reporting (eCR) implementation guide](http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html#fhir-design-considerations)
+[Electronic Case Reporting (eCR) implementation guide](https://hl7.org/fhir/us/ecr/design_considerations.html)
 for a more complete discussion of these design considerations. We are actively
 seeking feedback from implementers how this type of information is currently
 communicated in quality reporting scenarios and when it would be useful to do
