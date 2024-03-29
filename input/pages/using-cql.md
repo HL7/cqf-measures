@@ -1,5 +1,7 @@
 {:toc}
 
+<div class="new-content" markdown="1">
+
 Measure developers should review the Using CQL with FHIR IG for specific guidance on CQL use.  Please note the following exceptions that guidance listed below:
 
 ### Libraries
@@ -32,7 +34,7 @@ Please reference the [Using CQL with FHIR IG Section 2.3](https://hl7.org/fhir/u
 ### Value Sets
 {: #value-sets}
 
-For information on value sets, referecnce section 2.4 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#value-sets).
+For information on value sets, reference section 2.4 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#value-sets).
 
 #### Value Set Version
 {: #value-set-version}
@@ -180,3 +182,4 @@ This implementation guide references the [cqlOptions](http://hl7.org/fhir/Struct
 
 Please refer to section 2.17.2 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#elm-suitability).
 
+</div>

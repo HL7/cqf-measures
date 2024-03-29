@@ -1,3 +1,5 @@
+<div class="new-content" markdown="1">
+
 {: #profiles}
 
 ## Capability Profiles
@@ -88,5 +90,5 @@ To support packaging, testing, and distribution of measure and library artifacts
 - [Publishable Measure](StructureDefinition-publishable-measure-cqfm.html)
 - [Ratio Measure](StructureDefinition-ratio-measure-cqfm.html)
 
-
+</div>
 
