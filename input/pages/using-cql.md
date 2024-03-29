@@ -555,7 +555,7 @@ Inclusion of CQL content used within quality measures is accomplished through th
 {: #conformance-requirement-4-18}
 
 1. The identifying elements of a library SHALL conform to the following requirements:
-* Library.url SHALL be `<CQL namespace url>/Library/<CQL library name>`
+* Library.url SHALL be <span class="bg-success">`<CQL namespace url>/Library/<CQL library name>` </span>
 * Library.name SHALL be `<CQL library name>`
 * Library.version SHALL be `<CQL library version>`
 
@@ -643,7 +643,7 @@ filename = <CQL library name>.cql
 #### MIME Type version
 The version of CQL/ELM used for content in a library should be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
 
-* `text/cql; version=1.5.2`
+* <span class="bg-success">`text/cql; version=1.5.2` </span>
 * `application/elm+xml; version=1.4`
 * `application/elm+json; version=1.4`
 
