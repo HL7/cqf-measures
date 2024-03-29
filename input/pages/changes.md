@@ -9,7 +9,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Remove code "ep-ec" from Quality Programs value set	([FHIR-43323](https://jira.hl7.org/browse/FHIR-43323)) Applied ([here](codesystem-quality-programs-example.html))
 * **Applied**: Created an improvementNotationGuidance extension in the FHIR extensions pack and added to Publishable Measure at root and group level. ([FHIR-43463](https://jira.hl7.org/browse/FHIR-43463))([Applied here](https://hl7.org/fhir/us/cqfmeasures/StructureDefinition-publishable-measure-cqfm.html))
 * **Applied**: Removed reference to QUICK  ([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594))([Applied here](introduction.html#hqmf))
-B* **Applied**: Corrected broken links ([FHIR-43620](https://jira.hl7.org/browse/FHIR-43620))([Applied here](index.html)), and ([here](using-cql.html))
+* **Applied**: Corrected broken links ([FHIR-43620](https://jira.hl7.org/browse/FHIR-43620))([Applied here](index.html)), and ([here](using-cql.html))
 * **Applied**: Updated the description of the Capabilities page on home page ([FHIR-43628](https://jira.hl7.org/browse/FHIR-43628))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#how-to-read-this-guide))
 * **Applied**: Removed operations section from the capabilities page ([FHIR-43629](https://jira.hl7.org/browse/FHIR-43629))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/capabilities.html))
 * **Applied**: Updated CQL version references from 1.4 to 1.5.2 introduction, measure-conformance and using-cql pages  ([FHIR-43635](https://jira.hl7.org/browse/FHIR-43635))([Applied here](https://hl7.org/fhir/us/cqfmeasures/introduction.html)), ([here](measure-conformance.html)), and ([here](using-cql.html))
