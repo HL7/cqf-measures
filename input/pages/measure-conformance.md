@@ -1415,11 +1415,12 @@ By convention, the name of each supplemental data element expression would start
 **Conformance Requirement 3.18 (Risk Adjustment Criteria):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-18)
 {: #conformance-requirement-3-18}
 
+<div class="note-to-balloters" markdown="1">
 Note to balloters - references to 'risk adjustment variable; have been updated in this section to 'risk adjustment data'.  The code system (https://terminology.hl7.org/5.4.0/CodeSystem-measure-data-usage.html) and value set https://terminology.hl7.org/5.4.0/ValueSet-measure-data-usage.html underlying that change will be updated in the next THO publication per UTG tracker https://jira.hl7.org/browse/UP-542 .
+</div>
 
-
-1. Risk Adjustment data SHALL be included within the supplementalData element using a usage element of risk-adjustment-factor
-2. Risk Adjustment data SHOULD reference a single CQL expression definition, with a name beginning with RAF
+1. Risk Adjustment Data SHALL be included within the supplementalData element using a usage element of risk-adjustment-factor
+2. Risk Adjustment Data SHOULD reference a single CQL expression definition, with a name beginning with RAF
 
 Some measures may define variables used to adjust scores based on a measure of ‚Äúrisk‚Äù observed in the population. Such variables are referred to as risk adjustment data. Risk adjustment data are included in the supplementalData section and defined using CQL; such inclusions must adhere to Conformance Requirement 3.17.
 
@@ -1435,7 +1436,7 @@ Some measures may define variables used to adjust scores based on a measure of ‚
           "code": "risk-adjustment-factor"
         }
       ],
-      "text": "Risk Adjustment data"
+      "text": "Risk Adjustment Data"
     },
     "criteria": {
       "language": "text/cql-identifier",
@@ -1445,7 +1446,7 @@ Some measures may define variables used to adjust scores based on a measure of ‚
 ]
  ```
 
-Snippet 3-28: Sample Risk Adjustment data from [EXMRiskAdjustment_FHIR.xml](Measure-measure-risk-adjustment-FHIR2.xml.html)
+Snippet 3-28: Sample Risk Adjustment Data from [EXMRiskAdjustment_FHIR.xml](Measure-measure-risk-adjustment-FHIR2.xml.html)
 
 ```cql
 define "Hepatic Failure":
