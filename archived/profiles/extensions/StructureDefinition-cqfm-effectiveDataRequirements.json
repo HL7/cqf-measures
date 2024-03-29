@@ -1,0 +1,86 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-effectiveDataRequirements",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+  "version": "4.0.0",
+  "name": "CQFMEffectiveDataRequirements",
+  "title": "CQFM Effective Data Requirements",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "A module definition library that contains the effective data requirements for the measure (i.e. the calculated data requirements for the expressions referenced by the measure structure).",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "A computable measure specification needs to specify the effective data requirements for the measure, i.e. the data requirements for criteria that are actually used by the measure. Data requirements SHALL be at least the set of all data requirements for the primary library and all referenced libraries, recursively, and SHOULD be the set of data requirements reachable by expressions referenced from the measure, and SHOULD use the mustSupport element of data requirements to indicate which elements of a data element are actually referenced by the measure logic.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Measure"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Effective required data for evaluation",
+        "definition": "A module definition library that contains the effective data requirements for the measure (i.e. the calculated data requirements for the expressions referenced by the measure structure).",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/module-definition-library-cqfm"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

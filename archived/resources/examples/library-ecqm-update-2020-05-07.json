@@ -1,6 +1,6 @@
 {
   "resourceType": "Library",
-  "id": "ecqm-update-2020",
+  "id": "ecqm-update-2020-05-07",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"
@@ -16,40 +16,36 @@
           "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
         },
         {
-          "name": "activeOnly",
-          "valueBoolean": true
-        },
-        {
-          "name": "includeDraft",
-          "valueBoolean": true
+          "name": "expansion",
+          "valueUri": "eCQM%20Update%202020-05-07"
         }
       ]
     }
   ],
   "extension": [
     {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-partOf",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-partOf",
       "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-quality-program"
     },
     {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionParameters",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters",
       "valueReference": {
         "reference": "#exp-params"
       }
     }
   ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-update-2020",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-update-2020-05-07",
   "identifier": [
     {
       "use": "official",
       "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
-      "value": "eCQM Annual Update 2020"
+      "value": "eCQM Update 2020-05-07"
     }
   ],
   "version": "1.0.0",
-  "name": "ECQMAnnualUpdate2020",
-  "title": "eCQM Annual Update 2020",
-  "status": "draft",
+  "name": "ECQMUpdate20200507",
+  "title": "eCQM Update 2020-05-07",
+  "status": "active",
   "experimental": true,
   "type": {
     "coding": [
@@ -59,7 +55,7 @@
       }
     ]
   },
-  "date": "2020-01-01",
+  "date": "2020-05-07",
   "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
   "contact": [
     {
@@ -77,9 +73,9 @@
       "code": "US"
     }]
   }],
-  "description": "This library is an example of a version manifest (also referred to as an expansion profile) that specifies expansion rules for a set of value sets used in a particular quality program.",
-  "approvalDate": "2020-01-01",
-  "lastReviewDate": "2020-01-01",
+  "description": "This library is an example of a program release that provides versioning information in support of stable expansion of a set of value sets used in a particular quality program.",
+  "approvalDate": "2020-05-07",
+  "lastReviewDate": "2020-05-07",
   "useContext": [
     {
       "code": {
@@ -102,6 +98,31 @@
       "type": "depends-on",
       "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901",
       "display": "SNOMED-CT US Edition, 2019-09-01"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example|2020-05",
+      "display": "Chronic Liver Disease, Legacy Example (2020-05)"
+    },
+    {
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124-FHIR",
+      "display": "Cervical Cancer Screening"
+    },
+    {
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM125-FHIR",
+      "display": "Breast Cancer Screening"
+    },
+    {
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM130-FHIR",
+      "display":"Colorectal Cancer Screening"
+    },
+    {
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM146-FHIR",
+      "display": "Appropriate Testing for Children with Pharyngitis"
     }
   ]
 }
