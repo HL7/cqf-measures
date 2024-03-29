@@ -1414,10 +1414,15 @@ By convention, the name of each supplemental data element expression would start
 
 **Conformance Requirement 3.18 (Risk Adjustment Criteria):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-18)
 {: #conformance-requirement-3-18}
-1. Risk Adjustment Variables SHALL be included within the supplementalData element using a usage element of risk-adjustment-factor
-2. Risk Adjustment Variables SHOULD reference a single CQL expression definition, with a name beginning with RAF
 
-Some measures may define variables used to adjust scores based on a measure of “risk” observed in the population. Such variables are referred to as risk adjustment variables. Risk adjustment variables are included in the supplementalData section and defined using CQL; such inclusions must adhere to Conformance Requirement 3.17.
+<div class="note-to-balloters" markdown="1">
+Note to balloters - references to 'risk adjustment variable; have been updated in this section to 'risk adjustment data'.  The code system (https://terminology.hl7.org/5.4.0/CodeSystem-measure-data-usage.html) and value set https://terminology.hl7.org/5.4.0/ValueSet-measure-data-usage.html underlying that change will be updated in the next THO publication per UTG tracker https://jira.hl7.org/browse/UP-542 .
+</div>
+
+1. Risk Adjustment Data SHALL be included within the supplementalData element using a usage element of risk-adjustment-factor
+2. Risk Adjustment Data SHOULD reference a single CQL expression definition, with a name beginning with RAF
+
+Some measures may define variables used to adjust scores based on a measure of “risk” observed in the population. Such variables are referred to as risk adjustment data. Risk adjustment data are included in the supplementalData section and defined using CQL; such inclusions must adhere to Conformance Requirement 3.17.
 
 ```json
 "supplementalData": [
@@ -1431,7 +1436,7 @@ Some measures may define variables used to adjust scores based on a measure of �
           "code": "risk-adjustment-factor"
         }
       ],
-      "text": "Risk Adjustment Variable"
+      "text": "Risk Adjustment Data"
     },
     "criteria": {
       "language": "text/cql-identifier",
@@ -1441,7 +1446,7 @@ Some measures may define variables used to adjust scores based on a measure of �
 ]
  ```
 
-Snippet 3-28: Sample Risk Adjustment Variable from [EXMRiskAdjustment_FHIR.xml](Measure-measure-risk-adjustment-FHIR2.xml.html)
+Snippet 3-28: Sample Risk Adjustment Data from [EXMRiskAdjustment_FHIR.xml](Measure-measure-risk-adjustment-FHIR2.xml.html)
 
 ```cql
 define "Hepatic Failure":
@@ -1450,7 +1455,7 @@ define "Hepatic Failure":
     and exists ("Serum Albumin Test")
 ```
 
-Snippet 3-29: Sample Risk Adjustment Variable from [EXMRiskAdjustment_FHIR2.cql](Library-risk-adjustment-FHIR2.html#cql-content)                                                
+Snippet 3-29: Sample Risk Adjustment data from [EXMRiskAdjustment_FHIR2.cql](Library-risk-adjustment-FHIR2.html#cql-content)                                                
 
 An example of risk adjustment can be found in the included [examples](Measure-measure-risk-adjustment-FHIR2.html); the relevant sections of the FHIR Measure (Snippet 3-28) and CQL (Snippet 3-29) have been included.
 
