@@ -44,6 +44,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Updated paragraph in Scope section regarding Member Attribution (ATR) Lists  ([FHIR-43636](https://jira.hl7.org/browse/FHIR-43636))([Applied here](introduction.html))
 * **Applied**: Updated tables in composite measure page for clarity ([FHIR-43714](https://jira.hl7.org/browse/FHIR-43714))([Applied here](composite-measures.html#all-or-nothing-scoring) and subsequent sections))
 * **Applied**: Added table to composite measure page for describing linear scoring vs. opportunity scoring ([FHIR-43715](https://jira.hl7.org/browse/FHIR-43715)) ([Applied here](composite-measures.html#subject-level-linear-combination-scoring))
+* **Applied**: Use QI-Core patient profile url in measure-EXMLogic-FHIR example rather than base patient profile reference.  ([FHIR-43790](https://jira.hl7.org/browse/FHIR-43790))([Applied here](Measure-EXMLogic-FHIR.json.html))
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
