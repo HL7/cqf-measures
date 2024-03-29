@@ -33,8 +33,11 @@ Snippet 22: Sample Risk Adjustment Variable from TestRiskAdj eCQM.xml
 
 Broadly speaking, composite measure scoring methods fall into two categories:
 {: #conformance-requirement-component-based}
-1. Individual-Based: Scoring methods that operate at the individual level by combining members of component populations and then calculating the measure score using standard measure scoring techniques on the combined populations.
-2. Component-Based: Scoring methods that operate at the population level by combining the summary scores of component measures.
+1.	Individual-Based: Scoring methods that operate at the individual level by combining members of component populations and then calculating the measure score using standard measure scoring techniques on the combined populations. Examples include all-or-nothing and opportunity scoring.
+    1.	A note regarding improvement notation – when mixing increase and decrease improvement notations for individual based composite scoring mechanisms, those component measures that do not match the improvement notation of the composite measure will need to make an adjustment in polarity.  For example, in an individual based composite with an improvement notation of increase, components with a decrease improvement notation will have their population criteria reversed (i.e. the absence of a patient in the component numerator would represent fulfillment).  
+2.	Component-Based: Scoring methods that operate at the population level by combining the summary scores of component measures. Examples include subject level linear and weighted scoring.
+    1.	A note regarding improvement notation – when mixing increase and decrease notations for component base scoring mechanisms, those component measures that do not match the improvement notation of the composite measure will need to make an adjustment in polarity.  For example, in a component-based composite with an improvement notation of increase, those with a decrease notation will have their calculations converted by applying a 1 – equation approach.  This will be demonstrated in examples below.
+
 
 Architecturally, environments that are already capable of calculating measures using the measure scoring methods already described in this implementation guide can readily consume composite measure specifications that use the first approach (individual-based) but would require additional support in order to calculate component-based measures. Specifically, completely generic support for component-based calculation methods would require that an environment be able to evaluate CQL logic in the Population context. However, by restricting composite calculation support to those methods specified by this implementation guide, environments can calculate composites by operating on the results of individual-level scores. It is important to note that each scoring method should work for any subject for which the measure is developed - e.g. patient or encounter.
 
@@ -151,7 +154,7 @@ define "Numerator Exclusion":
 
 Snippet 24: Formal criteria for a patient-based All-or-nothing composite measure
 
-Consider this example of a composite that includes a breast cancer screening measure and a colorectal cancer screening measure. For an individual that is male, they are only eligible for the colorectal cancer screening measure, so the fact that they do not appear in the denominator or numerator of the breast cancer screening measure should not remove them from the numerator of the composite measure.
+Consider this example of a composite that includes a breast cancer screening measure and a colorectal cancer screening measure. For an individual that is male, they are only eligible for the colorectal cancer screening measure, so the fact that they do not appear in the denominator or numerator of the breast cancer screening measure should not remove them from the numerator of the composite measure. Note that this approach is using component measures where the improvement notation for the component is that an increase in the score represents an improvement. If the improvement notation is decreasing for a component, its population criteria would be reversed (i.e. the absence of a patient in the component numerator would represent fulfillment).
 
 *Note that `implies` is a logical operator within CQL. "X implies Y" roughly translates to narrative text as "if X is true, then Y must be as well"
 
@@ -232,7 +235,7 @@ Snippet 25: Formal criteria for a service-based opportunity composite measure
 
 The populations in an opportunity composite are then lists of “services” the patient was eligible for (in the initial population and denominator) and received (in the numerator). The approach for populations not depicted here (denominator exclusion, denominator exception, and numerator exclusion) is analogous.
 
-Note that this approach is using component measures where the improvement notation for the component is that an increase in the score represents an improvement. If the improvement notation is decreasing for a component, its population criteria would be negated (i.e. the absence of a patient in the component numerator would represent fulfillment).
+Note that this approach is using component measures where the improvement notation for the component is that an increase in the score represents an improvement. If the improvement notation is decreasing for a component, its population criteria would be reversed (i.e. the absence of a patient in the component numerator would represent fulfillment).
 
 ### Subject-level Linear Combination Scoring
 {: subject-level-linear-combination-scoring}
@@ -339,8 +342,8 @@ Note that these definitions are based on component measures whose improvement no
 Linear Combination scoring vs. Opportunity scoring
 </div>
 
-To better understand the difference between linear combination and opportunity scoring, consider the following table representing a population of 10 patients (A-J) scored against 10 measures. 
-For each patient in each measure, if the patient falls in the initial population or denominator, indicate whether the patient is in the numerator population or not (T/F). However, if  the patient did not fall in the initial population or denominator, indciate 'n/a'. 
+To better understand the difference between linear combination and opportunity scoring, consider the following table representing a population of 10 patients (A-J) scored against 10 measures.
+For each patient in each measure, if the patient falls in the initial population or denominator, indicate whether the patient is in the numerator population or not (T/F). However, if  the patient did not fall in the initial population or denominator, indciate 'n/a'.
 
 <style>
 table, th, td {
@@ -376,7 +379,7 @@ th { background-color: #f5f2f0; }
 For each patient (i.e. each column A-J), calculate the <b>Patient % score</b> by dividing the total number of occurrences in a measure numerator by the total number of occurrences in the denominator (i.e. not 'n/a') across all measures. <br/>
 To caclulate the <b>overall subject level linear</b> score, simply calculate the average patient % score across the number of  patients (in this case, 764.8 / 10) <br/>
 To calculate the <b>overall opportunity</b> score, divide the total number of patients in the numerator (i.e. 'T' values) across all measures by the total number of instances where the patient was not excluded from the initial population or denominator (i.e not 'n/a').
-(In this case,  59 / 79) 
+(In this case,  59 / 79)
 
 
 
@@ -401,7 +404,7 @@ Note that as discussed in the section on composite scoring methods, this method 
 
 </details>
 
-Computationally, this method is simply the weighted average of the component measure scores. In the simplest case where the weights are all 1, this method is simply the average score of the component measures.
+Computationally, this method is simply the weighted average of the component measure scores. In the simplest case where the weights are all 1, this method is simply the average score of the component measures. Note that these definitions are based on component measures whose improvement notation is an increase in the measure score. If any component measure has an improvement notation of decrease in score, the scoring for that measure needs to be adjusted using a 1- equation approach to ensure all improvement notations have the same polarity.
 
 A "weighted" score composite measure specifies the weights of each component using the [weight](StructureDefinition-cqfm-weight.html) extension on each component measure, as in the example below:
 
