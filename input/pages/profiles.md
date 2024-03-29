@@ -79,7 +79,6 @@ To support packaging, testing, and distribution of measure and library artifacts
 
 ## Alphabetical Listing
 
-- [Capability Statement](StructureDefinition-capability-statement-cqfm.html)
 - [Cohort Measure](StructureDefinition-cohort-measure-cqfm.html)
 - [Composite Measure](StructureDefinition-composite-measure-cqfm.html)
 - [Computable Measure](StructureDefinition-computable-measure-cqfm.html)
