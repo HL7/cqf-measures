@@ -55,14 +55,13 @@
   "kind": "resource",
   "abstract": false,
   "type": "Measure",
-  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Measure",
   "derivation": "constraint",
   "differential": {
     "element": [
       {
         "id": "Measure",
-        "path": "Measure",
-        "mustSupport": true
+        "path": "Measure"
       },
       {
         "id": "Measure.library",
@@ -71,7 +70,7 @@
           {
             "code": "canonical",
             "targetProfile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-library-cqfm"
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablelibrary"
             ]
           }
         ],

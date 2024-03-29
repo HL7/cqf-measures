@@ -10,7 +10,6 @@
 -  [CQL Version](CodeSystem-cql-version.html)
 -  [Identifier Type](https://terminology.hl7.org/CodeSystem-artifact-identifier-type.html)
 -  [Software System Type](CodeSystem-software-system-type.html)
--  [Quality Programs](CodeSystem-quality-programs.html)
 
 ### ValueSet Resources
 {: #valueset-resources}
@@ -19,7 +18,6 @@
 -  [Aggregate Method](https://terminology.hl7.org/ValueSet-measure-aggregate-method.html)
 -  [CQL Version](ValueSet-cql-version.html)
 -  [Identifier Type](ValueSet-identifier-type.html)
--  [Quality Programs](ValueSet-quality-programs.html)
 -  [Software System Type](ValueSet-software-system-type.html)
 -  [Value Filter Comparator](ValueSet-value-filter-comparator.html)
 

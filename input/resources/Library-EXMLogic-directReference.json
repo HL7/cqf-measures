@@ -2,7 +2,7 @@
   "resourceType": "Library",
   "id": "EXMLogic-ModuleDefinitionDirectReference",
   "meta": {
-    "profile": ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/module-definition-library-cqfm"]
+    "profile": ["http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"]
   },
   "url": "http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic-ModuleDefinitionDirectReference",
   "identifier": [ {
@@ -30,14 +30,14 @@
     } ]
   } ],
   "extension": [ {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
     "valueCoding": {
       "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
       "code": "billing",
       "display": "Billing"
     }
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -52,7 +52,7 @@
       "valueInteger": 0
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -67,7 +67,7 @@
       "valueInteger": 1
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -82,7 +82,7 @@
       "valueInteger": 2
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -97,7 +97,7 @@
       "valueInteger": 3
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -112,7 +112,7 @@
       "valueInteger": 4
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -127,7 +127,7 @@
       "valueInteger": 5
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -142,7 +142,7 @@
       "valueInteger": 6
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -157,7 +157,7 @@
       "valueInteger": 7
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -172,7 +172,7 @@
       "valueInteger": 8
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -187,7 +187,7 @@
       "valueInteger": 9
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "EXMLogic"
@@ -335,14 +335,14 @@
   } ],
   "dataRequirement": [ {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Patient?_id={{context.patientId}}"
     } ],
     "type": "Patient",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Encounter?subject=Patient/{{context.patientId}}"
     } ],
     "type": "Encounter",
@@ -350,7 +350,7 @@
     "mustSupport": [ "period" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Encounter?subject=Patient/{{context.patientId}}"
     } ],
     "type": "Encounter",
@@ -358,7 +358,7 @@
     "mustSupport": [ "period" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Encounter?subject=Patient/{{context.patientId}}&type:in=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
     } ],
     "type": "Encounter",
@@ -370,7 +370,7 @@
     } ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Condition?subject=Patient/{{context.patientId}}"
     } ],
     "type": "Condition",
@@ -381,7 +381,7 @@
     } ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Encounter?subject=Patient/{{context.patientId}}"
     } ],
     "type": "Encounter",
@@ -389,7 +389,7 @@
     "mustSupport": [ "period" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Encounter?subject=Patient/{{context.patientId}}"
     } ],
     "type": "Encounter",
@@ -397,7 +397,7 @@
     "mustSupport": [ "period" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Encounter?subject=Patient/{{context.patientId}}"
     } ],
     "type": "Encounter",
@@ -405,7 +405,7 @@
     "mustSupport": [ "period" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Encounter?subject=Patient/{{context.patientId}}"
     } ],
     "type": "Encounter",
@@ -413,7 +413,7 @@
     "mustSupport": [ "period" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Patient?_id={{context.patientId}}"
     } ],
     "type": "Patient",
@@ -421,7 +421,7 @@
     "mustSupport": [ "url", "extension", "value" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Patient?_id={{context.patientId}}"
     } ],
     "type": "Patient",
@@ -429,7 +429,7 @@
     "mustSupport": [ "url", "extension", "value" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Coverage?beneficiary=Patient/{{context.patientId}}&type:in=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
     } ],
     "type": "Coverage",
@@ -441,7 +441,7 @@
     } ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Patient?_id={{context.patientId}}"
     } ],
     "type": "Patient",
@@ -449,7 +449,7 @@
     "mustSupport": [ "url", "extension", "value" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Patient?_id={{context.patientId}}"
     } ],
     "type": "Patient",
@@ -457,7 +457,7 @@
     "mustSupport": [ "url", "extension", "value" ]
   }, {
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-fhirQueryPattern",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
       "valueString": "Encounter?subject=Patient/{{context.patientId}}"
     } ],
     "type": "Encounter",

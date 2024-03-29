@@ -2,7 +2,10 @@
   "resourceType": "Library",
   "id": "EXM146-FHIR",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm" ]
+    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary",
+    "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary",
+    "http://hl7.org/fhir/uv/cql/StructureDefinition/elm-library",
+    "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library" ]
   },
   "url": "http://hl7.org/fhir/us/cqfmeasures/Library/EXM146-FHIR",
   "identifier": [ {
@@ -62,7 +65,7 @@
   }, {
     "type": "depends-on",
     "display": "Library Common",
-    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/Common|2.0.0"
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/Common"
   }, {
     "type": "depends-on",
     "display": "Library Global",

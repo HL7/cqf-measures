@@ -1,6 +1,6 @@
 {
   "resourceType": "Library",
-  "id": "ecqm-update-2020-05-07",
+  "id": "ep-ec-quality-program",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"
@@ -14,37 +14,29 @@
         {
           "name" : "system-version",
           "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
-        },
-        {
-          "name": "expansion",
-          "valueUri": "eCQM%20Update%202020-05-07"
         }
       ]
     }
   ],
   "extension": [
     {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-partOf",
-      "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-quality-program"
-    },
-    {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionParameters",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters",
       "valueReference": {
         "reference": "#exp-params"
       }
     }
   ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-update-2020-05-07",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ep-ec-quality-program",
   "identifier": [
     {
       "use": "official",
       "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
-      "value": "eCQM Update 2020-05-07"
+      "value": "EP/EC Quality Program"
     }
   ],
-  "version": "1.0.0",
-  "name": "ECQMUpdate20200507",
-  "title": "eCQM Update 2020-05-07",
+  "version": "0.1.0",
+  "name": "EPECQualityProgram",
+  "title": "EP/EC Quality Program",
   "status": "active",
   "experimental": true,
   "type": {
@@ -55,7 +47,7 @@
       }
     ]
   },
-  "date": "2020-05-07",
+  "date": "2019-09-03",
   "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
   "contact": [
     {
@@ -73,9 +65,9 @@
       "code": "US"
     }]
   }],
-  "description": "This library is an example of a program release that provides versioning information in support of stable expansion of a set of value sets used in a particular quality program.",
-  "approvalDate": "2020-05-07",
-  "lastReviewDate": "2020-05-07",
+  "description": "This library is an example of a quality program specification",
+  "approvalDate": "2019-08-03",
+  "lastReviewDate": "2019-08-03",
   "useContext": [
     {
       "code": {
@@ -95,16 +87,6 @@
   ],
   "relatedArtifact": [
     {
-      "type": "depends-on",
-      "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901",
-      "display": "SNOMED-CT US Edition, 2019-09-01"
-    },
-    {
-      "type": "depends-on",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example|2020-05",
-      "display": "Chronic Liver Disease, Legacy Example (2020-05)"
-    },
-    {
       "type": "composed-of",
       "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124-FHIR",
       "display": "Cervical Cancer Screening"
@@ -122,7 +104,7 @@
     {
       "type": "composed-of",
       "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM146-FHIR",
-      "display": "Appropriate Testing for Children with Pharyngitis"
+      "display":"Appropriate Testing for Children with Pharyngitis"
     }
   ]
 }
