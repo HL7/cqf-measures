@@ -35,9 +35,9 @@ Broadly speaking, composite measure scoring methods fall into two categories:
 {: #conformance-requirement-component-based}
 1. Individual-Based: Scoring methods that operate at the individual level by combining members of component populations and then calculating the measure score using standard measure scoring techniques on the combined populations.
 2. Component-Based: Scoring methods that operate at the population level by combining the summary scores of component measures.
-<div class="new-content">
+
 Architecturally, environments that are already capable of calculating measures using the measure scoring methods already described in this implementation guide can readily consume composite measure specifications that use the first approach (individual-based) but would require additional support in order to calculate component-based measures. Specifically, completely generic support for component-based calculation methods would require that an environment be able to evaluate CQL logic in the Population context. However, by restricting composite calculation support to those methods specified by this implementation guide, environments can calculate composites by operating on the results of individual-level scores. It is important to note that each scoring method should work for any subject for which the measure is developed - e.g. patient or encounter.
-</div>
+
 To illustrate the different composite scoring methods, an example Annual Wellness assessment measure for Eligible Clinicians (EC) is used. Note that although the scoring methods are described in terms applicable to ECs, the concepts apply in general to composites that could be built for any setting.
 
 ### All-or-nothing Scoring
@@ -197,6 +197,7 @@ define "Initial Population":
         union ("Patient Record" P
             where ComponentMeasure3."Initial Population"
                 return { service: 'Service 3' }
+       )
 
 define "Denominator":
     ("Patient Record" P
@@ -235,7 +236,7 @@ Note that this approach is using component measures where the improvement notati
 
 ### Subject-level Linear Combination Scoring
 {: subject-level-linear-combination-scoring}
-<div class="new-content">
+
 **Conformance Requirement 5.4 (Subject-level Linear Combination Scoring):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-5-4)
 {: #conformance-requirement-5-4}
     1. Calculation logic for subject-level linear combination composite measures SHALL be functionally equivalent to the calculation formulas defined in this section.
@@ -243,12 +244,12 @@ Note that this approach is using component measures where the improvement notati
     3. Narrative descriptions of population criteria for subject-level linear combination composite measures SHOULD include the narrative descriptions of the corresponding population criteria for each component measure.
 
 Subject-level linear combination scoring is modeled as a continuous variable measure that gives numerator credit for the proportion of patients in the numerators of composite measures.
-</div>
+
 <details open>
 <summary>
-<div class="new-content">
+
 <b>Figure 5-3. Subject-level linear combination method</b>
-</div>
+
 </summary>
 
 <em>Interpretation:</em> For each Eligible Clinician (EC), the percentage of completed preventive services, which gives EC partial numerator credit for meeting the criteria for some but not all components of the measure.<br>
@@ -274,7 +275,7 @@ define "Is In Component 1 Denominator":
 define "Is In Component 1 Numerator":
     ComponentMeasure1."Initial Population"
         and ComponentMeasure1."Denominator"
-        and not ComponentMeasure1."Denomniator Exclusion"
+        and not ComponentMeasure1."Denominator Exclusion"
         and not ComponentMeasure1."Numerator Exclusion"
 
 define "Is In Component 2 Denominator":
@@ -333,6 +334,51 @@ define "Measure Population Exclusion":
 Snippet 28: Formal criteria for a patient-based linear combination composite measure
 
 Note that these definitions are based on component measures whose improvement notation is an increase in the measure score. If any component measure has an improvement notation of decrease in score, the denominator and numerator for that component would be reversed in the above calculations.
+
+<div class="new-content">
+Linear Combination scoring vs. Opportunity scoring
+</div>
+
+To better understand the difference between linear combination and opportunity scoring, consider the following table representing a population of 10 patients (A-J) scored against 10 measures. 
+For each patient in each measure, if the patient falls in the initial population or denominator, indicate whether the patient is in the numerator population or not (T/F). However, if  the patient did not fall in the initial population or denominator, indciate 'n/a'. 
+
+<style>
+table, th, td {
+  border: 1px solid;
+}
+th { background-color: #f5f2f0; }
+
+</style>
+| Value | Meaning                                                    |
+| ----- | ---------------------------------------------------------- |
+| T     | Patient is in numerator                                    |
+| F     | Patient is not in numerator                                |
+| n/a   | Patient is excluded from initial population or denominator |
+
+|                                | A     | B      | C     | D     | E     | F     | G      | H     | I     | J     |
+| ------------------------------ | ----- | ------ | ----- | ----- | ----- | ----- | ------ | ----- | ----- | ----- |
+| Measure 1                      | T     | T      | T     | T     | F     | T     | T      | F     | T     | T     |
+| Measure 2                      | T     | T      | T     | n/a   | F     | T     | n/a    | T     | F     | T     |
+| Measure 3                      | T     | T      | T     | n/a   | T     | T     | n/a    | F     | T     | T     |
+| Measure 4                      | F     | T      | T     | n/a   | T     | T     | n/a    | T     | n/a   | T     |
+| Measure 5                      | F     | T      | T     | n/a   | T     | n/a   | n/a    | F     | n/a   | F     |
+| Measure 6                      | T     | T      | F     | n/a   | T     | n/a   | n/a    | T     | n/a   | F     |
+| Measure 7                      | n/a   | n/a    | n/a   | T     | T     | n/a   | T      | F     | n/a   | T     |
+| Measure 8                      | F     | T      | T     | T     | T     | F     | T      | T     | n/a   | T     |
+| Measure 9                      | F     | T      | F     | F     | F     | F     | T      | T     | T     | T     |
+| Measure 10                     | T     | T      | T     | T     | F     | T     | T      | T     | T     | T     |
+|                                |       |        |       |       |       |       |        |       |       |       |
+| Patient % Score                | 55.6% | 100.0% | 77.8% | 80.0% | 60.0% | 71.4% | 100.0% | 60.0% | 80.0% | 80.0% |
+|                                |       |        |       |       |       |       |        |       |       |       |
+| <b>Overall - Subject Level Linear</b> | <b>76.5%</b> |        |       |       |       |       |        |       |       |       |
+| <b>Overall - Opportunity </b>         | <b>74.7%</b> |        |       |       |       |       |        |       |       |
+
+For each patient (i.e. each column A-J), calculate the <b>Patient % score</b> by dividing the total number of occurrences in a measure numerator by the total number of occurrences in the denominator (i.e. not 'n/a') across all measures. <br/>
+To caclulate the <b>overall subject level linear</b> score, simply calculate the average patient % score across the number of  patients (in this case, 764.8 / 10) <br/>
+To calculate the <b>overall opportunity</b> score, divide the total number of patients in the numerator (i.e. 'T' values) across all measures by the total number of instances where the patient was not excluded from the initial population or denominator (i.e not 'n/a').
+(In this case,  59 / 79) 
+
+
 
 ### Weighted Scoring
 {: weighted-scoring}
@@ -429,7 +475,7 @@ Snippet 29: Weighted composite measure relatedArtifact elements
     2. For composite measures using All-or-nothing scoring
         a. The measure scoring method SHALL be Composite
         b. All component measures SHALL use Proportion or Ratio scoring
-    3. <span class="bg-success">For composite measures using Subject-level linear scoring</span>
+    3. For composite measures using Subject-level linear scoring
         a. The measure scoring method SHALL be Composite
         b. All component measures SHALL use Proportion, Ratio, or Continuous Variable Scoring
     4. For composite measures using Component-level scoring

@@ -1,6 +1,6 @@
 {
   "resourceType": "Library",
-  "id": "ep-ec-quality-program",
+  "id": "ecqm-update-2020",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"
@@ -14,30 +14,42 @@
         {
           "name" : "system-version",
           "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+        },
+        {
+          "name": "activeOnly",
+          "valueBoolean": true
+        },
+        {
+          "name": "includeDraft",
+          "valueBoolean": true
         }
       ]
     }
   ],
   "extension": [
     {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-expansionParameters",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-partOf",
+      "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-quality-program"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters",
       "valueReference": {
         "reference": "#exp-params"
       }
     }
   ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ep-ec-quality-program",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-update-2020",
   "identifier": [
     {
       "use": "official",
       "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
-      "value": "EP/EC Quality Program"
+      "value": "eCQM Annual Update 2020"
     }
   ],
-  "version": "0.1.0",
-  "name": "EPECQualityProgram",
-  "title": "EP/EC Quality Program",
-  "status": "active",
+  "version": "1.0.0",
+  "name": "ECQMAnnualUpdate2020",
+  "title": "eCQM Annual Update 2020",
+  "status": "draft",
   "experimental": true,
   "type": {
     "coding": [
@@ -47,7 +59,7 @@
       }
     ]
   },
-  "date": "2019-09-03",
+  "date": "2020-01-01",
   "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
   "contact": [
     {
@@ -65,9 +77,9 @@
       "code": "US"
     }]
   }],
-  "description": "This library is an example of a quality program specification",
-  "approvalDate": "2019-08-03",
-  "lastReviewDate": "2019-08-03",
+  "description": "This library is an example of a version manifest (also referred to as an expansion profile) that specifies expansion rules for a set of value sets used in a particular quality program.",
+  "approvalDate": "2020-01-01",
+  "lastReviewDate": "2020-01-01",
   "useContext": [
     {
       "code": {
@@ -87,24 +99,9 @@
   ],
   "relatedArtifact": [
     {
-      "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124-FHIR",
-      "display": "Cervical Cancer Screening"
-    },
-    {
-      "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM125-FHIR",
-      "display": "Breast Cancer Screening"
-    },
-    {
-      "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM130-FHIR",
-      "display":"Colorectal Cancer Screening"
-    },
-    {
-      "type": "composed-of",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM146-FHIR",
-      "display":"Appropriate Testing for Children with Pharyngitis"
+      "type": "depends-on",
+      "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901",
+      "display": "SNOMED-CT US Edition, 2019-09-01"
     }
   ]
 }
