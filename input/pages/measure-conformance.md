@@ -750,9 +750,9 @@ For each scoring type, the set of applicable criteria are specified in the [Qual
 | Continuous Variable  |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |          R          |              O               |
 | Cohort               |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |         NP          |              NP              |
 {: .grid}
-
+<span class="bg-success">
 NOTE: Composite measures are not represented in this table as they are made up of component measures.  The component measures in the composite will be expected to conform to the information in this table.
-
+</span>
 R=Required. O=Optional. NP=Not Permitted.
 
 ‡‡ Some ratio measures will require multiple Initial Populations, one for the numerator and one for the denominator.
