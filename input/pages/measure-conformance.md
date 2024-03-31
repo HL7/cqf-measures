@@ -572,7 +572,7 @@ To illustrate the mapping, Snippet 3-10 shows an ELM data reference and correspo
 
 XML:
 ```xml
-<def name="Acute Pharyngitis" id="2.16.840.1.113883.3.464.1003.102.12.1011" accessLevel="Public" />
+<def name="Acute Pharyngitis" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011" accessLevel="Public" />
 ```
 ```xml
 <operand dataType="fhir:Condition" xsi:type="Retrieve">
@@ -585,7 +585,7 @@ JSON:
 "def" : [
   {
     "name" : "Acute Pharyngitis",
-    "id" : "2.16.840.1.113883.3.464.1003.102.12.1011",
+    "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011",
     "accessLevel" : "Public"
   }
 ]
@@ -750,9 +750,9 @@ For each scoring type, the set of applicable criteria are specified in the [Qual
 | Continuous Variable  |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |          R          |              O               |
 | Cohort               |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |         NP          |              NP              |
 {: .grid}
-
+<span class="bg-success">
 NOTE: Composite measures are not represented in this table as they are made up of component measures.  The component measures in the composite will be expected to conform to the information in this table.
-
+</span>
 R=Required. O=Optional. NP=Not Permitted.
 
 ‡‡ Some ratio measures will require multiple Initial Populations, one for the numerator and one for the denominator.
