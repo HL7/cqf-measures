@@ -3,8 +3,10 @@
    <meta>
       <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"></profile>
       <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"></profile>
    </meta>
    <language value="en"></language>
+   <!--
    <contained>
       <Library xmlns="http://hl7.org/fhir">
          <id value="effective-data-requirements"></id>
@@ -1119,6 +1121,7 @@ define &quot;Long Term Care Periods During Measurement Period&quot;:
          </dataRequirement>
       </Library>
    </contained>
+   -->
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
       <valueCode value="boolean"></valueCode>
    </extension>
@@ -1127,16 +1130,52 @@ define &quot;Long Term Care Periods During Measurement Period&quot;:
          <reference value="Device/software-system-example"></reference>
       </valueReference>
    </extension>
-   <extension id="effective-data-requirements" url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
-      <valueReference>
-         <reference value="#effective-data-requirements"></reference>
-      </valueReference>
-   </extension>
+   <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
+    <valueCanonical value="http://hl7.org/fhir/us/cqfmeasures/Library/moduledefinition-example"/>
+  </extension>
+  <identifier>
+    <use value="official"/>
+    <type>
+      <coding>
+        <system
+                value="http://terminology.hl7.org/CodeSystem/artifact-identifier-type"/>
+        <code value="version-independent"/>
+        <display value="Version Independent"/>
+      </coding>
+    </type>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="http://example.org/fhir/us/cqfmeasures/Measure/CCSComponent"/>
+  </identifier>
+  <identifier>
+    <use value="official"/>
+    <type>
+      <coding>
+        <system
+                value="http://terminology.hl7.org/CodeSystem/artifact-identifier-type"/>
+        <code value="version-specific"/>
+        <display value="Version Specific"/>
+      </coding>
+    </type>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="http://example.org/fhir/us/cqfmeasures/Measure/130v10"/>
+  </identifier>
+  <identifier>
+    <use value="usual"/>
+    <type>
+      <coding>
+        <system
+                value="http://terminology.hl7.org/CodeSystem/artifact-identifier-type"/>
+        <code value="short-name"/>
+        <display value="Short Name"/>
+      </coding>
+    </type>
+    <value value="Colorectal Cancer Screening"/>
+  </identifier>
    <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/CCSComponent"></url>
    <version value="0.0.001"></version>
    <name value="CCSComponent"></name>
    <title value="Cervical Cancer Screening"></title>
-   <status value="draft"></status>
+   <status value="active"></status>
    <experimental value="true"></experimental>
    <date value="2022-02-22T11:37:03-06:00"></date>
    <publisher value="National Committee for Quality Assurance"></publisher>

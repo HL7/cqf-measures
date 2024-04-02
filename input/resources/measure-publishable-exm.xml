@@ -4,12 +4,22 @@
     <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"/>
     <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"/>
   </meta>
+  <!--
   <contained>
     <Library>
       <id value="effective-data-requirements"/>
+      <meta>
+        <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"/>
+      </meta>
+      <identifier>
+        <use value="official"/>
+        <system value="http://example.org/fhir/cqi/ecqm/Library/Identifier"/>
+        <value value="effective-data-requirements"/>
+      </identifier>
+       <url value="http://hl7.org/fhir/us/cqfmeasures/Library/effective-data-requirements"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition">
         <extension url="libraryName">
-          <valueString value="EXMPublishableLibrary"/>
+          <valueString value="CRMIPublishableLibrary"/>
         </extension>
         <extension url="name">
           <valueString value="SDE Sex"/>
@@ -23,7 +33,7 @@
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition">
         <extension url="libraryName">
-          <valueString value="EXMPublishableLibrary"/>
+          <valueString value="CRMIPublishableLibrary"/>
         </extension>
         <extension url="name">
           <valueString value="SDE Payer"/>
@@ -37,7 +47,7 @@
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition">
         <extension url="libraryName">
-          <valueString value="EXMPublishableLibrary"/>
+          <valueString value="CRMIPublishableLibrary"/>
         </extension>
         <extension url="name">
           <valueString value="Inpatient Encounter"/>
@@ -51,7 +61,7 @@
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition">
         <extension url="libraryName">
-          <valueString value="EXMPublishableLibrary"/>
+          <valueString value="CRMIPublishableLibrary"/>
         </extension>
         <extension url="name">
           <valueString value="Initial Population"/>
@@ -65,7 +75,7 @@
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition">
         <extension url="libraryName">
-          <valueString value="EXMPublishableLibrary"/>
+          <valueString value="CRMIPublishableLibrary"/>
         </extension>
         <extension url="name">
           <valueString value="SDE Ethnicity"/>
@@ -79,7 +89,7 @@
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition">
         <extension url="libraryName">
-          <valueString value="EXMPublishableLibrary"/>
+          <valueString value="CRMIPublishableLibrary"/>
         </extension>
         <extension url="name">
           <valueString value="SDE Race"/>
@@ -176,6 +186,7 @@
       </dataRequirement>
     </Library>
   </contained>
+  -->
   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
     <valueCode value="Encounter"/>
   </extension>
@@ -184,12 +195,11 @@
       <reference value="Device/software-system-example"/>
     </valueReference>
   </extension>
-  <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements" id="effective-data-requirements">
-    <valueReference>
-      <reference value="#effective-data-requirements"/>
-    </valueReference>
+  <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
+    <valueCanonical value="http://hl7.org/fhir/us/cqfmeasures/Library/moduledefinition-example"/>
+    </valueCanonical>
   </extension>
-  <url value="http://example.org/fhir/measures/publishable-measure-exm"/>
+  <url value="http://example.org/fhir/measures/measure-publishable-exm"/>
   <identifier>
     <use value="usual"/>
     <type>
@@ -265,6 +275,7 @@
     </telecom>
   </contact>
   <description value="An example FHIR-based publishable measure"/>
+  <!--
   <useContext>
     <code>
       <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -278,6 +289,7 @@
       <text value="eligible-provider"/>
     </valueCodeableConcept>
   </useContext>
+  -->
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>

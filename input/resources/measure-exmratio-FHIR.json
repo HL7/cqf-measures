@@ -7,156 +7,6 @@
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
     ]
   },
-  "contained" : [
-    {
-      "resourceType" : "Library",
-      "id" : "effective-data-requirements",
-      "extension" : [
-        {
-          "extension" : [
-            {
-              "url" : "libraryName",
-              "valueString" : "EXMRatio-FHIR"
-            },
-            {
-              "url" : "name",
-              "valueString" : "Qualifying Encounters"
-            },
-            {
-              "url" : "statement",
-              "valueString" : "define \"Qualifying Encounters\":   [\"Encounter\": \"Inpatient\"]"
-            },
-            {
-              "url" : "displaySequence",
-              "valueInteger" : 0
-            }
-          ],
-          "url" : "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition"
-        },
-        {
-          "extension" : [
-            {
-              "url" : "libraryName",
-              "valueString" : "EXMRatio-FHIR"
-            },
-            {
-              "url" : "name",
-              "valueString" : "Initial Population"
-            },
-            {
-              "url" : "statement",
-              "valueString" : "define \"Initial Population\":   \"Qualifying Encounters\""
-            },
-            {
-              "url" : "displaySequence",
-              "valueInteger" : 1
-            }
-          ],
-          "url" : "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition"
-        },
-        {
-          "extension" : [
-            {
-              "url" : "libraryName",
-              "valueString" : "EXMRatio-FHIR"
-            },
-            {
-              "url" : "name",
-              "valueString" : "Numerator"
-            },
-            {
-              "url" : "statement",
-              "valueString" : "define \"Numerator\":   \"Initial Population\""
-            },
-            {
-              "url" : "displaySequence",
-              "valueInteger" : 2
-            }
-          ],
-          "url" : "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition"
-        },
-        {
-          "extension" : [
-            {
-              "url" : "libraryName",
-              "valueString" : "EXMRatio-FHIR"
-            },
-            {
-              "url" : "name",
-              "valueString" : "Denominator"
-            },
-            {
-              "url" : "statement",
-              "valueString" : "define \"Denominator\":   \"Initial Population\""
-            },
-            {
-              "url" : "displaySequence",
-              "valueInteger" : 3
-            }
-          ],
-          "url" : "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition"
-        }
-      ],
-      "name" : "EffectiveDataRequirements",
-      "status" : "active",
-      "type" : {
-        "coding" : [
-          {
-            "system" : "http://terminology.hl7.org/CodeSystem/library-type",
-            "code" : "module-definition"
-          }
-        ]
-      },
-      "date" : "2022-02-22T10:37:04-07:00",
-      "relatedArtifact" : [
-        {
-          "type" : "depends-on",
-          "display" : "Value set Inpatient",
-          "resource" : "http://example.org/fhir/ValueSet/inpatient"
-        }
-      ],
-      "parameter" : [
-        {
-          "name" : "Numerator",
-          "use" : "out",
-          "min" : 0,
-          "max" : "*",
-          "type" : "Encounter"
-        },
-        {
-          "name" : "Denominator",
-          "use" : "out",
-          "min" : 0,
-          "max" : "*",
-          "type" : "Encounter"
-        },
-        {
-          "name" : "Initial Population",
-          "use" : "out",
-          "min" : 0,
-          "max" : "*",
-          "type" : "Encounter"
-        }
-      ],
-      "dataRequirement" : [
-        {
-          "type" : "Encounter",
-          "profile" : [
-            "http://hl7.org/fhir/StructureDefinition/Encounter"
-          ],
-          "mustSupport" : [
-            "type"
-          ],
-          "codeFilter" : [
-            {
-              "path" : "type",
-              "valueSet" : "http://example.org/fhir/ValueSet/inpatient"
-            }
-          ]
-        }
-      ]
-    }
-  ],
   "extension" : [
     {
       "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
@@ -180,11 +30,9 @@
       }
     },
     {
-      "id" : "effective-data-requirements",
-      "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
-      "valueReference" : {
-        "reference" : "#effective-data-requirements"
-      }
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
+      "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Library/effective-data-requirements-exmlogic"
+        
     }
   ],
   "url" : "http://example.org/fhir/measures/measure-ratio-exm",
@@ -212,23 +60,6 @@
     }
   ],
   "description" : "An example FHIR-based publishable measure",
-  "useContext" : [
-    {
-      "code" : {
-        "system" : "http://terminology.hl7.org/CodeSystem/usage-context-type",
-        "code" : "program"
-      },
-      "valueCodeableConcept" : {
-        "coding" : [
-          {
-            "system" : "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
-            "code" : "ep-ec"
-          }
-        ],
-        "text" : "eligible-provider"
-      }
-    }
-  ],
   "jurisdiction" : [
     {
       "coding" : [

@@ -4,7 +4,7 @@
       <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"></profile>
       <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
    </meta>
-<!--   
+   <!-- contained resource not used in this resource
    <contained>
       <Library xmlns="http://hl7.org/fhir">
          <id value="effective-data-requirements"></id>
@@ -113,7 +113,8 @@
             </codeFilter>
          </dataRequirement>
       </Library>
-   </contained> -->
+   </contained>
+   -->
    <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
       <valueCode value="Encounter"></valueCode>
    </extension>
@@ -130,10 +131,8 @@
          <reference value="Device/software-system-example"></reference>
       </valueReference>
    </extension>
-   <extension id="effective-data-requirements" url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
-      <valueReference>
-         <reference value="Library/EXMLogic-ModuleDefinition"></reference>
-      </valueReference>
+   <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
+      <valueCanonical value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic-ModuleDefinition"/>
    </extension>
    <url value="http://example.org/fhir/measures/measure-proportion-exm"></url>
    <identifier>
@@ -154,19 +153,6 @@
       </telecom>
    </contact>
    <description value="An example FHIR-based publishable measure - Promoting Interoperability"></description>
-   <useContext>
-      <code>
-         <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"></system>
-         <code value="program"></code>
-      </code>
-      <valueCodeableConcept>
-         <coding>
-            <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs"></system>
-            <code value="ep-ec"></code>
-         </coding>
-         <text value="eligible-provider"></text>
-      </valueCodeableConcept>
-   </useContext>
    <jurisdiction>
       <coding>
          <system value="urn:iso:std:iso:3166"></system>
