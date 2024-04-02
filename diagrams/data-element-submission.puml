@@ -2,24 +2,25 @@
 title Data Element Submission Scenario
 participant "Data Repository" as DR
 participant "Data Extraction Service" as Extractor
+participant "Measure Evaluation Service (requestor or reporter)" as Evaluator
+participant "Receiving System" as Receiver
+participant "Knowledge Artifact Consumer" as Consumer
 participant "Knowledge Repository" as KR
 participant "Terminology Service" as TS
-participant "Measure Evaluation Service" as Evaluator
-participant "Receiving System" as Receiver
 
 == 1. Setup ==
 loop per measure
-    Extractor -> KR: $data-requirements
+    Consumer -> KR: $data-requirements
     KR -> KR: Process data requirements
     note right: 1. Include date-based filtering\n2. Map filters to search parameters\n3. Prune data elements based on measure usage (incl attr)\n4. Eliminate duplicates
-    KR -> Extractor: Library.dataRequirement (0..*)
+    KR -> Consumer: Library.dataRequirement (0..*)
 end
 note right: Measure selection
-Extractor -> Extractor: Analyze requirements
+Consumer -> Consumer: Analyze requirements
 note right: 1. Collect value sets across data requirements
-Extractor -> TS: GET ValueSet(s)
+Consumer -> TS: GET ValueSet(s)
 note right: Use CapabilityStatement\nDetermine applicable expansions
-TS -> Extractor: ValueSet(s)
+TS -> Consumer: ValueSet(s)
 
 == 2. Attribution/Selection ==
 loop per measure
@@ -55,15 +56,15 @@ note right: Consider submission period\nConsider bulk data
 
 == 4. Evaluation (individual/group) ==
 loop per measure
-    Extractor -> Receiver: $evaluate-measure
-    Receiver -> Extractor: MeasureReport
+    Extractor -> Evaluator: $evaluate-measure
+    Evaluator -> Extractor: MeasureReport
 end
 note right: Bulk data
 
 == 5. Care Gaps ==
 loop per measure
-    Extractor -> Receiver: $care-gaps
-    Receiver -> Extractor: Bundle (care gap document)
+    Extractor -> Evaluator: $care-gaps
+    Evaluator -> Extractor: Bundle (care gap document)
 end
 note right: Bulk data
 @enduml
