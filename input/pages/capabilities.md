@@ -20,7 +20,12 @@ The Quality Measure IG is focused on the Setup workflow for quality measurement,
 
 Note that although the processing depicted here is focused on quality measurement, the steps and processes involved apply generally to any data analytics use case including decision support, case and registry reporting, and population health management.
 
+<div class="new-content" markdown="1">
+
 {% include img.html img="Data_Element_Submission_Scenario.png" %}
+
+</div>
+
 
 ## Capability Statements
 
