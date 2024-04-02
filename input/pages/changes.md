@@ -50,7 +50,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Use QI-Core patient profile url in measure-EXMLogic-FHIR example rather than base patient profile reference.  ([FHIR-43790](https://jira.hl7.org/browse/FHIR-43790))([Applied here](Measure-EXMLogic-FHIR.json.html))
 
 * **Applied**: Change Request - ImprovementNotation	([FHIR-43463](https://jira.hl7.org/browse/FHIR-43323))
-* **Applied**: Misspells, Typos and Duplicates	([FHIR-43621](https://jira.hl7.org/browse/FHIR-43621)) Applied ([here](measure-conformance.html#conformance-requirement-3-8)), and ([here](using-cql.html#conformance-requirement-4-18)), and ([here](using-cql.html#conformance-requirement-4-21)), and ([here](StructureDefinition-cqfm-fhirQueryPattern.html))
+* **Applied**: Misspells, Typos and Duplicates	([FHIR-43621](https://jira.hl7.org/browse/FHIR-43621)) Applied ([here](measure-conformance.html))
 * **Applied**: Three possible changes	([FHIR-43622](https://jira.hl7.org/browse/FHIR-43622))
 * **Applied**: Update description about the Capabilities page	([FHIR-43628](https://jira.hl7.org/browse/FHIR-43628))
 * **Applied**: Duplicate Operation section	([FHIR-43629](https://jira.hl7.org/browse/FHIR-43629))
@@ -117,7 +117,7 @@ This page details changes made in each version of the Quality Measure IG
 ### STU5 Ballot for FHIR R4 (v5.0.0-ballot)
 
 * **Applied**: Reference to composites should address content as entity and not limit to patient ([FHIR-35922](https://jira.hl7.org/browse/FHIR-35922))([Applied here](composite-measures.html#conformance-requirement-component-based)), ([here](composite-measures.html#subject-level-linear-combination-scoring)), ([here](composite-measures.html#conformance-requirement-5-5)), and ([here](index.html))
-* **Applied**: Make R4 CQFM Publishable CodeSystem profile compatible with R5 ([FHIR-37371](https://jira.hl7.org/browse/FHIR-37371))([Applied here](profiles.html#shareable-codesystem)), ([here](StructureDefinition-publishable-codesystem-cqfm.html)), and ([here](StructureDefinition-publishable-codesystem-cqfm.html))
+* **Applied**: Make R4 CQFM Publishable CodeSystem profile compatible with R5 ([FHIR-37371](https://jira.hl7.org/browse/FHIR-37371))
 * **Applied**: Notes to balloters improvement request ([FHIR-39893](https://jira.hl7.org/browse/FHIR-39893))([Applied here](index.html))
 * **Applied**: Update Dependency to US Core 6.0.0 ([FHIR-39894](https://jira.hl7.org/browse/FHIR-39894))([Applied here](index.html#dependencies))
 * **Applied**: Hard to tell what is new content ([FHIR-39895](https://jira.hl7.org/browse/FHIR-39895))([Applied here](index.html))
@@ -126,14 +126,14 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Clarify ratio measure Numerator definition ([FHIR-42826](https://jira.hl7.org/browse/FHIR-42826))([Applied here](measure-conformance.html#proportion-measure-table)), and ([here](measure-conformance.html#ratio-measure-table)) 
 * **Applied**: Clarify or Correct Conformance Requirement 3.4 ([FHIR-42894](https://jira.hl7.org/browse/FHIR-42894))([Applied here](measure-conformance.html#conformance-requirement-3-13))
 * **Applied**: Enable QMIG to Handle Population-based Measures ([FHIR-42898](https://jira.hl7.org/browse/FHIR-42898))([Applied here](measure-conformance.html#conformance-requirement-3-8)), and ([here](measure-conformance.html#proportion-measures))
-* **Applied**: Allow for use of multiple expressions in a population ([FHIR-42907](https://jira.hl7.org/browse/FHIR-42907)) ([Applied here](StructureDefinition-measure-cqfm.html))
+* **Applied**: Allow for use of multiple expressions in a population ([FHIR-42907](https://jira.hl7.org/browse/FHIR-42907)) 
 * **Applied**: Level of Precision/Rounding and Unit of Measure ([FHIR-42908](https://jira.hl7.org/browse/FHIR-42908))([Applied here](StructureDefinition-computable-measure-cqfm.html)), and ([here](StructureDefinition-cqfm-scoringPrecision.html))
-* **Applied**: Add support for measure manifests in the quality program profile ([FHIR-42920](https://jira.hl7.org/browse/FHIR-42920))([Applied here](StructureDefinition-quality-program-cqfm.html))
+* **Applied**: Add support for measure manifests in the quality program profile ([FHIR-42920](https://jira.hl7.org/browse/FHIR-42920))
 * **Applied**: Consider requiring the use of a SignatureLevel higher than none ([FHIR-42922](https://jira.hl7.org/browse/FHIR-42922))([Applied here](using-cql.html#translation-to-elm)), ([here](using-cql.html#specifying-options)), and ([here](using-cql.html#elm-suitability))
 * **Applied**: Does improvementNotation field need to allow for additional guidance? ([FHIR-42976](https://jira.hl7.org/browse/FHIR-42976))([Applied here](index.html)), and ([here](StructureDefinition-cqfm-improvementNotation.html))
 * **Applied**: Draft 2018 should be Active 2023 ([FHIR-43039](https://jira.hl7.org/browse/FHIR-43039)) Applied to numerous json files throughout IG in profiles and vocabulary
-* **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))([Applied here](StructureDefinition-cqfm-fhirQueryPattern.html))
-* **Applied**: Allow multiple quality programs and bind value set as example ([FHIR-43320](https://jira.hl7.org/browse/FHIR-43320))([Applied here](StructureDefinition-publishable-library-cqfm.html)) and ([here](StructureDefinition-publishable-measure-cqfm.html))
+* **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))
+* **Applied**: Allow multiple quality programs and bind value set as example ([FHIR-43320](https://jira.hl7.org/browse/FHIR-43320))([Applied here](StructureDefinition-publishable-measure-cqfm.html))
 * **Applied**: Correct short description about appliesTo extension ([FHIR-43358](https://jira.hl7.org/browse/FHIR-43358))([Applied here](StructureDefinition-computable-measure-cqfm.html))
   
 ### STU4 Publication for FHIR R4 (v4.0.0)
