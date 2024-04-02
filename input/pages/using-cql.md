@@ -129,7 +129,7 @@ In addition, please consider the following conformance statement:
 **Conformance Requirement 4.17 (Library Resources):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-17)
 {: #conformance-requirement-4-17}
 
-1. Content conforming to this implementation guide SHALL use at least the [CQFMLibrary](StructureDefinition-library-cqfm.html), [CQLLibrary](https://build.fhir.org/cqllibrary.html), and [CRMIShareableLibrary](https://build.fhir.org/ig/HL7/crmi-ig/StructureDefinition-crmi-shareablelibrary.html) profile for Library resources. If the library is active and published, conform to [CRMIPublishableLibrary](https://build.fhir.org/ig/HL7/crmi-ig/StructureDefinition-crmi-publishablelibrary.html).
+1. Content conforming to this implementation guide SHALL use at least the [CQLLibrary](https://build.fhir.org/cqllibrary.html) and [CRMIShareableLibrary](https://build.fhir.org/ig/HL7/crmi-ig/StructureDefinition-crmi-shareablelibrary.html) profile for Library resources. If the library is active and published, conform to [CRMIPublishableLibrary](https://build.fhir.org/ig/HL7/crmi-ig/StructureDefinition-crmi-publishablelibrary.html).
 
 #### FHIR Type Mapping
 {: #fhir-type-mapping}
@@ -168,7 +168,7 @@ Please reference section 2.17 of the [Using CQL with FHIR IG](https://hl7.org/fh
 
 #### Specifying Options
 
-This implementation guide references the [cqlOptions](http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above, including SignatureLevel, SHOULD be used. When this extension is present on a [CQFComputableLibrary](StructureDefinition-computable-library-cqfm.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
+This implementation guide references the [cqlOptions](http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above, including SignatureLevel, SHOULD be used. When this extension is present on a [CQLLibrary](http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CRMIManifestLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-manifestlibrary.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
 
 **Conformance Requirement 4.22 (Translator Options):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-22)
 {: #conformance-requirement-4-22}

@@ -59,7 +59,7 @@ In addition to conforming to profiles to support appropriate function or represe
 | **Artifact** | **Shareable** | **Computable** | **Publishable** | **Executable** |
 |----|----|----|----|----|
 | CodeSystem | [CRMIShareableCodeSystem]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablecodesystem.html) | N/A (no requirements) | [CRMIPublishableCodeSytems]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablecodesystem.html) | N/A (no requirements) |
-| ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMIComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMIExecutableValueSet](http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablevalueset) |
+| ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMIComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMIExpandedValueSet](http://hl7.org/fhir/uv/crmi/StructureDefinition-crmi-expandedvalueset.html) |
 {: .grid }
 
 * Due to varying code system capabilities, measure profiles are not restricted to use corresponding terminology profiles. 

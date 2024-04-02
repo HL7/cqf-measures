@@ -92,4 +92,4 @@ Basic testing of measure logic should involve at least one positive and negative
 This implementation guide includes a profile for describing a quality program as a collection of quality measures. This profile is a Library of type `asset-collection` that uses the `relatedArtifact` element to indicate which measures are part of the quality program. In addition, measures and libraries can use the `useContext` element to specify a quality program.
 
 1. Artifacts SHOULD use the `useContext` element with the `program` context type to specify a quality program
-2. Quality program descriptions SHALL use the [CQFQualityProgram](StructureDefinition-quality-program-cqfm.html) profile
+2. Quality program descriptions SHALL use the CQFQualityProgram profile

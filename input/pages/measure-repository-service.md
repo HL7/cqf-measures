@@ -40,7 +40,7 @@ A ShareableMeasureRepository:
 6. For computable measures, SHALL represent computable Measure information, as specified by the CQFMComputableMeasure profile. 
 7. For published measures, SHALL represent publishable Measure information, as specified by the CQFMPublishableMeasure profile.
 
-The [CQFMShareableMeasureRepository](CapabilityStatement-shareable-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+The CQFMShareableMeasureRepository capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
 ### Publishable Measure Repository 
 
@@ -53,7 +53,7 @@ A PublishableMeasureRepository:
 3. SHALL support measure packaging: Measure/$crmi.package operation 
 4. SHALL support measure requirements analysis: Measure/$data-requirements operation 
 
-The [CQFMPublishableMeasureRepository](CapabilityStatement-publishable-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them. 
+The CQFMPublishableMeasureRepository capability statement captures these requirements formally, while the following sections provide a narrative description of them. 
 
 ##### MeasureReports 
 
@@ -80,4 +80,4 @@ For libraries and measures, an AuthoringMeasureRepository:
 7. SHOULD support **Review**: Review and provide comments on an existing library (regardless of status) 
 8. SHOULD support **Approve**: Approve and provide comments on an existing library (regardless of status) 
 
-The [CQFMAuthoringMeasureRepository](CapabilityStatement-authoring-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them. 
+The [CRMIAuthoringArtifactReposiotry]({{site.data.fhir.ver.crmi}}/CapabilityStatement-crmi-authoring-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them. 

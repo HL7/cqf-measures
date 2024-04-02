@@ -55,7 +55,7 @@ library EXM146 version '4.0.0'
 
 Snippet 3-2: Library declaration line from [EXM146.cql](Library-EXM146-FHIR.html#cql-content)
 
-When using multiple CQL libraries to define a measure, refer to the [Nested Libraries](using-cql.html#nested-libraries) section of the [Using CQL](using-cql.html) topic of this guide.
+When using multiple CQL libraries to define a measure, refer to the [Nested Libraries]({{site.data.fhir.ver.cql}}/using-cql.html#nested-libraries) section of the [Using CQL](using-cql.html) topic of this guide.
 
 Inclusion of CQL into a FHIR QM is accomplished through the use of a FHIR Library resource as shown in Snippet 3-4. These libraries are then incorporated into the FHIR QM using the `library` element of the Measure (Snippet 3). CQL library content is encoded as `base64` and included as the `content` element of the Library resource.
 
@@ -465,7 +465,7 @@ Snippet 3-9: CQL declaration of a valueset and a code (from [Terminology.cql](Li
 
 Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html) of this IG, sections [4.3](using-cql.html#code-systems), [4.4](using-cql.html#value-sets), and [4.5](using-cql.html#codes).
 
-All declared valuesets and codes can be found in the [dataRequirement](StructureDefinition-library-cqfm-definitions.html#Library.dataRequirement) elements in the Library resource referenced by the Measure resource.
+All declared valuesets and codes can be found in the `dataRequirement` elements in the Library resource referenced by the Measure resource.
 
 ```json
 "dataRequirement": [
@@ -557,7 +557,7 @@ The canonical representation of ELM makes it straightforward to derive data requ
 
 
 **Conformance Requirement 3.6** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-6) 
-
+{: #conformance-requirement-3-6}
 1. Systems SHOULD populate dataRequirements for each ELM Retrieve element. Each dataRequirement:
   - SHALL have a “type” element representing the type of the retrieve
   - SHALL have a profile element with the value of the templateId attribute of the retrieve, if present
@@ -889,11 +889,11 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 
 | Population | Definition |
 |:----|:----:|
-| Initial Population | The initial population criteria refers to all patients, subjects, or events to be evaluated by a quality measure involving patients or subjects who share a common set of specified characteristics. All patients, subjects, or events counted (for example, as numerator, as denominator) are drawn from the initial population.                                                                                                                                                                                                                                                                 |
-| Denominator | Denominator criteria define the patients, subjects, or events that should be included in the lower portion of a fraction used to calculate a rate, proportion, or ratio. The denominator can be the same as the initial population, or a subset of the initial population to further constrain the population for the purpose of the measure.                                                                                                                                                                                                                                                     |
-| Denominator Exclusion | Denominator exclusion criteria define patients, subjects, or events that should be excluded from the denominator. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams.                                                                                                                                                                                                                                |
-| <span class="bg-success"> Numerator </span> | <span class="bg-success"> Numerator criteria define the patients, subjects, or events that should be included in the upper portion of a fraction used to calculate a proportion measure. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, subject, or event defined in the denominator (for rate and proportion measures) or initial population (for ratio measures). A numerator statement describes the clinical action that satisfies the conditions of the measure. </span> |
-| Numerator Exclusion | Numerator exclusion criteria define patients, subjects, or events to be excluded from the numerator. Numerator exclusions are used in proportion and ratio measures to help narrow the numerator (for inverted measures).                                                                                                                                                                                                                                                                                                                                                                         |
+| Initial Population | The initial population criteria refers to all patients, subjects, or events to be evaluated by a quality measure involving patients or subjects who share a common set of specified characteristics. All patients, subjects, or events counted (for example, as numerator, as denominator) are drawn from the initial population.                                                       |
+| Denominator | Denominator criteria define the patients, subjects, or events that should be included in the lower portion of a fraction used to calculate a rate, proportion, or ratio. The denominator can be the same as the initial population, or a subset of the initial population to further constrain the population for the purpose of the measure.                                              |
+| Denominator Exclusion | Denominator exclusion criteria define patients, subjects, or events that should be excluded from the denominator. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams.                              |
+|  Numerator | Numerator criteria define the patients, subjects, or events that should be included in the upper portion of a fraction used to calculate a proportion measure. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, subject, or event defined in the denominator (for rate and proportion measures) or initial population (for ratio measures). A numerator statement describes the clinical action that satisfies the conditions of the measure. |
+| Numerator Exclusion | Numerator exclusion criteria define patients, subjects, or events to be excluded from the numerator. Numerator exclusions are used in proportion and ratio measures to help narrow the numerator (for inverted measures).                 |
 | Denominator Exception                       | Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures.                                                                                                                                                                                                                                    |
 {: .grid}
 
@@ -1467,7 +1467,7 @@ Refer to the [ConceptMap Resources section](terminology.html#conceptmap-resource
 
 ### Attribution
 
-Member Attribution (ATR) lists are used between Payers and Providers for implementing risk-based contracts, value based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. The [CQFMQualityProgram](StructureDefinition-quality-program-cqfm.html) is a library profile used to establish a set of related quality improvement artifacts such as a measure program and can be used to establish a "release" of a quality program.
+Member Attribution (ATR) lists are used between Payers and Providers for implementing risk-based contracts, value based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. The [CRMIManifestLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-manifestlibrary.html) is a representation of a collection of artifacts (such as quality improvement artifacts) using a library profile and can be used to establish a "release" of a quality program.
 
 Referring to the [Member Attribution Lists Workflows and Definitions](http://hl7.org/fhir/us/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinci - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
 
