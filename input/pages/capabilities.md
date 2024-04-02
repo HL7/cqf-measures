@@ -28,7 +28,8 @@ This implementation guide defines capability statements, use cases, and conforma
 
 * [**Measure Repository**](measure-repository-service.html)
 
-<div class="new-content">
+<div class="new-content" markdown="1">
+
 Use cases depicted in this IG are expected to use a terminology service conformant with the [Artifact Terminology Service Capabilities as defined in CRMI.](http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-artifact-terminology-service)
 </div>
 
