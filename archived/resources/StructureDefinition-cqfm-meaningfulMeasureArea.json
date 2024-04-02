@@ -1,0 +1,82 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-meaningfulMeasureArea",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-meaningfulMeasureArea",
+  "version": "4.0.0",
+  "name": "CQFMMeaningfulMeasureArea",
+  "title": "CQFM Meaningful Measure Area",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Specifies the Meaningful Measures Area within the program that the measure covers or is related to.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "RelatedArtifact"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "What measure area",
+        "definition": "Specifies the Meaningful Measures Area within the program that the measure covers or is related to.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-meaningfulMeasureArea"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      }
+    ]
+  }
+}

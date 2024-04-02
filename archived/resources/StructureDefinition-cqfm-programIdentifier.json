@@ -1,0 +1,82 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqfm-programIdentifier",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-programIdentifier",
+  "version": "1.0.0",
+  "name": "CQFMProgramIdentifier",
+  "title": "CQFM Program Identifier",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Provides an identifier for the measure within the program.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "RelatedArtifact"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Measure number within the program",
+        "definition": "Provides an identifier for the measure within the program.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-programIdentifier"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}
