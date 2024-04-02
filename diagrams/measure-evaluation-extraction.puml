@@ -1,0 +1,20 @@
+@startuml Measure_Evaluation_Extraction
+title Measure Evaluation (Extraction)
+participant "Data Repository" as DR
+participant "Data Extraction Service" as Extractor
+participant "Measure Evaluation Service" as Evaluator
+participant "Receiving System" as Receiver
+
+Evaluator -> Extractor: $collect-data
+note right: Measure: The measure to be evaluated\nGroup: The subject(s) to evaluate\nPeriod: Timeframe for reporting
+loop per Subject
+  loop per Data Requirement
+    Extractor -> DR: GET
+    DR -> Extractor: Bundle
+  end
+end
+Extractor -> Evaluator: Bundles per subject
+
+Evaluator -> Evaluator: Calculate measure
+
+Evaluator -> Receiver: POST MeasureReport

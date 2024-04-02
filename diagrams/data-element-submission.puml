@@ -1,0 +1,70 @@
+@startuml Data_Element_Submission_Scenario
+title Data Element Submission Scenario
+participant "Data Repository" as DR
+participant "Data Extraction Service" as Extractor
+participant "Measure Evaluation Service (requestor or reporter)" as Evaluator
+participant "Receiving System" as Receiver
+participant "Knowledge Artifact Consumer" as Consumer
+participant "Knowledge Repository" as KR
+participant "Terminology Service" as TS
+
+== 1. Setup ==
+loop per measure
+    Consumer -> KR: $data-requirements
+    KR -> KR: Process data requirements
+    note right: 1. Include date-based filtering\n2. Map filters to search parameters\n3. Prune data elements based on measure usage (incl attr)\n4. Eliminate duplicates
+    KR -> Consumer: Library.dataRequirement (0..*)
+end
+note right: Measure selection
+Consumer -> Consumer: Analyze requirements
+note right: 1. Collect value sets across data requirements
+Consumer -> TS: GET ValueSet(s)
+note right: Use CapabilityStatement\nDetermine applicable expansions
+TS -> Consumer: ValueSet(s)
+
+== 2. Attribution/Selection ==
+loop per measure
+    Extractor -> Extractor: Determine attribution
+    note right: DaVinci Attribution use case
+    loop per patient
+        loop per selective data element
+            Extractor -> DR: GET data element
+            note right: Use fhirQueryPattern
+            DR -> Extractor: Bundle
+        end
+        Extractor -> Extractor: Determine applicable population
+        note right: If all bundles have data, patient is potentially a member of the IP
+    end
+    note right: Subset attributed patients by\ninitial population applicability
+end
+note right: Measure selection
+
+== 3. Submission ==
+loop per patient
+    loop per measure
+        loop per data element not marked selective
+            Extractor -> DR: GET data element
+            note right: Use fhirQueryPattern
+            DR -> Extractor: Bundle
+        end
+        Extractor -> Receiver: $submit-data
+        note right: Extractor constructs a bundle with all\n data retrieved from the repository\nReturn errors encountered
+        Receiver -> Extractor: OperationOutcome
+    end
+end
+note right: Consider submission period\nConsider bulk data
+
+== 4. Evaluation (individual/group) ==
+loop per measure
+    Extractor -> Evaluator: $evaluate-measure
+    Evaluator -> Extractor: MeasureReport
+end
+note right: Bulk data
+
+== 5. Care Gaps ==
+loop per measure
+    Extractor -> Evaluator: $care-gaps
+    Evaluator -> Extractor: Bundle (care gap document)
+end
+note right: Bulk data
+@enduml

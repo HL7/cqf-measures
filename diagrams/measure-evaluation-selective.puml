@@ -1,0 +1,35 @@
+@startuml Measure_Evaluation_Selective
+title Measure Evaluation (Selective Requirements)
+participant "Data Repository" as DR
+participant "Knowledge Repository" as Repository
+participant "Terminology Service" as TS
+participant "Data Extraction Service" as Extractor
+participant "Measure Evaluation Service" as Evaluator
+participant "Receiving System" as Receiver
+
+Evaluator -> Extractor: $collect-data
+note right: Measure: The measure to be evaluated\nGroup: The subject(s) to evaluate\nPeriod: Timeframe for evaluation
+Extractor -> Repository: $data-requirements
+note right: Measure: The measure to be evaluated\nPeriod: Timeframe for evaluation
+Repository -> Extractor: Library (effective data requirements)
+Extractor -> Extractor: Process data requirements
+Extractor -> TS: $expand ValueSets
+TS -> Extractor: ValueSet expansions
+loop per Subject
+  loop per Selective Data Requirement
+    Extractor -> DR: GET
+    DR -> Extractor: Bundle
+  end
+  Extractor -> Extractor: Determine IP potential
+  alt Potential IP
+    loop per Non-Selective Data Requirement
+      Extractor -> DR: GET
+      DR -> Extractor: Bundle
+    end
+  end
+end
+Extractor -> Evaluator: Bundles per subject
+
+Evaluator -> Evaluator: Calculate measure
+
+Evaluator -> Receiver: POST MeasureReport

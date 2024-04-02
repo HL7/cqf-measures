@@ -8,7 +8,7 @@ This page details changes made in each version of the Quality Measure IG
 ### STU5 Ballot2 for FHIR R4 (v5.0.0-ballot2)
 * **Applied**: Remove code "ep-ec" from Quality Programs value set	([FHIR-43323](https://jira.hl7.org/browse/FHIR-43323)) Applied ([here](codesystem-quality-programs-example.html))
 * **Applied**: Created an improvementNotationGuidance extension in the FHIR extensions pack and added to Publishable Measure at root and group level. ([FHIR-43463](https://jira.hl7.org/browse/FHIR-43463))([Applied here](https://hl7.org/fhir/us/cqfmeasures/StructureDefinition-publishable-measure-cqfm.html))
-* **Applied**: Removed reference to QUICK  ([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594))([Applied here](introduction.html))
+* **Applied**: Removed reference to QUICK  ([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594))([Applied here](introduction.html#hqmf))
 * **Applied**: Corrected broken links ([FHIR-43620](https://jira.hl7.org/browse/FHIR-43620))([Applied here](index.html)), and ([here](using-cql.html))
 * **Applied**: Updated the description of the Capabilities page on home page ([FHIR-43628](https://jira.hl7.org/browse/FHIR-43628))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/#how-to-read-this-guide))
 * **Applied**: Removed operations section from the capabilities page ([FHIR-43629](https://jira.hl7.org/browse/FHIR-43629))([Applied here](https://hl7.org/fhir/us/cqfmeasures/2024Jan/capabilities.html))
@@ -50,9 +50,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Use QI-Core patient profile url in measure-EXMLogic-FHIR example rather than base patient profile reference.  ([FHIR-43790](https://jira.hl7.org/browse/FHIR-43790))([Applied here](Measure-EXMLogic-FHIR.json.html))
 
 * **Applied**: Change Request - ImprovementNotation	([FHIR-43463](https://jira.hl7.org/browse/FHIR-43323))
-* **Applied**: Remove QUICK reference	([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594)) Applied ([here](introduction.html#hqmf))
-* **Applied**: Broken links	([FHIR-43620](https://jira.hl7.org/browse/FHIR-43620)) Applied ([here](using-cql.html#negation-rationale)) and ([here](index.html))
-* **Applied**: Misspells, Typos and Duplicates	([FHIR-43621](https://jira.hl7.org/browse/FHIR-43621))
+* **Applied**: Misspells, Typos and Duplicates	([FHIR-43621](https://jira.hl7.org/browse/FHIR-43621)) Applied ([here](measure-conformance.html#conformance-requirement-3-8)), and ([here](using-cql.html#conformance-requirement-4-18)), and ([here](using-cql.html#conformance-requirement-4-21)), and ([here](StructureDefinition-cqfm-fhirQueryPattern.html))
 * **Applied**: Three possible changes	([FHIR-43622](https://jira.hl7.org/browse/FHIR-43622))
 * **Applied**: Update description about the Capabilities page	([FHIR-43628](https://jira.hl7.org/browse/FHIR-43628))
 * **Applied**: Duplicate Operation section	([FHIR-43629](https://jira.hl7.org/browse/FHIR-43629))
@@ -92,12 +90,12 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: incorrect link for Clinical Reasoning Module	([FHIR-44533](https://jira.hl7.org/browse/FHIR-44533))
 * **Applied**: Large number of technical corrections	([FHIR-44547](https://jira.hl7.org/browse/FHIR-44547))
 * **Applied**: Updated text for composite measures to explain mixed improvement notation	([FHIR-43693](https://jira.hl7.org/browse/FHIR-43693))
+* **Applied**: Updated Sequence diagram on capabilities to add new actors and updated flow ([FHIR-43681](https://jira.hl7.org/browse/FHIR-43681))
 
 * **Not Yet Applied**: Minor technical items or suggestions for QM IG	([FHIR-43428](https://jira.hl7.org/browse/FHIR-43428))
 * **Not Yet Applied**: broken and outdated links and typos on home page	([FHIR-43632](https://jira.hl7.org/browse/FHIR-43632))
 * **Not Yet Applied**: Table 3.1 rendering is off	([FHIR-43640](https://jira.hl7.org/browse/FHIR-43640))
 * **Not Yet Applied**: update wording in Conformance Requirement 3.17	([FHIR-43643](https://jira.hl7.org/browse/FHIR-43643))
-* **Not Yet Applied**: Document workflow actors; use consistently in all QM IGs	([FHIR-43681](https://jira.hl7.org/browse/FHIR-43681))
 * **Not Yet Applied**: Refactor Using CQL to reference the Using CQL IG	([FHIR-43710](https://jira.hl7.org/browse/FHIR-43710))
 * **Not Yet Applied**: State composite scoring in the composite measure profile	([FHIR-43711](https://jira.hl7.org/browse/FHIR-43711))
 * **Not Yet Applied**: Canonical tail of Measure should be the name	([FHIR-43713](https://jira.hl7.org/browse/FHIR-43713))
@@ -125,6 +123,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Hard to tell what is new content ([FHIR-39895](https://jira.hl7.org/browse/FHIR-39895))([Applied here](index.html))
 * **Applied**: ImprovementNotation Allowed Values ([FHIR-42116](https://jira.hl7.org/browse/FHIR-42116))([Applied here](index.html)), and ([here](StructureDefinition-cqfm-improvementNotation.html))
 * **Applied**: PLease add 'Operations' as a an options on the FHIR artifacts menu ([FHIR-42715](https://jira.hl7.org/browse/FHIR-42715))([Applied here](index.html#how-to-read-this-guide)), and ([here](operations.html))
+* **Applied**: Please add 'Operations' as a an options on the FHIR artifacts menu ([FHIR-42715](https://jira.hl7.org/browse/FHIR-42715))([Applied here](index.html#how-to-read-this-guide)), and ([here](operations.html))
 * **Applied**: Clarify ratio measure Numerator definition ([FHIR-42826](https://jira.hl7.org/browse/FHIR-42826))([Applied here](measure-conformance.html#proportion-measure-table)), and ([here](measure-conformance.html#ratio-measure-table))
 * **Applied**: Clarify or Correct Conformance Requirement 3.4 ([FHIR-42894](https://jira.hl7.org/browse/FHIR-42894))([Applied here](measure-conformance.html#conformance-requirement-3-13))
 * **Applied**: Enable QMIG to Handle Population-based Measures ([FHIR-42898](https://jira.hl7.org/browse/FHIR-42898))([Applied here](measure-conformance.html#conformance-requirement-3-8)), and ([here](measure-conformance.html#proportion-measures))
@@ -137,7 +136,6 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Correct invalid json in StructureDefinition-cqfm-fhirQueryPattern.json ([FHIR-43086](https://jira.hl7.org/browse/FHIR-43086))([Applied here](StructureDefinition-cqfm-fhirQueryPattern.html))
 * **Applied**: Allow multiple quality programs and bind value set as example ([FHIR-43320](https://jira.hl7.org/browse/FHIR-43320))([Applied here](StructureDefinition-publishable-library-cqfm.html)) and ([here](StructureDefinition-publishable-measure-cqfm.html))
 * **Applied**: Correct short description about appliesTo extension ([FHIR-43358](https://jira.hl7.org/browse/FHIR-43358))([Applied here](StructureDefinition-computable-measure-cqfm.html))
-
 
 ### STU4 Publication for FHIR R4 (v4.0.0)
 
