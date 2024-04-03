@@ -7,7 +7,7 @@ This page details changes made in each version of the Quality Measure IG
 
 ### STU5 Ballot2 for FHIR R4 (v5.0.0-ballot2)
 
-* **Applied**: Remove code "ep-ec" from Quality Programs value set	([FHIR-43323](https://jira.hl7.org/browse/FHIR-43323)) Applied ([here](codesystem-quality-programs-example.html))
+* **Applied**: Remove code "ep-ec" from Quality Programs value set	([FHIR-43323](https://jira.hl7.org/browse/FHIR-43323)) Applied ([here](CodeSystem-quality-programs-example.html))
 * **Applied**: Minor technical items or suggestions for QM IG	([FHIR-43428](https://jira.hl7.org/browse/FHIR-43428))Applied ([here](index.html)), and [here](introduction.html)
 * **Applied**: Created an improvementNotationGuidance extension in the FHIR extensions pack and added to Publishable Measure at root and group level. ([FHIR-43463](https://jira.hl7.org/browse/FHIR-43463))([Applied here](https://hl7.org/fhir/us/cqfmeasures/StructureDefinition-publishable-measure-cqfm.html))
 * **Applied**: Removed reference to QUICK  ([FHIR-43594](https://jira.hl7.org/browse/FHIR-43594))([Applied here](introduction.html#hqmf))
