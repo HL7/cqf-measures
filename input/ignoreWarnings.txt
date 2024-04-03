@@ -1,5 +1,15 @@
 == Suppressed Messages ==
 
+# The cause of these hyperlinks not resolving remains unclear and has been discussed in the following Zulip thread conversation (https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Hyperlinks.20not.20resolving)
+ERROR: Bundle/bundle-example: Bundle.entry[0].resource/*MeasureReport/47709cc7-b3ec-4abc-9d26-3df3d3d57904*/.text.div: Hyperlink '#urnuuid47709cc7-b3ec-4abc-9d26-3df3d3d57906' at 'div/p/a' for 'See above (urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57906)' does not resolve
+ERROR: Bundle/bundle-example: Bundle.entry[0].resource/*MeasureReport/47709cc7-b3ec-4abc-9d26-3df3d3d57904*/.text.div: Hyperlink '#urnuuid47709cc7-b3ec-4abc-9d26-3df3d3d57905' at 'div/p/a' for 'See above (urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57905)' does not resolve
+ERROR: Bundle/bundle-example: Bundle.entry[0].resource/*MeasureReport/47709cc7-b3ec-4abc-9d26-3df3d3d57904*/.text.div: Hyperlink '#urnuuid47709cc7-b3ec-4abc-9d26-3df3d3d57905' at 'div/ul/li/a' for 'See above (urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57905)' does not resolve
+ERROR: Bundle/bundle-example: Bundle.entry[0].resource/*MeasureReport/47709cc7-b3ec-4abc-9d26-3df3d3d57904*/.text.div: Hyperlink '#urnuuid47709cc7-b3ec-4abc-9d26-3df3d3d57906' at 'div/ul/li/a' for 'See above (urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57906)' does not resolve
+ERROR: Bundle/bundle-example: Bundle.entry[0].resource/*MeasureReport/47709cc7-b3ec-4abc-9d26-3df3d3d57904*/.text.div: Hyperlink '#urnuuid47709cc7-b3ec-4abc-9d26-3df3d3d57907' at 'div/ul/li/a' for 'See above (urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57907)' does not resolve
+ERROR: Bundle/bundle-example: Bundle.entry[0].resource/*MeasureReport/47709cc7-b3ec-4abc-9d26-3df3d3d57904*/.text.div: Hyperlink '#urnuuid47709cc7-b3ec-4abc-9d26-3df3d3d57908' at 'div/ul/li/a' for 'See above (urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57908)' does not resolve
+ERROR: Bundle/bundle-example: Bundle.entry[4].resource/*Observation/null*/.text.div: Hyperlink '#urnuuid47709cc7-b3ec-4abc-9d26-3df3d3d57906' at 'div/p/a' for 'See above (urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57906)' does not resolve
+ERROR: Bundle/bundle-example: Bundle.entry[4].resource/*Observation/null*/.text.div: Hyperlink '#urnuuid47709cc7-b3ec-4abc-9d26-3df3d3d57907' at 'div/p/a' for 'See above (urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57907)' does not resolve
+
 # This device profile is intended to model software systems as devices, not implantable devices like what the US Core profile is describing. Approved by US Realm on 6/30/2020.
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 
@@ -23,6 +33,7 @@ Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/condition-ca
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/composite-measure-scoring|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/condition-ver-status|2.0.0
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/measure-data-usage|1.0.0
 
 # This error appears to be inherited from the base resource
 WARNING: StructureDefinition/publishable-manifest-cqfm: StructureDefinition.snapshot.element[46].constraint[1]: mnf-1: Reference to an unknown extension - double check that the URL 'http://hl7.org/fhir/5.0/StructureDefinition/extension-RelatedArtifact.resourceReference' is correct
@@ -95,7 +106,6 @@ INFORMATION: Measure/EXMRatio-FHIR: Measure.extension[4]: This element does not 
 INFORMATION: Measure/EXMRatio-FHIR: Measure.extension[4]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice) 
 INFORMATION: Measure/HBPComponent: Measure.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice) 
 INFORMATION: Measure/HBPComponent: Measure.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice) 
-INFORMATION: Measure/HBPComponent: Measure.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice) 
 INFORMATION: Measure/MultiRateExample-FHIR: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Measure/PVSComponent: Measure.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice) 
 INFORMATION: Measure/PVSComponent: Measure.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice) 
@@ -237,6 +247,9 @@ INFORMATION: ValueSet/executable-example: ValueSet.extension[0]: This element do
 INFORMATION: ValueSet/executable-example: ValueSet.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset|1.0.0-snapshot (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: ValueSet/executable-example: ValueSet.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-expandedvalueset|1.0.0-snapshot (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: ValueSet/quality-programs-example: ValueSet.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset|1.0.0-snapshot (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Measure/HBPComponent: Measure.extension[4]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Measure/HBPComponent: Measure.extension[4]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Measure/HBPComponent: Measure.extension[4]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 
 # The following terminology artifacts are defined in the IG and have been discussed internally against a move to THO
 INFORMATION: CodeSystem/artifact-comment-type: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
@@ -282,7 +295,6 @@ INFORMATION: Measure/EXMRatio-FHIR: Measure.extension[2]: This element does not 
 INFORMATION: Measure/EXMRatio-FHIR: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Measure/measure-pi-exm: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Measure/measure-pi-exm: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Measure/EXM124-FHIR: Measure.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm|4.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 
 # The following messages are expected since the elements in the following examples do not match publishable manfiest library profile but do match the elm library profile referenced:
 INFORMATION: Library/manifest-example: Library.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-manifest-cqfm|5.0.0-ballot2 (this may not be a problem, but you should check that it's not intended to match a slice)
@@ -291,9 +303,6 @@ INFORMATION: Library/manifest-example: Library.extension[2]: This element does n
 # The following messages are expected since the elements in the following examples do not match the slice in the shareable measure profile but do match the computable measure profile referenced:
 INFORMATION: Measure/EXM108-FHIR: Measure.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure|1.0.0-snapshot (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Measure/EXM108-FHIR: Measure.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure|1.0.0-snapshot (this may not be a problem, but you should check that it's not intended to match a slice)
-
-# The following messages are expected since the elements in the following example do not match the slices in the measure profile, but they do match in the computable measures profile referenced: 
-INFORMATION: Measure/EXM108-FHIR: Measure.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure|1.0.0-ballot2 (this may not be a problem, but you should check that it's not intended to match a slice)
 
 # The expression language text/cql-identifier is supported at the population.criteria level but not at the stratifier.criteria level. Messages only appear at the stratifier.criteria examples
 The expression language text/cql-identifier is not supported, so can't be validated

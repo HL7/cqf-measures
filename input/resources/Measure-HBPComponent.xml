@@ -1263,6 +1263,19 @@
    <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
     <valueCanonical value="http://hl7.org/fhir/us/cqfmeasures/Library/moduledefinition-example"/>
   </extension>
+  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance">
+    <extension url="usage">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
+          <code value="supplemental-data"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="guidance">
+      <valueMarkdown value="This guidance provides instructions on how to collect and report supplemental data elements for this measure."/>
+    </extension>
+  </extension>
   <identifier>
     <use value="official"/>
     <type>
