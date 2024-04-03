@@ -45,11 +45,11 @@ In addition to conforming to profiles to support appropriate function or represe
 
 | **Shareable** | **Computable** | **Publishable** | **Executable** |
 |----|----|----|----|
-| [CRMIShareableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablelibrary.html) | [CQLLibrary](http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library) | [CRMIPublishableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablelibrary.html) | [ELMLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-library.html)  |
+| [CRMIShareableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablelibrary.html) | [CQLLibrary](http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library) | [CRMIPublishableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablelibrary.html) | [ELM JSON Library]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-json-library.html) <br> [ELM XML Library]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-xml-library.html)  |
 {: .grid }
 
 * CQFMComputableMeasure  **SHALL** use CQLLibrary 
-* CQFMExecutableMeasure  **SHALL** use ELMLibrary
+* CQFMExecutableMeasure  **SHALL** use either ELM JSON Library and/or ELM XML Library
 * CQFMPublishableMeasure **SHOULD** use CRMIPublishableLibrary
 * CQFMShareableMeasure   **SHOULD** use CRMIShareableLibrary   
  
