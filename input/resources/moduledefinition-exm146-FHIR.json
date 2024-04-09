@@ -1,0 +1,259 @@
+{
+    "resourceType": "Library",
+    "id": "effective-data-requirements-exm146",
+    "meta" : {
+      "profile" : [
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"
+      ]
+    },
+    "url" : "http://hl7.org/fhir/us/cqfmeasures/Library/effective-data-requirements-exm146",
+    "version" : "1.0.0",
+    "title" : "Module Definition Library - EXM146",
+    "description" : "This library is used as an example module definition in the FHIR Quality Measure Implementation Guide",
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
+      "valueCoding": {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
+      "valueCoding": {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Is Between 2 and 17 Years of Age at Start of Measurement Period"
+      }, {
+        "url": "statement",
+        "valueString": "// Region: Initial Population\ndefine \"Is Between 2 and 17 Years of Age at Start of Measurement Period\":\n   AgeInYearsAt(start of \"Measurement Period\") >= 2\n      and AgeInYearsAt(start of \"Measurement Period\") <= 17"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 0
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Measurement Period Encounters"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Measurement Period Encounters\":\n   [Encounter: \"Ambulatory/ED Visit\"] Encounter\n      where Encounter.period during \"Measurement Period\"\n        and Encounter.status = 'finished'\n        and \"Is Between 2 and 17 Years of Age at Start of Measurement Period\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 1
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Pharyngitis"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Pharyngitis\":\n   ([Condition: code in \"Acute Pharyngitis\"]\n     union [Condition: code in \"Acute Tonsillitis\"]) Pharyngitis\n     where Pharyngitis.clinicalStatus ~ Global.active\n       and Pharyngitis.verificationStatus ~ Global.confirmed"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 2
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Antibiotics"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Antibiotics\":\n   [MedicationRequest: medication in \"Antibiotic Medications\"] Prescription\n     where Prescription.status = 'active'\n       and Prescription.intent = 'order'"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 3
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Pharyngitis Encounters With Antibiotics"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Pharyngitis Encounters With Antibiotics\":\n   \"Measurement Period Encounters\" Encounters\n      with \"Pharyngitis\" Pharyngitis such that\n         Common.\"Includes Or Starts During\"(Pharyngitis, Encounters)\n      with \"Antibiotics\" Antibiotics such that Antibiotics.authoredOn\n         3 days or less after FHIRHelpers.ToInterval(Encounters.period)"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 4
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Strep Test Encounters"
+      }, {
+        "url": "statement",
+        "valueString": "// EndRegion: Denominator Exclusions\n\n// Region: Denominator Exceptions\n\n// None\n\n// EndRegion: Denominator Exceptions\n\n// Region: Numerator\ndefine \"Strep Test Encounters\":\n   \"Pharyngitis Encounters With Antibiotics\" Encounters\n      with [Observation: code in \"Group A Streptococcus Test\"] Tests\n         such that Tests.value is not null\n            and Tests.effective starts during\n               Interval[start of FHIRHelpers.ToInterval(Encounters.period) - 3 days,\n                 end of FHIRHelpers.ToInterval(Encounters.period) + 3 days]"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 5
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Numerator"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Numerator\":\n   \"Strep Test Encounters\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 6
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM146-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Initial Population"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Initial Population\":\n   \"Pharyngitis Encounters With Antibiotics\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 7
+      } ]
+    } ],
+    "name": "EffectiveDataRequirements",
+    "status": "active",
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "module-definition"
+      } ]
+    },
+    "date": "2022-02-22T10:37:03-07:00",
+    "relatedArtifact": [ {
+      "type": "depends-on",
+      "display": "Library FHIRHelpers",
+      "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
+    }, {
+      "type": "depends-on",
+      "display": "Library Global",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"
+    }, {
+      "type": "depends-on",
+      "display": "Library Common",
+      "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/Common|2.0.0"
+    }, {
+      "type": "depends-on",
+      "display": "Code system ConditionClinicalStatusCodes",
+      "resource": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+    }, {
+      "type": "depends-on",
+      "display": "Code system ConditionVerificationStatusCodes",
+      "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Ambulatory/ED Visit",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Acute Pharyngitis",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Acute Tonsillitis",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Antibiotic Medications",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Group A Streptococcus Test",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
+    } ],
+    "parameter": [ {
+      "name": "Measurement Period",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "type": "Period"
+    }, {
+      "name": "Numerator",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }, {
+      "name": "Initial Population",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    } ],
+    "dataRequirement": [ {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011"
+      } ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1012"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "effective", "code", "value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1012"
+      } ]
+    }, {
+      "type": "Patient",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+    }, {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "period", "type", "status" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1061"
+      } ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "authoredOn", "medication", "intent", "status" ],
+      "codeFilter": [ {
+        "path": "medication",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1001"
+      } ]
+    } ]
+  }

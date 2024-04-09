@@ -45,11 +45,11 @@ In addition to conforming to profiles to support appropriate function or represe
 
 | **Shareable** | **Computable** | **Publishable** | **Executable** |
 |----|----|----|----|
-| [CRMIShareableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablelibrary.html) | [CQLLibrary](http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library) | [CRMIPublishableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablelibrary.html) | [ELMLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-library.html)  |
+| [CRMIShareableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablelibrary.html) | [CQLLibrary](http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library) | [CRMIPublishableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablelibrary.html) | [ELM JSON Library]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-json-library.html) <br> [ELM XML Library]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-xml-library.html)  |
 {: .grid }
 
 * CQFMComputableMeasure  **SHALL** use CQLLibrary 
-* CQFMExecutableMeasure  **SHALL** use ELMLibrary
+* CQFMExecutableMeasure  **SHALL** use either ELM JSON Library and/or ELM XML Library
 * CQFMPublishableMeasure **SHOULD** use CRMIPublishableLibrary
 * CQFMShareableMeasure   **SHOULD** use CRMIShareableLibrary   
  
@@ -59,7 +59,7 @@ In addition to conforming to profiles to support appropriate function or represe
 | **Artifact** | **Shareable** | **Computable** | **Publishable** | **Executable** |
 |----|----|----|----|----|
 | CodeSystem | [CRMIShareableCodeSystem]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablecodesystem.html) | N/A (no requirements) | [CRMIPublishableCodeSytems]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablecodesystem.html) | N/A (no requirements) |
-| ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMIComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMIExecutableValueSet](http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablevalueset) |
+| ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMIComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMIExpandedValueSet](http://hl7.org/fhir/uv/crmi/StructureDefinition-crmi-expandedvalueset.html) |
 {: .grid }
 
 * Due to varying code system capabilities, measure profiles are not restricted to use corresponding terminology profiles. 

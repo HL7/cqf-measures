@@ -67,13 +67,13 @@
             "key" : "cmp-1",
             "severity" : "error",
             "human" : "Population basis must be specified at the root, or on each group",
-            "expression" : "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis').exists() xor group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis').exists()).allTrue()"
+            "expression" : "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis').exists() or group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis').exists()).allTrue()"
           },
           {
             "key" : "cmp-2",
             "severity" : "error",
             "human" : "Scoring must be specified at the root, or on each group",
-            "expression" : "scoring.exists() xor group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists()).allTrue()"
+            "expression" : "scoring.exists() or group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists()).allTrue()"
           },
           {
             "key" : "cmp-3",

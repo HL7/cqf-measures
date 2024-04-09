@@ -5,7 +5,8 @@
     "profile": [
       "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary",
     "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary",
-    "http://hl7.org/fhir/uv/cql/StructureDefinition/elm-library",
+    "http://hl7.org/fhir/uv/cql/StructureDefinition/elm-json-library",
+    "http://hl7.org/fhir/uv/cql/StructureDefinition/elm-xml-library",
     "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
     ]
   },
@@ -43,23 +44,6 @@
     }
   ],
   "description": "This library is used as an example in the FHIR Quality Measure Implementation Guide",
-  "useContext": [
-    {
-      "code": {
-        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
-        "code": "program"
-      },
-      "valueCodeableConcept": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
-            "code": "eh-cah",
-            "display": "EH/CAH"
-          }
-        ]
-      }
-    }
-  ],
   "jurisdiction": [
     {
       "coding": [

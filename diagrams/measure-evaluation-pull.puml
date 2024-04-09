@@ -1,0 +1,13 @@
+@startuml Measure_Evaluation_Pull
+title Measure Evaluation (Pull)
+participant "Data Repository" as DR
+participant "Measure Evaluation Service" as Evaluator
+participant "Receiving System" as Receiver
+
+Evaluator -> DR: $collect-data
+note right: Measure: The measure to be evaluated\nGroup: The subject(s) to evaluate\nPeriod: Timeframe for reporting
+DR -> Evaluator: Bundles per subject
+
+Evaluator -> Evaluator: Calculate measure
+
+Evaluator -> Receiver: POST MeasureReport

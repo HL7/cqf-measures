@@ -3,18 +3,6 @@
   <meta>
     <profile value="http://hl7.org/fhir/uv/cql/StructureDefinition/cql-capabilitystatement"/>
   </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion">
-    <valueCoding>
-      <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/cql-version"/>
-      <code value="1.5"/>
-    </valueCoding>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion">
-    <valueCoding>
-      <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/cql-version"/>
-      <code value="1.4"/>
-    </valueCoding>
-  </extension>
   <url value="http://hl7.org/fhir/us/cqfmeasures/CapabilityStatement/measure-calculation-service-example"/>
   <name value="MeasureCalculationServiceCapabilityStatementExample"/>
   <title value="Measure Calculation Service Capability Statement Example"/>
@@ -43,6 +31,12 @@
   <format value="json"/>
   <format value="xml"/>
   <rest>
+  <extension url="http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion">
+    <valueString value = "1.5"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion">
+      <valueString value = "1.4"/>
+  </extension>
     <mode value="server"/>
     <documentation value="RESTful Measure Calculation Service"/>
     <security>

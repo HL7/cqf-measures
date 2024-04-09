@@ -1,0 +1,220 @@
+ {
+    "resourceType": "Library",
+    "id": "effective-data-requirements-exm55",
+    "meta" : {
+      "profile" : [
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"
+      ]
+    },
+    "url" : "http://hl7.org/fhir/us/cqfmeasures/Library/effective-data-requirements-exm55",
+    "version" : "1.0.0",
+    "name": "ModuleDefinitionLibraryEXM55",
+    "title" : "Module Definition Library - EXM55",
+    "experimental" : true,
+    "description" : "This library is used as an example module definition in the FHIR Quality Measure Implementation Guide",
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
+      "valueCoding": {
+        "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+        "code": "billing",
+        "display": "Billing"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM55-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Inpatient Encounter"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Inpatient Encounter\" :\n  [\"Encounter\"] Encounter\n    where LengthInDays(Encounter.period) <= 120\n      and Encounter.period ends during \"Measurement Period\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 0
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM55-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Stratification 3"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Stratification 3\" :\n  \"Inpatient Encounter\" Encounter\n    where PrincipalDiagnosis(Encounter) is null"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 1
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM55-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Stratification 2"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Stratification 2\" :\n  \"Inpatient Encounter\" Encounter\n    where PrincipalDiagnosis(Encounter).code in \"Psychiatric/Mental Health Patient\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 2
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM55-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Measure Population Exclusion"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Measure Population Exclusion\" :\n  \"Inpatient Encounter\" Encounter\n    with [\"Encounter\" : \"Emergency Department Visit\"] ED\n      such that ED.period ends 1 hour or less before start of Encounter.period\n        and ED.status = 'finished'\n        and ED.hospitalization.admitSource in \"Hospital Settings\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 3
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM55-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Stratification 1"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Stratification 1\" :\n  \"Inpatient Encounter\" Encounter\n    where not (PrincipalDiagnosis(Encounter).code in \"Psychiatric/Mental Health Patient\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 4
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM55-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Initial Population"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Initial Population\" :\n  \"Inpatient Encounter\" Encounter\n    with [\"Encounter\" : \"Emergency Department Visit\"] ED\n     such that ED.status = 'finished'\n       and ED.period ends 1 hour or less before start of Encounter.period"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 5
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "EXM55-FHIR"
+      }, {
+        "url": "name",
+        "valueString": "Measure Population"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Measure Population\" :\n  \"Initial Population\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 6
+      } ]
+    } ],
+    "status": "active",
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "module-definition"
+      } ]
+    },
+    "date": "2022-02-22T10:37:03-07:00",
+    "relatedArtifact": [ {
+      "type": "depends-on",
+      "display": "Library FHIRHelpers",
+      "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
+    }, {
+      "type": "depends-on",
+      "display": "Code system Diagnosis Role",
+      "resource": "http://terminology.hl7.org/CodeSystem/diagnosis-role"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Psychiatric/Mental Health Patient",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Emergency Department Visit",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Hospital Settings",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.126"
+    } ],
+    "parameter": [ {
+      "name": "Measurement Period",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "type": "Period"
+    }, {
+      "name": "Stratification 3",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }, {
+      "name": "Stratification 2",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }, {
+      "name": "Measure Population Exclusion",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }, {
+      "name": "Stratification 1",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }, {
+      "name": "Initial Population",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    }, {
+      "name": "Measure Population",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Encounter"
+    } ],
+    "dataRequirement": [ {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "period", "hospitalization", "hospitalization.admitSource", "type", "status" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
+      } ]
+    }, {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "period" ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "id" ],
+      "codeFilter": [ {
+        "path": "id"
+      } ]
+    } ]
+  } 

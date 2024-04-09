@@ -20,7 +20,12 @@ The Quality Measure IG is focused on the Setup workflow for quality measurement,
 
 Note that although the processing depicted here is focused on quality measurement, the steps and processes involved apply generally to any data analytics use case including decision support, case and registry reporting, and population health management.
 
+<div class="new-content" markdown="1">
+
 {% include img.html img="Data_Element_Submission_Scenario.png" %}
+
+</div>
+
 
 ## Capability Statements
 
@@ -28,8 +33,9 @@ This implementation guide defines capability statements, use cases, and conforma
 
 * [**Measure Repository**](measure-repository-service.html)
 
-<div class="new-content">
-Use cases depicted in this IG are expected to use a terminology service conformant with the [Artifact Terminology Service Capabilities as defined in CRMI.](http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-artifact-terminology-service)
+<div class="new-content" markdown="1">
+
+Use cases depicted in this IG are expected to use a terminology service conformant with the [Artifact Terminology Service Capabilities as defined in CRMI.](https://hl7.org/fhir/uv/crmi/2024Jan/artifact-terminology-service.html)
 </div>
 
 In addition, the following example capability statement illustrates the use of the [cqf-supportedCqlVersion](http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion) extension to support advertising the version of CQL supported by the service:
