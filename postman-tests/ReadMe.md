@@ -4,7 +4,7 @@
 ## Running the collection from within Postman
 
 ### Environment Variables
-In Postman setup the following environment variables. They are used in the queries in this collection.
+In Postman set up the following environment variables. They are used in the queries in this collection.
 
 basicUser:  your UserName for the target server
 
@@ -16,7 +16,7 @@ SERVER_URL:   The url of the server being tested for compliance to the [CQF Meas
 
 Import the collection in Postman. 
 
-After setting up the variables, double click the query you want to run from the collection. Check the results. Edit as desired and rerun. Rinse and repeat. 
+After setting up the variables, double-click the query you want to run from the collection. Check the results. Edit as desired and rerun. Rinse and repeat. 
  
 ## Running the collection from CLI
 
@@ -30,7 +30,7 @@ Additional [third party newman reporters](https://www.npmjs.com/search?q=newman-
 
 ### Setting up the environment variables
 
-Open the file workspace.postman_globals.json. Edit the values for basicUser, basicPass, SERVER_URL so they have the actual username, password, and server url for the target server. 
+Open the file workspace.postman_globals.json. Edit the values for basicUser, basicPass, and SERVER_URL, so they have the actual username, password, and server url for the target server. The other global variable has the key of VERSION. This defaults to STU4, but may be changed to STU5 to test that release by adjusting the profile testing to use CRMI. 
 
 ### Running the tests
 
