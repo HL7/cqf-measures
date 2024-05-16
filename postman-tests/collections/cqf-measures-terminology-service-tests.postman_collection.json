@@ -3843,6 +3843,187 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "ValueSet 6.7 Publishable Value Set Author uses ContactDetail",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"// total",
+													"pm.test(\"Response total is 1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.total).to.equal(1);",
+													"});",
+													"",
+													"pm.test(\"Publishable extension is present in meta\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm\");",
+													"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset\");",
+													"}",
+													"});",
+													"",
+													"// url",
+													"pm.test(\"Resource url equal to http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equal(\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926\");",
+													"});",
+													"",
+													"// title",
+													"pm.test(\"Title is ACE Inhibitor or ARB or ARNI Ingredient\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).to.equal(\"ACE Inhibitor or ARB or ARNI Ingredient\", \"Title error\");",
+													"});",
+													"",
+													"// date",
+													"pm.test(\"Date is 2023-02-17T01:03:27-05:00\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.date).to.equal(\"2023-02-17T01:03:27-05:00\", \"Date error\");",
+													"});",
+													"",
+													"// Authored extension returns valueContactDetail",
+													"pm.test(\"Authored extension returns valueContactDetail\", function() {",
+													"    const responseData = pm.response.json();",
+													"    const extensions = responseData.entry[0].resource.extension;",
+													"    let extension = extensions.find(function(obj) { return obj.url == \"http://hl7.org/fhir/StructureDefinition/valueset-author\"; });",
+													"    pm.expect(extension).to.exist;",
+													"    pm.expect(extension.valueContactDetail).to.equal(\"AHA Author\", \"ContactDetail error\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{SERVER_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926&version=20230217",
+											"host": [
+												"{{SERVER_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926"
+												},
+												{
+													"key": "version",
+													"value": "20230217"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ValueSet 6.8 Publishable Value Set EffectiveDate uses valueDateTime",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"// total",
+													"pm.test(\"Response total is 1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.total).to.equal(1);",
+													"});",
+													"",
+													"pm.test(\"Publishable extension is present in meta\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm\");",
+													"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset\");",
+													"}",
+													"});",
+													"",
+													"// url",
+													"pm.test(\"Resource url equal to http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equal(\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926\");",
+													"});",
+													"",
+													"// version",
+													"pm.test(\"Version is 20230217\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).to.equal(\"20230217\", \"Invalid version\");",
+													"});",
+													"",
+													"// title",
+													"pm.test(\"Title is ACE Inhibitor or ARB or ARNI Ingredient\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).to.equal(\"ACE Inhibitor or ARB or ARNI Ingredient\", \"Title error\");",
+													"});",
+													"",
+													"// Effective Date extension returns valueDateTime",
+													"pm.test(\"Effective Date extension returns valueDateTime\", function() {",
+													"    const responseData = pm.response.json();",
+													"    const extensions = responseData.entry[0].resource.extension;",
+													"    let extension = extensions.find(function(obj) { return obj.url == \"http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate\"; });",
+													"    pm.expect(extension).to.exist;",
+													"    pm.expect(extension.valueDateTime).to.equal(\"2023-02-17\", \"EffectiveDate error\");",
+													"});",
+													"",
+													"// copyright",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{SERVER_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926&version=20230217",
+											"host": [
+												"{{SERVER_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926"
+												},
+												{
+													"key": "version",
+													"value": "20230217"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"description": "These tests validate Publishable ValueSet content for 4 categories of ValueSet:  \nFHIR Ballot-bound (published as part of the FHIR specification)  \nTHO (published in Terminology.HL7.org  \nUS Core (published in the US Core Implementation Guide)  \nQI Core (published in the QI Core Implementation Guide)\n\nEach test validates the content expected by the CQFMPublishableValueSet profile:  \nCQFMPublishableValueSet Required Items:\n\n- title\n    \n- date\n    \n\nCQFMPublishableValueSet Optional/MS Items:\n\n- approvalDate\n    \n- effectiveDate\n    \n- expirationDate\n    \n- lastReviewDate\n    \n- author\n    \n- keyWord\n    \n- copyright"
