@@ -1047,6 +1047,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
+													"// What is this based on as a source of truth? Apelon has version= 2.1.0",
 													"",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
@@ -1056,6 +1057,7 @@
 													"pm.test(\"ResourceType is CodeSystem\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
+													"// console.log(responseData.entry[0].resource.resourceType)",
 													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"CodeSystem\");",
 													"",
 													"});",
@@ -1622,7 +1624,6 @@
 											"script": {
 												"exec": [
 													"",
-													"// NOTE: For vsac UAT, STU4 this request returns \"diagnostics\": \"Invalid value set URI\" and so all the assertions fail. This request: http://terminology.hl7.org/ValueSet/allergyintolerance-clinical returns the valueset, though.",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -6993,7 +6994,7 @@
 									"response": []
 								},
 								{
-									"name": "ValueSet 13.2 Timeouts Expand On Id (2.16.840.1.113762.1.4.1146.1407)",
+									"name": "ValueSet 13.3 Timeouts Expand On Id (2.16.840.1.113762.1.4.1146.1407)",
 									"event": [
 										{
 											"listen": "test",
@@ -7042,7 +7043,7 @@
 									"response": []
 								},
 								{
-									"name": "ValueSet 13.2 Timeouts Expand On Id (2.16.840.1.113883.3.3157.1004.28)",
+									"name": "ValueSet 13.4 Timeouts Expand On Id (2.16.840.1.113883.3.3157.1004.28)",
 									"event": [
 										{
 											"listen": "test",
@@ -7091,7 +7092,7 @@
 									"response": []
 								},
 								{
-									"name": "ValueSet 13.2 Timeouts Expand On Id (2.16.840.1.113883.3.464.1003.199.11.1104)",
+									"name": "ValueSet 13.5 Timeouts Expand On Id (2.16.840.1.113883.3.464.1003.199.11.1104)",
 									"event": [
 										{
 											"listen": "test",
@@ -7155,12 +7156,13 @@
 							"name": "Quality Program 1 Shareable",
 							"item": [
 								{
-									"name": "Quality Program 1",
+									"name": "Quality Program 1 Shareable",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
 												"exec": [
+													"// Why does this not require the Shareable profile in the meta???\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
