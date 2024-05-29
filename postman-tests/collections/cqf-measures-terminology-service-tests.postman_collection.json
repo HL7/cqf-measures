@@ -1673,7 +1673,7 @@
 													"pm.test(\"Resource type is CodeSystem\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.entry[0].resource.type).equals(\"CodeSystem\");",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"CodeSystem\");",
 													"});"
 												],
 												"type": "text/javascript"
