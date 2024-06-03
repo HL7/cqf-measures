@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8cc76755-a8fa-4981-944a-e1f27b91dd38",
+		"_postman_id": "d87366a6-930a-408e-9f51-8ea4408bebbc",
 		"name": "cqf-measures-terminology-service-tests",
 		"description": "This test suite validates capability described in the Quality Measure IG Measure Terminology Service:\n\n[https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html](https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html)\n\nSpecifically, there are test case folders for each section of the capability statement:\n\n- Code Systems (10.1.2: [https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html#code-systems](https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html#code-systems))\n    \n- Value Sets (10.1.3: [https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html#value-sets](https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html#value-sets))\n    \n- Quality Programs (10.1.4: [https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html#quality-programs-artifact-collections](https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html#quality-programs-artifact-collections))\n    \n- Server Operations (10.1.5: [https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html#server-operations](https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html#server-operations))\n    \n- Capability Statement (10.1.6: [https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html#capability-statement](https://build.fhir.org/ig/HL7/cqf-measures/measure-terminology-service.html#capability-statement))\n    \n\nTests are named according to the requirement that they are testing. More documentation is available in the testing folders and individual test cases.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -205,11 +205,11 @@
 													"});",
 													"",
 													"// NOTE: Experimental is expected by the profile but not present in the HL7 source-of-truth (https://terminology.hl7.org/3.1.0/CodeSystem-v3-ActCode.json)",
-													"pm.test(\"Experimental is false\", function () {",
-													"    const responseData = pm.response.json();",
-													"",
-													"    pm.expect(responseData.entry[0].resource.experimental).to.equal(false, \"Experimental error\");",
-													"});",
+													"//pm.test(\"Experimental is false\", function () {",
+													"//    const responseData = pm.response.json();",
+													"//",
+													"//    pm.expect(responseData.entry[0].resource.experimental).to.equal(false, \"Experimental error\");",
+													"//});",
 													"",
 													"pm.test(\"Description is expected\", function () {",
 													"    const responseData = pm.response.json();",
@@ -242,7 +242,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -333,11 +334,11 @@
 													"});",
 													"",
 													"// NOTE: Experimental is expected by the profile but not present in the HL7 source-of-truth",
-													"pm.test(\"Experimental is false\", function () {",
-													"    const responseData = pm.response.json();",
-													"",
-													"    pm.expect(responseData.entry[0].resource.experimental).to.equal(false, \"Experimental error\");",
-													"});",
+													"//pm.test(\"Experimental is false\", function () {",
+													"//    const responseData = pm.response.json();",
+													"//",
+													"//    pm.expect(responseData.entry[0].resource.experimental).to.equal(false, \"Experimental error\");",
+													"//});",
 													"",
 													"pm.test(\"Description is expected\", function () {",
 													"    const responseData = pm.response.json();",
@@ -364,7 +365,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -962,7 +964,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-ActPriority.json",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -1015,7 +1017,8 @@
 													"    pm.expect(responseData.entry[0].resource.title).equals(\"ActPriority\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1047,12 +1050,10 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"// What is this based on as a source of truth? Apelon has version= 2.1.0",
-													"",
+													"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-ActPriority.json",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
-													"",
 													"",
 													"pm.test(\"ResourceType is CodeSystem\", function () {",
 													"        const responseData = pm.response.json();",
@@ -1069,7 +1070,8 @@
 													"",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1105,7 +1107,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-ActPriority.json",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -1178,7 +1180,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1210,7 +1213,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-ActPriority.json",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -1263,7 +1266,8 @@
 													"    pm.expect(responseData.entry[0].resource.title).equals(\"ActPriority\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1295,7 +1299,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-ActPriority.json",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -1348,7 +1352,8 @@
 													"    pm.expect(responseData.entry[0].resource.title).equals(\"ActPriority\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1380,7 +1385,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-data-absent-reason.json",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -1439,7 +1444,8 @@
 													"    pm.expect(responseData.entry[0].resource.title).equals(\"DataAbsentReason\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1475,7 +1481,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-data-absent-reason.json",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -1534,7 +1540,8 @@
 													"    pm.expect(responseData.entry[0].resource.title).equals(\"DataAbsentReason\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1575,6 +1582,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
+													"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-data-absent-reason.json",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -1591,7 +1599,8 @@
 													"    pm.expect(responseData.entry[0].resource.status).equals(\"active\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1623,7 +1632,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-allergyintolerance-clinical.json",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -1676,7 +1685,8 @@
 													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"CodeSystem\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1708,7 +1718,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"//TODO: This test is incomplete, need test data to set up a measure that references this code system",
 													"//NOTE:  For vsac UAT, STU4 returns a 200 but an empty search set. \"GET https://madie.cms.gov/Measure/HFBetaBlockerTherapyforLVSDFHI\" is behind a login.",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
@@ -1762,7 +1772,8 @@
 													"    pm.expect(responseData.entry[0].resource.type).equals(\"Measure\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1794,7 +1805,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"//TODO: This test is incomplete, need a library that references this code system",
 													"//NOTE:  For vsac UAT, STU4 returns a 200 but an empty search result set.  GET http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical returns a codesystem",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
@@ -1848,7 +1859,8 @@
 													"    pm.expect(responseData.entry[0].resource.type).equals(\"Library\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1856,7 +1868,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{SERVER_URL}}CodeSystem/?library=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+											"raw": "{{SERVER_URL}}CodeSystem/?library=https://madie.cms.gov/Library/HFBetaBlockerTherapyforLVSDFHIR",
 											"host": [
 												"{{SERVER_URL}}CodeSystem"
 											],
@@ -1866,7 +1878,7 @@
 											"query": [
 												{
 													"key": "library",
-													"value": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+													"value": "https://madie.cms.gov/Library/HFBetaBlockerTherapyforLVSDFHIR"
 												}
 											]
 										}
@@ -1880,6 +1892,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
+													"//TODO: This test is incomplete, need a measure or library that references this code system",
 													"//NOTE:  For vsac UAT, STU4 returns a 200 but an empty search result set.  GET http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical returns a codesystem",
 													"",
 													"pm.test(\"Response status code is 200\", function () {",
@@ -1934,7 +1947,8 @@
 													"    pm.expect(responseData.entry[0].resource.type).equals(\"Artifact\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -1942,7 +1956,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{SERVER_URL}}CodeSystem/?artifact=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+											"raw": "{{SERVER_URL}}CodeSystem/?artifact=https://madie.cms.gov/Measure/HFBetaBlockerTherapyforLVSDFHIR",
 											"host": [
 												"{{SERVER_URL}}CodeSystem"
 											],
@@ -1952,7 +1966,7 @@
 											"query": [
 												{
 													"key": "artifact",
-													"value": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+													"value": "https://madie.cms.gov/Measure/HFBetaBlockerTherapyforLVSDFHIR"
 												}
 											]
 										}
@@ -1973,7 +1987,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationMode.json",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -1990,7 +2004,8 @@
 											"    pm.expect(parameterEntry.valueString).to.equal(\"ParticipationMode\");",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2026,7 +2041,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationMode.json",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -2043,7 +2058,8 @@
 											"    pm.expect(parameterEntry.valueString).to.equal(\"ParticipationMode\");",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2083,7 +2099,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-LivingArrangement.json",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -2112,7 +2128,8 @@
 											"    pm.expect(parameterEntry.valueString).equals(\"Nursing Home\");",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2152,7 +2169,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-LivingArrangement.json",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -2181,7 +2198,8 @@
 											"    pm.expect(parameterEntry.valueString).equals(\"Nursing Home\");",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -2190,7 +2208,8 @@
 										"exec": [
 											"pm.request.headers.add({key: 'Content-Type', value: 'application/fhir+json' })"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2225,7 +2244,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-LivingArrangement.json",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -2254,7 +2273,8 @@
 											"    pm.expect(parameterEntry.valueString).equals(\"Nursing Home\");",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -2263,7 +2283,8 @@
 										"exec": [
 											"pm.request.headers.add({key: 'Content-Type', value: 'application/fhir+json' })"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2292,12 +2313,13 @@
 							"response": []
 						},
 						{
-							"name": "CodeSystem 9.4 QICore Validate by Returned Code",
+							"name": "CodeSystem 9.4 Validate by Returned Code",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
+											"// Based on source of truth: SNOMED-CT|2023-03-01 code 277406006",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -2326,7 +2348,8 @@
 											"    pm.expect(parameterEntry.valueString).equals(\"Dosages (qualifier value)\");",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2366,6 +2389,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v3-LivingArrangement.json",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -2389,7 +2413,8 @@
 											"});",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2429,6 +2454,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"// Based on source of truth: https://terminology.hl7.org/3.1.0/CodeSystem-v2-0092.json",
+											"// But note that any code system without the code N will do",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -2452,7 +2479,8 @@
 											"});",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2519,12 +2547,12 @@
 													"",
 													"// profile",
 													"pm.test(\"Shareable profile is present in meta\", function () {",
-														"    const responseData = pm.response.json();",
-														"",
+													"    const responseData = pm.response.json();",
+													"",
 													"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
-														"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/StructureDefinition/shareablevalueset\");",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/StructureDefinition/shareablevalueset\");",
 													"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
-														"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset\");",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset\");",
 													"}",
 													"});",
 													"",
@@ -2635,7 +2663,7 @@
 													"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
 													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/StructureDefinition/shareablevalueset\");",
 													"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
-														"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset\");",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset\");",
 													"}",
 													"});",
 													"",
@@ -2691,7 +2719,8 @@
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -2699,7 +2728,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{SERVER_URL}}ValueSet/?url=http://terminology.hl7.org/ValueSet/v3-ActEncounterCode&version=2014-03-26",
+											"raw": "{{SERVER_URL}}ValueSet/?url=http://terminology.hl7.org/ValueSet/v3-ActEncounterCode&version=2.0.0",
 											"host": [
 												"{{SERVER_URL}}ValueSet"
 											],
@@ -2713,7 +2742,7 @@
 												},
 												{
 													"key": "version",
-													"value": "2014-03-26"
+													"value": "2.0.0"
 												}
 											]
 										}
@@ -2852,9 +2881,9 @@
 													"    const responseData = pm.response.json();",
 													"",
 													"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
-														"pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/StructureDefinition/shareablevalueset\");",
+													"pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/StructureDefinition/shareablevalueset\");",
 													"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
-														"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset\");",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset\");",
 													"}",
 													"});",
 													"",
@@ -2942,120 +2971,6 @@
 							"description": "These tests validate Shareable ValueSet content for 4 categories of ValueSet:  \nFHIR Ballot-bound (published as part of the FHIR specification)  \nTHO (published in Terminology.HL7.org  \nUS Core (published in the US Core Implementation Guide)  \nQI Core (published in the QI Core Implementation Guide)\n\nEach test validates the content expected by the R4 ShareableValueSet profile:  \nShareableValueSet Required Items:\n\n- url\n    \n- version\n    \n- name\n    \n- status\n    \n- experimental\n    \n- publisher\n    \n- description"
 						},
 						{
-							"name": "ValueSet 2 Computable (Authored)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"    pm.expect(pm.response.code).to.equal(200);\r",
-											"});\r",
-											"\r",
-											"// total\r",
-											"pm.test(\"Response total is 1\", function () {\r",
-											"    const responseData = pm.response.json();\r",
-											"\r",
-											"    pm.expect(responseData.total).to.equal(1);\r",
-											"});\r",
-											"\r",
-											"// profile\r",
-											"pm.test(\"Computable profile is present in meta\", function () {\r",
-											"    const responseData = pm.response.json();\r",
-											"\r",
-											"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
-											"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm\");\r",
-											"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
-											"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablevalueset\");\r",
-											"}",
-											"});\r",
-											"\r",
-											"// url\r",
-											"pm.test(\"Resource url is http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1\", function () {\r",
-											"    const responseData = pm.response.json();\r",
-											"\r",
-											"    pm.expect(responseData.entry[0].resource.url).equal(\"http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1\");\r",
-											"});\r",
-											"\r",
-											"// version\r",
-											"pm.test(\"Version is 20201019\", function () {\r",
-											"    const responseData = pm.response.json();\r",
-											"\r",
-											"    pm.expect(responseData.entry[0].resource.version).to.equal(\"20201019\", \"Invalid version\");\r",
-											"});\r",
-											"\r",
-											"// Computable ValueSet MS Items\r",
-											"// compose\r",
-											"pm.test(\"Compose is present\", function() {\r",
-											"    const responseData = pm.response.json();\r",
-											"\r",
-											"    pm.expect(responseData.entry[0].resource.compose).exist;\r",
-											"});\r",
-											"\r",
-											"// compose.inactive\r",
-											"\r",
-											"// compose.include\r",
-											"pm.test(\"Include is present\", function() {\r",
-											"    const responseData = pm.response.json();\r",
-											"\r",
-											"    pm.expect(responseData.entry[0].resource.compose.include).exist;\r",
-											"});\r",
-											"\r",
-											"// compose.include.system\r",
-											"pm.test(\"System is http://hl7.org/fhir/sid/icd-10-cm\", function() {\r",
-											"    const responseData = pm.response.json();\r",
-											"\r",
-											"    pm.expect(responseData.entry[0].resource.compose.include[0].system).equal(\"http://hl7.org/fhir/sid/icd-10-cm\", \"System error\");\r",
-											"});\r",
-											"\r",
-											"// compose.include.version\r",
-											"pm.test(\"System version is not present\", function() {\r",
-											"    const responseData = pm.response.json();\r",
-											"\r",
-											"    pm.expect(responseData.entry[0].resource.compose.include[0].version).to.not.exist;\r",
-											"});\r",
-											"\r",
-											"// compose.include.concept\r",
-											"pm.test(\"Concept is present\", function() {\r",
-											"    const responseData = pm.response.json();\r",
-											"\r",
-											"    pm.expect(responseData.entry[0].resource.compose.include[0].concept).exist;\r",
-											"});\r",
-											"\r",
-											"// compose.include.filter\r",
-											"// compose.include.valueSet\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{SERVER_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1&version=20201019",
-									"host": [
-										"{{SERVER_URL}}ValueSet"
-									],
-									"path": [
-										""
-									],
-									"query": [
-										{
-											"key": "url",
-											"value": "http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1"
-										},
-										{
-											"key": "version",
-											"value": "20201019"
-										}
-									]
-								}
-							},
-								"response": []
-						},
-						{
 							"name": "ValueSet 5 Executable",
 							"item": [
 								{
@@ -3065,7 +2980,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20240105\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
@@ -3145,7 +3060,8 @@
 													"// expansion.contains.display\r",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -3197,7 +3113,7 @@
 													"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
 													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm\");",
 													"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
-														"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset\");",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset\");",
 													"}",
 													"});",
 													"",
@@ -3481,9 +3397,9 @@
 													"    const responseData = pm.response.json();",
 													"",
 													"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
-														"pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/StructureDefinition/shareablevalueset\");",
+													"pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/StructureDefinition/shareablevalueset\");",
 													"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
-														"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset\");",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset\");",
 													"}",
 													"});",
 													"",
@@ -3561,7 +3477,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1195.279|20190206",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -3670,7 +3586,8 @@
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -3706,7 +3623,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.73|20230217",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -3724,7 +3641,7 @@
 													"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
 													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm\");",
 													"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
-														"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset\");",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset\");",
 													"}",
 													"});",
 													"",
@@ -3816,7 +3733,8 @@
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -3852,7 +3770,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926|20230217",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -3905,7 +3823,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -3941,7 +3860,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926|20230217",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -3997,7 +3916,8 @@
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4028,6 +3948,122 @@
 								}
 							],
 							"description": "These tests validate Publishable ValueSet content for 4 categories of ValueSet:  \nFHIR Ballot-bound (published as part of the FHIR specification)  \nTHO (published in Terminology.HL7.org  \nUS Core (published in the US Core Implementation Guide)  \nQI Core (published in the QI Core Implementation Guide)\n\nEach test validates the content expected by the CQFMPublishableValueSet profile:  \nCQFMPublishableValueSet Required Items:\n\n- title\n    \n- date\n    \n\nCQFMPublishableValueSet Optional/MS Items:\n\n- approvalDate\n    \n- effectiveDate\n    \n- expirationDate\n    \n- lastReviewDate\n    \n- author\n    \n- keyWord\n    \n- copyright"
+						},
+						{
+							"name": "ValueSet 2 Computable (Authored)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1|20201019\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.expect(pm.response.code).to.equal(200);\r",
+											"});\r",
+											"\r",
+											"// total\r",
+											"pm.test(\"Response total is 1\", function () {\r",
+											"    const responseData = pm.response.json();\r",
+											"\r",
+											"    pm.expect(responseData.total).to.equal(1);\r",
+											"});\r",
+											"\r",
+											"// profile\r",
+											"pm.test(\"Computable profile is present in meta\", function () {\r",
+											"    const responseData = pm.response.json();\r",
+											"\r",
+											"if (pm.environment.get(\"VERSION\") === \"STU4\"){\r",
+											"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm\");\r",
+											"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){\r",
+											"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablevalueset\");\r",
+											"}\r",
+											"});\r",
+											"\r",
+											"// url\r",
+											"pm.test(\"Resource url is http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1\", function () {\r",
+											"    const responseData = pm.response.json();\r",
+											"\r",
+											"    pm.expect(responseData.entry[0].resource.url).equal(\"http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1\");\r",
+											"});\r",
+											"\r",
+											"// version\r",
+											"pm.test(\"Version is 20201019\", function () {\r",
+											"    const responseData = pm.response.json();\r",
+											"\r",
+											"    pm.expect(responseData.entry[0].resource.version).to.equal(\"20201019\", \"Invalid version\");\r",
+											"});\r",
+											"\r",
+											"// Computable ValueSet MS Items\r",
+											"// compose\r",
+											"pm.test(\"Compose is present\", function() {\r",
+											"    const responseData = pm.response.json();\r",
+											"\r",
+											"    pm.expect(responseData.entry[0].resource.compose).exist;\r",
+											"});\r",
+											"\r",
+											"// compose.inactive\r",
+											"\r",
+											"// compose.include\r",
+											"pm.test(\"Include is present\", function() {\r",
+											"    const responseData = pm.response.json();\r",
+											"\r",
+											"    pm.expect(responseData.entry[0].resource.compose.include).exist;\r",
+											"});\r",
+											"\r",
+											"// compose.include.system\r",
+											"pm.test(\"System is http://hl7.org/fhir/sid/icd-10-cm\", function() {\r",
+											"    const responseData = pm.response.json();\r",
+											"\r",
+											"    pm.expect(responseData.entry[0].resource.compose.include[0].system).equal(\"http://hl7.org/fhir/sid/icd-10-cm\", \"System error\");\r",
+											"});\r",
+											"\r",
+											"// compose.include.version\r",
+											"pm.test(\"System version is not present\", function() {\r",
+											"    const responseData = pm.response.json();\r",
+											"\r",
+											"    pm.expect(responseData.entry[0].resource.compose.include[0].version).to.not.exist;\r",
+											"});\r",
+											"\r",
+											"// compose.include.concept\r",
+											"pm.test(\"Concept is present\", function() {\r",
+											"    const responseData = pm.response.json();\r",
+											"\r",
+											"    pm.expect(responseData.entry[0].resource.compose.include[0].concept).exist;\r",
+											"});\r",
+											"\r",
+											"// compose.include.filter\r",
+											"// compose.include.valueSet\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{SERVER_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1&version=20201019",
+									"host": [
+										"{{SERVER_URL}}ValueSet"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1"
+										},
+										{
+											"key": "version",
+											"value": "20201019"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -4041,6 +4077,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005\r",
+											"// NOTE: Any version of this value set will do\r",
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"    pm.expect(pm.response.code).to.equal(200);\r",
 											"});\r",
@@ -4056,13 +4094,13 @@
 											"pm.test(\"Shareable and Publishable profile is present in meta\", function () {\r",
 											"    const responseData = pm.response.json();\r",
 											"\r",
-											"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
+											"if (pm.environment.get(\"VERSION\") === \"STU4\"){\r",
 											"    pm.expect(responseData.meta.profile).contains(\"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm\");\r",
 											"    pm.expect(responseData.meta.profile).contains(\"http://hl7.org/fhir/StructureDefinition/shareablevalueset\");\r",
-											"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
+											"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){\r",
 											"    pm.expect(responseData.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset\");\r",
 											"    pm.expect(responseData.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset\");\r",
-											"}",
+											"}\r",
 											"});\r",
 											"\r",
 											"// id\r",
@@ -4090,7 +4128,8 @@
 											"\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -4116,6 +4155,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20190315\r",
 											"pm.test(\"Response status code is 200\", function () {\r",
 											"    pm.expect(pm.response.code).to.equal(200);\r",
 											"});\r",
@@ -4131,10 +4171,10 @@
 											"pm.test(\"Shareable and Publishable profile is present in meta\", function () {\r",
 											"    const responseData = pm.response.json();\r",
 											"\r",
-											"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
+											"if (pm.environment.get(\"VERSION\") === \"STU4\"){\r",
 											"    pm.expect(responseData.meta.profile).contains(\"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm\");\r",
 											"    pm.expect(responseData.meta.profile).contains(\"http://hl7.org/fhir/StructureDefinition/shareablevalueset\");\r",
-											"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
+											"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){\r",
 											"    pm.expect(responseData.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset\");\r",
 											"    pm.expect(responseData.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset\");\r",
 											"}\r",
@@ -4163,7 +4203,8 @@
 											"\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -4198,7 +4239,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4218,7 +4259,8 @@
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4250,7 +4292,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005",
+													"// NOTE: Needs multiple versions in order to pass",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4267,7 +4310,8 @@
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4299,7 +4343,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20170801",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4311,7 +4355,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4319,7 +4364,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{SERVER_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82&&version=20170801",
+											"raw": "{{SERVER_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82&version=20170801",
 											"host": [
 												"{{SERVER_URL}}ValueSet"
 											],
@@ -4330,10 +4375,6 @@
 												{
 													"key": "url",
 													"value": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82"
-												},
-												{
-													"key": null,
-													"value": null
 												},
 												{
 													"key": "version",
@@ -4351,7 +4392,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20170801",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4369,7 +4410,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4401,7 +4443,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4424,12 +4466,11 @@
 													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611\");",
 													"});",
 													"",
-													"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611",
-													"",
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4461,7 +4502,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"// Searching by name with this value shouldn't return any results, since the value set name is not actually this, but it does...",
+													"// Based on source of truth: // Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4476,7 +4517,8 @@
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4508,6 +4550,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1213.11|20190917",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4531,7 +4574,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4563,8 +4607,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"//NOTE: failing with \"Invalid status: draft\". ALso fails with status=unknown.",
-													"",
+													"// Any ValueSet with a status of draft will do",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4576,7 +4619,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4608,7 +4652,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1489|20230217",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4632,7 +4676,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4664,7 +4709,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4675,6 +4720,7 @@
 													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"ValueSet\");",
 													"});",
 													"",
+													"// TODO: This should really just be testing that the returned value set has that code in it...",
 													"pm.test(\"Name is N3MirrorGoldmannExam\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
@@ -4684,7 +4730,8 @@
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4716,7 +4763,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.105|20210611",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4733,7 +4780,8 @@
 													"    pm.expect(extensionEntry.valueString).to.equal(\"PC-02\");",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4765,7 +4813,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20240105",
+													"//NOTE: This test should really be two part, in that the id is server-assigned...",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4799,7 +4848,8 @@
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4831,7 +4881,8 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20190315",
+													"//NOTE: This test should really be multi-part since id is server-assigned",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
@@ -4865,7 +4916,8 @@
 													"",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -4904,7 +4956,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -4934,7 +4986,8 @@
 											"    pm.expect(parameterEntry.valueString).equals(\"Goldmann three-mirror contact lens (physical object)\");",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -4970,7 +5023,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -4993,7 +5046,8 @@
 											"    pm.expect(parameterEntry.valueString).equals(\"Goldmann three-mirror contact lens (physical object)\");",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -5029,7 +5083,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -5058,7 +5112,8 @@
 											"    pm.expect(parameterEntry.valueBoolean).to.be.false;",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -5094,7 +5149,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -5117,7 +5172,8 @@
 											"    pm.expect(parameterEntry.valueString).equals(\"Goldmann three-mirror contact lens (physical object)\");",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -5153,7 +5209,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -5176,7 +5232,8 @@
 											"    pm.expect(parameterEntry.valueString).equals(\"Goldmann three-mirror contact lens (physical object)\");",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -5212,7 +5269,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"",
+											"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319",
 											"pm.test(\"Response status code is 200\", function () {",
 											"    pm.expect(pm.response.code).to.equal(200);",
 											"});",
@@ -5230,7 +5287,8 @@
 											"});",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -5274,7 +5332,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20240105\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
@@ -5295,10 +5353,10 @@
 													"\r",
 													"// version\r",
 													"// NOTE: This is based on latest as of this test date\r",
-													"pm.test(\"Version is 20190315\", function () {\r",
+													"pm.test(\"Version is 20240105\", function () {\r",
 													"    const responseData = pm.response.json();\r",
 													"\r",
-													"    pm.expect(responseData.version).to.equal(\"20190315\", \"Invalid version\");\r",
+													"    pm.expect(responseData.version).to.equal(\"20240105\", \"Invalid version\");\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Expansion is present\", function () {\r",
@@ -5313,7 +5371,8 @@
 													"    pm.expect(responseData.expansion.contains.find(function(obj) { return obj.system == \"http://snomed.info/sct\" && obj.code == \"14693006\" })).exist;\r",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -5340,7 +5399,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20190315\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
@@ -5378,7 +5437,8 @@
 													"    pm.expect(responseData.expansion.contains.find(function(obj) { return obj.system == \"http://snomed.info/sct\" && obj.code == \"14693006\" })).exist;\r",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -5405,7 +5465,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20240105\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
@@ -5443,7 +5503,8 @@
 													"    pm.expect(responseData.expansion.contains.find(function(obj) { return obj.system == \"http://snomed.info/sct\" && obj.code == \"14693006\" })).exist;\r",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -5476,7 +5537,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.359|20230122\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
@@ -5520,7 +5581,8 @@
 													"    pm.expect(responseData.expansion.contains.find(function(obj) { return obj.system == \"http://snomed.info/sct\" && obj.code == \"414820001\" && obj.inactive == false; })).exist;\r",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -5557,7 +5619,9 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// TODO: Need to set up the test data here\r",
+													"// http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499\r",
+													"// Needs an expansion profile established (really a manifest)\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
@@ -5607,7 +5671,8 @@
 													"    pm.expect(responseData.expansion.contains.find(function (obj) { return obj.system == \"http://www.nlm.nih.gov/research/umls/rxnorm\" && obj.code == \"197634\" })).exist;\r",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -5640,7 +5705,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20240105\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
@@ -5661,10 +5726,10 @@
 													"\r",
 													"// version\r",
 													"// NOTE: This is based on latest as of this test date\r",
-													"pm.test(\"Version is 20190315\", function () {\r",
+													"pm.test(\"Version is 20240105\", function () {\r",
 													"    const responseData = pm.response.json();\r",
 													"\r",
-													"    pm.expect(responseData.version).to.equal(\"20190315\", \"Invalid version\");\r",
+													"    pm.expect(responseData.version).to.equal(\"20240105\", \"Invalid version\");\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Expansion is present\", function () {\r",
@@ -5679,7 +5744,8 @@
 													"    pm.expect(responseData.expansion.contains.find(function(obj) { return obj.system == \"http://snomed.info/sct\" && obj.code == \"14693006\" })).exist;\r",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -5711,7 +5777,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20190315\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
@@ -5750,7 +5816,8 @@
 													"    pm.expect(responseData.expansion.contains.find(function(obj) { return obj.system == \"http://snomed.info/sct\" && obj.code == \"14693006\" })).exist;\r",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -5786,7 +5853,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
@@ -5825,7 +5892,8 @@
 													"    pm.expect(responseData.expansion.contains.find(function(obj) { return obj.system == \"http://www.nlm.nih.gov/research/umls/rxnorm\" && obj.code == \"1928948\" })).exist;\r",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -5861,14 +5929,15 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// Based on source of truth: http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499\r",
 													"pm.test(\"Response status code is 404\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(404);\r",
 													"});\r",
 													"\r",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -5904,7 +5973,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"\r",
+													"// TODO: Need to setup the test data here, this needs an expansion (really a manifest)\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
@@ -5954,7 +6023,8 @@
 													"    pm.expect(responseData.expansion.contains.find(function(obj) { return obj.system == \"http://www.nlm.nih.gov/research/umls/rxnorm\" && obj.code == \"197634\" })).exist;\r",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -8050,7 +8120,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{SERVER_URL}}ValueSet/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1010&valueSetVersion=20200306&activeOnly=false&system-version=http://hl7.org/fhir/sid/icd-10-cm|2022&system-version=http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20220901&canonicalVersion=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1078|20220218&canonicalVersion=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079|20230217",
+									"raw": "{{SERVER_URL}}ValueSet/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1010&valueSetVersion=20200306&system-version=http://hl7.org/fhir/sid/icd-10-cm|2022&system-version=http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20220901&canonicalVersion=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1078|20220218&canonicalVersion=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1079|20230217",
 									"host": [
 										"{{SERVER_URL}}ValueSet"
 									],
@@ -8160,7 +8230,7 @@
 							"response": []
 						},
 						{
-							"name":"Quality Program Manifest Support 6.6 Expand With Manifest",
+							"name": "Quality Program Manifest Support 6.6 Expand With Manifest",
 							"event": [
 								{
 									"listen": "test",
