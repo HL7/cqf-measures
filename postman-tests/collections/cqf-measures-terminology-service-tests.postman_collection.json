@@ -1047,6 +1047,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
+													"// What is this based on as a source of truth? Apelon has version= 2.1.0",
 													"",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
@@ -1056,6 +1057,7 @@
 													"pm.test(\"ResourceType is CodeSystem\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
+													"// console.log(responseData.entry[0].resource.resourceType)",
 													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"CodeSystem\");",
 													"",
 													"});",
@@ -1622,15 +1624,14 @@
 											"script": {
 												"exec": [
 													"",
-													"// NOTE: For vsac UAT, STU4 this request returns \"diagnostics\": \"Invalid value set URI\" and so all the assertions fail. This request: http://terminology.hl7.org/ValueSet/allergyintolerance-clinical returns the valueset, though.",
 													"pm.test(\"Response status code is 200\", function () {",
 													"    pm.expect(pm.response.code).to.equal(200);",
 													"});",
 													"",
-													"pm.test(\"Resource url is http://terminology.hl7.org/ValueSet/allergyintolerance-clinical\", function () {",
+													"pm.test(\"Resource url is http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/ValueSet/allergyintolerance-clinical\");",
+													"    pm.expect(responseData.entry[0].resource.url).equals(\"http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical\");",
 													"});",
 													"",
 													"pm.test(\"Resource version is 4.0.1\", function () {",
@@ -1669,10 +1670,10 @@
 													"    pm.expect(responseData.entry[0].resource.title).equals(\"AllergyIntolerance Clinical Status Codes\");",
 													"});",
 													"",
-													"pm.test(\"Resource type is ValueSet\", function () {",
+													"pm.test(\"Resource type is CodeSystem\", function () {",
 													"        const responseData = pm.response.json();",
 													"",
-													"    pm.expect(responseData.entry[0].resource.type).equals(\"ValueSet\");",
+													"    pm.expect(responseData.entry[0].resource.resourceType).equals(\"CodeSystem\");",
 													"});"
 												],
 												"type": "text/javascript"
@@ -3834,6 +3835,187 @@
 												{
 													"key": "url",
 													"value": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.73"
+												},
+												{
+													"key": "version",
+													"value": "20230217"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ValueSet 6.7 Publishable Value Set Author uses ContactDetail",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"// total",
+													"pm.test(\"Response total is 1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.total).to.equal(1);",
+													"});",
+													"",
+													"pm.test(\"Publishable extension is present in meta\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm\");",
+													"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset\");",
+													"}",
+													"});",
+													"",
+													"// url",
+													"pm.test(\"Resource url equal to http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equal(\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926\");",
+													"});",
+													"",
+													"// title",
+													"pm.test(\"Title is ACE Inhibitor or ARB or ARNI Ingredient\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).to.equal(\"ACE Inhibitor or ARB or ARNI Ingredient\", \"Title error\");",
+													"});",
+													"",
+													"// date",
+													"pm.test(\"Date is 2023-02-17T01:03:27-05:00\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.date).to.equal(\"2023-02-17T01:03:27-05:00\", \"Date error\");",
+													"});",
+													"",
+													"// Authored extension returns valueContactDetail",
+													"pm.test(\"Authored extension returns valueContactDetail\", function() {",
+													"    const responseData = pm.response.json();",
+													"    const extensions = responseData.entry[0].resource.extension;",
+													"    let extension = extensions.find(function(obj) { return obj.url == \"http://hl7.org/fhir/StructureDefinition/valueset-author\"; });",
+													"    pm.expect(extension).to.exist;",
+													"    pm.expect(extension.valueContactDetail).to.equal(\"AHA Author\", \"ContactDetail error\");",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{SERVER_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926&version=20230217",
+											"host": [
+												"{{SERVER_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926"
+												},
+												{
+													"key": "version",
+													"value": "20230217"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "ValueSet 6.8 Publishable Value Set EffectiveDate uses valueDateTime",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"pm.test(\"Response status code is 200\", function () {",
+													"    pm.expect(pm.response.code).to.equal(200);",
+													"});",
+													"",
+													"// total",
+													"pm.test(\"Response total is 1\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.total).to.equal(1);",
+													"});",
+													"",
+													"pm.test(\"Publishable extension is present in meta\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"if (pm.environment.get(\"VERSION\") === \"STU4\"){",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm\");",
+													"} else if (pm.environment.get(\"VERSION\") === \"STU5\"){",
+													"    pm.expect(responseData.entry[0].resource.meta.profile).contains(\"http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset\");",
+													"}",
+													"});",
+													"",
+													"// url",
+													"pm.test(\"Resource url equal to http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.url).equal(\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926\");",
+													"});",
+													"",
+													"// version",
+													"pm.test(\"Version is 20230217\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.version).to.equal(\"20230217\", \"Invalid version\");",
+													"});",
+													"",
+													"// title",
+													"pm.test(\"Title is ACE Inhibitor or ARB or ARNI Ingredient\", function () {",
+													"    const responseData = pm.response.json();",
+													"",
+													"    pm.expect(responseData.entry[0].resource.title).to.equal(\"ACE Inhibitor or ARB or ARNI Ingredient\", \"Title error\");",
+													"});",
+													"",
+													"// Effective Date extension returns valueDateTime",
+													"pm.test(\"Effective Date extension returns valueDateTime\", function() {",
+													"    const responseData = pm.response.json();",
+													"    const extensions = responseData.entry[0].resource.extension;",
+													"    let extension = extensions.find(function(obj) { return obj.url == \"http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate\"; });",
+													"    pm.expect(extension).to.exist;",
+													"    pm.expect(extension.valueDateTime).to.equal(\"2023-02-17\", \"EffectiveDate error\");",
+													"});",
+													"",
+													"// copyright",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{SERVER_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926&version=20230217",
+											"host": [
+												"{{SERVER_URL}}ValueSet"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "url",
+													"value": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1926"
 												},
 												{
 													"key": "version",
@@ -6812,7 +6994,7 @@
 									"response": []
 								},
 								{
-									"name": "ValueSet 13.2 Timeouts Expand On Id (2.16.840.1.113762.1.4.1146.1407)",
+									"name": "ValueSet 13.3 Timeouts Expand On Id (2.16.840.1.113762.1.4.1146.1407)",
 									"event": [
 										{
 											"listen": "test",
@@ -6861,7 +7043,7 @@
 									"response": []
 								},
 								{
-									"name": "ValueSet 13.2 Timeouts Expand On Id (2.16.840.1.113883.3.3157.1004.28)",
+									"name": "ValueSet 13.4 Timeouts Expand On Id (2.16.840.1.113883.3.3157.1004.28)",
 									"event": [
 										{
 											"listen": "test",
@@ -6910,7 +7092,7 @@
 									"response": []
 								},
 								{
-									"name": "ValueSet 13.2 Timeouts Expand On Id (2.16.840.1.113883.3.464.1003.199.11.1104)",
+									"name": "ValueSet 13.5 Timeouts Expand On Id (2.16.840.1.113883.3.464.1003.199.11.1104)",
 									"event": [
 										{
 											"listen": "test",
@@ -6974,12 +7156,13 @@
 							"name": "Quality Program 1 Shareable",
 							"item": [
 								{
-									"name": "Quality Program 1",
+									"name": "Quality Program 1 Shareable",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
 												"exec": [
+													"// Why does this not require the Shareable profile in the meta???\r",
 													"pm.test(\"Response status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.equal(200);\r",
 													"});\r",
