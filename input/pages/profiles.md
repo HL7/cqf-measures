@@ -71,23 +71,23 @@ To support packaging, testing, and distribution of measure and library artifacts
 
 | **Profile** | **Description** | 
 |----|----|
-| CQFMDevice | A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.  |
-| CQFMTestCase | A measure report profile that allows definition and exchange of test cases for a measure.  |
+| [CQFMDevice](http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm.html) | A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.  |
+| [CQFMTestCase](https://build.fhir.org/ig/HL7/cqf-measures/StructureDefinition-test-case-cqfm.html) | A measure report profile that allows definition and exchange of test cases for a measure.  |
 {: .grid }
 
 
 
 ## Alphabetical Listing
 
-- [Cohort Measure](StructureDefinition-cohort-measure-cqfm.html)
-- [Composite Measure](StructureDefinition-composite-measure-cqfm.html)
-- [Computable Measure](StructureDefinition-computable-measure-cqfm.html)
-- [Continuous Variable Measure](StructureDefinition-cv-measure-cqfm.html)
-- [Device](StructureDefinition-device-softwaresystem-cqfm.html)
-- [Measure Test Case](StructureDefinition-test-case-cqfm.html)
-- [Proportion Measure](StructureDefinition-proportion-measure-cqfm.html)
-- [Publishable Measure](StructureDefinition-publishable-measure-cqfm.html)
-- [Ratio Measure](StructureDefinition-ratio-measure-cqfm.html)
+- [CQFM Cohort Measure](StructureDefinition-cohort-measure-cqfm.html)
+- [CQFM Composite Measure](StructureDefinition-composite-measure-cqfm.html)
+- [CQFM Computable Measure](StructureDefinition-computable-measure-cqfm.html)
+- [CQFM Continuous Variable Measure](StructureDefinition-cv-measure-cqfm.html)
+- [CQFM Device](StructureDefinition-device-softwaresystem-cqfm.html)
+- [CQFM Measure Test Case](StructureDefinition-test-case-cqfm.html)
+- [CQFM Proportion Measure](StructureDefinition-proportion-measure-cqfm.html)
+- [CQFM Publishable Measure](StructureDefinition-publishable-measure-cqfm.html)
+- [CQFM Ratio Measure](StructureDefinition-ratio-measure-cqfm.html)
 
 </div>
 
