@@ -137,7 +137,7 @@ Additional variables required for risk adjustment or other purposes of data aggr
 | R4 |	--- | FHIR Release 4 |
 | REST | --- |	Representational State Transfer |
 | SNOMED-CT |	--- | Systematized Nomenclature of Medicine -- Clinical Terms |
-| STU3 | --- |	FHIR Release 3 (STU) |
+| STU | --- |	FHIR Release (STU) |
 | URI | --- |	Uniform Resource Identifier |
 | URL | --- |	Uniform Resource Locater |
 | XML | --- |	eXtensible Markup Language |
