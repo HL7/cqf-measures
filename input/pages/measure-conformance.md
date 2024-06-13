@@ -5,7 +5,7 @@
 ## Specifying QMs
 {: #specifying-qms}
 
-In FHIR, an QM is represented as a FHIR Measure resource containing metadata ([Section 3.1](#metadata)) and terminology ([Section 3.2](#terminology)), a population criteria section ([Section 3.4](#population-criteria)), and at least one FHIR Library resource containing a data criteria section ([Section 3.3](#data-criteria)) as well as the logic used to define the population criteria. The population criteria section typically contains initial population criteria, denominator criteria, and numerator criteria sub-components, among others. Snippet 1 shows the structure of a FHIR Measure.
+In FHIR, a QM is represented as a FHIR Measure resource containing metadata ([Section 3.1](#metadata)) and terminology ([Section 3.2](#terminology)), a population criteria section ([Section 3.4](#population-criteria)), and at least one FHIR Library resource containing a data criteria section ([Section 3.3](#data-criteria)) as well as the logic used to define the population criteria. The population criteria section typically contains initial population criteria, denominator criteria, and numerator criteria sub-components, among others. Snippet 3-1 shows the structure of a FHIR Measure.
 
 ```xml
 <Measure>
@@ -70,7 +70,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 **Conformance Requirement 3.1 (Referencing CQL Documents):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-1)
 {: #conformance-requirement-3-1}
 
-1. FHIR-based eCQMs SHALL consist of a FHIR Measure resource conforming to at least the CRMIShareableMeasure profile. In addition, measures with a status of active SHALL conform to the CQFMPublishableMeasure profile In particular, FHIR-based measures SHALL contain a narrative containing a human-readable representation of the measure content.
+1. FHIR-based eCQMs SHALL consist of a FHIR Measure resource conforming to at least the CRMIShareableMeasure profile. In addition, measures with a status of active SHALL conform to the CQFMPublishableMeasure profile. In particular, FHIR-based measures SHALL contain a narrative containing a human-readable representation of the measure content.
 2. Narrative should be consistent with the narratives in this IG.  Liquid templates are provided as informative resources to facilitate consistency across measures. [Measure.liquid](https://github.com/cqframework/sample-content-ig/blob/master/templates/liquid/Measure.liquid)
 3. FHIR-based measures that make use of CQL SHALL use the CQLLibrary profile.
 4. FHIR-based measures that use CQL MAY reference other CQL libraries, but only the primary measure library is specified in the library element of the measure.
