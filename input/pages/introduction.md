@@ -15,7 +15,7 @@ To avoid variation in the use of FHIR Resources and metadata across QMs and clin
 
 Although the specification is based on the 1.5.2 version of CQL, backwards-compatible future versions of CQL can be used as well. In addition, if necessary, the 1.2, 1.3, and 1.4 versions of CQL can be used without loss of functionality for this Implementation Guide.
 
-Except where noted, material from the base FHIR specification, and in particular the Clinical Reasoning module, is not repeated here.
+Except where noted, material from the base FHIR specification, and in particular the [Clinical Reasoning module](https://build.fhir.org/clinicalreasoning-module.html), is not repeated here.
 
 As features and functionality are identified by this implementation guide that apply more broadly, those features may be promoted to the base FHIR specification.
 
@@ -76,7 +76,7 @@ This Implementation Guide (Figure 2-1(b)) is the successor of the CQL-based HQMF
 #### CQL-based HQMF IG R1 STU4.1
 {: #cql-based-hqmf-ig-r1-stu4.1}
 
-The first version of the CQL-based HQMF IG was released in September 2015 and was intended to be used in conjunction with the pre-existing QDM based HQMF R1 IG. Since 2015, the community and the standards have evolved and the current version of QDM (v5.4) no longer contains expression logic, ceding this functionality to CQL. The CQL-based HQMF IG is the sole guide describing how to use QDM, CQL, and HQMF in combination (Figure 2-1a).
+The first version of the CQL-based HQMF IG was released in September 2015 and was intended to be used in conjunction with the pre-existing QDM based HQMF R1 IG. Since 2015, the community and the standards have evolved and beginning from the current version of QDM (v5.6) no longer contains expression logic, ceding this functionality to CQL. The CQL-based HQMF IG is the sole guide describing how to use QDM, CQL, and HQMF in combination (Figure 2-1a).
 
 A result of replacing QDM-based logic with CQL is that all QDM logic elements previously encoded in HQMF were replaced with CQL. This means that QDM data criteria specify only the data of interest (e.g. value sets, effective time, properties) for the QM, and the previous use of QDM expressions that captured interrelationships between data criteria (such as “starts after end of”) or identified subsets of data (such as min, max, last, and first) are now represented with CQL expressions. This IG documents the full approach in detail starting in Chapter 2.
 <div class="new-content">
@@ -96,4 +96,4 @@ The FHIR Clinical Reasoning module replaces HQMF by defining the Measure resourc
 #### Quality Reporting Document Architecture (QRDA)
 {: #quality-reporting-document-architecture-(qrda)}
 
-[Quality Reporting Document Architecture (QRDA) Category I](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35) is an HL7 standard that supports quality reporting at the individual patient level (referred to as QRDA Category I) and [Quality Reporting Document Architecture (QRDA) Category III](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=286) is an HL7 standard that supports quality reporting at the summary level (referred to as QRDA Category III). The aspects of QRDA related to reporting results are captured in the MeasureReport resource, while the aspects of QRDA representing patient information are captured by QI-Core. The FHIR Clinical Reasoning module replaces QRDA by defining the MeasureReport structure, and the [Data Exchange for Quality Measures Implementation Guide](http://hl7.org/fhir/us/davinci-deqm/) provides implementation guidance for measure reporting.
+[Quality Reporting Document Architecture (QRDA) Category I](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35) is an HL7 standard that supports quality reporting at the individual patient level (referred to as QRDA Category I) and [Quality Reporting Document Architecture (QRDA) Category III](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=286) is an HL7 standard that supports quality reporting at the summary level (referred to as QRDA Category III). The aspects of QRDA related to reporting results are captured in the MeasureReport resource, while the aspects of QRDA representing patient data are captured by QI-Core. The FHIR Clinical Reasoning module replaces QRDA by defining the MeasureReport structure, and the [Data Exchange for Quality Measures Implementation Guide](http://hl7.org/fhir/us/davinci-deqm/) provides implementation guidance for measure reporting.
