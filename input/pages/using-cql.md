@@ -2,7 +2,7 @@
 
 <div class="new-content" markdown="1">
 
-Measure developers should review the Using CQL with [FHIR IG](https://build.fhir.org/ig/HL7/cql-ig/) for specific guidance on CQL use. Please note the following exceptions to that guidance listed below
+Measure developers should review the Using CQL with [FHIR IG](https://hl7.org/fhir/uv/cql/) for specific guidance on CQL use. Please note the following exceptions to that guidance listed below
 
 ### Libraries
 {: #libraries}
