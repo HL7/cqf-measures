@@ -61,11 +61,4 @@ measures and decision support artifacts.
 measurement-specific level (in Measure Content IG for example), steps should be taken
 to promote that profile to the broadest consensus group possible.
 
-In addition to _what_ data is reported, use cases frequently require the
-communication of _when_, _where_ and _how_ to report. See the
-[Electronic Case Reporting (eCR) implementation guide](https://hl7.org/fhir/us/ecr/design_considerations.html)
-for a more complete discussion of these design considerations. We are actively
-seeking feedback from implementers how this type of information is currently
-communicated in quality reporting scenarios and when it would be useful to do
-so electronically.
-{: .stu-note}
+
