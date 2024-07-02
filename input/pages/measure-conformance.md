@@ -1281,7 +1281,8 @@ In a cohort measure, a population is identified from the population of all items
 <div class="new-content" markdown="1">
 **Conformance Requirement 3.14 (Cohort Definitions):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-14)
 {: #conformance-requirement-3-14}
-1. Cohort Measures SHALL conform to the CQFMCohortMeasure profile
+
+1. Cohort Measures SHALL conform to the [CQFMCohortMeasure profile](http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cohort-measure-cqfm)
 </div>
 
 **Figure 3-6: Population criteria for Cohort measures illustration**
