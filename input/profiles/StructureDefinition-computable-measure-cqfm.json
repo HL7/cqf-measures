@@ -85,7 +85,7 @@
             "key" : "cmp-4",
             "severity" : "error",
             "human" : "Improvement notation must be specified for scoring types other than cohort",
-            "expression" : "scoring.exists() and scoring in ('proportion' | 'ratio' | 'continuous-variable') implies improvementNotation.exists()"
+            "expression" : "scoring.exists() and scoring in ('proportion' | 'ratio' | 'continuous-variable') implies improvementNotation.exists() and must be specified at the root or group level based on where the scoring type is specified."
           },
           {
             "key" : "cmp-5",
