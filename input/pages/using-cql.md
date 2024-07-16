@@ -23,27 +23,27 @@ For guidance on library namespaces, refer to section 2.1.3 of the [Using CQL wit
 ### Data Model
 {: #data-model}
 
-CQL can be used with any data model. In the context of a Measure, any referenced CQL library must identify the same data model. Additional information can be found in the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#data-model).
+CQL can be used with any data model. In the context of a Measure, any referenced CQL library must identify the same data model. Additional information can be found in the [Using CQL with FHIR IG]({{site.data.ig.ver}}/using-cql.html#data-model).
 
 
 ### Code Systems
 {: #code-systems}
 
-Please reference the [Using CQL with FHIR IG Section 2.3](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#code-systems).
+Please reference the [Using CQL with FHIR IG Section 2.3]({{site.data.ig.ver}}/2024Jan/using-cql.html#code-systems).
 
 ### Value Sets
 {: #value-sets}
 
-For information on value sets, reference section 2.4 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#value-sets).
+For information on value sets, reference section 2.4 of the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#value-sets).
 
 #### Value Set Version
 {: #value-set-version}
 
-Information on value set versioning can be found in the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#value-set-version).
+Information on value set versioning can be found in the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#value-set-version).
 
 #### Value Set Expansion
 
-For information on value set expansion, reference the [Using CQL with FHIR IG section 2.4.2](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#value-set-expansion).
+For information on value set expansion, reference the [Using CQL with FHIR IG section 2.4.2]({{site.data.ig.ver}}/2024Jan/using-cql.html#value-set-expansion).
 
 #### Representation in a Library
 {: #representation-in-a-library}
@@ -53,46 +53,46 @@ The representation of valueset declarations in a Library is discussed in the [Me
 #### String-based Membership Testing
 {: #string-based-membership-testing}
 
-Please reference section 2.4.4 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#string-based-membership-testing).
+Please reference section 2.4.4 of the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#string-based-membership-testing).
 
 ### Codes
 {: #codes}
 
-Please reference section 2.5 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#codes).
+Please reference section 2.5 of the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#codes).
 
 #### Representation in a Library
 {: #representation-in-a-library}
 
-Please reference section 2.5.1 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#code-representation-in-narrative).
+Please reference section 2.5.1 of the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#code-representation-in-narrative).
 
 The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html) of this IG.
 
 ### UCUM Best Practices
 {: #ucum-best-practices}
 
-Please reference section 2.6 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#ucum-best-practices).
+Please reference section 2.6 of the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#ucum-best-practices).
 
 ### Concepts
 {: #concepts}
 
-Please reference section 2.7 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#concepts)
+Please reference section 2.7 of the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#concepts)
 
 ### Library-level Identifiers
 {: #library-level-identifiers}
 
-Please reference section 2.8 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#library-level-identifiers).
+Please reference section 2.8 of the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#library-level-identifiers).
 
 ### Data Type Names
 {: #data-type-names}
 
-Please reference section 2.9 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#data-type-names).
+Please reference section 2.9 of the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#data-type-names).
 
-For information on Missing information and how to model that using CQL, please reference section 2.10 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#missing-information).
+For information on Missing information and how to model that using CQL, please reference section 2.10 of the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#missing-information).
 
 #### Negation in FHIR
 {: #negation-in-fhir}
 
-For information on the various uses of negation in FHIR, please review section 2.11 of the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#negation-in-fhir).
+For information on the various uses of negation in FHIR, please review section 2.11 of the [Using CQL with FHIR IG]({{site.data.ig.ver}}/2024Jan/using-cql.html#negation-in-fhir).
 
 ### Attribute Names
 {: #attribute-names}
