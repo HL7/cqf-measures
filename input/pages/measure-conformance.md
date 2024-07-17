@@ -465,37 +465,6 @@ Snippet 3-9: CQL declaration of a valueset and a code (from [Terminology.cql](Li
 
 Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html) of this IG, sections [4.3](using-cql.html#code-systems), [4.4](using-cql.html#value-sets), and [4.5](using-cql.html#codes).
 
-All declared valuesets and codes can be found in the `dataRequirement` elements in the Library resource referenced by the Measure resource.
-
-```json
-"dataRequirement": [
-  {
-    "type": "CodeableConcept",
-    "codeFilter": [
-      {
-        "valueCoding": {
-          "system": "http://snomed.info/sct",
-          "version": "http://snomed.info/sct/731000124108/version/201709",
-          "code": "442023007",
-          "display": "Venous foot pump, device (physical object)"
-        }
-      }
-    ]
-  },
-  {
-    "type": "Encounter",
-    "codeFilter": [
-      {
-        "path": "type",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
-      }
-    ]
-  }
-]
-```
-
-Snippet 3-9: Example Library terminology definitions (from [library-Terminology.json](Library-Terminology-FHIR.json.html))
-
 **Conformance Requirement 3.4 (Terminology Inclusion):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-4)
 {: #conformance-requirement-3-4}
 
