@@ -442,7 +442,7 @@ Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-cq
 
 This section describes how to use codes and valuesets from codesystems like LOINC, SNOMED-CT, and others within the CQL and FHIR-based QM files of a measure package.
 
-When terminology artifacts are defined and distributed as part of quality measure content, guidance provided as part of the [Clinical Practice Guideline (CPG) IG](http://hl7.org/fhir/uv/cpg/terminology.html) should be followed. Note that the guidance does not apply for content that only references terminology distributed through other means.
+When terminology artifacts are defined and distributed as part of quality measure content, guidance provided as part of the [CRMI IG](https://hl7.org/fhir/uv/crmi/) and [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/) should be followed. Note that the guidance does not apply for content that only references terminology distributed through other means.
 
 Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. Examples of code system, valueset, and code declarations can be seen in the accompanying [CommonTerminologies.cql](Library-CommonTerminologies.html#cql-content) and [Terminology.cql](Library-Terminology-FHIR.html#cql-content).
 
