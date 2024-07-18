@@ -16,15 +16,14 @@ diagram:
 
 </details>
 
-
-The left side of the quality measurement standards landscape diagram depicts
-the activities and standards associated with measure specification, while the
-right side depicts measure reporting. Stakeholders and the roles they play are
-represented by the three rounded rectangles in the foreground. Note that the
-lists are representative of typical stakeholders, but that a single stakeholder
-may play any or all of the roles in this diagram. For example, an institution
-specifying its own measures for internal use would be the Producer, Consumer,
-and Specifier.
+The left side of the quality measurement standards landscape diagram depicts 
+the activities and standards associated with measure specification, while the 
+right side depicts measure reporting. Stakeholders and the roles they play are 
+represented by the three rounded rectangles in the foreground labeled Producer, 
+Consumer and Specifier. Note that the lists are representative of typical stakeholders, 
+but that a single stakeholder may play any or all of the roles in this diagram. 
+For example, an institution specifying its own measures for internal use would be 
+the Producer, Consumer, and Specifier.
 
 **Quality measure (or performance measure)** is a numeric quantification of healthcare quality
 for a designated accountable healthcare entity, such as hospital, health plan,
