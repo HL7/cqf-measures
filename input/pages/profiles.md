@@ -5,7 +5,7 @@
 ## Capability Profiles
 {: #capability-profiles}
 
-To support flexible representation and packaging of measure and library artifacts for different use cases, this implementation guide uses four general categories of profiles, aligned with [those established](http://hl7.org/fhir/uv/cpg/CodeSystem-cpg-knowledge-capability.html) by the [Canonical Resource Management Infrastructure (CRMI)](http://hl7.org/fhir/uv/cpg)  implementation guide:
+To support flexible representation and packaging of measure and library artifacts for different use cases, this implementation guide uses four general categories of profiles, aligned with [those established]({{site.data.fhir.ver.crmi}}/profiles.html#profiles-1) by the [Canonical Resource Management Infrastructure (CRMI)](http://hl7.org/fhir/uv/crmi) implementation guide:
 
 * Shareable
 * Computable
