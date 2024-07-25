@@ -80,13 +80,13 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 ```json
 {
   "resourceType": "Library",
-  "id": "EXM146",
+  "id": "exm-146",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm"
     ]
   },
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/EXM146",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/exm-146",
   "identifier": [
     {
       "use": "official",
