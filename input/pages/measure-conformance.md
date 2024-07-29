@@ -74,19 +74,19 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 2. Narrative should be consistent with the narratives in this IG.  Liquid templates are provided as informative resources to facilitate consistency across measures. [Measure.liquid](https://github.com/cqframework/sample-content-ig/blob/master/templates/liquid/Measure.liquid)
 3. FHIR-based measures that make use of CQL SHALL use the [CQLLibrary](http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library) profile.
 4. FHIR-based measures that use CQL MAY reference other CQL libraries, but only the primary measure library is specified in the library element of the measure.
-5. The tail (meaning everything after the last slash in the URL) of the canonical URL of the Measure resource SHALL match the name of the Measure. Note that special characters in measure names are restricted by the name element and will not impact the canonical URL of the measure resource.
+
 </div>
 
 ```json
 {
   "resourceType": "Library",
-  "id": "EXM146",
+  "id": "exm-146",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm"
     ]
   },
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/EXM146",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/exm-146",
   "identifier": [
     {
       "use": "official",
