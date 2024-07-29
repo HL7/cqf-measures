@@ -38,7 +38,7 @@ Snippet 3-1: FHIR Measure structure - abridged for clarity (from sample [Measure
 ### Metadata
 {: #metadata}
 
-The header of a QM document identifies and classifies the document and provides important metadata about the measure. [The CMS Measures Management System Blueprint](https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html) includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base [Measure]({{site.data.fhir.path}}measure.html) resource by including the Blueprint header requirements.
+The header of a QM document identifies and classifies the document and provides important metadata about the measure. 
 
 The rest of this section describes some of the more important components to the header, such as “Related Documents” ([Section 3.1.1](#related-documents)), “Measurement Period” ([Section 3.1.2](#measurement-period)), and “Data Criteria” ([Section 3.3](#data-criteria)).
 
