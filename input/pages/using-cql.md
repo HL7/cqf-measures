@@ -23,7 +23,7 @@ For guidance on library namespaces, refer to section 2.1.3 of the [Using CQL wit
 ### Data Model
 {: #data-model}
 
-CQL can be used with any data model. In the context of a Measure, any referenced CQL library must identify the same data model. Additional information can be found in the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#data-model).
+CQL can be used with any data model. In the context of a Measure, any referenced CQL library must identify the same data model. Additional information can be found here: [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/using-cql.html#data-model) section 2.2.
 
 
 ### Code Systems
