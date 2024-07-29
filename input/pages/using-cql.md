@@ -9,8 +9,6 @@ Measure developers should review the Using CQL with FHIR IG for specific guidanc
 
 For information on libraries, please reference section 2.1 in the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#libraries).
 
- 1.	In addition to the conformance statements listed in section 2.1 of the Using CQL with FHIR IG, these two additional conformance statements need to be considered:
-
 #### Library Versioning
 {: #library-versioning}
 
