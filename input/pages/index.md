@@ -71,7 +71,7 @@ page in the menu bar:
 
 Centers for Medicare &amp; Medicaid. Clinical Quality Measures Basics. [Online]. Available from: [https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html](https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/ClinicalQualityMeasures.html) [Accessed 11 October 2019].
 
-Centers for disease control and prevention. Adapting Clinical Guidelines for the Digital Age. [Online]. Available from:  [https://www.cdc.gov/csels/phio/clinical-guidelines/index.html](https://www.cdc.gov/csels/phio/clinical-guidelines/index.html) [Accessed 11 October 2019].
+Michaels, M. (2023). Adapting Clinical Guidelines for the Digital Age: Summary of a Holistic and Multidisciplinary approach. American Journal of Medical Quality, 38(5S), S3–S11. https://doi.org/10.1097/jmq.0000000000000138
 
 Health level seven. Clinical Quality Framework - HL7 Clinical Quality Information Work Group Confluence Page. [Online]. Available from: [https://confluence.hl7.org/display/CQIWC/Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical%20Quality%20Framework) [Accessed 11 October 2019].
 
