@@ -19,7 +19,7 @@ Except where noted, material from the base FHIR specification, and in particular
 
 As features and functionality are identified by this implementation guide that apply more broadly, those features may be promoted to the base FHIR specification.
 
-There is a new term of digital quality measure or dQM that is currently being defined across many interested parties (see the definition in [Glossary](https://build.fhir.org/ig/HL7/cqf-measures/glossary.html)).
+There is a new term of digital quality measure or dQM that is currently being defined across many interested parties (see the definition in [Glossary](http://hl7.org/fhir/us/cqfmeasures/glossary.html#digital-quality-measure-dqm).
 
 ### Audience
 {: #audience}
