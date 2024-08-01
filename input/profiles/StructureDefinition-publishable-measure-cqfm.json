@@ -488,7 +488,7 @@
     {
       "id" : "Measure.purpose",
       "path" : "Measure.purpose",
-      "definition" : "Explanation of why this measure is needed and why it has been designed as it has.",
+      "definition" : "Explanation of why this measure is needed and why it has been designed as it has, rationale",
       "requirements" : "A published measure should provide a clear description of the purpose of the measure.",
       "mustSupport" : true
     },
@@ -769,6 +769,8 @@
     {
       "id" : "Measure.rationale",
       "path" : "Measure.rationale",
+      "min" : 0,
+      "max" : "0",
       "definition" : "Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence.",
       "mustSupport" : false
     },
