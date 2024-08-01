@@ -761,7 +761,7 @@ In addition, the formula for calculating the measure score is implied by the sco
 
 The context of a measure is indicated using the subject element of the FHIR resource.  The subject element will be a reference to a FHIR resource type, specifically including Patient, Location, Organization, Practitioner, and Device as currently specified in the extensible SubjectType binding.  It is important to note that other resource types may be used, but it must be a FHIR resource type. We should also note that although the discussion is focused on Patient as the subject, the discussion applies to other subject types as well.
 
-In addition to the measure scoring, measures generally fall into two categories, patient-based, and episode-based (e.g. encounter-based). In general, patient-based measures count the number of patients in each population, while episode-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Episode-based measures return the item to be counted such as an encounter or procedure.
+In addition to the measure scoring, measures generally fall into two categories, patient-based, and episode-based (e.g. non-patient based). In general, patient-based measures count the number of patients in each population, while episode-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Episode-based measures return the item to be counted such as an encounter or procedure.
 
 
 **Conformance Requirement 3.9 (Population Basis):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-9)
@@ -780,7 +780,7 @@ The following example illustrates the use of the populationBasis extension for a
   ]
 ```
 
-And the following example illustrates the use of the populationBasis extension for an encounter-based measure:
+And the following example illustrates the use of the populationBasis extension for an non-patient based measure:
 
 ```json
   "extension": [
@@ -833,12 +833,12 @@ The semantics of these components are unchanged from the base [Measure]({{site.d
 
 The referenced CQL expressions return either an indication that a patient meets the population criteria (patient-based measures) or the events that a particular patient contributes to the population (episode-of- care-based measures). For example, consider two measures:
 
-**Table 3-2: Patient-based and Episode-of-Care Measure Examples**
+**Table 3-2: Patient-based and non-patient based Measure Examples**
 
 <!-- | Measure | Denominator | Numerator |
 |:--------|:------------:|:----------:|
 | Patient-based | All patients with condition A that had one or more encounters during the measurement period. | All patients with condition A that underwent procedure B during the measurement period. |
-| Episode-of-Care | All encounters for patients with condition A during the measurement period. | All encounters for patients with condition A during the measurement period where procedure B was performed during the encounter. | -->
+| non-patient based | All encounters for patients with condition A during the measurement period. | All encounters for patients with condition A during the measurement period where procedure B was performed during the encounter. | -->
 <table class="grid">
   <thead>
     <tr>
@@ -854,16 +854,16 @@ The referenced CQL expressions return either an indication that a patient meets 
       <td style="text-align: left" class="col-5">All patients with condition A that underwent procedure B during the measurement period.</td>
     </tr>
     <tr>
-      <td style="text-align: left" class="col-2">Episode-of-Care</td>
+      <td style="text-align: left" class="col-2">non-patient based</td>
       <td style="text-align: left" class="col-5">All encounters for patients with condition A during the measurement period.</td>
       <td style="text-align: left" class="col-5">All encounters for patients with condition A during the measurement period where procedure B was performed during the encounter.</td>
     </tr>
   </tbody>
 </table>
 
-In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is an episode-of-care measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
+In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is an non-patient based measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
 
-For complete examples of non-patient based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an encounter-based proportion measure, see the [EXM108](Measure-EXM108-FHIR.html) measure included in this implementation guide.
+For complete examples of patient based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an non-patient based proportion measure, see the [EXM108](Measure-EXM108-FHIR.html) measure included in this implementation guide.
 
 **Conformance Requirement 3.11 (Proportion Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-11)
 {: #conformance-requirement-3-11}
