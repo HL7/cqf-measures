@@ -442,7 +442,7 @@ Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-cq
 
 This section describes how to use codes and valuesets from codesystems like LOINC, SNOMED-CT, and others within the CQL and FHIR-based QM files of a measure package.
 
-When terminology artifacts are defined and distributed as part of quality measure content, guidance provided as part of the [Clinical Practice Guideline (CPG) IG](http://hl7.org/fhir/uv/cpg/terminology.html) should be followed. Note that the guidance does not apply for content that only references terminology distributed through other means.
+When terminology artifacts are defined and distributed as part of quality measure content, guidance provided as part of the [CRMI IG](https://hl7.org/fhir/uv/crmi/) and [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/) should be followed. Note that the guidance does not apply for content that only references terminology distributed through other means.
 
 Valuesets and direct referenced codes are declared in the header section of the CQL using the CQL valueset and code constructs. Examples of code system, valueset, and code declarations can be seen in the accompanying [CommonTerminologies.cql](Library-CommonTerminologies.html#cql-content) and [Terminology.cql](Library-Terminology-FHIR.html#cql-content).
 
@@ -464,37 +464,6 @@ code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT:2
 Snippet 3-9: CQL declaration of a valueset and a code (from [Terminology.cql](Library-Terminology-FHIR.html))
 
 Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html) of this IG, sections [4.3](using-cql.html#code-systems), [4.4](using-cql.html#value-sets), and [4.5](using-cql.html#codes).
-
-All declared valuesets and codes can be found in the `dataRequirement` elements in the Library resource referenced by the Measure resource.
-
-```json
-"dataRequirement": [
-  {
-    "type": "CodeableConcept",
-    "codeFilter": [
-      {
-        "valueCoding": {
-          "system": "http://snomed.info/sct",
-          "version": "http://snomed.info/sct/731000124108/version/201709",
-          "code": "442023007",
-          "display": "Venous foot pump, device (physical object)"
-        }
-      }
-    ]
-  },
-  {
-    "type": "Encounter",
-    "codeFilter": [
-      {
-        "path": "type",
-        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929"
-      }
-    ]
-  }
-]
-```
-
-Snippet 3-9: Example Library terminology definitions (from [library-Terminology.json](Library-Terminology-FHIR.json.html))
 
 **Conformance Requirement 3.4 (Terminology Inclusion):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-4)
 {: #conformance-requirement-3-4}
