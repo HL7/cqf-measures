@@ -85,7 +85,7 @@
             "key" : "cmp-4",
             "severity" : "error",
             "human" : "Improvement notation must be specified for scoring types other than cohort",
-            "expression" : "scoring.exists() and scoring in ('proportion' | 'ratio' | 'continuous-variable') implies improvementNotation.exists()"
+            "expression" : "scoring.exists() and scoring in ('proportion' | 'ratio' | 'continuous-variable') implies group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation').exists())"
           },
           {
             "key" : "cmp-5",
