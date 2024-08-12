@@ -8,7 +8,7 @@
 -  [Aggregate Method](https://terminology.hl7.org/CodeSystem-measure-aggregate-method.html)
 -  [Artifact Comment Type](CodeSystem-artifact-comment-type.html)
 -  [CQL Version](CodeSystem-cql-version.html)
--  [Identifier Type](https://terminology.hl7.org/CodeSystem-artifact-identifier-type.html)
+-  [Artifact Identifier Type](https://terminology.hl7.org/CodeSystem-artifact-identifier-type.html)
 
 
 ### ValueSet Resources
