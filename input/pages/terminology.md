@@ -19,7 +19,6 @@
 
 #### Example ValueSet Resources
 
-- [Computable ValueSet Example](ValueSet-computable-example.html)
 - [Executable ValueSet Example](ValueSet-executable-example.html)
 
 ### ConceptMap Resources
