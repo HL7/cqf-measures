@@ -809,6 +809,24 @@
         "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation"]
       }],
       "mustSupport" : true
-    }]
+    },      
+	{
+        "id": "Measure.supplementalData",
+        "path": "Measure.supplementalData",
+        "mustSupport": true
+    },
+	{
+      "id" : "Measure.supplementalData.extension:includeInReportType",
+      "path" : "Measure.supplementalData.extension",
+      "sliceName" : "includeInReportType",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType"]
+      }],		
+      "mustSupport": true
+	}
+	]
   }
 }
