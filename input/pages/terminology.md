@@ -7,7 +7,7 @@
 
 -  [Aggregate Method](https://terminology.hl7.org/CodeSystem-measure-aggregate-method.html)
 -  [CQL Version](CodeSystem-cql-version.html)
--  [Identifier Type](https://terminology.hl7.org/CodeSystem-artifact-identifier-type.html)
+-  [Artifact Identifier Type](https://terminology.hl7.org/CodeSystem-artifact-identifier-type.html)
 
 
 ### ValueSet Resources
@@ -15,7 +15,7 @@
 
 -  [Aggregate Method](https://terminology.hl7.org/ValueSet-measure-aggregate-method.html)
 -  [CQL Version](ValueSet-cql-version.html)
--  [Identifier Type](https://terminology.hl7.org/ValueSet-artifact-identifier-type.html)
+-  [Artifact Identifier Type](https://terminology.hl7.org/ValueSet-artifact-identifier-type.html)
 
 #### Example ValueSet Resources
 
