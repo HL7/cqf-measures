@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "cqfm-appliesTo",
   "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "name": "CQFMAppliesTo",
   "title": "CQFM Applies To",
   "status": "active",
@@ -53,7 +53,7 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Which population does this apply to?",
+        "short": "Which population does this stratifier apply to? If this extension is not used, the stratifier applies to all populations in the group.",
         "definition": "Indicates the population that this stratifier should apply to.",
         "min": 1,
         "max": "*"

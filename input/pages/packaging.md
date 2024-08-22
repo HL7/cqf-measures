@@ -86,10 +86,3 @@ Basic testing of measure logic should involve at least one positive and negative
   {: #conformance-requirement-6-4}
   1. Artifacts distributed in this way SHALL carry the appropriate copyright and intellectual property declarations.
 
-**Conformance Requirement 6.5 (Quality Program):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-5)
-{: #conformance-requirement-6-5}
-
-This implementation guide includes a profile for describing a quality program as a collection of quality measures. This profile is a Library of type `asset-collection` that uses the `relatedArtifact` element to indicate which measures are part of the quality program. In addition, measures and libraries can use the `useContext` element to specify a quality program.
-
-1. Artifacts SHOULD use the `useContext` element with the `program` context type to specify a quality program
-2. Quality program descriptions SHALL use the CQFQualityProgram profile
