@@ -118,6 +118,7 @@ Additional variables required for risk adjustment or other purposes of data aggr
 | CQFM | --- |	Clinical Quality Framework Measures |
 | CQL |	--- | Clinical Quality Language |
 | CQM |	--- | Clinical Quality Measures |
+| CRMI | --- | Canonical Resource Management Infrastructure |
 | dQM | --- | Digital Quality Measure |
 | eCQM | --- | 	electronic Clinical Quality Measures |
 | DEQM | --- |	Data Exchange for Quality Measures |
@@ -136,6 +137,7 @@ Additional variables required for risk adjustment or other purposes of data aggr
 | QRDA |	--- | Quality Reporting Document Architecture |
 | R4 |	--- | FHIR Release 4 |
 | REST | --- |	Representational State Transfer |
+| SDE |	--- | Supplemental Data Element |
 | SNOMED-CT |	--- | Systematized Nomenclature of Medicine -- Clinical Terms |
 | STU | --- |	FHIR Release (STU) |
 | URI | --- |	Uniform Resource Identifier |

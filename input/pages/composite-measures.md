@@ -377,7 +377,7 @@ th { background-color: #f5f2f0; }
 | <b>Overall - Opportunity </b>         | <b>74.7%</b> |        |       |       |       |       |        |       |       |
 
 For each patient (i.e. each column A-J), calculate the <b>Patient % score</b> by dividing the total number of occurrences in a measure numerator by the total number of occurrences in the denominator (i.e. not 'n/a') across all measures. <br/>
-To caclulate the <b>overall subject level linear</b> score, simply calculate the average patient % score across the number of  patients (in this case, 764.8 / 10) <br/>
+To calculate the <b>overall subject level linear</b> score, simply calculate the average patient % score across the number of  patients (in this case, 764.8 / 10) <br/>
 To calculate the <b>overall opportunity</b> score, divide the total number of patients in the numerator (i.e. 'T' values) across all measures by the total number of instances where the patient was not excluded from the initial population or denominator (i.e not 'n/a').
 (In this case,  59 / 79)
 
