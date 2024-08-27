@@ -38,7 +38,7 @@ Snippet 3-1: FHIR Measure structure - abridged for clarity (from sample [Measure
 ### Metadata
 {: #metadata}
 
-The header of a QM document identifies and classifies the document and provides important metadata about the measure. [The CMS Measures Management System Blueprint](https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/MMS/MMS-Blueprint.html) includes a list of header data elements that are specified by CMS for use by all CMS measure contractors. The Blueprint header requirements have been implemented in the Meaningful Use 2014 eCQMs and all subsequent annual updates. This IG further constrains the header in the base [Measure]({{site.data.fhir.path}}measure.html) resource by including the Blueprint header requirements.
+The header of a QM document identifies and classifies the document and provides important metadata about the measure. 
 
 The rest of this section describes some of the more important components to the header, such as “Related Documents” ([Section 3.1.1](#related-documents)), “Measurement Period” ([Section 3.1.2](#measurement-period)), and “Data Criteria” ([Section 3.3](#data-criteria)).
 
@@ -70,23 +70,23 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 **Conformance Requirement 3.1 (Referencing CQL Documents):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-1)
 {: #conformance-requirement-3-1}
 
-1. FHIR-based eCQMs SHALL consist of a FHIR Measure resource conforming to at least the CRMIShareableMeasure profile. In addition, measures with a status of active SHALL conform to the CQFMPublishableMeasure profile in particular. FHIR-based measures SHALL contain a narrative containing a human-readable representation of the measure content.
+1. FHIR-based eCQMs SHALL consist of a FHIR Measure resource conforming to at least the [CRMIShareableMeasure profile]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html). In addition, measures with a status of active SHALL conform to the [CRMIPublishableMeasure profile]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablemeasure.html) in particular. FHIR-based measures SHALL contain a narrative containing a human-readable representation of the measure content.
 2. Narrative should be consistent with the narratives in this IG.  Liquid templates are provided as informative resources to facilitate consistency across measures. [Measure.liquid](https://github.com/cqframework/sample-content-ig/blob/master/templates/liquid/Measure.liquid)
-3. FHIR-based measures that make use of CQL SHALL use the CQLLibrary profile.
+3. FHIR-based measures that make use of CQL SHALL use the [CQLLibrary](http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library) profile.
 4. FHIR-based measures that use CQL MAY reference other CQL libraries, but only the primary measure library is specified in the library element of the measure.
-5. The tail (meaning everything after the last slash in the URL) of the canonical URL of the Measure resource SHALL match the name of the Measure. Note that special characters in measure names are restricted by the name element and will not impact the canonical URL of the measure resource.
+
 </div>
 
 ```json
 {
   "resourceType": "Library",
-  "id": "EXM146",
+  "id": "exm-146",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm"
     ]
   },
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/EXM146",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/exm-146",
   "identifier": [
     {
       "use": "official",
@@ -611,7 +611,8 @@ The Population Criteria (Snippet 3-12) includes definitions of criteria used to 
 
 Snippet 3-12: Population Criteria from Snippet 3-1 (FHIR Measure structure - abridged for clarity (from sample [Measure-EXMLogic.xml](Measure-EXMLogic-FHIR.xml.html)))
 
-CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are then referenced from the group elements of the FHIR Measure resource. Once included in the FHIR Measure, expressions defined in the CQL can be used to further refine the data criteria and to define population criteria.  Figure 2-1 illustrates the general concept.  Figure 3-1 illustrates the relationship between the FHIR Measure resource and CQL documents: The FHIR Measure resource references a CQL expression script (#1), the FHIR library resource references a particular expression from the referenced CQL file (#2), the referenced expression in-turn may include or call another expression (#3) in the same (or a different) CQL expression script. Snippet 3-12 and Snippet 3-13 demonstrate the use of the FHIR Measure resource and CQL in the definition of the "initial-population".
+
+CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are then referenced from the group elements of the FHIR Measure resource. Once included in the FHIR Measure, expressions defined in the CQL can be used to further refine the data criteria and to define population criteria.  [Figure 2-1](https://hl7.org/fhir/us/cqfmeasures/introduction.html#background) illustrates the general concept.  Figure 3-1 illustrates the relationship between the FHIR Measure resource and CQL documents: The FHIR Measure resource references a CQL expression script (#1), the FHIR library resource references a particular expression from the referenced CQL file (#2), the referenced expression in-turn may include or call another expression (#3) in the same (or a different) CQL expression script. Snippet 3-13 and Snippet 3-14 demonstrate the use of the FHIR Measure resource and CQL in the definition of the "initial-population".
 
 **Figure 3-1: Relationship between FHIR Measure and CQL Expression Script**
 
@@ -948,7 +949,7 @@ In addition, it may also include one or more measure-observation elements. The s
 3. The CQL expression for patient-based measures SHALL return a Boolean to indicate whether a patient matches the population criteria (true) or not (false).
 4. The CQL expression for non-patient-based measures SHALL return a List of events of the same type, such as an Encounter or Procedure.
 
-For ratio measures that include a Measure Observation, the measure observation is specified in the same way as it is for continuous variable measures. In particular, for non-patient based ratio measures the Measure Observation is defined as a function that takes a single argument of the same type as the elements returned by all the population criteria, and the aggregation method is specified in the Measure resource. For patient based ratio measures the Measure Observation is defined as a function that takes no parameters.
+For ratio measures that include a Measure Observation, the measure observation is defined as a function that takes a single parameter of the type of elements returned by the population criteria. This is also how it is specified for continuous variable measures. In particular, for non-patient based ratio measures the Measure Observation is defined as a function that takes a single argument of the same type as the elements returned by all the population criteria, and the aggregation method is specified in the Measure resource. For patient based ratio measures the Measure Observation is defined as a function that takes no parameters.
 
 ##### Ratio measure scoring
 {: #ratio-measure-scoring}
@@ -1248,7 +1249,8 @@ In a cohort measure, a population is identified from the population of all items
 <div class="new-content" markdown="1">
 **Conformance Requirement 3.14 (Cohort Definitions):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-14)
 {: #conformance-requirement-3-14}
-1. Cohort Measures SHALL conform to the CQFMCohortMeasure profile
+
+1. Cohort Measures SHALL conform to the [CQFMCohortMeasure](http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cohort-measure-cqfm) profile
 </div>
 
 **Figure 3-6: Population criteria for Cohort measures illustration**

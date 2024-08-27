@@ -37,3 +37,23 @@ Open the file workspace.postman_globals.json. Edit the values for basicUser, bas
 To run using newman use the command below after changing to the collections directory.
 
     newman run cqf-measures.postman_collection.json -e ../workspace.postman_globals.json    
+
+### Debugging the tests
+There are several options to figure out why a test is failing. The console output shows which tests are failing, a summary of the results, and the assertion errors with a brief mention as to what failed.
+
+As an alternative, the request to the server may be made from Postman itself and the response reviewed and compared with the test.
+
+The third option  is to turn on the following flags in the globals.json file:
+
+    CODESYSTEM_DEBUG
+    VALUESET_DEBUG
+    QUALITY_PROGRAM_DEBUG
+    SERVER_DEBUG
+    CAPABILITY_DEBUG
+
+These cause the actual response from the server to be output to the console. Each affects the section corresponding to the flag name. They can be quite verbose, but most errors can be understood with their use. By default, these settings are false.
+
+### Finding sources of truth listed in the collection.
+The script _SOT.sh runs through the postman collection and finds all the source of truth references and lists the link in the section they occur. Duplicates are not removed as each entry comes from a different section.
+
+    Usage: bash ./_SOT.sh collections/cqf-measures-terminology-service-tests.postman_collection.json truthSources.md

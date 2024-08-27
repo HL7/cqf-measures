@@ -2,14 +2,12 @@
 
 <div class="new-content" markdown="1">
 
-Measure developers should review the Using CQL with FHIR IG for specific guidance on CQL use.  Please note the following exceptions that guidance listed below:
+Measure developers should review the Using CQL with [FHIR IG](https://hl7.org/fhir/uv/cql/) for specific guidance on CQL use. Please note the following exceptions to that guidance listed below
 
 ### Libraries
 {: #libraries}
 
 For information on libraries, please reference section 2.1 in the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#libraries).
-
- 1.	In addition to the conformance statements listed in section 2.1 of the Using CQL with FHIR IG, these two additional conformance statements need to be considered:
 
 #### Library Versioning
 {: #library-versioning}
@@ -23,7 +21,7 @@ For guidance on library namespaces, refer to section 2.1.3 of the [Using CQL wit
 ### Data Model
 {: #data-model}
 
-CQL can be used with any data model. In the context of a Measure, any referenced CQL library must identify the same data model. Additional information can be found in the [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/2024Jan/using-cql.html#data-model).
+CQL can be used with any data model. In the context of a Measure, any referenced CQL library must identify the same data model. Additional information can be found here: [Using CQL with FHIR IG](https://hl7.org/fhir/uv/cql/using-cql.html#data-model) section 2.2.
 
 
 ### Code Systems
