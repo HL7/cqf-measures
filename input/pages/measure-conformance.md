@@ -1284,8 +1284,8 @@ For multiple population ratio measures that specify 2 initial populations, the p
 **Conformance Requirement 3.15 (Multiple Population Indexing):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-15)
 {: #conformance-requirement-3-15}
 1. When specifying multiple populations and/or multiple population groups the following naming scheme
-SHOULD be used<br/>
-(Criteria Name) (population group number)( population number)
+SHALL be used<br/>
+(Criteria Name) (population group number)(population number)
 
 Note when a measure has a single population group but multiple populations (such as a ratio measure), the underscore ("\_") is dropped. For example, "Initial Population 1", "Initial Population 2" refers to the populations NOT population groups.
 
