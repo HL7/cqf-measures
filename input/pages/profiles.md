@@ -67,7 +67,7 @@ In addition to conforming to profiles to support appropriate function or represe
 | ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMIComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMIExpandedValueSet](http://hl7.org/fhir/uv/crmi/StructureDefinition-crmi-expandedvalueset.html) |
 {: .grid }
 
-* Due to varying code system capabilities, measure profiles are not restricted to use corresponding terminology profiles. 
+* Note that due to the varying terminology capabilities of target environments, terminology profiles do not necessarily correspond to the capabilities of the measure and library resources. For example, a Computable measure package may include both Computable and Expanded value set resources, depending on the expected capabilities of the target environment with respect to each code system involved. 
 
 ### Additional Profiles
 {: #additional-profiles}

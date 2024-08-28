@@ -67,6 +67,11 @@ The following are conformance requirements when packaging a Measure:
   3. Measure bundles MAY include any libraries referenced by the primary library
   4. Measure bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
   5. Measure bundles MAY include any test case bundles defined for the measure
+  
+### Packaging Terminology
+{: #packaging-terminology}
+
+* What terminology components need to be included in a measure package is dependent on the expected terminology capabilities of the target environment. The "terminologyCapabilities" parameter of the $package operation provides the expected capabilities, and the resulting measure package will include terminology resources consistent with those capabilities.
 
 ### Packaging Test Cases
 {: #packaging-test-cases}
