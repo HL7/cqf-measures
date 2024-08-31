@@ -1,0 +1,151 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cql-measure-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cql-measure-cqfm",
+  "version": "4.0.0",
+  "name": "CQFMCQLMeasure",
+  "title": "CQFM CQL Measure",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM CQL Measure Profile describes minimum expectations for a computable electronic Clinical Quality Measure (eCQM) that uses Clinical Quality Language to represent computable logic in the measure.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Measure",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Measure",
+  "derivation": "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "Measure",
+        "path" : "Measure",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.library",
+        "path" : "Measure.library",
+        "type" : [
+          {
+            "code" : "canonical",
+            "targetProfile" : [
+              "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.group",
+        "path" : "Measure.group",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.group.population",
+        "path" : "Measure.group.population",
+        "condition" : [
+          "cql-32"
+        ],
+        "constraint" : [
+          {
+            "key" : "cql-32",
+            "severity" : "error",
+            "human" : "Computable measures must use text/cql-expression or text/cql-identifier for all criteria",
+            "expression" : "criteria.language in ('text/cql-expression' | 'text/cql-identifier')"
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.group.stratifier",
+        "path" : "Measure.group.stratifier",
+        "condition" : [
+          "cql-33"
+        ],
+        "constraint" : [
+          {
+            "key" : "cql-33",
+            "severity" : "error",
+            "human" : "CQL measures must use text/cql-expression, text/cql-identifier, or text/fhirpath for all stratifier criteria",
+            "expression" : "criteria.language in ('text/cql-expression' | 'text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.group.stratifier.component",
+        "path" : "Measure.group.stratifier.component",
+        "condition" : [
+          "cql-34"
+        ],
+        "constraint" : [
+          {
+            "key" : "cql-34",
+            "severity" : "error",
+            "human" : "CQL measures must use text/cql-expression, text/cql-identifier, or text/fhirpath for all stratifier component criteria",
+            "expression" : "criteria.language in ('text/cql-expression' | 'text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.supplementalData",
+        "path" : "Measure.supplementalData",
+        "condition" : [
+          "cql-35"
+        ],
+        "constraint" : [
+          {
+            "key" : "cql-35",
+            "severity" : "error",
+            "human" : "CQL measures must use text/cql-expression, text/cql-identifier, or text/fhirpath for all supplemental data criteria",
+            "expression" : "criteria.language in ('text/cql-expression' | 'text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "mustSupport" : true
+      }
+    ]
+  }
+}
