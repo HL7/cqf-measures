@@ -2,26 +2,9 @@
 
 {: #measure-packaging}
 
-To facilitate publishing and distribution of quality measures, this Implementation Guide
-provides guidance on how to package quality measures, either independently, or as part of a collection of related measures.
+To facilitate publishing and distribution of quality measures, this Implementation Guide provides guidance on how to package quality measures, either independently, or as part of a collection of related measures.
 
-### Packaging Artifacts
-{: #packaging-artifacts}
-
-In general, artifacts such as libraries, measures, and test cases are packaged as a Bundle
-of type `transaction`. They may span multiple bundles in a given delivery, thus the bundle should be processed as a unit.
-
-An artifact bundle contains the artifact as the first entry in the bundle, and optionally the
-dependencies and associated artifacts as subsequent entries as follows:
-
-1. **Artifact**: The main artifact resource for the package (such as a Measure or Library)
-2. **Library Dependencies**: Any libraries required for the artifact
-3. **Terminology Dependencies**: Any CodeSystem or ValueSet resources required for the artifact
-4. **Test Cases**: Any test cases defined for the artifact
-
-*Note that if an artifact package is large enough to require segmentation in multiple bundles, use of `transaction` bundles may not be feasible.
-
-When paging is used for the result of the package operation, the total element in the resulting bundle(s) is used to communicate the total number of entries in the package, not the number of entries in the bundle, similar to the way bundles are used to page search sets in the FHIR API. In addition, the initial artifact entry is only expected to be present in the first bundle (i.e. the partitioning of entries across the bundles does not change what entries are communicated overall).
+Measure packages are a special case of the more general [Artifact Packaging]({{site.data.fhir.ver.crmi}}/packaging.html) capability described in the Canonical Resource Management Infrastructure (CRMI) implementation guide. Measures may be packaged using that approach, with additional considerations as discussed in the following topics.
 
 ### Packaging Libraries
 {: #packaging-libraries}
@@ -42,6 +25,9 @@ The following are conformance requirements when packaging a Library:
   1. The first entry in a Library bundle SHALL be a Library resource conforming
   2. Library bundles MAY include any libraries referenced by the primary library
   3. Library bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
+  4. For CQL Library resources
+      a. If the target environment supports the use of CQL directly, Library resources should conform to the [CQLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-cql-library.html) profile.
+      b. If the target environment supports the use of ELM directly, Library resources should conform to one (or both) of the [ELMXMLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-xml-library.html) or [ELMJSONLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-json-library.html) profiles.
 
 ### Packaging Measures
 {: #packaging-measures}
@@ -67,6 +53,18 @@ The following are conformance requirements when packaging a Measure:
   3. Measure bundles MAY include any libraries referenced by the primary library
   4. Measure bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
   5. Measure bundles MAY include any test case bundles defined for the measure
+  6. If the capabilities parameter of the package request includes `computable`:
+      a. The Measure resource SHALL conform to the [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html) profile.
+      b. The Library resource(s) SHALL conform to the [CRMIComputableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablelibrary.html) profile.
+      b. For Measures using CQL:
+          i. The Measure resource SHALL conform to the [CQLMeasure](StructureDefinition-cql-measure-cqfm.html) profile.
+          ii. The Library resource(s) SHALL conform to the [CQLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-cql-library.html)
+  7. If the capabilities parameter of the package request includes `executable`: 
+      a. The Measure resource SHALL conform to the [CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html) profile.
+      b. The Library resource(s) SHALL conform to the [CRMIExecutableLibrary](StructureDefinition-crmi-executablelibrary.html) profile.
+      a. For Measures using CQL
+          i. The Measure resource SHALL conform to the [ELMMeasure](StructureDefinition-elm-measure-cqfm.html) profile.
+          ii. The Library resource(s) SHALL conform to one (or both) of the [ELMXMLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-xml-library.html) or [ELMJSONLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-json-library.html) profiles.
 
 ### Packaging Test Cases
 {: #packaging-test-cases}
@@ -78,11 +76,3 @@ Basic testing of measure logic should involve at least one positive and negative
 
   1. The first entry in a TestCase bundle SHALL be a MeasureReport resource representing the expected outcome of evaluating the measure, given the test data provided as part of the test case
   2. TestCase bundles SHALL include any resource data required to evaluate the test case
-
-### Intellectual Property of Packaging
-  {: #intellectual-property-packaging}
-
-**Conformance Requirement 6.4 (Intellectual Property Considerations):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-4)
-  {: #conformance-requirement-6-4}
-  1. Artifacts distributed in this way SHALL carry the appropriate copyright and intellectual property declarations.
-
