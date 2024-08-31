@@ -3,12 +3,12 @@
 ## Capability Profiles
 {: #capability-profiles}
 
-To support flexible representation and packaging of measure and library artifacts for different use cases, this implementation guide uses four general categories of profiles, aligned with [those established]({{site.data.fhir.ver.crmi}}/profiles.html#profiles-1) by the [Canonical Resource Management Infrastructure (CRMI)]({{site.data.fhir.ver.crmi}}) implementation guide:
+To define the exchange expectations for measure and library artifacts at different points along the content lifecycle, this implementation guide uses four general categories of profiles, aligned with those established by the Canonical Resource Management Infrastructure (CRMI) implementation guide:
 
-* Shareable
-* Computable
-* Publishable
-* Executable
+* Shareable - Define the minimum expectations for systems that exchange measure and library artifacts
+* Computable - Define elements that are important for the computable representation of a measure (i.e. design-time characteristics and authoring-level concerns)
+* Publishable - Define elements that are relevant for publishing and distribution concerns
+* Executable - Define elements that are important for the run-time and implementation-level concerns
 
 ### Measure Profiles
 {: #measure-profiles}
