@@ -484,7 +484,15 @@ define "Venous Foot Pumps Applied":
     where D.status = 'completed'
       and D.bodySite ~ ToConcept("Right foot")
 ```
+#### Manifest
+{: #manifest}
 
+A Measure Terminology Service should reference the CQFMContentRelease profile which describes a set of measures together with the version information for code system and value sets referenced by those measures. 
+This provides consumers of the measures with all the information they need to use the measures in the same way that they were authored and tested (i.e. they can produce the same expansions for 
+value sets used by the measures). The CQFMContentRelease profile may also identify a “program” in the useContext element. An example binding is shown for the value, 
+but program-specific documentation could specify a terminology system and code appropriate for their users.
+
+ 
 ### Data Criteria
 {: #data-criteria}
 

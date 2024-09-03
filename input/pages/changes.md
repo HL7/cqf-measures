@@ -73,6 +73,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Refactor Shareable and Publishable profiles and repositories to use CRMI	([FHIR-44642](https://jira.hl7.org/browse/FHIR-44642))
 * **Applied**: Addition Change for ImprovementNotation	([FHIR-44711](https://jira.hl7.org/browse/FHIR-44711))
 * **Applied**: Correct the url for CQL specification	([FHIR-44991](https://jira.hl7.org/browse/FHIR-44991))
+* **Applied**: Rename the QMIG CQFM publishable manifest profile to CQFM Content Release ([FHIR-45309](https://jira.hl7.org/browse/FHIR-45309))([Applied here](StructureDefinition-cqfm-content-release.profile.json.html)), ([here](profiles.html#additional-profiles)), ([here](measure-conformance.html#manifest)), and ([here](capabilities.html))
 
 
 

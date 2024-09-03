@@ -76,6 +76,7 @@ To support packaging, testing, and distribution of measure and library artifacts
 
 | **Profile** | **Description** | 
 |----|----|
+| CQFMContentRelease |  a set of measures together with the version information for code system and value sets referenced by those measures.  |
 | CQFMDevice | A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.  |
 | CQFMTestCase | A measure report profile that allows definition and exchange of test cases for a measure.  |
 {: .grid }
