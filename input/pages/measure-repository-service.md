@@ -48,10 +48,14 @@ The PublishableMeasureRepository capability statement expresses additional funct
 
 A PublishableMeasureRepository:  
 
-1. SHALL support library packaging: Library/$crmi.package operation 
+1. SHALL support library packaging: Library/$package operation 
 2. SHALL support library requirements analysis: Library/$data-requirements operation 
-3. SHALL support measure packaging: Measure/$crmi.package operation 
-4. SHALL support measure requirements analysis: Measure/$data-requirements operation 
+3. SHALL support measure packaging: Measure/$package operation 
+4. SHALL support measure requirements analysis: Measure/$data-requirements operation
+5. SHOULD support measure search using additional publishable metadata
+6. SHOULD support library search using additional publishable metadata
+7. SHOULD support minimum measure write capability (Publish, Retire, Archive)
+8. SHOULD support minimum library write capability (Publish, Retire, Archive) 
 
 The CQFMPublishableMeasureRepository capability statement captures these requirements formally, while the following sections provide a narrative description of them. 
 
