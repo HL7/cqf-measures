@@ -1277,6 +1277,10 @@ Here is an example of using the population types to select data on patients who 
 #### Measures with Multiple Populations
 {: #measures-with-multiple-populations}
 
+The section discusses how to represent multiple rate measures where each rate is represented as a different `group` in the measure.  Given a set of rates related to a particular topic, multiple rate measures can be used in cases where the rates are tightly related such that they all change (and therefore version) together.  Examples include CMS 136 Follow-Up Care for Children Prescribed ADHD Medication (ADD) which looks for two rates depending on how long the patient remains on medication and the number of follow up visits performed. 
+
+For those cases where the rate specifications change independently, using an individual measure for each rate is the recommended approach.
+
 When a measure has multiple population groups (multiple group elements), the criteria names will follow the convention above, adding the number of the population group to each criterion, e.g. "Initial Population 1", "Denominator 1", etc. Note that when multiple population groups are present, the number of the group is added to all population groups, not just the groups other than the first.
 
 For multiple population ratio measures that specify 2 initial populations, the populations would be named with an additional "\_X" to distinguish the initial populations, e.g. "Initial Population 1_1", "Initial Population 1_2", "Initial Population 2_1", "Initial Population 2_2".
