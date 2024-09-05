@@ -73,7 +73,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Refactor Shareable and Publishable profiles and repositories to use CRMI	([FHIR-44642](https://jira.hl7.org/browse/FHIR-44642))
 * **Applied**: Addition Change for ImprovementNotation	([FHIR-44711](https://jira.hl7.org/browse/FHIR-44711))
 * **Applied**: Correct the url for CQL specification	([FHIR-44991](https://jira.hl7.org/browse/FHIR-44991))
-
+* **Applied**: Added sybject-type valueset derived from FHIR value set and FHIR resource types. ([FHIR-46063](https://jira.hl7.org/browse/FHIR-46063)) ([Applied here](ValueSet-subject-type.html)) ([here](StructureDefinition-computable-measure-cqfm.htm.)) and ([here](terminology.html#valueset-resources))
 
 
 
