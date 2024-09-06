@@ -19,7 +19,7 @@ Except where noted, material from the base FHIR specification, and in particular
 
 As features and functionality are identified by this implementation guide that apply more broadly, those features may be promoted to the base FHIR specification.
 
-There is a new term of digital Quality Measure or dQM that is currently being defined across many interested parties. For the purposes of this IG, eCQM, Quality Measure (QM), and dQM are synonymous. The focus of this IG is on computable representation of quality measures using HL7 FHIR and CQL.
+There is a new term of digital Quality Measure or [dQM](glossary.html#digital-quality-measure-dqm) that is currently being defined across many interested parties. For the purposes of this IG, eCQM, Quality Measure (QM), and dQM are synonymous. The focus of this IG is on computable representation of quality measures using HL7 FHIR and CQL.
 
 ### Audience
 {: #audience}
