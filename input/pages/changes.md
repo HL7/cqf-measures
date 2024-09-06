@@ -73,8 +73,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Refactor Shareable and Publishable profiles and repositories to use CRMI	([FHIR-44642](https://jira.hl7.org/browse/FHIR-44642))
 * **Applied**: Addition Change for ImprovementNotation	([FHIR-44711](https://jira.hl7.org/browse/FHIR-44711))
 * **Applied**: Correct the url for CQL specification	([FHIR-44991](https://jira.hl7.org/browse/FHIR-44991))
-
-
+* **Applied**: Consider alternative approach to presenting CQL guidance here	([FHIR-45889](https://jira.hl7.org/browse/FHIR-45889))([Applied here](using-cql.html))
 
 
 ### STU5 Ballot for FHIR R4 (v5.0.0-ballot)
