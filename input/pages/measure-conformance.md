@@ -458,8 +458,6 @@ valueset "Encounter Inpatient SNOMEDCT Value Set":
 code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT:2017-09"
 ```
 
-Snippet 3-9: CQL declaration of a valueset and a code (from [Terminology.cql](Library-Terminology-FHIR.html))
-
 Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html) of this IG, sections [4.3](using-cql.html#code-systems), [4.4](using-cql.html#value-sets), and [4.5](using-cql.html#codes).
 
 For measures that use CQL, valuesets and direct-reference codes that are associated with data access expressions can be found in the `dataRequirement` elements in the Library resource referenced by the Measure resource.
@@ -728,7 +726,6 @@ define "Initial Population":
 ```
 
 Snippet 3-16: CQL definition of the "Initial Population" criteria (from [EXM146.cql](Library-EXM146-FHIR.html#cql-content))
-
 
 **Conformance Requirement 3.8 (Referential Integrity):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-8)
 {: #conformance-requirement-3-8}
