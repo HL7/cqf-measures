@@ -26,8 +26,8 @@ The following are conformance requirements when packaging a Library:
   2. Library bundles MAY include any libraries referenced by the primary library
   3. Library bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
   4. For CQL Library resources
-      a. If the target environment supports the use of CQL directly, Library resources should conform to the [CQLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-cql-library.html) profile.
-      b. If the target environment supports the use of ELM directly, Library resources should conform to one (or both) of the [ELMXMLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-xml-library.html) or [ELMJSONLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-json-library.html) profiles.
+      1. If the target environment supports the use of CQL directly, Library resources SHOULD conform to the [CQLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-cql-library.html) profile.
+      2. If the target environment supports the use of ELM directly, Library resources SHOULD conform to one (or both) of the [ELMXMLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-xml-library.html) or [ELMJSONLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-json-library.html) profiles.
 
 ### Packaging Measures
 {: #packaging-measures}
