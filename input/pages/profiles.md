@@ -36,6 +36,7 @@ In addition to conforming to profiles to support appropriate function or represe
   <tr><td>Ratio</td><td><a href="StructureDefinition-ratio-measure-cqfm.html">CQFMRatioMeasure</a></td></tr>
   <tr><td>Continuous Variable</td><td><a href="StructureDefinition-cv-measure-cqfm.html">CQFMContinuousVariableMeasure</a></td></tr>
   <tr><td>Composite</td><td><a href="StructureDefinition-composite-measure-cqfm.html">CQFMCompositeMeasure</a></td></tr>
+  <tr><td>Composite</td><td><a href="StructureDefinition-attestation-measure-cqfm.html">CQFMAttestationMeasure</a></td></tr>
 </table>
 
 As well, the profiles are designed to separate communication of the computable aspects from the specific expression language used to communicate criteria. This implementation guide supports specification of expression criteria using Clinical Quality Language (CQL) and Expression Logical Model (ELM) (i.e. compiled CQL), but other expression languages could be used with this IG if desired:
