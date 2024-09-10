@@ -18,7 +18,7 @@
       ]
     }
   ],
-  "description": "The CQFM Computable Measure Profile describes minimum expectations for a computable electronic Clinical Quality Measure (eCQM), including the use of a computable library, and the use of expressions or identifiers for all criteria.",
+  "description": "The CQFM Computable Measure Profile describes minimum expectations for a computable electronic Clinical Quality Measure (eCQM), including the use of a computable library.<br/><br/>For more information on the usage of this profile, refer to the [profiles] and [packaging] pages.",
   "jurisdiction": [
     {
       "coding": [
@@ -72,8 +72,8 @@
           {
             "key" : "cmp-2",
             "severity" : "error",
-            "human" : "Scoring must be specified at the root, or on each group",
-            "expression" : "scoring.exists() or group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists()).allTrue()"
+            "human" : "Scoring must either be specified at the root, or on each group",
+            "expression" : "scoring.exists() xor group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists()).allTrue()"
           },
           {
             "key" : "cmp-3",
@@ -198,6 +198,8 @@
             ]
           }
         ],
+        "min" : 0,
+        "max" : "1",
         "mustSupport" : true
       },
       {
@@ -357,9 +359,6 @@
             ]
           }
         ],
-        "condition" : [
-          "cmp-31"
-        ],
         "mustSupport" : true
       },
       {
@@ -375,9 +374,6 @@
               "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component"
             ]
           }
-        ],
-        "condition" : [
-          "cmp-31"
         ],
         "mustSupport" : true
       },
@@ -458,56 +454,33 @@
         "mustSupport" : true
       },
       {
+        "id" : "Measure.group.code",
+        "path" : "Measure.group.code",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.group.description",
+        "path" : "Measure.group.description",
+        "mustSupport" : true
+      },
+      {
         "id" : "Measure.group.population",
         "path" : "Measure.group.population",
-        "condition" : [
-          "cmp-10",
-          "cmp-11",
-          "cmp-12",
-          "cmp-13",
-          "cmp-14",
-          "cmp-15",
-          "cmp-16",
-          "cmp-17",
-          "cmp-18",
-          "cmp-19",
-          "cmp-20",
-          "cmp-21",
-          "cmp-22",
-          "cmp-23",
-          "cmp-24",
-          "cmp-25",
-          "cmp-26",
-          "cmp-27",
-          "cmp-28",
-          "cmp-29",
-          "cmp-30",
-          "cmp-32"
-        ],
-        "constraint" : [
-          {
-            "key" : "cmp-32",
-            "severity" : "error",
-            "human" : "Computable measures must use text/cql-expression or text/cql-identifier for all criteria",
-            "expression" : "criteria.language in ('text/cql-expression' | 'text/cql-identifier')"
-          }
-        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.group.population.code",
+        "path" : "Measure.group.population.code",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.group.population.description",
+        "path" : "Measure.group.population.description",
         "mustSupport" : true
       },
       {
         "id" : "Measure.group.stratifier",
         "path" : "Measure.group.stratifier",
-        "condition" : [
-          "cmp-33"
-        ],
-        "constraint" : [
-          {
-            "key" : "cmp-33",
-            "severity" : "error",
-            "human" : "Computable measures must use text/cql-expression, text/cql-identifier, or text/fhirpath for all stratifier criteria",
-            "expression" : "criteria.language in ('text/cql-expression' | 'text/cql-identifier' | 'text/fhirpath')"
-          }
-        ],
         "mustSupport" : true
       },
       {
@@ -528,35 +501,48 @@
         "mustSupport" : false
       },
       {
+        "id" : "Measure.group.stratifier.code",
+        "path" : "Measure.group.stratifier.code",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.group.stratifier.description",
+        "path" : "Measure.group.stratifier.description",
+        "mustSupport" : true
+      },
+      {
         "id" : "Measure.group.stratifier.component",
         "path" : "Measure.group.stratifier.component",
-        "condition" : [
-          "cmp-34"
-        ],
-        "constraint" : [
-          {
-            "key" : "cmp-34",
-            "severity" : "error",
-            "human" : "Computable measures must use text/cql-expression, text/cql-identifier, or text/fhirpath for all stratifier component criteria",
-            "expression" : "criteria.language in ('text/cql-expression' | 'text/cql-identifier' | 'text/fhirpath')"
-          }
-        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.group.stratifier.component.code",
+        "path" : "Measure.group.stratifier.component.code",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.group.stratifier.component.description",
+        "path" : "Measure.group.stratifier.component.description",
         "mustSupport" : true
       },
       {
         "id" : "Measure.supplementalData",
         "path" : "Measure.supplementalData",
-        "condition" : [
-          "cmp-34"
-        ],
-        "constraint" : [
-          {
-            "key" : "cmp-35",
-            "severity" : "error",
-            "human" : "Computable measures must use text/cql-expression, text/cql-identifier, or text/fhirpath for all supplemental data criteria",
-            "expression" : "criteria.language in ('text/cql-expression' | 'text/cql-identifier' | 'text/fhirpath')"
-          }
-        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.supplementalData.code",
+        "path" : "Measure.supplementalData.code",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.supplementalData.usage",
+        "path" : "Measure.supplementalData.usage",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Measure.supplementalData.description",
+        "path" : "Measure.supplementalData.description",
         "mustSupport" : true
       }
     ]
