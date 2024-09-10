@@ -1,6 +1,5 @@
 
 - [Aggregate Method](StructureDefinition-cqfm-aggregateMethod.html)
-- [Applies To](StructureDefinition-cqfm-appliesTo.html)
 - [Component](StructureDefinition-cqfm-component.html)
 - [Composite Scoring](StructureDefinition-cqfm-compositeScoring.html)
 - [Criteria Reference](StructureDefinition-cqfm-criteriaReference.html)
