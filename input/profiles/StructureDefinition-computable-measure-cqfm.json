@@ -501,6 +501,22 @@
         "mustSupport" : false
       },
       {
+        "id" : "Measure.group.stratifier.extension:cqfm-criteriaReference",
+        "path" : "Measure.group.stratifier.extension",
+        "sliceName" : "cqfm-criteriaReference",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+               "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
         "id" : "Measure.group.stratifier.code",
         "path" : "Measure.group.stratifier.code",
         "mustSupport" : true
