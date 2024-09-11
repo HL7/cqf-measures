@@ -18,7 +18,7 @@
       ]
     }
   ],
-  "description": "The CQFM Executable Measure Profile describes minimum expectations for an executable electronic Clinical Quality Measure (eCQM), including a reference to an executable library, and restricted to the use of identifier-based expressions only for all criteria.",
+  "description": "The CQFM Executable Measure Profile describes minimum expectations for an executable electronic Clinical Quality Measure (eCQM), including a reference to an executable library. <br/><br/>For more information on the usage of this profile, refer to the [profiles] and [packaging] pages.",
   "jurisdiction": [
     {
       "coding": [
@@ -82,58 +82,78 @@
         "mustSupport": true
       },
       {
+        "id": "Measure.group.code",
+        "path": "Measure.group.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.description",
+        "path": "Measure.group.description",
+        "mustSupport": true
+      },
+      {
         "id": "Measure.group.population",
         "path": "Measure.group.population",
-        "constraint": [
-          {
-            "key": "exc-1",
-            "severity": "error",
-            "human": "Executable measures must use text/cql-identifier for all population criteria",
-            "expression": "criteria.language = 'text/cql-identifier'"
-          }
-        ],
-        "condition": [ "exc-1" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.population.code",
+        "path": "Measure.group.population.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.population.description",
+        "path": "Measure.group.population.description",
         "mustSupport": true
       },
       {
         "id": "Measure.group.stratifier",
         "path": "Measure.group.stratifier",
-        "constraint": [
-          {
-            "key": "exc-2",
-            "severity": "error",
-            "human": "Executable measures must use text/cql-identifier or text/fhirpath for all stratifier criteria",
-            "expression": "criteria.language in ('text/cql-identifier' | 'text/fhirpath')"
-          }
-        ],
-        "condition": [ "exc-2" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier.code",
+        "path": "Measure.group.stratifier.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier.description",
+        "path": "Measure.group.stratifier.description",
         "mustSupport": true
       },
       {
         "id": "Measure.group.stratifier.component",
         "path": "Measure.group.stratifier.component",
-        "constraint": [
-          {
-            "key": "exc-3",
-            "severity": "error",
-            "human": "Executable measures must use text/cql-identifier or text/fhirpath for all stratifier component criteria",
-            "expression": "criteria.language in ('text/cql-identifier' | 'text/fhirpath')"
-          }
-        ],
-        "condition": [ "exc-3" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier.component.code",
+        "path": "Measure.group.stratifier.component.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier.component.description",
+        "path": "Measure.group.stratifier.component.description",
         "mustSupport": true
       },
       {
         "id": "Measure.supplementalData",
         "path": "Measure.supplementalData",
-        "constraint": [
-          {
-            "key": "exc-3",
-            "severity": "error",
-            "human": "Executable measures must use text/cql-identifier or text/fhirpath for all supplemental data criteria",
-            "expression": "criteria.language in ('text/cql-identifier' | 'text/fhirpath')"
-          }
-        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.supplementalData.code",
+        "path": "Measure.supplementalData.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.supplementalData.usage",
+        "path": "Measure.supplementalData.usage",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.supplementalData.description",
+        "path": "Measure.supplementalData.description",
         "mustSupport": true
       }
     ]

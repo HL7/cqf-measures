@@ -5,7 +5,7 @@ The diagram below shows the quality improvement ecosystem.  Each step is discuss
 <br>
 Step 1: Researcher and public health surveillance – this step begins with information, preferably evidence-based from research, public health surveillance, and data mining and other analyses performed by third parties such as academic institutions or payers. Such information indicates existing status and knowledge about a given clinical topic.<br>
 <br>
-Step 2: Clinical practice guidelines – in this step stakeholders, such as professional societies, public health agencies, and governmental bodies, publish such information to assure awareness among consumers, healthcare practitioners, and healthcare organizations about what is known and suggested methods for managing the clinical topic. Ideally, suggested management efforts are captured and documented in guidelines based on collaboration among clinical subject matter experts, terminologists, informaticists, clinicians and consumers.<br>
+Step 2: Clinical practice guidelines – in this step stakeholders, such as professional societies, public health agencies, and governmental bodies, publish such information to provide current recommendations to consumers, healthcare practitioners, and healthcare organizations about what is known and suggested methods for managing the clinical topic. Ideally, suggested management efforts are captured and documented in guidelines based on collaboration among clinical subject matter experts, terminologists, informaticists, clinicians and consumers.<br>
 <br>
 Step 3: Clinical decision support - in this step, the clinical guidelines developed in step 2 are translated into clinical decision support (CDS) artifacts to incorporate relevant, evidence based, and patient-specific clinical recommendations and actions directly within clinical workflow.<br>
 <br>
@@ -32,4 +32,4 @@ establish a capable distributed rule processing environment in FHIR. For
 additional information about idealized processes for moving evidence and
 information from guidelines to CDS and measurement, refer to an effort by the
 Centers for Disease Control and Prevention (CDC) called
-[Adapting Clinical Guidelines for the Digital Age](https://www.cdc.gov/ddphss/clinical-guidelines/index.html).
+[Adapting Clinical Guidelines for the Digital Age](https://journals.lww.com/ajmqonline/fulltext/2023/09002/adapting_clinical_guidelines_for_the_digital_age_.2.aspx).

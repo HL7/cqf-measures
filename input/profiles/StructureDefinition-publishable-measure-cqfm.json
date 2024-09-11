@@ -18,7 +18,7 @@
       ]
     }
   ],
-  "description": "The CQFM Publishable Measure profile defines the minimum expectations to enable appropriate content management, discovery, and utilization of published electronic Clinical Quality Measures (eCQMs)",
+  "description": "The CQFM Publishable Measure profile defines the minimum expectations to enable appropriate content management, discovery, and utilization of published electronic Clinical Quality Measures (eCQMs). <br/><br/>For more information on the usage of this profile, refer to the [profiles] and [packaging] pages.",
   "jurisdiction": [
     {
       "coding": [
@@ -488,8 +488,10 @@
     {
       "id" : "Measure.purpose",
       "path" : "Measure.purpose",
+      "short" : "Why this measure is defined (rationale)",
       "definition" : "Explanation of why this measure is needed and why it has been designed as it has.",
       "requirements" : "A published measure should provide a clear description of the purpose of the measure.",
+      "alias": ["rationale"],
       "mustSupport" : true
     },
     {
@@ -769,6 +771,8 @@
     {
       "id" : "Measure.rationale",
       "path" : "Measure.rationale",
+      "min" : 0,
+      "max" : "0",
       "definition" : "Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence.",
       "mustSupport" : false
     },
