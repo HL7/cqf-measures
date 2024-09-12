@@ -44,7 +44,7 @@ The CQFMShareableMeasureRepository capability statement captures these requireme
 
 ### Publishable Measure Repository 
 
-The PublishableMeasureRepository capability statement expresses additional functionality that SHOULD be provided in support of providing published FHIR quality measures including additional searching and packaging capabilities. 
+The PublishableMeasureRepository capability statement expresses additional functionality that is provided in support of providing published FHIR quality measures including additional searching and packaging capabilities. 
 
 A PublishableMeasureRepository:  
 
