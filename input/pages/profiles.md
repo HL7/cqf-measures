@@ -99,6 +99,7 @@ To support packaging, testing, and distribution of measure and library artifacts
 
 | **Profile** | **Description** | 
 |----|----|
+| [CRMISoftwareSystemDevice]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-softwaresystemdevice.html) | A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.  |
 | CQFMTestCase | A measure report profile that allows definition and exchange of test cases for a measure.  |
 {: .grid }
 
