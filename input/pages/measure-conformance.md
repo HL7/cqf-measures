@@ -783,7 +783,7 @@ In addition, the formula for calculating the measure score is implied by the sco
 
 The context of a measure is indicated using the subject element of the FHIR resource.  The subject element will be a reference to a FHIR resource type, specifically including Patient, Location, Organization, Practitioner, and Device as currently specified in the extensible SubjectType binding.  It is important to note that other resource types may be used, but it must be a FHIR resource type. We should also note that although the discussion is focused on Patient as the subject, the discussion applies to other subject types as well.
 
-In addition to the measure scoring, measures generally fall into two categories, patient-based, and non-patient-based (e.g. encounter-based). In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
+In addition to the measure scoring, measures generally fall into two categories, patient-based, and non-patient-based. In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
 
 
 **Conformance Requirement 3.10 (Population Basis):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-10)
@@ -805,7 +805,7 @@ Snippet 3-16 illustrates the use of the populationBasis extension for a patient-
 
 Snippet 3-16: Population basis for a patient-based measure
 
-Snippet 3-17 illustrates the use of the populationBasis extension for an encounter-based measure:
+Snippet 3-17 illustrates the use of the populationBasis extension for an non-patient-based measure:
 
 ```json
   "extension": [
@@ -816,7 +816,7 @@ Snippet 3-17 illustrates the use of the populationBasis extension for an encount
   ]
 ```
 
-Snippet 3-17: Population basis for an encounter-based measure
+Snippet 3-17: Population basis for an non-patient-based measure
 
 Note that this extension is specifically bound to the FHIRAllTypes ValueSet (i.e. the set of all types in FHIR, including data types and resource types, both abstract and concrete). The FHIRAllTypes value set is appropriate for the specification since it's possible to have population criteria that result in "abstract" types. Authoring environments may wish to limit the selection of population basis based on the content implementation guides used in authoring the measure, but that would be a content-driven validation, not a restriction enforced by the specification.
 
@@ -859,14 +859,14 @@ A FHIR Measure resource representing a proportion measure will include one or mo
 
 The semantics of these components are unchanged from the base [Measure]({{site.data.fhir.path}}measure.html) specification; the only difference is that each component references a single criterion encoded as a formal expression.
 
-The referenced expressions return either an indication that a patient meets the population criteria (patient-based measures) or the events that a particular patient contributes to the population (episode-of- care-based measures). For example, consider two measures:
+The referenced expressions return either an indication that a patient meets the population criteria (patient-based measures) or the events that a particular patient contributes to the population (non-patient-based measures). For example, consider two measures:
 
-**Table 3-2: Patient-based and Episode-of-Care Measure Examples**
+**Table 3-2: Patient-based and non-patient-based Measure Examples**
 
 <!-- | Measure | Denominator | Numerator |
 |:--------|:------------:|:----------:|
 | Patient-based | All patients with condition A that had one or more encounters during the measurement period. | All patients with condition A that underwent procedure B during the measurement period. |
-| Episode-of-Care | All encounters for patients with condition A during the measurement period. | All encounters for patients with condition A during the measurement period where procedure B was performed during the encounter. | -->
+| non-patient-based | For example, for episode-of-care based: all encounters for patients with condition A during the measurement period. | For example, for episode-of-care based: all encounters for patients with condition A during the measurement period where procedure B was performed during the encounter. | -->
 <table class="grid">
   <thead>
     <tr>
@@ -882,16 +882,16 @@ The referenced expressions return either an indication that a patient meets the 
       <td style="text-align: left" class="col-5">All patients with condition A that underwent procedure B during the measurement period.</td>
     </tr>
     <tr>
-      <td style="text-align: left" class="col-2">Episode-of-Care</td>
-      <td style="text-align: left" class="col-5">All encounters for patients with condition A during the measurement period.</td>
-      <td style="text-align: left" class="col-5">All encounters for patients with condition A during the measurement period where procedure B was performed during the encounter.</td>
+      <td style="text-align: left" class="col-2">non-patient-based</td>
+      <td style="text-align: left" class="col-5">For example, for episode-of-care based: all encounters for patients with condition A during the measurement period.</td>
+      <td style="text-align: left" class="col-5">For example, for episode-of-care based: all encounters for patients with condition A during the measurement period where procedure B was performed during the encounter.</td>
     </tr>
   </tbody>
 </table>
 
-In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is an episode-of-care measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
+In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is a non-patient-based measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
 
-For complete examples of patient-based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an encounter-based proportion measure, see the [EXM108](Measure-EXM108-FHIR.html) measure included in this implementation guide.
+For complete examples of patient based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an non-patient-based proportion measure, see the [EXM108](Measure-EXM108-FHIR.html) measure included in this implementation guide.
 
 **Conformance Requirement 3.12 (Proportion Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-12)
 {: #conformance-requirement-3-12}
@@ -923,7 +923,7 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 | Denominator Exclusion | Denominator exclusion criteria define patients, subjects, or events that should be excluded from the denominator. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams.                              |
 |  Numerator | Numerator criteria define the patients, subjects, or events that should be included in the upper portion of a fraction used to calculate a proportion measure. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, subject, or event defined in the denominator (for rate and proportion measures) or initial population (for ratio measures). A numerator statement describes the clinical action that satisfies the conditions of the measure. |
 | Numerator Exclusion | Numerator exclusion criteria define patients, subjects, or events to be excluded from the numerator. Numerator exclusions are used in proportion and ratio measures to help narrow the numerator (for inverted measures).                 |
-| Denominator Exception                       | Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures.                                                                                                                                                                                                                                    |
+| Denominator Exception | Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures.                                                                                                                                                                                                                                    |
 {: .grid}
 
 * Initial population: Identify those cases that meet the Initial Population criteria.
