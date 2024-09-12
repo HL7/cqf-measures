@@ -1,0 +1,145 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "elm-measure-cqfm",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/elm-measure-cqfm",
+  "version": "4.0.0",
+  "name": "CQFMELMMeasure",
+  "title": "CQFM ELM Measure",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CQFM ELM Measure Profile describes minimum expectations for an executable electronic Clinical Quality Measure (eCQM) that uses ELM (i.e. compiled CQL) to represent the logic of the measure.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Measure",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Measure",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Measure",
+        "path": "Measure"
+      },
+      {
+        "id": "Measure.library",
+        "path": "Measure.library",
+        "type": [
+          {
+            "code": "canonical",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/cql/StructureDefinition/elm-json-library",
+              "http://hl7.org/fhir/uv/cql/StructureDefinition/elm-xml-library"
+            ]
+          }
+        ],
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group",
+        "path": "Measure.group",
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.population",
+        "path": "Measure.group.population",
+        "constraint": [
+          {
+            "key": "elm-1",
+            "severity": "error",
+            "human": "ELM measures must use text/cql-identifier for all population criteria",
+            "expression": "criteria.language = 'text/cql-identifier'"
+          }
+        ],
+        "condition": [ "elm-1" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier",
+        "path": "Measure.group.stratifier",
+        "constraint": [
+          {
+            "key": "elm-2",
+            "severity": "error",
+            "human": "Executable measures must use text/cql-identifier or text/fhirpath for all stratifier criteria",
+            "expression": "criteria.language in ('text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "condition": [ "elm-2" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.group.stratifier.component",
+        "path": "Measure.group.stratifier.component",
+        "constraint": [
+          {
+            "key": "elm-3",
+            "severity": "error",
+            "human": "Executable measures must use text/cql-identifier or text/fhirpath for all stratifier component criteria",
+            "expression": "criteria.language in ('text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "condition": [ "elm-3" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Measure.supplementalData",
+        "path": "Measure.supplementalData",
+        "constraint": [
+          {
+            "key": "elm-4",
+            "severity": "error",
+            "human": "Executable measures must use text/cql-identifier or text/fhirpath for all supplemental data criteria",
+            "expression": "criteria.language in ('text/cql-identifier' | 'text/fhirpath')"
+          }
+        ],
+        "condition": [ "elm-4" ],
+        "mustSupport": true
+      }
+    ]
+  }
+}
