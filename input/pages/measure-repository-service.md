@@ -44,14 +44,18 @@ The CQFMShareableMeasureRepository capability statement captures these requireme
 
 ### Publishable Measure Repository 
 
-The PublishableMeasureRepository capability statement expresses additional functionality that SHOULD be provided in support of providing published FHIR quality measures including additional searching and packaging capabilities. 
+The PublishableMeasureRepository capability statement expresses additional functionality that is provided in support of providing published FHIR quality measures including additional searching and packaging capabilities. 
 
 A PublishableMeasureRepository:  
 
-1. SHALL support library packaging: [Library/$crmi.package]({{site.data.fhir.ver.crmi}}/OperationDefinition-crmi-package.html) operation 
-2. SHALL support library requirements analysis: [Library/$data-requirements]({{site.data.fhir.ver.crmi}}/OperationDefinition-crmi-data-requirements.html) operation 
-3. SHALL support measure packaging: [Measure/$crmi.package]({{site.data.fhir.ver.crmi}}/OperationDefinition-crmi-package.html) operation 
-4. SHALL support measure requirements analysis: [Measure/$data-requirements]({{site.data.fhir.ver.crmi}}/OperationDefinition-crmi-data-requirements.html) operation 
+1. SHALL support library packaging: Library/$package operation 
+2. SHALL support library requirements analysis: Library/$data-requirements operation 
+3. SHALL support measure packaging: Measure/$package operation 
+4. SHALL support measure requirements analysis: Measure/$data-requirements operation
+5. SHOULD support measure search using additional publishable metadata
+6. SHOULD support library search using additional publishable metadata
+7. SHOULD support minimum measure write capability (Publish, Retire, Archive)
+8. SHOULD support minimum library write capability (Publish, Retire, Archive) 
 
 The CQFMPublishableMeasureRepository capability statement captures these requirements formally. 
 
@@ -80,4 +84,6 @@ For libraries and measures, an AuthoringMeasureRepository:
 7. SHOULD support **Review**: Review and provide comments on an existing library (regardless of status) 
 8. SHOULD support **Approve**: Approve and provide comments on an existing library (regardless of status) 
 
-The [CRMIAuthoringArtifactReposiotry]({{site.data.fhir.ver.crmi}}/CapabilityStatement-crmi-authoring-artifact-repository.html) capability statement captures these requirements formally. 
+
+The [CRMIAuthoringArtifactReposiotry]({{site.data.fhir.ver.crmi}}/CapabilityStatement-crmi-authoring-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them. 
+
