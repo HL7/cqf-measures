@@ -32,15 +32,15 @@ The ShareableMeasureRepository capability statement defines the minimum expectat
 
 A ShareableMeasureRepository: 
 
-1. SHALL Represent basic Library information, as specified by the CRMIShareableLibrary profile, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction. 
-2. For computable libraries, SHALL represent computable Library information, as specified by the CRMIComputableLibrary profile. 
-3. For executable libraries, SHALL represent executable Library information, as specified by the ELMLibrary profile. 
-4. For published libraries, SHALL represent publishable Library information, as specified by the CRMIPublishableLibrary profile. 
-5. SHALL Represent basic Measure information, as specified by the CRMIShareableMeasure profile, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction. 
-6. For computable measures, SHALL represent computable Measure information, as specified by the CQFMComputableMeasure profile. 
-7. For published measures, SHALL represent publishable Measure information, as specified by the CQFMPublishableMeasure profile.
+1. SHALL Represent basic Library information, as specified by the [CRMIShareableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablelibrary.html) profile, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction. 
+2. For computable libraries, SHALL represent computable Library information, as specified by the [CRMIComputableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablelibrary.html) profile. 
+3. For executable libraries, SHALL represent executable Library information, as specified by the [ELMLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-json-library.html) profile. 
+4. For published libraries, SHALL represent publishable Library information, as specified by the [CRMIPublishableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablelibrary.html) profile. 
+5. SHALL Represent basic Measure information, as specified by the [CRMIShareableMeasure]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablemeasure.html) profile, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction. 
+6. For computable measures, SHALL represent computable Measure information, as specified by the [CQFMComputableMeasure](StructureDefinition-computable-measure-cqfm.html) profile. 
+7. For published measures, SHALL represent publishable Measure information, as specified by the [CQFMPublishableMeasure](StructureDefinition-publishable-measure-cqfm.html) profile.
 
-The CQFMShareableMeasureRepository capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+The CQFMShareableMeasureRepository capability statement captures these requirements formally.
 
 ### Publishable Measure Repository 
 
@@ -57,17 +57,17 @@ A PublishableMeasureRepository:
 7. SHOULD support minimum measure write capability (Publish, Retire, Archive)
 8. SHOULD support minimum library write capability (Publish, Retire, Archive) 
 
-The CQFMPublishableMeasureRepository capability statement captures these requirements formally, while the following sections provide a narrative description of them. 
+The CQFMPublishableMeasureRepository capability statement captures these requirements formally. 
 
 ##### MeasureReports 
 
 A PublishableMeasureRepository: 
 
-1. MAY support representation of test cases using the CQFMTestCase profile. 
+1. MAY support representation of test cases using the [CQFMTestCase](StructureDefinition-test-case-cqfm.html) profile. 
 2. MAY support retrieval of test cases by server-specific id through the MeasureReport/read interaction 
 3. MAY support searching of test cases by the measure search parameter 
 4. MAY support including test cases in measure packages. 
-5. MAY support test case packaging: MeasureReport/$cqfm.package operation 
+5. MAY support test case packaging: [MeasureReport/$cqfm.package](OperationDefinition-cqfm-package.html) operation 
 
 ### Authoring Measure Repository 
 
@@ -84,4 +84,6 @@ For libraries and measures, an AuthoringMeasureRepository:
 7. SHOULD support **Review**: Review and provide comments on an existing library (regardless of status) 
 8. SHOULD support **Approve**: Approve and provide comments on an existing library (regardless of status) 
 
+
 The [CRMIAuthoringArtifactReposiotry]({{site.data.fhir.ver.crmi}}/CapabilityStatement-crmi-authoring-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them. 
+
