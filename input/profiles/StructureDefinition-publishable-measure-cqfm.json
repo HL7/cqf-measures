@@ -18,7 +18,7 @@
       ]
     }
   ],
-  "description": "The CQFM Publishable Measure profile defines the minimum expectations to enable appropriate content management, discovery, and utilization of published electronic Clinical Quality Measures (eCQMs)",
+  "description": "The CQFM Publishable Measure profile defines the minimum expectations to enable appropriate content management, discovery, and utilization of published electronic Clinical Quality Measures (eCQMs). <br/><br/>For more information on the usage of this profile, refer to the [profiles] and [packaging] pages.",
   "jurisdiction": [
     {
       "coding": [
@@ -813,6 +813,24 @@
         "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation"]
       }],
       "mustSupport" : true
-    }]
+    },      
+	{
+        "id": "Measure.supplementalData",
+        "path": "Measure.supplementalData",
+        "mustSupport": true
+    },
+	{
+      "id" : "Measure.supplementalData.extension:includeInReportType",
+      "path" : "Measure.supplementalData.extension",
+      "sliceName" : "includeInReportType",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType"]
+      }],		
+      "mustSupport": true
+	}
+	]
   }
 }
