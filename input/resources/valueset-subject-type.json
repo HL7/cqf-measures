@@ -1,0 +1,46 @@
+{
+  "resourceType": "ValueSet",
+  "id": "subject-type",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/subject-type",
+  "version": "4.0.0",
+  "name": "SubjectTypeValueSet",
+  "title": "Subject Type Value Set",
+  "status": "active",
+  "experimental": false,
+  "date": "2024-08-30",
+  "publisher": "Clinical Quality Information Workgroup",
+  "description": "This value incorporates all of the codes from the FHIR value set subject-type in addition to PractitionerRole and RelatedPerson from the FHIR resource-types code system.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+            "http://hl7.org/fhir/ValueSet/subject-type"
+            ]
+      },
+      {
+         "system": "http://hl7.org/fhir/resource-types",
+          "concept": [
+          {
+            "code": "PractitionerRole",
+            "display": "Practitioner Role"
+          },
+          {
+            "code": "RelatedPerson",
+            "display": "Related Person"
+          }
+        ]
+      }
+    ]
+  }
+}

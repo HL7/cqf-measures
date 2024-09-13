@@ -65,7 +65,7 @@ This implementation guide does not introduce any new logic library profiles, but
 {: .grid }
 
 For measures that use Clinical Quality Language to represent expression logic, the following profiles are used:
-
+ 
 | **Shareable** | **Computable** | **Publishable** | **Executable** |
 |----|----|----|----|
 | N/A | [CQLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-cql-library.html) | N/A | [ELM JSON Library]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-json-library.html) <br/> [ELM XML Library]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-xml-library.html)  |
@@ -90,7 +90,7 @@ This implementation guide does not introduce any new terminology profiles, but m
 | ValueSet | [CRMIShareableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablevalueset.html) | [CRMIComputableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-computablevalueset.html) | [CRMIPublishableValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablevalueset.html) | [CRMIExpandedValueSet]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-expandedvalueset.html) |
 {: .grid }
 
-* Due to varying code system capabilities, measure profiles are not restricted to use corresponding terminology profiles. 
+* Note that due to the varying terminology capabilities of target environments, terminology profiles do not necessarily correspond to the capabilities of the measure and library resources. For example, a Computable measure package may include both Computable and Expanded value set resources, depending on the expected capabilities of the target environment with respect to each code system involved. 
 
 ### Additional Profiles
 {: #additional-profiles}
@@ -99,6 +99,8 @@ To support packaging, testing, and distribution of measure and library artifacts
 
 | **Profile** | **Description** | 
 |----|----|
+| [CRMISoftwareSystemDevice]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-softwaresystemdevice.html) | A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.  |
+| CQFMContentRelease |  a set of measures together with the version information for code system and value sets referenced by those measures.  |
 | CQFMTestCase | A measure report profile that allows definition and exchange of test cases for a measure.  |
 {: .grid }
 

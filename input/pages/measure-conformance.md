@@ -526,6 +526,14 @@ This expression results in the following in the _effective data requirements_ Li
 2. A cqf-directReferenceCode element for the "Right foot" code
 3. A dataRequirement element for the `DeviceUseStatement` with a reference to the "Venous foot pump, device (physical object)" code
 
+#### Manifest
+{: #manifest}
+
+A Measure Terminology Service should reference the CQFMContentRelease profile which describes a set of measures together with the version information for code system and value sets referenced by those measures. 
+This provides consumers of the measures with all the information they need to use the measures in the same way that they were authored and tested (i.e. they can produce the same expansions for 
+value sets used by the measures). The CQFMContentRelease profile may also identify a “program” in the useContext element. An example binding is shown for the value, 
+but program-specific documentation could specify a terminology system and code appropriate for their users.
+
 ### Data Criteria
 {: #data-criteria}
 
@@ -687,7 +695,7 @@ CQL provides the logical expression language that is used to define population c
     "criteria": {
       "language": "text/cql-identifier",
       "expression": "\"Initial Population\""
-    }
+  }
   }
 ]
 ```
@@ -783,7 +791,7 @@ In addition, the formula for calculating the measure score is implied by the sco
 
 The context of a measure is indicated using the subject element of the FHIR resource.  The subject element will be a reference to a FHIR resource type, specifically including Patient, Location, Organization, Practitioner, and Device as currently specified in the extensible SubjectType binding.  It is important to note that other resource types may be used, but it must be a FHIR resource type. We should also note that although the discussion is focused on Patient as the subject, the discussion applies to other subject types as well.
 
-In addition to the measure scoring, measures generally fall into two categories, patient-based, and non-patient-based (e.g. encounter-based). In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
+In addition to the measure scoring, measures generally fall into two categories, patient-based, and non-patient-based. In general, patient-based measures count the number of patients in each population, while non-patient-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for patient-based measures indicates whether a patient matches the population criteria (true) or not (false). Non-patient-based measures return the item to be counted such as an encounter or procedure.
 
 
 **Conformance Requirement 3.10 (Population Basis):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-10)
@@ -805,7 +813,7 @@ Snippet 3-16 illustrates the use of the populationBasis extension for a patient-
 
 Snippet 3-16: Population basis for a patient-based measure
 
-Snippet 3-17 illustrates the use of the populationBasis extension for an encounter-based measure:
+Snippet 3-17 illustrates the use of the populationBasis extension for an non-patient-based measure:
 
 ```json
   "extension": [
@@ -816,7 +824,7 @@ Snippet 3-17 illustrates the use of the populationBasis extension for an encount
   ]
 ```
 
-Snippet 3-17: Population basis for an encounter-based measure
+Snippet 3-17: Population basis for an non-patient-based measure
 
 Note that this extension is specifically bound to the FHIRAllTypes ValueSet (i.e. the set of all types in FHIR, including data types and resource types, both abstract and concrete). The FHIRAllTypes value set is appropriate for the specification since it's possible to have population criteria that result in "abstract" types. Authoring environments may wish to limit the selection of population basis based on the content implementation guides used in authoring the measure, but that would be a content-driven validation, not a restriction enforced by the specification.
 
@@ -859,14 +867,14 @@ A FHIR Measure resource representing a proportion measure will include one or mo
 
 The semantics of these components are unchanged from the base [Measure]({{site.data.fhir.path}}measure.html) specification; the only difference is that each component references a single criterion encoded as a formal expression.
 
-The referenced expressions return either an indication that a patient meets the population criteria (patient-based measures) or the events that a particular patient contributes to the population (episode-of- care-based measures). For example, consider two measures:
+The referenced expressions return either an indication that a patient meets the population criteria (patient-based measures) or the events that a particular patient contributes to the population (non-patient-based measures). For example, consider two measures:
 
-**Table 3-2: Patient-based and Episode-of-Care Measure Examples**
+**Table 3-2: Patient-based and non-patient-based Measure Examples**
 
 <!-- | Measure | Denominator | Numerator |
 |:--------|:------------:|:----------:|
 | Patient-based | All patients with condition A that had one or more encounters during the measurement period. | All patients with condition A that underwent procedure B during the measurement period. |
-| Episode-of-Care | All encounters for patients with condition A during the measurement period. | All encounters for patients with condition A during the measurement period where procedure B was performed during the encounter. | -->
+| non-patient-based | For example, for episode-of-care based: all encounters for patients with condition A during the measurement period. | For example, for episode-of-care based: all encounters for patients with condition A during the measurement period where procedure B was performed during the encounter. | -->
 <table class="grid">
   <thead>
     <tr>
@@ -882,16 +890,16 @@ The referenced expressions return either an indication that a patient meets the 
       <td style="text-align: left" class="col-5">All patients with condition A that underwent procedure B during the measurement period.</td>
     </tr>
     <tr>
-      <td style="text-align: left" class="col-2">Episode-of-Care</td>
-      <td style="text-align: left" class="col-5">All encounters for patients with condition A during the measurement period.</td>
-      <td style="text-align: left" class="col-5">All encounters for patients with condition A during the measurement period where procedure B was performed during the encounter.</td>
+      <td style="text-align: left" class="col-2">non-patient-based</td>
+      <td style="text-align: left" class="col-5">For example, for episode-of-care based: all encounters for patients with condition A during the measurement period.</td>
+      <td style="text-align: left" class="col-5">For example, for episode-of-care based: all encounters for patients with condition A during the measurement period where procedure B was performed during the encounter.</td>
     </tr>
   </tbody>
 </table>
 
-In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is an episode-of-care measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
+In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is a non-patient-based measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
 
-For complete examples of patient-based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an encounter-based proportion measure, see the [EXM108](Measure-EXM108-FHIR.html) measure included in this implementation guide.
+For complete examples of patient based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an non-patient-based proportion measure, see the [EXM108](Measure-EXM108-FHIR.html) measure included in this implementation guide.
 
 **Conformance Requirement 3.12 (Proportion Measures):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-12)
 {: #conformance-requirement-3-12}
@@ -1348,16 +1356,20 @@ Here is an example of using the population types to select data on patients who 
 #### Measures with Multiple Populations
 {: #measures-with-multiple-populations}
 
+The section discusses how to represent multiple rate measures where each rate is represented as a different `group` in the measure.  Given a set of rates related to a particular topic, multiple rate measures can be used in cases where the rates are tightly related such that they all change (and therefore version) together.  Examples include CMS 136 Follow-Up Care for Children Prescribed ADHD Medication (ADD) which looks for two rates depending on how long the patient remains on medication and the number of follow up visits performed. 
+
+For those cases where the rate specifications change independently, using an individual measure for each rate is the recommended approach.
+
 When a measure has multiple population groups (multiple group elements), the criteria names will follow the convention above, adding the number of the population group to each criterion, e.g. "Initial Population 1", "Denominator 1", etc. Note that when multiple population groups are present, the number of the group is added to all population groups, not just the groups other than the first.
 
 For multiple population ratio measures that specify 2 initial populations, the populations would be named with an additional "\_X" to distinguish the initial populations, e.g. "Initial Population 1_1", "Initial Population 1_2", "Initial Population 2_1", "Initial Population 2_2".
 
 **Conformance Requirement 3.16 (Multiple Population Indexing):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-16)
 {: #conformance-requirement-3-16}
-1. When specifying multiple populations and/or multiple population groups the following naming scheme SHOULD be used
+1. When specifying multiple populations and/or multiple population groups the following naming scheme SHALL be used
 
 ```
-(Criteria Name)(population group number)(population number)
+(Criteria Name) (population group number)( population number)
 ```
 
 Note when a measure has a single population group but multiple populations (such as a ratio measure), the underscore ("\_") is dropped. For example, "Initial Population 1", "Initial Population 2" refers to the populations NOT population groups.

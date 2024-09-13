@@ -66,6 +66,11 @@ The following are conformance requirements when packaging a Measure:
           i. The Measure resource SHALL conform to the [ELMMeasure](StructureDefinition-elm-measure-cqfm.html) profile.
           ii. The Library resource(s) SHALL conform to one (or both) of the [ELMXMLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-xml-library.html) or [ELMJSONLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-json-library.html) profiles.
 
+### Packaging Terminology
+{: #packaging-terminology}
+
+* What terminology components need to be included in a measure package is dependent on the expected terminology capabilities of the target environment. The "terminologyCapabilities" parameter of the $package operation provides the expected capabilities, and the resulting measure package will include terminology resources consistent with those capabilities.
+
 ### Packaging Test Cases
 {: #packaging-test-cases}
 

@@ -72,8 +72,8 @@
           {
             "key" : "cmp-2",
             "severity" : "error",
-            "human" : "Scoring must be specified at the root, or on each group",
-            "expression" : "scoring.exists() or group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists()).allTrue()"
+            "human" : "Scoring must either be specified at the root, or on each group",
+            "expression" : "scoring.exists() xor group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists()).allTrue()"
           },
           {
             "key" : "cmp-3",
@@ -85,7 +85,7 @@
             "key" : "cmp-4",
             "severity" : "error",
             "human" : "Improvement notation must be specified for scoring types other than cohort",
-            "expression" : "scoring.exists() and scoring in ('proportion' | 'ratio' | 'continuous-variable') implies improvementNotation.exists()"
+			"expression" : "(scoring.exists() and scoring.coding.code in ('proportion' | 'ratio' | 'continuous-variable') and improvementNotation.exists()) xor (group.where(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').where(exists() and value.coding.code in ('proportion' | 'ratio' | 'continuous-variable')).exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation').exists()).exists())"
           },
           {
             "key" : "cmp-5",
@@ -185,7 +185,11 @@
         "comment" : "The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration.",
         "min" : 0,
         "max" : "1",
-        "mustSupport" : true
+        "mustSupport" : true,
+               "binding" : {
+          "strength" : "extensible",
+          "valueSet" : "http://hl7.org/fhir/us/cqfmeasures/ValueSet/subject-type"
+        }
       },
       {
         "id" : "Measure.library",

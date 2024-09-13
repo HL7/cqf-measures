@@ -16,6 +16,7 @@
 -  [Aggregate Method](https://terminology.hl7.org/ValueSet-measure-aggregate-method.html)
 -  [CQL Version](ValueSet-cql-version.html)
 -  [Artifact Identifier Type](https://terminology.hl7.org/ValueSet-artifact-identifier-type.html)
+-  [Subject Type](ValueSet-subject-type.html)
 
 #### Example ValueSet Resources
 
