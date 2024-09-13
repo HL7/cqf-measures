@@ -2,7 +2,11 @@
   "resourceType": "Measure",
   "id": "EXM146-FHIR",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
+    "profile": [ 
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", 
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cql-measure-cqfm"
+    ]
   },
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
