@@ -30,7 +30,7 @@ This IG is built upon on [FHIR Version R4](http://hl7.org/fhir/R4/index.html) an
 
 Refer to the [QI-Core implementation guide](http://hl7.org/fhir/us/qicore) for examples of how to represent data involved in calculation of quality measures.
 
-### How to read this Guide,
+### How to read this Guide
 {: #how-to-read-this-guide}
 
 This Guide is divided into several pages which are listed at the top of each
