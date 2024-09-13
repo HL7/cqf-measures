@@ -2,7 +2,12 @@
   "resourceType": "Measure",
   "id": "EXM55-FHIR",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cv-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
+    "profile": [ 
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cv-measure-cqfm", 
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareable-measure",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cql-measure"
+    ]
   },
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
