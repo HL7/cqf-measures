@@ -263,13 +263,6 @@
         </tr>
         {% endif %}
 
-        {% if Library.lastReviewDate.exists() %}
-        <tr>
-            <th scope="row"><b>Last Review Date: </b></th>
-            <td style="padding-left: 4px;">{{Library.lastReviewDate}}</td>
-        </tr>
-        {% endif %}
-
         {% if Library.effectivePeriod.exists() %}
         <tr>
             <th scope="row"><b>Effective Period: </b></th>
