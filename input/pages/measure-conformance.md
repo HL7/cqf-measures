@@ -526,6 +526,14 @@ This expression results in the following in the _effective data requirements_ Li
 2. A cqf-directReferenceCode element for the "Right foot" code
 3. A dataRequirement element for the `DeviceUseStatement` with a reference to the "Venous foot pump, device (physical object)" code
 
+#### Manifest
+{: #manifest}
+
+A Measure Terminology Service should reference the CQFMContentRelease profile which describes a set of measures together with the version information for code system and value sets referenced by those measures. 
+This provides consumers of the measures with all the information they need to use the measures in the same way that they were authored and tested (i.e. they can produce the same expansions for 
+value sets used by the measures). The CQFMContentRelease profile may also identify a “program” in the useContext element. An example binding is shown for the value, 
+but program-specific documentation could specify a terminology system and code appropriate for their users.
+
 ### Data Criteria
 {: #data-criteria}
 
@@ -687,7 +695,7 @@ CQL provides the logical expression language that is used to define population c
     "criteria": {
       "language": "text/cql-identifier",
       "expression": "\"Initial Population\""
-    }
+  }
   }
 ]
 ```
@@ -923,7 +931,7 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 | Denominator Exclusion | Denominator exclusion criteria define patients, subjects, or events that should be excluded from the denominator. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams.                              |
 |  Numerator | Numerator criteria define the patients, subjects, or events that should be included in the upper portion of a fraction used to calculate a proportion measure. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, subject, or event defined in the denominator (for rate and proportion measures) or initial population (for ratio measures). A numerator statement describes the clinical action that satisfies the conditions of the measure. |
 | Numerator Exclusion | Numerator exclusion criteria define patients, subjects, or events to be excluded from the numerator. Numerator exclusions are used in proportion and ratio measures to help narrow the numerator (for inverted measures).                 |
-| Denominator Exception | Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures.                                                                                                                                                                                                                                    |
+| Denominator Exception                       | Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures.                                                                                                                                                                                                                                    |
 {: .grid}
 
 * Initial population: Identify those cases that meet the Initial Population criteria.
@@ -1361,7 +1369,7 @@ For multiple population ratio measures that specify 2 initial populations, the p
 1. When specifying multiple populations and/or multiple population groups the following naming scheme SHALL be used
 
 ```
-(Criteria Name)(population group number)(population number)
+(Criteria Name) (population group number)( population number)
 ```
 
 Note when a measure has a single population group but multiple populations (such as a ratio measure), the underscore ("\_") is dropped. For example, "Initial Population 1", "Initial Population 2" refers to the populations NOT population groups.

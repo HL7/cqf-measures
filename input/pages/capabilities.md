@@ -31,7 +31,7 @@ Note that although the processing depicted here is focused on quality measuremen
 
 This implementation guide defines capability statements, use cases, and conformance requirements for:
 
-* [**Measure Repository**](measure-repository-service.html)
+* [**Measure Repository**](measure-repository-service.html) Use cases depicted in this IG are expected to use a terminology service conformant with the [Artifact Terminology Service Capabilities](https://hl7.org/fhir/uv/crmi/2024Jan/artifact-terminology-service.html) as defined in CRMI. See [Measure Conformance Manifest](measure-conformance.html#manifest) regarding the use of the [CQFMContentRelease profile](StructureDefinition-cqfm-content-release.html).
 
 <div class="new-content" markdown="1">
 

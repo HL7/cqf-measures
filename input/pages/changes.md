@@ -76,6 +76,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Clarify $package for CQFM Test Case MeasureReport	([FHIR-46024](https://jira.hl7.org/browse/FHIR-46024))Applied ([here](capabilitystatement-authoring-measure-repository.html)), ([here](capabilitystatement-publishable-measure-repository.html)), ([here](capabilitystatement-shareable-measure-repository.html)), and ([here](operationdefinition-cqfm-package.html))
 * **Applied**: Provided content for the operations page	([FHIR-45919](https://jira.hl7.org/browse/FHIR-45919)) ([Applied here](operations.html))
 * **Applied**: Changed scoring expression (cmp-2) from or to xor in computable measure cqfm	([FHIR-46206](https://jira.hl7.org/browse/FHIR-46206)) ([Applied here](StructureDefinition-computable-measure-cqfm.html))
+* **Applied**: Rename the QMIG CQFM publishable manifest profile to CQFM Content Release ([FHIR-45309](https://jira.hl7.org/browse/FHIR-45309))([Applied here](StructureDefinition-cqfm-content-release.profile.json.html)), ([here](profiles.html#additional-profiles)), ([here](measure-conformance.html#manifest)), and ([here](capabilities.html))
 
 
 
