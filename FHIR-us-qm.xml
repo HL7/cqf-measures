@@ -19,8 +19,8 @@
 <artifact id="Library/AdultOutpatientEncounters" key="Library-AdultOutpatientEncounters" name="Adult Outpatient Encounters Common Library"/>
 <artifact id="Library/AdvancedIllnessandFrailtyExclusion" key="Library-AdvancedIllnessandFrailtyExclusion" name="Advanced Illness and Frailty Exclusion Library"/>
 <artifact id="ConceptMap/aggregate-method" key="ConceptMap-aggregate-method" name="Aggregate Method mapping"/>
-<artifact id="ValueSet/artifact-comment-type" key="ValueSet-artifact-comment-type" name="Artifact Comment Type"/>
-<artifact id="CodeSystem/artifact-comment-type" key="CodeSystem-artifact-comment-type" name="Artifact Comment Type Codes"/>
+<artifact deprecated="true" id="ValueSet/artifact-comment-type" key="ValueSet-artifact-comment-type" name="Artifact Comment Type"/>
+<artifact deprecated="true" id="CodeSystem/artifact-comment-type" key="CodeSystem-artifact-comment-type" name="Artifact Comment Type Codes"/>
 <artifact id="Library/BCSComponent" key="Library-BCSComponent" name="BCS Component Library"/>
 <artifact id="Measure/BCSComponent" key="Measure-BCSComponent" name="Breast Cancer Screening"/>
 <artifact deprecated="true" id="Measure/BreastCancerScreeningFHIR" key="Measure-BreastCancerScreeningFHIR" name="Breast Cancer Screening FHIR Measure"/>
@@ -35,6 +35,7 @@
 <artifact deprecated="true" id="StructureDefinition/cqfm-allocation" key="StructureDefinition-cqfm-allocation" name="CQFM Allocation"/>
 <artifact id="StructureDefinition/cqfm-appliesTo" key="StructureDefinition-cqfm-appliesTo" name="CQFM Applies To"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-artifactComment" key="StructureDefinition-cqfm-artifactComment" name="CQFM Artifact Comment"/>
+<artifact id="StructureDefinition/cql-measure-cqfm" key="StructureDefinition-cql-measure-cqfm" name="CQFM CQL Measure"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-cqlOptions" key="StructureDefinition-cqfm-cqlOptions" name="CQFM CQL Options"/>
 <artifact deprecated="true" id="StructureDefinition/capability-statement-cqfm" key="StructureDefinition-capability-statement-cqfm" name="CQFM Capability Statement"/>
 <artifact id="StructureDefinition/cohort-measure-cqfm" key="StructureDefinition-cohort-measure-cqfm" name="CQFM Cohort Measure"/>
@@ -50,6 +51,7 @@
 <artifact deprecated="true" id="StructureDefinition/cqfm-definitionTerm" key="StructureDefinition-cqfm-definitionTerm" name="CQFM Definition Term"/>
 <artifact id="StructureDefinition/device-softwaresystem-cqfm" key="StructureDefinition-device-softwaresystem-cqfm" name="CQFM Device"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-directReferenceCode" key="StructureDefinition-cqfm-directReferenceCode" name="CQFM Direct Reference Code"/>
+<artifact id="StructureDefinition/elm-measure-cqfm" key="StructureDefinition-elm-measure-cqfm" name="CQFM ELM Measure"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-effectiveDataRequirements" key="StructureDefinition-cqfm-effectiveDataRequirements" name="CQFM Effective Data Requirements"/>
 <artifact id="StructureDefinition/cqfm-effectivePeriodAnchor" key="StructureDefinition-cqfm-effectivePeriodAnchor" name="CQFM Effective Period Anchor"/>
 <artifact id="StructureDefinition/cqfm-effectivePeriodDuration" key="StructureDefinition-cqfm-effectivePeriodDuration" name="CQFM Effective Period Duration"/>
@@ -114,7 +116,7 @@
 <artifact id="Library/Common" key="Library-Common" name="Common Library"/>
 <artifact id="Library/CommonTerminologies" key="Library-CommonTerminologies" name="Common Terminology Library"/>
 <artifact id="ConceptMap/composite-measure-scoring" key="ConceptMap-composite-measure-scoring" name="Composite Measure Scoring mapping"/>
-<artifact id="ValueSet/computable-example" key="ValueSet-computable-example" name="Computable Example"/>
+<artifact deprecated="true" id="ValueSet/computable-example" key="ValueSet-computable-example" name="Computable Example"/>
 <artifact id="ConceptMap/data-usages" key="ConceptMap-data-usages" name="Data Usage Mapping"/>
 <artifact id="Device/software-system-example" key="Device-software-system-example" name="Device - Software System Example"/>
 <artifact deprecated="true" id="Library/ep-ec-quality-program" key="Library-ep-ec-quality-program" name="EP/EC Quality Program"/>
@@ -220,7 +222,7 @@
 <artifact id="Library/Terminology-FHIR" key="Library-Terminology" name="Terminology Library"/>
 <artifact deprecated="true" id="Library/USCore-ModelInfo" key="Library-USCore-ModelInfo" name="USCore Model Definition"/>
 <artifact id="Library/VTEICU" key="Library-VTEICU" name="VTE ICU Library"/>
-<artifact id="ValueSet/value-filter-comparator" key="ValueSet-value-filter-comparator" name="Value Filter Comparator"/>
+<artifact deprecated="true" id="ValueSet/value-filter-comparator" key="ValueSet-value-filter-comparator" name="Value Filter Comparator"/>
 <artifact deprecated="true" id="Measure/measure-vte-1-FHIR" key="Measure-measure-vte-1-FHIR" name="Venous Thromboembolism Prophylaxis"/>
 <artifact deprecated="true" id="Library/ecqm-update-2020" key="Library-ecqm-update-2020" name="eCQM Annual Update 2020"/>
 <artifact deprecated="true" id="Library/ecqm-update-2020-05-07" key="Library-ecqm-update-2020-05-07" name="eCQM Update 2020-05-07"/>
