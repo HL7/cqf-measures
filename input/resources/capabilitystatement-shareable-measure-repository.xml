@@ -7,6 +7,7 @@
   <title value="CQF Measures Shareable Measure Repository Capability Statement"/>
   <status value="active"/>
   <experimental value="false"/>
+  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-shareable-artifact-repository"/>
   <date value="2021-03-08"/>
   <publisher value="HL7, Inc"/>
   <contact>
@@ -36,12 +37,9 @@
     </security>
     <resource>
       <type value="Library"/>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/library-cqfm"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"/>
       <supportedProfile value="http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-library-cqfm"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-library-cqfm"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/modelinfo-library-cqfm"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/quality-program-cqfm"/>
+      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-manifest-cqfm"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
@@ -115,7 +113,7 @@
     </resource>
     <resource>
       <type value="Measure"/>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/measure-cqfm"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure"/>
       <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"/>
       <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"/>
       <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cohort-measure-cqfm"/>
