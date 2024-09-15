@@ -1384,7 +1384,6 @@ Note also that when a measure has multiple population groups, the expectation is
 
 1. If stratification is specified as an expression, the result type of the expression SHALL match the result type of other population criteria expressions in the measure.
 2. If stratification is specified as a path, the path SHALL be resolvable on the type of the subject of the measure or on the type of the population basis if the basis is different than the subject.
-3. Stratification SHALL NOT be used with ratio measures, since ratio measures may define multiple initial populations.
 
 Stratification is represented using the stratifier element. The semantics of this element are unchanged from the base [Measure]({{site.data.fhir.path}}measure.html) specification; the only difference is that each population criteria references an  expression that returns a Boolean, (or event for event-based measures) to determine whether a given patient meets the criteria for that stratification. Snippet 3-29 shows an example stratifier that stratifies results for two sub-populations. Snippet 3-25 shows the CQL representation of the stratifier.
 

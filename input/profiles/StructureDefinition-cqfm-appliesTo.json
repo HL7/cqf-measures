@@ -18,7 +18,7 @@
       ]
     }
   ],
-  "description": "Indicates the population that this stratifier should apply to.",
+  "description": "Indicates the population that this stratifier should apply to. If no appliesTo extension is present, the stratifier is calculated based on the result of the population calculation (e.g. the calculated numerator for a proportion scoring).",
   "jurisdiction": [
     {
       "coding": [
@@ -53,8 +53,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Which population does this stratifier apply to? If this extension is not used, the stratifier applies to all populations in the group.",
-        "definition": "Indicates the population that this stratifier should apply to.",
+        "short": "Which population does this stratifier apply to?",
+        "definition": "Indicates the population that this stratifier should apply to. If no appliesTo extension is present, the stratifier is calculated based on the result of the population calculation (e.g. the calculated numerator for a proportion scoring).",
         "min": 1,
         "max": "*"
       },
