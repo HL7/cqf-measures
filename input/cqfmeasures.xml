@@ -188,9 +188,184 @@
         <reference value="StructureDefinition/cqfm-weight"/>
       </reference>
       <name value="Weight"/>
-      <exampleBoolean value="false"/>
+      <exampleBoolean value="true"/>
+    </resource-->
+    <resource>
+      <reference>
+        <reference value="Measure/EXM55-FHIR"/>
+      </reference>
+      <name value="EXM55 - Median Emergency Department Visit Duration"/>
+      <description value="This example illustrates a continuous variable measure represented as a FHIR eCQM"/>
+	  <exampleBoolean value="true"/>
     </resource>
-  -->
+    <resource>
+      <reference>
+        <reference value="Measure/BCSComponent"/>
+      </reference>
+      <name value="Breast Cancer Screening"/>
+      <description value="This is an example only."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/CCSComponent"/>
+      </reference>
+      <name value="Cervical Cancer Screening"/>
+      <description value="This is only an example."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/EXMLogic-FHIR"/>
+      </reference>
+      <name value="EXM Measure"/>
+      <description value="An example FHIR-based measure."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-pi-exm"/>
+      </reference>
+      <name value="EXM Promoting Interoperability Measure"/>
+      <description value="An example FHIR-based publishable measure - Promoting Interoperability."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/EXMRatio-FHIR"/>
+      </reference>
+      <name value="EXM Ratio Measure"/>
+      <description value="An example FHIR-based publishable measure."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/EXM108-FHIR"/>
+      </reference>
+      <name value="EXM108 - Venous Thromboembolism Prophylaxis"/>
+      <description value="This measure assesses the number of patients who received VTE prophylaxis or have documentation why no VTE prophylaxis was given the day of or the day after hospital admission or surgery end date for surgeries that start the day of or the day after hospital admission."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/EXM124-FHIR"/>
+      </reference>
+      <name value="EXM124 - Cervical Cancer Screening"/>
+      <description value="Percentage of women 21-64 years of age who were screened for cervical cancer."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/EXM125-FHIR"/>
+      </reference>
+      <name value="EXM125 - Breast Cancer Screening"/>
+      <description value="Percentage of women 50-74 years of age who had a mammogram to screen for breast cancer."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/EXM130-FHIR"/>
+      </reference>
+      <name value="EXM130 - Colorectal Cancer Screening Measure"/>
+      <description value="Percentage of adults 50-75 years of age who had appropriate screening for colorectal cancer."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/EXM146-FHIR"/>
+      </reference>
+      <name value="Cervical Cancer EXM146 - Appropriate Testing for Children with Pharyngitis"/>
+      <description value="TPercentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/MultiRateExample-FHIR"/>
+      </reference>
+      <name value="Multi-Rate Example Measure"/>
+      <description value="This measure example illustrates the use of the group-level computation extensions to describe a multi-rate measure with mixed population bases."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/PVSComponent"/>
+      </reference>
+      <name value="Pneumococcal Vaccination Status for Older Adults"/>
+      <description value="This is an example only."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/HBPComponent"/>
+      </reference>
+      <name value="Preventive Care and Screening: Screening for High Blood Pressure and Follow-Up Documented"/>
+      <description value="This is an example only."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/TSCComponent"/>
+      </reference>
+      <name value="Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention"/>
+      <description value="This is an example only."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/PreventiveCareandWellnessAllOrNothingComposite"/>
+      </reference>
+      <name value="Preventive Care and Wellness All-Or-Nothing Composite"/>
+      <description value="This artifact is an example of an all-or-nothing composite measure that uses a mixture of single-rate or multi-rate component measures that have different measure bases."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/PreventiveCareandWellnessOpportunityComposite"/>
+      </reference>
+      <name value="Preventive Care and Wellness Opportunity Composite"/>
+      <description value="This artifact is an example of an opportunity composite measure that uses a mixture of single-rate or multi-rate component measures that have different measure bases."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/PreventiveCareandWellnessPatientLevelLinearComposite"/>
+      </reference>
+      <name value="Preventive Care and Wellness Patient-level Linear Composite"/>
+      <description value="This artifact is an example of a patient-level linear composite measure that uses a mixture of single-rate or multi-rate component measures that have different measure bases."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/PreventiveCareandWellnessWeightedComposite"/>
+      </reference>
+      <name value="Preventive Care and Wellness Weighted Composite"/>
+      <description value="This artifact is an example of a weighted composite measure that uses a mixture of single-rate or multi-rate component measures that have different measure bases."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/measure-risk-adjustment-FHIR2"/>
+      </reference>
+      <name value="Risk Adjustment FHIR DSTU2"/>
+      <description value="This example illustrates the use of risk adjustment data within a measure represented as a FHIR eCQM."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Measure/Terminology-FHIR"/>
+      </reference>
+      <name value="	Terminology FHIR"/>
+      <description value="This example illustrates the use of risk adjustment variables within a measure represented as a FHIR eCQM."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Device/software-system-example"/>
+      </reference>
+      <name value="Device - Software System Example"/>
+      <description value="Example of a Software System Device used to illustrate tooling, testing, or authoring system"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"/>
+    </resource>
     <resource>
       <reference>
         <reference value="MeasureReport/testcase-example"/>
