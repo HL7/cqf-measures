@@ -70,7 +70,7 @@ Consistent with the UCWF IG, this IG allows measures to use [Nested Libraries]({
 
 **Conformance Requirement 4.3 (Nested Libraries):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-3)
 {: #conformance-requirement-4-3}
-  1. CQL libraries used by measures SHALL conform to [UCWF:2.3 (Nested Libraries)]({{site.data.fhir.ver.cql}}/using-cql.html#conformance-requrement-2-3)
+  1. CQL libraries used by measures SHALL conform to [UCWF:2.3 (Nested Libraries)]({{site.data.fhir.ver.cql}}/using-cql.html#conformance-requirement-2-3)
   2. In addition, CQL libraries used by measures SHALL be structured such that all CQL expressions referenced by the Measure are contained within a single library.
 
 For example:
@@ -101,7 +101,7 @@ Snippet 4-4: Library namespace
 ### Data Model
 {: #data-model}
 
-CQL can be used with any [Data Model]({{site.data.fhir.ver.cql}}/using-cql#data-model). In the context of a Measure, any referenced CQL library must identify the same data model.
+CQL can be used with any [Data Model]({{site.data.fhir.ver.cql}}/using-cql.html#data-model). In the context of a Measure, any referenced CQL library must identify the same data model.
 
 **Conformance Requirement 4.5 (CQL Data Model):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-5)
 {: #conformance-requirement-4-5}
@@ -138,7 +138,7 @@ Snippet 4-6: codesystem definition line from [Terminology.cql](Library-Terminolo
 #### Representation in a Library
 {: #representation-in-a-library}
 
-The representation of codesystem declarations in a Library is discussed in the [Terminology](measure-conformance.html#terminology) topic of Measure Conformance in this IG.
+The representation of codesystem declarations in a Library is discussed in the [Terminology](measure-conformance.html#terminology) topic of this IG.
 
 ### Value Sets
 {: #value-sets}
@@ -191,7 +191,7 @@ Snippet 4-9: FHIR API query to retrieve a value set by it's canonical identifier
 #### Value Set Version
 {: #value-set-version}
 
-Consistent with the UCWF IG, [Value Set Version]({{site.data.fhir.ver.cql}}/using-cql#value-set-version) information is not required to be included. As a best-practice, terminology versioning information is specified externally using a version manifest. However, if versioning information is included, it must be done in accordnace with terminology usage specified by FHIR.
+Consistent with the UCWF IG, [Value Set Version]({{site.data.fhir.ver.cql}}/using-cql.html#value-set-version) information is not required to be included. As a best-practice, terminology versioning information is specified externally using a version manifest. However, if versioning information is included, it must be done in accordnace with terminology usage specified by FHIR.
 
 **Conformance Requirement 4.8 (Value Set Specification By Version):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-8)
 {: #conformance-requirement-4-8}
@@ -216,7 +216,7 @@ Snippet 4-11: FHIR API query to retrieve a value set by it's url and version
 
 #### Value Set Expansion
 
-Measures that make use of CQL must do so in accordance with [Value Set Expansion]({{site.data.fhir.ver.cql}}/using-cql#value-set-expansion) as described in the UCWF IG.
+Measures that make use of CQL must do so in accordance with [Value Set Expansion]({{site.data.fhir.ver.cql}}/using-cql.html#value-set-expansion) as described in the UCWF IG.
 
 **Conformance Requirement 4.9 (Value Set Expansion):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-9)
 {: #conformance-requirement-4-9}
@@ -225,7 +225,7 @@ Measures that make use of CQL must do so in accordance with [Value Set Expansion
 #### Representation in a Library
 {: #representation-in-a-library}
 
-The representation of `valueset` declarations in a Library is discussed in the [Terminology](measure-conformance.html#terminology) topic of Measure Conformance in this IG, consistent with the [Representation in Narrative]({{site.data.fhir.ver.cql}}/using-cql.html#valueset-representation-in-narrative) topic in the UCWF IG.
+The representation of `valueset` declarations in a Library is discussed in the [Terminology](measure-conformance.html#terminology) topic of this IG, consistent with the [Representation in Narrative]({{site.data.fhir.ver.cql}}/using-cql.html#valueset-representation-in-narrative) topic in the UCWF IG.
 
 #### String-based Membership Testing
 {: #string-based-membership-testing}
@@ -256,7 +256,7 @@ Snippet 4-12: code definition from [Terminology.cql](Library-Terminology-FHIR.ht
 #### Representation in a Library
 {: #representation-in-a-library}
 
-The representation of code declarations in a Library is discussed in [Terminology](measure-conformance.html#terminology) of Measure Conformance in this IG, consistent with the [Representation in Narrative]({{site.data.fhir.ver.cql}}/using-cql.html#code-representation-in-narrative) topic in the UCWF IG.
+The representation of code declarations in a Library is discussed in [Terminology](measure-conformance.html#terminology) of this IG, consistent with the [Representation in Narrative]({{site.data.fhir.ver.cql}}/using-cql.html#code-representation-in-narrative) topic in the UCWF IG.
 
 ### UCUM Best Practices
 {: #ucum-best-practices}
@@ -271,7 +271,7 @@ Consistent with the UCWF IG, CQL used with Measures may make use of the CQL [_co
 **Conformance Requirement 4.12 (Concepts):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-12)
 {: #conformance-requirement-4-12}
 
-1. CQL libraries used by Measures SHALL conform to [UCWF:2.12 (Concepts)]({{site.data.fhir.ver.cql}}/using-cql#conformance-requirement-2-12)
+1. CQL libraries used by Measures SHALL conform to [UCWF:2.12 (Concepts)]({{site.data.fhir.ver.cql}}/using-cql.html#conformance-requirement-2-12)
 
 ### Library-level Identifiers
 {: #library-level-identifiers}
@@ -280,7 +280,7 @@ Consistent with the UCWF IG, CQL used by Measures should use descriptive and mea
 
 **Conformance Requirement 4.13 (Library-level Identifiers):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-13)
 {: #conformance-requirement-4-13}
-1. CQL libraries used by Measures SHALL conform to [UCWF:2.13 (Library-level Identifiers)]({{site.data.fhir.ver.cql}}/using-cql#conformance-requirement-2-13)
+1. CQL libraries used by Measures SHALL conform to [UCWF:2.13 (Library-level Identifiers)]({{site.data.fhir.ver.cql}}/using-cql.html#conformance-requirement-2-13)
 
 ### Data Type Names
 {: #data-type-names}
@@ -289,7 +289,7 @@ Consistent with the UCWF IG, CQL used by Measures must refer to [Data Type Names
 
 **Conformance Requirement 4.14 (Data Type Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-14)
 {: #conformance-requirement-4-14}
-1. CQL libraries used by Measures SHALL conform to [UCWF:2.14 (Data Type Names)]({{site.data.fhir.ver.cql}}/using-cql#conformance-requirement-2-14)
+1. CQL libraries used by Measures SHALL conform to [UCWF:2.14 (Data Type Names)]({{site.data.fhir.ver.cql}}/using-cql.html#conformance-requirement-2-14)
 
 For example:
 
@@ -313,7 +313,7 @@ Note that when FHIR and FHIR IGs are used as the data model, the term "element" 
 
 **Conformance Requirement 4-15 (Element Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-15)
 {: #conformance-requirement-4-15}
-1. CQL libraries used by Measures SHALL conform to [UCWF:2.15 (Element Names)]{{site.data.fhir.ver.cql}}/using-cql#conformance-requirement-2-15)
+1. CQL libraries used by Measures SHALL conform to [UCWF:2.15 (Element Names)]{{site.data.fhir.ver.cql}}/using-cql.html#conformance-requirement-2-15)
 
 Examples of elements (i.e. attributes) conforming to Conformance Requirement 4.15 are given below. For a full list of valid of attributes, refer to an appropriate data model specification such as QI-Core.
 
@@ -332,7 +332,7 @@ Consistent with the UCWF IG, CQL used by Measures must follow conventions for na
 
 **Conformance Requirement 4.16 (Aliases and Argument Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-16)
 {: #conformance-requirement-4-16}
-1. CQL libraries used by Measures SHALL conform to [UCWF:2.16 (Aliases and Argument Names)]({{site.data.fhir.ver.cql}}/using-cql#conformance-requirement-2-16)
+1. CQL libraries used by Measures SHALL conform to [UCWF:2.16 (Aliases and Argument Names)]({{site.data.fhir.ver.cql}}/using-cql.html#conformance-requirement-2-16)
 
 For example:
 
@@ -352,7 +352,7 @@ Snippet 4-15: Example alias and argument names
 ### Library Resources
 {: #library-resources}
 
-Inclusion of CQL content used within quality measures is accomplished through the use of [Library Resources]({{site.data.fhir.ver.cql}}/conformance.html) as described by the Using CQL With FHIR implementation guide. These libraries are then referenced from Measure resources using the `library` element. The content of the CQL library is included using the `content` element of the Library. Conformance requirements for Library resources included with Measure content are discussed in the [Related Documents](measure-conformance.html#related-documents) topic of Measure Conformance in this IG.
+Inclusion of CQL content used within quality measures is accomplished through the use of [Library Resources]({{site.data.fhir.ver.cql}}/conformance.html) as described by the Using CQL With FHIR implementation guide. These libraries are then referenced from Measure resources using the `library` element. The content of the CQL library is included using the `content` element of the Library. Conformance requirements for Library resources included with Measure content are discussed in the [Related Documents](measure-conformance.html#related-documents) topic of this IG.
 
 ### Patterns
 {: #patterns}

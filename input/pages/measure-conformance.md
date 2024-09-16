@@ -1,8 +1,5 @@
 {:toc}
 
-## Specifying QMs
-{: #specifying-qms}
-
 In FHIR, a Quality Measure (QM) is represented as a [Measure](http://hl7.org/fhir/R4/measure.html) resource containing metadata ([Section 3.1](#metadata)) and terminology ([Section 3.2](#terminology)), a population criteria section ([Section 3.4](#population-criteria)), a data criteria section ([Section 3.3](#data-criteria)) and a FHIR Library resource containing the logic used to define the criteria used in the measure. The population criteria section typically contains initial population criteria, denominator criteria, and numerator criteria sub-components, among others. Snippet 3-1 shows the structure of a FHIR Measure.
 
 ```xml
