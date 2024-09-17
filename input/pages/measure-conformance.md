@@ -1061,9 +1061,9 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 
 * Initial population: Identify those cases that meet the Initial Population criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
 * Denominator: Identify that subset of the Initial Population that meet the Denominator criteria.
-* Denominator Exclusion: Identify that subset of the Denominator that meet the Denominator Exclusion criteria.
-* Numerator: Identify that subset of the Initial Population that meet the Numerator criteria.
-* Numerator Exclusion: Identify that subset of the Numerator that meet the Numerator Exclusion criteria.
+* Denominator Exclusion: Identify that subset of the Denominator that meets the Denominator Exclusion criteria.
+* Numerator: Identify that subset of the Initial Population that meets the Numerator criteria.
+* Numerator Exclusion: Identify that subset of the Numerator that meets the Numerator Exclusion criteria.
 
 Here is an example of using the population types to select data on patients with central line catheters for a ratio measure:
 
