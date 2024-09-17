@@ -1,4 +1,4 @@
-<!-- Liquid template version: 0.4.4 -->
+<!-- Liquid template version: 0.4.5 -->
 <div>
     <table class="grid dict">
         {% if Measure.title.exists() %}
@@ -487,7 +487,8 @@
                         </ul>
                     {% endif %}
                     {% if Measure.relatedArtifact.where(type = 'depends-on').exists() and
-                            Measure.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements').exists().not() %}
+                            Measure.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements').exists().not() and
+                            Measure.extension.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements').exists().not() %}
                         <p><b>Dependencies</b></p>
                         <ul>
                             {% for artifact in Measure.relatedArtifact.where(type = 'depends-on') %}
@@ -531,8 +532,9 @@
             </tr>
         {% endif %}
 
-        {% if Measure.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements').exists() %}
-            {% for contained in Measure.contained.where(id = 'effective-data-requirements') %}
+        {% if Measure.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements').exists() or
+          Measure.extension.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements').exists() %}
+            {% for contained in Measure.contained.where(id.contains('effective-data-requirements')) %}
                 <tr>
                     <th scope="row"><b>Terminology and Other Dependencies: </b></th>
                     <td style="padding-left: 4px;">
@@ -621,7 +623,30 @@
                     </tr>
                 {% endif %}
 
-                {% if contained.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition').exists() %}
+                {% if contained.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode').exists() %}
+                    <tr>
+                        <th scope="row"><b>Direct Reference Codes:</b></th>
+                        <td style="padding-left: 4px;">
+                            <table class="grid-dict">
+                                <tr>
+                                    <th><b>display</b></th>
+                                    <th><b>code</b></th>
+                                    <th><b>system</b></th>
+                                </tr>
+                                {% for extension in contained.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode') %}
+                                    <tr>
+                                        <td>{{extension.value.display}}</td>
+                                        <td>{{extension.value.code}}</td>
+                                        <td>{{extension.value.system}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+                {% endif %}
+
+                {% if contained.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition').exists() or
+                  contained.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition').exists() %}
                 <tr>
                     <th scope="row"><b>Logic Definitions:</b></th>
                     <td style="padding-left: 4px;">
@@ -760,7 +785,7 @@
                                     <td>{{population.code.first().coding.first().display}}</td>
                                     <td>
                                         {% if population.criteria.expression %}
-                                            <pre><code class="language-cql">{{(Measure.contained.where(id = 'effective-data-requirements').extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition' and extension.where(url = 'name' and value = population.criteria.expression)).extension.where(url = 'statement').value)}}</code></pre>
+                                            <pre><code class="language-cql">{{(Measure.contained.where(id.contains('effective-data-requirements')).extension.where((url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition' or url = 'http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition') and extension.where(url = 'name' and value = population.criteria.expression)).extension.where(url = 'statement').value)}}</code></pre>
                                         {% else %}
                                             None
                                         {% endif %}
@@ -774,7 +799,7 @@
                                     <td>{{stratifier.code.first().coding.first().display}}</td>
                                     <td>
                                         {% if stratifier.criteria.expression %}
-                                            <pre><code class="language-cql">{{(Measure.contained.where(id = 'effective-data-requirements').extension.where(url = 'http://http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition' and extension.where(url = 'name' and value = stratifier.criteria.expression)).extension.where(url = 'statement').value)}}</code></pre>
+                                            <pre><code class="language-cql">{{(Measure.contained.where(id.contains('effective-data-requirements')).extension.where((url = 'http://http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition' or url = 'http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition') and extension.where(url = 'name' and value = stratifier.criteria.expression)).extension.where(url = 'statement').value)}}</code></pre>
                                         {% else %}
                                             None
                                         {% endif %}
@@ -787,7 +812,7 @@
                 {% endif %}
 
                 <table class="grid-dict">
-                    {% for extension in contained.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition') %}
+                    {% for extension in contained.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition' or url = 'http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition') %}
                         <tr>
                             <th><b>Library Name</b></th>
                             <th><b>Name</b></th>
