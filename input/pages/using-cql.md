@@ -328,7 +328,7 @@ Snippet 4-14: Example element names
 ### Aliases and Argument Names
 {: #aliases-and-argument-names}
 
-Consistent with the UCWF IG, CQL used by Measures must follow conventions for naming of [Aliases and Arguments](({{site.data.fhir.ver.cql}}/using-cql.html#aliases-and-argument-names).
+Consistent with the UCWF IG, CQL used by Measures must follow conventions for naming of [Aliases and Arguments]({{site.data.fhir.ver.cql}}/using-cql.html#aliases-and-argument-names).
 
 **Conformance Requirement 4.16 (Aliases and Argument Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-16)
 {: #conformance-requirement-4-16}
