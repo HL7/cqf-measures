@@ -1283,7 +1283,7 @@ The population types for a Continuous Variable measure are "Initial Population",
 {: .grid}
 
 * Initial Population: Identify those cases that meet the Initial Population criteria.
-* Measure Population: Identify that subset of the Initial Population that meet the Measure Population criteria.
+* Measure Population: Identify that subset of the Initial Population that meets the Measure Population criteria.
 * Measure Population Exclusion: Identify that subset of the Measure Population that meet the Measure Population Exclusion criteria.
 
 Here is an example of using the population types to select data on emergency department patients for a Continuous Variable measure:
