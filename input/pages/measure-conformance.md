@@ -599,23 +599,23 @@ XML:
 
 JSON:
 ```json
-"def" : [
+"def": [
   {
-    "name" : "Acute Pharyngitis",
-    "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011",
-    "accessLevel" : "Public"
+    "name": "Acute Pharyngitis",
+    "id": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011",
+    "accessLevel": "Public"
   }
 ]
 ```
 ```json
-"operand" : [
+"operand": [
   {
-    "dataType" : "{http://hl7.org/fhir}Condition",
-    "codeProperty" : "code",
-    "type" : "Retrieve",
-    "codes" : {
-       "name" : "Acute Pharyngitis",
-       "type" : "ValueSetRef"
+    "dataType": "{http://hl7.org/fhir}Condition",
+    "codeProperty": "code",
+    "type": "Retrieve",
+    "codes": {
+       "name": "Acute Pharyngitis",
+       "type": "ValueSetRef"
     }
   }
 ]
@@ -751,7 +751,7 @@ The codes within the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-m
 
 **Conformance Requirement 3.9 (Criteria Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-9)
 {: #conformance-requirement-3-9}
-The name of an expression specifying a population criteria within a measure SHOULD always be the name of the criteria type†† :
+The name of an expression specifying a population criteria within a measure SHOULD always be the name of the criteria type††:
 * "Initial Population"
 * "Denominator"
 * "Denominator Exclusion"
@@ -1189,22 +1189,22 @@ The criteria referenced from the measure-observation component refers to an expr
 Snippet 3-22: Sample measure observation section from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html)
 
 ```cql
-define "Measure Population" :
+define "Measure Population":
   "Initial Population"
 
-define "Inpatient Encounter" :
+define "Inpatient Encounter":
   ["Encounter"] Encounter
     where LengthInDays(Encounter.period) <= 120
       and Encounter.period ends during "Measurement Period"
 
 //Measure Observation
-define function "Related ED Visit" (encounter Encounter) :
-  Last(["Encounter" : "Emergency Department Visit"] ED
+define function "Related ED Visit" (encounter Encounter):
+  Last(["Encounter": "Emergency Department Visit"] ED
     where ED.status = 'finished'
       and ED.period ends 1 hour or less before start of encounter.period
     sort by start of period )
 
-define function "Measure Observation" (encounter Encounter) :
+define function "Measure Observation" (encounter Encounter):
   duration in minutes of "Related ED Visit"(encounter).period
 ```
 
@@ -1227,7 +1227,7 @@ In the example shown in Snippet 3-22 and Snippet 3-23: the measure reports the a
 Snippet 3-25: "Measure Observation" function in Snippet 3-22 (Sample measure observation section from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html))
 
 ```cql
-define function "Measure Observation" (encounter Encounter) :
+define function "Measure Observation" (encounter Encounter):
 ```
 Snippet 3-26: "Measure Observation" function in Snippet 3-23 (Sample CQL (from [EXM55.cql](Library-EXM55-FHIR.html#cql-content)) for a continuous-variable measure)
 
@@ -1240,7 +1240,7 @@ Snippet 3-26: "Measure Observation" function in Snippet 3-23 (Sample CQL (from [
 Snippet 3-27: Identifier referenced in Snippet 3-22 (Sample measure observation section from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html))
 
 ```cql
-define "Measure Population" :
+define "Measure Population":
 ```
 Snippet 3-28: Definition from Snippet 3-23 (Sample CQL (from [EXM55.cql](Library-EXM55-FHIR.html#cql-content)) for a continuous-variable measure)
 
@@ -1405,7 +1405,7 @@ Stratification is represented using the stratifier element. The semantics of thi
 Snippet 3-29: Example Stratifier from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html)
 
 ```cql
-define "Stratification 1" :
+define "Stratification 1":
   "Inpatient Encounter" Encounter
     where not (PrincipalDiagnosis(Encounter).code in "Psychiatric/Mental Health Patient")
  ```
