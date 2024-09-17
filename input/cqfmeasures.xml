@@ -28,12 +28,6 @@
   <packageId value="hl7.fhir.us.cqfmeasures"/>
   <license value="CC0-1.0"/>
   <fhirVersion value="4.0.1"/>
-  <!-- Note this dependency is only included to support references to the FHIR-ModelInfo and FHIRCommon libraries used by examples in this IG -->
-  <dependsOn id="cqf">
-    <uri value="http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common"/>
-    <packageId value="fhir.cqf.common"/>
-    <version value="4.0.1"/>
-  </dependsOn>
   <!-- Note this dependency is only included to support references to the extensions used by example content in this IG -->
   <!--dependsOn id="qicore">
     <uri value="http://hl7.org/fhir/us/qicore/ImplementationGuide/hl7.fhir.us.qicore"/>
@@ -197,14 +191,6 @@
       <exampleBoolean value="false"/>
     </resource>
   -->
-    <resource>
-      <reference>
-        <reference value="Device/software-system-example"/>
-      </reference>
-      <name value="Device - Software System Example"/>
-      <description value="Example of a Software System Device used to illustrate tooling, testing, or authoring system"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"/>
-    </resource>
     <resource>
       <reference>
         <reference value="MeasureReport/testcase-example"/>

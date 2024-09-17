@@ -1,3 +1,4 @@
+<!-- Liquid template version: 0.4.5 -->
 <div>
     <table class="grid dict">
         
@@ -260,13 +261,6 @@
         <tr>
             <th scope="row"><b>Approval Date: </b></th>
             <td style="padding-left: 4px;">{{Library.approvalDate}}</td>
-        </tr>
-        {% endif %}
-
-        {% if Library.lastReviewDate.exists() %}
-        <tr>
-            <th scope="row"><b>Last Review Date: </b></th>
-            <td style="padding-left: 4px;">{{Library.lastReviewDate}}</td>
         </tr>
         {% endif %}
 
