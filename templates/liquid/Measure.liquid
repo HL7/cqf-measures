@@ -1,3 +1,4 @@
+<!-- Liquid template version: 0.4.4 -->
 <div>
     <table class="grid dict">
         {% if Measure.title.exists() %}
@@ -374,10 +375,16 @@
                                         <tr>
                                             {% if stratifier.code.coding[0].display.exists() %}
                                                 <td>{{stratifier.code.coding[0].display}}:</td>
-                                            {% else if stratifier.code.coding[0].code.exists() %}
+                                            {% elsif stratifier.code.coding[0].code.exists() %}
                                                 <td>{{stratifier.code.coding[0].code}}:</td>
                                             {% else %}
                                                 <td>Stratum:</td>
+                                            {% endif %}
+
+                                            {% if stratifier.description.exists() %}
+                                                <td>{{stratifier.description}}</td>
+                                            {% else %}
+                                                <td>None</td>
                                             {% endif %}
                                         </tr>
                                     {% endfor %}
