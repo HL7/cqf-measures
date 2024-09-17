@@ -7207,6 +7207,67 @@
                     }
                   },
                   "response": []
+                },
+                {
+                  "name": "ValueSet 12.19 POST Expand With Multiple System Versions",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Response status code is 200\", function () {\r",
+                          "    pm.expect(pm.response.code).to.equal(200);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Title is '37 to 38 Weeks Gestation'\", function () {",
+                          "    const responseData = pm.response.json();",
+                          "    if (pm.environment.get(\"VALUESET_DEBUG\") === true){",
+                          "       console.log(responseData);",
+                          "    }",
+                          "",
+                          "    pm.expect(responseData.title).to.equal(\"37 to 38 Weeks Gestation\");",
+                          "});",
+                          "pm.test(\"Expansion contains 4 codes\", function () {",
+                          "    const responseData = pm.response.json();",
+                          "",
+                          "    pm.expect(responseData.expansion.total).to.equal(4);",
+                          "});",
+                          "pm.test(\"Expansion contains 'Gestation period, 37 weeks (finding)'\", function () {",
+                          "    const responseData = pm.response.json();",
+                          "",
+                          "    const itemCode = responseData.expansion.contains.find(item => item.code === \"43697006\");",
+                          "    pm.expect(itemCode.code).to.equal(\"43697006\");",
+                          "});"
+
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": " {\n   \"resourceType\": \"Parameters\",\n  \"parameter\": [\n      {\n  \"name\": \"url\",\n  \"valueUrl\": \"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.69\"\n},\n  {\n  \"name\": \"valueSetVersion\",\n  \"valueString\": \"20230308\"\n  },\n  {\n  \"name\": \"system-version\",\n  \"valueCanonical\": \"http://hl7.org/fhir/sid/icd-10-cm|2025\"\n  },\n  {\n  \"name\": \"system-version\",\n  \"valueCanonical\": \"http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20240301\"\n  }\n  ]\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{SERVER_URL}}ValueSet/$expand",
+                      "host": [
+                        "{{SERVER_URL}}ValueSet"
+                      ],
+                      "path": [
+                        "$expand"
+                      ]
+                    }
+                  },
+                  "response": []
                 }
               ]
             },
