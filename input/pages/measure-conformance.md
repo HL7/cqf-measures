@@ -12,16 +12,40 @@ In FHIR, a Quality Measure (QM) is represented as a [Measure](http://hl7.org/fhi
   <library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic-FHIR"/>
   <group>
     <population>
-      <code><coding><code value="initial-population"/></coding></code>
-      <criteria value="Initial Population"/>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="initial-population"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Initial Population"/>
+      </criteria>
     </population>
     <population>
-      <code><coding><code value="denominator"/></coding></code>
-      <criteria value="Denominator"/>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="denominator"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Denominator"/>
+      </criteria>
     </population>
     <population>
-      <code><coding><code value="numerator"/></coding></code>
-      <criteria value="Numerator"/>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="numerator"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Numerator"/>
+      </criteria>
     </population>
   </group>
 </Measure>

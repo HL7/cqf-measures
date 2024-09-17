@@ -313,9 +313,9 @@ Note that when FHIR and FHIR IGs are used as the data model, the term "element" 
 
 **Conformance Requirement 4-15 (Element Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-15)
 {: #conformance-requirement-4-15}
-1. CQL libraries used by Measures SHALL conform to [UCWF:2.15 (Element Names)]{{site.data.fhir.ver.cql}}/using-cql.html#conformance-requirement-2-15)
+1. CQL libraries used by Measures SHALL conform to [UCWF:2.15 (Element Names)]({{site.data.fhir.ver.cql}}/using-cql.html#conformance-requirement-2-15)
 
-Examples of elements (i.e. attributes) conforming to Conformance Requirement 4.15 are given below. For a full list of valid of attributes, refer to an appropriate data model specification such as QI-Core.
+Examples of elements (i.e. attributes) conforming to Conformance Requirement 4.15 are given below. For a full list of valid names of attributes for a data model, refer to an appropriate data model specification such as QI-Core.
 
 ```cql
 period
