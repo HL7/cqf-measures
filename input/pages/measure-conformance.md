@@ -640,7 +640,7 @@ JSON:
     }
   }
 ]
- ```
+```
 
 Snippet 3-12: ELM data reference for Condition: Acute Pharyngitis (from [EXM146_FHIR-4.0.0.xml](Measure-EXM146-FHIR.xml.html) and [EXM146_FHIR-4.0.0.json](Measure-EXM146-FHIR.json.html))
 
@@ -1205,7 +1205,7 @@ The criteria referenced from the measure-observation component refers to an expr
   },
   "criteria": "\"Measure Observation\""
 }
- ```
+```
 
 Snippet 3-22: Sample measure observation section from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html)
 
@@ -1239,7 +1239,7 @@ In the example shown in Snippet 3-22 and Snippet 3-23: the measure reports the a
   "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
   "valueCode": "median"
 }
- ```
+```
  Snippet 3-24: Aggregate type from Snippet 3-22 (Sample measure observation section from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html))
 
 ```json
@@ -1403,10 +1403,14 @@ Note also that when a measure has multiple population groups, the expectation is
 **Conformance Requirement 3.17 (Stratification Criteria):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-17)
 {: #conformance-requirement-3-17}
 
-1. If stratification is specified as an expression, the result type of the expression SHALL match the result type of other population criteria expressions in the measure.
-2. If stratification is specified as a path, the path SHALL be resolvable on the type of the subject of the measure or on the type of the population basis if the basis is different than the subject.
+1. Stratifier criteria expression SHALL result in either
+  1. the same type as other population criteria expressions in the measure (i.e. the population basis), or
+  2. the stratum value
+2. If component stratifiers are used, all the component expressions in a given stratifier must return the same type
 
-Stratification is represented using the stratifier element. The semantics of this element are unchanged from the base [Measure]({{site.data.fhir.path}}measure.html) specification; the only difference is that each population criteria references an  expression that returns a Boolean, (or event for event-based measures) to determine whether a given patient meets the criteria for that stratification. Snippet 3-29 shows an example stratifier that stratifies results for two sub-populations. Snippet 3-25 shows the CQL representation of the stratifier.
+Stratification is represented using the `stratifier` element. The semantics of this element are unchanged from the base [Measure]({{site.data.fhir.path}}measure.html) specification.
+
+Snippet 3-29 shows an example stratifier that stratifies results for two sub-populations. Snippet 3-30 shows the CQL representation of the stratifier.
 
 ```json
 "stratifier": [
@@ -1420,7 +1424,7 @@ Stratification is represented using the stratifier element. The semantics of thi
     }
   }
 ]
- ```
+```
 
 Snippet 3-29: Example Stratifier from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html)
 
@@ -1428,9 +1432,34 @@ Snippet 3-29: Example Stratifier from [measure-exm55-FHIR.json](Measure-EXM55-FH
 define "Stratification 1":
   "Inpatient Encounter" Encounter
     where not (PrincipalDiagnosis(Encounter).code in "Psychiatric/Mental Health Patient")
- ```
+```
 
 Snippet 3-30: Example Stratifier from [EXM55.cql](Library-EXM55-FHIR.html#cql-content)
+
+Alternatively, the stratifier expression may return the actual stratum value:
+
+```cql
+define "Gender Stratification":
+  Patient.gender
+```
+
+Snippet 3-31: Example of stratification by gender
+
+If component stratifiers are used and the component expressions return the same type as other population criteria expressions in the measure, population semantics are applied to determine the stratifier population (i.e. true/false for patient-based measures, intersection of events for non-patient-based measures). If component stratifiers are used and the component expressions return the stratum value, the combination of the component values are considered the stratum value.
+
+For example, given the following two component stratifier expressions in a patient-based measure:
+
+```cql
+define "Gender Stratification":
+  Patient.gender
+
+define "Payer Stratification":
+  Coverage.type
+```
+
+Snippet 3-32: Stratification by gender and payer type
+
+The stratum value for a given Patient would be the combination of gender and payer type.
 
 #### Supplemental Data Elements
 {: #supplemental-data-elements}
@@ -1442,7 +1471,7 @@ Snippet 3-30: Example Stratifier from [EXM55.cql](Library-EXM55-FHIR.html#cql-co
 2. Supplemental Data Elements SHOULD reference a single expression definition, with a name beginning with SDE.
 3. Supplemental data element criteria expressions MAY be of any type, including lists
 
-Part of the definition of a quality measure involves the ability to specify additional information to be returned for each member of a population. Within a FHIR-based QM, these supplemental data elements are specified using expressions, typically involving patient characteristics (such as Race, Ethnicity, Payer, and Administrative Sex) and then marking them with an SDE code within the FHIR Measure resource. Snippet 3-31 demonstrates an example supplemental data definition using the `supplementalData` element.
+Part of the definition of a quality measure involves the ability to specify additional information to be returned for each member of a population. Within a FHIR-based QM, these supplemental data elements are specified using expressions, typically involving patient characteristics (such as Race, Ethnicity, Payer, and Administrative Sex) and then marking them with an SDE code within the FHIR Measure resource. Snippet 3-33 demonstrates an example supplemental data definition using the `supplementalData` element.
 
 ```json
 "supplementalData": [
@@ -1464,9 +1493,9 @@ Part of the definition of a quality measure involves the ability to specify addi
     }
   }
 ]
- ```
+```
 
-Snippet 3-31: Sample Supplemental Data Elements from [measure-EXM146-FHIR.json](Measure-EXM146-FHIR.json.html)
+Snippet 3-33: Sample Supplemental Data Elements from [measure-EXM146-FHIR.json](Measure-EXM146-FHIR.json.html)
 
 ```cql
 define "SDE Ethnicity":
@@ -1478,11 +1507,11 @@ define "SDE Ethnicity":
       where E.url = 'ombCategory'
         or E.url = 'detailed'
       return E.value as Coding
- ```
+```
 
-Snippet 3-32: Example Supplemental Data Element from [Library-SupplementalDataElements](Library-SupplementalDataElements.html)
+Snippet 3-34: Example Supplemental Data Element from [Library-SupplementalDataElements](Library-SupplementalDataElements.html)
 
-With CQL, supplemental data elements are specified using the same mechanism as any other population criteria, by defining an expression that returns the appropriate data element, and then identifying that expression within the Measure resource. Examples of the Measure resource and CQL are given in Snippet 3-31 and Snippet 3-32, respectively.
+With CQL, supplemental data elements are specified using the same mechanism as any other population criteria, by defining an expression that returns the appropriate data element, and then identifying that expression within the Measure resource. Examples of the Measure resource and CQL are given in Snippet 3-33 and Snippet 3-34, respectively.
 
 By convention, the name of each supplemental data element expression should start with "SDE". The supplemental data element expressions are normally expected to return a single value when evaluated in the context of a member of the population. For example, patient-based measures would return the value of a supplemental data element for a given patient. However, there are cases where returning multiple elements for supplemental data is useful. For example, collecting observations related to a particular condition. The intent of this conformance requirement is to simplify implementation of supplemental data collection, so care should be taken when using supplemental data elements that return multiple elements.
 
@@ -1521,9 +1550,9 @@ Measures may define variables used to adjust scores based on a measure of “ris
     }
   }
 ]
- ```
+```
 
-Snippet 3-33: Sample Risk Adjustment Data from [EXMRiskAdjustment_FHIR.xml](Measure-measure-risk-adjustment-FHIR2.xml.html)
+Snippet 3-35: Sample Risk Adjustment Data from [EXMRiskAdjustment_FHIR.xml](Measure-measure-risk-adjustment-FHIR2.xml.html)
 
 ```cql
 define "Hepatic Failure":
@@ -1532,9 +1561,9 @@ define "Hepatic Failure":
     and exists ("Serum Albumin Test")
 ```
 
-Snippet 3-34: Sample Risk Adjustment data from [EXMRiskAdjustment_FHIR2.cql](Library-risk-adjustment-FHIR2.html#cql-content)                                                
+Snippet 3-36: Sample Risk Adjustment data from [EXMRiskAdjustment_FHIR2.cql](Library-risk-adjustment-FHIR2.html#cql-content)                                                
 
-An example of risk adjustment can be found in the included [examples](Measure-measure-risk-adjustment-FHIR2.html); the relevant sections of the FHIR Measure (Snippet 3-33) and CQL (Snippet 3-34) have been included.
+An example of risk adjustment can be found in the included [examples](Measure-measure-risk-adjustment-FHIR2.html); the relevant sections of the FHIR Measure (Snippet 3-35) and CQL (Snippet 3-36) have been included.
 
 ### HQMF Mapping
 
