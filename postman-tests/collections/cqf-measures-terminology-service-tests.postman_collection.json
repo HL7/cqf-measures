@@ -4475,15 +4475,15 @@
                       "listen": "test",
                       "script": {
                         "exec": [
-                          "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20170801 @SOT",
+                          "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 @SOT",
                           "pm.test(\"Response status code is 200\", function () {",
                           "    pm.expect(pm.response.code).to.equal(200);",
                           "});",
                           "",
-                          "pm.test(\"Version is 20170801\", function () {",
+                          "pm.test(\"Version is 20200319\", function () {",
                           "        const responseData = pm.response.json();",
                           "",
-                          "    pm.expect(responseData.entry[0].resource.version).equals(\"20170801\");",
+                          "    pm.expect(responseData.entry[0].resource.version).equals(\"20200319\");",
                           "    if (pm.environment.get(\"VALUESET_DEBUG\") === true){",
                           "       console.log(responseData);",
                           "    }",
@@ -4499,7 +4499,7 @@
                     "method": "GET",
                     "header": [],
                     "url": {
-                      "raw": "{{SERVER_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82&version=20170801",
+                      "raw": "{{SERVER_URL}}ValueSet/?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611&version=20200319",
                       "host": [
                         "{{SERVER_URL}}ValueSet"
                       ],
@@ -4509,11 +4509,11 @@
                       "query": [
                         {
                           "key": "url",
-                          "value": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82"
+                          "value": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611"
                         },
                         {
                           "key": "version",
-                          "value": "20170801"
+                          "value": "20200319"
                         }
                       ]
                     }
@@ -4527,21 +4527,21 @@
                       "listen": "test",
                       "script": {
                         "exec": [
-                          "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20170801 @SOT",
+                          "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 @SOT",
                           "pm.test(\"Response status code is 200\", function () {",
                           "    pm.expect(pm.response.code).to.equal(200);",
                           "});",
                           "",
-                          "pm.test(\"Name is InactiveInterventionsRelatedToMedicationManagementMedicationActionPlan\", function () {",
+                          "pm.test(\"Name is N3MirrorGoldmannExam\", function () {",
                           "        const responseData = pm.response.json();",
                           "",
-                          "    pm.expect(responseData.entry[0].resource.name).equals(\"InactiveInterventionsRelatedToMedicationManagementMedicationActionPlan\");",
+                          "    pm.expect(responseData.entry[0].resource.name).equals(\"N3MirrorGoldmannExam\");",
                           "});",
                           "",
-                          "pm.test(\"Publisher is PharmacyHIT\", function () {",
+                          "pm.test(\"Publisher is ASRS Quality Measure Development Steward\", function () {",
                           "        const responseData = pm.response.json();",
                           "",
-                          "    pm.expect(responseData.entry[0].resource.publisher).equals(\"PharmacyHIT\");",
+                          "    pm.expect(responseData.entry[0].resource.publisher).equals(\"ASRS Quality Measure Development Steward\");",
                           "    if (pm.environment.get(\"VALUESET_DEBUG\") === true){",
                           "       console.log(responseData);",
                           "    }",
@@ -4557,7 +4557,7 @@
                     "method": "GET",
                     "header": [],
                     "url": {
-                      "raw": "{{SERVER_URL}}ValueSet/?identifier=urn:oid:2.16.840.1.113762.1.4.1096.82",
+                      "raw": "{{SERVER_URL}}ValueSet/?identifier=urn:oid:2.16.840.1.113762.1.4.1047.611",
                       "host": [
                         "{{SERVER_URL}}ValueSet"
                       ],
@@ -4567,7 +4567,7 @@
                       "query": [
                         {
                           "key": "identifier",
-                          "value": "urn:oid:2.16.840.1.113762.1.4.1096.82"
+                          "value": "urn:oid:2.16.840.1.113762.1.4.1047.611"
                         }
                       ]
                     }
@@ -5122,7 +5122,7 @@
                   "script": {
                     "exec": [
                       "//SOT@## ValueSet 10 ValidateCode @SOT",
-                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 @SOT",
+                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 @SOT",
                       "pm.test(\"Response status code is 200\", function () {",
                       "    pm.expect(pm.response.code).to.equal(200);",
                       "});",
@@ -5192,7 +5192,7 @@
                   "listen": "test",
                   "script": {
                     "exec": [
-                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 @SOT",
+                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 @SOT",
                       "pm.test(\"Response status code is 200\", function () {",
                       "    pm.expect(pm.response.code).to.equal(200);",
                       "});",
@@ -5255,7 +5255,7 @@
                   "listen": "test",
                   "script": {
                     "exec": [
-                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 @SOT",
+                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 @SOT",
                       "pm.test(\"Response status code is 200\", function () {",
                       "    pm.expect(pm.response.code).to.equal(200);",
                       "});",
@@ -5324,7 +5324,7 @@
                   "listen": "test",
                   "script": {
                     "exec": [
-                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 @SOT",
+                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 @SOT",
                       "pm.test(\"Response status code is 200\", function () {",
                       "    pm.expect(pm.response.code).to.equal(200);",
                       "});",
@@ -5387,7 +5387,8 @@
                   "listen": "test",
                   "script": {
                     "exec": [
-                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 @SOT",
+                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 @SOT",
+                      "// VSAC currently returning 'Invalid request: The FHIR endpoint on this server does not know how to handle POST operation[ValueSet] with parameters [[valueset]]'",
                       "pm.test(\"Response status code is 200\", function () {",
                       "    pm.expect(pm.response.code).to.equal(200);",
                       "});",
@@ -5450,7 +5451,7 @@
                   "listen": "test",
                   "script": {
                     "exec": [
-                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 @SOT",
+                      "// Based on source of truth: SOT@ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 @SOT",
                       "pm.test(\"Response status code is 200\", function () {",
                       "    pm.expect(pm.response.code).to.equal(200);",
                       "});",
@@ -5469,7 +5470,12 @@
                       "    const parameterEntry = responseData.parameter.find(m => m.name === \"result\");",
                       "    pm.expect(parameterEntry.valueBoolean).to.be.true;",
                       "});",
-                      ""
+                      "",
+                      "pm.test(\"Parameters contain a display of Goldmann three-mirror contact lens (physical object)\", function () {",
+                      "    const responseData = pm.response.json();",
+                      "    const parameterEntry = responseData.parameter.find(m => m.name === \"display\");",
+                      "    pm.expect(parameterEntry.valueString).equals(\"Goldmann three-mirror contact lens (physical object)\");",
+                      "});"
                     ],
                     "type": "text/javascript",
                     "packages": {}
