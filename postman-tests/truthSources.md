@@ -1,4 +1,4 @@
-The following lists test sections and the required resources for those sections. This file was generated using sot.sh at 2024-07-23 12:38:36
+The following lists test sections and the required resources for those sections. This file was generated using sot.sh at 2024-09-18 07:58:01
 /
 ## CodeSystem 1 Shareable 
  https://hl7.org/fhir/R4/codesystem-request-intent.json 
@@ -53,8 +53,8 @@ The following lists test sections and the required resources for those sections.
 ## ValueSet 8 Search 
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611 
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005 
- http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20170801 
- http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20170801 
+ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 
+ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611 
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611 
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1213.11|20190917 
@@ -64,12 +64,12 @@ The following lists test sections and the required resources for those sections.
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20240105 
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20190315 
 ## ValueSet 10 ValidateCode 
- http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 
- http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 
- http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 
- http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 
- http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 
- http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.82|20200319 
+ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 
+ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 
+ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 
+ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 
+ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 
+ http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.611|20200319 
 ## ValueSet 11 GET 
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20240105 
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20190315 
