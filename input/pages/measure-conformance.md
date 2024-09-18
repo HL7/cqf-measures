@@ -620,23 +620,23 @@ XML:
 
 JSON:
 ```json
-"def" : [
+"def": [
   {
-    "name" : "Acute Pharyngitis",
-    "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011",
-    "accessLevel" : "Public"
+    "name": "Acute Pharyngitis",
+    "id": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011",
+    "accessLevel": "Public"
   }
 ]
 ```
 ```json
-"operand" : [
+"operand": [
   {
-    "dataType" : "{http://hl7.org/fhir}Condition",
-    "codeProperty" : "code",
-    "type" : "Retrieve",
-    "codes" : {
-       "name" : "Acute Pharyngitis",
-       "type" : "ValueSetRef"
+    "dataType": "{http://hl7.org/fhir}Condition",
+    "codeProperty": "code",
+    "type": "Retrieve",
+    "codes": {
+       "name": "Acute Pharyngitis",
+       "type": "ValueSetRef"
     }
   }
 ]
@@ -772,7 +772,7 @@ The codes within the [MeasurePopulationType]({{site.data.fhir.path}}codesystem-m
 
 **Conformance Requirement 3.9 (Criteria Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-9)
 {: #conformance-requirement-3-9}
-The name of an expression specifying a population criteria within a measure SHOULD always be the name of the criteria type†† :
+The name of an expression specifying a population criteria within a measure SHOULD always be the name of the criteria type††:
 * "Initial Population"
 * "Denominator"
 * "Denominator Exclusion"
@@ -955,11 +955,11 @@ The population types for a Proportion measure are "Initial Population", "Denomin
 | Denominator Exception                       | Denominator exceptions are conditions that should remove a patient, subject, or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures.                                                                                                                                                                                                                                    |
 {: .grid}
 
-* Initial population: Identify those cases that meet the Initial Population criteria.
-* Denominator: Identify that subset of the Initial Population that meet the Denominator criteria.
-* Denominator Exclusion: Identify that subset of the Denominator that meet the Denominator Exclusion criteria. There are cases that should be removed from the Denominator as exclusion. Once these cases are removed, the subset remaining would reflect the Denominator per criteria.
-* Numerator: Identify those cases in the Denominator and NOT in the Denominator Exclusion that meet the Numerator criteria. In proportion measures, the Numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the Denominator.
-* Numerator Exclusion: Identify that subset of the Numerator that meet the Numerator Exclusion criteria. Numerator Exclusion is used only in ratio measures to define instances that should not be included in the Numerator data.
+* Initial population: Identify those cases that meets the Initial Population criteria.
+* Denominator: Identify that subset of the Initial Population that meets the Denominator criteria.
+* Denominator Exclusion: Identify that subset of the Denominator that meets the Denominator Exclusion criteria. There are cases that should be removed from the Denominator as exclusion. Once these cases are removed, the subset remaining would reflect the Denominator per criteria.
+* Numerator: Identify those cases in the Denominator and NOT in the Denominator Exclusion that meets the Numerator criteria. In proportion measures, the Numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the Denominator.
+* Numerator Exclusion: Identify that subset of the Numerator that meets the Numerator Exclusion criteria. Numerator Exclusion is used only in ratio measures to define instances that should not be included in the Numerator data.
 * Denominator Exception: Identify those meeting Denominator and Denominator Exception criteria and fail to meet both the Denominator Exclusion and the Numerator criteria.
 
 The "performance rate" is a ratio of patients meeting Numerator criteria, divided by patients in the Denominator (accounting for exclusion and exception). Performance rate can be calculated using this formula:
@@ -1082,9 +1082,9 @@ The population types for a Ratio measure are "Initial Population", "Denominator"
 
 * Initial population: Identify those cases that meet the Initial Population criteria. (Some ratio measures will require multiple initial populations, one for the numerator, and one for the denominator.)
 * Denominator: Identify that subset of the Initial Population that meet the Denominator criteria.
-* Denominator Exclusion: Identify that subset of the Denominator that meet the Denominator Exclusion criteria.
-* Numerator: Identify that subset of the Initial Population that meet the Numerator criteria.
-* Numerator Exclusion: Identify that subset of the Numerator that meet the Numerator Exclusion criteria.
+* Denominator Exclusion: Identify that subset of the Denominator that meets the Denominator Exclusion criteria.
+* Numerator: Identify that subset of the Initial Population that meets the Numerator criteria.
+* Numerator Exclusion: Identify that subset of the Numerator that meets the Numerator Exclusion criteria.
 
 Here is an example of using the population types to select data on patients with central line catheters for a ratio measure:
 
@@ -1210,22 +1210,22 @@ The criteria referenced from the measure-observation component refers to an expr
 Snippet 3-22: Sample measure observation section from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html)
 
 ```cql
-define "Measure Population" :
+define "Measure Population":
   "Initial Population"
 
-define "Inpatient Encounter" :
+define "Inpatient Encounter":
   ["Encounter"] Encounter
     where LengthInDays(Encounter.period) <= 120
       and Encounter.period ends during "Measurement Period"
 
 //Measure Observation
-define function "Related ED Visit" (encounter Encounter) :
-  Last(["Encounter" : "Emergency Department Visit"] ED
+define function "Related ED Visit" (encounter Encounter):
+  Last(["Encounter": "Emergency Department Visit"] ED
     where ED.status = 'finished'
       and ED.period ends 1 hour or less before start of encounter.period
     sort by start of period )
 
-define function "Measure Observation" (encounter Encounter) :
+define function "Measure Observation" (encounter Encounter):
   duration in minutes of "Related ED Visit"(encounter).period
 ```
 
@@ -1248,7 +1248,7 @@ In the example shown in Snippet 3-22 and Snippet 3-23: the measure reports the a
 Snippet 3-25: "Measure Observation" function in Snippet 3-22 (Sample measure observation section from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html))
 
 ```cql
-define function "Measure Observation" (encounter Encounter) :
+define function "Measure Observation" (encounter Encounter):
 ```
 Snippet 3-26: "Measure Observation" function in Snippet 3-23 (Sample CQL (from [EXM55.cql](Library-EXM55-FHIR.html#cql-content)) for a continuous-variable measure)
 
@@ -1261,7 +1261,7 @@ Snippet 3-26: "Measure Observation" function in Snippet 3-23 (Sample CQL (from [
 Snippet 3-27: Identifier referenced in Snippet 3-22 (Sample measure observation section from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html))
 
 ```cql
-define "Measure Population" :
+define "Measure Population":
 ```
 Snippet 3-28: Definition from Snippet 3-23 (Sample CQL (from [EXM55.cql](Library-EXM55-FHIR.html#cql-content)) for a continuous-variable measure)
 
@@ -1304,7 +1304,7 @@ The population types for a Continuous Variable measure are "Initial Population",
 {: .grid}
 
 * Initial Population: Identify those cases that meet the Initial Population criteria.
-* Measure Population: Identify that subset of the Initial Population that meet the Measure Population criteria.
+* Measure Population: Identify that subset of the Initial Population that meets the Measure Population criteria.
 * Measure Population Exclusion: Identify that subset of the Measure Population that meet the Measure Population Exclusion criteria.
 
 Here is an example of using the population types to select data on emergency department patients for a Continuous Variable measure:
@@ -1425,7 +1425,7 @@ Stratification is represented using the stratifier element. The semantics of thi
 Snippet 3-29: Example Stratifier from [measure-exm55-FHIR.json](Measure-EXM55-FHIR.json.html)
 
 ```cql
-define "Stratification 1" :
+define "Stratification 1":
   "Inpatient Encounter" Encounter
     where not (PrincipalDiagnosis(Encounter).code in "Psychiatric/Mental Health Patient")
  ```
