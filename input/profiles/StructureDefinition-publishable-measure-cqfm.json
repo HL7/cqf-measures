@@ -488,10 +488,11 @@
     {
       "id" : "Measure.purpose",
       "path" : "Measure.purpose",
-      "short" : "Why this measure is defined (rationale)",
+      "short" : "Why this measure is defined",
       "definition" : "Explanation of why this measure is needed and why it has been designed as it has.",
       "requirements" : "A published measure should provide a clear description of the purpose of the measure.",
-      "alias": ["rationale"],
+      "min" : 0,
+      "max" : "1",
       "mustSupport" : true
     },
     {
@@ -771,9 +772,10 @@
     {
       "id" : "Measure.rationale",
       "path" : "Measure.rationale",
+      "short" : "Justification for the measure in terms of impact, gap in care, and evidence.",
       "min" : 0,
-      "max" : "0",
-      "definition" : "Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence.",
+      "max" : "1",
+      "definition" : "Provides a detailed justification of the need for the measure, including statements pertaining to importance criterion: impact, gap in care, and evidence.",
       "mustSupport" : false
     },
     {
@@ -813,7 +815,7 @@
         "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation"]
       }],
       "mustSupport" : true
-    },      
+    },
 	{
         "id": "Measure.supplementalData",
         "path": "Measure.supplementalData",
@@ -828,7 +830,7 @@
       "type" : [{
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType"]
-      }],		
+      }],
       "mustSupport": true
 	}
 	]
