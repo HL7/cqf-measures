@@ -1374,6 +1374,13 @@ Here is an example of using the population types to select data on patients who 
 
 * Initial Population: All patients who had an immunization
 
+#### Attestation Measures
+{: #Attestation Measures}
+
+The measure is an attestation, derived from the base [Measure]({{site.data.fhir.path}}measure.html), meaning that the reporter of the measure is attesting the measure score. This is typically used for true/false attestations, but can be used for other types of measure scores as well. The key distinction is that the measure is not computably represented (i.e. as a calculation or aggregation performed on some data in the reporting system), but rather is a simple assertion made by the measure reporter. 
+
+[CQFMAttestationMeasure](StructureDefinition-attestation-measure-cqfm.html) 
+
 #### Measures with Multiple Populations
 {: #measures-with-multiple-populations}
 

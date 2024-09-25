@@ -1,0 +1,140 @@
+{
+    "resourceType" : "Measure",
+    "id" : "attestation-example",
+    "meta" : {
+      "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/attestation-measure-cqfm"]
+    },
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode" : "Encounter"
+    },
+    {
+      "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit",
+      "valueCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://unitsofmeasure.org",
+          "code" : "/1000.d"
+        }]
+      }
+    },
+    {
+      "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
+      "valueReference" : {
+        "reference" : "Device/deqm-software-system-example"
+      }
+    }],
+    "url" : "http://hl7.org/fhir/us/cqfmeasures/attestation-measure-example",
+    "version" : "5.0.0-ballot",
+    "name" : "AttestationMeasureExample",
+    "title" : "Attestation Measure Example",
+    "status" : "active",
+    "experimental" : true,
+    "date" : "2023-05-31",
+    "publisher" : "HL7 International / Clinical Quality Information",
+    "contact" : [{
+      "telecom" : [{
+        "system" : "url",
+        "value" : "http://www.hl7.org/Special/committees/cqi"
+      }]
+    }],
+    "description" : "An example FHIR-based attestation measure",
+    "useContext" : [{
+      "code" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code" : "program"
+      },
+      "valueCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs-example",
+          "code" : "ep-ec"
+        }],
+        "text" : "eligible-provider"
+      }
+    }],
+    "purpose" : "The purpose of this measure is to...",
+    "usage" : "Users of this measure should be aware of...",
+    "copyright" : "Example Copyright Statement",
+    "approvalDate" : "2014-09-25",
+    "lastReviewDate" : "2014-09-25",
+    "effectivePeriod" : {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor",
+        "valueDateTime" : "2018-01-01"
+      },
+      {
+        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration",
+        "valueDuration" : {
+          "value" : 1,
+          "system" : "http://unitsofmeasure.org",
+          "code" : "a"
+        }
+      }],
+      "start" : "2018-01-01",
+      "end" : "2018-12-31"
+    },
+    "topic" : [{
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "57024-2"
+      }],
+      "text" : "Health Quality Measure Document"
+    }],
+    "author" : [{
+      "name" : "Example Measure Content Developer"
+    }],
+    "disclaimer" : "Example disclaimer",
+    "scoring" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring",
+        "code" : "attestation",
+        "display" : "attestation"
+      }]
+    },
+    "group" : [{
+      "id" : "group-1",
+      "population" : [{
+        "id" : "initial-population",
+        "code" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/measure-population",
+            "code" : "initial-population",
+            "display" : "Initial Population"
+          }]
+        },
+        "criteria" : {
+          "language" : "text/cql-identifier",
+          "expression" : "Initial Population"
+        }
+      },
+      {
+        "id" : "numerator",
+        "code" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/measure-population",
+            "code" : "numerator",
+            "display" : "Numerator"
+          }]
+        },
+        "description" : "The number of prescriptions in the denominator generated and transmitted electronically using CEHRT.",
+        "criteria" : {
+          "language" : "text/cql-identifier",
+          "expression" : "Numerator"
+        }
+      },
+      {
+        "id" : "denominator",
+        "code" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/measure-population",
+            "code" : "denominator",
+            "display" : "Denominator"
+          }]
+        },
+        "description" : "Number of prescriptions written for drugs requiring a prescription in order to be dispensed other than controlled substances during the performance period; or number of prescriptions written for drugs requiring a prescription in order to be dispensed during the performance period.",
+        "criteria" : {
+          "language" : "text/cql-identifier",
+          "expression" : "Denominator"
+        }
+      }]
+    }]
+  }
