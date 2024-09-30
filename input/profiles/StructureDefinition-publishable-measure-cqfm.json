@@ -61,12 +61,6 @@
     "element" : [{
       "id" : "Measure",
       "path" : "Measure",
-      "constraint" : [{
-        "key" : "pmp-0",
-        "severity" : "error",
-        "human" : "The tail (meaning everything after the last slash in the URL) of the canonical URL of the Measure resource SHALL match the name of the Measure",
-        "expression" : "url.repeat(substring(indexOf('/')+1,length())).last() = id"
-      }],
       "mustSupport" : false
     },
     {
