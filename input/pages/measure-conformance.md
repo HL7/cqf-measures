@@ -1404,9 +1404,9 @@ Note also that when a measure has multiple population groups, the expectation is
 {: #conformance-requirement-3-17}
 
 1. Stratifier criteria expression SHALL result in either
-  1. the same type as other population criteria expressions in the measure (i.e. the population basis), or
-  2. the stratum value
-2. If component stratifiers are used, all the component expressions in a given stratifier must return the same type
+    1. the same type as other population criteria expressions in the measure (i.e. the population basis), or
+    2. the stratum value
+2. If component stratifiers are used, all the component expressions SHALL return the same type within a stratifier (i.e. within a stratifier, all the component expression must use the same stratification approach)
 
 Stratification is represented using the `stratifier` element. The semantics of this element are unchanged from the base [Measure]({{site.data.fhir.path}}measure.html) specification.
 
