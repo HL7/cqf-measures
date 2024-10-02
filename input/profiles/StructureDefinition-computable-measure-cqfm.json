@@ -73,7 +73,7 @@
             "key" : "cmp-2",
             "severity" : "error",
             "human" : "Scoring must either be specified at the root, or on each group",
-            "expression" : "scoring.exists() xor group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists()).allTrue()"
+            "expression" : "scoring.exists() xor (group.exists() and group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists()).allTrue())"
           },
           {
             "key" : "cmp-3",
