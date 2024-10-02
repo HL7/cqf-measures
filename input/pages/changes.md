@@ -98,6 +98,7 @@ This page details changes made in each version of the Quality Measure IG
 * **Applied**: Update Sentence Regarding All Codes and Valuesets in Terminology section ([FHIR-46290](https://jira.hl7.org/browse/FHIR-46290))([Applied here](measure-conformance.html#terminology))
 * **Applied**: Guidance on when to use multi-rate measures ([FHIR-46421](https://jira.hl7.org/browse/FHIR-46421))([Applied here](measure-conformance.html#measures-with-multiple-populations)) 
 * **Applied**: Recover includeInReportType extension ([FHIR-46462](https://jira.hl7.org/browse/FHIR-46462))([Applied here](StructureDefinition-publishable-measure-cqfm.html))
+* **Applied**: Deprecate the Rationale element ([FHIR-45361](https://jira.hl7.org/browse/FHIR-45361))([Applied here](StructureDefinition-publishable-measure-cqfm.html)), ([here](Measure-EXM124-FHIR.html)), ([here](Measure-EXM125-FHIR.html)), ([here](Measure-EXM130-FHIR.html)), ([here](Measure-EXM146-FHIR.html)), ([here](Measure-exmlogic-FHIR.html)), ([here](Measure-Measure-pi-exm.html)), and ([here](bundle-sde-example-artifact-bundle.html))
 
 
 

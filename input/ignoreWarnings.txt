@@ -14,6 +14,10 @@ ERROR: Measure/PreventiveCareandWellnessOpportunityComposite: Measure: Constrain
 ERROR: Measure/PreventiveCareandWellnessPatientLevelLinearComposite: Measure: Constraint failed: cmp-2: 'Scoring must either be specified at the root, or on each group' (defined in http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm)
 ERROR: Measure/PreventiveCareandWellnessWeightedComposite: Measure: Constraint failed: cmp-2: 'Scoring must either be specified at the root, or on each group' (defined in http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm)
 
+ERROR: Measure/EXMLogic-FHIR: Measure.contained[0]/*Library/effective-data-requirements-exmlogic*/.dataRequirement[0].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
+ERROR: Measure/EXMLogic-FHIR: Measure.contained[0]/*Library/effective-data-requirements-exmlogic*/.dataRequirement[1].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
+ERROR: Measure/EXMLogic-FHIR: Measure.contained[0]/*Library/effective-data-requirements-exmlogic*/.dataRequirement[2].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
+
 # This device profile is intended to model software systems as devices, not implantable devices like what the US Core profile is describing. Approved by US Realm on 6/30/2020.
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 
@@ -316,8 +320,21 @@ INFORMATION: Measure/EXM55-FHIR: Measure.group[0].stratifier[0].code.coding[0].s
 INFORMATION: Measure/EXM55-FHIR: Measure.group[0].stratifier[1].code.coding[0]: A definition for CodeSystem 'http://example.org/stratification' could not be found, so the code cannot be validated
 INFORMATION: Measure/EXM55-FHIR: Measure.group[0].stratifier[2].code.coding[0]: A definition for CodeSystem 'http://example.org/stratification' could not be found, so the code cannot be validated
 INFORMATION: Measure/EXMLogic-FHIR: Measure.group[0].code.coding[0].system: A definition for CodeSystem 'http://example.org/group' could not be found, so the code cannot be validated
+WARNING: Measure/EXMLogic-FHIR: Measure.group[0].code.coding[0].system: A definition for CodeSystem 'http://example.org/group' could not be found, so the code cannot be validated
 INFORMATION: Bundle/bundle-example: Bundle.entry[0].resource/*MeasureReport/47709cc7-b3ec-4abc-9d26-3df3d3d57904*/.group[0].code.coding[0].system: A definition for CodeSystem 'http://example.org/fhir/' could not be found, so the code cannot be validated
 
-
+# The following messages are expected as the value set 'http://hl7.org/fhir/ValueSet/languages' is experimental
+WARNING: StructureDefinition/cohort-measure-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Measure.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/composite-measure-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Measure.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/computable-measure-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Measure.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/cql-measure-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Measure.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/cv-measure-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Measure.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/device-softwaresystem-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Device.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/elm-measure-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Measure.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/executable-measure-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Measure.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/proportion-measure-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Measure.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/publishable-measure-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Measure.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/ratio-measure-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Measure.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/test-case-cqfm: StructureDefinition.snapshot.element[4].binding: The definition for the element 'MeasureReport.language' binds to the value set 'http://hl7.org/fhir/ValueSet/languages' which is experimental, but this structure is not labeled as experimental
 
 

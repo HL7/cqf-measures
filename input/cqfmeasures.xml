@@ -38,7 +38,7 @@
   <dependsOn id="terminology">
     <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
     <packageId value="hl7.terminology"/>
-    <version value="5.5.0"/>
+    <version value="6.0.2"/>
   </dependsOn>
   <dependsOn id="extensions">
     <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
@@ -227,7 +227,7 @@
         <reference value="Measure/measure-pi-exm"/>
       </reference>
       <name value="EXM Promoting Interoperability Measure"/>
-      <description value="An example FHIR-based publishable measure - Promoting Interoperability."/>
+      <description value="An example FHIR-based attestation measure - Promoting Interoperability."/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -235,7 +235,7 @@
         <reference value="Measure/EXMRatio-FHIR"/>
       </reference>
       <name value="EXM Ratio Measure"/>
-      <description value="An example FHIR-based publishable measure."/>
+      <description value="An example FHIR-based ratio measure."/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -275,7 +275,7 @@
         <reference value="Measure/EXM146-FHIR"/>
       </reference>
       <name value="Cervical Cancer EXM146 - Appropriate Testing for Children with Pharyngitis"/>
-      <description value="TPercentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."/>
+      <description value="Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -355,7 +355,7 @@
         <reference value="Measure/Terminology-FHIR"/>
       </reference>
       <name value="	Terminology FHIR"/>
-      <description value="This example illustrates the use of risk adjustment variables within a measure represented as a FHIR eCQM."/>
+      <description value="This example illustrates the use of terminology within a measure represented as a FHIR eCQM."/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>

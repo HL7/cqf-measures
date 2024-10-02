@@ -45,6 +45,7 @@
 <artifact deprecated="true" id="StructureDefinition/computable-library-cqfm" key="StructureDefinition-computable-library-cqfm" name="CQFM Computable Library"/>
 <artifact id="StructureDefinition/computable-measure-cqfm" key="StructureDefinition-computable-measure-cqfm" name="CQFM Computable Measure"/>
 <artifact deprecated="true" id="StructureDefinition/computable-valueset-cqfm" key="StructureDefinition-computable-valueset-cqfm" name="CQFM Computable ValueSet"/>
+<artifact id="StructureDefinition/cqfm-content-release" key="StructureDefinition-cqfm-content-release" name="CQFM Content Release"/>
 <artifact id="StructureDefinition/cv-measure-cqfm" key="StructureDefinition-cv-measure-cqfm" name="CQFM Continuous Variable Measure"/>
 <artifact id="StructureDefinition/cqfm-criteriaReference" key="StructureDefinition-cqfm-criteriaReference" name="CQFM Criteria Reference"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-defaultValue" key="StructureDefinition-cqfm-defaultValue" name="CQFM Default Value"/>
@@ -83,7 +84,7 @@
 <artifact deprecated="true" id="StructureDefinition/cqfm-publicationStatus" key="StructureDefinition-cqfm-publicationStatus" name="CQFM Publication Status"/>
 <artifact deprecated="true" id="StructureDefinition/publishable-codesystem-cqfm" key="StructureDefinition-publishable-codesystem-cqfm" name="CQFM Publishable CodeSystem"/>
 <artifact deprecated="true" id="StructureDefinition/publishable-library-cqfm" key="StructureDefinition-publishable-library-cqfm" name="CQFM Publishable Library"/>
-<artifact id="StructureDefinition/publishable-manifest-cqfm" key="StructureDefinition-publishable-manifest-cqfm" name="CQFM Publishable Manifest"/>
+<artifact deprecated="true" id="StructureDefinition/publishable-manifest-cqfm" key="StructureDefinition-publishable-manifest-cqfm" name="CQFM Publishable Manifest"/>
 <artifact id="StructureDefinition/publishable-measure-cqfm" key="StructureDefinition-publishable-measure-cqfm" name="CQFM Publishable Measure"/>
 <artifact deprecated="true" id="StructureDefinition/publishable-valueset-cqfm" key="StructureDefinition-publishable-valueset-cqfm" name="CQFM Publishable ValueSet"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-qualityDomain" key="StructureDefinition-cqfm-qualityDomain" name="CQFM Quality Domain"/>
@@ -118,7 +119,6 @@
 <artifact id="ConceptMap/composite-measure-scoring" key="ConceptMap-composite-measure-scoring" name="Composite Measure Scoring mapping"/>
 <artifact deprecated="true" id="ValueSet/computable-example" key="ValueSet-computable-example" name="Computable Example"/>
 <artifact id="ConceptMap/data-usages" key="ConceptMap-data-usages" name="Data Usage Mapping"/>
-<artifact id="Device/software-system-example" key="Device-software-system-example" name="Device - Software System Example"/>
 <artifact deprecated="true" id="Library/ep-ec-quality-program" key="Library-ep-ec-quality-program" name="EP/EC Quality Program"/>
 <artifact id="Measure/EXMLogic-FHIR" key="Measure-measure-exm" name="EXM Measure"/>
 <artifact id="Measure/measure-pi-exm" key="Measure-measure-pi-exm" name="EXM Promoting Interoperability Measure"/>
@@ -141,6 +141,7 @@
 <artifact id="Library/EXM55-FHIR" key="Library-EXM55-FHIR" name="EXM55 - Median Emergency Department Visit Duration Library (Example Continuous Variable Measure Library)"/>
 <artifact id="Library/EXMRatio-FHIR" key="Library-EXMRatio" name="EXMRatio - Example Ratio Measure Library"/>
 <artifact id="Library/EXMComputableLibrary" key="Library-EXMComputableLibrary" name="Example Computable Library"/>
+<artifact id="Device/software-system-example" key="Device-software-system-example" name="Example Device - software-system-example"/>
 <artifact id="Library/EXMExecutableLibrary" key="Library-EXMExecutableLibrary" name="Example Executable Library"/>
 <artifact id="Library/EXMLogic-FHIR" key="Library-EXMLogic" name="Example Logic Library"/>
 <artifact id="Library/EXMLogic-ModuleDefinition" key="Library-EXMLogic-ModuleDefinition" name="Example Logic Library - Module Definition"/>
@@ -176,16 +177,16 @@
 <artifact id="MeasureReport/testcase-example" key="MeasureReport-testcase-example" name="MeasureReport - Test Case Example"/>
 <artifact deprecated="true" id="OperationDefinition/MeasureReport-package" key="OperationDefinition-MeasureReport-package" name="MeasureReport Packaging"/>
 <artifact id="Library/moduledefinition-example" key="Library-moduledefinition-example" name="Module Definition Example Logic Library"/>
-<artifact id="Library/effective-data-requirements-exmlogic" key="Library-effective-data-requirements-exmlogic" name="Module Definition Library - EXM Logic"/>
-<artifact id="Library/effective-data-requirements-exmratio" key="Library-effective-data-requirements-exmratio" name="Module Definition Library - EXM Ratio"/>
-<artifact id="Library/effective-data-requirements-exm108" key="Library-effective-data-requirements-exm108" name="Module Definition Library - EXM108"/>
-<artifact id="Library/effective-data-requirements-exm124" key="Library-effective-data-requirements-exm124" name="Module Definition Library - EXM124"/>
-<artifact id="Library/effective-data-requirements-exm125" key="Library-effective-data-requirements-exm125" name="Module Definition Library - EXM125"/>
-<artifact id="Library/effective-data-requirements-exm130" key="Library-effective-data-requirements-exm130" name="Module Definition Library - EXM130"/>
-<artifact id="Library/effective-data-requirements-exm146" key="Library-effective-data-requirements-exm146" name="Module Definition Library - EXM146"/>
-<artifact id="Library/effective-data-requirements-exm55" key="Library-effective-data-requirements-exm55" name="Module Definition Library - EXM55"/>
-<artifact id="Library/effective-data-requirements-mre" key="Library-effective-data-requirements-mre" name="Module Definition Library - MultiRateExample"/>
-<artifact id="Library/effective-data-requirements-sde-artifact" key="Library-effective-data-requirements-sde-artifact" name="Module Definition Library - SDE artifacts"/>
+<artifact deprecated="true" id="Library/effective-data-requirements-exmlogic" key="Library-effective-data-requirements-exmlogic" name="Module Definition Library - EXM Logic"/>
+<artifact deprecated="true" id="Library/effective-data-requirements-exmratio" key="Library-effective-data-requirements-exmratio" name="Module Definition Library - EXM Ratio"/>
+<artifact deprecated="true" id="Library/effective-data-requirements-exm108" key="Library-effective-data-requirements-exm108" name="Module Definition Library - EXM108"/>
+<artifact deprecated="true" id="Library/effective-data-requirements-exm124" key="Library-effective-data-requirements-exm124" name="Module Definition Library - EXM124"/>
+<artifact deprecated="true" id="Library/effective-data-requirements-exm125" key="Library-effective-data-requirements-exm125" name="Module Definition Library - EXM125"/>
+<artifact deprecated="true" id="Library/effective-data-requirements-exm130" key="Library-effective-data-requirements-exm130" name="Module Definition Library - EXM130"/>
+<artifact deprecated="true" id="Library/effective-data-requirements-exm146" key="Library-effective-data-requirements-exm146" name="Module Definition Library - EXM146"/>
+<artifact deprecated="true" id="Library/effective-data-requirements-exm55" key="Library-effective-data-requirements-exm55" name="Module Definition Library - EXM55"/>
+<artifact deprecated="true" id="Library/effective-data-requirements-mre" key="Library-effective-data-requirements-mre" name="Module Definition Library - MultiRateExample"/>
+<artifact deprecated="true" id="Library/effective-data-requirements-sde-artifact" key="Library-effective-data-requirements-sde-artifact" name="Module Definition Library - SDE artifacts"/>
 <artifact id="Library/MultiRateExample-FHIR" key="Library-MultiRateExample" name="Multi Rate Example Logic Library"/>
 <artifact id="Measure/MultiRateExample-FHIR" key="Measure-multi-rate-example" name="Multi-Rate Example Measure"/>
 <artifact id="Library/PVSComponent" key="Library-PVSComponent" name="PVS Component Library"/>
@@ -215,6 +216,7 @@
 <artifact deprecated="true" key="StructureDefinition" name="StructureDefinition"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-dataRequirement" key="StructureDefinition-cqfm-dataRequirement" name="StructureDefinition - Measure data requirement extension"/>
 <artifact deprecated="true" id="StructureDefinition/cqfm-parameter" key="StructureDefinition-cqfm-parameter" name="StructureDefinition - Measure parameter extension"/>
+<artifact id="ValueSet/subject-type" key="ValueSet-subject-type" name="Subject Type Value Set"/>
 <artifact id="Library/SupplementalDataElements" key="Library-SupplementalDataElements" name="Supplemental Data Elements Library"/>
 <artifact id="Library/TJCOverall" key="Library-TJCOverall" name="TJC Overall Library"/>
 <artifact id="Library/TSCComponent" key="Library-TSCComponent" name="TSC Component Library"/>
