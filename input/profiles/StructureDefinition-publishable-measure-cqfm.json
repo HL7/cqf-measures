@@ -61,12 +61,6 @@
     "element" : [{
       "id" : "Measure",
       "path" : "Measure",
-      "constraint" : [{
-        "key" : "pmp-0",
-        "severity" : "error",
-        "human" : "The tail (meaning everything after the last slash in the URL) of the canonical URL of the Measure resource SHALL match the name of the Measure",
-        "expression" : "url.repeat(substring(indexOf('/')+1,length())).last() = id"
-      }],
       "mustSupport" : false
     },
     {
@@ -449,7 +443,6 @@
       "type" : [{
         "code" : "code"
       }],
-      "fixedCode" : "active",
       "mustSupport" : false
     },
     {
@@ -813,7 +806,7 @@
         "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation"]
       }],
       "mustSupport" : true
-    },      
+    },
 	{
         "id": "Measure.supplementalData",
         "path": "Measure.supplementalData",
@@ -828,7 +821,7 @@
       "type" : [{
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType"]
-      }],		
+      }],
       "mustSupport": true
 	}
 	]
