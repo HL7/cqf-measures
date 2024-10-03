@@ -7,13 +7,6 @@ ERROR: Bundle/bundle-example: Bundle.entry[1].resource/*Organization/null*/.meta
 ERROR: Bundle/bundle-example: Bundle.entry[2].resource/*Patient/null*/.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
 ERROR: Bundle/bundle-example: Bundle.entry[3].resource/*Practitioner/null*/.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner' does not resolve
 ERROR: Bundle/bundle-example: Bundle.entry[4].resource/*Observation/null*/.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation' does not resolve
-
-# Errors of constraint failing, but fhirpath lab evaluates it to a boolean value when using these measures
-ERROR: Measure/PreventiveCareandWellnessAllOrNothingComposite: Measure: Constraint failed: cmp-2: 'Scoring must either be specified at the root, or on each group' (defined in http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm)
-ERROR: Measure/PreventiveCareandWellnessOpportunityComposite: Measure: Constraint failed: cmp-2: 'Scoring must either be specified at the root, or on each group' (defined in http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm)
-ERROR: Measure/PreventiveCareandWellnessPatientLevelLinearComposite: Measure: Constraint failed: cmp-2: 'Scoring must either be specified at the root, or on each group' (defined in http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm)
-ERROR: Measure/PreventiveCareandWellnessWeightedComposite: Measure: Constraint failed: cmp-2: 'Scoring must either be specified at the root, or on each group' (defined in http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm)
-
 ERROR: Measure/EXMLogic-FHIR: Measure.contained[0]/*Library/effective-data-requirements-exmlogic*/.dataRequirement[0].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
 ERROR: Measure/EXMLogic-FHIR: Measure.contained[0]/*Library/effective-data-requirements-exmlogic*/.dataRequirement[1].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
 ERROR: Measure/EXMLogic-FHIR: Measure.contained[0]/*Library/effective-data-requirements-exmlogic*/.dataRequirement[2].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
