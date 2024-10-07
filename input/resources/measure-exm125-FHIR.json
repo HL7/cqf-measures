@@ -656,6 +656,20 @@
     } ]
   } ],
   "description": "Percentage of women 50-74 years of age who had a mammogram to screen for breast cancer",
+  "useContext": [ {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "venue",
+      "display": "Venue"
+    },
+    "valueCodeableConcept": {
+      "coding": [{
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue",
+        "code": "ec",
+        "display": "EC"
+      }]
+    }
+  } ],
   "jurisdiction": [ {
     "coding": [ {
       "system": "urn:iso:std:iso:3166",

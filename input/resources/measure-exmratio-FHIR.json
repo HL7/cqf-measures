@@ -219,6 +219,20 @@
     }
   ],
   "description" : "An example FHIR-based publishable measure",
+  "useContext": [ {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "venue",
+      "display": "Venue"
+    },
+    "valueCodeableConcept": {
+      "coding": [{
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue",
+        "code": "ec",
+        "display": "EC"
+      }]
+    }
+  } ],
   "jurisdiction" : [
     {
       "coding" : [

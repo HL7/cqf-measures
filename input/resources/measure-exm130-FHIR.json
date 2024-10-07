@@ -674,6 +674,20 @@
     } ]
   } ],
   "description": "Percentage of adults 50-75 years of age who had appropriate screening for colorectal cancer",
+  "useContext": [ {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "venue",
+      "display": "Venue"
+    },
+    "valueCodeableConcept": {
+      "coding": [{
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue",
+        "code": "ec",
+        "display": "EC"
+      }]
+    }
+  } ],
   "jurisdiction": [ {
     "coding": [ {
       "system": "urn:iso:std:iso:3166",

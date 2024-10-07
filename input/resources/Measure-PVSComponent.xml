@@ -664,6 +664,20 @@
    <date value="2022-02-22T11:37:04-06:00"></date>
    <publisher value="National Committee for Quality Assurance"></publisher>
    <description value="This is an example only."></description>
+   <useContext>
+     <code>
+       <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+       <code value="venue"/>
+       <display value="Venue"/>
+      </code>
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue"/>
+          <code value="ec"/>
+          <display value="EC"/>
+        </coding>
+      </valueCodeableConcept>
+   </useContext>
    <effectivePeriod>
       <start value="2022-01-01"></start>
       <end value="2022-12-31"></end>

@@ -1,0 +1,39 @@
+{
+    "resourceType": "CodeSystem",
+    "id": "intended-venue",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue",
+    "version": "4.0.0",
+    "name": "IntendedVenue",
+    "title": "Intended Venue",
+    "status": "active",
+    "experimental": false,
+    "publisher": "Clinical Quality Information Workgroup",
+    "description": "The Intended Venue code system defines codes used to distinguish measures that are developed with the intent to be used in a particular venue, establishing expectations for the types of data that will be available from systems in that environment.",
+    "jurisdiction": [
+      {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:3166",
+            "code": "US",
+            "display": "United States of America"
+          }
+        ]
+      }
+    ],
+    "caseSensitive": true,
+    "valueSet": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/intended-venue",
+    "content": "complete",
+    "concept": [
+      {
+        "code": "eh",
+        "display": "EH",
+        "definition": "An eligible hospital is an acute care facility that is eligible to participate in a quality measurement initiative."
+      },
+      {
+        "code": "ec",
+        "display": "EC",
+        "definition": "An eligible clinician is a clinician who is eligible to participate in a quality measurement intiative."
+      }
+    ]
+  }
+  

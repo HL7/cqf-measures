@@ -77,7 +77,7 @@ For measures that use Clinical Quality Language to represent expression logic, t
 
 | **Shareable** | **Publishable** |
 |----|----|
-| [CRMIShareableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablelibrary.html) | [CQMFPublishableManifest](StructureDefinition-publishable-manifest-cqfm.html) |
+| [CRMIShareableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-shareablelibrary.html) | [CRMIPublishableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-publishablelibrary.html) <br/>[CRMIManifestLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-manifestlibrary.html) |
 {: .grid }
 
 ### Terminology Profile Usage
