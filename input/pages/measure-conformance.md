@@ -895,7 +895,7 @@ The referenced expressions return either an indication that a patient meets the 
 <!-- | Measure | Denominator | Numerator |
 |:--------|:------------:|:----------:|
 | Patient-based | All patients with condition A that had one or more encounters during the measurement period. | All patients with condition A that underwent procedure B during the measurement period. |
-| non-patient-based | For example, for episode-of-care based: all encounters for patients with condition A during the measurement period. | For example, for episode-of-care based: all encounters for patients with condition A during the measurement period where procedure B was performed during the encounter. | -->
+| Non-patient-based | All diagnostic studies (CT scans) during the measurement period. | Diagnostic studies (CT scans) exceeding radiation dosage thresholds during the measurement period. | non-patient-based | All encounters where patients have condition A during the measurement period. | For example, for episode-of-care based: All encounters where patients have condition A during the measurement period and procedure B was performed during the encounter. |-->
 <table class="grid">
   <thead>
     <tr>
@@ -911,14 +911,19 @@ The referenced expressions return either an indication that a patient meets the 
       <td style="text-align: left" class="col-5">All patients with condition A that underwent procedure B during the measurement period.</td>
     </tr>
     <tr>
-      <td style="text-align: left" class="col-2">non-patient-based</td>
-      <td style="text-align: left" class="col-5">For example, for episode-of-care based: all encounters for patients with condition A during the measurement period.</td>
-      <td style="text-align: left" class="col-5">For example, for episode-of-care based: all encounters for patients with condition A during the measurement period where procedure B was performed during the encounter.</td>
+      <td style="text-align: left" class="col-2">Non-patient-based</td>
+      <td style="text-align: left" class="col-5">All diagnostic studies (CT scans) during the measurement period.</td>
+      <td style="text-align: left" class="col-5">Diagnostic studies (CT scans) exceeding radiation dosage thresholds during the measurement period. 	</td>
+    </tr>
+        <tr>
+      <td style="text-align: left" class="col-2">Non-patient-based</td>
+      <td style="text-align: left" class="col-5">All encounters where patients have condition A during the measurement period.</td>
+      <td style="text-align: left" class="col-5">All encounters where patients have condition A during the measurement period and procedure B was performed during the encounter.</td>
     </tr>
   </tbody>
 </table>
 
-In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is a non-patient-based measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
+In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is a non-patient-based measure where each patient may contribute zero or more CT scans to the denominator and numerator counts. The third measure is another non-patient-based measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
 
 For complete examples of patient based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an non-patient-based proportion measure, see the [EXM108](Measure-EXM108-FHIR.html) measure included in this implementation guide.
 
