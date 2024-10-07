@@ -923,7 +923,7 @@ The referenced expressions return either an indication that a patient meets the 
   </tbody>
 </table>
 
-In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is a non-patient-based measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
+In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is a non-patient-based measure where each patient may contribute zero or more CT scans to the denominator and numerator counts. The third measure is another non-patient-based measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
 
 For complete examples of patient based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an non-patient-based proportion measure, see the [EXM108](Measure-EXM108-FHIR.html) measure included in this implementation guide.
 
