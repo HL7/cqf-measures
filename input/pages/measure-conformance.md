@@ -895,7 +895,7 @@ The referenced expressions return either an indication that a patient meets the 
 <!-- | Measure | Denominator | Numerator |
 |:--------|:------------:|:----------:|
 | Patient-based | All patients with condition A that had one or more encounters during the measurement period. | All patients with condition A that underwent procedure B during the measurement period. |
-| non-patient-based | For example, for episode-of-care based: all encounters for patients with condition A during the measurement period. | For example, for episode-of-care based: all encounters for patients with condition A during the measurement period where procedure B was performed during the encounter. | -->
+| Non-patient-based | All diagnostic studies (CT scans) during the measurement period. | Diagnostic studies (CT scans) exceeding radiation dosage thresholds during the measurement period. | non-patient-based | All encounters where patients have condition A during the measurement period. | For example, for episode-of-care based: All encounters where patients have condition A during the measurement period and procedure B was performed during the encounter. |-->
 <table class="grid">
   <thead>
     <tr>
@@ -911,9 +911,14 @@ The referenced expressions return either an indication that a patient meets the 
       <td style="text-align: left" class="col-5">All patients with condition A that underwent procedure B during the measurement period.</td>
     </tr>
     <tr>
-      <td style="text-align: left" class="col-2">non-patient-based</td>
-      <td style="text-align: left" class="col-5">For example, for episode-of-care based: all encounters for patients with condition A during the measurement period.</td>
-      <td style="text-align: left" class="col-5">For example, for episode-of-care based: all encounters for patients with condition A during the measurement period where procedure B was performed during the encounter.</td>
+      <td style="text-align: left" class="col-2">Non-patient-based</td>
+      <td style="text-align: left" class="col-5">All diagnostic studies (CT scans) during the measurement period.</td>
+      <td style="text-align: left" class="col-5">Diagnostic studies (CT scans) exceeding radiation dosage thresholds during the measurement period. 	</td>
+    </tr>
+        <tr>
+      <td style="text-align: left" class="col-2">Non-patient-based</td>
+      <td style="text-align: left" class="col-5">All encounters where patients have condition A during the measurement period.</td>
+      <td style="text-align: left" class="col-5">All encounters where patients have condition A during the measurement period and procedure B was performed during the encounter.</td>
     </tr>
   </tbody>
 </table>
