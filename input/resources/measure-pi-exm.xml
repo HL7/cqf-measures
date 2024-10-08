@@ -27,6 +27,20 @@
         </telecom>
     </contact>
     <description value="An example FHIR-based attestation measure - Promoting Interoperability"></description>
+   <useContext>
+     <code>
+       <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+       <code value="venue"/>
+       <display value="Venue"/>
+      </code>
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue"/>
+          <code value="ec"/>
+          <display value="EC"/>
+        </coding>
+      </valueCodeableConcept>
+   </useContext>
     <jurisdiction>
         <coding>
             <system value="urn:iso:std:iso:3166"></system>
@@ -87,8 +101,10 @@
                     <display value="Numerator"></display>
                 </coding>
             </code>
-            <description
-                    value="The number of prescriptions in the denominator generated and transmitted electronically using CEHRT."></description>
+            <criteria>
+              <language value="text/plain"/>
+              <expression value="The number of prescriptions in the denominator generated and transmitted electronically using CEHRT."/>
+            </criteria>
         </population>
         <population id="denominator">
             <code>
@@ -98,8 +114,10 @@
                     <display value="Denominator"></display>
                 </coding>
             </code>
-            <description
-                    value="Number of prescriptions written for drugs requiring a prescription in order to be dispensed other than controlled substances during the performance period; or number of prescriptions written for drugs requiring a prescription in order to be dispensed during the performance period."></description>
+            <criteria>
+              <language value="text/plain"/>
+              <expression value="Number of prescriptions written for drugs requiring a prescription in order to be dispensed other than controlled substances during the performance period; or number of prescriptions written for drugs requiring a prescription in order to be dispensed during the performance period."/>
+            </criteria>
         </population>
     </group>
 </Measure>

@@ -13,6 +13,20 @@
    <experimental value="true"/>
    <publisher value="National Committee for Quality Assurance"/>
    <description value="This artifact is an example of an opportunity composite measure that uses a mixture of single-rate or multi-rate component measures that have different measure bases."/>
+   <useContext>
+     <code>
+       <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+       <code value="venue"/>
+       <display value="Venue"/>
+      </code>
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue"/>
+          <code value="ec"/>
+          <display value="EC"/>
+        </coding>
+      </valueCodeableConcept>
+   </useContext>
    <effectivePeriod>
       <start value="2022-01-01"/>
       <end value="2022-12-31"/>

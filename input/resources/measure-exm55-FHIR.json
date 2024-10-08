@@ -264,6 +264,20 @@
     } ]
   } ],
   "description": "This example illustrates a continuous variable measure represented as a FHIR eCQM",
+  "useContext": [ {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "venue",
+      "display": "Venue"
+    },
+    "valueCodeableConcept": {
+      "coding": [{
+        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue",
+        "code": "eh",
+        "display": "EH"
+      }]
+    }
+  } ],
   "jurisdiction": [ {
     "coding": [ {
       "system": "urn:iso:std:iso:3166",

@@ -547,14 +547,6 @@ This expression results in the following in the _effective data requirements_ Li
 2. A cqf-directReferenceCode element for the "Right foot" code
 3. A dataRequirement element for the `DeviceUseStatement` with a reference to the "Venous foot pump, device (physical object)" code
 
-#### Manifest
-{: #manifest}
-
-A Measure Terminology Service should reference the CQFMContentRelease profile which describes a set of measures together with the version information for code system and value sets referenced by those measures. 
-This provides consumers of the measures with all the information they need to use the measures in the same way that they were authored and tested (i.e. they can produce the same expansions for 
-value sets used by the measures). The CQFMContentRelease profile may also identify a “program” in the useContext element. An example binding is shown for the value, 
-but program-specific documentation could specify a terminology system and code appropriate for their users.
-
 ### Data Criteria
 {: #data-criteria}
 
@@ -892,33 +884,14 @@ The referenced expressions return either an indication that a patient meets the 
 
 **Table 3-2: Patient-based and non-patient-based Measure Examples**
 
-<!-- | Measure | Denominator | Numerator |
+| Measure | Denominator | Numerator |
 |:--------|:------------:|:----------:|
 | Patient-based | All patients with condition A that had one or more encounters during the measurement period. | All patients with condition A that underwent procedure B during the measurement period. |
-| non-patient-based | For example, for episode-of-care based: all encounters for patients with condition A during the measurement period. | For example, for episode-of-care based: all encounters for patients with condition A during the measurement period where procedure B was performed during the encounter. | -->
-<table class="grid">
-  <thead>
-    <tr>
-      <th style="text-align: left" class="col-2">Measure</th>
-      <th style="text-align: left" class="col-5">Denominator</th>
-      <th style="text-align: left" class="col-5">Numerator</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left" class="col-2">Patient-based</td>
-      <td style="text-align: left" class="col-5">All patients with condition A that had one or more encounters during the measurement period.</td>
-      <td style="text-align: left" class="col-5">All patients with condition A that underwent procedure B during the measurement period.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left" class="col-2">non-patient-based</td>
-      <td style="text-align: left" class="col-5">For example, for episode-of-care based: all encounters for patients with condition A during the measurement period.</td>
-      <td style="text-align: left" class="col-5">For example, for episode-of-care based: all encounters for patients with condition A during the measurement period where procedure B was performed during the encounter.</td>
-    </tr>
-  </tbody>
-</table>
+| Non-patient-based | All diagnostic studies (CT scans) during the measurement period. | Diagnostic studies (CT scans) exceeding radiation dosage thresholds during the measurement period. |
+| Non-patient-based | All encounters where patients have condition A during the measurement period. | All encounters where patients have condition A during the measurement period and procedure B was performed during the encounter. |
+{: .grid}
 
-In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is a non-patient-based measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
+In Table 3-2, the first measure is an example of a patient-based measure. Each patient may contribute at most one count to the denominator and numerator, regardless of how many encounters they had. The second measure is a non-patient-based measure where each patient may contribute zero or more CT scans to the denominator and numerator counts. The third measure is another non-patient-based measure where each patient may contribute zero or more encounters to the denominator and numerator counts.
 
 For complete examples of patient based proportion measures, see the Screening Measure [Examples](examples.html). For a complete example of an non-patient-based proportion measure, see the [EXM108](Measure-EXM108-FHIR.html) measure included in this implementation guide.
 
@@ -1572,6 +1545,57 @@ Snippet 3-36: Sample Risk Adjustment data from [EXMRiskAdjustment_FHIR2.cql](Lib
 
 An example of risk adjustment can be found in the included [examples](Measure-measure-risk-adjustment-FHIR2.html); the relevant sections of the FHIR Measure (Snippet 3-35) and CQL (Snippet 3-36) have been included.
 
+### Manifest
+{: #manifest}
+
+Measure specifications are often developed, tested, published, and consumed as a set of measures, rather than as single measure specifications. This implementation guide makes use of the _artifact manifest_ capabilities provided by the Canonical Resource Management Infrastructure implementation guide to support the use case of developing and publishing a set of measures. For background, see the [Artifact Manifest]({{site.data.fhir.ver.crmi}}/version-manifest.html) topic.
+
+There are two primary use cases for the manifest, both of which are supported by the [CRMIManifestLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-manifestlibrary.html) profile:
+
+1. **Content Release** - A description of a set of measures, published together with all the information about their use, such as dependency versions and expansion parameters.
+2. **Quality Program** - A description of a set of measures identified for use in a particular quality program initiative.
+
+#### Content Release
+
+Ultimately, the content release use case is supported by an manifest in _active_ status, with all dependency information present. However, this final state is typically reached through an authoring process that allows for consistent resolution of dependencies by a team of measure developers. For example, a typical process might include the following steps:
+
+* Setup
+* Development
+* Testing
+* Release
+* Implementation
+
+##### Setup
+
+The setup phase establishes the initial code system versions for use with the measures being developed. At this stage, manifest is in _draft_ status, and typically only a handful of code system versions have been selected. In addition, authoring-specific behavior such as _includeDraft_ and _activeOnly_ would be expected to be set. See the [Manifest - Initial Draft](Library-Manifest-Initial-Draft.html) for an example of an initial draft of a manifest.
+
+##### Development
+
+Throughout the development phase, as additional code system versions are identified, these may be added to the expansion parameters in the manifest. The manifest remains in _draft_ status through the development, and may change as often as is necessary. The key benefit is allowing code system versions to be established among a team (or teams) of measure developers, and only updated when agreed by the participants.
+
+##### Testing
+
+The testing phase allows for a "final draft" of the manifest. At this point, all code system versions have been identified, all component measures are known, and authoring features such as _includeDraft_ and _activeOnly_ are typically disabled, allowing testing to be performed with the final expected value set expansions. The manifest is still in _draft_ status, but the content at this point is expected to be stable and only subject to minor updates based on feedback from testing. See the [Manifest - Finl Draft](Library-Manifest-Final-Draft.html) for an example of a final draft of a manifest.
+
+##### Release
+
+The release process supports transitioning a manifest from _draft_ to _active_ status, and establishes the versions of all dependencies referenced by the measures in the manifest, according to the following process:
+
+* For each component measure of the manifest, identify all dependencies:
+    * If the dependency reference is versioned, record that version of the dependency in the manifest
+    * Otherwise, if the version of the dependency is specified via an expansion parameter, use that version and record it as a dependency in the manifest
+    * Otherwise, identify the most recent available version of the dependency in the authoring environment and record that version in the manifest
+* For each reported dependency, identify all dependencies:
+    * If the dependency is a measure, use the effective data requirements
+    * If the dependency is a value set, report any value sets or code systems referenced by the value set as dependencies
+    * Record each dependency in the manifest using the same process for determining a version and recording the dependency in the manifest
+
+See the [Manifest - Release](Library-Manifest-Release.html) for an example of a final content release. Note that the dependencies in this example are incomplete for brevity. A complete content release will include all dependencies for all measures, recursively, with versions identified for each dependency.
+
+#### Quality Program
+
+As the second use case for manifests, once a content release is available, quality programs can select subsets of measures published in the content release. See the [Quality Program Example](Library-Quality-Program-Example.html) for an illustration of what a quality program might look like using a manifest.
+
 ### HQMF Mapping
 
 HQMF is a normative HL7 V3 based standard that defines a header for classification and management of the quality measure, a document body that carries the content of the quality measure as well as important metadata. It standardizes a measure’s structure, metadata, definitions, and logic, the HQMF ensures measure consistency and unambiguous interpretation. The approach of representing Quality Measures (QMs) using FHIR and specifically the FHIR Clinical Reasoning Module have generated code systems and value sets based on the FHIR R4 specification.
@@ -1580,9 +1604,7 @@ Refer to the [ConceptMap Resources section](terminology.html#conceptmap-resource
 
 ### Attribution
 
-Member Attribution (ATR) lists are used between Payers and Providers for implementing risk-based contracts, value based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. 
-
-Referring to the [Member Attribution Lists Workflows and Definitions](http://hl7.org/fhir/us/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinci - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
+Member Attribution (ATR) lists are often used between Payers and Providers for implementing risk-based contracts, value-based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. Refer to the [Member Attribution Lists Workflows and Definitions](http://hl7.org/fhir/us/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinci - Member Attribution (ATR) List IG for more information on representing groups of patients for attribution within quality reporting.  
 
 ### Must Support
 {: #must-support}
@@ -1603,3 +1625,4 @@ For resource instances claiming to conform to Quality Measure IG profiles, Must 
   * For example, for systems using '9999' to indicate unknown data values, do not include '9999' in the resource instance.
 * When consuming resource instances, evaluating systems SHALL interpret missing data elements within resource instances as data not present for the artifact.
 * Submitting and receiving systems using Quality Measure artifacts to perform data exchange or artifact evaluation operations SHALL respect the must support requirements of the profiles used by the artifact to describe the data involved in the operation.
+

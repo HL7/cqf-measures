@@ -275,21 +275,20 @@
     </telecom>
   </contact>
   <description value="An example FHIR-based publishable measure"/>
-  <!--
-  <useContext>
-    <code>
-      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-      <code value="program"/>
-    </code>
-    <valueCodeableConcept>
-      <coding>
-        <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs"/>
-        <code value="ep-ec"/>
-      </coding>
-      <text value="eligible-provider"/>
-    </valueCodeableConcept>
-  </useContext>
-  -->
+   <useContext>
+     <code>
+       <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+       <code value="venue"/>
+       <display value="Venue"/>
+      </code>
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue"/>
+          <code value="ec"/>
+          <display value="EC"/>
+        </coding>
+      </valueCodeableConcept>
+   </useContext>
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>

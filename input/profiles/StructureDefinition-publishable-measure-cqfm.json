@@ -479,6 +479,62 @@
       "mustSupport" : true
     },
     {
+      "id" : "Measure.useContext",
+      "path" : "Measure.useContext",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "code"
+        }],
+        "rules" : "open"
+      },
+      "requirements" : "A published measure must be able to specify intended contexts of use such as intended venue.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "UsageContext"
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.useContext:intendedVenue",
+      "path" : "Measure.useContext",
+      "sliceName" : "intendedVenue",
+      "short" : "What venue?",
+      "definition" : "The intended venue for use for this measure.",
+      "min" : 0,
+      "max" : "*",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.useContext:intendedVenue.code",
+      "path" : "Measure.useContext.code",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Coding"
+      }],
+      "patternCoding" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code" : "venue"
+      },
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.useContext:intendedVenue.value[x]",
+      "path" : "Measure.useContext.value[x]",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "http://hl7.org/fhir/us/cqfmeasures/ValueSet/intended-venue"
+      }
+    },
+    {
       "id" : "Measure.purpose",
       "path" : "Measure.purpose",
       "short" : "Why this measure is defined",
@@ -769,7 +825,7 @@
       "min" : 0,
       "max" : "1",
       "definition" : "Provides a detailed justification of the need for the measure, including statements pertaining to importance criterion: impact, gap in care, and evidence.",
-      "mustSupport" : false
+      "mustSupport" : true
     },
     {
       "id" : "Measure.definition",
