@@ -24,9 +24,6 @@
       "valueCanonical": "http://terminology.hl7.org/CodeSystem/CD2|2.0.1"
     }, {
       "name": "system-version",
-      "valueCanonical": "urn:oid:2.16.840.1.113883.6.238|1.2"
-    }, {
-      "name": "system-version",
       "valueCanonical": "http://www.ama-assn.org/go/cpt|3.0.1"
     }, {
       "name": "system-version",
@@ -63,7 +60,7 @@
       "reference": "#exp-params"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/ecqm-update-2024",
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/Manifest-Release",
   "identifier": [ {
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
@@ -88,14 +85,14 @@
       "value": "http://www.hl7.org/Special/committees/cqi"
     } ]
   } ],
-  "description": "This library is an example final draft of a version manifest (also referred to as an expansion profile) that specifies expansion rules for a set of value sets used for an example set of EP/EC measures.",
+  "description": "This library is an example release of a version manifest (also referred to as an expansion profile) that specifies expansion rules for a set of value sets used for an example set of EP/EC measures.",
   "jurisdiction": [ {
     "coding": [ {
       "system": "urn:iso:std:iso:3166",
       "code": "US"
     } ]
   } ],
-  "purpose": "This library is defined to illustrate a Version Manifest in final draft status, as it would look at the end of an eCQM Annual Update cycle, approved on April 23rd, 2024. The latest available version of code systems used at that time is specified to provide stability for value set expansion during the testing and implementation phase. Terminology.HL7.org, in particular, was version 5.5.0 at the time, and FHIR code system versions are chosen from that release.",
+  "purpose": "This library is defined to illustrate a Version Manifest in release status, as it would look as part of the final publication an eCQM Annual Update cycle, approved on April 23rd, 2024, and published on May 2nd, 2024. The versions of code systems and value sets used by the measures is specified in the dependency references to provide stability for value set expansion for any use of the published content. Terminology.HL7.org, in particular, was version 5.5.0 at the time, and FHIR code system versions are chosen from that release.",
   "approvalDate": "2024-04-23",
   "lastReviewDate": "2024-04-23",
   "relatedArtifact": [ {
@@ -122,5 +119,68 @@
     "type": "composed-of",
     "display": "EXM146 - Appropriate Testing for Children with Pharyngitis, 4.0.0",
     "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM146-FHIR|4.0.0"
+  }, {
+    "type": "depends-on",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/Common|2.0.000"
+  }, {
+    "type": "depends-on",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.0"
+  }, {
+    "type": "depends-on",
+    "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/TJCOverall|4.0.000"
+  }, {
+    "type": "depends-on",
+    "resource": "http://terminology.hl7.org/CodeSystem/diagnosis-role"
+  }, {
+    "type": "depends-on",
+    "resource": "http://terminology.hl7.org/CodeSystem/medicationrequest-category"
+  }, {
+    "type": "depends-on",
+    "resource": "http://hl7.org/fhir/administrative-gender"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.62|20210409"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.473|20220212"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.93|20230117"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.52|20220219"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.424|20210220"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.247|20210220"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45|20210220"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143|20210611"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292|20210611"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.87|20210611"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.308|20210220"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.309|20210611"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.209|20210220"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.207|20210611"
+  }, {
+    "type": "depends-on",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591|20221118"
   } ]
 }
