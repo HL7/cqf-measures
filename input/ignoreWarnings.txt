@@ -1,8 +1,6 @@
 == Suppressed Messages ==
 
 # The cause of these hyperlinks not resolving remains unclear and has been discussed in the following Zulip thread conversation (https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Hyperlinks.20not.20resolving)
-# ERROR: Bundle/bundle-example: Bundle.entry[4].resource/*Observation/null*/.text.div: Hyperlink '#urnuuid47709cc7-b3ec-4abc-9d26-3df3d3d57906' at 'div/p/a' for 'See above (urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57906)' does not resolve
-# ERROR: Bundle/bundle-example: Bundle.entry[4].resource/*Observation/null*/.text.div: Hyperlink '#urnuuid47709cc7-b3ec-4abc-9d26-3df3d3d57907' at 'div/p/a' for 'See above (urn:uuid:47709cc7-b3ec-4abc-9d26-3df3d3d57907)' does not resolve
 ERROR: Bundle/bundle-example: Bundle.entry[1].resource/*Organization/null*/.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization' does not resolve
 ERROR: Bundle/bundle-example: Bundle.entry[2].resource/*Patient/null*/.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
 ERROR: Bundle/bundle-example: Bundle.entry[3].resource/*Practitioner/null*/.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner' does not resolve
@@ -10,6 +8,12 @@ ERROR: Bundle/bundle-example: Bundle.entry[4].resource/*Observation/null*/.meta.
 ERROR: Measure/EXMLogic-FHIR: Measure.contained[0]/*Library/effective-data-requirements-exmlogic*/.dataRequirement[0].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
 ERROR: Measure/EXMLogic-FHIR: Measure.contained[0]/*Library/effective-data-requirements-exmlogic*/.dataRequirement[1].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
 ERROR: Measure/EXMLogic-FHIR: Measure.contained[0]/*Library/effective-data-requirements-exmlogic*/.dataRequirement[2].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
+
+# The following terminology artifacts are defined in the IG and have been discussed internally against a move to THO
+ERROR: ValueSet/executable-example: ValueSet.expansion.parameter[0].value.ofType(uri): URL value 'http://hl7.org/fhir/us/cqfmeasures/CodeSystem/artifact-comment-type|3.0.0' does not resolve
+ERROR: ValueSet/executable-example: ValueSet.expansion.contains[0].system: URL value 'http://hl7.org/fhir/us/cqfmeasures/CodeSystem/artifact-comment-type' does not resolve
+ERROR: ValueSet/executable-example: ValueSet.expansion.contains[1].system: URL value 'http://hl7.org/fhir/us/cqfmeasures/CodeSystem/artifact-comment-type' does not resolve
+ERROR: ValueSet/executable-example: ValueSet.expansion.contains[2].system: URL value 'http://hl7.org/fhir/us/cqfmeasures/CodeSystem/artifact-comment-type' does not resolve
 
 # This device profile is intended to model software systems as devices, not implantable devices like what the US Core profile is describing. Approved by US Realm on 6/30/2020.
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
