@@ -1550,14 +1550,18 @@ An example of risk adjustment can be found in the included [examples](Measure-me
 
 Measure specifications are often developed, tested, published, and consumed as a set of measures, rather than as single measure specifications. This implementation guide makes use of the _artifact manifest_ capabilities provided by the Canonical Resource Management Infrastructure implementation guide to support the use case of developing and publishing a set of measures. For background, see the [Artifact Manifest]({{site.data.fhir.ver.crmi}}/version-manifest.html) topic.
 
-There are two primary use cases for the manifest, both of which are supported by the [CRMIManifestLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-manifestlibrary.html) profile:
+At a high level, the contents of the Library resource used to describe the set of measures consists of:
 
-1. **Content Release** - A description of a set of measures, published together with all the information about their use, such as dependency versions and expansion parameters.
-2. **Quality Program** - A description of a set of measures identified for use in a particular quality program initiative.
+* Identity - Elements that identify the measure collection (e.g. `url`, `version`, `name`, `title`, `identifier`)
+* Component Measures - The identified measures (specified using `relatedArtifact` elements with `type` = `composed-of`)
+* Expansion Parameters - Input information about what versions of code systems and value sets should be used and how expansions should be performed (using the cqf-expansionParameters extension)
+* Dependencies - Output information about all the dependencies that are used by the set of measures (specified using `relatedArtifact` elements with `type` = `depends-on`)
+
+This information about the set of measures is supported by the [CRMIManifestLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-manifestlibrary.html) profile and can be generally thought of as a _content release_.
 
 #### Content Release
 
-Ultimately, the content release use case is supported by an manifest in _active_ status, with all dependency information present. However, this final state is typically reached through an authoring process that allows for consistent resolution of dependencies by a team of measure developers. For example, a typical process might include the following steps:
+Ultimately, the content release use case is supported by a manifest in _active_ status, with all dependency information present. However, this final state is typically reached through an authoring process that allows for consistent resolution of dependencies by a team of measure developers. For example, a typical process might include the following steps:
 
 * Setup
 * Development
@@ -1565,9 +1569,11 @@ Ultimately, the content release use case is supported by an manifest in _active_
 * Release
 * Implementation
 
+> NOTE: The examples referenced in this section have URLs based on their IDs. This is due to a publisher requirement; the examples are intended to illustrate the same Library at different points in the lifecycle, so the URLs should all be the same.
+
 ##### Setup
 
-The setup phase establishes the initial code system versions for use with the measures being developed. At this stage, manifest is in _draft_ status, and typically only a handful of code system versions have been selected. In addition, authoring-specific behavior such as _includeDraft_ and _activeOnly_ would be expected to be set. See the [Manifest - Initial Draft](Library-Manifest-Initial-Draft.html) for an example of an initial draft of a manifest.
+The setup phase establishes the initial code system versions for use with the measures being developed. At this stage, manifest is in _draft_ status, and typically only a handful of code system versions have been selected. In addition, authoring-specific behavior such as _includeDraft_ and _activeOnly_ would be expected to be set. See the [Manifest - Initial Draft](Library-Manifest-Initial-Draft.html) for an example of an initial draft of a manifest. Note also that at this stage, the specific measures being developed are not necessarily known, so the example in this case does not refer to any measures.
 
 ##### Development
 
@@ -1592,9 +1598,19 @@ The release process supports transitioning a manifest from _draft_ to _active_ s
 
 See the [Manifest - Release](Library-Manifest-Release.html) for an example of a final content release. Note that the dependencies in this example are incomplete for brevity. A complete content release will include all dependencies for all measures, recursively, with versions identified for each dependency.
 
-#### Quality Program
+##### Implementation
 
-As the second use case for manifests, once a content release is available, quality programs can select subsets of measures published in the content release. See the [Quality Program Example](Library-Quality-Program-Example.html) for an illustration of what a quality program might look like using a manifest.
+During implementation, the Manifest is used to understand what versions of dependencies should be used when unversioned references are encountered. For example, when evaluating a Measure, the ValueSet expansions used are obtained by referring to the Manifest to determine the correct version of the ValueSet to be used, as well as the expansion parameters to be used.
+
+#### Content Release Manifest Use Cases
+
+A content release can be used to meet many different use cases for packaging a collection of related artifacts. Example use cases include:
+
+* The eCQM Annual Update, specifying a set of measure specifications together with the code system and value set version information that is to be used to calculate the measures.
+* Identifying sets of measures for a particular use, such as the Quality Payment Program (QPP) measures.
+* Publishing a release of a set of value sets such as the CCDA value sets, or the electronic Case Reporting (eCR) Public Health Trigger Codes.
+
+In all these cases, a Library conforming to the CRMIManifestLibrary profile can be used to communicate the details of the content release.
 
 ### HQMF Mapping
 
