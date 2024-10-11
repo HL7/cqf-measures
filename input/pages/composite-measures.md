@@ -524,7 +524,7 @@ The following table summarizes the allowable measure scoring for each of the com
 |:-----------------------------------------------------:|:----:|:----:|
 |                      Opportunity                      | Composite | Proportion/Ratio |
 |                    All-or-nothing                     | Composite | Proportion/Ratio |
-| <span class="bg-success"> Subject-level Linear <span> | Composite | Proportion/Ratio/Continuous Variable |
+|                Subject-level Linear                   | Composite | Proportion/Ratio/Continuous Variable |
 |                    Component-level                    | Composite | Proportion/Ratio/Continuous Variable |
 
 Note that these requirements are about ensuring that the population criteria expressions among the components use similar sets of population criteria. This means that all the components of a given composite measure don’t necessarily have to use the same scoring type, just that they have to have similar population criteria. For example, a Proportion composite may use a Proportion component and a Ratio component.

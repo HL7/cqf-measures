@@ -2,18 +2,6 @@
 
 {:toc}
 
-{:.stu-note}
->  This STU 5.0.0-ballot2 is currently dependent on CRMI IG 1.0.0-ballot2 and CQL IG 1.0.0-ballot, but will update to CRMI IG STU1 and CQL IG STU1 once published
-
-Where possible, new and updated content are highlighted with green text and background
-{: .new-content}
-
-<div markdown="1" class="bg-info">
-
-{{ site.data.package-list.list[0].desc }}
-
-</div>
-
 
 ## Quality Measure Implementation Guide
 {: #quality-measure-implementation-guide}

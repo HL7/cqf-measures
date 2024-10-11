@@ -61,7 +61,7 @@ The following are conformance requirements when packaging a Measure:
           ii. The Library resource(s) SHALL conform to the [CQLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-cql-library.html)
   7. If the capabilities parameter of the package request includes `executable`: 
       a. The Measure resource SHALL conform to the [CQFMExecutableMeasure](StructureDefinition-executable-measure-cqfm.html) profile.
-      b. The Library resource(s) SHALL conform to the [CRMIExecutableLibrary](StructureDefinition-crmi-executablelibrary.html) profile.
+      b. The Library resource(s) SHALL conform to the [CRMIExecutableLibrary]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-executablelibrary.html) profile.
       a. For Measures using CQL
           i. The Measure resource SHALL conform to the [ELMMeasure](StructureDefinition-elm-measure-cqfm.html) profile.
           ii. The Library resource(s) SHALL conform to one (or both) of the [ELMXMLLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-xml-library.html) or [ELMJSONLibrary]({{site.data.fhir.ver.cql}}/StructureDefinition-elm-json-library.html) profiles.
