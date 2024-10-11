@@ -1605,7 +1605,7 @@ A content release can be used to meet many different use cases for packaging a c
 
 * The eCQM Annual Update, specifying a set of measure specifications together with the code system and value set version information that is to be used to calculate the measures.
 * Identifying sets of measures for a particular use, such as the Quality Payment Program (QPP) measures.
-* Publishing a release of a set of value sets such as the CCDA value sets, or the electronic Case Reporting (eCR) Public Health Trigger Codes.
+* Publishing a release of a set of value sets such as the C-CDA value sets, or the electronic Case Reporting (eCR) Public Health Trigger Codes.
 
 In all these cases, a Library conforming to the CRMIManifestLibrary profile can be used to communicate the details of the content release.
 
