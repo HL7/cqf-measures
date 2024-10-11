@@ -77,6 +77,14 @@ Interpretation: For each Eligible Clinician (EC), percentage of patients who rec
 
 [Preventive Care and Wellness (Component-level weighted)](Measure-PreventiveCareandWellnessWeightedComposite.html)
 
+### Manifest Examples
+
+Manifests are used to communicate sets of measures together with all the information about their use. See the [Manifest](measure-conformance.html#manifest) topic for more information on these examples:
+
+* [Manifest - Initial Draft](Library-Manifest-Initial-Draft.html)
+* [Manifest - Final Draft](Library-Manifest-Final-Draft.html)
+* [Manifest - Release](Library-Manifest-Release.html)
+
 ### Test Case examples
 
 The sections provide examples of test cases
