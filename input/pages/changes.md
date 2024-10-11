@@ -6,7 +6,7 @@
 
 ### STU5 Publication for FHIR R4 (v5.0.0)
 
-* **Applied**: Rename the QMIG CQFM publishable manifest profile to CQFM Content Release ([FHIR-45309](https://jira.hl7.org/browse/FHIR-45309))([Applied here](StructureDefinition-cqfm-content-release.profile.json.html)), ([here](profiles.html#additional-profiles)), ([here](measure-conformance.html#manifest)), and ([here](capabilities.html))
+* **Applied**: Rename the QMIG CQFM publishable manifest profile to CQFM Content Release ([FHIR-45309](https://jira.hl7.org/browse/FHIR-45309))([Applied here](profiles.html#additional-profiles)), ([here](measure-conformance.html#manifest)), and ([here](capabilities.html))
 * **Applied**: Update text in Measure.improvementNotation cmp-4	([FHIR-45311](https://jira.hl7.org/browse/FHIR-45311))([Applied here](StructureDefinition-computable-measure-cqfm.html#profile))
 * **Applied**: Allow support for stratification in ratio measures	([FHIR-45321](https://jira.hl7.org/browse/FHIR-45321))([Applied here]())
 * **Applied**: Measure.library cardinality([FHIR-45386](https://jira.hl7.org/browse/FHIR-45386))([Applied here]())
