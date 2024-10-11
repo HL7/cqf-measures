@@ -102,7 +102,7 @@ To support packaging, testing, and distribution of measure and library artifacts
 |----|----|
 | [CRMISoftwareSystemDevice]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-softwaresystemdevice.html) | A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.  |
 | CQFMContentRelease |  a set of measures together with the version information for code system and value sets referenced by those measures.  |
-| CQFMTestCase | A measure report profile that allows definition and exchange of test cases for a measure.  |
+| [CQFMTestCase](StructureDefinition-test-case-cqfm.html) | A measure report profile that allows definition and exchange of test cases for a measure.  |
 {: .grid }
 
 ## Alphabetical Listing
