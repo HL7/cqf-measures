@@ -792,9 +792,9 @@ For each scoring type, the set of applicable criteria are specified in the [Qual
 | Cohort               |         R          |     NP      |          NP           |           NP           |    NP     |          NP           |         NP          |              NP              |
 {: .grid}
 
-<span class="bg-success">
+
 NOTE: Composite measures are not represented in this table as they are made up of component measures.  The component measures in the composite will be expected to conform to the information in this table.
-</span>
+
 
 R=Required. O=Optional. NP=Not Permitted.
 
@@ -1504,9 +1504,6 @@ By convention, the name of each supplemental data element expression should star
 1. Risk Adjustment Data SHALL be included within the supplementalData element using a usage element of risk-adjustment-factor
 2. Risk Adjustment Data SHOULD reference a single CQL expression definition, with a name beginning with RAF
 
-<div class="note-to-balloters" markdown="1">
-Note to balloters - references to 'risk adjustment variable; have been updated in this section to 'risk adjustment data'.  The code system (https://terminology.hl7.org/5.4.0/CodeSystem-measure-data-usage.html) and value set https://terminology.hl7.org/5.4.0/ValueSet-measure-data-usage.html underlying that change will be updated in the next THO publication per UTG tracker https://jira.hl7.org/browse/UP-542 .
-</div>
 
 Measures may define variables used to adjust scores based on a measure of “risk” observed in the population. Such variables are referred to as risk adjustment data. Risk adjustment data are included in the supplementalData section and may be defined using CQL; such inclusions must adhere to Conformance Requirement 3.19.
 
