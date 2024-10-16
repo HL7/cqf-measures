@@ -3,7 +3,7 @@
 # This device profile is intended to model software systems as devices, not implantable devices like what the US Core profile is describing. Approved by US Realm on 6/30/2020.
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 
-# These following messages are referenced to QICore profiles from example content and we do not want to take a dependency on QICore. Example dependencies are in progress
+# These following messages are expected and referenced to QICore profiles from example content and we do not want to take a dependency on QICore. QI Core is a model and the intent of the QM IG is to provide guidance on the development of quality measures. Example dependencies are in progress
 ERROR: Bundle/bundle-example: Bundle.entry[1].resource/*Organization/null*/.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization' does not resolve
 ERROR: Bundle/bundle-example: Bundle.entry[2].resource/*Patient/null*/.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
 ERROR: Bundle/bundle-example: Bundle.entry[3].resource/*Practitioner/null*/.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner' does not resolve
@@ -54,10 +54,10 @@ WARNING: Measure/PreventiveCareandWellnessOpportunityComposite: Measure: A measu
 WARNING: Measure/PreventiveCareandWellnessPatientLevelLinearComposite: Measure: A measure should contain at least one group
 WARNING: Measure/PreventiveCareandWellnessWeightedComposite: Measure: A measure should contain at least one group
 
-# TMSG Exemption Approved on 10/7 but I can't find the minutes (the dog ate my homework) will track this down with TSMG
+# TMSG Exemption Approved on 10/7 (https://confluence.hl7.org/display/TSMG/2024-10-07+TSMG+Agenda+and+Minutes)
 INFORMATION: CodeSystem/intended-venue: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
 
-# The following messages are due to the workgroup extension not matching with any slice in the defined profiles
+# The following messages are expected due to the workgroup extension not matching with any slice in the defined profiles
 INFORMATION: Library/AdultOutpatientEncounters: Library.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary|1.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Library/AdultOutpatientEncounters: Library.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary|1.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Library/AdultOutpatientEncounters: Library.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/cql/StructureDefinition/elm-json-library|1.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)

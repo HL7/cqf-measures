@@ -8,7 +8,7 @@
   <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures"/>
   <version value="5.0.0"/>
   <name value="CQFMeasures"/>
-  <title value="Quality Measure Implementation Guide (STU5)"/>
+  <title value="Quality Measure Implementation Guide"/>
   <status value="draft"/>
   <experimental value="false"/>
   <publisher value="HL7 International / Clinical Quality Information"/>
@@ -37,12 +37,12 @@
   <!-- Note this dependency is included to support references to the lastest THO artifacts in this IG -->
   <dependsOn id="tx">
     <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
-    <packageId value="hl7.terminology"/>
+    <packageId value="hl7.terminology.r4"/>
     <version value="6.0.2"/>
   </dependsOn>
   <dependsOn id="ext">
     <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
-     <packageId value="hl7.fhir.uv.extensions"/>
+     <packageId value="hl7.fhir.uv.extensions.r4"/>
      <version value="5.1.0"/>
   </dependsOn>
   <dependsOn id="crmi">
@@ -811,7 +811,7 @@
 </page>
     <parameter>
       <code value="releaselabel"/>
-      <value value="release"/>
+      <value value="STU5"/>
     </parameter>
     <parameter>
       <code value="copyrightyear"/>
