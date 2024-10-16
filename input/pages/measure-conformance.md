@@ -1578,7 +1578,7 @@ Throughout the development phase, as additional code system versions are identif
 
 ##### Testing
 
-The testing phase allows for a "final draft" of the manifest. At this point, all code system versions have been identified, all component measures are known, and authoring features such as _includeDraft_ and _activeOnly_ are typically disabled, allowing testing to be performed with the final expected value set expansions. The manifest is still in _draft_ status, but the content at this point is expected to be stable and only subject to minor updates based on feedback from testing. See the [Manifest - Finl Draft](Library-Manifest-Final-Draft.html) for an example of a final draft of a manifest.
+The testing phase allows for a "final draft" of the manifest. At this point, all code system versions have been identified, all component measures are known, and authoring features such as _includeDraft_ and _activeOnly_ are typically disabled, allowing testing to be performed with the final expected value set expansions. The manifest is still in _draft_ status, but the content at this point is expected to be stable and only subject to minor updates based on feedback from testing. See the [Manifest - Final Draft](Library-Manifest-Final-Draft.html) for an example of a final draft of a manifest.
 
 ##### Release
 
@@ -1605,7 +1605,7 @@ A content release can be used to meet many different use cases for packaging a c
 
 * The eCQM Annual Update, specifying a set of measure specifications together with the code system and value set version information that is to be used to calculate the measures.
 * Identifying sets of measures for a particular use, such as the Quality Payment Program (QPP) measures.
-* Publishing a release of a set of value sets such as the CCDA value sets, or the electronic Case Reporting (eCR) Public Health Trigger Codes.
+* Publishing a release of a set of value sets such as the C-CDA value sets, or the electronic Case Reporting (eCR) Public Health Trigger Codes.
 
 In all these cases, a Library conforming to the CRMIManifestLibrary profile can be used to communicate the details of the content release.
 
