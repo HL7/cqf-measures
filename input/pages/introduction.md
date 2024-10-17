@@ -39,7 +39,7 @@ This IG is a conformance profile, as described in the [“Conformance” section
 Member attribution forms the framework for measuring performance of healthcare providers, reporting data and reimbursing for patient care using alternative payment models (APMs) that focus on value based management. 
 The process of establishing and exchanging Member Attribution (ATR) Lists for risk based contracts are complex and time consuming. How to apply attribution in a measure, or how to apply attribution when implementing a measure (attribution at different levels - population, 
 organization, practitioner, etc.) is out of scope for this IG. One method, referenced in the capabilities section of this IG (https://build.fhir.org/ig/HL7/cqf-measures/capabilities.html#capabilities-1), is the 
-Da Vinci - Member Attribution (ATR) List (http://hl7.org/fhir/us/davinci-atr/STU2/) that is published to specify standards for exchanging of Member Attribution (ATR) Lists between providers and payers.
+Da Vinci - Member Attribution (ATR) List (http://hl7.org/fhir/us/davinci-atr/STU2/) that is published to specify standards for exchanging Member Attribution (ATR) Lists between providers and payers.
 
 ### Conventions
 {: #conventions}
