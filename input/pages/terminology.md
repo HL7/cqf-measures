@@ -5,7 +5,7 @@
 ### CodeSystem Resources
 {: #codesystem-resources}
 
--  [Intended Venue](CodeSystem-intended-venue.html)
+-  [Intended Venue](CodeSystem-intended-venue-codes.html)
 
 ### ValueSet Resources
 {: #valueset-resources}
