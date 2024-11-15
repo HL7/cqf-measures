@@ -3,10 +3,10 @@
   "id": "EXM55-FHIR",
   "meta": {
     "profile": [ 
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cv-measure-cqfm", 
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
+      "http://hl7.org/fhir/uv/cqm/StructureDefinition/cv-measure-cqfm", 
+      "http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm",
       "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cql-measure-cqfm"
+      "http://hl7.org/fhir/uv/cqm/StructureDefinition/cql-measure-cqfm"
     ]
   },
   "contained": [
@@ -18,7 +18,7 @@
         "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"
         ]
       },
-      "url" : "http://hl7.org/fhir/us/cqfmeasures/Library/effective-data-requirements-exm55",
+      "url" : "http://hl7.org/fhir/uv/cqm/Library/effective-data-requirements-exm55",
       "version" : "1.0.0",
       "name": "ModuleDefinitionLibraryEXM55",
       "title" : "Module Definition Library - EXM55",
@@ -231,7 +231,7 @@
       } ]
     }   ],
   "extension": [ {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+    "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
     "valueCode": "Encounter"
   }, {
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
@@ -244,7 +244,7 @@
       
     }
   ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM55-FHIR",
+  "url": "http://hl7.org/fhir/uv/cqm/Measure/EXM55-FHIR",
   "identifier": [ {
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
@@ -272,7 +272,7 @@
     },
     "valueCodeableConcept": {
       "coding": [{
-        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue-codes",
+        "system": "http://hl7.org/fhir/uv/cqm/CodeSystem/intended-venue-codes",
         "code": "eh",
         "display": "EH"
       }]
@@ -297,7 +297,7 @@
       "display": "Health Quality Measure Document"
     } ]
   } ],
-  "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/EXM55-FHIR" ],
+  "library": [ "http://hl7.org/fhir/uv/cqm/Library/EXM55-FHIR" ],
   "scoring": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
@@ -357,10 +357,10 @@
       }
     }, {
       "extension": [ {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
+        "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-criteriaReference",
         "valueString": "measure-population-identifier"
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+        "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-aggregateMethod",
         "valueCode": "median"
       } ],
       "code": {
@@ -377,7 +377,7 @@
     } ],
     "stratifier": [ {
       "extension": [ {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo",
+        "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-appliesTo",
         "valueCodeableConcept": {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-population",
@@ -399,7 +399,7 @@
       }
     }, {
       "extension": [ {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo",
+        "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-appliesTo",
         "valueCodeableConcept": {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-population",
@@ -421,7 +421,7 @@
       }
     }, {
       "extension": [ {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo",
+        "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-appliesTo",
         "valueCodeableConcept": {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-population",
