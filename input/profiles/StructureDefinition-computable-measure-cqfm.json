@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "computable-measure-cqfm",
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
+  "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm",
   "version": "4.0.0",
   "name": "CQFMComputableMeasure",
   "title": "CQFM Computable Measure",
@@ -67,19 +67,19 @@
             "key" : "cmp-1",
             "severity" : "error",
             "human" : "Population basis must be specified at the root, or on each group",
-            "expression" : "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis').exists() or group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis').exists()).allTrue()"
+            "expression" : "extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis').exists() or group.select(extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis').exists()).allTrue()"
           },
           {
             "key" : "cmp-2",
             "severity" : "error",
             "human" : "Scoring must be specified at the root, or on each group",
-            "expression" : "scoring.exists() or group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists()).allTrue()"
+            "expression" : "scoring.exists() or group.select(extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring').exists()).allTrue()"
           },
           {
             "key" : "cmp-3",
             "severity" : "error",
             "human" : "Scoring unit may only be specified at the root if the scoring is also specified at the root",
-            "expression" : "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit').exists() implies scoring.exists()"
+            "expression" : "extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoringUnit').exists() implies scoring.exists()"
           },
           {
             "key" : "cmp-4",
@@ -91,19 +91,19 @@
             "key" : "cmp-5",
             "severity" : "error",
             "human" : "If type is specified at the root, it may not be specified on any group",
-            "expression" : "type.exists() implies group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type').exists()).allFalse()"
+            "expression" : "type.exists() implies group.select(extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-type').exists()).allFalse()"
           },
           {
             "key" : "cmp-6",
             "severity" : "error",
             "human" : "If riskAdjustment is specified at the root, it may not be specified on any group",
-            "expression" : "riskAdjustment.exists() implies group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-riskAdjustment').exists()).allFalse()"
+            "expression" : "riskAdjustment.exists() implies group.select(extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-riskAdjustment').exists()).allFalse()"
           },
           {
             "key" : "cmp-7",
             "severity" : "error",
             "human" : "If rateAggregation is specified at the root, it may not be specified on any group",
-            "expression" : "rateAggregation.exists() implies group.select(extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-rateAggregation').exists()).allFalse()"
+            "expression" : "rateAggregation.exists() implies group.select(extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-rateAggregation').exists()).allFalse()"
           }
         ],
         "mustSupport" : true
@@ -118,7 +118,7 @@
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
+              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis"
             ]
           }
         ],
@@ -137,7 +137,7 @@
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit"
+              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoringUnit"
             ]
           }
         ],
@@ -172,7 +172,7 @@
           {
             "code" : "Extension",
             "profile" : [
-             "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringPrecision"
+             "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoringPrecision"
             ]
           }
         ]
@@ -258,13 +258,13 @@
             "key" : "cmp-8",
             "severity" : "error",
             "human" : "Scoring unit may only be specified at the root if the scoring is also specified at the root",
-            "expression" : "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit').exists() implies extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists()"
+            "expression" : "extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoringUnit').exists() implies extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring').exists()"
           },
           {
             "key" : "cmp-9",
             "severity" : "error",
             "human" : "Improvement notation must be specified for scoring types other than cohort",
-            "expression" : "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value in ('proportion' | 'ratio' | 'continuous-variable') implies extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation').exists()"
+            "expression" : "extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring').value in ('proportion' | 'ratio' | 'continuous-variable') implies extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-improvementNotation').exists()"
           }
         ],
         "mustSupport" : true
@@ -279,7 +279,7 @@
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
+              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis"
             ]
           }
         ],
@@ -298,7 +298,7 @@
           {
             "code" : "Extension",
             "profile" : [
-               "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring"
+               "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring"
             ]
           }
         ],
@@ -319,7 +319,7 @@
           {
             "code" : "Extension",
             "profile" : [
-               "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit"
+               "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoringUnit"
             ]
           }
         ],
@@ -338,7 +338,7 @@
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringPrecision"
+              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoringPrecision"
             ]
           }
         ]
@@ -353,7 +353,7 @@
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-compositeScoring"
+              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-compositeScoring"
             ]
           }
         ],
@@ -372,7 +372,7 @@
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component"
+              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-component"
             ]
           }
         ],
@@ -391,7 +391,7 @@
           {
             "code" : "Extension",
             "profile" : [
-             "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type"
+             "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-type"
             ]
           }
         ],
@@ -410,7 +410,7 @@
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-riskAdjustment"
+              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-riskAdjustment"
             ]
           }
         ],
@@ -429,7 +429,7 @@
           {
             "code" : "Extension",
             "profile" : [
-             "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-rateAggregation"
+             "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-rateAggregation"
             ]
           }
         ],
@@ -448,7 +448,7 @@
           {
             "code" : "Extension",
             "profile" : [
-               "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation"
+               "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-improvementNotation"
             ]
           }
         ],
@@ -521,7 +521,7 @@
           {
             "code" : "Extension",
             "profile" : [
-               "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo"
+               "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-appliesTo"
             ]
           }
         ],

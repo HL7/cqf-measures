@@ -3,17 +3,17 @@
   "id" : "EXMRatio-FHIR",
   "meta" : {
     "profile" : [
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
+      "http://hl7.org/fhir/uv/cqm/StructureDefinition/ratio-measure-cqfm",
+      "http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm"
     ]
   },
   "extension" : [
     {
-      "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
       "valueCode" : "Encounter"
     },
     {
-      "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit",
+      "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoringUnit",
       "valueCodeableConcept" : {
         "coding" : [
           {
@@ -31,7 +31,7 @@
     },
     {
       "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
-      "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Library/effective-data-requirements-exmlogic"
+      "valueCanonical": "http://hl7.org/fhir/uv/cqm/Library/effective-data-requirements-exmlogic"
         
     }
   ],
@@ -78,11 +78,11 @@
   "effectivePeriod" : {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor",
+        "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-effectivePeriodAnchor",
         "valueDateTime" : "2018-01-01"
       },
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration",
+        "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-effectivePeriodDuration",
         "valueDuration" : {
           "value" : 1,
           "system" : "http://unitsofmeasure.org",
@@ -110,7 +110,7 @@
     }
   ],
   "library" : [
-    "http://hl7.org/fhir/us/cqfmeasures/Library/EXMRatio-FHIR"
+    "http://hl7.org/fhir/uv/cqm/Library/EXMRatio-FHIR"
   ],
   "disclaimer" : "Example disclaimer",
   "scoring" : {
@@ -197,11 +197,11 @@
           "id" : "denominator-observation",
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
+              "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-criteriaReference",
               "valueString" : "denominator"
             },
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+              "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-aggregateMethod",
               "valueCode" : "sum"
             }
           ],
@@ -223,11 +223,11 @@
           "id" : "numerator-observation",
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
+              "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-criteriaReference",
               "valueString" : "numerator"
             },
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+              "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-aggregateMethod",
               "valueCode" : "sum"
             }
           ],

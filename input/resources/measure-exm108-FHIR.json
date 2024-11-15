@@ -3,19 +3,19 @@
   "id": "EXM108-FHIR",
   "meta": {
     "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure", 
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
+    "http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm" ]
   },
   "extension": [ {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+    "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
     "valueCode": "Encounter"
   }, 
   {
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
-    "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Library/effective-data-requirements-exm108"
+    "valueCanonical": "http://hl7.org/fhir/uv/cqm/Library/effective-data-requirements-exm108"
       
     }
   ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM108-FHIR",
+  "url": "http://hl7.org/fhir/uv/cqm/Measure/EXM108-FHIR",
   "identifier": [ {
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/cms",
@@ -55,7 +55,7 @@
       "display": "Health Quality Measure Document"
     } ]
   } ],
-  "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/EXM108-FHIR" ],
+  "library": [ "http://hl7.org/fhir/uv/cqm/Library/EXM108-FHIR" ],
   "disclaimer": "These performance measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. The measures and specifications are provided without warranty",
   "scoring": {
     "coding": [ {
@@ -139,7 +139,7 @@
   {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
+        "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-includeInReportType",
         "valueCode" : "summary"
       }
     ],
@@ -156,7 +156,7 @@
   }, {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
+        "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-includeInReportType",
         "valueCode" : "summary"
       }
     ],
@@ -173,7 +173,7 @@
   }, {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
+        "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-includeInReportType",
         "valueCode" : "summary"
       }
     ],
@@ -190,7 +190,7 @@
   }, {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
+        "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-includeInReportType",
         "valueCode" : "summary"
       }
     ],

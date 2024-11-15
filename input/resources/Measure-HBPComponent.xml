@@ -1,9 +1,9 @@
 <Measure xmlns="http://hl7.org/fhir">
    <id value="HBPComponent"></id>
    <meta>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"></profile>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/proportion-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/publishable-measure-cqfm"></profile>
    </meta>
    <language value="en"></language>
    <!--
@@ -631,7 +631,7 @@
          <relatedArtifact>
             <type value="depends-on"></type>
             <display value="Library SDE"></display>
-            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.000"></resource>
+            <resource value="http://hl7.org/fhir/uv/cqm/Library/SupplementalDataElements|2.0.000"></resource>
          </relatedArtifact>
          <relatedArtifact>
             <type value="depends-on"></type>
@@ -641,7 +641,7 @@
          <relatedArtifact>
             <type value="depends-on"></type>
             <display value="Library Global"></display>
-            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"></resource>
+            <resource value="http://hl7.org/fhir/uv/cqm/Library/MATGlobalCommonFunctions|5.0.000"></resource>
          </relatedArtifact>
          <relatedArtifact>
             <type value="depends-on"></type>
@@ -1252,7 +1252,7 @@
       </Library>
    </contained>
    -->
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+   <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis">
       <valueCode value="Encounter"></valueCode>
    </extension>
    <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem">
@@ -1261,9 +1261,9 @@
       </valueReference>
    </extension>
    <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
-    <valueCanonical value="http://hl7.org/fhir/us/cqfmeasures/Library/moduledefinition-example"/>
+    <valueCanonical value="http://hl7.org/fhir/uv/cqm/Library/moduledefinition-example"/>
   </extension>
-  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance">
+  <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-supplementalDataGuidance">
     <extension url="usage">
       <valueCodeableConcept>
         <coding>
@@ -1314,7 +1314,7 @@
     </type>
     <value value="High Blood Pressure Screening"/>
   </identifier>
-   <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/HBPComponent"></url>
+   <url value="http://hl7.org/fhir/uv/cqm/Measure/HBPComponent"></url>
    <version value="0.0.001"></version>
    <name value="HBPComponent"></name>
    <title value="Preventive Care and Screening: Screening for High Blood Pressure and Follow-Up Documented"></title>
@@ -1327,7 +1327,7 @@
       <start value="2022-01-01"></start>
       <end value="2022-12-31"></end>
    </effectivePeriod>
-   <library value="http://hl7.org/fhir/us/cqfmeasures/Library/HBPComponent"></library>
+   <library value="http://hl7.org/fhir/uv/cqm/Library/HBPComponent"></library>
    <scoring>
       <coding>
          <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"></system>

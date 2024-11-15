@@ -1,9 +1,9 @@
 <Measure xmlns="http://hl7.org/fhir">
    <id value="TSCComponent"></id>
    <meta>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"></profile>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/proportion-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/publishable-measure-cqfm"></profile>
    </meta>
    <language value="en"></language>
    <!--
@@ -565,7 +565,7 @@ define &quot;Has Limited Life Expectancy&quot;:
          <relatedArtifact>
             <type value="depends-on"></type>
             <display value="Library Global"></display>
-            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"></resource>
+            <resource value="http://hl7.org/fhir/uv/cqm/Library/MATGlobalCommonFunctions|5.0.000"></resource>
          </relatedArtifact>
          <relatedArtifact>
             <type value="depends-on"></type>
@@ -575,7 +575,7 @@ define &quot;Has Limited Life Expectancy&quot;:
          <relatedArtifact>
             <type value="depends-on"></type>
             <display value="Library SDE"></display>
-            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.000"></resource>
+            <resource value="http://hl7.org/fhir/uv/cqm/Library/SupplementalDataElements|2.0.000"></resource>
          </relatedArtifact>
          <relatedArtifact>
             <type value="depends-on"></type>
@@ -1038,7 +1038,7 @@ define &quot;Has Limited Life Expectancy&quot;:
       </Library>
    </contained>
    -->
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+   <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis">
       <valueCode value="boolean"></valueCode>
    </extension>
    <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem">
@@ -1047,7 +1047,7 @@ define &quot;Has Limited Life Expectancy&quot;:
       </valueReference>
    </extension>
    <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
-    <valueCanonical value="http://hl7.org/fhir/us/cqfmeasures/Library/moduledefinition-example"/>
+    <valueCanonical value="http://hl7.org/fhir/uv/cqm/Library/moduledefinition-example"/>
   </extension>
    <identifier>
     <use value="official"/>
@@ -1087,7 +1087,7 @@ define &quot;Has Limited Life Expectancy&quot;:
     </type>
     <value value="Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention"/>
   </identifier>
-   <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent"></url>
+   <url value="http://hl7.org/fhir/uv/cqm/Measure/TSCComponent"></url>
    <version value="0.0.001"></version>
    <name value="TSCComponent"></name>
    <title value="Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention"></title>
@@ -1100,7 +1100,7 @@ define &quot;Has Limited Life Expectancy&quot;:
       <start value="2022-01-01"></start>
       <end value="2022-12-31"></end>
    </effectivePeriod>
-   <library value="http://hl7.org/fhir/us/cqfmeasures/Library/TSCComponent"></library>
+   <library value="http://hl7.org/fhir/uv/cqm/Library/TSCComponent"></library>
    <scoring>
       <coding>
          <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"></system>

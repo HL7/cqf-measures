@@ -2,17 +2,17 @@
   "resourceType": "Measure",
   "id": "EXM124-FHIR",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm","http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm" ]
+    "profile": [ "http://hl7.org/fhir/uv/cqm/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm","http://hl7.org/fhir/uv/cqm/StructureDefinition/publishable-measure-cqfm" ]
   },
   "extension": [ {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+    "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
     "valueCode": "boolean"
   }, {
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
-    "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Library/effective-data-requirements-exm124"
+    "valueCanonical": "http://hl7.org/fhir/uv/cqm/Library/effective-data-requirements-exm124"
       
   } ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124-FHIR",
+  "url": "http://hl7.org/fhir/uv/cqm/Measure/EXM124-FHIR",
   "identifier": [ {
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/cms",
@@ -93,7 +93,7 @@
       "display": "Health Quality Measure Document"
     } ]
   } ],
-  "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/EXM124-FHIR" ],
+  "library": [ "http://hl7.org/fhir/uv/cqm/Library/EXM124-FHIR" ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. \n Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
     "coding": [ {

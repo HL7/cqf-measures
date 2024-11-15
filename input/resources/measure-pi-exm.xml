@@ -1,8 +1,8 @@
 <Measure xmlns="http://hl7.org/fhir">
    <id value="measure-pi-exm"></id>
    <meta>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"></profile>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/proportion-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm"></profile>
    </meta>
    <!-- contained resource not used in this resource
    <contained>
@@ -115,10 +115,10 @@
       </Library>
    </contained>
    -->
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+   <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis">
       <valueCode value="Encounter"></valueCode>
    </extension>
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit">
+   <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoringUnit">
       <valueCodeableConcept>
          <coding>
             <system value="http://unitsofmeasure.org"></system>
@@ -132,7 +132,7 @@
       </valueReference>
    </extension>
    <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
-      <valueCanonical value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic-ModuleDefinition"/>
+      <valueCanonical value="http://hl7.org/fhir/uv/cqm/Library/EXMLogic-ModuleDefinition"/>
    </extension>
    <url value="http://example.org/fhir/measures/measure-proportion-exm"></url>
    <identifier>
@@ -165,10 +165,10 @@
    <approvalDate value="2019-02-17"></approvalDate>
    <lastReviewDate value="2019-02-17"></lastReviewDate>
    <effectivePeriod>
-      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor">
+      <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-effectivePeriodAnchor">
          <valueDateTime value="2018-01-01"></valueDateTime>
       </extension>
-      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration">
+      <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-effectivePeriodDuration">
          <valueDuration>
             <value value="1"></value>
             <system value="http://unitsofmeasure.org"></system>

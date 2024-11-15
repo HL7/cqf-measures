@@ -3,9 +3,9 @@
   "id" : "EXMLogic-FHIR",
   "meta" : {
     "profile" : [
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/executable-measure-cqfm"
+      "http://hl7.org/fhir/uv/cqm/StructureDefinition/proportion-measure-cqfm",
+      "http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm",
+      "http://hl7.org/fhir/uv/cqm/StructureDefinition/executable-measure-cqfm"
     ]
   },
   "extension" : [
@@ -23,7 +23,7 @@
       "url" : "http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"
     },
     {
-      "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
       "valueCode" : "Encounter"
     },
     {
@@ -34,15 +34,15 @@
     },
     {
       "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
-      "valueCanonical": "http://hl7.org/fhir/us/cqfmeasures/Library/effective-data-requirements-exmlogic"
+      "valueCanonical": "http://hl7.org/fhir/uv/cqm/Library/effective-data-requirements-exmlogic"
         
     },
     {
-      "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringPrecision",
+      "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoringPrecision",
       "valuePositiveInt" : 2
     }
   ],
-  "url" : "http://hl7.org/fhir/us/cqfmeasures/Measure/EXMLogic-FHIR",
+  "url" : "http://hl7.org/fhir/uv/cqm/Measure/EXMLogic-FHIR",
   "identifier" : [
     {
       "system" : "http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm",
@@ -96,11 +96,11 @@
   "effectivePeriod" : {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor",
+        "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-effectivePeriodAnchor",
         "valueDateTime" : "2018-01-01"
       },
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration",
+        "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-effectivePeriodDuration",
         "valueDuration" : {
           "value" : 1,
           "system" : "http://unitsofmeasure.org",
@@ -128,7 +128,7 @@
     }
   ],
   "library" : [
-    "http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic-FHIR"
+    "http://hl7.org/fhir/uv/cqm/Library/EXMLogic-FHIR"
   ],
   "disclaimer" : "Example disclaimer",
   "scoring" : {
@@ -231,7 +231,7 @@
           "id" : "stratifier-1",
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo",
+              "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-appliesTo",
               "valueCodeableConcept" : {
                 "coding" : [
                   {
@@ -256,7 +256,7 @@
           "id" : "stratifier-2",
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo",
+              "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-appliesTo",
               "valueCodeableConcept" : {
                 "coding" : [
                   {
@@ -281,7 +281,7 @@
           "id" : "stratifier-3",
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo",
+              "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-appliesTo",
               "valueCodeableConcept" : {
                 "coding" : [
                   {
@@ -306,7 +306,7 @@
           "id" : "stratifier-4",
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-appliesTo",
+              "url" : "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-appliesTo",
               "valueCodeableConcept" : {
                 "coding" : [
                   {
