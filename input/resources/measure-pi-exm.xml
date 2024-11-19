@@ -1,7 +1,7 @@
 <Measure xmlns="http://hl7.org/fhir">
     <id value="measure-pi-exm"></id>
     <meta>
-        <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/attestation-measure-cqfm"></profile>
+        <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/attestation-measure-cqfm"></profile>
     </meta>
     <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem">
         <valueReference>
@@ -35,7 +35,7 @@
       </code>
       <valueCodeableConcept>
         <coding>
-          <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue-codes"/>
+          <system value="http://hl7.org/fhir/uv/cqm/CodeSystem/intended-venue-codes"/>
           <code value="ec"/>
           <display value="EC"/>
         </coding>
@@ -54,10 +54,10 @@
     <approvalDate value="2019-02-17"></approvalDate>
     <lastReviewDate value="2019-02-17"></lastReviewDate>
     <effectivePeriod>
-        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor">
+        <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-effectivePeriodAnchor">
             <valueDateTime value="2018-01-01"></valueDateTime>
         </extension>
-        <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration">
+        <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-effectivePeriodDuration">
             <valueDuration>
                 <value value="1"></value>
                 <system value="http://unitsofmeasure.org"></system>
