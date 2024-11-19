@@ -2,10 +2,10 @@
    <id value="BCSComponent"></id>
    <meta>
       <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure"></profile>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"></profile>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"></profile>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"></profile>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cql-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/proportion-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/publishable-measure-cqfm"></profile>
+      <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/cql-measure-cqfm"></profile>
    </meta>
    <language value="en"></language>
    <!--
@@ -584,7 +584,7 @@ define &quot;Long Term Care Periods During Measurement Period&quot;:
          <relatedArtifact>
             <type value="depends-on"></type>
             <display value="Library SDE"></display>
-            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.000"></resource>
+            <resource value="http://hl7.org/fhir/uv/cqm/Library/SupplementalDataElements|2.0.000"></resource>
          </relatedArtifact>
          <relatedArtifact>
             <type value="depends-on"></type>
@@ -594,22 +594,22 @@ define &quot;Long Term Care Periods During Measurement Period&quot;:
          <relatedArtifact>
             <type value="depends-on"></type>
             <display value="Library Global"></display>
-            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"></resource>
+            <resource value="http://hl7.org/fhir/uv/cqm/Library/MATGlobalCommonFunctions|5.0.000"></resource>
          </relatedArtifact>
          <relatedArtifact>
             <type value="depends-on"></type>
             <display value="Library AdultOutpatientEncounters"></display>
-            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/AdultOutpatientEncounters|2.0.000"></resource>
+            <resource value="http://hl7.org/fhir/uv/cqm/Library/AdultOutpatientEncounters|2.0.000"></resource>
          </relatedArtifact>
          <relatedArtifact>
             <type value="depends-on"></type>
             <display value="Library Hospice"></display>
-            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/Hospice|2.0.000"></resource>
+            <resource value="http://hl7.org/fhir/uv/cqm/Library/Hospice|2.0.000"></resource>
          </relatedArtifact>
          <relatedArtifact>
             <type value="depends-on"></type>
             <display value="Library Frailty"></display>
-            <resource value="http://hl7.org/fhir/us/cqfmeasures/Library/AdvancedIllnessandFrailtyExclusion|5.12.000"></resource>
+            <resource value="http://hl7.org/fhir/uv/cqm/Library/AdvancedIllnessandFrailtyExclusion|5.12.000"></resource>
          </relatedArtifact>
          <relatedArtifact>
             <type value="depends-on"></type>
@@ -1140,7 +1140,7 @@ define &quot;Long Term Care Periods During Measurement Period&quot;:
       </Library>
    </contained>
    -->
-   <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+   <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis">
       <valueCode value="boolean"></valueCode>
    </extension>
    <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem">
@@ -1149,7 +1149,7 @@ define &quot;Long Term Care Periods During Measurement Period&quot;:
       </valueReference>
    </extension>
    <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
-    <valueCanonical value="http://hl7.org/fhir/us/cqfmeasures/Library/moduledefinition-example"/>
+    <valueCanonical value="http://hl7.org/fhir/uv/cqm/Library/moduledefinition-example"/>
   </extension>
   <identifier>
     <use value="official"/>
@@ -1189,7 +1189,7 @@ define &quot;Long Term Care Periods During Measurement Period&quot;:
     </type>
     <value value="Breast Cancer Screening"/>
   </identifier>
-   <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/BCSComponent"></url>
+   <url value="http://hl7.org/fhir/uv/cqm/Measure/BCSComponent"></url>
    <version value="0.0.001"></version>
    <name value="BCSComponent"></name>
    <title value="Breast Cancer Screening"></title>
@@ -1206,7 +1206,7 @@ define &quot;Long Term Care Periods During Measurement Period&quot;:
       </code>
       <valueCodeableConcept>
         <coding>
-          <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue-codes"/>
+          <system value="http://hl7.org/fhir/uv/cqm/CodeSystem/intended-venue-codes"/>
           <code value="ec"/>
           <display value="EC"/>
         </coding>
@@ -1216,7 +1216,7 @@ define &quot;Long Term Care Periods During Measurement Period&quot;:
       <start value="2022-01-01"></start>
       <end value="2022-12-31"></end>
    </effectivePeriod>
-   <library value="http://hl7.org/fhir/us/cqfmeasures/Library/BCSComponent"></library>
+   <library value="http://hl7.org/fhir/uv/cqm/Library/BCSComponent"></library>
    <scoring>
       <coding>
          <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"></system>
