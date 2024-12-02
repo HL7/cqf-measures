@@ -8681,7 +8681,69 @@
         },
         {
           "name": "Quality Program 7 Package",
-          "item": []
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "//SOT@## Quality Program 7 Package @SOT",
+                  "// Based on FHIR R4 source of truth: SOT@ https://madie.cms.gov/Library/PCSDepressionScreenAndFollowUpFHIR @SOT",
+                  "// NOTE: all package operations are specific to a server. Different servers support packaging for different resources. To see possible resources: https://build.fhir.org/ig/HL7/crmi-ig/OperationDefinition-crmi-package.html",
+                  "// Description of the $package operation https://build.fhir.org/ig/HL7/crmi-ig/distribution.html",
+                  "// As of 11/29/2024 the only server I have found that supports $package is the cqf-ruler",
+                  "\r",
+                  "pm.test(\"Response status code is 200\", function () {\r",
+                  "    pm.expect(pm.response.code).to.equal(200);\r",
+                  "    if (pm.environment.get(\"QUALITY_PROGRAM_DEBUG\") === true){",
+                  "    const responseData = pm.response.json();\r",
+                  "       console.log(responseData);",
+                  "    }",
+                  "});\r",
+                  "\r",
+                  "// resourceType\r",
+                  "pm.test(\"A resourceType of 'Bundle' is returned.\", function () {\r",
+                  "    const responseData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(responseData.resourceType).equal(\"Bundle\", \"Invalid return resourceType\");\r",
+                  "});\r",
+                  "\r",
+                  "// bundle type\r",
+                  "// NOTE: This is based on latest as of this test date\r",
+                  "pm.test(\"Bundle type is 'collection'\", function () {\r",
+                  "    const responseData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(responseData.type).to.equal(\"collection\", \"Invalid bundle type\");\r",
+                  "});\r",
+                  "\r"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"resourceType\": \"Parameters\",\n    \"parameter\": [\n        {\n            \"name\": \"terminologyEndpoint\",\n            \"resource\": {\n                \"resourceType\": \"Endpoint\",\n                \"id\": \"vsac-creds\",\n                \"extension\": [\n                    { \"url\": \"vsacUsername\", \"valueString\": \"{{basicUser}}\" },\n                    { \"url\": \"apiKey\", \"valueString\": \"{{basicPass}}\" }\n                ],\n                \"status\": \"active\",\n                \"connectionType\": {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/endpoint-connection-type\",\n                    \"code\": \"hl7-fhir-rest\"\n                },\n                \"payloadType\": [\n                    {\n                        \"coding\": [\n                            {\n                                \"system\": \"http://hl7.org/fhir/ValueSet/endpoint-payload-type\",\n                                \"code\": \"any\"\n                            }\n                        ]\n                    }\n                ],\n                \"address\": \"https://cloud.alphora.com/ufl/r4/\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{SERVER_URL}}PlanDefinition/opioidcds-01$package",
+              "host": [
+                "{{SERVER_URL}}PlanDefinition"
+              ],
+              "path": [
+                "opioidcds-01",
+                "$package"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "Release 8",

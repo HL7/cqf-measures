@@ -1,4 +1,4 @@
-The following lists test sections and the required resources for those sections. This file was generated using sot.sh at 2024-09-18 07:58:01
+The following lists test sections and the required resources for those sections. This file was generated using sot.sh at 2024-12-02 12:29:23
 /
 ## CodeSystem 1 Shareable 
  https://hl7.org/fhir/R4/codesystem-request-intent.json 
@@ -78,3 +78,5 @@ The following lists test sections and the required resources for those sections.
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005|20190315 
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499 
  http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1499 
+## Quality Program 7 Package 
+ https://madie.cms.gov/Library/PCSDepressionScreenAndFollowUpFHIR 
