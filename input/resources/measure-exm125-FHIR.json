@@ -3,9 +3,9 @@
   "id": "EXM125-FHIR",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/cqm/StructureDefinition/proportion-measure-cqfm",
-      "http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm",
-      "http://hl7.org/fhir/uv/cqm/StructureDefinition/cql-measure-cqfm"
+      "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/proportion-measure-cqfm",
+      "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/computable-measure-cqfm",
+      "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cql-measure-cqfm"
     ]
   },
   "contained": [
@@ -17,7 +17,7 @@
         "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"
         ]
       },
-      "url" : "http://hl7.org/fhir/uv/cqm/Library/effective-data-requirements-exm125",
+      "url" : "http://hl7.org/fhir/uv/cqfmeasures/Library/effective-data-requirements-exm125",
       "version" : "1.0.0",
       "title" : "Module Definition Library - EXM125",
       "description" : "This library is used as an example module definition in the FHIR Quality Measure Implementation Guide",
@@ -341,7 +341,7 @@
       "relatedArtifact": [ {
         "type": "depends-on",
         "display": "Library SDE",
-        "resource": "http://hl7.org/fhir/uv/cqm/Library/SupplementalDataElements|2.0.000"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Library/SupplementalDataElements|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
@@ -349,15 +349,15 @@
       }, {
         "type": "depends-on",
         "display": "Library Global",
-        "resource": "http://hl7.org/fhir/uv/cqm/Library/MATGlobalCommonFunctions|5.0.000"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"
       }, {
         "type": "depends-on",
         "display": "Library AdultOutpatientEncounters",
-        "resource": "http://hl7.org/fhir/uv/cqm/Library/AdultOutpatientEncounters|2.0.000"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Library/AdultOutpatientEncounters|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Hospice",
-        "resource": "http://hl7.org/fhir/uv/cqm/Library/Hospice|2.0.000"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Library/Hospice|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system SNOMEDCT:2017-09",
@@ -625,14 +625,14 @@
       } ]
     }  ],
   "extension": [ {
-    "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
+    "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
     "valueCode": "boolean"
   }, {
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
     "valueCanonical": "#effective-data-requirements-exm125"
 
   } ],
-  "url": "http://hl7.org/fhir/uv/cqm/Measure/EXM125-FHIR",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/Measure/EXM125-FHIR",
   "identifier": [ {
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/cms",
@@ -664,7 +664,7 @@
     },
     "valueCodeableConcept": {
       "coding": [{
-        "system": "http://hl7.org/fhir/uv/cqm/CodeSystem/intended-venue-codes",
+        "system": "http://hl7.org/fhir/uv/cqfmeasures/CodeSystem/intended-venue-codes",
         "code": "ec",
         "display": "EC"
       }]
@@ -691,7 +691,7 @@
       "display": "Health Quality Measure Document"
     } ]
   } ],
-  "library": [ "http://hl7.org/fhir/uv/cqm/Library/EXM125-FHIR" ],
+  "library": [ "http://hl7.org/fhir/uv/cqfmeasures/Library/EXM125-FHIR" ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.",
   "scoring": {
     "coding": [ {

@@ -2,7 +2,7 @@
   "resourceType": "Measure",
   "id": "MultiRateExample-FHIR",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm" ]
+    "profile": [ "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
      },
   "contained": [
     {
@@ -13,7 +13,7 @@
         "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"
         ]
       },
-      "url" : "http://hl7.org/fhir/uv/cqm/Library/effective-data-requirements-mre",
+      "url" : "http://hl7.org/fhir/uv/cqfmeasures/Library/effective-data-requirements-mre",
       "version" : "1.0.0",
       "title" : "Module Definition Library - MultiRateExample",
       "description" : "This library is used as an example module definition in the FHIR Quality Measure Implementation Guide",
@@ -205,14 +205,14 @@
       } ]
     }   ],
   "extension": [  {
-    "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
+    "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
     "valueCode": "Patient"
   }, {
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
     "valueCanonical": "#effective-data-requirements-mre"
     }
    ],
-  "url": "http://hl7.org/fhir/uv/cqm/Measure/MultiRateExample-FHIR",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/Measure/MultiRateExample-FHIR",
   "version": "0.1.0",
   "name": "MultiRateExample",
   "title": "Multi-Rate Example Measure",
@@ -234,20 +234,20 @@
     },
     "valueCodeableConcept": {
       "coding": [{
-        "system": "http://hl7.org/fhir/uv/cqm/CodeSystem/intended-venue-codes",
+        "system": "http://hl7.org/fhir/uv/cqfmeasures/CodeSystem/intended-venue-codes",
         "code": "ec",
         "display": "EC"
       }]
     }
   } ],
-  "library": [ "http://hl7.org/fhir/uv/cqm/Library/MultiRateExample-FHIR" ],
+  "library": [ "http://hl7.org/fhir/uv/cqfmeasures/Library/MultiRateExample-FHIR" ],
   "group": [ {
     "id": "group-1",
     "extension": [ {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "Patient"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
@@ -255,7 +255,7 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-type",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-type",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-type",
@@ -263,13 +263,13 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-riskAdjustment",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-rateAggregation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-improvementNotation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
@@ -306,7 +306,7 @@
       }
     }, {
       "extension": [ {
-        "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-aggregateMethod",
+        "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
         "valueCode": "sum"
       } ],
       "code": {
@@ -324,10 +324,10 @@
   }, {
     "id": "group-2",
     "extension": [ {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "PractitionerRole"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
@@ -335,7 +335,7 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-type",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-type",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-type",
@@ -343,13 +343,13 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-riskAdjustment",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-rateAggregation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-improvementNotation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
@@ -386,7 +386,7 @@
       }
     }, {
       "extension": [ {
-        "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-aggregateMethod",
+        "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
         "valueCode": "sum"
       } ],
       "code": {
@@ -404,10 +404,10 @@
   }, {
     "id": "group-3",
     "extension": [ {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "Device"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
@@ -415,7 +415,7 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-type",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-type",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-type",
@@ -423,13 +423,13 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-riskAdjustment",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-rateAggregation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-improvementNotation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
@@ -466,7 +466,7 @@
       }
     }, {
       "extension": [ {
-        "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-aggregateMethod",
+        "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
         "valueCode": "sum"
       } ],
       "code": {
@@ -484,10 +484,10 @@
   }, {
     "id": "group-4",
     "extension": [ {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "Procedure"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
@@ -495,7 +495,7 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-type",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-type",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-type",
@@ -503,13 +503,13 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-riskAdjustment",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-rateAggregation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-improvementNotation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
@@ -546,7 +546,7 @@
       }
     }, {
       "extension": [ {
-        "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-aggregateMethod",
+        "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
         "valueCode": "sum"
       } ],
       "code": {
@@ -564,10 +564,10 @@
   }, {
     "id": "group-5",
     "extension": [ {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "Patient"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
@@ -575,7 +575,7 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-type",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-type",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-type",
@@ -583,13 +583,13 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-riskAdjustment",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-rateAggregation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-improvementNotation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
@@ -640,7 +640,7 @@
   }, {
     "id": "group-6",
     "extension": [ {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-compositeScoring",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-compositeScoring",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/composite-measure-scoring",
@@ -648,7 +648,7 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
@@ -656,7 +656,7 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-type",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-type",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-type",
@@ -664,13 +664,13 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-riskAdjustment",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-riskAdjustment",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-rateAggregation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-rateAggregation",
       "valueString": "N/A"
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-improvementNotation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-improvementNotation",
       "valueCodeableConcept": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
@@ -678,56 +678,56 @@
         } ]
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-component",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-component",
       "valueRelatedArtifact": {
         "extension": [ {
-          "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-groupId",
+          "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-groupId",
           "valueString": "group-1"
         }, {
-          "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-weight",
+          "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-weight",
           "valueDecimal": 1.0
         } ],
         "type": "composed-of",
-        "resource": "http://hl7.org/fhir/uv/cqm/Measure/MultiRateExample-FHIR"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Measure/MultiRateExample-FHIR"
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-component",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-component",
       "valueRelatedArtifact": {
         "extension": [ {
-          "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-groupId",
+          "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-groupId",
           "valueString": "group-2"
         }, {
-          "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-weight",
+          "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-weight",
           "valueDecimal": 5.0
         } ],
         "type": "composed-of",
-        "resource": "http://hl7.org/fhir/uv/cqm/Measure/MultiRateExample-FHIR"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Measure/MultiRateExample-FHIR"
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-component",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-component",
       "valueRelatedArtifact": {
         "extension": [ {
-          "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-groupId",
+          "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-groupId",
           "valueString": "group-3"
         }, {
-          "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-weight",
+          "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-weight",
           "valueDecimal": 2.5
         } ],
         "type": "composed-of",
-        "resource": "http://hl7.org/fhir/uv/cqm/Measure/MultiRateExample-FHIR"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Measure/MultiRateExample-FHIR"
       }
     }, {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-component",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-component",
       "valueRelatedArtifact": {
         "extension": [ {
-          "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-groupId",
+          "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-groupId",
           "valueString": "group-4"
         }, {
-          "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-weight",
+          "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-weight",
           "valueDecimal": 1.0
         } ],
         "type": "composed-of",
-        "resource": "http://hl7.org/fhir/uv/cqm/Measure/MultiRateExample-FHIR"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Measure/MultiRateExample-FHIR"
       }
     } ],
     "code": {
