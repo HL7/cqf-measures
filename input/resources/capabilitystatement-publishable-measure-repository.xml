@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir">
     <id value="publishable-measure-repository"/>
-    <url value="http://hl7.org/fhir/uv/cqm/CapabilityStatement/publishable-measure-repository"/>
+    <url value="http://hl7.org/fhir/uv/cqfmeasures/CapabilityStatement/publishable-measure-repository"/>
     <version value="3.0.0"/>
     <name value="CQFMPublishableMeasureRepository"/>
     <title value="CQF Measures Publishable Measure Repository Capability Statement"/>
@@ -19,12 +19,12 @@
     <description
             value="Capability statement for a repository service supporting additional publishing capabilities for FHIR-based measure specifications above the basic ShareableMeasureRepository."/>
     <kind value="requirements"/>
-    <imports value="http://hl7.org/fhir/uv/cqm/CapabilityStatement/shareable-measure-repository"/>
+    <imports value="http://hl7.org/fhir/uv/cqfmeasures/CapabilityStatement/shareable-measure-repository"/>
     <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-publishable-artifact-repository"/>
     <fhirVersion value="4.0.1"/>
     <format value="json"/>
     <format value="xml"/>
-    <implementationGuide value="https://hl7.org/fhir/uv/cqm/"/>
+    <implementationGuide value="https://hl7.org/fhir/uv/cqfmeasures/"/>
     <rest>
         <mode value="server"/>
         <documentation value="RESTful Measure Repository"/>
@@ -253,7 +253,7 @@
         </resource>
         <resource>
             <type value="MeasureReport"/>
-            <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/test-case-cqfm"/>
+            <profile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/test-case-cqfm"/>
             <interaction>
                 <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
                     <valueCode value="MAY"/>
@@ -283,21 +283,21 @@
                 <valueCode value="SHALL"/>
             </extension>
             <name value="package"/>
-            <definition value="http://hl7.org/fhir/uv/cqm/OperationDefinition/cqfm-package"/>
+            <definition value="http://hl7.org/fhir/uv/cqfmeasures/OperationDefinition/cqfm-package"/>
         </operation>
         <operation>
             <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
                 <valueCode value="SHALL"/>
             </extension>
             <name value="package"/>
-            <definition value="http://hl7.org/fhir/uv/cqm/OperationDefinition/cqfm-package"/>
+            <definition value="http://hl7.org/fhir/uv/cqfmeasures/OperationDefinition/cqfm-package"/>
         </operation>
         <operation>
             <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
                 <valueCode value="SHALL"/>
             </extension>
             <name value="package"/>
-            <definition value="http://hl7.org/fhir/uv/cqm/OperationDefinition/cqfm-package"/>
+            <definition value="http://hl7.org/fhir/uv/cqfmeasures/OperationDefinition/cqfm-package"/>
         </operation>
     </rest>
 </CapabilityStatement>

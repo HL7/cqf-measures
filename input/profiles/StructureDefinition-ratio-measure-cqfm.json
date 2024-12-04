@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "ratio-measure-cqfm",
-  "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/ratio-measure-cqfm",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/ratio-measure-cqfm",
   "version": "4.0.0",
   "name": "CQFMRatioMeasure",
   "title": "CQFM Ratio Measure",
@@ -55,7 +55,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Measure",
-  "baseDefinition": "http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm",
+  "baseDefinition": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/computable-measure-cqfm",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -91,7 +91,7 @@
           "key" : "cmp-13",
           "severity" : "error",
           "human" : "Ratio measures may not have other than initial population, denominator, numerator, denominator-exclusion, numerator-exclusion, and measure-observation criteria",
-          "expression" : "extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring').value.coding.code contains 'ratio' implies population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code in ('initial-population' | 'numerator' | 'denominator' | 'denominator-exclusion' | 'measure-observation' | 'numerator-exclusion')).allTrue()"
+          "expression" : "extension('http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'ratio' implies population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code in ('initial-population' | 'numerator' | 'denominator' | 'denominator-exclusion' | 'measure-observation' | 'numerator-exclusion')).allTrue()"
       }],
         "mustSupport": true
       },
@@ -103,7 +103,7 @@
         "max" : "1",
         "type" : [{
           "code" : "Extension",
-          "profile" : ["http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-scoring"]
+          "profile" : ["http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring"]
         }],
         "condition" : ["cmp-13"],
         "mustSupport" : true
@@ -145,7 +145,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis"
             ]
           }
         ],
@@ -190,7 +190,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-criteriaReference"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-criteriaReference"
             ]
           }
         ],
@@ -235,7 +235,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-criteriaReference"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-criteriaReference"
             ]
           }
         ],
@@ -280,7 +280,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-criteriaReference"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-criteriaReference"
             ]
           }
         ],
@@ -325,7 +325,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-criteriaReference"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-criteriaReference"
             ]
           }
         ],
@@ -370,7 +370,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-criteriaReference"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-criteriaReference"
             ]
           }
         ],
@@ -386,7 +386,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-aggregateMethod"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-aggregateMethod"
             ]
           }
         ],

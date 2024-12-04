@@ -15,7 +15,7 @@ codesystem "Diagnosis Role": 'http://terminology.hl7.org/CodeSystem/diagnosis-ro
 valueset "Emergency Department Visit" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292'
 valueset "Psychiatric/Mental Health Patient" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299'
 valueset "Hospital Settings" : 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.126'
-valueset "Chronic Liver Disease Legacy Example": 'http://hl7.org/fhir/uv/cqm/ValueSet/chronic-liver-disease-legacy-example'
+valueset "Chronic Liver Disease Legacy Example": 'http://hl7.org/fhir/uv/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example'
 
 valueset "ONC Administrative Sex": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
 valueset "Race": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
