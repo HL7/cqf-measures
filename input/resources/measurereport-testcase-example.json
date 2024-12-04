@@ -3,7 +3,7 @@
   "id": "testcase-example",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/cqm/StructureDefinition/test-case-cqfm"
+      "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/test-case-cqfm"
     ]
   },
   "contained": [
@@ -26,11 +26,11 @@
       }
     },
     {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-testCaseDescription",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
       "valueMarkdown": "Example test case illustrating expected input parameters and expected output results given those input parameters"
     },
     {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-operation",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-operation",
       "valueReference": {
         "reference": "OperationDefinition/cqfm-package"
     }
@@ -38,13 +38,13 @@
   ],
   "modifierExtension": [
     {
-      "url": "http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-isTestCase",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-isTestCase",
       "valueBoolean": true
     }
   ],
   "status": "complete",
   "type": "individual",
-  "measure": "http://hl7.org/fhir/uv/cqm/Measure/EXMLogic-FHIR",
+  "measure": "http://hl7.org/fhir/uv/cqfmeasures/Measure/EXMLogic-FHIR",
   "period": {
     "start": "2020-01-01",
     "end": "2020-12-31"

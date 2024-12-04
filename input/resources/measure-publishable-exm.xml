@@ -1,8 +1,8 @@
 <Measure xmlns="http://hl7.org/fhir">
   <id value="measure-publishable-exm"/>
   <meta>
-    <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/publishable-measure-cqfm"/>
-    <profile value="http://hl7.org/fhir/uv/cqm/StructureDefinition/computable-measure-cqfm"/>
+    <profile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/publishable-measure-cqfm"/>
+    <profile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/computable-measure-cqfm"/>
   </meta>
   <!--
   <contained>
@@ -16,7 +16,7 @@
         <system value="http://example.org/fhir/cqi/ecqm/Library/Identifier"/>
         <value value="effective-data-requirements"/>
       </identifier>
-       <url value="http://hl7.org/fhir/uv/cqm/Library/effective-data-requirements"/>
+       <url value="http://hl7.org/fhir/uv/cqfmeasures/Library/effective-data-requirements"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition">
         <extension url="libraryName">
           <valueString value="CRMIPublishableLibrary"/>
@@ -187,7 +187,7 @@
     </Library>
   </contained>
   -->
-  <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-populationBasis">
+  <extension url="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis">
     <valueCode value="Encounter"/>
   </extension>
   <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem">
@@ -196,7 +196,7 @@
     </valueReference>
   </extension>
   <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements">
-    <valueCanonical value="http://hl7.org/fhir/uv/cqm/Library/moduledefinition-example"/>
+    <valueCanonical value="http://hl7.org/fhir/uv/cqfmeasures/Library/moduledefinition-example"/>
     </valueCanonical>
   </extension>
   <url value="http://example.org/fhir/measures/measure-publishable-exm"/>
@@ -283,7 +283,7 @@
       </code>
       <valueCodeableConcept>
         <coding>
-          <system value="http://hl7.org/fhir/uv/cqm/CodeSystem/intended-venue-codes"/>
+          <system value="http://hl7.org/fhir/uv/cqfmeasures/CodeSystem/intended-venue-codes"/>
           <code value="ec"/>
           <display value="EC"/>
         </coding>
@@ -302,10 +302,10 @@
   <approvalDate value="2019-02-17"/>
   <lastReviewDate value="2019-02-17"/>
   <effectivePeriod>
-    <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-effectivePeriodAnchor">
+    <extension url="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor">
       <valueDateTime value="2018-01-01"/>
     </extension>
-    <extension url="http://hl7.org/fhir/uv/cqm/StructureDefinition/cqfm-effectivePeriodDuration">
+    <extension url="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration">
       <valueDuration>
         <value value="1"/>
         <system value="http://unitsofmeasure.org"/>
@@ -372,7 +372,7 @@
       <url value="http://example.org/publications/1234"/>
     </document>
   </relatedArtifact>
-  <library value="http://hl7.org/fhir/uv/cqm/Library/EXMPublishableLibrary"/>
+  <library value="http://hl7.org/fhir/uv/cqfmeasures/Library/EXMPublishableLibrary"/>
   <disclaimer value="Example disclaimer"/>
   <scoring>
     <coding>
