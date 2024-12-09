@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "composite-measure-cqfm",
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/composite-measure-cqfm",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/composite-measure-cqfm",
   "version": "4.0.0",
   "name": "CQFMCompositeMeasure",
   "title": "CQFM Composite Measure",
@@ -55,7 +55,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Measure",
-  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
+  "baseDefinition": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/computable-measure-cqfm",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -73,7 +73,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoringUnit"
             ]
           }
         ],
@@ -113,7 +113,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-groupId"
             ]
           }
         ],
@@ -129,7 +129,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-weight"
             ]
           }
         ],
@@ -212,13 +212,13 @@
           "key" : "cmp-10",
           "severity" : "error",
           "human" : "Composite measures may not specify population criteria",
-          "expression" : "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'composite' implies population.count() = 0"
+          "expression" : "extension('http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'composite' implies population.count() = 0"
         },
         {
           "key" : "cmp-11",
           "severity" : "error",
           "human" : "Composite measures must specify composite scoring and at least one component",
-          "expression" : "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'composite' implies extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-compositeScoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component').exists()"
+          "expression" : "extension('http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'composite' implies extension('http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-compositeScoring').exists() and extension('http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-component').exists()"
         }],
         "mustSupport" : true,
         "isModifier" : false,
@@ -234,7 +234,7 @@
           {
             "code" : "Extension",
             "profile" : [
-               "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring"
+               "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring"
             ]
           }
         ],
@@ -254,7 +254,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoringUnit"
             ]
           }
         ],
@@ -270,7 +270,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-compositeScoring"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-compositeScoring"
             ]
           }
         ],
@@ -291,7 +291,7 @@
         },
         "type" : [{
           "code" : "Extension",
-          "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-component"]
+          "profile" : ["http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-component"]
         }],
         "condition" : ["ele-1",
         "cmp-11"],
@@ -308,7 +308,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-groupId"
             ]
           }
         ],
@@ -324,7 +324,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-weight"
+              "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-weight"
             ]
           }
         ],

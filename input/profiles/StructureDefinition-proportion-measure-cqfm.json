@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "proportion-measure-cqfm",
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/proportion-measure-cqfm",
   "version": "4.0.0",
   "name": "CQFMProportionMeasure",
   "title": "CQFM Proportion Measure",
@@ -55,7 +55,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Measure",
-  "baseDefinition": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
+  "baseDefinition": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/computable-measure-cqfm",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -92,7 +92,7 @@
             "key" : "cmp-14",
             "severity" : "error",
             "human" : "Proportion measures may not have other than initial population, denominator, numerator, denominator-exclusion, denominator-exception, and numerator-exclusion criteria",
-            "expression" : "extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'proportion' implies population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code in ('initial-population' | 'numerator' | 'denominator' | 'denominator-exclusion' | 'denominator-exception' | 'numerator-exclusion')).allTrue()"
+            "expression" : "extension('http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring').exists() and extension('http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoring').value.coding.code contains 'proportion' implies population.select(code.coding.where(system = 'http://terminology.hl7.org/CodeSystem/measure-population').code in ('initial-population' | 'numerator' | 'denominator' | 'denominator-exclusion' | 'denominator-exception' | 'numerator-exclusion')).allTrue()"
           }],
         "mustSupport": true
       },

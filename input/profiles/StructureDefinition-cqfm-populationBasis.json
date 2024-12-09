@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "cqfm-populationBasis",
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
   "version": "4.0.0",
   "name": "CQFMPopulationBasis",
   "title": "CQFM Population Basis",
@@ -18,7 +18,7 @@
       ]
     }
   ],
-  "description": "The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters. Note that the subject of a measure can be found in the element [subject[x].](https://hl7.org/fhir/us/cqfmeasures/StructureDefinition-computable-measure-cqfm-definitions.html#Measure.subject[x])",
+  "description": "The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters. Note that the subject of a measure can be found in the element [subject[x].](https://hl7.org/fhir/uv/cqfmeasures/StructureDefinition-computable-measure-cqfm-definitions.html#Measure.subject[x])",
   "jurisdiction": [
     {
       "coding": [
@@ -76,7 +76,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
+        "fixedUri": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis"
       },
       {
         "id": "Extension.value[x]",

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-  <id value="hl7.fhir.us.cqfmeasures"/>
+  <id value="hl7.fhir.uv.cqfmeasures"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cqi"/>
   </extension>
-  <url value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures"/>
-  <version value="5.0.0"/>
+  <url value="http://hl7.org/fhir/uv/cqfmeasures/ImplementationGuide/hl7.fhir.uv.cqfmeasures"/>
+  <version value="6.0.0-ballot"/>
   <name value="CQFMeasures"/>
   <title value="Quality Measure Implementation Guide"/>
   <status value="draft"/>
@@ -25,7 +25,7 @@
       <code value="US"/>
     </coding>
   </jurisdiction>
-  <packageId value="hl7.fhir.us.cqfmeasures"/>
+  <packageId value="hl7.fhir.uv.cqfmeasures"/>
   <license value="CC0-1.0"/>
   <fhirVersion value="4.0.1"/>
   <!-- Note this dependency is only included to support references to the extensions used by example content in this IG -->
@@ -364,7 +364,7 @@
       </reference>
       <name value="Device - Software System Example"/>
       <description value="Example of a Software System Device used to illustrate tooling, testing, or authoring system"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"/>
+      <exampleCanonical value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"/>
     </resource>
     <resource>
       <reference>
@@ -372,7 +372,7 @@
       </reference>
       <name value="MeasureReport - Test Case Example"/>
       <description value="Example of a MeasureReport illustrating a test case"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"/>
+      <exampleCanonical value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/test-case-cqfm"/>
     </resource>
     <resource>
       <reference>
@@ -811,7 +811,7 @@
 </page>
     <parameter>
       <code value="releaselabel"/>
-      <value value="STU5"/>
+      <value value="ballot"/>
     </parameter>
     <parameter>
       <code value="copyrightyear"/>

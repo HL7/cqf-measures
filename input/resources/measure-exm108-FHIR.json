@@ -4,9 +4,9 @@
   "meta": {
     "profile": [ 
       "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure", 
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cql-measure-cqfm"
+      "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/computable-measure-cqfm",
+      "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/proportion-measure-cqfm",
+      "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cql-measure-cqfm"
     ]
   },
   "contained": [
@@ -18,7 +18,7 @@
         "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"
         ]
       },
-      "url" : "http://hl7.org/fhir/us/cqfmeasures/Library/effective-data-requirements-exm108",
+      "url" : "http://hl7.org/fhir/uv/cqfmeasures/Library/effective-data-requirements-exm108",
       "version" : "1.0.0",
       "title" : "Module Definition Library - EXM108",
       "description" : "This library is used as an example module definition in the FHIR Quality Measure Implementation Guide",
@@ -723,7 +723,7 @@
       "relatedArtifact": [ {
         "type": "depends-on",
         "display": "Library SDE",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/SupplementalDataElements|2.0.000"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Library/SupplementalDataElements|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
@@ -731,15 +731,15 @@
       }, {
         "type": "depends-on",
         "display": "Library Global",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Library/MATGlobalCommonFunctions|5.0.000"
       }, {
         "type": "depends-on",
         "display": "Library TJC",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/TJCOverall|4.0.000"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Library/TJCOverall|4.0.000"
       }, {
         "type": "depends-on",
         "display": "Library VTEICU",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Library/VTEICU|5.0.000"
+        "resource": "http://hl7.org/fhir/uv/cqfmeasures/Library/VTEICU|5.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system ConditionClinicalStatusCodes",
@@ -1251,7 +1251,7 @@
       } ]
     }   ],
   "extension": [ {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+    "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
     "valueCode": "Encounter"
   }, 
   {
@@ -1260,7 +1260,7 @@
       
     }
   ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM108-FHIR",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/Measure/EXM108-FHIR",
   "identifier": [ {
     "use": "official",
     "system": "http://example.org/fhir/cqi/ecqm/Measure/Identifier/cms",
@@ -1288,7 +1288,7 @@
     },
     "valueCodeableConcept": {
       "coding": [{
-        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue-codes",
+        "system": "http://hl7.org/fhir/uv/cqfmeasures/CodeSystem/intended-venue-codes",
         "code": "eh",
         "display": "EH"
       }]
@@ -1314,7 +1314,7 @@
       "display": "Health Quality Measure Document"
     } ]
   } ],
-  "library": [ "http://hl7.org/fhir/us/cqfmeasures/Library/EXM108-FHIR" ],
+  "library": [ "http://hl7.org/fhir/uv/cqfmeasures/Library/EXM108-FHIR" ],
   "disclaimer": "These performance measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. The measures and specifications are provided without warranty",
   "scoring": {
     "coding": [ {
@@ -1398,7 +1398,7 @@
   {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
+        "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
         "valueCode" : "summary"
       }
     ],
@@ -1415,7 +1415,7 @@
   }, {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
+        "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
         "valueCode" : "summary"
       }
     ],
@@ -1432,7 +1432,7 @@
   }, {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
+        "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
         "valueCode" : "summary"
       }
     ],
@@ -1449,7 +1449,7 @@
   }, {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
+        "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-includeInReportType",
         "valueCode" : "summary"
       }
     ],

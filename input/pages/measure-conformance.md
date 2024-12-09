@@ -9,7 +9,7 @@ In FHIR, a Quality Measure (QM) is represented as a [Measure](http://hl7.org/fhi
     <start value="2018-01-01"/>
     <end value="2018-12-31"/>
   </effectivePeriod>
-  <library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic-FHIR"/>
+  <library value="http://hl7.org/fhir/uv/cqfmeasures/Library/EXMLogic-FHIR"/>
   <group>
     <population>
       <code>
@@ -87,7 +87,7 @@ When using multiple CQL libraries to define a measure, refer to the [Nested Libr
 Inclusion of CQL in a FHIR QM is accomplished through the use of a FHIR Library resource as shown in Snippet 3-4. These libraries are then incorporated into the FHIR QM using the `library` element of the Measure (Snippet 3). CQL library content is encoded as `base64` and included as the `content` element of the Library resource.
 
 ```xml
-<library value="http://hl7.org/fhir/us/cqfmeasures/Library/EXMLogic-FHIR"/>
+<library value="http://hl7.org/fhir/uv/cqfmeasures/Library/EXMLogic-FHIR"/>
 ```
 Snippet 3-3: `library` element from Snippet 3-1
 
@@ -108,7 +108,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
     ]
   },
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Library/exm-146",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/Library/exm-146",
   "identifier": [
     {
       "use": "official",
@@ -151,7 +151,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "valueCodeableConcept": {
         "coding": [
           {
-            "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/quality-programs",
+            "system": "http://hl7.org/fhir/uv/cqfmeasures/CodeSystem/quality-programs",
             "code": "ep-ec",
             "display": "EP/EC"
           }
@@ -435,10 +435,10 @@ As shown below in Snippet 3-7, a measure anchored to January 1, 2019 with a cale
 
 ```xml
 <effectivePeriod>
-	<extension url="http://hl7.org/fhir/us/cqfmeasures/cqfm-effectivePeriodAnchor">
+	<extension url="http://hl7.org/fhir/uv/cqfmeasures/cqfm-effectivePeriodAnchor">
 		<valueDateTime value="2019-01-01"/>
 	</extension>
-	<extension url="http://hl7.org/fhir/us/cqfmeasures/cqfm-effectivePeriodDuration">
+	<extension url="http://hl7.org/fhir/uv/cqfmeasures/cqfm-effectivePeriodDuration">
 		<valueDuration>
 			<value value="1"/>
 			<code value="a"/>
@@ -683,7 +683,7 @@ The Population Criteria (Snippet 3-14) includes definitions of criteria used to 
 
 Snippet 3-14: Population Criteria from Snippet 3-1 (FHIR Measure structure - abridged for clarity (from sample [Measure-EXMLogic.xml](Measure-EXMLogic-FHIR.xml.html)))
 
-CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are then referenced from the group elements of the FHIR Measure resource. Once included in the FHIR Measure, expressions defined in the CQL can be used to further refine the data criteria and to define population criteria.  [Figure 2-1](https://hl7.org/fhir/us/cqfmeasures/introduction.html#background) illustrates the general concept.  Figure 3-1 illustrates the relationship between the FHIR Measure resource and CQL documents: The FHIR Measure resource references a CQL expression script (#1), the FHIR library resource references a particular expression from the referenced CQL file (#2), the referenced expression in-turn may include or call another expression (#3) in the same (or a different) CQL expression script. Snippet 3-14 and Snippet 3-15 demonstrate the use of the FHIR Measure resource and CQL in the definition of the "initial-population".
+CQL provides the logical expression language that is used to define population criteria. CQL-based constraints are then referenced from the group elements of the FHIR Measure resource. Once included in the FHIR Measure, expressions defined in the CQL can be used to further refine the data criteria and to define population criteria.  [Figure 2-1](https://hl7.org/fhir/uv/cqfmeasures/introduction.html#background) illustrates the general concept.  Figure 3-1 illustrates the relationship between the FHIR Measure resource and CQL documents: The FHIR Measure resource references a CQL expression script (#1), the FHIR library resource references a particular expression from the referenced CQL file (#2), the referenced expression in-turn may include or call another expression (#3) in the same (or a different) CQL expression script. Snippet 3-14 and Snippet 3-15 demonstrate the use of the FHIR Measure resource and CQL in the definition of the "initial-population".
 
 **Figure 3-1: Relationship between FHIR Measure and CQL Expression Script**
 
@@ -818,7 +818,7 @@ Snippet 3-16 illustrates the use of the populationBasis extension for a patient-
 ```json
   "extension": [
     {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "boolean"
     }
   ]
@@ -831,7 +831,7 @@ Snippet 3-17 illustrates the use of the populationBasis extension for an non-pat
 ```json
   "extension": [
     {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "Encounter"
     }
   ]
@@ -1158,11 +1158,11 @@ The criteria referenced from the measure-observation component refers to an expr
 {
   "extension": [
     {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
       "valueString": "measure-population-identifier"
     },
     {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+      "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
       "valueCode": "median"
     }
   ],
@@ -1209,7 +1209,7 @@ In the example shown in Snippet 3-22 and Snippet 3-23: the measure reports the a
 
 ```json
 {
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
   "valueCode": "median"
 }
 ```
@@ -1227,7 +1227,7 @@ Snippet 3-26: "Measure Observation" function in Snippet 3-23 (Sample CQL (from [
 
 ```json
 {
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
   "valueString": "measure-population-identifier"
 }
 ```

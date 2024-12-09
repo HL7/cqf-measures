@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "publishable-measure-cqfm",
-  "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm",
+  "url": "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/publishable-measure-cqfm",
   "version": "4.0.0",
   "name": "CQFMPublishableMeasure",
   "title": "CQFM Publishable Measure",
@@ -79,7 +79,7 @@
       "max" : "*",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance"]
+        "profile" : ["http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-supplementalDataGuidance"]
       }],
       "mustSupport" : true
     },
@@ -131,7 +131,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-improvementNotationGuidance"]
       }],
       "mustSupport" : true
     },
@@ -531,7 +531,7 @@
       "mustSupport" : true,
       "binding" : {
         "strength" : "extensible",
-        "valueSet" : "http://hl7.org/fhir/us/cqfmeasures/ValueSet/intended-venue"
+        "valueSet" : "http://hl7.org/fhir/uv/cqfmeasures/ValueSet/intended-venue"
       }
     },
     {
@@ -583,7 +583,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor"]
+        "profile" : ["http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor"]
       }],
       "mustSupport" : true
     },
@@ -595,7 +595,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration"]
+        "profile" : ["http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration"]
       }],
       "mustSupport" : true
     },
@@ -861,7 +861,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-improvementNotation"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-improvementNotationGuidance"]
       }],
       "mustSupport" : true
     },
@@ -878,7 +878,7 @@
       "max" : "*",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-includeInReportType"]
+        "profile" : ["http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-includeInReportType"]
       }],
       "mustSupport": true
 	}

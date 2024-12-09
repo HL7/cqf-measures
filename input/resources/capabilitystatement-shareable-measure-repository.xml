@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="shareable-measure-repository"/>
-  <url value="http://hl7.org/fhir/us/cqfmeasures/CapabilityStatement/shareable-measure-repository"/>
+  <url value="http://hl7.org/fhir/uv/cqfmeasures/CapabilityStatement/shareable-measure-repository"/>
   <version value="3.0.0"/>
   <name value="CQFMShareableMeasureRepository"/>
   <title value="CQF Measures Shareable Measure Repository Capability Statement"/>
@@ -22,7 +22,7 @@
   <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
-  <implementationGuide value="https://hl7.org/fhir/us/cqfmeasures/"/>
+  <implementationGuide value="https://hl7.org/fhir/uv/cqfmeasures/"/>
   <rest>
     <mode value="server"/>
     <documentation value="RESTful Measure Repository"/>
@@ -114,13 +114,13 @@
     <resource>
       <type value="Measure"/>
       <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-measure-cqfm"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cohort-measure-cqfm"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cv-measure-cqfm"/>
-      <supportedProfile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/composite-measure-cqfm"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/computable-measure-cqfm"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/publishable-measure-cqfm"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cohort-measure-cqfm"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/proportion-measure-cqfm"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/ratio-measure-cqfm"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cv-measure-cqfm"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/composite-measure-cqfm"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>

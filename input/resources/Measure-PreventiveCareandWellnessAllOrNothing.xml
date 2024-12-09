@@ -1,11 +1,11 @@
 <Measure xmlns="http://hl7.org/fhir">
    <id value="PreventiveCareandWellnessAllOrNothingComposite"/>
    <meta>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/composite-measure-cqfm"/>
+      <profile value="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/composite-measure-cqfm"/>
       <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure"/>
    </meta>
    <language value="en"/>
-   <url value="http://hl7.org/fhir/us/cqfmeasures/Measure/PreventiveCareandWellnessAllOrNothingComposite"/>
+   <url value="http://hl7.org/fhir/uv/cqfmeasures/Measure/PreventiveCareandWellnessAllOrNothingComposite"/>
    <version value="0.0.001"/>
    <name value="PreventiveCareandWellnessAllOrNothingComposite"/>
    <title value="Preventive Care and Wellness All-Or-Nothing Composite"/>
@@ -21,7 +21,7 @@
       </code>
       <valueCodeableConcept>
         <coding>
-          <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue-codes"/>
+          <system value="http://hl7.org/fhir/uv/cqfmeasures/CodeSystem/intended-venue-codes"/>
           <code value="ec"/>
           <display value="EC"/>
         </coding>
@@ -34,38 +34,38 @@
    <relatedArtifact>
       <type value="composed-of"/>
       <display value="Breast Cancer Screening"/>
-      <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/BCSComponent"/>
+      <resource value="http://hl7.org/fhir/uv/cqfmeasures/Measure/BCSComponent"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="composed-of"/>
       <display value="High Blood Pressure Screening"/>
-      <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/HBPComponent"/>
+      <resource value="http://hl7.org/fhir/uv/cqfmeasures/Measure/HBPComponent"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="composed-of"/>
       <display value="Colorectal Cancer Screening"/>
-      <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/CCSComponent"/>
+      <resource value="http://hl7.org/fhir/uv/cqfmeasures/Measure/CCSComponent"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="composed-of"/>
       <display value="Pneumococcal Vaccination Status"/>
-      <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/PVSComponent"/>
+      <resource value="http://hl7.org/fhir/uv/cqfmeasures/Measure/PVSComponent"/>
    </relatedArtifact>
    <relatedArtifact>
-      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
+      <extension url="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-groupId">
          <valueString value="group-1"/>
       </extension>
       <type value="composed-of"/>
       <display value="Tobacco Use Screening and Cessation, Group 1"/>
-      <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent"/>
+      <resource value="http://hl7.org/fhir/uv/cqfmeasures/Measure/TSCComponent"/>
    </relatedArtifact>
    <relatedArtifact>
-      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-groupId">
+      <extension url="http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-groupId">
          <valueString value="group-2"/>
       </extension>
       <type value="composed-of"/>
       <display value="Tobacco Use Screening and Cessation, Group 2"/>
-      <resource value="http://hl7.org/fhir/us/cqfmeasures/Measure/TSCComponent"/>
+      <resource value="http://hl7.org/fhir/uv/cqfmeasures/Measure/TSCComponent"/>
    </relatedArtifact>
    <scoring>
       <coding>

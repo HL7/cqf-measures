@@ -3,18 +3,18 @@
   "id" : "EXMRatio-FHIR",
   "meta" : {
     "profile" : [
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/ratio-measure-cqfm",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cql-measure-cqfm"
+      "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/ratio-measure-cqfm",
+      "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/computable-measure-cqfm",
+      "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cql-measure-cqfm"
     ]
   },
   "extension" : [
     {
-      "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode" : "Encounter"
     },
     {
-      "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoringUnit",
+      "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-scoringUnit",
       "valueCodeableConcept" : {
         "coding" : [
           {
@@ -69,7 +69,7 @@
     },
     "valueCodeableConcept": {
       "coding": [{
-        "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/intended-venue-codes",
+        "system": "http://hl7.org/fhir/uv/cqfmeasures/CodeSystem/intended-venue-codes",
         "code": "ec",
         "display": "EC"
       }]
@@ -94,11 +94,11 @@
   "effectivePeriod" : {
     "extension" : [
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor",
+        "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-effectivePeriodAnchor",
         "valueDateTime" : "2018-01-01"
       },
       {
-        "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration",
+        "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-effectivePeriodDuration",
         "valueDuration" : {
           "value" : 1,
           "system" : "http://unitsofmeasure.org",
@@ -126,7 +126,7 @@
     }
   ],
   "library" : [
-    "http://hl7.org/fhir/us/cqfmeasures/Library/EXMRatio-FHIR"
+    "http://hl7.org/fhir/uv/cqfmeasures/Library/EXMRatio-FHIR"
   ],
   "disclaimer" : "Example disclaimer",
   "scoring" : {
@@ -213,11 +213,11 @@
           "id" : "denominator-observation",
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
+              "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
               "valueString" : "denominator"
             },
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+              "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
               "valueCode" : "sum"
             }
           ],
@@ -239,11 +239,11 @@
           "id" : "numerator-observation",
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
+              "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-criteriaReference",
               "valueString" : "numerator"
             },
             {
-              "url" : "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
+              "url" : "http://hl7.org/fhir/uv/cqfmeasures/StructureDefinition/cqfm-aggregateMethod",
               "valueCode" : "sum"
             }
           ],
