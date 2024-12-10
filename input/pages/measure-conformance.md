@@ -776,7 +776,7 @@ The name of an expression specifying a population criteria within a measure SHOU
 * "Measure Observation"
 * "Stratification"
 
-†† When using multiple populations and/or multiple population groups, see Section 3.4.7
+†† When using multiple populations and/or multiple population groups, see Section 3.4.8
 
 Note that the Measure Observation criteria is the name of a function used in the Continuous Variable Measure. See the [Continuous Variable Measure](measure-conformance.html#continuous-variable-measure) section for more.
 
