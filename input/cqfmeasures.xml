@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-  <id value="hl7.fhir.uv.cqfmeasures"/>
+  <id value="hl7.fhir.uv.cqm"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cqi"/>
   </extension>
-  <url value="http://hl7.org/fhir/uv/cqfmeasures/ImplementationGuide/hl7.fhir.uv.cqfmeasures"/>
-  <version value="6.0.0-ballot"/>
+  <url value="http://hl7.org/fhir/uv/cqm/ImplementationGuide/hl7.fhir.uv.cqm"/>
+  <version value="1.0.0-ballot"/>
   <name value="CQFMeasures"/>
   <title value="Quality Measure Implementation Guide"/>
   <status value="draft"/>
@@ -21,11 +21,11 @@
   <description value="The Fast Healthcare Interoperability Resource (FHIR) Quality Measure Implementation Guide (this IG) describes an approach to representing Quality Measures (QMs) using the FHIR Clinical Reasoning Module and Clinical Quality Language (CQL) in the US Realm. However, this Implementation Guide can be usable for multiple use cases across domains, and much of the content is likely to be usable outside the US Realm."/>
   <jurisdiction>
     <coding>
-      <system value="urn:iso:std:iso:3166"/>
-      <code value="US"/>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
     </coding>
   </jurisdiction>
-  <packageId value="hl7.fhir.uv.cqfmeasures"/>
+  <packageId value="hl7.fhir.uv.cqm"/>
   <license value="CC0-1.0"/>
   <fhirVersion value="4.0.1"/>
   <!-- Note this dependency is only included to support references to the extensions used by example content in this IG -->
@@ -38,7 +38,7 @@
   <dependsOn id="tx">
     <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
     <packageId value="hl7.terminology.r4"/>
-    <version value="6.0.2"/>
+    <version value="6.1.0"/>
   </dependsOn>
   <dependsOn id="ext">
     <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
